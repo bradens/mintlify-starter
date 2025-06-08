@@ -5,16 +5,16 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-import { 
-  Home, 
-  Key, 
-  BarChart3, 
-  CreditCard, 
-  LogOut, 
-  Menu, 
-  X, 
-  Shield, 
-  User 
+import {
+  Home,
+  Key,
+  BarChart3,
+  CreditCard,
+  LogOut,
+  Menu,
+  X,
+  Shield,
+  User
 } from 'lucide-react';
 
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
@@ -31,9 +31,9 @@ import { useAuth } from '@/contexts/auth-context';
 
 const navigation = [
   { name: 'Dashboard', href: '/dashboard', icon: Home },
-  { name: 'API Keys', href: '/api-keys', icon: Key },
-  { name: 'Usage', href: '/usage', icon: BarChart3 },
-  { name: 'Billing', href: '/billing', icon: CreditCard },
+  { name: 'API Keys', href: '/dashboard/api-keys', icon: Key },
+  { name: 'Usage', href: '/dashboard/usage', icon: BarChart3 },
+  { name: 'Billing', href: '/dashboard/billing', icon: CreditCard },
 ];
 
 export function DashboardNavigation() {

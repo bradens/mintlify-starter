@@ -1,0 +1,187 @@
+---
+description:
+globs: *.ts,*.tsx
+alwaysApply: false
+---
+# GraphQL Query Organization
+
+## File Structure
+
+When creating GraphQL queries, always write them as sibling `.graphql` files next to where they are used. If a `.graphql` file is used in many places, then it can be moved to a shared `graphql` directory.
+
+### ✅ Correct Structure
+
+```
+src/components/
+├── GlobalTokenSearch.tsx
+├── GlobalTokenSearch.graphql          # Sibling file
+├── ProPage/
+│   ├── PanelWizard.tsx
+│   └── PanelWizard.graphql           # Sibling file
+└── TokenList/
+    ├── NetworkTokenList.tsx
+    └── NetworkTokenList.graphql      # Sibling file (if unique)
+```
+
+### Shared Queries
+
+If a `.graphql` file is used by multiple components, move it to a shared location:
+
+```
+src/
+├── graphql/
+│   └── shared-queries.graphql        # Shared across multiple components
+└── components/
+    ├── ComponentA.tsx
+    └── ComponentB.tsx
+```
+
+## Always Use Fragments
+
+Always use fragments for GraphQL responses since it makes typesafe usage easier and promotes reusability.
+
+### ✅ Correct Pattern
+
+```graphql
+fragment TokenInfo on TokenInfo {
+  imageThumbUrl
+}
+
+fragment Token on EnhancedToken {
+  id
+  address
+  name
+  symbol
+  networkId
+  decimals
+  info {
+    ...TokenInfo
+  }
+}
+
+fragment FilterTokenResult on TokenFilterResult {
+  token {
+    ...Token
+  }
+  priceUSD
+  change24
+  volume24
+}
+
+query FilterTokens($filters: TokenFilters, $phrase: String, $limit: Int, $offset: Int, $rankings: [TokenRanking!]) {
+  filterTokens(filters: $filters, phrase: $phrase, limit: $limit, offset: $offset, rankings: $rankings) {
+    count
+    results {
+      ...FilterTokenResult
+    }
+  }
+}
+```
+
+### ❌ Avoid Inline Fields
+
+```graphql
+# Don't do this - inline fields without fragments
+query FilterTokens($filters: TokenFilters, $phrase: String, $limit: Int) {
+  filterTokens(filters: $filters, phrase: $phrase, limit: $limit) {
+    count
+    results {
+      token {
+        id
+        address
+        name
+        symbol
+        networkId
+        decimals
+        info {
+          imageThumbUrl
+        }
+      }
+      priceUSD
+      change24
+      volume24
+    }
+  }
+}
+```
+
+## Code Generation Integration
+
+This project uses GraphQL Code Generation with the following setup:
+
+- **Schema**: [src/schema.graphql](mdc:src/schema.graphql)
+- **Documents**: `src/**/*.graphql` files
+- **Output**: [src/gql/](mdc:src/gql) directory
+- **Config**: [codegen.ts](mdc:codegen.ts)
+
+### Usage in Components
+
+```typescript
+import { graphql } from '@/gql/gql';
+
+const FILTER_TOKENS_QUERY = graphql(`
+  fragment TokenInfo on TokenInfo {
+    imageThumbUrl
+  }
+
+  fragment Token on EnhancedToken {
+    id
+    address
+    name
+    symbol
+    networkId
+    decimals
+    info {
+      ...TokenInfo
+    }
+  }
+
+  fragment FilterTokenResult on TokenFilterResult {
+    token {
+      ...Token
+    }
+    priceUSD
+    change24
+    volume24
+  }
+
+  query FilterTokens($filters: TokenFilters, $phrase: String, $limit: Int, $offset: Int, $rankings: [TokenRanking!]) {
+    filterTokens(
+      filters: $filters
+      phrase: $phrase
+      limit: $limit
+      offset: $offset
+      rankings: $rankings
+    ) {
+      count
+      results {
+        ...FilterTokenResult
+      }
+    }
+  }
+`);
+```
+
+## Benefits of This Approach
+
+1. **Type Safety**: Fragments generate specific TypeScript types
+2. **Reusability**: Fragments can be shared across queries
+3. **Maintainability**: Changes to fragments automatically update all usage
+4. **Performance**: Only request the fields you need
+5. **Organization**: Clear separation between queries and components
+
+## Examples
+
+- [GlobalTokenSearch.graphql](mdc:src/components/GlobalTokenSearch.graphql) - Component-specific queries
+- [PanelWizard.graphql](mdc:src/components/ProPage/PanelWizard.graphql) - Nested component queries
+- [TradingViewChart.graphql](mdc:src/components/TradingViewChart.graphql) - Complex queries with subscriptions
+
+## Running Code Generation
+
+After creating or modifying `.graphql` files, run:
+
+```bash
+bun run codegen
+```
+
+This will generate TypeScript types in [src/gql/](mdc:src/gql) that can be imported and used with full type safety.

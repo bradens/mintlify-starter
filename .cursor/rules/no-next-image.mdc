@@ -1,0 +1,30 @@
+---
+description:
+globs: *.tsx
+alwaysApply: false
+---
+# Prefer `<img>` over Next.js `<Image>`
+
+When working with images in this project, please avoid using the Next.js `<Image />` component (`next/image`). Instead, use the standard HTML `<img>` tag.
+
+**Reasoning:**
+
+While the Next.js Image component offers optimization features, we are opting for the standard `<img>` tag for [specific project reasons - e.g., simplicity, compatibility with a specific library, avoiding specific optimization issues, etc. - *User should fill this in if desired*].
+
+**Correct Usage:**
+
+```html
+<img src="/path/to/your/image.jpg" alt="Descriptive text" width="300" height="200" />
+```
+
+**Incorrect Usage:**
+
+```jsx
+import Image from 'next/image';
+
+// ...
+
+<Image src="/path/to/your/image.jpg" alt="Descriptive text" width={300} height={200} />
+```
+
+If you encounter existing uses of `<Image />`, please refactor them to use `<img>` when making changes in that part of the code.

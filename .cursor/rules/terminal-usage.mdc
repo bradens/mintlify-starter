@@ -1,0 +1,45 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Terminal Usage Guidelines
+
+## Development Server Management
+
+When working with development servers or long-running processes:
+
+1. **Do NOT create persistent background terminals** for development servers using `is_background: true`
+2. **Use existing terminal context** when available - check for `<last_terminal_cwd>` in the conversation
+3. **Reference existing running processes** instead of starting new ones
+4. **Prefer one-time commands** for testing and verification
+
+## When to Use Background Processes
+
+Only use `is_background: true` for:
+- Build processes that complete and exit
+- One-time setup scripts
+- Database migrations
+- Asset generation
+
+## Development Server Best Practices
+
+- If a dev server is already running (indicated in context), reference it instead of starting a new one
+- Use commands like `curl` or `bunx` for testing endpoints rather than spinning up new servers
+- When checking if the server is working, use non-persistent commands
+- Let the user manage their own development server lifecycle
+
+## Example: Testing Implementation
+
+Instead of:
+```bash
+bun run dev  # with is_background: true
+```
+
+Use:
+```bash
+bunx tsc --noEmit  # Check for TypeScript errors
+curl http://localhost:3000/api/health  # Test if server is running
+```
+
+This approach respects the user's existing development environment and avoids terminal conflicts.

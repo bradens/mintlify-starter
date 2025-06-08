@@ -1,0 +1,13 @@
+---
+description:
+globs:
+alwaysApply: true
+---
+# Package Manager Preference: Use pnpm
+
+This project uses pnpm as the preferred package manager and task runner.
+
+-   Instead of `npm install`, use `pnpm install`.
+-   Instead of `npm install <package>` or `npm i <package>`, use `pnpm add <package>`.
+-   Instead of `npm uninstall <package>`, use `pnpm remove <package>`.
+-   Instead of `npx <command>`, use `pnpx <command>`.

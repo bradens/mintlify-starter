@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 
 import { useRouter, useSearchParams } from 'next/navigation';
 
@@ -49,7 +49,7 @@ interface TokenValidationResult {
   email?: string;
 }
 
-export default function ResetPasswordPage() {
+function ResetPasswordContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [resetState, setResetState] = useState<ResetState>('validating');
@@ -359,5 +359,31 @@ export default function ResetPasswordPage() {
         </Card>
       </div>
     </div>
+  );
+}
+
+function LoadingFallback() {
+  return (
+    <div className='min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8'>
+      <div className='max-w-md w-full'>
+        <Card>
+          <CardHeader className='text-center'>
+            <div className='flex justify-center mb-4'>
+              <Loader2 className='h-8 w-8 animate-spin text-blue-600' />
+            </div>
+            <CardTitle className='text-2xl'>Loading...</CardTitle>
+            <CardDescription>Please wait while we load the page.</CardDescription>
+          </CardHeader>
+        </Card>
+      </div>
+    </div>
+  );
+}
+
+export default function ResetPasswordPage() {
+  return (
+    <Suspense fallback={<LoadingFallback />}>
+      <ResetPasswordContent />
+    </Suspense>
   );
 }

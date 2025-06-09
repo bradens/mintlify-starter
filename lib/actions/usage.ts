@@ -1,6 +1,5 @@
 import { z } from 'zod';
 
-import { SYMBOLS } from '@/di/symbols';
 import {
   type ActionResult,
   type ActionContext,
@@ -77,15 +76,6 @@ function parseDate(dateString: string): Date {
     throw new Error('Invalid date format');
   }
   return date;
-}
-
-// TODO: Import proper usage services when available in DI container
-interface IUsageService {
-  getUsageMetrics(userId: string, filters: any): Promise<UsageMetrics>;
-  getDailyUsage(userId: string, startDate: Date, endDate: Date): Promise<DailyUsage[]>;
-  getUsageReport(userId: string, filters: any): Promise<UsageReport>;
-  getApiKeyUsage(apiKeyId: string, period: string): Promise<any>;
-  getAccountUsage(userId: string, period: string): Promise<any>;
 }
 
 /**
@@ -410,12 +400,12 @@ export const getApiKeyUsage = createAction<GetApiKeyUsageInput, any>(
 /**
  * Get real-time usage metrics for dashboard widgets
  */
-export const getRealTimeMetrics = createAction<{}, any>(
+export const getRealTimeMetrics = createAction<Record<string, never>, any>(
   {
     authLevel: AuthLevel.VERIFIED,
   },
   z.object({}),
-  async (input, context: ActionContext): Promise<ActionResult<any>> => {
+  async (_input, context: ActionContext): Promise<ActionResult<any>> => {
     try {
       logAction('get-real-time-metrics', context.user.userId);
 

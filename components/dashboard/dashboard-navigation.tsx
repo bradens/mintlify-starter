@@ -5,17 +5,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-import {
-  Home,
-  Key,
-  BarChart3,
-  CreditCard,
-  LogOut,
-  Menu,
-  X,
-  Shield,
-  User
-} from 'lucide-react';
+import { Home, Key, BarChart3, CreditCard, LogOut, Menu, X, Shield, User } from 'lucide-react';
 
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';

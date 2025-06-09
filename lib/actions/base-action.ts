@@ -366,9 +366,9 @@ export async function baseAction<T>(
 
     // Handle specific error types
     if (error instanceof Error) {
-      return createErrorResult(error.message);
+      return createErrorResult(error.message) as ActionResult<T>;
     }
 
-    return createErrorResult(errorMessage);
+    return createErrorResult(errorMessage) as ActionResult<T>;
   }
 }

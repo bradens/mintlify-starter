@@ -1,6 +1,10 @@
-import { MetricsModel, WebhookMetricType, getDurationBucketTimestamp } from '@company-z/crypto-data';
+import {
+  MetricsModel,
+  WebhookMetricType,
+  getDurationBucketTimestamp,
+} from '@company-z/crypto-data';
 
-import { Duration, OperationType } from '../services/api-usage-service';
+import { OperationType } from '../services/api-usage-service';
 
 export interface DetailedMetric {
   operation: string;
@@ -170,7 +174,7 @@ export function transformWebhookOperationUsage(
 export function transformForAnalytics(
   metrics: MetricsModel[],
   timeframe: string,
-  selectedApiKeys: string[],
+  _selectedApiKeys: string[],
   input: {
     resolution: string;
     lowerBound: number;
@@ -232,7 +236,7 @@ export function transformForAnalytics(
 function createTimeSeriesData(
   detailedMetrics: DetailedMetric[],
   operationGroups: Record<string, string[]>,
-  timeframe: string
+  _timeframe: string
 ) {
   const timestampGroups = new Map<number, Record<string, number>>();
 

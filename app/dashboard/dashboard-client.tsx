@@ -2,9 +2,20 @@
 
 import { useState, useEffect, useCallback } from 'react';
 
-import { Plus, Activity, MessageSquare, Webhook, Search, Eye, EyeOff, Copy, Check } from 'lucide-react';
-import { useSession } from 'next-auth/react';
 import Link from 'next/link';
+
+import {
+  Plus,
+  Activity,
+  MessageSquare,
+  Webhook,
+  Search,
+  Eye,
+  EyeOff,
+  Copy,
+  Check,
+} from 'lucide-react';
+import { useSession } from 'next-auth/react';
 import { Bar, BarChart, XAxis, YAxis, CartesianGrid, ResponsiveContainer } from 'recharts';
 
 import { CreateApiKeyModal } from '@/components/modals/create-api-key-modal';
@@ -170,9 +181,7 @@ function ApiKeysOverview({ apiKeys, loading, onApiKeyCreated }: ApiKeysOverviewP
             </div>
             <div className='space-y-2'>
               <h3 className='text-lg font-semibold'>No API keys found</h3>
-              <p className='text-muted-foreground'>
-                Get started by creating your first API key.
-              </p>
+              <p className='text-muted-foreground'>Get started by creating your first API key.</p>
             </div>
             <CreateApiKeyModal onApiKeyCreated={onApiKeyCreated} />
           </div>
@@ -479,10 +488,7 @@ export function DashboardPageClient({ user }: DashboardPageClientProps) {
 
         {/* Usage Chart */}
         <div className='lg:col-span-2'>
-          <UsageChart
-            data={usageData?.charts?.combinedOverTime || []}
-            loading={loading}
-          />
+          <UsageChart data={usageData?.charts?.combinedOverTime || []} loading={loading} />
         </div>
       </div>
     </div>

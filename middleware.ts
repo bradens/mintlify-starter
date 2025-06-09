@@ -80,7 +80,6 @@ export default auth(req => {
  * Public routes that don't require authentication
  */
 const publicRoutes = [
-  '/',
   '/about',
   '/contact',
   '/privacy',

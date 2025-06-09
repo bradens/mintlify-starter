@@ -181,27 +181,16 @@ export interface Invoice {
 }
 
 export const createCheckoutSessionSchema = z.object({
-  planId: z.string().min(1, 'Plan ID is required'),
-  successUrl: z.string().url('Valid success URL is required'),
-  cancelUrl: z.string().url('Valid cancel URL is required'),
+  productId: z.string().min(1, 'Product ID is required'),
+  returnUrl: z.string().url('Valid URL is required'),
 });
 
 export const createBillingSessionSchema = z.object({
-  returnUrl: z.string().url('Valid return URL is required'),
-});
-
-export const updateSubscriptionSchema = z.object({
-  planId: z.string().min(1, 'Plan ID is required'),
-});
-
-export const cancelSubscriptionSchema = z.object({
-  cancelAtPeriodEnd: z.boolean().default(true),
+  returnUrl: z.string().url('Valid URL is required'),
 });
 
 export type CreateCheckoutSessionInput = z.infer<typeof createCheckoutSessionSchema>;
 export type CreateBillingSessionInput = z.infer<typeof createBillingSessionSchema>;
-export type UpdateSubscriptionInput = z.infer<typeof updateSubscriptionSchema>;
-export type CancelSubscriptionInput = z.infer<typeof cancelSubscriptionSchema>;
 
 /**
  * User Management Types

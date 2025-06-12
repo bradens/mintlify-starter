@@ -152,15 +152,7 @@ function InternalAuthProvider({ children }: AuthProviderProps) {
     try {
       const { callbackUrl = '/signin', redirect = true } = options || {};
 
-      // Call our custom sign-out endpoint for additional cleanup
-      await fetch('/api/auth/signout', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-
-      // Use NextAuth's signOut with proper typing
+      // Use NextAuth's signOut for proper session cleanup
       if (redirect) {
         await nextAuthSignOut({
           callbackUrl,
@@ -181,27 +173,9 @@ function InternalAuthProvider({ children }: AuthProviderProps) {
       notify.dismiss(toastId);
       authNotify.authError(error, 'Sign out failed');
 
-      // Fallback to NextAuth signOut with proper typing
-      try {
-        if (options?.redirect !== false) {
-          await nextAuthSignOut({
-            callbackUrl: options?.callbackUrl || '/signin',
-            redirect: true,
-          });
-        } else {
-          await nextAuthSignOut({
-            callbackUrl: options?.callbackUrl || '/signin',
-            redirect: false,
-          });
-        }
-      } catch (fallbackError) {
-        console.error('Fallback sign out error:', fallbackError);
-        authNotify.authError(fallbackError, 'Sign out fallback failed');
-
-        // Last resort: manual redirect
-        if (options?.redirect !== false) {
-          window.location.href = options?.callbackUrl || '/signin';
-        }
+      // Last resort: manual redirect
+      if (options?.redirect !== false) {
+        window.location.href = options?.callbackUrl || '/signin';
       }
     }
   };

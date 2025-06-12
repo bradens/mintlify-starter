@@ -20,14 +20,6 @@ export async function signOut(options?: {
   try {
     const { callbackUrl = '/signin', redirect = true } = options || {};
 
-    // Call our custom sign-out endpoint for additional cleanup
-    await fetch('/api/auth/signout', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-
     // Use NextAuth's signOut for proper session cleanup
     if (redirect) {
       await nextAuthSignOut({
@@ -43,27 +35,9 @@ export async function signOut(options?: {
   } catch (error) {
     console.error('Sign out error:', error);
 
-    // Fallback to NextAuth signOut even if our custom endpoint fails
-    try {
-      const shouldRedirect = options?.redirect !== false;
-      if (shouldRedirect) {
-        await nextAuthSignOut({
-          callbackUrl: options?.callbackUrl || '/signin',
-          redirect: true,
-        });
-      } else {
-        await nextAuthSignOut({
-          callbackUrl: options?.callbackUrl || '/signin',
-          redirect: false,
-        });
-      }
-    } catch (fallbackError) {
-      console.error('Fallback sign out error:', fallbackError);
-
-      // Last resort: manually redirect to sign-in page
-      if (options?.redirect !== false) {
-        window.location.href = options?.callbackUrl || '/signin';
-      }
+    // Last resort: manually redirect to sign-in page
+    if (options?.redirect !== false) {
+      window.location.href = options?.callbackUrl || '/signin';
     }
   }
 }

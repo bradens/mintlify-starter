@@ -1,0 +1,84 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "ui": "tui",
+  "tasks": {
+    "build": {
+      "dependsOn": [
+        "^build"
+      ],
+      "outputs": [
+        ".next/**",
+        "!.next/cache/**",
+        "dist/**"
+      ]
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true,
+      "env": [
+        "AWS_PROFILE"
+      ]
+    },
+    "start": {
+      "cache": false,
+      "persistent": true,
+      "env": [
+        "AWS_PROFILE"
+      ]
+    },
+    "lint": {
+      "dependsOn": [
+        "^lint"
+      ]
+    },
+    "lint:fix": {
+      "dependsOn": [
+        "^lint:fix"
+      ]
+    },
+    "type-check": {
+      "dependsOn": [
+        "^type-check"
+      ]
+    },
+    "test": {
+      "dependsOn": [
+        "^test"
+      ],
+      "env": [
+        "AWS_PROFILE"
+      ]
+    },
+    "test:watch": {
+      "cache": false,
+      "persistent": true,
+      "env": [
+        "AWS_PROFILE"
+      ]
+    },
+    "test:coverage": {
+      "dependsOn": [
+        "^test:coverage"
+      ],
+      "env": [
+        "AWS_PROFILE"
+      ]
+    },
+    "format": {},
+    "format:check": {},
+    "check-all": {
+      "dependsOn": [
+        "type-check",
+        "lint",
+        "format:check",
+        "test"
+      ]
+    },
+    "fix-all": {
+      "dependsOn": [
+        "lint:fix",
+        "format"
+      ]
+    }
+  }
+}

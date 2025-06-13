@@ -18,8 +18,7 @@
             "pages": [
               "index",
               "get-started",
-              "learn-graphql",
-              "build"
+              "learn-graphql"
             ]
           },
           {

@@ -3,13 +3,26 @@ title: "SandwichLabelForEventType"
 description: "Sandwich event label types."
 ---
 
-**Type:** [SandwichLabelForEventType](/api-reference/types/sandwichlabelforeventtype)
+### Values
 
-## Values
+<ResponseField name="sandwiched" type="enum">
+  No description provided
+</ResponseField>
 
-| Value | Description |
-|-------|-------------|
-| `sandwiched` | No description provided |
-| `frontrun` | No description provided |
-| `backrun` | No description provided |
+<ResponseField name="frontrun" type="enum">
+  No description provided
+</ResponseField>
 
+<ResponseField name="backrun" type="enum">
+  No description provided
+</ResponseField>
+
+
+```graphql SandwichLabelForEventType
+"""Sandwich event label types."""
+enum SandwichLabelForEventType {
+  sandwiched
+  frontrun
+  backrun
+}
+```

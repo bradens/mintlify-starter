@@ -3,48 +3,259 @@ title: "NftPoolResponse"
 description: "An NFT pool."
 ---
 
-**Type:** [NftPoolResponse](/api-reference/types/nftpoolresponse)
+### Fields
 
-## Fields
+<ResponseField name="poolId" type="String!" required>
+  The ID of the NFT pool (`poolAddress`:`networkId`). For example, `0xdbea289dcc10eed8431e78753414a3d81b8e7201:1`.
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `poolId` → [String!](/api-reference/types/string) | The ID of the NFT pool (`poolAddress`:`networkId`). For example, `0xdbea289dcc10eed8431e78753414a3d81b8e7201:1`. |
-| `tokenAddress` → [String!](/api-reference/types/string) | The contract address of the liquidity token of the pool (usually WETH). |
-| `collectionAddress` → [String!](/api-reference/types/string) | The contract address of the NFT collection. |
-| `collectionName` → [String!](/api-reference/types/string) | The contract name of the NFT collection. |
-| `collectionSymbol` → String | The symbol of the NFT collection. |
-| `exchangeAddress` → [String!](/api-reference/types/string) | The contract address of the NFT AMM marketplace. |
-| `poolAddress` → [String!](/api-reference/types/string) | The contract address of the NFT pool. |
-| `networkId` → [Int!](/api-reference/types/int) | The network ID the NFT collection is deployed on. |
-| `poolType` → [NftPoolType!](/api-reference/types/nftpooltype) | The type of liquidity pool. |
-| `poolVariant` → [GraphQlNftPoolVariant!](/api-reference/types/graphqlnftpoolvariant) | The pool variant. Can be `ERC20` or `NATIVE`. |
-| `bondingCurveType` → [BondingCurveType!](/api-reference/types/bondingcurvetype) | The bonding curve type that defines how the prices of NFTs change after each buy or sell within a pool. |
-| `bondingCurveAddress` → [String!](/api-reference/types/string) | The contract address of the bonding curve. |
-| `assetRecipientAddress` → [String!](/api-reference/types/string) | The wallet address that will receive the tokens or NFT sent to the pair during swaps. |
-| `delta` → [String!](/api-reference/types/string) | The current delta used in the bonding curve. |
-| `owner` → [String!](/api-reference/types/string) | The wallet address of the pool owner. |
-| `fee` → [String!](/api-reference/types/string) | The current fee for pool. |
-| `poolFeesAllTimeT` → String | No description provided |
-| `poolFeesAllTimeNBT` → String | No description provided |
-| `floorNBT` → String | The current price at which the pool is willing to sell an NFT in the network&#39;s base token. Only applicable for `SELL` and `BUY_AND_SELL` pool types. |
-| `offerNBT` → String | The current price at which the pool is willing to buy an NFT in the network&#39;s base token. Only applicable for `BUY` and `BUY_AND_SELL` pool types. |
-| `spotPriceNBT` → [String!](/api-reference/types/string) | The spot price in the network&#39;s base token. |
-| `balanceNBT` → [String!](/api-reference/types/string) | The current pool liquidity in the network&#39;s base token. |
-| `nftBalance` → Int | The current number of NFTs in the pool. |
-| `nftBalanceV2` → [String!](/api-reference/types/string) | The current number of NFTs in the pool. |
-| `volumeAllTimeNBT` → [String!](/api-reference/types/string) | The total volume of the pool in the network&#39;s base token over the pool&#39;s lifetime. |
-| `floorT` → String | The current price at which the pool is willing to sell an NFT in the pool&#39;s liquidity token. Only applicable for `SELL` and `BUY_AND_SELL` pool types. |
-| `offerT` → String | The current price at which the pool is willing to buy an NFT in the pool&#39;s liquidity token. Only applicable for `BUY` and `BUY_AND_SELL` pool types. |
-| `spotPriceT` → [String!](/api-reference/types/string) | The instantaneous price for selling 1 NFT to the pool in the pool&#39;s liquidity token. |
-| `balanceT` → [String!](/api-reference/types/string) | The current pool liquidity in the pool&#39;s liquidity token. |
-| `volumeAllTimeT` → [String!](/api-reference/types/string) | The total volume of the pool in the pool&#39;s liquidity token over the pool&#39;s lifetime. |
-| `nftVolumeAllTime` → [Int!](/api-reference/types/int) | The total number of NFTs bought and sold over the pool&#39;s lifetime. |
-| `nftVolumeAllTimeV2` → [String!](/api-reference/types/string) | The total number of NFTs bought and sold over the pool&#39;s lifetime. |
-| `nftAssets` → [[NftAsset]](/api-reference/types/nftasset) | The list of NFT assets in the pool. |
-| `poolNftType` → [PoolNftType](/api-reference/types/poolnfttype) | The type of NFT in the pool. |
-| `royalties` → [[NftPoolRoyalty]](/api-reference/types/nftpoolroyalty) | The list of royalties for the pool. Only applicable for `SUDOSWAP_V2` pools. |
-| `propertyChecker` → String | The property checker contract address for the pool. |
-| `version` → [NftPoolContractVersion](/api-reference/types/nftpoolcontractversion) | The NFT pool contract version. Can be `SUDOSWAP_V1` or `SUDOSWAP_V2`. |
-| `acceptedNftTokenIds` → [[String]](/api-reference/types/string) | For ERC1155 pools, the list of NFT token IDs that are accepted by the pool. |
+<ResponseField name="tokenAddress" type="String!" required>
+  The contract address of the liquidity token of the pool (usually WETH).
+</ResponseField>
 
+<ResponseField name="collectionAddress" type="String!" required>
+  The contract address of the NFT collection.
+</ResponseField>
+
+<ResponseField name="collectionName" type="String!" required>
+  The contract name of the NFT collection.
+</ResponseField>
+
+<ResponseField name="collectionSymbol" type="String">
+  The symbol of the NFT collection.
+</ResponseField>
+
+<ResponseField name="exchangeAddress" type="String!" required>
+  The contract address of the NFT AMM marketplace.
+</ResponseField>
+
+<ResponseField name="poolAddress" type="String!" required>
+  The contract address of the NFT pool.
+</ResponseField>
+
+<ResponseField name="networkId" type="Int!" required>
+  The network ID the NFT collection is deployed on.
+</ResponseField>
+
+<a href="/api-reference/types/nftpooltype">
+  <ResponseField name="poolType" type="NftPoolType!" required>
+    The type of liquidity pool.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/graphqlnftpoolvariant">
+  <ResponseField name="poolVariant" type="GraphQlNftPoolVariant!" required>
+    The pool variant. Can be `ERC20` or `NATIVE`.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/bondingcurvetype">
+  <ResponseField name="bondingCurveType" type="BondingCurveType!" required>
+    The bonding curve type that defines how the prices of NFTs change after each buy or sell within a pool.
+  </ResponseField>
+</a>
+
+<ResponseField name="bondingCurveAddress" type="String!" required>
+  The contract address of the bonding curve.
+</ResponseField>
+
+<ResponseField name="assetRecipientAddress" type="String!" required>
+  The wallet address that will receive the tokens or NFT sent to the pair during swaps.
+</ResponseField>
+
+<ResponseField name="delta" type="String!" required>
+  The current delta used in the bonding curve.
+</ResponseField>
+
+<ResponseField name="owner" type="String!" required>
+  The wallet address of the pool owner.
+</ResponseField>
+
+<ResponseField name="fee" type="String!" required>
+  The current fee for pool.
+</ResponseField>
+
+<ResponseField name="poolFeesAllTimeT" type="String">
+  No description provided
+</ResponseField>
+
+<ResponseField name="poolFeesAllTimeNBT" type="String">
+  No description provided
+</ResponseField>
+
+<ResponseField name="floorNBT" type="String">
+  The current price at which the pool is willing to sell an NFT in the network&#39;s base token. Only applicable for `SELL` and `BUY_AND_SELL` pool types.
+</ResponseField>
+
+<ResponseField name="offerNBT" type="String">
+  The current price at which the pool is willing to buy an NFT in the network&#39;s base token. Only applicable for `BUY` and `BUY_AND_SELL` pool types.
+</ResponseField>
+
+<ResponseField name="spotPriceNBT" type="String!" required>
+  The spot price in the network&#39;s base token.
+</ResponseField>
+
+<ResponseField name="balanceNBT" type="String!" required>
+  The current pool liquidity in the network&#39;s base token.
+</ResponseField>
+
+<ResponseField name="nftBalance" type="Int">
+  The current number of NFTs in the pool.
+    
+    <Warning>
+      This field is deprecated. nftBalance is changing from Int to String - use nftBalanceV2 instead.
+    </Warning>
+</ResponseField>
+
+<ResponseField name="nftBalanceV2" type="String!" required>
+  The current number of NFTs in the pool.
+</ResponseField>
+
+<ResponseField name="volumeAllTimeNBT" type="String!" required>
+  The total volume of the pool in the network&#39;s base token over the pool&#39;s lifetime.
+</ResponseField>
+
+<ResponseField name="floorT" type="String">
+  The current price at which the pool is willing to sell an NFT in the pool&#39;s liquidity token. Only applicable for `SELL` and `BUY_AND_SELL` pool types.
+</ResponseField>
+
+<ResponseField name="offerT" type="String">
+  The current price at which the pool is willing to buy an NFT in the pool&#39;s liquidity token. Only applicable for `BUY` and `BUY_AND_SELL` pool types.
+</ResponseField>
+
+<ResponseField name="spotPriceT" type="String!" required>
+  The instantaneous price for selling 1 NFT to the pool in the pool&#39;s liquidity token.
+</ResponseField>
+
+<ResponseField name="balanceT" type="String!" required>
+  The current pool liquidity in the pool&#39;s liquidity token.
+</ResponseField>
+
+<ResponseField name="volumeAllTimeT" type="String!" required>
+  The total volume of the pool in the pool&#39;s liquidity token over the pool&#39;s lifetime.
+</ResponseField>
+
+<ResponseField name="nftVolumeAllTime" type="Int!" required>
+  The total number of NFTs bought and sold over the pool&#39;s lifetime.
+    
+    <Warning>
+      This field is deprecated. nftVolumeAllTime is changing from Int to String - use nftVolumeAllTimeV2 instead.
+    </Warning>
+</ResponseField>
+
+<ResponseField name="nftVolumeAllTimeV2" type="String!" required>
+  The total number of NFTs bought and sold over the pool&#39;s lifetime.
+</ResponseField>
+
+<a href="/api-reference/types/nftasset">
+  <ResponseField name="nftAssets" type="[NftAsset]">
+    The list of NFT assets in the pool.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/poolnfttype">
+  <ResponseField name="poolNftType" type="PoolNftType">
+    The type of NFT in the pool.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/nftpoolroyalty">
+  <ResponseField name="royalties" type="[NftPoolRoyalty]">
+    The list of royalties for the pool. Only applicable for `SUDOSWAP_V2` pools.
+  </ResponseField>
+</a>
+
+<ResponseField name="propertyChecker" type="String">
+  The property checker contract address for the pool.
+</ResponseField>
+
+<a href="/api-reference/types/nftpoolcontractversion">
+  <ResponseField name="version" type="NftPoolContractVersion">
+    The NFT pool contract version. Can be `SUDOSWAP_V1` or `SUDOSWAP_V2`.
+  </ResponseField>
+</a>
+
+<ResponseField name="acceptedNftTokenIds" type="[String]">
+  For ERC1155 pools, the list of NFT token IDs that are accepted by the pool.
+</ResponseField>
+
+
+```graphql NftPoolResponse
+"""An NFT pool."""
+type NftPoolResponse {
+  """The ID of the NFT pool (`poolAddress`:`networkId`). For example, `0xdbea289dcc10eed8431e78753414a3d81b8e7201:1`."""
+  poolId: String!
+  """The contract address of the liquidity token of the pool (usually WETH)."""
+  tokenAddress: String!
+  """The contract address of the NFT collection."""
+  collectionAddress: String!
+  """The contract name of the NFT collection."""
+  collectionName: String!
+  """The symbol of the NFT collection."""
+  collectionSymbol: String
+  """The contract address of the NFT AMM marketplace."""
+  exchangeAddress: String!
+  """The contract address of the NFT pool."""
+  poolAddress: String!
+  """The network ID the NFT collection is deployed on."""
+  networkId: Int!
+  """The type of liquidity pool."""
+  poolType: NftPoolType!
+  """The pool variant. Can be `ERC20` or `NATIVE`."""
+  poolVariant: GraphQlNftPoolVariant!
+  """The bonding curve type that defines how the prices of NFTs change after each buy or sell within a pool."""
+  bondingCurveType: BondingCurveType!
+  """The contract address of the bonding curve."""
+  bondingCurveAddress: String!
+  """The wallet address that will receive the tokens or NFT sent to the pair during swaps."""
+  assetRecipientAddress: String!
+  """The current delta used in the bonding curve."""
+  delta: String!
+  """The wallet address of the pool owner."""
+  owner: String!
+  """The current fee for pool."""
+  fee: String!
+  poolFeesAllTimeT: String
+  poolFeesAllTimeNBT: String
+  """The current price at which the pool is willing to sell an NFT in the network's base token. Only applicable for `SELL` and `BUY_AND_SELL` pool types."""
+  floorNBT: String
+  """The current price at which the pool is willing to buy an NFT in the network's base token. Only applicable for `BUY` and `BUY_AND_SELL` pool types."""
+  offerNBT: String
+  """The spot price in the network's base token."""
+  spotPriceNBT: String!
+  """The current pool liquidity in the network's base token."""
+  balanceNBT: String!
+  """The current number of NFTs in the pool."""
+  nftBalance: Int @deprecated(reason: "nftBalance is changing from Int to String - use nftBalanceV2 instead.")
+  """The current number of NFTs in the pool."""
+  nftBalanceV2: String!
+  """The total volume of the pool in the network's base token over the pool's lifetime."""
+  volumeAllTimeNBT: String!
+  """The current price at which the pool is willing to sell an NFT in the pool's liquidity token. Only applicable for `SELL` and `BUY_AND_SELL` pool types."""
+  floorT: String
+  """The current price at which the pool is willing to buy an NFT in the pool's liquidity token. Only applicable for `BUY` and `BUY_AND_SELL` pool types."""
+  offerT: String
+  """The instantaneous price for selling 1 NFT to the pool in the pool's liquidity token."""
+  spotPriceT: String!
+  """The current pool liquidity in the pool's liquidity token."""
+  balanceT: String!
+  """The total volume of the pool in the pool's liquidity token over the pool's lifetime."""
+  volumeAllTimeT: String!
+  """The total number of NFTs bought and sold over the pool's lifetime."""
+  nftVolumeAllTime: Int! @deprecated(reason: "nftVolumeAllTime is changing from Int to String - use nftVolumeAllTimeV2 instead.")
+  """The total number of NFTs bought and sold over the pool's lifetime."""
+  nftVolumeAllTimeV2: String!
+  """The list of NFT assets in the pool."""
+  nftAssets: [NftAsset]
+  """The type of NFT in the pool."""
+  poolNftType: PoolNftType
+  """The list of royalties for the pool. Only applicable for `SUDOSWAP_V2` pools."""
+  royalties: [NftPoolRoyalty]
+  """The property checker contract address for the pool."""
+  propertyChecker: String
+  """The NFT pool contract version. Can be `SUDOSWAP_V1` or `SUDOSWAP_V2`."""
+  version: NftPoolContractVersion
+  """For ERC1155 pools, the list of NFT token IDs that are accepted by the pool."""
+  acceptedNftTokenIds: [String]
+}
+```

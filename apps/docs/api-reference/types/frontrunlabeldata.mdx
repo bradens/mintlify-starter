@@ -3,13 +3,29 @@ title: "FrontRunLabelData"
 description: "Metadata for a front-run label."
 ---
 
-**Type:** [FrontRunLabelData](/api-reference/types/frontrunlabeldata)
+### Fields
 
-## Fields
+<ResponseField name="index" type="Int">
+  The index of the front-run label. Can be 0 or 1.
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `index` → Int | The index of the front-run label. Can be 0 or 1. |
-| `token0DrainedAmount` → [String!](/api-reference/types/string) | The amount of `token0` drained in the attack. |
-| `token1DrainedAmount` → [String!](/api-reference/types/string) | The amount of `token1` drained in the attack. |
+<ResponseField name="token0DrainedAmount" type="String!" required>
+  The amount of `token0` drained in the attack.
+</ResponseField>
 
+<ResponseField name="token1DrainedAmount" type="String!" required>
+  The amount of `token1` drained in the attack.
+</ResponseField>
+
+
+```graphql FrontRunLabelData
+"""Metadata for a front-run label."""
+type FrontRunLabelData {
+  """The index of the front-run label. Can be 0 or 1."""
+  index: Int
+  """The amount of `token0` drained in the attack."""
+  token0DrainedAmount: String!
+  """The amount of `token1` drained in the attack."""
+  token1DrainedAmount: String!
+}
+```

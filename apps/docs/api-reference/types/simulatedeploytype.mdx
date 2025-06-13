@@ -3,12 +3,20 @@ title: "SimulateDeployType"
 description: "Object type"
 ---
 
-**Type:** [SimulateDeployType](/api-reference/types/simulatedeploytype)
+### Fields
 
-## Fields
+<ResponseField name="deploySuccess" type="Boolean">
+  No description provided
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `deploySuccess` → Boolean | No description provided |
-| `tokenMintedToDeployer` → String | No description provided |
+<ResponseField name="tokenMintedToDeployer" type="String">
+  No description provided
+</ResponseField>
 
+
+```graphql SimulateDeployType
+type SimulateDeployType {
+  deploySuccess: Boolean
+  tokenMintedToDeployer: String
+}
+```

@@ -3,22 +3,86 @@ title: "LaunchpadData"
 description: "Object type"
 ---
 
-**Type:** [LaunchpadData](/api-reference/types/launchpaddata)
+### Fields
 
-## Fields
+<ResponseField name="name" type="String">
+  The name of the launchpad.
+    
+    <Warning>
+      This field is deprecated. Use launchpadName instead
+    </Warning>
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `name` → String | The name of the launchpad. |
-| `launchpadName` → String | The name of the launchpad. |
-| `graduationPercent` → Float | The percentage of the pool that was sold to the public. |
-| `poolAddress` → String | The address of the pool. |
-| `completedAt` → Int | The unix timestamp when the launchpad was completed. |
-| `completed` → Boolean | Indicates if the launchpad is completed. |
-| `completedSlot` → Int | The slot number when the launchpad was completed. |
-| `migratedSlot` → Int | The slot number when the launchpad was migrated. |
-| `migratedAt` → Int | The unix timestamp when the launchpad was migrated. |
-| `migrated` → Boolean | Indicates if the launchpad was migrated. |
-| `migratedPoolAddress` → String | The pool address after the launchpad was migrated. |
-| `launchpadProtocol` → String | The launchpad protocol |
+<ResponseField name="launchpadName" type="String">
+  The name of the launchpad.
+</ResponseField>
 
+<ResponseField name="graduationPercent" type="Float">
+  The percentage of the pool that was sold to the public.
+</ResponseField>
+
+<ResponseField name="poolAddress" type="String">
+  The address of the pool.
+</ResponseField>
+
+<ResponseField name="completedAt" type="Int">
+  The unix timestamp when the launchpad was completed.
+</ResponseField>
+
+<ResponseField name="completed" type="Boolean">
+  Indicates if the launchpad is completed.
+</ResponseField>
+
+<ResponseField name="completedSlot" type="Int">
+  The slot number when the launchpad was completed.
+</ResponseField>
+
+<ResponseField name="migratedSlot" type="Int">
+  The slot number when the launchpad was migrated.
+</ResponseField>
+
+<ResponseField name="migratedAt" type="Int">
+  The unix timestamp when the launchpad was migrated.
+</ResponseField>
+
+<ResponseField name="migrated" type="Boolean">
+  Indicates if the launchpad was migrated.
+</ResponseField>
+
+<ResponseField name="migratedPoolAddress" type="String">
+  The pool address after the launchpad was migrated.
+</ResponseField>
+
+<ResponseField name="launchpadProtocol" type="String">
+  The launchpad protocol
+</ResponseField>
+
+
+```graphql LaunchpadData
+type LaunchpadData {
+  """The name of the launchpad."""
+  name: String @deprecated(reason: "Use launchpadName instead")
+  """The name of the launchpad."""
+  launchpadName: String
+  """The percentage of the pool that was sold to the public."""
+  graduationPercent: Float
+  """The address of the pool."""
+  poolAddress: String
+  """The unix timestamp when the launchpad was completed."""
+  completedAt: Int
+  """Indicates if the launchpad is completed."""
+  completed: Boolean
+  """The slot number when the launchpad was completed."""
+  completedSlot: Int
+  """The slot number when the launchpad was migrated."""
+  migratedSlot: Int
+  """The unix timestamp when the launchpad was migrated."""
+  migratedAt: Int
+  """Indicates if the launchpad was migrated."""
+  migrated: Boolean
+  """The pool address after the launchpad was migrated."""
+  migratedPoolAddress: String
+  """The launchpad protocol"""
+  launchpadProtocol: String
+}
+```

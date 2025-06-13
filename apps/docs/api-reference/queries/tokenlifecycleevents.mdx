@@ -7,11 +7,19 @@ description: "Returns a list of token lifecycle events."
 
 **Returns:** [TokenLifecycleEventConnection](/api-reference/types/tokenlifecycleeventconnection)
 
-## Arguments for tokenLifecycleEvents
+### Arguments
 
-| Name | Description |
-|------|-------------|
-| `limit` (Int) | The maximum number of events to return. |
-| `query` ([TokenLifecycleEventsQueryInput!](/api-reference/types/tokenlifecycleeventsqueryinput)) | The query filters to apply to the results. |
-| `cursor` (String) | The cursor to use for pagination. |
+<ResponseField name="limit" type="Int">
+  The maximum number of events to return.
+</ResponseField>
+
+<a href="/api-reference/types/tokenlifecycleeventsqueryinput">
+  <ResponseField name="query" type="TokenLifecycleEventsQueryInput!" required>
+    The query filters to apply to the results.
+  </ResponseField>
+</a>
+
+<ResponseField name="cursor" type="String">
+  The cursor to use for pagination.
+</ResponseField>
 

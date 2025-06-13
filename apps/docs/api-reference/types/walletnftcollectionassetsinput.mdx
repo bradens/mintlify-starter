@@ -3,13 +3,28 @@ title: "WalletNftCollectionAssetsInput"
 description: "InputObject type"
 ---
 
-**Type:** [WalletNftCollectionAssetsInput](/api-reference/types/walletnftcollectionassetsinput)
+### Fields
 
-## Fields
+<ResponseField name="walletAddress" type="String!" required>
+  The address of the wallet.
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `walletAddress` → [String!](/api-reference/types/string) | The address of the wallet. |
-| `collectionId` → [String!](/api-reference/types/string) | The collection ID (`collectionAddress:networkId`). |
-| `cursor` → String | A cursor for use in pagination. |
+<ResponseField name="collectionId" type="String!" required>
+  The collection ID (`collectionAddress:networkId`).
+</ResponseField>
 
+<ResponseField name="cursor" type="String">
+  A cursor for use in pagination.
+</ResponseField>
+
+
+```graphql WalletNftCollectionAssetsInput
+input WalletNftCollectionAssetsInput {
+  """The address of the wallet."""
+  walletAddress: String!
+  """The collection ID (`collectionAddress:networkId`)."""
+  collectionId: String!
+  """A cursor for use in pagination."""
+  cursor: String
+}
+```

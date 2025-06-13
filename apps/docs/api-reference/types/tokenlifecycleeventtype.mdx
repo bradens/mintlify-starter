@@ -3,12 +3,21 @@ title: "TokenLifecycleEventType"
 description: "Event types for a token. Mint or Burn."
 ---
 
-**Type:** [TokenLifecycleEventType](/api-reference/types/tokenlifecycleeventtype)
+### Values
 
-## Values
+<ResponseField name="MINT" type="enum">
+  No description provided
+</ResponseField>
 
-| Value | Description |
-|-------|-------------|
-| `MINT` | No description provided |
-| `BURN` | No description provided |
+<ResponseField name="BURN" type="enum">
+  No description provided
+</ResponseField>
 
+
+```graphql TokenLifecycleEventType
+"""Event types for a token. Mint or Burn."""
+enum TokenLifecycleEventType {
+  MINT
+  BURN
+}
+```

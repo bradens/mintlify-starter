@@ -7,13 +7,25 @@ description: "Returns a user&#39;s list of webhooks."
 
 **Returns:** [GetWebhooksResponse](/api-reference/types/getwebhooksresponse)
 
-## Arguments for getWebhooks
+### Arguments
 
-| Name | Description |
-|------|-------------|
-| `cursor` (String) | The cursor to use for pagination. |
-| `webhookId` (String) | webhookId: The id of the webhook you want to retrieve. |
-| `bucketId` (String) | bucketId: The bucketId of the webhooks you want to retrieve. Note that bucketId and webhookId are mutually exclusive, do not send both. |
-| `bucketSortkey` (String) | bucketSortkey: The bucketSortkey of the webhooks you want to retrieve. |
-| `limit` (Int) | limit: The maximum number of webhooks to return. |
+<ResponseField name="cursor" type="String">
+  The cursor to use for pagination.
+</ResponseField>
+
+<ResponseField name="webhookId" type="String">
+  webhookId: The id of the webhook you want to retrieve.
+</ResponseField>
+
+<ResponseField name="bucketId" type="String">
+  bucketId: The bucketId of the webhooks you want to retrieve. Note that bucketId and webhookId are mutually exclusive, do not send both.
+</ResponseField>
+
+<ResponseField name="bucketSortkey" type="String">
+  bucketSortkey: The bucketSortkey of the webhooks you want to retrieve.
+</ResponseField>
+
+<ResponseField name="limit" type="Int">
+  limit: The maximum number of webhooks to return.
+</ResponseField>
 

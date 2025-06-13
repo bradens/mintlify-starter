@@ -3,9 +3,7 @@ title: "NftPoolEventData"
 description: "Event-specific data for an NFT pool transaction."
 ---
 
-**Type:** [NftPoolEventData](/api-reference/types/nftpooleventdata)
-
-## Union Types
+### Union Types
 
 This union can be one of the following types:
 
@@ -30,3 +28,8 @@ This union can be one of the following types:
 - [NftPoolSpotPriceUpdateEventDataV2](/api-reference/types/nftpoolspotpriceupdateeventdatav2)
 - [NftPoolOwnershipTransferredEventDataV2](/api-reference/types/nftpoolownershiptransferredeventdatav2)
 
+
+```graphql NftPoolEventData
+"""Event-specific data for an NFT pool transaction."""
+union NftPoolEventData = NewPoolEventData | SwapNftOutPoolEventData | SwapNftInPoolEventData | NftPoolNftDepositEventData | NftPoolNftWithdrawalEventData | NftPoolTokenDepositEventData | NftPoolTokenWithdrawalEventData | NftPoolSpotPriceUpdateEventData | NftPoolDeltaUpdateEventData | NftPoolFeeUpdateEventData | NftPoolAssetRecipientUpdateEventData | NewPoolEventDataV2 | SwapNftOutPoolEventDataV2 | SwapNftInPoolEventDataV2 | NftPoolNftDepositEventDataV2 | NftPoolNftWithdrawalEventDataV2 | NftPoolTokenDepositEventDataV2 | NftPoolTokenWithdrawalEventDataV2 | NftPoolSpotPriceUpdateEventDataV2 | NftPoolOwnershipTransferredEventDataV2
+```

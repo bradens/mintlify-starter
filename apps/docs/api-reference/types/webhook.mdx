@@ -3,23 +3,99 @@ title: "Webhook"
 description: "Metadata for a webhook."
 ---
 
-**Type:** [Webhook](/api-reference/types/webhook)
+### Fields
 
-## Fields
+<ResponseField name="id" type="String!" required>
+  The ID of the webhook.
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `id` → [String!](/api-reference/types/string) | The ID of the webhook. |
-| `webhookType` → [WebhookType!](/api-reference/types/webhooktype) | The type of webhook. Can be `PRICE_EVENT`, `NFT_EVENT`, or `TOKEN_PAIR_EVENT`. |
-| `name` → [String!](/api-reference/types/string) | The given name of the webhook. |
-| `created` → [Int!](/api-reference/types/int) | The unix timestamp for the time the webhook was created. |
-| `alertRecurrence` → [AlertRecurrence!](/api-reference/types/alertrecurrence) | The recurrence of the webhook. Can be `INDEFINITE` or `ONCE`. |
-| `callbackUrl` → [String!](/api-reference/types/string) | The url to which the webhook message should be sent. |
-| `status` → [String!](/api-reference/types/string) | The status of the webhook. Can be `ACTIVE` or `INACTIVE`. |
-| `groupId` → String | The webhook group ID used to group webhooks together for ordered message sending. |
-| `conditions` → [WebhookCondition!](/api-reference/types/webhookcondition) | The conditions which must be met in order for the webhook to send a message. |
-| `retrySettings` → [RetrySettings](/api-reference/types/retrysettings) | The settings for retrying failed webhook messages. |
-| `bucketId` → String | An optional bucket ID (max 64 characters). Can be used to query for subgroups of webhooks (useful if you have a large number of webhooks). |
-| `bucketSortkey` → String | An optional bucket sort key (max 64 characters). Can be used to query for subgroups of webhooks (useful if you have a large number of webhooks). |
-| `publishingType` → [PublishingType](/api-reference/types/publishingtype) | The type of publishing for the webhook. If not set, it defaults to `SINGLE`. |
+<a href="/api-reference/types/webhooktype">
+  <ResponseField name="webhookType" type="WebhookType!" required>
+    The type of webhook. Can be `PRICE_EVENT`, `NFT_EVENT`, or `TOKEN_PAIR_EVENT`.
+  </ResponseField>
+</a>
 
+<ResponseField name="name" type="String!" required>
+  The given name of the webhook.
+</ResponseField>
+
+<ResponseField name="created" type="Int!" required>
+  The unix timestamp for the time the webhook was created.
+</ResponseField>
+
+<a href="/api-reference/types/alertrecurrence">
+  <ResponseField name="alertRecurrence" type="AlertRecurrence!" required>
+    The recurrence of the webhook. Can be `INDEFINITE` or `ONCE`.
+  </ResponseField>
+</a>
+
+<ResponseField name="callbackUrl" type="String!" required>
+  The url to which the webhook message should be sent.
+</ResponseField>
+
+<ResponseField name="status" type="String!" required>
+  The status of the webhook. Can be `ACTIVE` or `INACTIVE`.
+</ResponseField>
+
+<ResponseField name="groupId" type="String">
+  The webhook group ID used to group webhooks together for ordered message sending.
+</ResponseField>
+
+<a href="/api-reference/types/webhookcondition">
+  <ResponseField name="conditions" type="WebhookCondition!" required>
+    The conditions which must be met in order for the webhook to send a message.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/retrysettings">
+  <ResponseField name="retrySettings" type="RetrySettings">
+    The settings for retrying failed webhook messages.
+  </ResponseField>
+</a>
+
+<ResponseField name="bucketId" type="String">
+  An optional bucket ID (max 64 characters). Can be used to query for subgroups of webhooks (useful if you have a large number of webhooks).
+</ResponseField>
+
+<ResponseField name="bucketSortkey" type="String">
+  An optional bucket sort key (max 64 characters). Can be used to query for subgroups of webhooks (useful if you have a large number of webhooks).
+</ResponseField>
+
+<a href="/api-reference/types/publishingtype">
+  <ResponseField name="publishingType" type="PublishingType">
+    The type of publishing for the webhook. If not set, it defaults to `SINGLE`.
+  </ResponseField>
+</a>
+
+
+```graphql Webhook
+"""Metadata for a webhook."""
+type Webhook {
+  """The ID of the webhook."""
+  id: String!
+  """The type of webhook. Can be `PRICE_EVENT`, `NFT_EVENT`, or `TOKEN_PAIR_EVENT`."""
+  webhookType: WebhookType!
+  """The given name of the webhook."""
+  name: String!
+  """The unix timestamp for the time the webhook was created."""
+  created: Int!
+  """The recurrence of the webhook. Can be `INDEFINITE` or `ONCE`."""
+  alertRecurrence: AlertRecurrence!
+  """The url to which the webhook message should be sent."""
+  callbackUrl: String!
+  """The status of the webhook. Can be `ACTIVE` or `INACTIVE`."""
+  status: String!
+  """The webhook group ID used to group webhooks together for ordered message sending."""
+  groupId: String
+  """The conditions which must be met in order for the webhook to send a message."""
+  conditions: WebhookCondition!
+  """The settings for retrying failed webhook messages."""
+  retrySettings: RetrySettings
+  """An optional bucket ID (max 64 characters). Can be used to query for subgroups of webhooks (useful if you have a large number of webhooks)."""
+  bucketId: String
+  """An optional bucket sort key (max 64 characters). Can be used to query for subgroups of webhooks (useful if you have a large number of webhooks)."""
+  bucketSortkey: String
+  """The type of publishing for the webhook. If not set, it defaults to `SINGLE`."""
+  publishingType: PublishingType
+}
+```

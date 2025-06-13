@@ -3,12 +3,21 @@ title: "ContractLabelType"
 description: "The contract label type."
 ---
 
-**Type:** [ContractLabelType](/api-reference/types/contractlabeltype)
+### Values
 
-## Values
+<ResponseField name="Scam" type="enum">
+  No description provided
+</ResponseField>
 
-| Value | Description |
-|-------|-------------|
-| `Scam` | No description provided |
-| `Verified` | No description provided |
+<ResponseField name="Verified" type="enum">
+  No description provided
+</ResponseField>
 
+
+```graphql ContractLabelType
+"""The contract label type."""
+enum ContractLabelType {
+  Scam
+  Verified
+}
+```

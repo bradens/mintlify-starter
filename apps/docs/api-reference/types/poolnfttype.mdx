@@ -3,14 +3,31 @@ title: "PoolNftType"
 description: "The type of NFT in the pool."
 ---
 
-**Type:** [PoolNftType](/api-reference/types/poolnfttype)
+### Values
 
-## Values
+<ResponseField name="ERC721ETH" type="enum">
+  No description provided
+</ResponseField>
 
-| Value | Description |
-|-------|-------------|
-| `ERC721ETH` | No description provided |
-| `ERC721ERC20` | No description provided |
-| `ERC1155ETH` | No description provided |
-| `ERC1155ERC20` | No description provided |
+<ResponseField name="ERC721ERC20" type="enum">
+  No description provided
+</ResponseField>
 
+<ResponseField name="ERC1155ETH" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="ERC1155ERC20" type="enum">
+  No description provided
+</ResponseField>
+
+
+```graphql PoolNftType
+"""The type of NFT in the pool."""
+enum PoolNftType {
+  ERC721ETH
+  ERC721ERC20
+  ERC1155ETH
+  ERC1155ERC20
+}
+```

@@ -3,12 +3,23 @@ title: "NftPoolRoyalty"
 description: "The royalty for a SUDOSWAP_V2 pool."
 ---
 
-**Type:** [NftPoolRoyalty](/api-reference/types/nftpoolroyalty)
+### Fields
 
-## Fields
+<ResponseField name="recipient" type="String">
+  The wallet address of recipient.
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `recipient` → String | The wallet address of recipient. |
-| `percent` → String | The royalty percent. |
+<ResponseField name="percent" type="String">
+  The royalty percent.
+</ResponseField>
 
+
+```graphql NftPoolRoyalty
+"""The royalty for a SUDOSWAP_V2 pool."""
+type NftPoolRoyalty {
+  """The wallet address of recipient."""
+  recipient: String
+  """The royalty percent."""
+  percent: String
+}
+```

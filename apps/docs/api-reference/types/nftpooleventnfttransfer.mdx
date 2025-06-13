@@ -3,12 +3,23 @@ title: "NftPoolEventNftTransfer"
 description: "Metadata for an NFT transfer."
 ---
 
-**Type:** [NftPoolEventNftTransfer](/api-reference/types/nftpooleventnfttransfer)
+### Fields
 
-## Fields
+<ResponseField name="nftTokenId" type="String!" required>
+  The NFT token ID involved in the transfer.
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `nftTokenId` → [String!](/api-reference/types/string) | The NFT token ID involved in the transfer. |
-| `amountT` → [String!](/api-reference/types/string) | The value of the NFT at the time of transfer. |
+<ResponseField name="amountT" type="String!" required>
+  The value of the NFT at the time of transfer.
+</ResponseField>
 
+
+```graphql NftPoolEventNftTransfer
+"""Metadata for an NFT transfer."""
+type NftPoolEventNftTransfer {
+  """The NFT token ID involved in the transfer."""
+  nftTokenId: String!
+  """The value of the NFT at the time of transfer."""
+  amountT: String!
+}
+```

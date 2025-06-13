@@ -3,19 +3,55 @@ title: "GetQuoteInput"
 description: "InputObject type"
 ---
 
-**Type:** [GetQuoteInput](/api-reference/types/getquoteinput)
+### Fields
 
-## Fields
+<ResponseField name="inputTokenAddress" type="String!" required>
+  No description provided
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `inputTokenAddress` → [String!](/api-reference/types/string) | No description provided |
-| `inputTokenAmount` → [String!](/api-reference/types/string) | No description provided |
-| `networkId` → [Int!](/api-reference/types/int) | No description provided |
-| `outputTokenAddress` → [String!](/api-reference/types/string) | No description provided |
-| `poolAddress` → [String!](/api-reference/types/string) | No description provided |
-| `exchangeAddress` → [String!](/api-reference/types/string) | No description provided |
-| `userId` → Int | No description provided |
-| `customGas` → String | No description provided |
-| `slippage` → Float | No description provided |
+<ResponseField name="inputTokenAmount" type="String!" required>
+  No description provided
+</ResponseField>
 
+<ResponseField name="networkId" type="Int!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="outputTokenAddress" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="poolAddress" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="exchangeAddress" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="userId" type="Int">
+  No description provided
+</ResponseField>
+
+<ResponseField name="customGas" type="String">
+  No description provided
+</ResponseField>
+
+<ResponseField name="slippage" type="Float">
+  No description provided
+</ResponseField>
+
+
+```graphql GetQuoteInput
+input GetQuoteInput {
+  inputTokenAddress: String!
+  inputTokenAmount: String!
+  networkId: Int!
+  outputTokenAddress: String!
+  poolAddress: String!
+  exchangeAddress: String!
+  userId: Int
+  customGas: String
+  slippage: Float
+}
+```

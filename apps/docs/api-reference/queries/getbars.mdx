@@ -7,19 +7,55 @@ description: "Returns bar chart data to track price changes over time."
 
 **Returns:** [BarsResponse](/api-reference/types/barsresponse)
 
-## Arguments for getBars
+### Arguments
 
-| Name | Description |
-|------|-------------|
-| `symbol` ([String!](/api-reference/types/string)) | The ID of the pair or token (`pairAddress:networkId` or `tokenAddress:networkId`). If a token contract address is provided, the token&#39;s top pair is used. For example, `0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2:1` returns WETH&#39;s top pair on Ethereum. |
-| `from` ([Int!](/api-reference/types/int)) | The unix timestamp for the start of the requested range. |
-| `to` ([Int!](/api-reference/types/int)) | The unix timestamp for the end of the requested range. |
-| `resolution` ([String!](/api-reference/types/string)) | The time frame for each candle. Available options are `1S`, `5S`, `15S`, `30S`, `1`, `5`, `15`, `30`, `60`, `240`, `720`, `1D`, `7D`. |
-| `currencyCode` (String) | The currency to use for the response. Can be `USD` (default) or `TOKEN`. |
-| `removeLeadingNullValues` (Boolean) | Whether to remove leading null values from the response. To fetch a token&#39;s entire history, set resolution to `1D`, `from` value to `0` and `removeLeadingNullValues` to `true`. Default is `false`. |
-| `removeEmptyBars` (Boolean) | Whether to remove empty bars from the response. Default is `false`. |
-| `quoteToken` ([QuoteToken](/api-reference/types/quotetoken)) | The token of interest within the token&#39;s top pair. Can be `token0` or `token1`. |
-| `statsType` ([TokenPairStatisticsType](/api-reference/types/tokenpairstatisticstype)) | The type of statistics returned. Can be `FILTERED` or `UNFILTERED` |
-| `countback` (Int) | guarantees number of bars returned is at most this number |
-| `symbolType` ([SymbolType](/api-reference/types/symboltype)) | specify the type of symbol you want to fetch values for (TOKEN | POOL) |
+<ResponseField name="symbol" type="String!" required>
+  The ID of the pair or token (`pairAddress:networkId` or `tokenAddress:networkId`). If a token contract address is provided, the token&#39;s top pair is used. For example, `0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2:1` returns WETH&#39;s top pair on Ethereum.
+</ResponseField>
+
+<ResponseField name="from" type="Int!" required>
+  The unix timestamp for the start of the requested range.
+</ResponseField>
+
+<ResponseField name="to" type="Int!" required>
+  The unix timestamp for the end of the requested range.
+</ResponseField>
+
+<ResponseField name="resolution" type="String!" required>
+  The time frame for each candle. Available options are `1S`, `5S`, `15S`, `30S`, `1`, `5`, `15`, `30`, `60`, `240`, `720`, `1D`, `7D`.
+</ResponseField>
+
+<ResponseField name="currencyCode" type="String">
+  The currency to use for the response. Can be `USD` (default) or `TOKEN`.
+</ResponseField>
+
+<ResponseField name="removeLeadingNullValues" type="Boolean">
+  Whether to remove leading null values from the response. To fetch a token&#39;s entire history, set resolution to `1D`, `from` value to `0` and `removeLeadingNullValues` to `true`. Default is `false`.
+</ResponseField>
+
+<ResponseField name="removeEmptyBars" type="Boolean">
+  Whether to remove empty bars from the response. Default is `false`.
+</ResponseField>
+
+<a href="/api-reference/types/quotetoken">
+  <ResponseField name="quoteToken" type="QuoteToken">
+    The token of interest within the token&#39;s top pair. Can be `token0` or `token1`.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/tokenpairstatisticstype">
+  <ResponseField name="statsType" type="TokenPairStatisticsType">
+    The type of statistics returned. Can be `FILTERED` or `UNFILTERED`
+  </ResponseField>
+</a>
+
+<ResponseField name="countback" type="Int">
+  guarantees number of bars returned is at most this number
+</ResponseField>
+
+<a href="/api-reference/types/symboltype">
+  <ResponseField name="symbolType" type="SymbolType">
+    specify the type of symbol you want to fetch values for (TOKEN | POOL)
+  </ResponseField>
+</a>
 

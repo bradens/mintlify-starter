@@ -3,12 +3,23 @@ title: "AddTokenLifecycleEventsOutput"
 description: "Response returned by `onTokenLifecycleEventsCreated`."
 ---
 
-**Type:** [AddTokenLifecycleEventsOutput](/api-reference/types/addtokenlifecycleeventsoutput)
+### Fields
 
-## Fields
+<ResponseField name="id" type="String!" required>
+  No description provided
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `id` → [String!](/api-reference/types/string) | No description provided |
-| `events` → [[TokenLifecycleEvent!]!](/api-reference/types/tokenlifecycleevent) | No description provided |
+<a href="/api-reference/types/tokenlifecycleevent">
+  <ResponseField name="events" type="[TokenLifecycleEvent!]!" required>
+    No description provided
+  </ResponseField>
+</a>
 
+
+```graphql AddTokenLifecycleEventsOutput
+"""Response returned by `onTokenLifecycleEventsCreated`."""
+type AddTokenLifecycleEventsOutput {
+  id: String!
+  events: [TokenLifecycleEvent!]!
+}
+```

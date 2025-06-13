@@ -3,13 +3,33 @@ title: "ContractLabel"
 description: "Metadata for a contract label."
 ---
 
-**Type:** [ContractLabel](/api-reference/types/contractlabel)
+### Fields
 
-## Fields
+<ResponseField name="createdAt" type="Int!" required>
+  The unix timestamp for when the contract label was created.
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `createdAt` → [Int!](/api-reference/types/int) | The unix timestamp for when the contract label was created. |
-| `subType` → [ContractLabelSubType!](/api-reference/types/contractlabelsubtype) | The contract label sub-type. Can be `Generic`, `HighTax`, `HoneyPot` or `Imitator`. |
-| `type` → [ContractLabelType!](/api-reference/types/contractlabeltype) | The contract label type. Can be `Scam`. |
+<a href="/api-reference/types/contractlabelsubtype">
+  <ResponseField name="subType" type="ContractLabelSubType!" required>
+    The contract label sub-type. Can be `Generic`, `HighTax`, `HoneyPot` or `Imitator`.
+  </ResponseField>
+</a>
 
+<a href="/api-reference/types/contractlabeltype">
+  <ResponseField name="type" type="ContractLabelType!" required>
+    The contract label type. Can be `Scam`.
+  </ResponseField>
+</a>
+
+
+```graphql ContractLabel
+"""Metadata for a contract label."""
+type ContractLabel {
+  """The unix timestamp for when the contract label was created."""
+  createdAt: Int!
+  """The contract label sub-type. Can be `Generic`, `HighTax`, `HoneyPot` or `Imitator`."""
+  subType: ContractLabelSubType!
+  """The contract label type. Can be `Scam`."""
+  type: ContractLabelType!
+}
+```

@@ -3,23 +3,93 @@ title: "PrimePool"
 description: "An Echelon Prime Pool."
 ---
 
-**Type:** [PrimePool](/api-reference/types/primepool)
+### Fields
 
-## Fields
+<ResponseField name="id" type="String">
+  The ID of the contract-level Prime Pool (poolContractAddress:networkId). For example, `0x89bb49d06610b4b18e355504551809be5177f3d0:1`.
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `id` → String | The ID of the contract-level Prime Pool (poolContractAddress:networkId). For example, `0x89bb49d06610b4b18e355504551809be5177f3d0:1`. |
-| `poolContractAddress` → String | The contract address for the Prime Pool. |
-| `networkId` → Int | The network ID the Prime Pool is deployed on. |
-| `poolId` → String | The ID of the pool within the contract. |
-| `calcData` → [PrimePoolCalcData](/api-reference/types/primepoolcalcdata) | Values calculated by Defined using on-chain data. |
-| `chainData` → [PrimePoolChainData](/api-reference/types/primepoolchaindata) | Values obtained directly from the chain. |
-| `createdAt` → Int | When the pool was created by Defined. |
-| `discoveryBlockNumber` → Int | The block number for when Defined discovered this pool. |
-| `discoveryTransactionHash` → String | The transaction hash of when Defined discovered this pool. |
-| `nftContractAddress` → String | The contract address for the tokens cached ib the pool. |
-| `poolType` → String | The type of pool for this Prime Pool. |
-| `tokenIds` → [[String]](/api-reference/types/string) | The Parallel tokenIds required to cache in the pool. |
-| `totalSupply` → String | The # of cached sets in the pool. |
+<ResponseField name="poolContractAddress" type="String">
+  The contract address for the Prime Pool.
+</ResponseField>
 
+<ResponseField name="networkId" type="Int">
+  The network ID the Prime Pool is deployed on.
+</ResponseField>
+
+<ResponseField name="poolId" type="String">
+  The ID of the pool within the contract.
+</ResponseField>
+
+<a href="/api-reference/types/primepoolcalcdata">
+  <ResponseField name="calcData" type="PrimePoolCalcData">
+    Values calculated by Defined using on-chain data.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/primepoolchaindata">
+  <ResponseField name="chainData" type="PrimePoolChainData">
+    Values obtained directly from the chain.
+  </ResponseField>
+</a>
+
+<ResponseField name="createdAt" type="Int">
+  When the pool was created by Defined.
+</ResponseField>
+
+<ResponseField name="discoveryBlockNumber" type="Int">
+  The block number for when Defined discovered this pool.
+</ResponseField>
+
+<ResponseField name="discoveryTransactionHash" type="String">
+  The transaction hash of when Defined discovered this pool.
+</ResponseField>
+
+<ResponseField name="nftContractAddress" type="String">
+  The contract address for the tokens cached ib the pool.
+</ResponseField>
+
+<ResponseField name="poolType" type="String">
+  The type of pool for this Prime Pool.
+</ResponseField>
+
+<ResponseField name="tokenIds" type="[String]">
+  The Parallel tokenIds required to cache in the pool.
+</ResponseField>
+
+<ResponseField name="totalSupply" type="String">
+  The # of cached sets in the pool.
+</ResponseField>
+
+
+```graphql PrimePool
+"""An Echelon Prime Pool."""
+type PrimePool {
+  """The ID of the contract-level Prime Pool (poolContractAddress:networkId). For example, `0x89bb49d06610b4b18e355504551809be5177f3d0:1`."""
+  id: String
+  """The contract address for the Prime Pool."""
+  poolContractAddress: String
+  """The network ID the Prime Pool is deployed on."""
+  networkId: Int
+  """The ID of the pool within the contract."""
+  poolId: String
+  """Values calculated by Defined using on-chain data."""
+  calcData: PrimePoolCalcData
+  """Values obtained directly from the chain."""
+  chainData: PrimePoolChainData
+  """When the pool was created by Defined."""
+  createdAt: Int
+  """The block number for when Defined discovered this pool."""
+  discoveryBlockNumber: Int
+  """The transaction hash of when Defined discovered this pool."""
+  discoveryTransactionHash: String
+  """The contract address for the tokens cached ib the pool."""
+  nftContractAddress: String
+  """The type of pool for this Prime Pool."""
+  poolType: String
+  """The Parallel tokenIds required to cache in the pool."""
+  tokenIds: [String]
+  """The # of cached sets in the pool."""
+  totalSupply: String
+}
+```

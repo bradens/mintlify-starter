@@ -3,11 +3,19 @@ title: "ListPairsForTokenResponse"
 description: "Response returned by `listPairsWithMetadataForToken`."
 ---
 
-**Type:** [ListPairsForTokenResponse](/api-reference/types/listpairsfortokenresponse)
+### Fields
 
-## Fields
+<a href="/api-reference/types/listpairsfortokenvalue">
+  <ResponseField name="results" type="[ListPairsForTokenValue!]!" required>
+    A list of pairs containing a given token.
+  </ResponseField>
+</a>
 
-| Name | Description |
-|------|-------------|
-| `results` → [[ListPairsForTokenValue!]!](/api-reference/types/listpairsfortokenvalue) | A list of pairs containing a given token. |
 
+```graphql ListPairsForTokenResponse
+"""Response returned by `listPairsWithMetadataForToken`."""
+type ListPairsForTokenResponse {
+  """A list of pairs containing a given token."""
+  results: [ListPairsForTokenValue!]!
+}
+```

@@ -3,22 +3,97 @@ title: "FilterTokenWalletsInput"
 description: "The input for filtering wallets for a token."
 ---
 
-**Type:** [FilterTokenWalletsInput](/api-reference/types/filtertokenwalletsinput)
+### Fields
 
-## Fields
+<ResponseField name="tokenId" type="String">
+  The ID of the token to filter wallets for
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `tokenId` → String | The ID of the token to filter wallets for |
-| `walletAddress` → String | The wallet address to filter wallets for |
-| `wallets` → [[String]](/api-reference/types/string) | A list of wallet addresses to filter wallets for |
-| `networkId` → Int | The network ID to filter wallets for |
-| `filters` → [WalletTokenFilters](/api-reference/types/wallettokenfilters) | A set of filters to apply |
-| `filtersV2` → [WalletTokenFiltersV2](/api-reference/types/wallettokenfiltersv2) | A set of filters to apply |
-| `phrase` → String | A phrase to search for in token symbol and name |
-| `rankings` → [[WalletTokenRanking]](/api-reference/types/wallettokenranking) | A list of ranking attributes to apply |
-| `excludeLabels` → [[String]](/api-reference/types/string) | Exclude wallets with these labels. |
-| `includeLabels` → [[String]](/api-reference/types/string) | Include wallets with these labels. |
-| `limit` → Int | The maximum number of wallets to return |
-| `offset` → Int | Where in the list the server should start when returning items |
+<ResponseField name="walletAddress" type="String">
+  The wallet address to filter wallets for
+    
+    <Warning>
+      This field is deprecated. Use wallets instead
+    </Warning>
+</ResponseField>
 
+<ResponseField name="wallets" type="[String]">
+  A list of wallet addresses to filter wallets for
+</ResponseField>
+
+<ResponseField name="networkId" type="Int">
+  The network ID to filter wallets for
+</ResponseField>
+
+<a href="/api-reference/types/wallettokenfilters">
+  <ResponseField name="filters" type="WalletTokenFilters">
+    A set of filters to apply
+    
+    <Warning>
+      This field is deprecated. Use filtersV2 instead
+    </Warning>
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/wallettokenfiltersv2">
+  <ResponseField name="filtersV2" type="WalletTokenFiltersV2">
+    A set of filters to apply
+  </ResponseField>
+</a>
+
+<ResponseField name="phrase" type="String">
+  A phrase to search for in token symbol and name
+</ResponseField>
+
+<a href="/api-reference/types/wallettokenranking">
+  <ResponseField name="rankings" type="[WalletTokenRanking]">
+    A list of ranking attributes to apply
+  </ResponseField>
+</a>
+
+<ResponseField name="excludeLabels" type="[String]">
+  Exclude wallets with these labels.
+</ResponseField>
+
+<ResponseField name="includeLabels" type="[String]">
+  Include wallets with these labels.
+</ResponseField>
+
+<ResponseField name="limit" type="Int">
+  The maximum number of wallets to return
+</ResponseField>
+
+<ResponseField name="offset" type="Int">
+  Where in the list the server should start when returning items
+</ResponseField>
+
+
+```graphql FilterTokenWalletsInput
+"""The input for filtering wallets for a token."""
+input FilterTokenWalletsInput {
+  """The ID of the token to filter wallets for"""
+  tokenId: String
+  """The wallet address to filter wallets for"""
+  walletAddress: String @deprecated(reason: "Use wallets instead")
+  """A list of wallet addresses to filter wallets for"""
+  wallets: [String]
+  """The network ID to filter wallets for"""
+  networkId: Int
+  """A set of filters to apply"""
+  filters: WalletTokenFilters @deprecated(reason: "Use filtersV2 instead")
+  """A set of filters to apply"""
+  filtersV2: WalletTokenFiltersV2
+  """A phrase to search for in token symbol and name"""
+  phrase: String
+  """A list of ranking attributes to apply"""
+  rankings: [WalletTokenRanking]
+  """Exclude wallets with these labels."""
+  excludeLabels: [String]
+  """Include wallets with these labels."""
+  includeLabels: [String]
+  """The maximum number of wallets to return"""
+  limit: Int
+  """Where in the list the server should start when returning items"""
+  offset: Int
+}
+```

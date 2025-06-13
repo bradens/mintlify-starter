@@ -3,12 +3,20 @@ title: "SparklineValue"
 description: "Object type"
 ---
 
-**Type:** [SparklineValue](/api-reference/types/sparklinevalue)
+### Fields
 
-## Fields
+<ResponseField name="timestamp" type="Int!" required>
+  No description provided
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `timestamp` → [Int!](/api-reference/types/int) | No description provided |
-| `value` → [Float!](/api-reference/types/float) | No description provided |
+<ResponseField name="value" type="Float!" required>
+  No description provided
+</ResponseField>
 
+
+```graphql SparklineValue
+type SparklineValue {
+  timestamp: Int!
+  value: Float!
+}
+```

@@ -7,14 +7,35 @@ description: "Returns a list of Parallel assets based on a variety of filters."
 
 **Returns:** [ParallelAssetFilterConnection](/api-reference/types/parallelassetfilterconnection)
 
-## Arguments for filterNftParallelAssets
+### Arguments
 
-| Name | Description |
-|------|-------------|
-| `filters` ([ParallelAssetFilters](/api-reference/types/parallelassetfilters)) | A set of filters to apply. |
-| `phrase` (String) | A phrase to search for. Can match a Parallel asset ID (`address`:`tokenId`) or partially match a name. |
-| `match` ([ParallelAssetMatchers](/api-reference/types/parallelassetmatchers)) | A set of parameters to match. |
-| `rankings` ([[ParallelAssetRanking]](/api-reference/types/parallelassetranking)) | A list of ranking attributes to apply. |
-| `limit` (Int) | The maximum number of Parallel assets to return. |
-| `offset` (Int) | Where in the list the server should start when returning items. Use `count`+`offset` from the previous query to request the next page of results. |
+<a href="/api-reference/types/parallelassetfilters">
+  <ResponseField name="filters" type="ParallelAssetFilters">
+    A set of filters to apply.
+  </ResponseField>
+</a>
+
+<ResponseField name="phrase" type="String">
+  A phrase to search for. Can match a Parallel asset ID (`address`:`tokenId`) or partially match a name.
+</ResponseField>
+
+<a href="/api-reference/types/parallelassetmatchers">
+  <ResponseField name="match" type="ParallelAssetMatchers">
+    A set of parameters to match.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/parallelassetranking">
+  <ResponseField name="rankings" type="[ParallelAssetRanking]">
+    A list of ranking attributes to apply.
+  </ResponseField>
+</a>
+
+<ResponseField name="limit" type="Int">
+  The maximum number of Parallel assets to return.
+</ResponseField>
+
+<ResponseField name="offset" type="Int">
+  Where in the list the server should start when returning items. Use `count`+`offset` from the previous query to request the next page of results.
+</ResponseField>
 

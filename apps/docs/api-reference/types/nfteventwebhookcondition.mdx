@@ -3,20 +3,89 @@ title: "NftEventWebhookCondition"
 description: "Webhook conditions for an NFT event."
 ---
 
-**Type:** [NftEventWebhookCondition](/api-reference/types/nfteventwebhookcondition)
+### Fields
 
-## Fields
+<a href="/api-reference/types/oneofnumbercondition">
+  <ResponseField name="networkId" type="OneOfNumberCondition">
+    The list of network IDs the webhook is listening on.
+  </ResponseField>
+</a>
 
-| Name | Description |
-|------|-------------|
-| `networkId` → [OneOfNumberCondition](/api-reference/types/oneofnumbercondition) | The list of network IDs the webhook is listening on. |
-| `maker` → [StringEqualsCondition](/api-reference/types/stringequalscondition) | The maker wallet address the webhook is listening for. |
-| `contractAddress` → [StringEqualsCondition](/api-reference/types/stringequalscondition) | The NFT collection contract address the webhook is listening for. |
-| `exchangeAddress` → [StringEqualsCondition](/api-reference/types/stringequalscondition) | The exchange contract address the webhook is listening for. |
-| `tokenId` → [StringEqualsCondition](/api-reference/types/stringequalscondition) | The token ID the webhook is listening for. |
-| `tokenAddress` → [StringEqualsCondition](/api-reference/types/stringequalscondition) | The token contract address the webhook is listening for. |
-| `individualBaseTokenPrice` → [ComparisonOperator](/api-reference/types/comparisonoperator) | The base token price the webhook is listening for. |
-| `eventType` → [NftEventTypeCondition](/api-reference/types/nfteventtypecondition) | The NFT event type the webhook is listening for. |
-| `fillSource` → [NftEventFillSourceCondition](/api-reference/types/nfteventfillsourcecondition) | The NFT marketplaces the webhook is listening on. |
-| `ignoreTransfers` → Boolean | Option to ignore all nft transfer events |
+<a href="/api-reference/types/stringequalscondition">
+  <ResponseField name="maker" type="StringEqualsCondition">
+    The maker wallet address the webhook is listening for.
+  </ResponseField>
+</a>
 
+<a href="/api-reference/types/stringequalscondition">
+  <ResponseField name="contractAddress" type="StringEqualsCondition">
+    The NFT collection contract address the webhook is listening for.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/stringequalscondition">
+  <ResponseField name="exchangeAddress" type="StringEqualsCondition">
+    The exchange contract address the webhook is listening for.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/stringequalscondition">
+  <ResponseField name="tokenId" type="StringEqualsCondition">
+    The token ID the webhook is listening for.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/stringequalscondition">
+  <ResponseField name="tokenAddress" type="StringEqualsCondition">
+    The token contract address the webhook is listening for.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/comparisonoperator">
+  <ResponseField name="individualBaseTokenPrice" type="ComparisonOperator">
+    The base token price the webhook is listening for.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/nfteventtypecondition">
+  <ResponseField name="eventType" type="NftEventTypeCondition">
+    The NFT event type the webhook is listening for.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/nfteventfillsourcecondition">
+  <ResponseField name="fillSource" type="NftEventFillSourceCondition">
+    The NFT marketplaces the webhook is listening on.
+  </ResponseField>
+</a>
+
+<ResponseField name="ignoreTransfers" type="Boolean">
+  Option to ignore all nft transfer events
+</ResponseField>
+
+
+```graphql NftEventWebhookCondition
+"""Webhook conditions for an NFT event."""
+type NftEventWebhookCondition {
+  """The list of network IDs the webhook is listening on."""
+  networkId: OneOfNumberCondition
+  """The maker wallet address the webhook is listening for."""
+  maker: StringEqualsCondition
+  """The NFT collection contract address the webhook is listening for."""
+  contractAddress: StringEqualsCondition
+  """The exchange contract address the webhook is listening for."""
+  exchangeAddress: StringEqualsCondition
+  """The token ID the webhook is listening for."""
+  tokenId: StringEqualsCondition
+  """The token contract address the webhook is listening for."""
+  tokenAddress: StringEqualsCondition
+  """The base token price the webhook is listening for."""
+  individualBaseTokenPrice: ComparisonOperator
+  """The NFT event type the webhook is listening for."""
+  eventType: NftEventTypeCondition
+  """The NFT marketplaces the webhook is listening on."""
+  fillSource: NftEventFillSourceCondition
+  """Option to ignore all nft transfer events"""
+  ignoreTransfers: Boolean
+}
+```

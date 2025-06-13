@@ -7,11 +7,17 @@ description: "Live-streamed price updates for a token."
 
 **Returns:** [Price](/api-reference/types/price)
 
-## Arguments for onPriceUpdated
+### Arguments
 
-| Name | Description |
-|------|-------------|
-| `address` (String) | The token contract address. |
-| `networkId` (Int) | The network ID the token is deployed on. |
-| `sourcePairAddress` (String) | The pair contract address from which to get pricing |
+<ResponseField name="address" type="String">
+  The token contract address.
+</ResponseField>
+
+<ResponseField name="networkId" type="Int">
+  The network ID the token is deployed on.
+</ResponseField>
+
+<ResponseField name="sourcePairAddress" type="String">
+  The pair contract address from which to get pricing
+</ResponseField>
 

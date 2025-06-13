@@ -3,14 +3,37 @@ title: "NftPoolNftDepositEventData"
 description: "Event data for depositing an NFT into a pool."
 ---
 
-**Type:** [NftPoolNftDepositEventData](/api-reference/types/nftpoolnftdepositeventdata)
+### Fields
 
-## Fields
+<a href="/api-reference/types/nftpooleventtype">
+  <ResponseField name="type" type="NftPoolEventType!" required>
+    The type of NFT pool event, `NFT_DEPOSIT`.
+  </ResponseField>
+</a>
 
-| Name | Description |
-|------|-------------|
-| `type` → [NftPoolEventType!](/api-reference/types/nftpooleventtype) | The type of NFT pool event, `NFT_DEPOSIT`. |
-| `nftTokenIds` → [[String!]!](/api-reference/types/string) | The list of NFT token IDs deposited. |
-| `nftTokenBalance` → [String!](/api-reference/types/string) | The number of NFTs in the contract after the block has processed. |
-| `tokenBalanceT` → [String!](/api-reference/types/string) | The amount of token in the contract after the block has processed in the pool&#39;s liquidity token. |
+<ResponseField name="nftTokenIds" type="[String!]!" required>
+  The list of NFT token IDs deposited.
+</ResponseField>
 
+<ResponseField name="nftTokenBalance" type="String!" required>
+  The number of NFTs in the contract after the block has processed.
+</ResponseField>
+
+<ResponseField name="tokenBalanceT" type="String!" required>
+  The amount of token in the contract after the block has processed in the pool&#39;s liquidity token.
+</ResponseField>
+
+
+```graphql NftPoolNftDepositEventData
+"""Event data for depositing an NFT into a pool."""
+type NftPoolNftDepositEventData {
+  """The type of NFT pool event, `NFT_DEPOSIT`."""
+  type: NftPoolEventType!
+  """The list of NFT token IDs deposited."""
+  nftTokenIds: [String!]!
+  """The number of NFTs in the contract after the block has processed."""
+  nftTokenBalance: String!
+  """The amount of token in the contract after the block has processed in the pool's liquidity token."""
+  tokenBalanceT: String!
+}
+```

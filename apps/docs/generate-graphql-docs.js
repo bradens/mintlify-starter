@@ -31,6 +31,17 @@ function createSlug(name) {
 function formatType(type) {
   if (!type) return 'Unknown';
 
+  // Handle GraphQL.js NonNull types
+  if (type.constructor && type.constructor.name === 'GraphQLNonNull') {
+    return formatType(type.ofType) + '!';
+  }
+
+  // Handle GraphQL.js List types
+  if (type.constructor && type.constructor.name === 'GraphQLList') {
+    return '[' + formatType(type.ofType) + ']';
+  }
+
+  // Handle GraphQL AST types (for backward compatibility)
   if (type.kind === 'NON_NULL') {
     return formatType(type.ofType) + '!';
   }
@@ -67,6 +78,79 @@ function createTypeLink(typeName) {
   return `[${typeName}](/api-reference/types/${slug})`;
 }
 
+// Helper function to check if a field is required (non-null)
+function isFieldRequired(type) {
+  return type.toString().endsWith('!');
+}
+
+// Helper function to check if field/type is deprecated
+function isDeprecated(item) {
+  return item.isDeprecated === true || (item.deprecationReason && item.deprecationReason.trim() !== '');
+}
+
+// Helper function to get deprecation reason
+function getDeprecationReason(item) {
+  return item.deprecationReason || 'This field is deprecated.';
+}
+
+// Helper function to generate GraphQL schema definition for a type
+function generateGraphQLSchema(type) {
+  let schemaOutput = '';
+
+  if (isObjectType(type) || isInputObjectType(type) || isInterfaceType(type)) {
+    const typeKeyword = isInputObjectType(type) ? 'input' : isInterfaceType(type) ? 'interface' : 'type';
+    const description = type.description ? `"""${type.description}"""\n` : '';
+
+    schemaOutput += `${description}${typeKeyword} ${type.name} {\n`;
+
+    const fields = Object.values(type.getFields());
+    const visibleFields = fields.filter(field => !shouldHideField(field));
+
+    visibleFields.forEach(field => {
+      const fieldDescription = field.description ? `  """${field.description}"""\n` : '';
+      const deprecation = isDeprecated(field) ? ` @deprecated(reason: "${getDeprecationReason(field)}")` : '';
+
+      // Handle field arguments if any
+      let argsString = '';
+      if (field.args && field.args.length > 0) {
+        const visibleArgs = field.args.filter(arg => !shouldHideField(arg));
+        if (visibleArgs.length > 0) {
+          const argStrings = visibleArgs.map(arg => {
+            const defaultValue = arg.defaultValue !== undefined ? ` = ${JSON.stringify(arg.defaultValue)}` : '';
+            return `${arg.name}: ${formatType(arg.type)}${defaultValue}`;
+          });
+          argsString = `(${argStrings.join(', ')})`;
+        }
+      }
+
+      schemaOutput += `${fieldDescription}  ${field.name}${argsString}: ${formatType(field.type)}${deprecation}\n`;
+    });
+
+    schemaOutput += '}';
+  } else if (isEnumType(type)) {
+    const description = type.description ? `"""${type.description}"""\n` : '';
+    schemaOutput += `${description}enum ${type.name} {\n`;
+
+    const values = type.getValues().filter(value => !shouldHideField(value));
+    values.forEach(value => {
+      const valueDescription = value.description ? `  """${value.description}"""\n` : '';
+      const deprecation = isDeprecated(value) ? ` @deprecated(reason: "${getDeprecationReason(value)}")` : '';
+      schemaOutput += `${valueDescription}  ${value.name}${deprecation}\n`;
+    });
+
+    schemaOutput += '}';
+  } else if (isUnionType(type)) {
+    const description = type.description ? `"""${type.description}"""\n` : '';
+    const unionTypes = type.getTypes().map(t => t.name).join(' | ');
+    schemaOutput += `${description}union ${type.name} = ${unionTypes}`;
+  } else if (isScalarType(type)) {
+    const description = type.description ? `"""${type.description}"""\n` : '';
+    schemaOutput += `${description}scalar ${type.name}`;
+  }
+
+  return schemaOutput;
+}
+
 // Helper function to format field arguments
 function formatArgs(args) {
   if (!args || args.length === 0) return '';
@@ -92,31 +176,66 @@ title: "${operation.name}"
 description: "${description || `${operationType} operation`}"
 ---
 
-**Type:** ${operationType}
+`;
+
+  // Add deprecation warning for the operation if deprecated
+  if (isDeprecated(operation)) {
+    content += `<Warning>
+  This ${operationType.toLowerCase()} is deprecated. ${cleanDescription(getDeprecationReason(operation))}
+</Warning>
+
+`;
+  }
+
+  content += `**Type:** ${operationType}
 
 **Returns:** ${returnType}
 
 `;
 
-  // Add arguments table if there are arguments
+  // Add arguments if there are any
   if (operation.args && operation.args.length > 0) {
     const visibleArgs = operation.args.filter(arg => !shouldHideField(arg));
 
     if (visibleArgs.length > 0) {
-      content += `## Arguments for ${operation.name}\n\n`;
-      content += `| Name | Description |\n`;
-      content += `|------|-------------|\n`;
+      content += `### Arguments\n\n`;
 
       visibleArgs.forEach(arg => {
         const typeName = formatType(arg.type);
-        const typeLink = createTypeLink(typeName);
+        const required = isFieldRequired(arg.type);
         const argDescription = cleanDescription(arg.description) || 'No description provided';
-        const defaultValue = arg.defaultValue ? ` (default: ${arg.defaultValue})` : '';
 
-        content += `| \`${arg.name}\` (${typeLink})${defaultValue} | ${argDescription} |\n`;
+        // Check if we need to link to another type
+        const cleanTypeName = typeName.replace(/[!\[\]]/g, '');
+        const builtInTypes = ['String', 'Int', 'Float', 'Boolean', 'ID'];
+        const shouldLink = !builtInTypes.includes(cleanTypeName);
+
+        if (shouldLink) {
+          const slug = createSlug(cleanTypeName);
+          content += `<a href="/api-reference/types/${slug}">
+  <ResponseField name="${arg.name}" type="${typeName}"${required ? ' required' : ''}>
+    ${argDescription}`;
+        } else {
+          content += `<ResponseField name="${arg.name}" type="${typeName}"${required ? ' required' : ''}>
+  ${argDescription}`;
+        }
+
+        // Add deprecation warning for the argument if deprecated
+        if (isDeprecated(arg)) {
+          content += `\n    \n    <Warning>\n      This argument is deprecated. ${cleanDescription(getDeprecationReason(arg))}\n    </Warning>`;
+        }
+
+        if (shouldLink) {
+          content += `\n  </ResponseField>
+</a>
+
+`;
+        } else {
+          content += `\n</ResponseField>
+
+`;
+        }
       });
-
-      content += `\n`;
     }
   }
 
@@ -133,65 +252,97 @@ title: "${type.name}"
 description: "${description || `${typeKind} type`}"
 ---
 
-**Type:** ${createTypeLink(type.name)}
+`;
+
+  // Add deprecation warning for the type itself if deprecated
+  if (isDeprecated(type)) {
+    content += `<Warning>
+  This type is deprecated. ${cleanDescription(getDeprecationReason(type))}
+</Warning>
 
 `;
+  }
 
   if (isObjectType(type) || isInputObjectType(type) || isInterfaceType(type)) {
     const fields = Object.values(type.getFields());
     const visibleFields = fields.filter(field => !shouldHideField(field));
 
     if (visibleFields.length > 0) {
-      content += `## Fields\n\n`;
-      content += `| Name | Description |\n`;
-      content += `|------|-------------|\n`;
+      content += `### Fields\n\n`;
 
       visibleFields.forEach(field => {
         const typeName = formatType(field.type);
-        const typeLink = createTypeLink(typeName);
+        const required = isFieldRequired(field.type);
         const fieldDescription = cleanDescription(field.description) || 'No description provided';
 
-        // Handle field arguments if any
-        let fieldSignature = `\`${field.name}\``;
-        if (field.args && field.args.length > 0) {
-          const visibleArgs = field.args.filter(arg => !shouldHideField(arg));
-          if (visibleArgs.length > 0) {
-            const argStrings = visibleArgs.map(arg => {
-              const argType = formatType(arg.type);
-              return `${arg.name}: ${createTypeLink(argType)}`;
-            });
-            fieldSignature += `(${argStrings.join(', ')})`;
-          }
+        // Check if we need to link to another type
+        const cleanTypeName = typeName.replace(/[!\[\]]/g, '');
+        const builtInTypes = ['String', 'Int', 'Float', 'Boolean', 'ID'];
+        const shouldLink = !builtInTypes.includes(cleanTypeName);
+
+        if (shouldLink) {
+          const slug = createSlug(cleanTypeName);
+          content += `<a href="/api-reference/types/${slug}">
+  <ResponseField name="${field.name}" type="${typeName}"${required ? ' required' : ''}>
+    ${fieldDescription}`;
+        } else {
+          content += `<ResponseField name="${field.name}" type="${typeName}"${required ? ' required' : ''}>
+  ${fieldDescription}`;
         }
-        fieldSignature += ` → ${typeLink}`;
 
-        content += `| ${fieldSignature} | ${fieldDescription} |\n`;
+        // Add deprecation warning for the field if deprecated
+        if (isDeprecated(field)) {
+          content += `\n    \n    <Warning>\n      This field is deprecated. ${cleanDescription(getDeprecationReason(field))}\n    </Warning>`;
+        }
+
+        if (shouldLink) {
+          content += `\n  </ResponseField>
+</a>
+
+`;
+        } else {
+          content += `\n</ResponseField>
+
+`;
+        }
       });
-
-      content += `\n`;
     }
   } else if (isEnumType(type)) {
     const values = type.getValues().filter(value => !shouldHideField(value));
     if (values.length > 0) {
-      content += `## Values\n\n`;
-      content += `| Value | Description |\n`;
-      content += `|-------|-------------|\n`;
+      content += `### Values\n\n`;
 
       values.forEach(value => {
         const valueDescription = cleanDescription(value.description) || 'No description provided';
-        content += `| \`${value.name}\` | ${valueDescription} |\n`;
-      });
 
-      content += `\n`;
+        content += `<ResponseField name="${value.name}" type="enum">
+  ${valueDescription}`;
+
+        // Add deprecation warning for the enum value if deprecated
+        if (isDeprecated(value)) {
+          content += `\n  \n  <Warning>\n    This value is deprecated. ${cleanDescription(getDeprecationReason(value))}\n  </Warning>`;
+        }
+
+        content += `\n</ResponseField>
+
+`;
+      });
     }
   } else if (isUnionType(type)) {
-    const types = type.getTypes();
-    content += `## Union Types\n\n`;
-    content += `This union can be one of the following types:\n\n`;
-    types.forEach(unionType => {
+    const unionTypes = type.getTypes();
+    content += `### Union Types\n\nThis union can be one of the following types:\n\n`;
+    unionTypes.forEach(unionType => {
       content += `- ${createTypeLink(unionType.name)}\n`;
     });
     content += `\n`;
+  } else if (isScalarType(type)) {
+    content += `### Description\n\nThis is a custom scalar type.\n\n`;
+  }
+
+  // Add GraphQL schema definition at the end
+  const schemaDefinition = generateGraphQLSchema(type);
+  if (schemaDefinition) {
+    content += `\n\`\`\`graphql ${type.name}\n${schemaDefinition}\n\`\`\`\n`;
   }
 
   return content;

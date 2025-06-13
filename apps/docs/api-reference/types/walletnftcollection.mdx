@@ -3,13 +3,28 @@ title: "WalletNftCollection"
 description: "Object type"
 ---
 
-**Type:** [WalletNftCollection](/api-reference/types/walletnftcollection)
+### Fields
 
-## Fields
+<ResponseField name="walletAddress" type="String!" required>
+  The address of the wallet.
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `walletAddress` → [String!](/api-reference/types/string) | The address of the wallet. |
-| `collectionId` → [String!](/api-reference/types/string) | The collection ID (`collectionAddress:networkId`). |
-| `quantity` → [String!](/api-reference/types/string) | The number of items held by the wallet. |
+<ResponseField name="collectionId" type="String!" required>
+  The collection ID (`collectionAddress:networkId`).
+</ResponseField>
 
+<ResponseField name="quantity" type="String!" required>
+  The number of items held by the wallet.
+</ResponseField>
+
+
+```graphql WalletNftCollection
+type WalletNftCollection {
+  """The address of the wallet."""
+  walletAddress: String!
+  """The collection ID (`collectionAddress:networkId`)."""
+  collectionId: String!
+  """The number of items held by the wallet."""
+  quantity: String!
+}
+```

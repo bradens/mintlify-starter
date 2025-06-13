@@ -3,48 +3,243 @@ title: "TokenWithMetadata"
 description: "A token with metadata."
 ---
 
-**Type:** [TokenWithMetadata](/api-reference/types/tokenwithmetadata)
+### Fields
 
-## Fields
+<ResponseField name="address" type="String!" required>
+  The contract address of the token.
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `address` → [String!](/api-reference/types/string) | The contract address of the token. |
-| `decimals` → Int | The precision to which the token can be divided. For example, the smallest unit for USDC is 0.000001 (6 decimals). |
-| `exchanges` → [[Exchange!]!](/api-reference/types/exchange) | The exchanges the token is listed on. |
-| `id` → [String!](/api-reference/types/string) | The ID of the token (`address:networkId`). For example, `0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2:1`. |
-| `liquidity` → [String!](/api-reference/types/string) | The total liquidity of the token&#39;s top pair in USD. |
-| `name` → [String!](/api-reference/types/string) | The name of the token. |
-| `networkId` → [Int!](/api-reference/types/int) | The network ID the token is deployed on. |
-| `price` → [Float!](/api-reference/types/float) | The token price in USD. |
-| `priceChange` → [Float!](/api-reference/types/float) | The percent price change for the time frame requested. Decimal format. |
-| `isScam` → Boolean | Whether the token has been flagged as a scam. |
-| `priceChange1` → Float | The percent price change in the past hour. Decimal format. |
-| `priceChange12` → Float | The percent price change in the past 12 hours. Decimal format. |
-| `priceChange24` → Float | The percent price change in the past 24 hours. Decimal format. |
-| `priceChange4` → Float | The percent price change in the past 4 hours. Decimal format. |
-| `quoteToken` → [QuoteToken](/api-reference/types/quotetoken) | The token of interest. Can be `token0` or `token1`. |
-| `marketCap` → String | The market cap of circulating supply. |
-| `txnCount1` → Int | The number of transactions in the past hour. |
-| `txnCount12` → Int | The number of transactions in the past 12 hours. |
-| `txnCount24` → Int | The number of transactions in the past 24 hours. |
-| `txnCount4` → Int | The number of transactions in the past 4 hours. |
-| `uniqueBuys1` → Int | The unique number of buys in the past hour. |
-| `uniqueBuys12` → Int | The unique number of buys in the past 12 hours. |
-| `uniqueBuys24` → Int | The unique number of buys in the past 24 hours. |
-| `uniqueBuys4` → Int | The unique number of buys in the past 4 hours. |
-| `uniqueSells1` → Int | The unique number of sells in the past hour. |
-| `uniqueSells12` → Int | The unique number of sells in the past 12 hours. |
-| `uniqueSells24` → Int | The unique number of sells in the past 24 hours. |
-| `uniqueSells4` → Int | The unique number of sells in the past 4 hours. |
-| `resolution` → [String!](/api-reference/types/string) | The time frame for the results. |
-| `symbol` → [String!](/api-reference/types/string) | The symbol for the token. |
-| `topPairId` → [String!](/api-reference/types/string) | The ID of the token&#39;s top pair (`pairAddress:networkId`). |
-| `volume` → [String!](/api-reference/types/string) | The volume over the time frame requested in USD. |
-| `imageThumbUrl` → String | The token logo URL. |
-| `imageSmallUrl` → String | The token logo URL. |
-| `imageLargeUrl` → String | The token logo URL. |
-| `imageBannerUrl` → String | The token banner URL. |
-| `createdAt` → Int | The unix timestamp for the creation of the token&#39;s first pair. |
-| `lastTransaction` → Int | The unix timestamp for the token&#39;s last transaction. |
+<ResponseField name="decimals" type="Int">
+  The precision to which the token can be divided. For example, the smallest unit for USDC is 0.000001 (6 decimals).
+</ResponseField>
 
+<a href="/api-reference/types/exchange">
+  <ResponseField name="exchanges" type="[Exchange!]!" required>
+    The exchanges the token is listed on.
+  </ResponseField>
+</a>
+
+<ResponseField name="id" type="String!" required>
+  The ID of the token (`address:networkId`). For example, `0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2:1`.
+</ResponseField>
+
+<ResponseField name="liquidity" type="String!" required>
+  The total liquidity of the token&#39;s top pair in USD.
+</ResponseField>
+
+<ResponseField name="name" type="String!" required>
+  The name of the token.
+</ResponseField>
+
+<ResponseField name="networkId" type="Int!" required>
+  The network ID the token is deployed on.
+</ResponseField>
+
+<ResponseField name="price" type="Float!" required>
+  The token price in USD.
+</ResponseField>
+
+<ResponseField name="priceChange" type="Float!" required>
+  The percent price change for the time frame requested. Decimal format.
+</ResponseField>
+
+<ResponseField name="isScam" type="Boolean">
+  Whether the token has been flagged as a scam.
+</ResponseField>
+
+<ResponseField name="priceChange1" type="Float">
+  The percent price change in the past hour. Decimal format.
+</ResponseField>
+
+<ResponseField name="priceChange12" type="Float">
+  The percent price change in the past 12 hours. Decimal format.
+</ResponseField>
+
+<ResponseField name="priceChange24" type="Float">
+  The percent price change in the past 24 hours. Decimal format.
+</ResponseField>
+
+<ResponseField name="priceChange4" type="Float">
+  The percent price change in the past 4 hours. Decimal format.
+</ResponseField>
+
+<a href="/api-reference/types/quotetoken">
+  <ResponseField name="quoteToken" type="QuoteToken">
+    The token of interest. Can be `token0` or `token1`.
+  </ResponseField>
+</a>
+
+<ResponseField name="marketCap" type="String">
+  The market cap of circulating supply.
+</ResponseField>
+
+<ResponseField name="txnCount1" type="Int">
+  The number of transactions in the past hour.
+</ResponseField>
+
+<ResponseField name="txnCount12" type="Int">
+  The number of transactions in the past 12 hours.
+</ResponseField>
+
+<ResponseField name="txnCount24" type="Int">
+  The number of transactions in the past 24 hours.
+</ResponseField>
+
+<ResponseField name="txnCount4" type="Int">
+  The number of transactions in the past 4 hours.
+</ResponseField>
+
+<ResponseField name="uniqueBuys1" type="Int">
+  The unique number of buys in the past hour.
+</ResponseField>
+
+<ResponseField name="uniqueBuys12" type="Int">
+  The unique number of buys in the past 12 hours.
+</ResponseField>
+
+<ResponseField name="uniqueBuys24" type="Int">
+  The unique number of buys in the past 24 hours.
+</ResponseField>
+
+<ResponseField name="uniqueBuys4" type="Int">
+  The unique number of buys in the past 4 hours.
+</ResponseField>
+
+<ResponseField name="uniqueSells1" type="Int">
+  The unique number of sells in the past hour.
+</ResponseField>
+
+<ResponseField name="uniqueSells12" type="Int">
+  The unique number of sells in the past 12 hours.
+</ResponseField>
+
+<ResponseField name="uniqueSells24" type="Int">
+  The unique number of sells in the past 24 hours.
+</ResponseField>
+
+<ResponseField name="uniqueSells4" type="Int">
+  The unique number of sells in the past 4 hours.
+</ResponseField>
+
+<ResponseField name="resolution" type="String!" required>
+  The time frame for the results.
+</ResponseField>
+
+<ResponseField name="symbol" type="String!" required>
+  The symbol for the token.
+</ResponseField>
+
+<ResponseField name="topPairId" type="String!" required>
+  The ID of the token&#39;s top pair (`pairAddress:networkId`).
+</ResponseField>
+
+<ResponseField name="volume" type="String!" required>
+  The volume over the time frame requested in USD.
+</ResponseField>
+
+<ResponseField name="imageThumbUrl" type="String">
+  The token logo URL.
+</ResponseField>
+
+<ResponseField name="imageSmallUrl" type="String">
+  The token logo URL.
+</ResponseField>
+
+<ResponseField name="imageLargeUrl" type="String">
+  The token logo URL.
+</ResponseField>
+
+<ResponseField name="imageBannerUrl" type="String">
+  The token banner URL.
+</ResponseField>
+
+<ResponseField name="createdAt" type="Int">
+  The unix timestamp for the creation of the token&#39;s first pair.
+</ResponseField>
+
+<ResponseField name="lastTransaction" type="Int">
+  The unix timestamp for the token&#39;s last transaction.
+</ResponseField>
+
+
+```graphql TokenWithMetadata
+"""A token with metadata."""
+type TokenWithMetadata {
+  """The contract address of the token."""
+  address: String!
+  """The precision to which the token can be divided. For example, the smallest unit for USDC is 0.000001 (6 decimals)."""
+  decimals: Int
+  """The exchanges the token is listed on."""
+  exchanges: [Exchange!]!
+  """The ID of the token (`address:networkId`). For example, `0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2:1`."""
+  id: String!
+  """The total liquidity of the token's top pair in USD."""
+  liquidity: String!
+  """The name of the token."""
+  name: String!
+  """The network ID the token is deployed on."""
+  networkId: Int!
+  """The token price in USD."""
+  price: Float!
+  """The percent price change for the time frame requested. Decimal format."""
+  priceChange: Float!
+  """Whether the token has been flagged as a scam."""
+  isScam: Boolean
+  """The percent price change in the past hour. Decimal format."""
+  priceChange1: Float
+  """The percent price change in the past 12 hours. Decimal format."""
+  priceChange12: Float
+  """The percent price change in the past 24 hours. Decimal format."""
+  priceChange24: Float
+  """The percent price change in the past 4 hours. Decimal format."""
+  priceChange4: Float
+  """The token of interest. Can be `token0` or `token1`."""
+  quoteToken: QuoteToken
+  """The market cap of circulating supply."""
+  marketCap: String
+  """The number of transactions in the past hour."""
+  txnCount1: Int
+  """The number of transactions in the past 12 hours."""
+  txnCount12: Int
+  """The number of transactions in the past 24 hours."""
+  txnCount24: Int
+  """The number of transactions in the past 4 hours."""
+  txnCount4: Int
+  """The unique number of buys in the past hour."""
+  uniqueBuys1: Int
+  """The unique number of buys in the past 12 hours."""
+  uniqueBuys12: Int
+  """The unique number of buys in the past 24 hours."""
+  uniqueBuys24: Int
+  """The unique number of buys in the past 4 hours."""
+  uniqueBuys4: Int
+  """The unique number of sells in the past hour."""
+  uniqueSells1: Int
+  """The unique number of sells in the past 12 hours."""
+  uniqueSells12: Int
+  """The unique number of sells in the past 24 hours."""
+  uniqueSells24: Int
+  """The unique number of sells in the past 4 hours."""
+  uniqueSells4: Int
+  """The time frame for the results."""
+  resolution: String!
+  """The symbol for the token."""
+  symbol: String!
+  """The ID of the token's top pair (`pairAddress:networkId`)."""
+  topPairId: String!
+  """The volume over the time frame requested in USD."""
+  volume: String!
+  """The token logo URL."""
+  imageThumbUrl: String
+  """The token logo URL."""
+  imageSmallUrl: String
+  """The token logo URL."""
+  imageLargeUrl: String
+  """The token banner URL."""
+  imageBannerUrl: String
+  """The unix timestamp for the creation of the token's first pair."""
+  createdAt: Int
+  """The unix timestamp for the token's last transaction."""
+  lastTransaction: Int
+}
+```

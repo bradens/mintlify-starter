@@ -3,16 +3,41 @@ title: "NftAssetAttributeDisplayType"
 description: "The display type for the NFT asset attribute."
 ---
 
-**Type:** [NftAssetAttributeDisplayType](/api-reference/types/nftassetattributedisplaytype)
+### Values
 
-## Values
+<ResponseField name="Trait" type="enum">
+  No description provided
+</ResponseField>
 
-| Value | Description |
-|-------|-------------|
-| `Trait` | No description provided |
-| `Stat` | No description provided |
-| `Ranking` | No description provided |
-| `BoostNumber` | No description provided |
-| `BoostPercentage` | No description provided |
-| `Date` | No description provided |
+<ResponseField name="Stat" type="enum">
+  No description provided
+</ResponseField>
 
+<ResponseField name="Ranking" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="BoostNumber" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="BoostPercentage" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="Date" type="enum">
+  No description provided
+</ResponseField>
+
+
+```graphql NftAssetAttributeDisplayType
+"""The display type for the NFT asset attribute."""
+enum NftAssetAttributeDisplayType {
+  Trait
+  Stat
+  Ranking
+  BoostNumber
+  BoostPercentage
+  Date
+}
+```

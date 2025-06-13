@@ -3,14 +3,34 @@ title: "SimulateCreateTransactionInput"
 description: "InputObject type"
 ---
 
-**Type:** [SimulateCreateTransactionInput](/api-reference/types/simulatecreatetransactioninput)
+### Fields
 
-## Fields
+<ResponseField name="networkId" type="Int!" required>
+  The network ID the token is deployed on. Currently only supports 1 (mainnet).
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `networkId` → [Int!](/api-reference/types/int) | The network ID the token is deployed on. Currently only supports 1 (mainnet). |
-| `blockNumber` → [Int!](/api-reference/types/int) | The block number to simulate the contract at. |
-| `createTransactionHash` → [String!](/api-reference/types/string) | The contract creation transaction hash from the live network. |
-| `contractAddress` → [String!](/api-reference/types/string) | The contract address of the token. |
+<ResponseField name="blockNumber" type="Int!" required>
+  The block number to simulate the contract at.
+</ResponseField>
 
+<ResponseField name="createTransactionHash" type="String!" required>
+  The contract creation transaction hash from the live network.
+</ResponseField>
+
+<ResponseField name="contractAddress" type="String!" required>
+  The contract address of the token.
+</ResponseField>
+
+
+```graphql SimulateCreateTransactionInput
+input SimulateCreateTransactionInput {
+  """The network ID the token is deployed on. Currently only supports 1 (mainnet)."""
+  networkId: Int!
+  """The block number to simulate the contract at."""
+  blockNumber: Int!
+  """The contract creation transaction hash from the live network."""
+  createTransactionHash: String!
+  """The contract address of the token."""
+  contractAddress: String!
+}
+```

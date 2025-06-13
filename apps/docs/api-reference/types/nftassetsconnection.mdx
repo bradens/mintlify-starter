@@ -3,13 +3,33 @@ title: "NftAssetsConnection"
 description: "Response returned by `getNftAssets`."
 ---
 
-**Type:** [NftAssetsConnection](/api-reference/types/nftassetsconnection)
+### Fields
 
-## Fields
+<a href="/api-reference/types/nftasset">
+  <ResponseField name="items" type="[NftAsset]">
+    A list of NFT assets.
+  </ResponseField>
+</a>
 
-| Name | Description |
-|------|-------------|
-| `items` → [[NftAsset]](/api-reference/types/nftasset) | A list of NFT assets. |
-| `itemErrors` → [[NftAssetError]](/api-reference/types/nftasseterror) | A list of errors encountered while fetching the NFT assets. Errors correspond to null values in `items` by array index. |
-| `cursor` → String | A cursor for use in pagination. |
+<a href="/api-reference/types/nftasseterror">
+  <ResponseField name="itemErrors" type="[NftAssetError]">
+    A list of errors encountered while fetching the NFT assets. Errors correspond to null values in `items` by array index.
+  </ResponseField>
+</a>
 
+<ResponseField name="cursor" type="String">
+  A cursor for use in pagination.
+</ResponseField>
+
+
+```graphql NftAssetsConnection
+"""Response returned by `getNftAssets`."""
+type NftAssetsConnection {
+  """A list of NFT assets."""
+  items: [NftAsset]
+  """A list of errors encountered while fetching the NFT assets. Errors correspond to null values in `items` by array index."""
+  itemErrors: [NftAssetError]
+  """A cursor for use in pagination."""
+  cursor: String
+}
+```

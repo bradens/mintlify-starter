@@ -3,17 +3,57 @@ title: "WindowedWalletStats"
 description: "The stats for a wallet over a time window."
 ---
 
-**Type:** [WindowedWalletStats](/api-reference/types/windowedwalletstats)
+### Fields
 
-## Fields
+<ResponseField name="walletAddress" type="String!" required>
+  The wallet address
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `walletAddress` → [String!](/api-reference/types/string) | The wallet address |
-| `networkId` → Int | The network ID |
-| `start` → [Int!](/api-reference/types/int) | The start timestamp |
-| `end` → [Int!](/api-reference/types/int) | The end timestamp |
-| `lastTransactionAt` → [Int!](/api-reference/types/int) | The last transaction timestamp |
-| `statsUsd` → [WindowedDetailedCurrencyWalletStats!](/api-reference/types/windoweddetailedcurrencywalletstats) | The stats related to currency |
-| `statsNonCurrency` → [WindowedDetailedNonCurrencyWalletStats!](/api-reference/types/windoweddetailednoncurrencywalletstats) | The stats related to non-currency |
+<ResponseField name="networkId" type="Int">
+  The network ID
+</ResponseField>
 
+<ResponseField name="start" type="Int!" required>
+  The start timestamp
+</ResponseField>
+
+<ResponseField name="end" type="Int!" required>
+  The end timestamp
+</ResponseField>
+
+<ResponseField name="lastTransactionAt" type="Int!" required>
+  The last transaction timestamp
+</ResponseField>
+
+<a href="/api-reference/types/windoweddetailedcurrencywalletstats">
+  <ResponseField name="statsUsd" type="WindowedDetailedCurrencyWalletStats!" required>
+    The stats related to currency
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/windoweddetailednoncurrencywalletstats">
+  <ResponseField name="statsNonCurrency" type="WindowedDetailedNonCurrencyWalletStats!" required>
+    The stats related to non-currency
+  </ResponseField>
+</a>
+
+
+```graphql WindowedWalletStats
+"""The stats for a wallet over a time window."""
+type WindowedWalletStats {
+  """The wallet address"""
+  walletAddress: String!
+  """The network ID"""
+  networkId: Int
+  """The start timestamp"""
+  start: Int!
+  """The end timestamp"""
+  end: Int!
+  """The last transaction timestamp"""
+  lastTransactionAt: Int!
+  """The stats related to currency"""
+  statsUsd: WindowedDetailedCurrencyWalletStats!
+  """The stats related to non-currency"""
+  statsNonCurrency: WindowedDetailedNonCurrencyWalletStats!
+}
+```

@@ -3,19 +3,72 @@ title: "BalancesInput"
 description: "InputObject type"
 ---
 
-**Type:** [BalancesInput](/api-reference/types/balancesinput)
+### Fields
 
-## Fields
+<ResponseField name="walletAddress" type="String">
+  The wallet address to filter by.
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `walletAddress` → String | The wallet address to filter by. |
-| `networks` → [[Int!]](/api-reference/types/int) | The network IDs to filter by. |
-| `tokens` → [[String!]](/api-reference/types/string) | The token IDs (`address:networkId`) or addresses to request the balance for. Requires a list of `networks` if only passing addresses. Include native network balances using `native` as the token address. Only applied when using `walletAddress` (not `walletId`). Max 200 tokens. |
-| `includeNative` → Boolean | Whether to include native network balances in the response (ID will be native:&lt;networkId&gt;). Requires a list of `networks`. Does not apply when using `tokens`. |
-| `limit` → Int | The maximum number of holdings to return. Does not apply when using `tokens`. |
-| `cursor` → String | A cursor for use in pagination. |
-| `removeScams` → Boolean | Whether to remove scam tokens from the response. |
-| `walletId` → String | The ID of the wallet (`walletAddress:networkId`). |
-| `filterToken` → String | Optional token specifically request the balance for. Only works with `walletId`. |
+<ResponseField name="networks" type="[Int!]">
+  The network IDs to filter by.
+</ResponseField>
 
+<ResponseField name="tokens" type="[String!]">
+  The token IDs (`address:networkId`) or addresses to request the balance for. Requires a list of `networks` if only passing addresses. Include native network balances using `native` as the token address. Only applied when using `walletAddress` (not `walletId`). Max 200 tokens.
+</ResponseField>
+
+<ResponseField name="includeNative" type="Boolean">
+  Whether to include native network balances in the response (ID will be native:&lt;networkId&gt;). Requires a list of `networks`. Does not apply when using `tokens`.
+</ResponseField>
+
+<ResponseField name="limit" type="Int">
+  The maximum number of holdings to return. Does not apply when using `tokens`.
+</ResponseField>
+
+<ResponseField name="cursor" type="String">
+  A cursor for use in pagination.
+</ResponseField>
+
+<ResponseField name="removeScams" type="Boolean">
+  Whether to remove scam tokens from the response.
+</ResponseField>
+
+<ResponseField name="walletId" type="String">
+  The ID of the wallet (`walletAddress:networkId`).
+    
+    <Warning>
+      This field is deprecated. Use walletAddress and networkId instead
+    </Warning>
+</ResponseField>
+
+<ResponseField name="filterToken" type="String">
+  Optional token specifically request the balance for. Only works with `walletId`.
+    
+    <Warning>
+      This field is deprecated. Use tokens list instead
+    </Warning>
+</ResponseField>
+
+
+```graphql BalancesInput
+input BalancesInput {
+  """The wallet address to filter by."""
+  walletAddress: String
+  """The network IDs to filter by."""
+  networks: [Int!]
+  """The token IDs (`address:networkId`) or addresses to request the balance for. Requires a list of `networks` if only passing addresses. Include native network balances using `native` as the token address. Only applied when using `walletAddress` (not `walletId`). Max 200 tokens."""
+  tokens: [String!]
+  """Whether to include native network balances in the response (ID will be native:<networkId>). Requires a list of `networks`. Does not apply when using `tokens`."""
+  includeNative: Boolean
+  """The maximum number of holdings to return. Does not apply when using `tokens`."""
+  limit: Int
+  """A cursor for use in pagination."""
+  cursor: String
+  """Whether to remove scam tokens from the response."""
+  removeScams: Boolean
+  """The ID of the wallet (`walletAddress:networkId`)."""
+  walletId: String @deprecated(reason: "Use walletAddress and networkId instead")
+  """Optional token specifically request the balance for. Only works with `walletId`."""
+  filterToken: String @deprecated(reason: "Use tokens list instead")
+}
+```

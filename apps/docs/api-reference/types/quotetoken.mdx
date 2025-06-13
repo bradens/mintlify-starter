@@ -3,12 +3,21 @@ title: "QuoteToken"
 description: "The quote token within the pair."
 ---
 
-**Type:** [QuoteToken](/api-reference/types/quotetoken)
+### Values
 
-## Values
+<ResponseField name="token0" type="enum">
+  No description provided
+</ResponseField>
 
-| Value | Description |
-|-------|-------------|
-| `token0` | No description provided |
-| `token1` | No description provided |
+<ResponseField name="token1" type="enum">
+  No description provided
+</ResponseField>
 
+
+```graphql QuoteToken
+"""The quote token within the pair."""
+enum QuoteToken {
+  token0
+  token1
+}
+```

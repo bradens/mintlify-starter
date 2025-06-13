@@ -3,12 +3,22 @@ title: "WalletTokenFilterRange"
 description: "InputObject type"
 ---
 
-**Type:** [WalletTokenFilterRange](/api-reference/types/wallettokenfilterrange)
+### Fields
 
-## Fields
+<ResponseField name="min" type="String">
+  The minimum value (inclusive)
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `min` → String | The minimum value (inclusive) |
-| `max` → String | The maximum value (inclusive) |
+<ResponseField name="max" type="String">
+  The maximum value (inclusive)
+</ResponseField>
 
+
+```graphql WalletTokenFilterRange
+input WalletTokenFilterRange {
+  """The minimum value (inclusive)"""
+  min: String
+  """The maximum value (inclusive)"""
+  max: String
+}
+```

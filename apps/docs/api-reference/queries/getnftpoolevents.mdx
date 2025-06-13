@@ -7,16 +7,41 @@ description: "Returns transactions for an NFT collection across all NFT pools or
 
 **Returns:** [NftPoolEventsResponse](/api-reference/types/nftpooleventsresponse)
 
-## Arguments for getNftPoolEvents
+### Arguments
 
-| Name | Description |
-|------|-------------|
-| `networkId` ([Int!](/api-reference/types/int)) | The network ID the NFT collection is deployed on. |
-| `collectionAddress` (String) | The contract address of the NFT collection. |
-| `poolAddress` (String) | The NFT pool address to filter by. |
-| `exchangeAddress` (String) | The NFT AMM marketplace address to filter by. |
-| `eventTypes` ([[NftPoolEventType!]](/api-reference/types/nftpooleventtype)) | The event types to filter by. |
-| `timestamp` ([EventQueryTimestampInput](/api-reference/types/eventquerytimestampinput)) | The time range to filter by. |
-| `cursor` (String) | The cursor to use for pagination. |
-| `limit` (Int) | The maximum number of NFT pool events to return. |
+<ResponseField name="networkId" type="Int!" required>
+  The network ID the NFT collection is deployed on.
+</ResponseField>
+
+<ResponseField name="collectionAddress" type="String">
+  The contract address of the NFT collection.
+</ResponseField>
+
+<ResponseField name="poolAddress" type="String">
+  The NFT pool address to filter by.
+</ResponseField>
+
+<ResponseField name="exchangeAddress" type="String">
+  The NFT AMM marketplace address to filter by.
+</ResponseField>
+
+<a href="/api-reference/types/nftpooleventtype">
+  <ResponseField name="eventTypes" type="[NftPoolEventType!]">
+    The event types to filter by.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/eventquerytimestampinput">
+  <ResponseField name="timestamp" type="EventQueryTimestampInput">
+    The time range to filter by.
+  </ResponseField>
+</a>
+
+<ResponseField name="cursor" type="String">
+  The cursor to use for pagination.
+</ResponseField>
+
+<ResponseField name="limit" type="Int">
+  The maximum number of NFT pool events to return.
+</ResponseField>
 

@@ -3,12 +3,25 @@ title: "PrimePoolAssetConnection"
 description: "Response returned by `getPrimePoolAssets`."
 ---
 
-**Type:** [PrimePoolAssetConnection](/api-reference/types/primepoolassetconnection)
+### Fields
 
-## Fields
+<ResponseField name="cursor" type="String">
+  The cursor to use for pagination.
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `cursor` → String | The cursor to use for pagination. |
-| `items` → [[PrimePoolAsset]](/api-reference/types/primepoolasset) | The list of cached Prime pool assets returned by the query. |
+<a href="/api-reference/types/primepoolasset">
+  <ResponseField name="items" type="[PrimePoolAsset]">
+    The list of cached Prime pool assets returned by the query.
+  </ResponseField>
+</a>
 
+
+```graphql PrimePoolAssetConnection
+"""Response returned by `getPrimePoolAssets`."""
+type PrimePoolAssetConnection {
+  """The cursor to use for pagination."""
+  cursor: String
+  """The list of cached Prime pool assets returned by the query."""
+  items: [PrimePoolAsset]
+}
+```

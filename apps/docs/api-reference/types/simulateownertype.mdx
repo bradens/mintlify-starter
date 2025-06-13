@@ -3,13 +3,25 @@ title: "SimulateOwnerType"
 description: "Object type"
 ---
 
-**Type:** [SimulateOwnerType](/api-reference/types/simulateownertype)
+### Fields
 
-## Fields
+<ResponseField name="ownerAddress" type="String">
+  No description provided
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `ownerAddress` → String | No description provided |
-| `ownerTokenBalance` → String | No description provided |
-| `ownerEthBalance` → String | No description provided |
+<ResponseField name="ownerTokenBalance" type="String">
+  No description provided
+</ResponseField>
 
+<ResponseField name="ownerEthBalance" type="String">
+  No description provided
+</ResponseField>
+
+
+```graphql SimulateOwnerType
+type SimulateOwnerType {
+  ownerAddress: String
+  ownerTokenBalance: String
+  ownerEthBalance: String
+}
+```

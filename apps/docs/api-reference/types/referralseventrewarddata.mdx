@@ -3,21 +3,65 @@ title: "ReferralsEventRewardData"
 description: "Object type"
 ---
 
-**Type:** [ReferralsEventRewardData](/api-reference/types/referralseventrewarddata)
+### Fields
 
-## Fields
+<ResponseField name="networkId" type="Int!" required>
+  No description provided
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `networkId` → [Int!](/api-reference/types/int) | No description provided |
-| `inputTokenAddress` → [String!](/api-reference/types/string) | No description provided |
-| `outputTokenAddress` → [String!](/api-reference/types/string) | No description provided |
-| `transactionId` → [String!](/api-reference/types/string) | No description provided |
-| `transactionTokenAmount` → [String!](/api-reference/types/string) | No description provided |
-| `transactionTokenAddress` → [String!](/api-reference/types/string) | No description provided |
-| `transactionFee` → [String!](/api-reference/types/string) | No description provided |
-| `referralUserId` → [String!](/api-reference/types/string) | No description provided |
-| `payoutPercent` → [Float!](/api-reference/types/float) | No description provided |
-| `rewardTokenAmount` → String | No description provided |
-| `rewardTokenAddress` → String | No description provided |
+<ResponseField name="inputTokenAddress" type="String!" required>
+  No description provided
+</ResponseField>
 
+<ResponseField name="outputTokenAddress" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="transactionId" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="transactionTokenAmount" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="transactionTokenAddress" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="transactionFee" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="referralUserId" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="payoutPercent" type="Float!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="rewardTokenAmount" type="String">
+  No description provided
+</ResponseField>
+
+<ResponseField name="rewardTokenAddress" type="String">
+  No description provided
+</ResponseField>
+
+
+```graphql ReferralsEventRewardData
+type ReferralsEventRewardData {
+  networkId: Int!
+  inputTokenAddress: String!
+  outputTokenAddress: String!
+  transactionId: String!
+  transactionTokenAmount: String!
+  transactionTokenAddress: String!
+  transactionFee: String!
+  referralUserId: String!
+  payoutPercent: Float!
+  rewardTokenAmount: String
+  rewardTokenAddress: String
+}
+```

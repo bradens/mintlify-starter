@@ -3,13 +3,31 @@ title: "LockedLiquidityData"
 description: "Data about locked liquidity."
 ---
 
-**Type:** [LockedLiquidityData](/api-reference/types/lockedliquiditydata)
+### Fields
 
-## Fields
+<ResponseField name="active" type="String!" required>
+  The amount of active liquidity locked.
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `active` → [String!](/api-reference/types/string) | The amount of active liquidity locked. |
-| `inactive` → [String!](/api-reference/types/string) | The amount of inactive liquidity locked. |
-| `lockBreakdown` → [[LockBreakdown]!](/api-reference/types/lockbreakdown) | A breakdown of how much and where liquidity is locked. |
+<ResponseField name="inactive" type="String!" required>
+  The amount of inactive liquidity locked.
+</ResponseField>
 
+<a href="/api-reference/types/lockbreakdown">
+  <ResponseField name="lockBreakdown" type="[LockBreakdown]!" required>
+    A breakdown of how much and where liquidity is locked.
+  </ResponseField>
+</a>
+
+
+```graphql LockedLiquidityData
+"""Data about locked liquidity."""
+type LockedLiquidityData {
+  """The amount of active liquidity locked."""
+  active: String!
+  """The amount of inactive liquidity locked."""
+  inactive: String!
+  """A breakdown of how much and where liquidity is locked."""
+  lockBreakdown: [LockBreakdown]!
+}
+```

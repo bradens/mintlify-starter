@@ -3,11 +3,17 @@ title: "DeleteWebhooksInput"
 description: "Input for deleting webhooks."
 ---
 
-**Type:** [DeleteWebhooksInput](/api-reference/types/deletewebhooksinput)
+### Fields
 
-## Fields
+<ResponseField name="webhookIds" type="[String!]!" required>
+  A list of webhook IDs to delete.
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `webhookIds` → [[String!]!](/api-reference/types/string) | A list of webhook IDs to delete. |
 
+```graphql DeleteWebhooksInput
+"""Input for deleting webhooks."""
+input DeleteWebhooksInput {
+  """A list of webhook IDs to delete."""
+  webhookIds: [String!]!
+}
+```

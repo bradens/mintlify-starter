@@ -3,16 +3,41 @@ title: "ParallelAssetRankingAttribute"
 description: "Attribute used to rank Parallel assets."
 ---
 
-**Type:** [ParallelAssetRankingAttribute](/api-reference/types/parallelassetrankingattribute)
+### Values
 
-## Values
+<ResponseField name="attack" type="enum">
+  No description provided
+</ResponseField>
 
-| Value | Description |
-|-------|-------------|
-| `attack` | No description provided |
-| `cost` | No description provided |
-| `health` | No description provided |
-| `supply` | No description provided |
-| `lastPriceUsd` | No description provided |
-| `lastPriceNetworkBaseToken` | No description provided |
+<ResponseField name="cost" type="enum">
+  No description provided
+</ResponseField>
 
+<ResponseField name="health" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="supply" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="lastPriceUsd" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="lastPriceNetworkBaseToken" type="enum">
+  No description provided
+</ResponseField>
+
+
+```graphql ParallelAssetRankingAttribute
+"""Attribute used to rank Parallel assets."""
+enum ParallelAssetRankingAttribute {
+  attack
+  cost
+  health
+  supply
+  lastPriceUsd
+  lastPriceNetworkBaseToken
+}
+```

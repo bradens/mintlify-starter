@@ -7,12 +7,21 @@ description: "Returns an NFT collection with pool stats for a given AMM NFT mark
 
 **Returns:** [GetNftPoolCollectionsResponse](/api-reference/types/getnftpoolcollectionsresponse)
 
-## Arguments for getNftPoolCollectionsByExchange
+### Arguments
 
-| Name | Description |
-|------|-------------|
-| `exchangeAddress` ([String!](/api-reference/types/string)) | The NFT AMM marketplace address to filter by. |
-| `networkId` ([Int!](/api-reference/types/int)) | The network ID the NFT collection is deployed on. |
-| `cursor` (String) | The cursor to use for pagination. |
-| `limit` (Int) | The maximum number of NFT collections to return. |
+<ResponseField name="exchangeAddress" type="String!" required>
+  The NFT AMM marketplace address to filter by.
+</ResponseField>
+
+<ResponseField name="networkId" type="Int!" required>
+  The network ID the NFT collection is deployed on.
+</ResponseField>
+
+<ResponseField name="cursor" type="String">
+  The cursor to use for pagination.
+</ResponseField>
+
+<ResponseField name="limit" type="Int">
+  The maximum number of NFT collections to return.
+</ResponseField>
 

@@ -3,17 +3,63 @@ title: "RawTransactionWebhookCondition"
 description: "Webhook conditions for a raw transaction."
 ---
 
-**Type:** [RawTransactionWebhookCondition](/api-reference/types/rawtransactionwebhookcondition)
+### Fields
 
-## Fields
+<a href="/api-reference/types/oneofnumbercondition">
+  <ResponseField name="networkId" type="OneOfNumberCondition">
+    A list of network IDs to listen on.
+  </ResponseField>
+</a>
 
-| Name | Description |
-|------|-------------|
-| `networkId` → [OneOfNumberCondition](/api-reference/types/oneofnumbercondition) | A list of network IDs to listen on. |
-| `to` → [StringEqualsCondition](/api-reference/types/stringequalscondition) | The to address to listen for. |
-| `from` → [StringEqualsCondition](/api-reference/types/stringequalscondition) | The from address to listen for. |
-| `toOrFrom` → [StringEqualsCondition](/api-reference/types/stringequalscondition) | Trigger the webhook if either the to or the from address matches. |
-| `input` → [StringContainsCondition](/api-reference/types/stringcontainscondition) | Trigger the webhook if the  contains or doesn&#39;t contain the specified string. |
-| `ignoreTokenPairEvents` → Boolean | Do not trigger the webhook if the raw transaction is handled by the TokenPairEvent webhook. |
-| `ignoreNftEvents` → Boolean | Do not trigger the webhook if the raw transaction is handled by the NftEvent webhook. |
+<a href="/api-reference/types/stringequalscondition">
+  <ResponseField name="to" type="StringEqualsCondition">
+    The to address to listen for.
+  </ResponseField>
+</a>
 
+<a href="/api-reference/types/stringequalscondition">
+  <ResponseField name="from" type="StringEqualsCondition">
+    The from address to listen for.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/stringequalscondition">
+  <ResponseField name="toOrFrom" type="StringEqualsCondition">
+    Trigger the webhook if either the to or the from address matches.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/stringcontainscondition">
+  <ResponseField name="input" type="StringContainsCondition">
+    Trigger the webhook if the  contains or doesn&#39;t contain the specified string.
+  </ResponseField>
+</a>
+
+<ResponseField name="ignoreTokenPairEvents" type="Boolean">
+  Do not trigger the webhook if the raw transaction is handled by the TokenPairEvent webhook.
+</ResponseField>
+
+<ResponseField name="ignoreNftEvents" type="Boolean">
+  Do not trigger the webhook if the raw transaction is handled by the NftEvent webhook.
+</ResponseField>
+
+
+```graphql RawTransactionWebhookCondition
+"""Webhook conditions for a raw transaction."""
+type RawTransactionWebhookCondition {
+  """A list of network IDs to listen on."""
+  networkId: OneOfNumberCondition
+  """The to address to listen for."""
+  to: StringEqualsCondition
+  """The from address to listen for."""
+  from: StringEqualsCondition
+  """Trigger the webhook if either the to or the from address matches."""
+  toOrFrom: StringEqualsCondition
+  """Trigger the webhook if the  contains or doesn't contain the specified string."""
+  input: StringContainsCondition
+  """Do not trigger the webhook if the raw transaction is handled by the TokenPairEvent webhook."""
+  ignoreTokenPairEvents: Boolean
+  """Do not trigger the webhook if the raw transaction is handled by the NftEvent webhook."""
+  ignoreNftEvents: Boolean
+}
+```

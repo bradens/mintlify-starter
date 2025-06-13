@@ -3,14 +3,39 @@ title: "NftPoolEventNftTransferV2"
 description: "Metadata for an NFT transfer."
 ---
 
-**Type:** [NftPoolEventNftTransferV2](/api-reference/types/nftpooleventnfttransferv2)
+### Fields
 
-## Fields
+<ResponseField name="nftTokenId" type="String!" required>
+  The NFT token ID involved in the transfer.
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `nftTokenId` → [String!](/api-reference/types/string) | The NFT token ID involved in the transfer. |
-| `nftQuantity` → [String!](/api-reference/types/string) | The number of tokens involved in the transfer. |
-| `nftTokenQuantity` → [String!](/api-reference/types/string) | The number of tokens involved in the transfer. |
-| `amountT` → [String!](/api-reference/types/string) | The value of the token at the time of transfer. |
+<ResponseField name="nftQuantity" type="String!" required>
+  The number of tokens involved in the transfer.
+</ResponseField>
 
+<ResponseField name="nftTokenQuantity" type="String!" required>
+  The number of tokens involved in the transfer.
+    
+    <Warning>
+      This field is deprecated. nftTokenQuantity is no longer supported - use nftQuantity instead.
+    </Warning>
+</ResponseField>
+
+<ResponseField name="amountT" type="String!" required>
+  The value of the token at the time of transfer.
+</ResponseField>
+
+
+```graphql NftPoolEventNftTransferV2
+"""Metadata for an NFT transfer."""
+type NftPoolEventNftTransferV2 {
+  """The NFT token ID involved in the transfer."""
+  nftTokenId: String!
+  """The number of tokens involved in the transfer."""
+  nftQuantity: String!
+  """The number of tokens involved in the transfer."""
+  nftTokenQuantity: String! @deprecated(reason: "nftTokenQuantity is no longer supported - use nftQuantity instead.")
+  """The value of the token at the time of transfer."""
+  amountT: String!
+}
+```

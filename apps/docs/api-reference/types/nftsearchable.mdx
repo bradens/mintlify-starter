@@ -3,12 +3,21 @@ title: "NftSearchable"
 description: "The level of NFTs to search."
 ---
 
-**Type:** [NftSearchable](/api-reference/types/nftsearchable)
+### Values
 
-## Values
+<ResponseField name="Asset" type="enum">
+  No description provided
+</ResponseField>
 
-| Value | Description |
-|-------|-------------|
-| `Asset` | No description provided |
-| `Collection` | No description provided |
+<ResponseField name="Collection" type="enum">
+  No description provided
+</ResponseField>
 
+
+```graphql NftSearchable
+"""The level of NFTs to search."""
+enum NftSearchable {
+  Asset
+  Collection
+}
+```

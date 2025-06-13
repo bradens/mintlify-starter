@@ -3,11 +3,19 @@ title: "NftEventTypeCondition"
 description: "An NFT event type for a webhook to listen for."
 ---
 
-**Type:** [NftEventTypeCondition](/api-reference/types/nfteventtypecondition)
+### Fields
 
-## Fields
+<a href="/api-reference/types/webhooknfteventtype">
+  <ResponseField name="eq" type="WebhookNftEventType!" required>
+    The NFT event type.
+  </ResponseField>
+</a>
 
-| Name | Description |
-|------|-------------|
-| `eq` → [WebhookNftEventType!](/api-reference/types/webhooknfteventtype) | The NFT event type. |
 
+```graphql NftEventTypeCondition
+"""An NFT event type for a webhook to listen for."""
+type NftEventTypeCondition {
+  """The NFT event type."""
+  eq: WebhookNftEventType!
+}
+```

@@ -3,15 +3,36 @@ title: "LiquidityProtocol"
 description: "Protocols that create trading pairs"
 ---
 
-**Type:** [LiquidityProtocol](/api-reference/types/liquidityprotocol)
+### Values
 
-## Values
+<ResponseField name="UNISWAP_V3" type="enum">
+  No description provided
+</ResponseField>
 
-| Value | Description |
-|-------|-------------|
-| `UNISWAP_V3` | No description provided |
-| `UNISWAP_V2` | No description provided |
-| `RAYDIUM_V4` | No description provided |
-| `PUMP_V1` | No description provided |
-| `USE_LIQUIDITY_PROTOCOL_V2` | No description provided |
+<ResponseField name="UNISWAP_V2" type="enum">
+  No description provided
+</ResponseField>
 
+<ResponseField name="RAYDIUM_V4" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="PUMP_V1" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="USE_LIQUIDITY_PROTOCOL_V2" type="enum">
+  No description provided
+</ResponseField>
+
+
+```graphql LiquidityProtocol
+"""Protocols that create trading pairs"""
+enum LiquidityProtocol {
+  UNISWAP_V3
+  UNISWAP_V2
+  RAYDIUM_V4
+  PUMP_V1
+  USE_LIQUIDITY_PROTOCOL_V2
+}
+```

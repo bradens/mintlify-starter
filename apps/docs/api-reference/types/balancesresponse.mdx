@@ -3,12 +3,24 @@ title: "BalancesResponse"
 description: "Object type"
 ---
 
-**Type:** [BalancesResponse](/api-reference/types/balancesresponse)
+### Fields
 
-## Fields
+<a href="/api-reference/types/balance">
+  <ResponseField name="items" type="[Balance!]!" required>
+    The list of token balances that a wallet has.
+  </ResponseField>
+</a>
 
-| Name | Description |
-|------|-------------|
-| `items` → [[Balance!]!](/api-reference/types/balance) | The list of token balances that a wallet has. |
-| `cursor` → String | A cursor for use in pagination. |
+<ResponseField name="cursor" type="String">
+  A cursor for use in pagination.
+</ResponseField>
 
+
+```graphql BalancesResponse
+type BalancesResponse {
+  """The list of token balances that a wallet has."""
+  items: [Balance!]!
+  """A cursor for use in pagination."""
+  cursor: String
+}
+```

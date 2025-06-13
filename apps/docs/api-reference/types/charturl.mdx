@@ -3,11 +3,17 @@ title: "ChartUrl"
 description: "The chart url."
 ---
 
-**Type:** [ChartUrl](/api-reference/types/charturl)
+### Fields
 
-## Fields
+<ResponseField name="url" type="String!" required>
+  The chart url.
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `url` → [String!](/api-reference/types/string) | The chart url. |
 
+```graphql ChartUrl
+"""The chart url."""
+type ChartUrl {
+  """The chart url."""
+  url: String!
+}
+```

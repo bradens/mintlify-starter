@@ -3,13 +3,29 @@ title: "PrimePoolInput"
 description: "Input Type of `PrimePoolQuery`"
 ---
 
-**Type:** [PrimePoolInput](/api-reference/types/primepoolinput)
+### Fields
 
-## Fields
+<ResponseField name="address" type="String!" required>
+  The address of the pool contract.
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `address` → [String!](/api-reference/types/string) | The address of the pool contract. |
-| `networkId` → [Int!](/api-reference/types/int) | The network that the pool is deployed on. |
-| `poolIds` → [[String]](/api-reference/types/string) | Optional list of pool ids to fetch. |
+<ResponseField name="networkId" type="Int!" required>
+  The network that the pool is deployed on.
+</ResponseField>
 
+<ResponseField name="poolIds" type="[String]">
+  Optional list of pool ids to fetch.
+</ResponseField>
+
+
+```graphql PrimePoolInput
+"""Input Type of `PrimePoolQuery`"""
+input PrimePoolInput {
+  """The address of the pool contract."""
+  address: String!
+  """The network that the pool is deployed on."""
+  networkId: Int!
+  """Optional list of pool ids to fetch."""
+  poolIds: [String]
+}
+```

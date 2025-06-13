@@ -3,27 +3,119 @@ title: "NftPoolEvent"
 description: "An NFT pool transaction."
 ---
 
-**Type:** [NftPoolEvent](/api-reference/types/nftpoolevent)
+### Fields
 
-## Fields
+<ResponseField name="id" type="String!" required>
+  The ID of the NFT pool (`poolAddress`:`networkId`). For example, `0xdbea289dcc10eed8431e78753414a3d81b8e7201:1`.
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `id` → [String!](/api-reference/types/string) | The ID of the NFT pool (`poolAddress`:`networkId`). For example, `0xdbea289dcc10eed8431e78753414a3d81b8e7201:1`. |
-| `poolAddress` → [String!](/api-reference/types/string) | The contract address of the NFT pool. |
-| `networkId` → [Int!](/api-reference/types/int) | The network ID the NFT collection is deployed on. |
-| `collectionAddress` → [String!](/api-reference/types/string) | The contract address of the NFT collection. |
-| `collectionId` → [String!](/api-reference/types/string) | The ID of the NFT collection (`collectionAddress`:`networkId`). |
-| `exchangeAddress` → [String!](/api-reference/types/string) | The contract address of the NFT AMM marketplace. |
-| `tokenAddress` → [String!](/api-reference/types/string) | The contract address of the liquidity token of the pool (usually WETH). |
-| `blockNumber` → [Int!](/api-reference/types/int) | The block number for the transaction. |
-| `logIndex` → [Int!](/api-reference/types/int) | The index of the log in the block. |
-| `transactionIndex` → [Int!](/api-reference/types/int) | The index of the transaction within the block. |
-| `blockHash` → [String!](/api-reference/types/string) | The hash of the block where the transaction occurred. |
-| `transactionHash` → [String!](/api-reference/types/string) | The unique hash for the transaction. |
-| `timestamp` → [Int!](/api-reference/types/int) | The unix timestamp for the transaction. |
-| `maker` → [String!](/api-reference/types/string) | The wallet address that transacted. |
-| `poolType` → [NftPoolType!](/api-reference/types/nftpooltype) | The type of liquidity pool. |
-| `eventType` → [NftPoolEventType!](/api-reference/types/nftpooleventtype) | The event type of the transaction. |
-| `data` → [NftPoolEventData!](/api-reference/types/nftpooleventdata) | The event-specific data for the transaction. |
+<ResponseField name="poolAddress" type="String!" required>
+  The contract address of the NFT pool.
+</ResponseField>
 
+<ResponseField name="networkId" type="Int!" required>
+  The network ID the NFT collection is deployed on.
+</ResponseField>
+
+<ResponseField name="collectionAddress" type="String!" required>
+  The contract address of the NFT collection.
+</ResponseField>
+
+<ResponseField name="collectionId" type="String!" required>
+  The ID of the NFT collection (`collectionAddress`:`networkId`).
+</ResponseField>
+
+<ResponseField name="exchangeAddress" type="String!" required>
+  The contract address of the NFT AMM marketplace.
+</ResponseField>
+
+<ResponseField name="tokenAddress" type="String!" required>
+  The contract address of the liquidity token of the pool (usually WETH).
+</ResponseField>
+
+<ResponseField name="blockNumber" type="Int!" required>
+  The block number for the transaction.
+</ResponseField>
+
+<ResponseField name="logIndex" type="Int!" required>
+  The index of the log in the block.
+</ResponseField>
+
+<ResponseField name="transactionIndex" type="Int!" required>
+  The index of the transaction within the block.
+</ResponseField>
+
+<ResponseField name="blockHash" type="String!" required>
+  The hash of the block where the transaction occurred.
+</ResponseField>
+
+<ResponseField name="transactionHash" type="String!" required>
+  The unique hash for the transaction.
+</ResponseField>
+
+<ResponseField name="timestamp" type="Int!" required>
+  The unix timestamp for the transaction.
+</ResponseField>
+
+<ResponseField name="maker" type="String!" required>
+  The wallet address that transacted.
+</ResponseField>
+
+<a href="/api-reference/types/nftpooltype">
+  <ResponseField name="poolType" type="NftPoolType!" required>
+    The type of liquidity pool.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/nftpooleventtype">
+  <ResponseField name="eventType" type="NftPoolEventType!" required>
+    The event type of the transaction.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/nftpooleventdata">
+  <ResponseField name="data" type="NftPoolEventData!" required>
+    The event-specific data for the transaction.
+  </ResponseField>
+</a>
+
+
+```graphql NftPoolEvent
+"""An NFT pool transaction."""
+type NftPoolEvent {
+  """The ID of the NFT pool (`poolAddress`:`networkId`). For example, `0xdbea289dcc10eed8431e78753414a3d81b8e7201:1`."""
+  id: String!
+  """The contract address of the NFT pool."""
+  poolAddress: String!
+  """The network ID the NFT collection is deployed on."""
+  networkId: Int!
+  """The contract address of the NFT collection."""
+  collectionAddress: String!
+  """The ID of the NFT collection (`collectionAddress`:`networkId`)."""
+  collectionId: String!
+  """The contract address of the NFT AMM marketplace."""
+  exchangeAddress: String!
+  """The contract address of the liquidity token of the pool (usually WETH)."""
+  tokenAddress: String!
+  """The block number for the transaction."""
+  blockNumber: Int!
+  """The index of the log in the block."""
+  logIndex: Int!
+  """The index of the transaction within the block."""
+  transactionIndex: Int!
+  """The hash of the block where the transaction occurred."""
+  blockHash: String!
+  """The unique hash for the transaction."""
+  transactionHash: String!
+  """The unix timestamp for the transaction."""
+  timestamp: Int!
+  """The wallet address that transacted."""
+  maker: String!
+  """The type of liquidity pool."""
+  poolType: NftPoolType!
+  """The event type of the transaction."""
+  eventType: NftPoolEventType!
+  """The event-specific data for the transaction."""
+  data: NftPoolEventData!
+}
+```

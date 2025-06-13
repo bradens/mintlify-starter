@@ -3,20 +3,75 @@ title: "NftCollectionPriceStats"
 description: "Price stats for an NFT collection over a time frame. Either in USD or the network&#39;s base token."
 ---
 
-**Type:** [NftCollectionPriceStats](/api-reference/types/nftcollectionpricestats)
+### Fields
 
-## Fields
+<ResponseField name="volume" type="String!" required>
+  The trade volume.
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `volume` → [String!](/api-reference/types/string) | The trade volume. |
-| `floor` → [String!](/api-reference/types/string) | The lowest sale price. |
-| `average` → [String!](/api-reference/types/string) | The average sale price. |
-| `ceiling` → [String!](/api-reference/types/string) | The highest sale price. |
-| `volumeChange` → Float | The change in volume between the previous and current time frame. |
-| `floorChange` → Float | The change in floor price between the previous and current time frame. |
-| `averageChange` → Float | The change in average price between the previous and current time frame. |
-| `ceilingChange` → Float | The change in ceiling price between the previous and current time frame. |
-| `volumeByFillsource` → [[NftCollectionFillsourceStringStat]](/api-reference/types/nftcollectionfillsourcestringstat) | The volume partitioned by fillsource over the time frame |
-| `volumePercentByFillsource` → [[NftCollectionFillsourceNumberStat]](/api-reference/types/nftcollectionfillsourcenumberstat) | The percentages of total volume partitioned by fillsource over the time frame |
+<ResponseField name="floor" type="String!" required>
+  The lowest sale price.
+</ResponseField>
 
+<ResponseField name="average" type="String!" required>
+  The average sale price.
+</ResponseField>
+
+<ResponseField name="ceiling" type="String!" required>
+  The highest sale price.
+</ResponseField>
+
+<ResponseField name="volumeChange" type="Float">
+  The change in volume between the previous and current time frame.
+</ResponseField>
+
+<ResponseField name="floorChange" type="Float">
+  The change in floor price between the previous and current time frame.
+</ResponseField>
+
+<ResponseField name="averageChange" type="Float">
+  The change in average price between the previous and current time frame.
+</ResponseField>
+
+<ResponseField name="ceilingChange" type="Float">
+  The change in ceiling price between the previous and current time frame.
+</ResponseField>
+
+<a href="/api-reference/types/nftcollectionfillsourcestringstat">
+  <ResponseField name="volumeByFillsource" type="[NftCollectionFillsourceStringStat]">
+    The volume partitioned by fillsource over the time frame
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/nftcollectionfillsourcenumberstat">
+  <ResponseField name="volumePercentByFillsource" type="[NftCollectionFillsourceNumberStat]">
+    The percentages of total volume partitioned by fillsource over the time frame
+  </ResponseField>
+</a>
+
+
+```graphql NftCollectionPriceStats
+"""Price stats for an NFT collection over a time frame. Either in USD or the network's base token."""
+type NftCollectionPriceStats {
+  """The trade volume."""
+  volume: String!
+  """The lowest sale price."""
+  floor: String!
+  """The average sale price."""
+  average: String!
+  """The highest sale price."""
+  ceiling: String!
+  """The change in volume between the previous and current time frame."""
+  volumeChange: Float
+  """The change in floor price between the previous and current time frame."""
+  floorChange: Float
+  """The change in average price between the previous and current time frame."""
+  averageChange: Float
+  """The change in ceiling price between the previous and current time frame."""
+  ceilingChange: Float
+  """The volume partitioned by fillsource over the time frame"""
+  volumeByFillsource: [NftCollectionFillsourceStringStat]
+  """The percentages of total volume partitioned by fillsource over the time frame"""
+  volumePercentByFillsource: [NftCollectionFillsourceNumberStat]
+}
+```

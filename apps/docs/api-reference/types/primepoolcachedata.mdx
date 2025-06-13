@@ -3,17 +3,55 @@ title: "PrimePoolCacheData"
 description: "Event-specific data for a Prime pool Cache transaction."
 ---
 
-**Type:** [PrimePoolCacheData](/api-reference/types/primepoolcachedata)
+### Fields
 
-## Fields
+<a href="/api-reference/types/primepooleventtype">
+  <ResponseField name="type" type="PrimePoolEventType!" required>
+    The Prime pool event type.
+  </ResponseField>
+</a>
 
-| Name | Description |
-|------|-------------|
-| `type` → [PrimePoolEventType!](/api-reference/types/primepooleventtype) | The Prime pool event type. |
-| `eventAmount` → [String!](/api-reference/types/string) | The amount of Prime pool asset(s) cached. |
-| `totalSupply` → [String!](/api-reference/types/string) | The total supply of assets cached in this Prime pool, including the amount cached in this transaction. |
-| `user` → [String!](/api-reference/types/string) | The owner wallet address of the cached Prime pool asset(s). |
-| `userCachedAmount` → [String!](/api-reference/types/string) | The total number of Prime pool asset(s) cached in this pool by this owner. |
-| `userPrimeRewardDebt` → [String!](/api-reference/types/string) | The amount of PRIME the user is not eligible for either from having already harvesting or from not caching in the past. |
-| `userEthRewardDebt` → [String!](/api-reference/types/string) | The amount of ETH the user is not eligible for either from having already harvesting or from not caching in the past. |
+<ResponseField name="eventAmount" type="String!" required>
+  The amount of Prime pool asset(s) cached.
+</ResponseField>
 
+<ResponseField name="totalSupply" type="String!" required>
+  The total supply of assets cached in this Prime pool, including the amount cached in this transaction.
+</ResponseField>
+
+<ResponseField name="user" type="String!" required>
+  The owner wallet address of the cached Prime pool asset(s).
+</ResponseField>
+
+<ResponseField name="userCachedAmount" type="String!" required>
+  The total number of Prime pool asset(s) cached in this pool by this owner.
+</ResponseField>
+
+<ResponseField name="userPrimeRewardDebt" type="String!" required>
+  The amount of PRIME the user is not eligible for either from having already harvesting or from not caching in the past.
+</ResponseField>
+
+<ResponseField name="userEthRewardDebt" type="String!" required>
+  The amount of ETH the user is not eligible for either from having already harvesting or from not caching in the past.
+</ResponseField>
+
+
+```graphql PrimePoolCacheData
+"""Event-specific data for a Prime pool Cache transaction."""
+type PrimePoolCacheData {
+  """The Prime pool event type."""
+  type: PrimePoolEventType!
+  """The amount of Prime pool asset(s) cached."""
+  eventAmount: String!
+  """The total supply of assets cached in this Prime pool, including the amount cached in this transaction."""
+  totalSupply: String!
+  """The owner wallet address of the cached Prime pool asset(s)."""
+  user: String!
+  """The total number of Prime pool asset(s) cached in this pool by this owner."""
+  userCachedAmount: String!
+  """The amount of PRIME the user is not eligible for either from having already harvesting or from not caching in the past."""
+  userPrimeRewardDebt: String!
+  """The amount of ETH the user is not eligible for either from having already harvesting or from not caching in the past."""
+  userEthRewardDebt: String!
+}
+```

@@ -3,12 +3,20 @@ title: "SimulateDeployErrorsType"
 description: "Object type"
 ---
 
-**Type:** [SimulateDeployErrorsType](/api-reference/types/simulatedeployerrorstype)
+### Fields
 
-## Fields
+<ResponseField name="deployError" type="String">
+  No description provided
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `deployError` → String | No description provided |
-| `tokenMintedToDeployerError` → String | No description provided |
+<ResponseField name="tokenMintedToDeployerError" type="String">
+  No description provided
+</ResponseField>
 
+
+```graphql SimulateDeployErrorsType
+type SimulateDeployErrorsType {
+  deployError: String
+  tokenMintedToDeployerError: String
+}
+```

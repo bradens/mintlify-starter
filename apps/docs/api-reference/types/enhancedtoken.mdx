@@ -3,35 +3,199 @@ title: "EnhancedToken"
 description: "Metadata for a token."
 ---
 
-**Type:** [EnhancedToken](/api-reference/types/enhancedtoken)
+### Fields
 
-## Fields
+<ResponseField name="address" type="String!" required>
+  The contract address of the token.
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `address` → [String!](/api-reference/types/string) | The contract address of the token. |
-| `cmcId` → Int | The token ID on CoinMarketCap. |
-| `decimals` → [Int!](/api-reference/types/int) | The precision to which the token can be divided. For example, the smallest unit for USDC is 0.000001 (6 decimals). |
-| `id` → [String!](/api-reference/types/string) | The ID of the token (`address:networkId`). |
-| `isScam` → Boolean | Whether the token has been flagged as a scam. |
-| `name` → String | The token name. For example, `ApeCoin`. |
-| `networkId` → [Int!](/api-reference/types/int) | The network ID the token is deployed on. |
-| `symbol` → String | The token symbol. For example, `APE`. |
-| `totalSupply` → String | The total supply of the token. |
-| `socialLinks` → [SocialLinks](/api-reference/types/sociallinks) | Community gathered links for the socials of this token. |
-| `info` → [TokenInfo](/api-reference/types/tokeninfo) | More metadata about the token. |
-| `explorerData` → [ExplorerTokenData](/api-reference/types/explorertokendata) | Information about the token from 3rd party sources. |
-| `exchanges` → [[Exchange!]](/api-reference/types/exchange) | A list of exchanges where the token has been traded. |
-| `imageThumbUrl` → String | The thumbnail token logo URL. |
-| `imageSmallUrl` → String | The small token logo URL. |
-| `imageLargeUrl` → String | The large token logo URL. |
-| `circulatingSupply` → String | The circulating supply of the token. |
-| `pooled` → String | The amount of this token in the pair. |
-| `creatorAddress` → String | The token creator&#39;s wallet address. |
-| `createBlockNumber` → Int | The block height the token was created at. |
-| `createTransactionHash` → String | The transaction hash of the token&#39;s creation. |
-| `createdAt` → Int | The unix timestamp for the creation of the token. |
-| `mintable` → String | Whether or not the token is mintable |
-| `freezable` → String | Whether or not the token is freezable |
-| `launchpad` → [LaunchpadData](/api-reference/types/launchpaddata) | The launchpad data for the token, if applicable. |
+<ResponseField name="cmcId" type="Int">
+  The token ID on CoinMarketCap.
+</ResponseField>
 
+<ResponseField name="decimals" type="Int!" required>
+  The precision to which the token can be divided. For example, the smallest unit for USDC is 0.000001 (6 decimals).
+</ResponseField>
+
+<ResponseField name="id" type="String!" required>
+  The ID of the token (`address:networkId`).
+</ResponseField>
+
+<ResponseField name="isScam" type="Boolean">
+  Whether the token has been flagged as a scam.
+</ResponseField>
+
+<ResponseField name="name" type="String">
+  The token name. For example, `ApeCoin`.
+</ResponseField>
+
+<ResponseField name="networkId" type="Int!" required>
+  The network ID the token is deployed on.
+</ResponseField>
+
+<ResponseField name="symbol" type="String">
+  The token symbol. For example, `APE`.
+</ResponseField>
+
+<ResponseField name="totalSupply" type="String">
+  The total supply of the token.
+    
+    <Warning>
+      This field is deprecated. Use the TokenInfo type
+    </Warning>
+</ResponseField>
+
+<a href="/api-reference/types/sociallinks">
+  <ResponseField name="socialLinks" type="SocialLinks">
+    Community gathered links for the socials of this token.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/tokeninfo">
+  <ResponseField name="info" type="TokenInfo">
+    More metadata about the token.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/explorertokendata">
+  <ResponseField name="explorerData" type="ExplorerTokenData">
+    Information about the token from 3rd party sources.
+    
+    <Warning>
+      This field is deprecated. Use the TokenInfo type
+    </Warning>
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/exchange">
+  <ResponseField name="exchanges" type="[Exchange!]">
+    A list of exchanges where the token has been traded.
+  </ResponseField>
+</a>
+
+<ResponseField name="imageThumbUrl" type="String">
+  The thumbnail token logo URL.
+    
+    <Warning>
+      This field is deprecated. Use the TokenInfo type
+    </Warning>
+</ResponseField>
+
+<ResponseField name="imageSmallUrl" type="String">
+  The small token logo URL.
+    
+    <Warning>
+      This field is deprecated. Use the TokenInfo type
+    </Warning>
+</ResponseField>
+
+<ResponseField name="imageLargeUrl" type="String">
+  The large token logo URL.
+    
+    <Warning>
+      This field is deprecated. Use the TokenInfo type
+    </Warning>
+</ResponseField>
+
+<ResponseField name="circulatingSupply" type="String">
+  The circulating supply of the token.
+    
+    <Warning>
+      This field is deprecated. Use the TokenInfo type
+    </Warning>
+</ResponseField>
+
+<ResponseField name="pooled" type="String">
+  The amount of this token in the pair.
+    
+    <Warning>
+      This field is deprecated. Pooled can be found on the pair instead
+    </Warning>
+</ResponseField>
+
+<ResponseField name="creatorAddress" type="String">
+  The token creator&#39;s wallet address.
+</ResponseField>
+
+<ResponseField name="createBlockNumber" type="Int">
+  The block height the token was created at.
+</ResponseField>
+
+<ResponseField name="createTransactionHash" type="String">
+  The transaction hash of the token&#39;s creation.
+</ResponseField>
+
+<ResponseField name="createdAt" type="Int">
+  The unix timestamp for the creation of the token.
+</ResponseField>
+
+<ResponseField name="mintable" type="String">
+  Whether or not the token is mintable
+</ResponseField>
+
+<ResponseField name="freezable" type="String">
+  Whether or not the token is freezable
+</ResponseField>
+
+<a href="/api-reference/types/launchpaddata">
+  <ResponseField name="launchpad" type="LaunchpadData">
+    The launchpad data for the token, if applicable.
+  </ResponseField>
+</a>
+
+
+```graphql EnhancedToken
+"""Metadata for a token."""
+type EnhancedToken {
+  """The contract address of the token."""
+  address: String!
+  """The token ID on CoinMarketCap."""
+  cmcId: Int
+  """The precision to which the token can be divided. For example, the smallest unit for USDC is 0.000001 (6 decimals)."""
+  decimals: Int!
+  """The ID of the token (`address:networkId`)."""
+  id: String!
+  """Whether the token has been flagged as a scam."""
+  isScam: Boolean
+  """The token name. For example, `ApeCoin`."""
+  name: String
+  """The network ID the token is deployed on."""
+  networkId: Int!
+  """The token symbol. For example, `APE`."""
+  symbol: String
+  """The total supply of the token."""
+  totalSupply: String @deprecated(reason: "Use the TokenInfo type")
+  """Community gathered links for the socials of this token."""
+  socialLinks: SocialLinks
+  """More metadata about the token."""
+  info: TokenInfo
+  """Information about the token from 3rd party sources."""
+  explorerData: ExplorerTokenData @deprecated(reason: "Use the TokenInfo type")
+  """A list of exchanges where the token has been traded."""
+  exchanges: [Exchange!]
+  """The thumbnail token logo URL."""
+  imageThumbUrl: String @deprecated(reason: "Use the TokenInfo type")
+  """The small token logo URL."""
+  imageSmallUrl: String @deprecated(reason: "Use the TokenInfo type")
+  """The large token logo URL."""
+  imageLargeUrl: String @deprecated(reason: "Use the TokenInfo type")
+  """The circulating supply of the token."""
+  circulatingSupply: String @deprecated(reason: "Use the TokenInfo type")
+  """The amount of this token in the pair."""
+  pooled: String @deprecated(reason: "Pooled can be found on the pair instead")
+  """The token creator's wallet address."""
+  creatorAddress: String
+  """The block height the token was created at."""
+  createBlockNumber: Int
+  """The transaction hash of the token's creation."""
+  createTransactionHash: String
+  """The unix timestamp for the creation of the token."""
+  createdAt: Int
+  """Whether or not the token is mintable"""
+  mintable: String
+  """Whether or not the token is freezable"""
+  freezable: String
+  """The launchpad data for the token, if applicable."""
+  launchpad: LaunchpadData
+}
+```

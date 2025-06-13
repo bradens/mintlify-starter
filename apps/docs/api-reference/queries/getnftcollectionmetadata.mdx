@@ -7,11 +7,21 @@ description: "Returns stats for an NFT collection across different time frames."
 
 **Returns:** [NftCollectionMetadataResponse](/api-reference/types/nftcollectionmetadataresponse)
 
-## Arguments for getNftCollectionMetadata
+### Arguments
 
-| Name | Description |
-|------|-------------|
-| `collectionId` (String) | The ID of the NFT collection (`address`:`networkId`). For example, `0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d:1`. |
-| `address` (String) | The contract address of the NFT collection. |
-| `networkId` (Int) | The network ID the NFT collection is deployed on. |
+<ResponseField name="collectionId" type="String">
+  The ID of the NFT collection (`address`:`networkId`). For example, `0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d:1`.
+    
+    <Warning>
+      This argument is deprecated. Use address &amp; networkId instead.
+    </Warning>
+</ResponseField>
+
+<ResponseField name="address" type="String">
+  The contract address of the NFT collection.
+</ResponseField>
+
+<ResponseField name="networkId" type="Int">
+  The network ID the NFT collection is deployed on.
+</ResponseField>
 

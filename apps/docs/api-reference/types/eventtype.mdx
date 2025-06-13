@@ -3,17 +3,46 @@ title: "EventType"
 description: "The event type for a token transaction."
 ---
 
-**Type:** [EventType](/api-reference/types/eventtype)
+### Values
 
-## Values
+<ResponseField name="Burn" type="enum">
+  No description provided
+</ResponseField>
 
-| Value | Description |
-|-------|-------------|
-| `Burn` | No description provided |
-| `Mint` | No description provided |
-| `Swap` | No description provided |
-| `Sync` | No description provided |
-| `Collect` | No description provided |
-| `CollectProtocol` | No description provided |
-| `PoolBalanceChanged` | No description provided |
+<ResponseField name="Mint" type="enum">
+  No description provided
+</ResponseField>
 
+<ResponseField name="Swap" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="Sync" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="Collect" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="CollectProtocol" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="PoolBalanceChanged" type="enum">
+  No description provided
+</ResponseField>
+
+
+```graphql EventType
+"""The event type for a token transaction."""
+enum EventType {
+  Burn
+  Mint
+  Swap
+  Sync
+  Collect
+  CollectProtocol
+  PoolBalanceChanged
+}
+```

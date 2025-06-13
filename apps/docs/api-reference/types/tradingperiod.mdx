@@ -3,14 +3,31 @@ title: "TradingPeriod"
 description: "A time period used when calculating wallet trading data."
 ---
 
-**Type:** [TradingPeriod](/api-reference/types/tradingperiod)
+### Values
 
-## Values
+<ResponseField name="DAY" type="enum">
+  No description provided
+</ResponseField>
 
-| Value | Description |
-|-------|-------------|
-| `DAY` | No description provided |
-| `WEEK` | No description provided |
-| `MONTH` | No description provided |
-| `YEAR` | No description provided |
+<ResponseField name="WEEK" type="enum">
+  No description provided
+</ResponseField>
 
+<ResponseField name="MONTH" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="YEAR" type="enum">
+  No description provided
+</ResponseField>
+
+
+```graphql TradingPeriod
+"""A time period used when calculating wallet trading data."""
+enum TradingPeriod {
+  DAY
+  WEEK
+  MONTH
+  YEAR
+}
+```

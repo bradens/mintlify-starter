@@ -3,12 +3,21 @@ title: "NftPoolContractVersion"
 description: "The NFT pool contract version."
 ---
 
-**Type:** [NftPoolContractVersion](/api-reference/types/nftpoolcontractversion)
+### Values
 
-## Values
+<ResponseField name="SUDOSWAP_V1" type="enum">
+  No description provided
+</ResponseField>
 
-| Value | Description |
-|-------|-------------|
-| `SUDOSWAP_V1` | No description provided |
-| `SUDOSWAP_V2` | No description provided |
+<ResponseField name="SUDOSWAP_V2" type="enum">
+  No description provided
+</ResponseField>
 
+
+```graphql NftPoolContractVersion
+"""The NFT pool contract version."""
+enum NftPoolContractVersion {
+  SUDOSWAP_V1
+  SUDOSWAP_V2
+}
+```

@@ -3,11 +3,19 @@ title: "CreateNftEventWebhooksInput"
 description: "Input for creating NFT event webhooks."
 ---
 
-**Type:** [CreateNftEventWebhooksInput](/api-reference/types/createnfteventwebhooksinput)
+### Fields
 
-## Fields
+<a href="/api-reference/types/createnfteventwebhookargs">
+  <ResponseField name="webhooks" type="[CreateNftEventWebhookArgs!]!" required>
+    A list of NFT event webhooks to create.
+  </ResponseField>
+</a>
 
-| Name | Description |
-|------|-------------|
-| `webhooks` → [[CreateNftEventWebhookArgs!]!](/api-reference/types/createnfteventwebhookargs) | A list of NFT event webhooks to create. |
 
+```graphql CreateNftEventWebhooksInput
+"""Input for creating NFT event webhooks."""
+input CreateNftEventWebhooksInput {
+  """A list of NFT event webhooks to create."""
+  webhooks: [CreateNftEventWebhookArgs!]!
+}
+```

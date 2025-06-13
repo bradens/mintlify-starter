@@ -3,13 +3,25 @@ title: "MigrateTrackedWalletsOutput"
 description: "Object type"
 ---
 
-**Type:** [MigrateTrackedWalletsOutput](/api-reference/types/migratetrackedwalletsoutput)
+### Fields
 
-## Fields
+<ResponseField name="fromUserId" type="String!" required>
+  No description provided
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `fromUserId` → [String!](/api-reference/types/string) | No description provided |
-| `toUserId` → [String!](/api-reference/types/string) | No description provided |
-| `status` → [String!](/api-reference/types/string) | No description provided |
+<ResponseField name="toUserId" type="String!" required>
+  No description provided
+</ResponseField>
 
+<ResponseField name="status" type="String!" required>
+  No description provided
+</ResponseField>
+
+
+```graphql MigrateTrackedWalletsOutput
+type MigrateTrackedWalletsOutput {
+  fromUserId: String!
+  toUserId: String!
+  status: String!
+}
+```

@@ -3,18 +3,51 @@ title: "TokenPairEventType"
 description: "Token pair event types."
 ---
 
-**Type:** [TokenPairEventType](/api-reference/types/tokenpaireventtype)
+### Values
 
-## Values
+<ResponseField name="SWAP" type="enum">
+  No description provided
+</ResponseField>
 
-| Value | Description |
-|-------|-------------|
-| `SWAP` | No description provided |
-| `MINT` | No description provided |
-| `BURN` | No description provided |
-| `SYNC` | No description provided |
-| `BUY` | No description provided |
-| `SELL` | No description provided |
-| `COLLECT` | No description provided |
-| `COLLECT_PROTOCOL` | No description provided |
+<ResponseField name="MINT" type="enum">
+  No description provided
+</ResponseField>
 
+<ResponseField name="BURN" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="SYNC" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="BUY" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="SELL" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="COLLECT" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="COLLECT_PROTOCOL" type="enum">
+  No description provided
+</ResponseField>
+
+
+```graphql TokenPairEventType
+"""Token pair event types."""
+enum TokenPairEventType {
+  SWAP
+  MINT
+  BURN
+  SYNC
+  BUY
+  SELL
+  COLLECT
+  COLLECT_PROTOCOL
+}
+```

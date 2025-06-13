@@ -3,18 +3,75 @@ title: "statsNonCurrency"
 description: "Numerical stats for an NFT collection over a time frame."
 ---
 
-**Type:** [statsNonCurrency](/api-reference/types/statsnoncurrency)
+### Fields
 
-## Fields
+<a href="/api-reference/types/statsfilter">
+  <ResponseField name="mints" type="StatsFilter">
+    The number of mints over the time frame.
+  </ResponseField>
+</a>
 
-| Name | Description |
-|------|-------------|
-| `mints` → [StatsFilter](/api-reference/types/statsfilter) | The number of mints over the time frame. |
-| `sales` → [StatsFilter](/api-reference/types/statsfilter) | The number of sales over the time frame. |
-| `tokensSold` → [StatsFilter](/api-reference/types/statsfilter) | The number of tokens sold over the time frame. |
-| `transfers` → [StatsFilter](/api-reference/types/statsfilter) | The number of transfers over the time frame. |
-| `uniqueBuyers` → [StatsFilter](/api-reference/types/statsfilter) | The number of unique buyers over the time frame. |
-| `uniqueSellers` → [StatsFilter](/api-reference/types/statsfilter) | The number of unique sellers over the time frame. |
-| `uniqueSalesWallets` → [StatsFilter](/api-reference/types/statsfilter) | The number of unique wallets (buyers or sellers) over the time frame. |
-| `uniqueMinters` → [StatsFilter](/api-reference/types/statsfilter) | The number of unique minters over the time frame. |
+<a href="/api-reference/types/statsfilter">
+  <ResponseField name="sales" type="StatsFilter">
+    The number of sales over the time frame.
+  </ResponseField>
+</a>
 
+<a href="/api-reference/types/statsfilter">
+  <ResponseField name="tokensSold" type="StatsFilter">
+    The number of tokens sold over the time frame.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/statsfilter">
+  <ResponseField name="transfers" type="StatsFilter">
+    The number of transfers over the time frame.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/statsfilter">
+  <ResponseField name="uniqueBuyers" type="StatsFilter">
+    The number of unique buyers over the time frame.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/statsfilter">
+  <ResponseField name="uniqueSellers" type="StatsFilter">
+    The number of unique sellers over the time frame.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/statsfilter">
+  <ResponseField name="uniqueSalesWallets" type="StatsFilter">
+    The number of unique wallets (buyers or sellers) over the time frame.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/statsfilter">
+  <ResponseField name="uniqueMinters" type="StatsFilter">
+    The number of unique minters over the time frame.
+  </ResponseField>
+</a>
+
+
+```graphql statsNonCurrency
+"""Numerical stats for an NFT collection over a time frame."""
+input statsNonCurrency {
+  """The number of mints over the time frame."""
+  mints: StatsFilter
+  """The number of sales over the time frame."""
+  sales: StatsFilter
+  """The number of tokens sold over the time frame."""
+  tokensSold: StatsFilter
+  """The number of transfers over the time frame."""
+  transfers: StatsFilter
+  """The number of unique buyers over the time frame."""
+  uniqueBuyers: StatsFilter
+  """The number of unique sellers over the time frame."""
+  uniqueSellers: StatsFilter
+  """The number of unique wallets (buyers or sellers) over the time frame."""
+  uniqueSalesWallets: StatsFilter
+  """The number of unique minters over the time frame."""
+  uniqueMinters: StatsFilter
+}
+```

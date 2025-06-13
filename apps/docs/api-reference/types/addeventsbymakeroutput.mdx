@@ -3,12 +3,25 @@ title: "AddEventsByMakerOutput"
 description: "Response returned by `onEventsCreatedByMaker`."
 ---
 
-**Type:** [AddEventsByMakerOutput](/api-reference/types/addeventsbymakeroutput)
+### Fields
 
-## Fields
+<ResponseField name="makerAddress" type="String!" required>
+  The address of the maker.
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `makerAddress` → [String!](/api-reference/types/string) | The address of the maker. |
-| `events` → [[Event!]!](/api-reference/types/event) | A list of transactions for the maker. |
+<a href="/api-reference/types/event">
+  <ResponseField name="events" type="[Event!]!" required>
+    A list of transactions for the maker.
+  </ResponseField>
+</a>
 
+
+```graphql AddEventsByMakerOutput
+"""Response returned by `onEventsCreatedByMaker`."""
+type AddEventsByMakerOutput {
+  """The address of the maker."""
+  makerAddress: String!
+  """A list of transactions for the maker."""
+  events: [Event!]!
+}
+```

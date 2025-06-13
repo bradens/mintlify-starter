@@ -7,14 +7,29 @@ description: "Returns aggregated NFT pool/collection stats for a given time fram
 
 **Returns:** [NftPoolStatsResponse](/api-reference/types/nftpoolstatsresponse)
 
-## Arguments for getNftPoolStats
+### Arguments
 
-| Name | Description |
-|------|-------------|
-| `collectionAddress` ([String!](/api-reference/types/string)) | The contract address of the NFT collection. |
-| `exchangeAddress` ([String!](/api-reference/types/string)) | The NFT AMM marketplace address to filter by. |
-| `networkId` ([Int!](/api-reference/types/int)) | The network ID the NFT collection is deployed on. |
-| `startTime` ([Int!](/api-reference/types/int)) | The unix timestamp for the start of the requested range. |
-| `endTime` ([Int!](/api-reference/types/int)) | The unix timestamp for the end of the requested range. |
-| `poolAddress` (String) | The NFT pool address to filter by. |
+<ResponseField name="collectionAddress" type="String!" required>
+  The contract address of the NFT collection.
+</ResponseField>
+
+<ResponseField name="exchangeAddress" type="String!" required>
+  The NFT AMM marketplace address to filter by.
+</ResponseField>
+
+<ResponseField name="networkId" type="Int!" required>
+  The network ID the NFT collection is deployed on.
+</ResponseField>
+
+<ResponseField name="startTime" type="Int!" required>
+  The unix timestamp for the start of the requested range.
+</ResponseField>
+
+<ResponseField name="endTime" type="Int!" required>
+  The unix timestamp for the end of the requested range.
+</ResponseField>
+
+<ResponseField name="poolAddress" type="String">
+  The NFT pool address to filter by.
+</ResponseField>
 

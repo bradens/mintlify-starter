@@ -3,79 +3,433 @@ title: "PairFilterResult"
 description: "A pair matching a set of filter parameters."
 ---
 
-**Type:** [PairFilterResult](/api-reference/types/pairfilterresult)
+### Fields
 
-## Fields
+<ResponseField name="createdAt" type="Int">
+  The unix timestamp for the creation of the pair.
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `createdAt` → Int | The unix timestamp for the creation of the pair. |
-| `lastTransaction` → Int | The unix timestamp for the last transaction to happen on the pair. |
-| `buyCount1` → Int | The number of buys in the past hour. |
-| `buyCount4` → Int | The number of buys in the past 4 hours. |
-| `buyCount12` → Int | The number of buys in the past 12 hours. |
-| `buyCount24` → Int | The number of buys in the past 24 hours. |
-| `exchange` → [FilterExchange](/api-reference/types/filterexchange) | Exchange metadata for the pair. |
-| `highPrice1` → String | The highest price in USD in the past hour. |
-| `highPrice4` → String | The highest price in USD in the past 4 hours. |
-| `highPrice12` → String | The highest price in USD in the past 12 hours. |
-| `highPrice24` → String | The highest price in USD in the past 24 hours. |
-| `liquidity` → String | Amount of liquidity in the pair. |
-| `lockedLiquidityPercentage` → [Float!](/api-reference/types/float) | The locked liquidity percentage. |
-| `liquidityToken` → String | The token with higher liquidity in the pair. Can be `token0` or `token1`. |
-| `quoteToken` → String | The token of interest. Can be `token0` or `token1`. |
-| `lowPrice1` → String | The lowest price in USD in the past hour. |
-| `lowPrice4` → String | The lowest price in USD in the past 4 hours. |
-| `lowPrice12` → String | The lowest price in USD in the past 12 hours. |
-| `lowPrice24` → String | The lowest price in USD in the past 24 hours. |
-| `marketCap` → String | The fully diluted market cap. |
-| `pair` → [Pair](/api-reference/types/pair) | Metadata for the pair. |
-| `price` → String | The token price in USD. |
-| `priceScale` → String | 10^n, where n is the number of decimal places the price has. Max 16. Used for TradingView settings. |
-| `priceChange1` → String | The percent price change in the past hour. Decimal format. |
-| `priceChange4` → String | The percent price change in the past 4 hours. Decimal format. |
-| `priceChange12` → String | The percent price change in the past 12 hours. Decimal format. |
-| `priceChange24` → String | The percent price change in the past 24 hours. Decimal format. |
-| `volumeChange1` → String | The percent volume change in the past hour. Decimal format. |
-| `volumeChange4` → String | The percent volume change in the past 4 hours. Decimal format. |
-| `volumeChange12` → String | The percent volume change in the past 12 hours. Decimal format. |
-| `volumeChange24` → String | The percent volume change in the past 24 hours. Decimal format. |
-| `sellCount1` → Int | The number of sells in the past hour. |
-| `sellCount4` → Int | The number of sells in the past 4 hours. |
-| `sellCount12` → Int | The number of sells in the past 12 hours. |
-| `sellCount24` → Int | The number of sells in the past 24 hours. |
-| `token0` → [EnhancedToken](/api-reference/types/enhancedtoken) | Metadata for the first token in the pair. |
-| `token1` → [EnhancedToken](/api-reference/types/enhancedtoken) | Metadata for the second token in the pair. |
-| `txnCount1` → Int | The number of transactions in the past hour. |
-| `txnCount4` → Int | The number of transactions in the past 4 hours. |
-| `txnCount12` → Int | The number of transactions in the past 12 hours. |
-| `txnCount24` → Int | The number of transactions in the past 24 hours. |
-| `uniqueBuys1` → Int | The unique number of buys in the past hour. |
-| `uniqueBuys4` → Int | The unique number of buys in the past 4 hours. |
-| `uniqueBuys12` → Int | The unique number of buys in the past 12 hours. |
-| `uniqueBuys24` → Int | The unique number of buys in the past 24 hours. |
-| `uniqueSells1` → Int | The unique number of sells in the past hour. |
-| `uniqueSells4` → Int | The unique number of sells in the past 4 hours. |
-| `uniqueSells12` → Int | The unique number of sells in the past 12 hours. |
-| `uniqueSells24` → Int | The unique number of sells in the past 24 hours. |
-| `uniqueTransactions1` → Int | The unique number of transactions in the past hour. |
-| `uniqueTransactions4` → Int | The unique number of transactions in the past 4 hours. |
-| `uniqueTransactions12` → Int | The unique number of transactions in the past 12 hours. |
-| `uniqueTransactions24` → Int | The unique number of transactions in the past 24 hours. |
-| `volumeUSD1` → String | The trade volume in USD in the past hour. |
-| `volumeUSD4` → String | The trade volume in USD in the past 4 hours. |
-| `volumeUSD12` → String | The trade volume in USD in the past 12 hours. |
-| `volumeUSD24` → String | The trade volume in USD in the past 24 hours. |
-| `buyVolumeUSD1` → String | The buy volume in USD in the past hour. |
-| `buyVolumeUSD12` → String | The buy volume in USD in the past 12 hours. |
-| `buyVolumeUSD24` → String | The buy volume in USD in the past 24 hours. |
-| `buyVolumeUSD4` → String | The buy volume in USD in the past 4 hours. |
-| `sellVolumeUSD1` → String | The sell volume in USD in the past hour. |
-| `sellVolumeUSD12` → String | The sell volume in USD in the past 12 hours. |
-| `sellVolumeUSD24` → String | The sell volume in USD in the past 24 hours. |
-| `sellVolumeUSD4` → String | The sell volume in USD in the past 4 hours. |
-| `walletAgeAvg` → String | The average age of the wallets that traded in the last 24h |
-| `walletAgeStd` → String | The standard deviation of age of the wallets that traded in the last 24h |
-| `swapPct1dOldWallet` → String | The percentage of wallets that are less than 1d old that have traded in the last 24h |
-| `swapPct7dOldWallet` → String | The percentage of wallets that are less than 7d old that have traded in the last 24h |
+<ResponseField name="lastTransaction" type="Int">
+  The unix timestamp for the last transaction to happen on the pair.
+</ResponseField>
 
+<ResponseField name="buyCount1" type="Int">
+  The number of buys in the past hour.
+</ResponseField>
+
+<ResponseField name="buyCount4" type="Int">
+  The number of buys in the past 4 hours.
+</ResponseField>
+
+<ResponseField name="buyCount12" type="Int">
+  The number of buys in the past 12 hours.
+</ResponseField>
+
+<ResponseField name="buyCount24" type="Int">
+  The number of buys in the past 24 hours.
+</ResponseField>
+
+<a href="/api-reference/types/filterexchange">
+  <ResponseField name="exchange" type="FilterExchange">
+    Exchange metadata for the pair.
+  </ResponseField>
+</a>
+
+<ResponseField name="highPrice1" type="String">
+  The highest price in USD in the past hour.
+</ResponseField>
+
+<ResponseField name="highPrice4" type="String">
+  The highest price in USD in the past 4 hours.
+</ResponseField>
+
+<ResponseField name="highPrice12" type="String">
+  The highest price in USD in the past 12 hours.
+</ResponseField>
+
+<ResponseField name="highPrice24" type="String">
+  The highest price in USD in the past 24 hours.
+</ResponseField>
+
+<ResponseField name="liquidity" type="String">
+  Amount of liquidity in the pair.
+</ResponseField>
+
+<ResponseField name="lockedLiquidityPercentage" type="Float!" required>
+  The locked liquidity percentage.
+</ResponseField>
+
+<ResponseField name="liquidityToken" type="String">
+  The token with higher liquidity in the pair. Can be `token0` or `token1`.
+</ResponseField>
+
+<ResponseField name="quoteToken" type="String">
+  The token of interest. Can be `token0` or `token1`.
+</ResponseField>
+
+<ResponseField name="lowPrice1" type="String">
+  The lowest price in USD in the past hour.
+</ResponseField>
+
+<ResponseField name="lowPrice4" type="String">
+  The lowest price in USD in the past 4 hours.
+</ResponseField>
+
+<ResponseField name="lowPrice12" type="String">
+  The lowest price in USD in the past 12 hours.
+</ResponseField>
+
+<ResponseField name="lowPrice24" type="String">
+  The lowest price in USD in the past 24 hours.
+</ResponseField>
+
+<ResponseField name="marketCap" type="String">
+  The fully diluted market cap.
+</ResponseField>
+
+<a href="/api-reference/types/pair">
+  <ResponseField name="pair" type="Pair">
+    Metadata for the pair.
+  </ResponseField>
+</a>
+
+<ResponseField name="price" type="String">
+  The token price in USD.
+</ResponseField>
+
+<ResponseField name="priceScale" type="String">
+  10^n, where n is the number of decimal places the price has. Max 16. Used for TradingView settings.
+</ResponseField>
+
+<ResponseField name="priceChange1" type="String">
+  The percent price change in the past hour. Decimal format.
+</ResponseField>
+
+<ResponseField name="priceChange4" type="String">
+  The percent price change in the past 4 hours. Decimal format.
+</ResponseField>
+
+<ResponseField name="priceChange12" type="String">
+  The percent price change in the past 12 hours. Decimal format.
+</ResponseField>
+
+<ResponseField name="priceChange24" type="String">
+  The percent price change in the past 24 hours. Decimal format.
+</ResponseField>
+
+<ResponseField name="volumeChange1" type="String">
+  The percent volume change in the past hour. Decimal format.
+</ResponseField>
+
+<ResponseField name="volumeChange4" type="String">
+  The percent volume change in the past 4 hours. Decimal format.
+</ResponseField>
+
+<ResponseField name="volumeChange12" type="String">
+  The percent volume change in the past 12 hours. Decimal format.
+</ResponseField>
+
+<ResponseField name="volumeChange24" type="String">
+  The percent volume change in the past 24 hours. Decimal format.
+</ResponseField>
+
+<ResponseField name="sellCount1" type="Int">
+  The number of sells in the past hour.
+</ResponseField>
+
+<ResponseField name="sellCount4" type="Int">
+  The number of sells in the past 4 hours.
+</ResponseField>
+
+<ResponseField name="sellCount12" type="Int">
+  The number of sells in the past 12 hours.
+</ResponseField>
+
+<ResponseField name="sellCount24" type="Int">
+  The number of sells in the past 24 hours.
+</ResponseField>
+
+<a href="/api-reference/types/enhancedtoken">
+  <ResponseField name="token0" type="EnhancedToken">
+    Metadata for the first token in the pair.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/enhancedtoken">
+  <ResponseField name="token1" type="EnhancedToken">
+    Metadata for the second token in the pair.
+  </ResponseField>
+</a>
+
+<ResponseField name="txnCount1" type="Int">
+  The number of transactions in the past hour.
+</ResponseField>
+
+<ResponseField name="txnCount4" type="Int">
+  The number of transactions in the past 4 hours.
+</ResponseField>
+
+<ResponseField name="txnCount12" type="Int">
+  The number of transactions in the past 12 hours.
+</ResponseField>
+
+<ResponseField name="txnCount24" type="Int">
+  The number of transactions in the past 24 hours.
+</ResponseField>
+
+<ResponseField name="uniqueBuys1" type="Int">
+  The unique number of buys in the past hour.
+</ResponseField>
+
+<ResponseField name="uniqueBuys4" type="Int">
+  The unique number of buys in the past 4 hours.
+</ResponseField>
+
+<ResponseField name="uniqueBuys12" type="Int">
+  The unique number of buys in the past 12 hours.
+</ResponseField>
+
+<ResponseField name="uniqueBuys24" type="Int">
+  The unique number of buys in the past 24 hours.
+</ResponseField>
+
+<ResponseField name="uniqueSells1" type="Int">
+  The unique number of sells in the past hour.
+</ResponseField>
+
+<ResponseField name="uniqueSells4" type="Int">
+  The unique number of sells in the past 4 hours.
+</ResponseField>
+
+<ResponseField name="uniqueSells12" type="Int">
+  The unique number of sells in the past 12 hours.
+</ResponseField>
+
+<ResponseField name="uniqueSells24" type="Int">
+  The unique number of sells in the past 24 hours.
+</ResponseField>
+
+<ResponseField name="uniqueTransactions1" type="Int">
+  The unique number of transactions in the past hour.
+</ResponseField>
+
+<ResponseField name="uniqueTransactions4" type="Int">
+  The unique number of transactions in the past 4 hours.
+</ResponseField>
+
+<ResponseField name="uniqueTransactions12" type="Int">
+  The unique number of transactions in the past 12 hours.
+</ResponseField>
+
+<ResponseField name="uniqueTransactions24" type="Int">
+  The unique number of transactions in the past 24 hours.
+</ResponseField>
+
+<ResponseField name="volumeUSD1" type="String">
+  The trade volume in USD in the past hour.
+</ResponseField>
+
+<ResponseField name="volumeUSD4" type="String">
+  The trade volume in USD in the past 4 hours.
+</ResponseField>
+
+<ResponseField name="volumeUSD12" type="String">
+  The trade volume in USD in the past 12 hours.
+</ResponseField>
+
+<ResponseField name="volumeUSD24" type="String">
+  The trade volume in USD in the past 24 hours.
+</ResponseField>
+
+<ResponseField name="buyVolumeUSD1" type="String">
+  The buy volume in USD in the past hour.
+</ResponseField>
+
+<ResponseField name="buyVolumeUSD12" type="String">
+  The buy volume in USD in the past 12 hours.
+</ResponseField>
+
+<ResponseField name="buyVolumeUSD24" type="String">
+  The buy volume in USD in the past 24 hours.
+</ResponseField>
+
+<ResponseField name="buyVolumeUSD4" type="String">
+  The buy volume in USD in the past 4 hours.
+</ResponseField>
+
+<ResponseField name="sellVolumeUSD1" type="String">
+  The sell volume in USD in the past hour.
+</ResponseField>
+
+<ResponseField name="sellVolumeUSD12" type="String">
+  The sell volume in USD in the past 12 hours.
+</ResponseField>
+
+<ResponseField name="sellVolumeUSD24" type="String">
+  The sell volume in USD in the past 24 hours.
+</ResponseField>
+
+<ResponseField name="sellVolumeUSD4" type="String">
+  The sell volume in USD in the past 4 hours.
+</ResponseField>
+
+<ResponseField name="walletAgeAvg" type="String">
+  The average age of the wallets that traded in the last 24h
+</ResponseField>
+
+<ResponseField name="walletAgeStd" type="String">
+  The standard deviation of age of the wallets that traded in the last 24h
+</ResponseField>
+
+<ResponseField name="swapPct1dOldWallet" type="String">
+  The percentage of wallets that are less than 1d old that have traded in the last 24h
+</ResponseField>
+
+<ResponseField name="swapPct7dOldWallet" type="String">
+  The percentage of wallets that are less than 7d old that have traded in the last 24h
+</ResponseField>
+
+
+```graphql PairFilterResult
+"""A pair matching a set of filter parameters."""
+type PairFilterResult {
+  """The unix timestamp for the creation of the pair."""
+  createdAt: Int
+  """The unix timestamp for the last transaction to happen on the pair."""
+  lastTransaction: Int
+  """The number of buys in the past hour."""
+  buyCount1: Int
+  """The number of buys in the past 4 hours."""
+  buyCount4: Int
+  """The number of buys in the past 12 hours."""
+  buyCount12: Int
+  """The number of buys in the past 24 hours."""
+  buyCount24: Int
+  """Exchange metadata for the pair."""
+  exchange: FilterExchange
+  """The highest price in USD in the past hour."""
+  highPrice1: String
+  """The highest price in USD in the past 4 hours."""
+  highPrice4: String
+  """The highest price in USD in the past 12 hours."""
+  highPrice12: String
+  """The highest price in USD in the past 24 hours."""
+  highPrice24: String
+  """Amount of liquidity in the pair."""
+  liquidity: String
+  """The locked liquidity percentage."""
+  lockedLiquidityPercentage: Float!
+  """The token with higher liquidity in the pair. Can be `token0` or `token1`."""
+  liquidityToken: String
+  """The token of interest. Can be `token0` or `token1`."""
+  quoteToken: String
+  """The lowest price in USD in the past hour."""
+  lowPrice1: String
+  """The lowest price in USD in the past 4 hours."""
+  lowPrice4: String
+  """The lowest price in USD in the past 12 hours."""
+  lowPrice12: String
+  """The lowest price in USD in the past 24 hours."""
+  lowPrice24: String
+  """The fully diluted market cap."""
+  marketCap: String
+  """Metadata for the pair."""
+  pair: Pair
+  """The token price in USD."""
+  price: String
+  """10^n, where n is the number of decimal places the price has. Max 16. Used for TradingView settings."""
+  priceScale: String
+  """The percent price change in the past hour. Decimal format."""
+  priceChange1: String
+  """The percent price change in the past 4 hours. Decimal format."""
+  priceChange4: String
+  """The percent price change in the past 12 hours. Decimal format."""
+  priceChange12: String
+  """The percent price change in the past 24 hours. Decimal format."""
+  priceChange24: String
+  """The percent volume change in the past hour. Decimal format."""
+  volumeChange1: String
+  """The percent volume change in the past 4 hours. Decimal format."""
+  volumeChange4: String
+  """The percent volume change in the past 12 hours. Decimal format."""
+  volumeChange12: String
+  """The percent volume change in the past 24 hours. Decimal format."""
+  volumeChange24: String
+  """The number of sells in the past hour."""
+  sellCount1: Int
+  """The number of sells in the past 4 hours."""
+  sellCount4: Int
+  """The number of sells in the past 12 hours."""
+  sellCount12: Int
+  """The number of sells in the past 24 hours."""
+  sellCount24: Int
+  """Metadata for the first token in the pair."""
+  token0: EnhancedToken
+  """Metadata for the second token in the pair."""
+  token1: EnhancedToken
+  """The number of transactions in the past hour."""
+  txnCount1: Int
+  """The number of transactions in the past 4 hours."""
+  txnCount4: Int
+  """The number of transactions in the past 12 hours."""
+  txnCount12: Int
+  """The number of transactions in the past 24 hours."""
+  txnCount24: Int
+  """The unique number of buys in the past hour."""
+  uniqueBuys1: Int
+  """The unique number of buys in the past 4 hours."""
+  uniqueBuys4: Int
+  """The unique number of buys in the past 12 hours."""
+  uniqueBuys12: Int
+  """The unique number of buys in the past 24 hours."""
+  uniqueBuys24: Int
+  """The unique number of sells in the past hour."""
+  uniqueSells1: Int
+  """The unique number of sells in the past 4 hours."""
+  uniqueSells4: Int
+  """The unique number of sells in the past 12 hours."""
+  uniqueSells12: Int
+  """The unique number of sells in the past 24 hours."""
+  uniqueSells24: Int
+  """The unique number of transactions in the past hour."""
+  uniqueTransactions1: Int
+  """The unique number of transactions in the past 4 hours."""
+  uniqueTransactions4: Int
+  """The unique number of transactions in the past 12 hours."""
+  uniqueTransactions12: Int
+  """The unique number of transactions in the past 24 hours."""
+  uniqueTransactions24: Int
+  """The trade volume in USD in the past hour."""
+  volumeUSD1: String
+  """The trade volume in USD in the past 4 hours."""
+  volumeUSD4: String
+  """The trade volume in USD in the past 12 hours."""
+  volumeUSD12: String
+  """The trade volume in USD in the past 24 hours."""
+  volumeUSD24: String
+  """The buy volume in USD in the past hour."""
+  buyVolumeUSD1: String
+  """The buy volume in USD in the past 12 hours."""
+  buyVolumeUSD12: String
+  """The buy volume in USD in the past 24 hours."""
+  buyVolumeUSD24: String
+  """The buy volume in USD in the past 4 hours."""
+  buyVolumeUSD4: String
+  """The sell volume in USD in the past hour."""
+  sellVolumeUSD1: String
+  """The sell volume in USD in the past 12 hours."""
+  sellVolumeUSD12: String
+  """The sell volume in USD in the past 24 hours."""
+  sellVolumeUSD24: String
+  """The sell volume in USD in the past 4 hours."""
+  sellVolumeUSD4: String
+  """The average age of the wallets that traded in the last 24h"""
+  walletAgeAvg: String
+  """The standard deviation of age of the wallets that traded in the last 24h"""
+  walletAgeStd: String
+  """The percentage of wallets that are less than 1d old that have traded in the last 24h"""
+  swapPct1dOldWallet: String
+  """The percentage of wallets that are less than 7d old that have traded in the last 24h"""
+  swapPct7dOldWallet: String
+}
+```

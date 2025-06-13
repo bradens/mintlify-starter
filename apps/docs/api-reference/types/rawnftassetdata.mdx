@@ -3,14 +3,34 @@ title: "RawNftAssetData"
 description: "Object type"
 ---
 
-**Type:** [RawNftAssetData](/api-reference/types/rawnftassetdata)
+### Fields
 
-## Fields
+<ResponseField name="imageUrl" type="String">
+  An optional image field that may or may not be present on the requested NFT asset smart contract.
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `imageUrl` → String | An optional image field that may or may not be present on the requested NFT asset smart contract. |
-| `imageData` → String | An optional image field that may or may not be present on the requested NFT asset smart contract. |
-| `animationUrl` → String | An optional image field that may or may not be present on the requested NFT asset smart contract. |
-| `externalUrl` → String | An optional field that may or may not be present on the requested NFT asset smart contract. |
+<ResponseField name="imageData" type="String">
+  An optional image field that may or may not be present on the requested NFT asset smart contract.
+</ResponseField>
 
+<ResponseField name="animationUrl" type="String">
+  An optional image field that may or may not be present on the requested NFT asset smart contract.
+</ResponseField>
+
+<ResponseField name="externalUrl" type="String">
+  An optional field that may or may not be present on the requested NFT asset smart contract.
+</ResponseField>
+
+
+```graphql RawNftAssetData
+type RawNftAssetData {
+  """An optional image field that may or may not be present on the requested NFT asset smart contract."""
+  imageUrl: String
+  """An optional image field that may or may not be present on the requested NFT asset smart contract."""
+  imageData: String
+  """An optional image field that may or may not be present on the requested NFT asset smart contract."""
+  animationUrl: String
+  """An optional field that may or may not be present on the requested NFT asset smart contract."""
+  externalUrl: String
+}
+```

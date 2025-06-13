@@ -3,19 +3,77 @@ title: "DetailedNftStats"
 description: "Detailed stats for an NFT collection."
 ---
 
-**Type:** [DetailedNftStats](/api-reference/types/detailednftstats)
+### Fields
 
-## Fields
+<ResponseField name="collectionAddress" type="String!" required>
+  The contract address of the NFT collection.
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `collectionAddress` → [String!](/api-reference/types/string) | The contract address of the NFT collection. |
-| `networkId` → [Int!](/api-reference/types/int) | The network ID the NFT collection is deployed on. |
-| `grouping` → String | The marketplace address or `all`. Can be used to get marketplace-specific metrics. |
-| `stats_hour1` → [WindowedDetailedNftStats](/api-reference/types/windoweddetailednftstats) | The breakdown of stats over an hour window. |
-| `stats_hour4` → [WindowedDetailedNftStats](/api-reference/types/windoweddetailednftstats) | The breakdown of stats over a 4 hour window. |
-| `stats_hour12` → [WindowedDetailedNftStats](/api-reference/types/windoweddetailednftstats) | The breakdown of stats over a 12 hour window. |
-| `stats_day1` → [WindowedDetailedNftStats](/api-reference/types/windoweddetailednftstats) | The breakdown of stats over a 24 hour window. |
-| `stats_week1` → [WindowedDetailedNftStats](/api-reference/types/windoweddetailednftstats) | The breakdown of stats over a 7 day window. |
-| `stats_day30` → [WindowedDetailedNftStats](/api-reference/types/windoweddetailednftstats) | The breakdown of stats over a 30 day window. |
+<ResponseField name="networkId" type="Int!" required>
+  The network ID the NFT collection is deployed on.
+</ResponseField>
 
+<ResponseField name="grouping" type="String">
+  The marketplace address or `all`. Can be used to get marketplace-specific metrics.
+</ResponseField>
+
+<a href="/api-reference/types/windoweddetailednftstats">
+  <ResponseField name="stats_hour1" type="WindowedDetailedNftStats">
+    The breakdown of stats over an hour window.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/windoweddetailednftstats">
+  <ResponseField name="stats_hour4" type="WindowedDetailedNftStats">
+    The breakdown of stats over a 4 hour window.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/windoweddetailednftstats">
+  <ResponseField name="stats_hour12" type="WindowedDetailedNftStats">
+    The breakdown of stats over a 12 hour window.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/windoweddetailednftstats">
+  <ResponseField name="stats_day1" type="WindowedDetailedNftStats">
+    The breakdown of stats over a 24 hour window.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/windoweddetailednftstats">
+  <ResponseField name="stats_week1" type="WindowedDetailedNftStats">
+    The breakdown of stats over a 7 day window.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/windoweddetailednftstats">
+  <ResponseField name="stats_day30" type="WindowedDetailedNftStats">
+    The breakdown of stats over a 30 day window.
+  </ResponseField>
+</a>
+
+
+```graphql DetailedNftStats
+"""Detailed stats for an NFT collection."""
+type DetailedNftStats {
+  """The contract address of the NFT collection."""
+  collectionAddress: String!
+  """The network ID the NFT collection is deployed on."""
+  networkId: Int!
+  """The marketplace address or `all`. Can be used to get marketplace-specific metrics."""
+  grouping: String
+  """The breakdown of stats over an hour window."""
+  stats_hour1: WindowedDetailedNftStats
+  """The breakdown of stats over a 4 hour window."""
+  stats_hour4: WindowedDetailedNftStats
+  """The breakdown of stats over a 12 hour window."""
+  stats_hour12: WindowedDetailedNftStats
+  """The breakdown of stats over a 24 hour window."""
+  stats_day1: WindowedDetailedNftStats
+  """The breakdown of stats over a 7 day window."""
+  stats_week1: WindowedDetailedNftStats
+  """The breakdown of stats over a 30 day window."""
+  stats_day30: WindowedDetailedNftStats
+}
+```

@@ -3,11 +3,19 @@ title: "CreateMarketCapWebhooksInput"
 description: "Input for creating market cap webhooks."
 ---
 
-**Type:** [CreateMarketCapWebhooksInput](/api-reference/types/createmarketcapwebhooksinput)
+### Fields
 
-## Fields
+<a href="/api-reference/types/createmarketcapwebhookargs">
+  <ResponseField name="webhooks" type="[CreateMarketCapWebhookArgs!]!" required>
+    A list of market cap webhooks to create.
+  </ResponseField>
+</a>
 
-| Name | Description |
-|------|-------------|
-| `webhooks` → [[CreateMarketCapWebhookArgs!]!](/api-reference/types/createmarketcapwebhookargs) | A list of market cap webhooks to create. |
 
+```graphql CreateMarketCapWebhooksInput
+"""Input for creating market cap webhooks."""
+input CreateMarketCapWebhooksInput {
+  """A list of market cap webhooks to create."""
+  webhooks: [CreateMarketCapWebhookArgs!]!
+}
+```

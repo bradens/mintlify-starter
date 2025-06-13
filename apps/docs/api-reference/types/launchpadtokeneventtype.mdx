@@ -3,15 +3,41 @@ title: "LaunchpadTokenEventType"
 description: "The type of event. Note that associated statistics such as `buyCount1`, `price`, etc. are only available for `Updated` events."
 ---
 
-**Type:** [LaunchpadTokenEventType](/api-reference/types/launchpadtokeneventtype)
+### Values
 
-## Values
+<ResponseField name="Deployed" type="enum">
+  The token has been discovered
+</ResponseField>
 
-| Value | Description |
-|-------|-------------|
-| `Deployed` | The token has been discovered |
-| `Created` | The token has been created with metadata |
-| `Updated` | The token&#39;s statistics have been updated |
-| `Completed` | The token has been completed |
-| `Migrated` | The token has been migrated |
+<ResponseField name="Created" type="enum">
+  The token has been created with metadata
+</ResponseField>
 
+<ResponseField name="Updated" type="enum">
+  The token&#39;s statistics have been updated
+</ResponseField>
+
+<ResponseField name="Completed" type="enum">
+  The token has been completed
+</ResponseField>
+
+<ResponseField name="Migrated" type="enum">
+  The token has been migrated
+</ResponseField>
+
+
+```graphql LaunchpadTokenEventType
+"""The type of event. Note that associated statistics such as `buyCount1`, `price`, etc. are only available for `Updated` events."""
+enum LaunchpadTokenEventType {
+  """The token has been discovered"""
+  Deployed
+  """The token has been created with metadata"""
+  Created
+  """The token's statistics have been updated"""
+  Updated
+  """The token has been completed"""
+  Completed
+  """The token has been migrated"""
+  Migrated
+}
+```

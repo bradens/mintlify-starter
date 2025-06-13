@@ -3,11 +3,17 @@ title: "OneOfNumberConditionInput"
 description: "Input for integer list condition."
 ---
 
-**Type:** [OneOfNumberConditionInput](/api-reference/types/oneofnumberconditioninput)
+### Fields
 
-## Fields
+<ResponseField name="oneOf" type="[Int!]!" required>
+  The list of integers.
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `oneOf` → [[Int!]!](/api-reference/types/int) | The list of integers. |
 
+```graphql OneOfNumberConditionInput
+"""Input for integer list condition."""
+input OneOfNumberConditionInput {
+  """The list of integers."""
+  oneOf: [Int!]!
+}
+```

@@ -3,15 +3,25 @@ title: "listTopTokens"
 description: "Returns a list of trending tokens across any given network(s)."
 ---
 
+<Warning>
+  This query is deprecated. This query is no longer supported and will not return up to date data. Use `filterTokens` instead.
+</Warning>
+
 **Type:** Query
 
 **Returns:** [[TokenWithMetadata!]](/api-reference/types/tokenwithmetadata)
 
-## Arguments for listTopTokens
+### Arguments
 
-| Name | Description |
-|------|-------------|
-| `limit` (Int) | The maximum number of tokens to return. Max is `50`. |
-| `networkFilter` ([[Int!]](/api-reference/types/int)) | The list of network IDs to filter by. |
-| `resolution` (String) | The time frame for trending results. Can be `1`, `5`, `15`, `30`, `60`, `240`, `720`, or `1D`. |
+<ResponseField name="limit" type="Int">
+  The maximum number of tokens to return. Max is `50`.
+</ResponseField>
+
+<ResponseField name="networkFilter" type="[Int!]">
+  The list of network IDs to filter by.
+</ResponseField>
+
+<ResponseField name="resolution" type="String">
+  The time frame for trending results. Can be `1`, `5`, `15`, `30`, `60`, `240`, `720`, or `1D`.
+</ResponseField>
 

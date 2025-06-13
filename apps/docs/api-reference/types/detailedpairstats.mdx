@@ -3,26 +3,128 @@ title: "DetailedPairStats"
 description: "Detailed stats for a token within a pair."
 ---
 
-**Type:** [DetailedPairStats](/api-reference/types/detailedpairstats)
+### Fields
 
-## Fields
+<ResponseField name="pairAddress" type="String!" required>
+  The contract address of the pair.
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `pairAddress` → [String!](/api-reference/types/string) | The contract address of the pair. |
-| `networkId` → [Int!](/api-reference/types/int) | The network ID the pair is deployed on. |
-| `tokenOfInterest` → [TokenOfInterest](/api-reference/types/tokenofinterest) | The token of interest used to calculate token-specific stats. |
-| `lastTransaction` → Int | The unix timestamp for the last transaction to happen on the pair. |
-| `statsType` → [TokenPairStatisticsType!](/api-reference/types/tokenpairstatisticstype) | The type of statistics returned. Can be `FILTERED` or `UNFILTERED` |
-| `stats_min5` → [WindowedDetailedPairStats](/api-reference/types/windoweddetailedpairstats) | The breakdown of stats over a 5 minute window. |
-| `stats_min15` → [WindowedDetailedPairStats](/api-reference/types/windoweddetailedpairstats) | The breakdown of stats over a 15 minute window. |
-| `stats_hour1` → [WindowedDetailedPairStats](/api-reference/types/windoweddetailedpairstats) | The breakdown of stats over an hour window. |
-| `stats_hour4` → [WindowedDetailedPairStats](/api-reference/types/windoweddetailedpairstats) | The breakdown of stats over a 4 hour window. |
-| `stats_hour12` → [WindowedDetailedPairStats](/api-reference/types/windoweddetailedpairstats) | The breakdown of stats over a 12 hour window. |
-| `stats_day1` → [WindowedDetailedPairStats](/api-reference/types/windoweddetailedpairstats) | The breakdown of stats over a 24 hour window. |
-| `stats_week1` → [WindowedDetailedPairStats](/api-reference/types/windoweddetailedpairstats) | The breakdown of stats over a 7 day window. |
-| `stats_day30` → [WindowedDetailedPairStats](/api-reference/types/windoweddetailedpairstats) | The breakdown of stats over a 30 day window. |
-| `bucketCount` → Int | Number of aggregated buckets specified in input |
-| `queryTimestamp` → Int | The timestamp specified as input to the query |
-| `pair` → [Pair](/api-reference/types/pair) | No description provided |
+<ResponseField name="networkId" type="Int!" required>
+  The network ID the pair is deployed on.
+</ResponseField>
 
+<a href="/api-reference/types/tokenofinterest">
+  <ResponseField name="tokenOfInterest" type="TokenOfInterest">
+    The token of interest used to calculate token-specific stats.
+  </ResponseField>
+</a>
+
+<ResponseField name="lastTransaction" type="Int">
+  The unix timestamp for the last transaction to happen on the pair.
+</ResponseField>
+
+<a href="/api-reference/types/tokenpairstatisticstype">
+  <ResponseField name="statsType" type="TokenPairStatisticsType!" required>
+    The type of statistics returned. Can be `FILTERED` or `UNFILTERED`
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/windoweddetailedpairstats">
+  <ResponseField name="stats_min5" type="WindowedDetailedPairStats">
+    The breakdown of stats over a 5 minute window.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/windoweddetailedpairstats">
+  <ResponseField name="stats_min15" type="WindowedDetailedPairStats">
+    The breakdown of stats over a 15 minute window.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/windoweddetailedpairstats">
+  <ResponseField name="stats_hour1" type="WindowedDetailedPairStats">
+    The breakdown of stats over an hour window.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/windoweddetailedpairstats">
+  <ResponseField name="stats_hour4" type="WindowedDetailedPairStats">
+    The breakdown of stats over a 4 hour window.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/windoweddetailedpairstats">
+  <ResponseField name="stats_hour12" type="WindowedDetailedPairStats">
+    The breakdown of stats over a 12 hour window.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/windoweddetailedpairstats">
+  <ResponseField name="stats_day1" type="WindowedDetailedPairStats">
+    The breakdown of stats over a 24 hour window.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/windoweddetailedpairstats">
+  <ResponseField name="stats_week1" type="WindowedDetailedPairStats">
+    The breakdown of stats over a 7 day window.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/windoweddetailedpairstats">
+  <ResponseField name="stats_day30" type="WindowedDetailedPairStats">
+    The breakdown of stats over a 30 day window.
+  </ResponseField>
+</a>
+
+<ResponseField name="bucketCount" type="Int">
+  Number of aggregated buckets specified in input
+</ResponseField>
+
+<ResponseField name="queryTimestamp" type="Int">
+  The timestamp specified as input to the query
+</ResponseField>
+
+<a href="/api-reference/types/pair">
+  <ResponseField name="pair" type="Pair">
+    No description provided
+  </ResponseField>
+</a>
+
+
+```graphql DetailedPairStats
+"""Detailed stats for a token within a pair."""
+type DetailedPairStats {
+  """The contract address of the pair."""
+  pairAddress: String!
+  """The network ID the pair is deployed on."""
+  networkId: Int!
+  """The token of interest used to calculate token-specific stats."""
+  tokenOfInterest: TokenOfInterest
+  """The unix timestamp for the last transaction to happen on the pair."""
+  lastTransaction: Int
+  """The type of statistics returned. Can be `FILTERED` or `UNFILTERED`"""
+  statsType: TokenPairStatisticsType!
+  """The breakdown of stats over a 5 minute window."""
+  stats_min5: WindowedDetailedPairStats
+  """The breakdown of stats over a 15 minute window."""
+  stats_min15: WindowedDetailedPairStats
+  """The breakdown of stats over an hour window."""
+  stats_hour1: WindowedDetailedPairStats
+  """The breakdown of stats over a 4 hour window."""
+  stats_hour4: WindowedDetailedPairStats
+  """The breakdown of stats over a 12 hour window."""
+  stats_hour12: WindowedDetailedPairStats
+  """The breakdown of stats over a 24 hour window."""
+  stats_day1: WindowedDetailedPairStats
+  """The breakdown of stats over a 7 day window."""
+  stats_week1: WindowedDetailedPairStats
+  """The breakdown of stats over a 30 day window."""
+  stats_day30: WindowedDetailedPairStats
+  """Number of aggregated buckets specified in input"""
+  bucketCount: Int
+  """The timestamp specified as input to the query"""
+  queryTimestamp: Int
+  pair: Pair
+}
+```

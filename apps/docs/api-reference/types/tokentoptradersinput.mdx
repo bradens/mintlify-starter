@@ -3,15 +3,43 @@ title: "TokenTopTradersInput"
 description: "Input arguments for the `tokenTopTraders` query."
 ---
 
-**Type:** [TokenTopTradersInput](/api-reference/types/tokentoptradersinput)
+### Fields
 
-## Fields
+<ResponseField name="tokenAddress" type="String!" required>
+  The token address
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `tokenAddress` → [String!](/api-reference/types/string) | The token address |
-| `networkId` → [Int!](/api-reference/types/int) | The network ID |
-| `tradingPeriod` → [TradingPeriod!](/api-reference/types/tradingperiod) | The trading period |
-| `limit` → Int | The number of traders to return |
-| `offset` → Int | Where in the list the server started when returning items |
+<ResponseField name="networkId" type="Int!" required>
+  The network ID
+</ResponseField>
 
+<a href="/api-reference/types/tradingperiod">
+  <ResponseField name="tradingPeriod" type="TradingPeriod!" required>
+    The trading period
+  </ResponseField>
+</a>
+
+<ResponseField name="limit" type="Int">
+  The number of traders to return
+</ResponseField>
+
+<ResponseField name="offset" type="Int">
+  Where in the list the server started when returning items
+</ResponseField>
+
+
+```graphql TokenTopTradersInput
+"""Input arguments for the `tokenTopTraders` query."""
+input TokenTopTradersInput {
+  """The token address"""
+  tokenAddress: String!
+  """The network ID"""
+  networkId: Int!
+  """The trading period"""
+  tradingPeriod: TradingPeriod!
+  """The number of traders to return"""
+  limit: Int
+  """Where in the list the server started when returning items"""
+  offset: Int
+}
+```

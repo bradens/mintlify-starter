@@ -3,12 +3,25 @@ title: "LabelsForEvent"
 description: "Event labels. Can be `sandwich` or `washtrade`."
 ---
 
-**Type:** [LabelsForEvent](/api-reference/types/labelsforevent)
+### Fields
 
-## Fields
+<a href="/api-reference/types/sandwichlabelforevent">
+  <ResponseField name="sandwich" type="SandwichLabelForEvent">
+    No description provided
+  </ResponseField>
+</a>
 
-| Name | Description |
-|------|-------------|
-| `sandwich` → [SandwichLabelForEvent](/api-reference/types/sandwichlabelforevent) | No description provided |
-| `washtrade` → [WashtradeLabelForEvent](/api-reference/types/washtradelabelforevent) | No description provided |
+<a href="/api-reference/types/washtradelabelforevent">
+  <ResponseField name="washtrade" type="WashtradeLabelForEvent">
+    No description provided
+  </ResponseField>
+</a>
 
+
+```graphql LabelsForEvent
+"""Event labels. Can be `sandwich` or `washtrade`."""
+type LabelsForEvent {
+  sandwich: SandwichLabelForEvent
+  washtrade: WashtradeLabelForEvent
+}
+```

@@ -3,11 +3,17 @@ title: "IntEqualsCondition"
 description: "Integer equals condition."
 ---
 
-**Type:** [IntEqualsCondition](/api-reference/types/intequalscondition)
+### Fields
 
-## Fields
+<ResponseField name="eq" type="Int!" required>
+  The integer to equal.
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `eq` → [Int!](/api-reference/types/int) | The integer to equal. |
 
+```graphql IntEqualsCondition
+"""Integer equals condition."""
+type IntEqualsCondition {
+  """The integer to equal."""
+  eq: Int!
+}
+```

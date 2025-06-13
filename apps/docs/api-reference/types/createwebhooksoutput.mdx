@@ -3,15 +3,51 @@ title: "CreateWebhooksOutput"
 description: "Result returned by `createWebhooks`."
 ---
 
-**Type:** [CreateWebhooksOutput](/api-reference/types/createwebhooksoutput)
+### Fields
 
-## Fields
+<a href="/api-reference/types/webhook">
+  <ResponseField name="priceWebhooks" type="[Webhook]!" required>
+    The list of price webhooks that were created.
+  </ResponseField>
+</a>
 
-| Name | Description |
-|------|-------------|
-| `priceWebhooks` → [[Webhook]!](/api-reference/types/webhook) | The list of price webhooks that were created. |
-| `tokenPairEventWebhooks` → [[Webhook]!](/api-reference/types/webhook) | The list of token pair event webhooks that were created. |
-| `nftEventWebhooks` → [[Webhook]!](/api-reference/types/webhook) | The list of NFT event webhooks that were created. |
-| `rawTransactionWebhooks` → [[Webhook]!](/api-reference/types/webhook) | The list of raw transaction webhooks that were created. |
-| `marketCapWebhooks` → [[Webhook]!](/api-reference/types/webhook) | The list of market cap event webhooks that were created. |
+<a href="/api-reference/types/webhook">
+  <ResponseField name="tokenPairEventWebhooks" type="[Webhook]!" required>
+    The list of token pair event webhooks that were created.
+  </ResponseField>
+</a>
 
+<a href="/api-reference/types/webhook">
+  <ResponseField name="nftEventWebhooks" type="[Webhook]!" required>
+    The list of NFT event webhooks that were created.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/webhook">
+  <ResponseField name="rawTransactionWebhooks" type="[Webhook]!" required>
+    The list of raw transaction webhooks that were created.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/webhook">
+  <ResponseField name="marketCapWebhooks" type="[Webhook]!" required>
+    The list of market cap event webhooks that were created.
+  </ResponseField>
+</a>
+
+
+```graphql CreateWebhooksOutput
+"""Result returned by `createWebhooks`."""
+type CreateWebhooksOutput {
+  """The list of price webhooks that were created."""
+  priceWebhooks: [Webhook]!
+  """The list of token pair event webhooks that were created."""
+  tokenPairEventWebhooks: [Webhook]!
+  """The list of NFT event webhooks that were created."""
+  nftEventWebhooks: [Webhook]!
+  """The list of raw transaction webhooks that were created."""
+  rawTransactionWebhooks: [Webhook]!
+  """The list of market cap event webhooks that were created."""
+  marketCapWebhooks: [Webhook]!
+}
+```

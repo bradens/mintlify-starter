@@ -7,11 +7,17 @@ description: "Returns a list of pairs containing a given token."
 
 **Returns:** [[Pair]!](/api-reference/types/pair)
 
-## Arguments for listPairsForToken
+### Arguments
 
-| Name | Description |
-|------|-------------|
-| `limit` (Int) | The maximum number of pairs to return. |
-| `networkId` ([Int!](/api-reference/types/int)) | The network ID the token is deployed on. |
-| `tokenAddress` ([String!](/api-reference/types/string)) | The contract address of the token. |
+<ResponseField name="limit" type="Int">
+  The maximum number of pairs to return.
+</ResponseField>
+
+<ResponseField name="networkId" type="Int!" required>
+  The network ID the token is deployed on.
+</ResponseField>
+
+<ResponseField name="tokenAddress" type="String!" required>
+  The contract address of the token.
+</ResponseField>
 

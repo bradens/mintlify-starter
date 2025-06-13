@@ -7,10 +7,13 @@ description: "Returns charting metadata for a given pair. Used for implementing 
 
 **Returns:** [SymbolResponse](/api-reference/types/symbolresponse)
 
-## Arguments for getSymbol
+### Arguments
 
-| Name | Description |
-|------|-------------|
-| `symbol` ([String!](/api-reference/types/string)) | The ID of the pair (`address:networkId`). |
-| `currencyCode` (String) | The currency to use for the response. Can be `USD` (default) or `TOKEN`. |
+<ResponseField name="symbol" type="String!" required>
+  The ID of the pair (`address:networkId`).
+</ResponseField>
+
+<ResponseField name="currencyCode" type="String">
+  The currency to use for the response. Can be `USD` (default) or `TOKEN`.
+</ResponseField>
 

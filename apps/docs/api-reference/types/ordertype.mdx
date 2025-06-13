@@ -3,13 +3,25 @@ title: "OrderType"
 description: "Enum type"
 ---
 
-**Type:** [OrderType](/api-reference/types/ordertype)
+### Values
 
-## Values
+<ResponseField name="MANUAL" type="enum">
+  No description provided
+</ResponseField>
 
-| Value | Description |
-|-------|-------------|
-| `MANUAL` | No description provided |
-| `LIMIT` | No description provided |
-| `LIMIT_STRATEGY` | No description provided |
+<ResponseField name="LIMIT" type="enum">
+  No description provided
+</ResponseField>
 
+<ResponseField name="LIMIT_STRATEGY" type="enum">
+  No description provided
+</ResponseField>
+
+
+```graphql OrderType
+enum OrderType {
+  MANUAL
+  LIMIT
+  LIMIT_STRATEGY
+}
+```

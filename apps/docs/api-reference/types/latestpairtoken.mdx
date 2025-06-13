@@ -3,20 +3,71 @@ title: "LatestPairToken"
 description: "Metadata for a token within a newly listed pair."
 ---
 
-**Type:** [LatestPairToken](/api-reference/types/latestpairtoken)
+### Fields
 
-## Fields
+<ResponseField name="address" type="String!" required>
+  The contract address for the token.
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `address` → [String!](/api-reference/types/string) | The contract address for the token. |
-| `currentPoolAmount` → [String!](/api-reference/types/string) | The amount of `token` currently in the pair. |
-| `decimals` → [Int!](/api-reference/types/int) | The precision to which the token can be divided. For example, the smallest unit for USDC is 0.000001 (6 decimals). |
-| `id` → [String!](/api-reference/types/string) | The ID of the token (`address:networkId`). |
-| `initialPoolAmount` → [String!](/api-reference/types/string) | The initial amount of `token` added to the pair. |
-| `name` → [String!](/api-reference/types/string) | The name of the token. |
-| `networkId` → [Int!](/api-reference/types/int) | The network ID the token is deployed on. |
-| `pairId` → [String!](/api-reference/types/string) | The ID of the pair (`pairAddress:networkId`). |
-| `poolVariation` → [Float!](/api-reference/types/float) | The percent change `token` remaining in the pair since the initial add. |
-| `symbol` → [String!](/api-reference/types/string) | The symbol for the token. |
+<ResponseField name="currentPoolAmount" type="String!" required>
+  The amount of `token` currently in the pair.
+</ResponseField>
 
+<ResponseField name="decimals" type="Int!" required>
+  The precision to which the token can be divided. For example, the smallest unit for USDC is 0.000001 (6 decimals).
+</ResponseField>
+
+<ResponseField name="id" type="String!" required>
+  The ID of the token (`address:networkId`).
+</ResponseField>
+
+<ResponseField name="initialPoolAmount" type="String!" required>
+  The initial amount of `token` added to the pair.
+</ResponseField>
+
+<ResponseField name="name" type="String!" required>
+  The name of the token.
+</ResponseField>
+
+<ResponseField name="networkId" type="Int!" required>
+  The network ID the token is deployed on.
+</ResponseField>
+
+<ResponseField name="pairId" type="String!" required>
+  The ID of the pair (`pairAddress:networkId`).
+</ResponseField>
+
+<ResponseField name="poolVariation" type="Float!" required>
+  The percent change `token` remaining in the pair since the initial add.
+</ResponseField>
+
+<ResponseField name="symbol" type="String!" required>
+  The symbol for the token.
+</ResponseField>
+
+
+```graphql LatestPairToken
+"""Metadata for a token within a newly listed pair."""
+type LatestPairToken {
+  """The contract address for the token."""
+  address: String!
+  """The amount of `token` currently in the pair."""
+  currentPoolAmount: String!
+  """The precision to which the token can be divided. For example, the smallest unit for USDC is 0.000001 (6 decimals)."""
+  decimals: Int!
+  """The ID of the token (`address:networkId`)."""
+  id: String!
+  """The initial amount of `token` added to the pair."""
+  initialPoolAmount: String!
+  """The name of the token."""
+  name: String!
+  """The network ID the token is deployed on."""
+  networkId: Int!
+  """The ID of the pair (`pairAddress:networkId`)."""
+  pairId: String!
+  """The percent change `token` remaining in the pair since the initial add."""
+  poolVariation: Float!
+  """The symbol for the token."""
+  symbol: String!
+}
+```

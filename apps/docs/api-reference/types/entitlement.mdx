@@ -3,14 +3,30 @@ title: "Entitlement"
 description: "Enum type"
 ---
 
-**Type:** [Entitlement](/api-reference/types/entitlement)
+### Values
 
-## Values
+<ResponseField name="PriceFeed" type="enum">
+  No description provided
+</ResponseField>
 
-| Value | Description |
-|-------|-------------|
-| `PriceFeed` | No description provided |
-| `BalanceFeed` | No description provided |
-| `TopTraders` | No description provided |
-| `WalletStats` | No description provided |
+<ResponseField name="BalanceFeed" type="enum">
+  No description provided
+</ResponseField>
 
+<ResponseField name="TopTraders" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="WalletStats" type="enum">
+  No description provided
+</ResponseField>
+
+
+```graphql Entitlement
+enum Entitlement {
+  PriceFeed
+  BalanceFeed
+  TopTraders
+  WalletStats
+}
+```

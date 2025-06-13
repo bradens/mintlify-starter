@@ -3,12 +3,21 @@ title: "EventLabelType"
 description: "The event label type."
 ---
 
-**Type:** [EventLabelType](/api-reference/types/eventlabeltype)
+### Values
 
-## Values
+<ResponseField name="FrontRun" type="enum">
+  No description provided
+</ResponseField>
 
-| Value | Description |
-|-------|-------------|
-| `FrontRun` | No description provided |
-| `Sandwiched` | No description provided |
+<ResponseField name="Sandwiched" type="enum">
+  No description provided
+</ResponseField>
 
+
+```graphql EventLabelType
+"""The event label type."""
+enum EventLabelType {
+  FrontRun
+  Sandwiched
+}
+```

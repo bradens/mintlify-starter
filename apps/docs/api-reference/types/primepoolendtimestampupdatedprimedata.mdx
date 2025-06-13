@@ -3,15 +3,45 @@ title: "PrimePoolEndTimestampUpdatedPrimeData"
 description: "Event-specific data for a Prime pool EndTimestampUpdatedPrime transaction."
 ---
 
-**Type:** [PrimePoolEndTimestampUpdatedPrimeData](/api-reference/types/primepoolendtimestampupdatedprimedata)
+### Fields
 
-## Fields
+<a href="/api-reference/types/primepooleventtype">
+  <ResponseField name="type" type="PrimePoolEventType!" required>
+    The Prime pool event type.
+  </ResponseField>
+</a>
 
-| Name | Description |
-|------|-------------|
-| `type` → [PrimePoolEventType!](/api-reference/types/primepooleventtype) | The Prime pool event type. |
-| `currency` → [PrimePoolCurrency!](/api-reference/types/primepoolcurrency) | The currency type of the event. |
-| `primeStartTimestamp` → [Int!](/api-reference/types/int) | The updated PRIME reward start timestamp for the pool. |
-| `primeEndTimestamp` → [Int!](/api-reference/types/int) | The updated PRIME reward end timestamp for the pool. |
-| `primePerSecond` → [String!](/api-reference/types/string) | The updated reward per second for the pool. |
+<a href="/api-reference/types/primepoolcurrency">
+  <ResponseField name="currency" type="PrimePoolCurrency!" required>
+    The currency type of the event.
+  </ResponseField>
+</a>
 
+<ResponseField name="primeStartTimestamp" type="Int!" required>
+  The updated PRIME reward start timestamp for the pool.
+</ResponseField>
+
+<ResponseField name="primeEndTimestamp" type="Int!" required>
+  The updated PRIME reward end timestamp for the pool.
+</ResponseField>
+
+<ResponseField name="primePerSecond" type="String!" required>
+  The updated reward per second for the pool.
+</ResponseField>
+
+
+```graphql PrimePoolEndTimestampUpdatedPrimeData
+"""Event-specific data for a Prime pool EndTimestampUpdatedPrime transaction."""
+type PrimePoolEndTimestampUpdatedPrimeData {
+  """The Prime pool event type."""
+  type: PrimePoolEventType!
+  """The currency type of the event."""
+  currency: PrimePoolCurrency!
+  """The updated PRIME reward start timestamp for the pool."""
+  primeStartTimestamp: Int!
+  """The updated PRIME reward end timestamp for the pool."""
+  primeEndTimestamp: Int!
+  """The updated reward per second for the pool."""
+  primePerSecond: String!
+}
+```

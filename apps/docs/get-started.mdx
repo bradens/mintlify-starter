@@ -8,3 +8,13 @@ description: "Learn how to use the Codex GraphQL API"
 The Codex API is authenticated using an API key. You can get your API key from the [dashboard](https://dashboard.codex.io).
 
 After you've got your API key, you can use it to make requests to the Codex API.
+
+For example, you can test your api key by running the following in your terminal, after replacing `<your-api-key>` with your actual api key.
+
+```bash curl
+curl -X POST \
+  -H "Content-Type: application/json" \
+  -H "Authorization: <your-api-key>" \
+  -d '{"query": "{ getNetworks { id, name } }"}' \
+  https://graph.codex.io/graphql
+```

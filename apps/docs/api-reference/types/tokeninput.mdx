@@ -3,12 +3,23 @@ title: "TokenInput"
 description: "Input type of `token` and `tokens`."
 ---
 
-**Type:** [TokenInput](/api-reference/types/tokeninput)
+### Fields
 
-## Fields
+<ResponseField name="address" type="String!" required>
+  The contract address of the token.
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `address` → [String!](/api-reference/types/string) | The contract address of the token. |
-| `networkId` → [Int!](/api-reference/types/int) | The network ID the token is deployed on. |
+<ResponseField name="networkId" type="Int!" required>
+  The network ID the token is deployed on.
+</ResponseField>
 
+
+```graphql TokenInput
+"""Input type of `token` and `tokens`."""
+input TokenInput {
+  """The contract address of the token."""
+  address: String!
+  """The network ID the token is deployed on."""
+  networkId: Int!
+}
+```

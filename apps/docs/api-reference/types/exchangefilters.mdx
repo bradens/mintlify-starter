@@ -3,26 +3,135 @@ title: "ExchangeFilters"
 description: "Input type of `ExchangeFilters`."
 ---
 
-**Type:** [ExchangeFilters](/api-reference/types/exchangefilters)
+### Fields
 
-## Fields
+<a href="/api-reference/types/stringfilter">
+  <ResponseField name="txnCount1" type="StringFilter">
+    The number of transactions on the exchange in the past hour.
+  </ResponseField>
+</a>
 
-| Name | Description |
-|------|-------------|
-| `txnCount1` → [StringFilter](/api-reference/types/stringfilter) | The number of transactions on the exchange in the past hour. |
-| `txnCount4` → [StringFilter](/api-reference/types/stringfilter) | The number of transactions on the exchange in the past 4 hours. |
-| `txnCount12` → [StringFilter](/api-reference/types/stringfilter) | The number of transactions on the exchange in the past 12 hours. |
-| `txnCount24` → [StringFilter](/api-reference/types/stringfilter) | The number of transactions on the exchange in the past 24 hours. |
-| `volumeUSD1` → [StringFilter](/api-reference/types/stringfilter) | The trade volume in USD in the past hour. |
-| `volumeUSD4` → [StringFilter](/api-reference/types/stringfilter) | The trade volume in USD in the past 4 hours. |
-| `volumeUSD12` → [StringFilter](/api-reference/types/stringfilter) | The trade volume in USD in the past 12 hours. |
-| `volumeUSD24` → [StringFilter](/api-reference/types/stringfilter) | The trade volume in USD in the past 24 hours. |
-| `volumeNBT1` → [StringFilter](/api-reference/types/stringfilter) | The trade volume in the network&#39;s base token in the past hour. |
-| `volumeNBT4` → [StringFilter](/api-reference/types/stringfilter) | The trade volume in the network&#39;s base token in the past 4 hours. |
-| `volumeNBT12` → [StringFilter](/api-reference/types/stringfilter) | The trade volume in the network&#39;s base token in the past 12 hours. |
-| `volumeNBT24` → [StringFilter](/api-reference/types/stringfilter) | The trade volume in the network&#39;s base token in the past 24 hours. |
-| `dailyActiveUsers` → [NumberFilter](/api-reference/types/numberfilter) | The total unique daily active users. |
-| `monthlyActiveUsers` → [NumberFilter](/api-reference/types/numberfilter) | The total unique monthly active users (30 days). |
-| `address` → [[String]](/api-reference/types/string) | The list of exchange contract addresses to filter by. |
-| `network` → [[Int]](/api-reference/types/int) | The list of network IDs to filter by. |
+<a href="/api-reference/types/stringfilter">
+  <ResponseField name="txnCount4" type="StringFilter">
+    The number of transactions on the exchange in the past 4 hours.
+  </ResponseField>
+</a>
 
+<a href="/api-reference/types/stringfilter">
+  <ResponseField name="txnCount12" type="StringFilter">
+    The number of transactions on the exchange in the past 12 hours.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/stringfilter">
+  <ResponseField name="txnCount24" type="StringFilter">
+    The number of transactions on the exchange in the past 24 hours.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/stringfilter">
+  <ResponseField name="volumeUSD1" type="StringFilter">
+    The trade volume in USD in the past hour.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/stringfilter">
+  <ResponseField name="volumeUSD4" type="StringFilter">
+    The trade volume in USD in the past 4 hours.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/stringfilter">
+  <ResponseField name="volumeUSD12" type="StringFilter">
+    The trade volume in USD in the past 12 hours.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/stringfilter">
+  <ResponseField name="volumeUSD24" type="StringFilter">
+    The trade volume in USD in the past 24 hours.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/stringfilter">
+  <ResponseField name="volumeNBT1" type="StringFilter">
+    The trade volume in the network&#39;s base token in the past hour.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/stringfilter">
+  <ResponseField name="volumeNBT4" type="StringFilter">
+    The trade volume in the network&#39;s base token in the past 4 hours.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/stringfilter">
+  <ResponseField name="volumeNBT12" type="StringFilter">
+    The trade volume in the network&#39;s base token in the past 12 hours.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/stringfilter">
+  <ResponseField name="volumeNBT24" type="StringFilter">
+    The trade volume in the network&#39;s base token in the past 24 hours.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/numberfilter">
+  <ResponseField name="dailyActiveUsers" type="NumberFilter">
+    The total unique daily active users.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/numberfilter">
+  <ResponseField name="monthlyActiveUsers" type="NumberFilter">
+    The total unique monthly active users (30 days).
+  </ResponseField>
+</a>
+
+<ResponseField name="address" type="[String]">
+  The list of exchange contract addresses to filter by.
+</ResponseField>
+
+<ResponseField name="network" type="[Int]">
+  The list of network IDs to filter by.
+</ResponseField>
+
+
+```graphql ExchangeFilters
+"""Input type of `ExchangeFilters`."""
+input ExchangeFilters {
+  """The number of transactions on the exchange in the past hour."""
+  txnCount1: StringFilter
+  """The number of transactions on the exchange in the past 4 hours."""
+  txnCount4: StringFilter
+  """The number of transactions on the exchange in the past 12 hours."""
+  txnCount12: StringFilter
+  """The number of transactions on the exchange in the past 24 hours."""
+  txnCount24: StringFilter
+  """The trade volume in USD in the past hour."""
+  volumeUSD1: StringFilter
+  """The trade volume in USD in the past 4 hours."""
+  volumeUSD4: StringFilter
+  """The trade volume in USD in the past 12 hours."""
+  volumeUSD12: StringFilter
+  """The trade volume in USD in the past 24 hours."""
+  volumeUSD24: StringFilter
+  """The trade volume in the network's base token in the past hour."""
+  volumeNBT1: StringFilter
+  """The trade volume in the network's base token in the past 4 hours."""
+  volumeNBT4: StringFilter
+  """The trade volume in the network's base token in the past 12 hours."""
+  volumeNBT12: StringFilter
+  """The trade volume in the network's base token in the past 24 hours."""
+  volumeNBT24: StringFilter
+  """The total unique daily active users."""
+  dailyActiveUsers: NumberFilter
+  """The total unique monthly active users (30 days)."""
+  monthlyActiveUsers: NumberFilter
+  """The list of exchange contract addresses to filter by."""
+  address: [String]
+  """The list of network IDs to filter by."""
+  network: [Int]
+}
+```

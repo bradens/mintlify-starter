@@ -3,16 +3,55 @@ title: "WindowedDetailedPairStats"
 description: "Detailed pair stats over a time frame."
 ---
 
-**Type:** [WindowedDetailedPairStats](/api-reference/types/windoweddetailedpairstats)
+### Fields
 
-## Fields
+<a href="/api-reference/types/detailedpairstatsduration">
+  <ResponseField name="duration" type="DetailedPairStatsDuration!" required>
+    The duration used to request detailed pair stats.
+  </ResponseField>
+</a>
 
-| Name | Description |
-|------|-------------|
-| `duration` → [DetailedPairStatsDuration!](/api-reference/types/detailedpairstatsduration) | The duration used to request detailed pair stats. |
-| `start` → [Int!](/api-reference/types/int) | The unix timestamp for the start of the window. |
-| `end` → [Int!](/api-reference/types/int) | The unix timestamp for the end of the window. |
-| `timestamps` → [[DetailedPairStatsBucketTimestamp]!](/api-reference/types/detailedpairstatsbuckettimestamp) | The list of start/end timestamps broken down for each bucket within the window. |
-| `statsUsd` → [WindowedDetailedCurrencyPairStats!](/api-reference/types/windoweddetailedcurrencypairstats) | The currency stats in USD, such as volume. |
-| `statsNonCurrency` → [WindowedDetailedNonCurrencyPairStats!](/api-reference/types/windoweddetailednoncurrencypairstats) | The numerical stats, such as number of buyers. |
+<ResponseField name="start" type="Int!" required>
+  The unix timestamp for the start of the window.
+</ResponseField>
 
+<ResponseField name="end" type="Int!" required>
+  The unix timestamp for the end of the window.
+</ResponseField>
+
+<a href="/api-reference/types/detailedpairstatsbuckettimestamp">
+  <ResponseField name="timestamps" type="[DetailedPairStatsBucketTimestamp]!" required>
+    The list of start/end timestamps broken down for each bucket within the window.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/windoweddetailedcurrencypairstats">
+  <ResponseField name="statsUsd" type="WindowedDetailedCurrencyPairStats!" required>
+    The currency stats in USD, such as volume.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/windoweddetailednoncurrencypairstats">
+  <ResponseField name="statsNonCurrency" type="WindowedDetailedNonCurrencyPairStats!" required>
+    The numerical stats, such as number of buyers.
+  </ResponseField>
+</a>
+
+
+```graphql WindowedDetailedPairStats
+"""Detailed pair stats over a time frame."""
+type WindowedDetailedPairStats {
+  """The duration used to request detailed pair stats."""
+  duration: DetailedPairStatsDuration!
+  """The unix timestamp for the start of the window."""
+  start: Int!
+  """The unix timestamp for the end of the window."""
+  end: Int!
+  """The list of start/end timestamps broken down for each bucket within the window."""
+  timestamps: [DetailedPairStatsBucketTimestamp]!
+  """The currency stats in USD, such as volume."""
+  statsUsd: WindowedDetailedCurrencyPairStats!
+  """The numerical stats, such as number of buyers."""
+  statsNonCurrency: WindowedDetailedNonCurrencyPairStats!
+}
+```

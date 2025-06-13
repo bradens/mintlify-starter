@@ -3,12 +3,23 @@ title: "NftContractInput"
 description: "Input type of `getNftContracts`."
 ---
 
-**Type:** [NftContractInput](/api-reference/types/nftcontractinput)
+### Fields
 
-## Fields
+<ResponseField name="address" type="String!" required>
+  The NFT contract address.
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `address` → [String!](/api-reference/types/string) | The NFT contract address. |
-| `networkId` → [Int!](/api-reference/types/int) | The network ID the NFT collection is deployed on. |
+<ResponseField name="networkId" type="Int!" required>
+  The network ID the NFT collection is deployed on.
+</ResponseField>
 
+
+```graphql NftContractInput
+"""Input type of `getNftContracts`."""
+input NftContractInput {
+  """The NFT contract address."""
+  address: String!
+  """The network ID the NFT collection is deployed on."""
+  networkId: Int!
+}
+```

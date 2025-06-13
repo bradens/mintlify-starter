@@ -3,18 +3,63 @@ title: "EventLabel"
 description: "Metadata for an event label."
 ---
 
-**Type:** [EventLabel](/api-reference/types/eventlabel)
+### Fields
 
-## Fields
+<a href="/api-reference/types/eventlabeldata">
+  <ResponseField name="data" type="EventLabelData!" required>
+    Specific data for the event label type.
+  </ResponseField>
+</a>
 
-| Name | Description |
-|------|-------------|
-| `data` → [EventLabelData!](/api-reference/types/eventlabeldata) | Specific data for the event label type. |
-| `id` → [String!](/api-reference/types/string) | The ID of the pair (`address:networkId`). |
-| `label` → [EventLabelType!](/api-reference/types/eventlabeltype) | The event label type. |
-| `logIndex` → [Int!](/api-reference/types/int) | The index of the log in the block. |
-| `networkId` → [Int!](/api-reference/types/int) | The network ID the pair is deployed on. |
-| `timestamp` → [Int!](/api-reference/types/int) | The unix timestamp for the transaction. |
-| `transactionIndex` → [Int!](/api-reference/types/int) | The index of the transaction within the block. |
-| `transactionHash` → [String!](/api-reference/types/string) | The unique hash for the transaction. |
+<ResponseField name="id" type="String!" required>
+  The ID of the pair (`address:networkId`).
+</ResponseField>
 
+<a href="/api-reference/types/eventlabeltype">
+  <ResponseField name="label" type="EventLabelType!" required>
+    The event label type.
+  </ResponseField>
+</a>
+
+<ResponseField name="logIndex" type="Int!" required>
+  The index of the log in the block.
+</ResponseField>
+
+<ResponseField name="networkId" type="Int!" required>
+  The network ID the pair is deployed on.
+</ResponseField>
+
+<ResponseField name="timestamp" type="Int!" required>
+  The unix timestamp for the transaction.
+</ResponseField>
+
+<ResponseField name="transactionIndex" type="Int!" required>
+  The index of the transaction within the block.
+</ResponseField>
+
+<ResponseField name="transactionHash" type="String!" required>
+  The unique hash for the transaction.
+</ResponseField>
+
+
+```graphql EventLabel
+"""Metadata for an event label."""
+type EventLabel {
+  """Specific data for the event label type."""
+  data: EventLabelData!
+  """The ID of the pair (`address:networkId`)."""
+  id: String!
+  """The event label type."""
+  label: EventLabelType!
+  """The index of the log in the block."""
+  logIndex: Int!
+  """The network ID the pair is deployed on."""
+  networkId: Int!
+  """The unix timestamp for the transaction."""
+  timestamp: Int!
+  """The index of the transaction within the block."""
+  transactionIndex: Int!
+  """The unique hash for the transaction."""
+  transactionHash: String!
+}
+```

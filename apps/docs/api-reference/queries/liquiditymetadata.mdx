@@ -7,10 +7,13 @@ description: "Returns liquidity metadata for a given pair. Includes liquidity lo
 
 **Returns:** [LiquidityMetadata](/api-reference/types/liquiditymetadata)
 
-## Arguments for liquidityMetadata
+### Arguments
 
-| Name | Description |
-|------|-------------|
-| `pairAddress` ([String!](/api-reference/types/string)) | The address of the pair. |
-| `networkId` ([Int!](/api-reference/types/int)) | The network id of the pair. |
+<ResponseField name="pairAddress" type="String!" required>
+  The address of the pair.
+</ResponseField>
+
+<ResponseField name="networkId" type="Int!" required>
+  The network id of the pair.
+</ResponseField>
 

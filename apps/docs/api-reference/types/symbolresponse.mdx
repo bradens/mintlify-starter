@@ -3,17 +3,53 @@ title: "SymbolResponse"
 description: "Response returned by `getSymbol`."
 ---
 
-**Type:** [SymbolResponse](/api-reference/types/symbolresponse)
+### Fields
 
-## Fields
+<ResponseField name="currency_code" type="String!" required>
+  The currencyCode argument passed in (`TOKEN` or `USD`).
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `currency_code` → [String!](/api-reference/types/string) | The currencyCode argument passed in (`TOKEN` or `USD`). |
-| `description` → [String!](/api-reference/types/string) | The trading pair. If currencyCode is TOKEN, the base token will be used, otherwise USD. |
-| `name` → [String!](/api-reference/types/string) | The symbols of the pair. |
-| `original_currency_code` → [String!](/api-reference/types/string) | The base token symbol. |
-| `pricescale` → [Float!](/api-reference/types/float) | 10^n, where n is the number of decimal places the price has. Max 16. Used for charting. |
-| `ticker` → [String!](/api-reference/types/string) | The ID of the pair (`address:networkId`). |
-| `supported_resolutions` → [[String!]!](/api-reference/types/string) | The list of time frames supported for the symbol in other charting endpoints, eg. getBars. |
+<ResponseField name="description" type="String!" required>
+  The trading pair. If currencyCode is TOKEN, the base token will be used, otherwise USD.
+</ResponseField>
 
+<ResponseField name="name" type="String!" required>
+  The symbols of the pair.
+</ResponseField>
+
+<ResponseField name="original_currency_code" type="String!" required>
+  The base token symbol.
+</ResponseField>
+
+<ResponseField name="pricescale" type="Float!" required>
+  10^n, where n is the number of decimal places the price has. Max 16. Used for charting.
+</ResponseField>
+
+<ResponseField name="ticker" type="String!" required>
+  The ID of the pair (`address:networkId`).
+</ResponseField>
+
+<ResponseField name="supported_resolutions" type="[String!]!" required>
+  The list of time frames supported for the symbol in other charting endpoints, eg. getBars.
+</ResponseField>
+
+
+```graphql SymbolResponse
+"""Response returned by `getSymbol`."""
+type SymbolResponse {
+  """The currencyCode argument passed in (`TOKEN` or `USD`)."""
+  currency_code: String!
+  """The trading pair. If currencyCode is TOKEN, the base token will be used, otherwise USD."""
+  description: String!
+  """The symbols of the pair."""
+  name: String!
+  """The base token symbol."""
+  original_currency_code: String!
+  """10^n, where n is the number of decimal places the price has. Max 16. Used for charting."""
+  pricescale: Float!
+  """The ID of the pair (`address:networkId`)."""
+  ticker: String!
+  """The list of time frames supported for the symbol in other charting endpoints, eg. getBars."""
+  supported_resolutions: [String!]!
+}
+```

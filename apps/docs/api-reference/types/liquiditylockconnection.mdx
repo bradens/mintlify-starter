@@ -3,12 +3,24 @@ title: "LiquidityLockConnection"
 description: "Object type"
 ---
 
-**Type:** [LiquidityLockConnection](/api-reference/types/liquiditylockconnection)
+### Fields
 
-## Fields
+<a href="/api-reference/types/liquiditylock">
+  <ResponseField name="items" type="[LiquidityLock!]!" required>
+    A list of liquidity locks.
+  </ResponseField>
+</a>
 
-| Name | Description |
-|------|-------------|
-| `items` → [[LiquidityLock!]!](/api-reference/types/liquiditylock) | A list of liquidity locks. |
-| `cursor` → String | A cursor for use in pagination. |
+<ResponseField name="cursor" type="String">
+  A cursor for use in pagination.
+</ResponseField>
 
+
+```graphql LiquidityLockConnection
+type LiquidityLockConnection {
+  """A list of liquidity locks."""
+  items: [LiquidityLock!]!
+  """A cursor for use in pagination."""
+  cursor: String
+}
+```

@@ -7,16 +7,45 @@ description: "Returns a list of pairs based on a variety of filters."
 
 **Returns:** [PairFilterConnection](/api-reference/types/pairfilterconnection)
 
-## Arguments for filterPairs
+### Arguments
 
-| Name | Description |
-|------|-------------|
-| `filters` ([PairFilters](/api-reference/types/pairfilters)) | A set of filters to apply. |
-| `statsType` ([TokenPairStatisticsType](/api-reference/types/tokenpairstatisticstype)) | The type of statistics returned. Can be `FILTERED` or `UNFILTERED` |
-| `phrase` (String) | A phrase to search for. Can match a token or pair contract address or ID (`address:networkId`), or partially match a token name or symbol. |
-| `pairs` ([[String]](/api-reference/types/string)) | A list of pair or token contract addresses or IDs (`address:networkId`) to filter by. |
-| `matchTokens` ([PairFilterMatchTokens](/api-reference/types/pairfiltermatchtokens)) | A set of token contract addresses that make up a pair. Can be used in place of a pair contract address. |
-| `rankings` ([[PairRanking]](/api-reference/types/pairranking)) | A list of ranking attributes to apply. |
-| `limit` (Int) | The maximum number of pairs to return. |
-| `offset` (Int) | Where in the list the server should start when returning items. Use `count`+`offset` from the previous query to request the next page of results. |
+<a href="/api-reference/types/pairfilters">
+  <ResponseField name="filters" type="PairFilters">
+    A set of filters to apply.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/tokenpairstatisticstype">
+  <ResponseField name="statsType" type="TokenPairStatisticsType">
+    The type of statistics returned. Can be `FILTERED` or `UNFILTERED`
+  </ResponseField>
+</a>
+
+<ResponseField name="phrase" type="String">
+  A phrase to search for. Can match a token or pair contract address or ID (`address:networkId`), or partially match a token name or symbol.
+</ResponseField>
+
+<ResponseField name="pairs" type="[String]">
+  A list of pair or token contract addresses or IDs (`address:networkId`) to filter by.
+</ResponseField>
+
+<a href="/api-reference/types/pairfiltermatchtokens">
+  <ResponseField name="matchTokens" type="PairFilterMatchTokens">
+    A set of token contract addresses that make up a pair. Can be used in place of a pair contract address.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/pairranking">
+  <ResponseField name="rankings" type="[PairRanking]">
+    A list of ranking attributes to apply.
+  </ResponseField>
+</a>
+
+<ResponseField name="limit" type="Int">
+  The maximum number of pairs to return.
+</ResponseField>
+
+<ResponseField name="offset" type="Int">
+  Where in the list the server should start when returning items. Use `count`+`offset` from the previous query to request the next page of results.
+</ResponseField>
 

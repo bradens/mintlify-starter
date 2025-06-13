@@ -3,14 +3,39 @@ title: "PrimePoolLogPoolSetAllocPointData"
 description: "Event-specific data for a Prime pool LogPoolSetAllocPoint transaction."
 ---
 
-**Type:** [PrimePoolLogPoolSetAllocPointData](/api-reference/types/primepoollogpoolsetallocpointdata)
+### Fields
 
-## Fields
+<a href="/api-reference/types/primepooleventtype">
+  <ResponseField name="type" type="PrimePoolEventType!" required>
+    The Prime pool event type.
+  </ResponseField>
+</a>
 
-| Name | Description |
-|------|-------------|
-| `type` → [PrimePoolEventType!](/api-reference/types/primepooleventtype) | The Prime pool event type. |
-| `currency` → [PrimePoolCurrency!](/api-reference/types/primepoolcurrency) | The currency type of the event. |
-| `allocPoint` → [String!](/api-reference/types/string) | The updated alloc point for the pool (the pool&#39;s share of the contract&#39;s total rewards). |
-| `totalAllocPoint` → [String!](/api-reference/types/string) | The updated total alloc point for the pool (the sum of all pools&#39; alloc points). |
+<a href="/api-reference/types/primepoolcurrency">
+  <ResponseField name="currency" type="PrimePoolCurrency!" required>
+    The currency type of the event.
+  </ResponseField>
+</a>
 
+<ResponseField name="allocPoint" type="String!" required>
+  The updated alloc point for the pool (the pool&#39;s share of the contract&#39;s total rewards).
+</ResponseField>
+
+<ResponseField name="totalAllocPoint" type="String!" required>
+  The updated total alloc point for the pool (the sum of all pools&#39; alloc points).
+</ResponseField>
+
+
+```graphql PrimePoolLogPoolSetAllocPointData
+"""Event-specific data for a Prime pool LogPoolSetAllocPoint transaction."""
+type PrimePoolLogPoolSetAllocPointData {
+  """The Prime pool event type."""
+  type: PrimePoolEventType!
+  """The currency type of the event."""
+  currency: PrimePoolCurrency!
+  """The updated alloc point for the pool (the pool's share of the contract's total rewards)."""
+  allocPoint: String!
+  """The updated total alloc point for the pool (the sum of all pools' alloc points)."""
+  totalAllocPoint: String!
+}
+```

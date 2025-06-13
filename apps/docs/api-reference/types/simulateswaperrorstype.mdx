@@ -3,14 +3,34 @@ title: "SimulateSwapErrorsType"
 description: "Object type"
 ---
 
-**Type:** [SimulateSwapErrorsType](/api-reference/types/simulateswaperrorstype)
+### Fields
 
-## Fields
+<ResponseField name="buyError" type="String">
+  No description provided
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `buyError` → String | No description provided |
-| `buyErrorEnum` → [SimulateTokenContractBuySellErrorEnum](/api-reference/types/simulatetokencontractbuysellerrorenum) | No description provided |
-| `sellError` → String | No description provided |
-| `sellErrorEnum` → [SimulateTokenContractBuySellErrorEnum](/api-reference/types/simulatetokencontractbuysellerrorenum) | No description provided |
+<a href="/api-reference/types/simulatetokencontractbuysellerrorenum">
+  <ResponseField name="buyErrorEnum" type="SimulateTokenContractBuySellErrorEnum">
+    No description provided
+  </ResponseField>
+</a>
 
+<ResponseField name="sellError" type="String">
+  No description provided
+</ResponseField>
+
+<a href="/api-reference/types/simulatetokencontractbuysellerrorenum">
+  <ResponseField name="sellErrorEnum" type="SimulateTokenContractBuySellErrorEnum">
+    No description provided
+  </ResponseField>
+</a>
+
+
+```graphql SimulateSwapErrorsType
+type SimulateSwapErrorsType {
+  buyError: String
+  buyErrorEnum: SimulateTokenContractBuySellErrorEnum
+  sellError: String
+  sellErrorEnum: SimulateTokenContractBuySellErrorEnum
+}
+```

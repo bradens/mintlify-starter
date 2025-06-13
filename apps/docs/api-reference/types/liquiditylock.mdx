@@ -3,23 +3,99 @@ title: "LiquidityLock"
 description: "A record of locked liquidity"
 ---
 
-**Type:** [LiquidityLock](/api-reference/types/liquiditylock)
+### Fields
 
-## Fields
+<ResponseField name="pairAddress" type="String!" required>
+  The pair address.
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `pairAddress` → [String!](/api-reference/types/string) | The pair address. |
-| `networkId` → [Int!](/api-reference/types/int) | The network ID the pair is deployed on. |
-| `ownerAddress` → [String!](/api-reference/types/string) | The wallet address of the owner. |
-| `lockerAddress` → [String!](/api-reference/types/string) | The address of the locker contract. |
-| `createdAt` → [Int!](/api-reference/types/int) | The unix timestamp for when the lock was created. |
-| `unlockAt` → Int | The unix timestamp for when the lock expires. |
-| `lockProtocol` → [LiquidityLockProtocol!](/api-reference/types/liquiditylockprotocol) | The protocol with which the liquidity is locked. |
-| `liquidityProtocol` → [LiquidityProtocol!](/api-reference/types/liquidityprotocol) | The protocol that created the pair |
-| `liquidityProtocolV2` → [String!](/api-reference/types/string) | The protocol that created the pair |
-| `liquidityAmount` → [String!](/api-reference/types/string) | The amount of liquidity locked. |
-| `initialAmountToken0` → [String!](/api-reference/types/string) | The inital amount of token0 locked. |
-| `initialAmountToken1` → [String!](/api-reference/types/string) | The inital amount of token1 locked. |
-| `liquidityNftData` → [LiquidityNftData](/api-reference/types/liquiditynftdata) | If the liquidity position is represented by an NFT, this will contain the NFT data. |
+<ResponseField name="networkId" type="Int!" required>
+  The network ID the pair is deployed on.
+</ResponseField>
 
+<ResponseField name="ownerAddress" type="String!" required>
+  The wallet address of the owner.
+</ResponseField>
+
+<ResponseField name="lockerAddress" type="String!" required>
+  The address of the locker contract.
+</ResponseField>
+
+<ResponseField name="createdAt" type="Int!" required>
+  The unix timestamp for when the lock was created.
+</ResponseField>
+
+<ResponseField name="unlockAt" type="Int">
+  The unix timestamp for when the lock expires.
+</ResponseField>
+
+<a href="/api-reference/types/liquiditylockprotocol">
+  <ResponseField name="lockProtocol" type="LiquidityLockProtocol!" required>
+    The protocol with which the liquidity is locked.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/liquidityprotocol">
+  <ResponseField name="liquidityProtocol" type="LiquidityProtocol!" required>
+    The protocol that created the pair
+    
+    <Warning>
+      This field is deprecated. Use liquidityProtocolV2 instead
+    </Warning>
+  </ResponseField>
+</a>
+
+<ResponseField name="liquidityProtocolV2" type="String!" required>
+  The protocol that created the pair
+</ResponseField>
+
+<ResponseField name="liquidityAmount" type="String!" required>
+  The amount of liquidity locked.
+</ResponseField>
+
+<ResponseField name="initialAmountToken0" type="String!" required>
+  The inital amount of token0 locked.
+</ResponseField>
+
+<ResponseField name="initialAmountToken1" type="String!" required>
+  The inital amount of token1 locked.
+</ResponseField>
+
+<a href="/api-reference/types/liquiditynftdata">
+  <ResponseField name="liquidityNftData" type="LiquidityNftData">
+    If the liquidity position is represented by an NFT, this will contain the NFT data.
+  </ResponseField>
+</a>
+
+
+```graphql LiquidityLock
+"""A record of locked liquidity"""
+type LiquidityLock {
+  """The pair address."""
+  pairAddress: String!
+  """The network ID the pair is deployed on."""
+  networkId: Int!
+  """The wallet address of the owner."""
+  ownerAddress: String!
+  """The address of the locker contract."""
+  lockerAddress: String!
+  """The unix timestamp for when the lock was created."""
+  createdAt: Int!
+  """The unix timestamp for when the lock expires."""
+  unlockAt: Int
+  """The protocol with which the liquidity is locked."""
+  lockProtocol: LiquidityLockProtocol!
+  """The protocol that created the pair"""
+  liquidityProtocol: LiquidityProtocol! @deprecated(reason: "Use liquidityProtocolV2 instead")
+  """The protocol that created the pair"""
+  liquidityProtocolV2: String!
+  """The amount of liquidity locked."""
+  liquidityAmount: String!
+  """The inital amount of token0 locked."""
+  initialAmountToken0: String!
+  """The inital amount of token1 locked."""
+  initialAmountToken1: String!
+  """If the liquidity position is represented by an NFT, this will contain the NFT data."""
+  liquidityNftData: LiquidityNftData
+}
+```

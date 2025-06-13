@@ -3,13 +3,34 @@ title: "SimulateTokenContractInput"
 description: "InputObject type"
 ---
 
-**Type:** [SimulateTokenContractInput](/api-reference/types/simulatetokencontractinput)
+### Fields
 
-## Fields
+<a href="/api-reference/types/simulatedeployinput">
+  <ResponseField name="simulateDeployInput" type="SimulateDeployInput">
+    Input for a token contract deploy simulation.
+  </ResponseField>
+</a>
 
-| Name | Description |
-|------|-------------|
-| `simulateDeployInput` → [SimulateDeployInput](/api-reference/types/simulatedeployinput) | Input for a token contract deploy simulation. |
-| `simulateCreateTransactionInput` → [SimulateCreateTransactionInput](/api-reference/types/simulatecreatetransactioninput) | Input for a token contract create transaction simulation. |
-| `simulateLiveContractInput` → [SimulateLiveContractInput](/api-reference/types/simulatelivecontractinput) | Input for a live token contract simulation. |
+<a href="/api-reference/types/simulatecreatetransactioninput">
+  <ResponseField name="simulateCreateTransactionInput" type="SimulateCreateTransactionInput">
+    Input for a token contract create transaction simulation.
+  </ResponseField>
+</a>
 
+<a href="/api-reference/types/simulatelivecontractinput">
+  <ResponseField name="simulateLiveContractInput" type="SimulateLiveContractInput">
+    Input for a live token contract simulation.
+  </ResponseField>
+</a>
+
+
+```graphql SimulateTokenContractInput
+input SimulateTokenContractInput {
+  """Input for a token contract deploy simulation."""
+  simulateDeployInput: SimulateDeployInput
+  """Input for a token contract create transaction simulation."""
+  simulateCreateTransactionInput: SimulateCreateTransactionInput
+  """Input for a live token contract simulation."""
+  simulateLiveContractInput: SimulateLiveContractInput
+}
+```

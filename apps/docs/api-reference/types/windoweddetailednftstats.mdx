@@ -3,17 +3,63 @@ title: "WindowedDetailedNftStats"
 description: "Detailed NFT stats over a time frame."
 ---
 
-**Type:** [WindowedDetailedNftStats](/api-reference/types/windoweddetailednftstats)
+### Fields
 
-## Fields
+<a href="/api-reference/types/detailednftstatsduration">
+  <ResponseField name="duration" type="DetailedNftStatsDuration!" required>
+    The duration used to request detailed NFT stats.
+  </ResponseField>
+</a>
 
-| Name | Description |
-|------|-------------|
-| `duration` → [DetailedNftStatsDuration!](/api-reference/types/detailednftstatsduration) | The duration used to request detailed NFT stats. |
-| `start` → [Int!](/api-reference/types/int) | The unix timestamp for the start of the window. |
-| `end` → [Int!](/api-reference/types/int) | The unix timestamp for the end of the window. |
-| `timestamps` → [[DetailedNftStatsBucketTimestamp]!](/api-reference/types/detailednftstatsbuckettimestamp) | The list of start/end timestamps broken down for each bucket within the window. |
-| `statsUsd` → [WindowedDetailedNftCurrencyStats!](/api-reference/types/windoweddetailednftcurrencystats) | The currency stats in USD, such as volume. |
-| `statsNetworkBaseToken` → [WindowedDetailedNftCurrencyStats!](/api-reference/types/windoweddetailednftcurrencystats) | The currency stats in the network&#39;s base token, such as volume. |
-| `statsNonCurrency` → [WindowedDetailedNftNonCurrencyStats!](/api-reference/types/windoweddetailednftnoncurrencystats) | The numerical stats, such as number of buyers. |
+<ResponseField name="start" type="Int!" required>
+  The unix timestamp for the start of the window.
+</ResponseField>
 
+<ResponseField name="end" type="Int!" required>
+  The unix timestamp for the end of the window.
+</ResponseField>
+
+<a href="/api-reference/types/detailednftstatsbuckettimestamp">
+  <ResponseField name="timestamps" type="[DetailedNftStatsBucketTimestamp]!" required>
+    The list of start/end timestamps broken down for each bucket within the window.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/windoweddetailednftcurrencystats">
+  <ResponseField name="statsUsd" type="WindowedDetailedNftCurrencyStats!" required>
+    The currency stats in USD, such as volume.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/windoweddetailednftcurrencystats">
+  <ResponseField name="statsNetworkBaseToken" type="WindowedDetailedNftCurrencyStats!" required>
+    The currency stats in the network&#39;s base token, such as volume.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/windoweddetailednftnoncurrencystats">
+  <ResponseField name="statsNonCurrency" type="WindowedDetailedNftNonCurrencyStats!" required>
+    The numerical stats, such as number of buyers.
+  </ResponseField>
+</a>
+
+
+```graphql WindowedDetailedNftStats
+"""Detailed NFT stats over a time frame."""
+type WindowedDetailedNftStats {
+  """The duration used to request detailed NFT stats."""
+  duration: DetailedNftStatsDuration!
+  """The unix timestamp for the start of the window."""
+  start: Int!
+  """The unix timestamp for the end of the window."""
+  end: Int!
+  """The list of start/end timestamps broken down for each bucket within the window."""
+  timestamps: [DetailedNftStatsBucketTimestamp]!
+  """The currency stats in USD, such as volume."""
+  statsUsd: WindowedDetailedNftCurrencyStats!
+  """The currency stats in the network's base token, such as volume."""
+  statsNetworkBaseToken: WindowedDetailedNftCurrencyStats!
+  """The numerical stats, such as number of buyers."""
+  statsNonCurrency: WindowedDetailedNftNonCurrencyStats!
+}
+```

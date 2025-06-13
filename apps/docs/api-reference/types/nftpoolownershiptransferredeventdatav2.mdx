@@ -3,12 +3,24 @@ title: "NftPoolOwnershipTransferredEventDataV2"
 description: "Object type"
 ---
 
-**Type:** [NftPoolOwnershipTransferredEventDataV2](/api-reference/types/nftpoolownershiptransferredeventdatav2)
+### Fields
 
-## Fields
+<a href="/api-reference/types/nftpooleventtype">
+  <ResponseField name="type" type="NftPoolEventType!" required>
+    The type of NFT pool event, `OWNERSHIP_TRANSFERRED`.
+  </ResponseField>
+</a>
 
-| Name | Description |
-|------|-------------|
-| `type` → [NftPoolEventType!](/api-reference/types/nftpooleventtype) | The type of NFT pool event, `OWNERSHIP_TRANSFERRED`. |
-| `newOwner` → [String!](/api-reference/types/string) | The new owner of the pool. |
+<ResponseField name="newOwner" type="String!" required>
+  The new owner of the pool.
+</ResponseField>
 
+
+```graphql NftPoolOwnershipTransferredEventDataV2
+type NftPoolOwnershipTransferredEventDataV2 {
+  """The type of NFT pool event, `OWNERSHIP_TRANSFERRED`."""
+  type: NftPoolEventType!
+  """The new owner of the pool."""
+  newOwner: String!
+}
+```

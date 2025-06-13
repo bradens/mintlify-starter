@@ -3,12 +3,20 @@ title: "GasFee"
 description: "Object type"
 ---
 
-**Type:** [GasFee](/api-reference/types/gasfee)
+### Fields
 
-## Fields
+<ResponseField name="gasPrice" type="String!" required>
+  No description provided
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `gasPrice` → [String!](/api-reference/types/string) | No description provided |
-| `confirmationTime` → [Float!](/api-reference/types/float) | No description provided |
+<ResponseField name="confirmationTime" type="Float!" required>
+  No description provided
+</ResponseField>
 
+
+```graphql GasFee
+type GasFee {
+  gasPrice: String!
+  confirmationTime: Float!
+}
+```

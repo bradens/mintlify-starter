@@ -3,13 +3,31 @@ title: "LockBreakdown"
 description: "Breakdown of how much and where liquidity is locked."
 ---
 
-**Type:** [LockBreakdown](/api-reference/types/lockbreakdown)
+### Fields
 
-## Fields
+<a href="/api-reference/types/liquiditylockprotocol">
+  <ResponseField name="lockProtocol" type="LiquidityLockProtocol!" required>
+    The protocol with which the liquidity is locked.
+  </ResponseField>
+</a>
 
-| Name | Description |
-|------|-------------|
-| `lockProtocol` → [LiquidityLockProtocol!](/api-reference/types/liquiditylockprotocol) | The protocol with which the liquidity is locked. |
-| `active` → [String!](/api-reference/types/string) | The amount of active liquidity locked. |
-| `inactive` → [String!](/api-reference/types/string) | The amount of inactive liquidity locked. |
+<ResponseField name="active" type="String!" required>
+  The amount of active liquidity locked.
+</ResponseField>
 
+<ResponseField name="inactive" type="String!" required>
+  The amount of inactive liquidity locked.
+</ResponseField>
+
+
+```graphql LockBreakdown
+"""Breakdown of how much and where liquidity is locked."""
+type LockBreakdown {
+  """The protocol with which the liquidity is locked."""
+  lockProtocol: LiquidityLockProtocol!
+  """The amount of active liquidity locked."""
+  active: String!
+  """The amount of inactive liquidity locked."""
+  inactive: String!
+}
+```

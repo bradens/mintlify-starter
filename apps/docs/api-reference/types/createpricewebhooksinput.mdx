@@ -3,11 +3,19 @@ title: "CreatePriceWebhooksInput"
 description: "Input for creating price webhooks."
 ---
 
-**Type:** [CreatePriceWebhooksInput](/api-reference/types/createpricewebhooksinput)
+### Fields
 
-## Fields
+<a href="/api-reference/types/createpricewebhookargs">
+  <ResponseField name="webhooks" type="[CreatePriceWebhookArgs!]!" required>
+    A list of price webhooks to create.
+  </ResponseField>
+</a>
 
-| Name | Description |
-|------|-------------|
-| `webhooks` → [[CreatePriceWebhookArgs!]!](/api-reference/types/createpricewebhookargs) | A list of price webhooks to create. |
 
+```graphql CreatePriceWebhooksInput
+"""Input for creating price webhooks."""
+input CreatePriceWebhooksInput {
+  """A list of price webhooks to create."""
+  webhooks: [CreatePriceWebhookArgs!]!
+}
+```

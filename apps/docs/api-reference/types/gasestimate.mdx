@@ -3,15 +3,35 @@ title: "GasEstimate"
 description: "Object type"
 ---
 
-**Type:** [GasEstimate](/api-reference/types/gasestimate)
+### Fields
 
-## Fields
+<ResponseField name="gasLimitEstimate" type="String">
+  No description provided
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `gasLimitEstimate` → String | No description provided |
-| `gasPrice` → String | No description provided |
-| `error` → String | No description provided |
-| `errorReason` → String | No description provided |
-| `totalFee` → String | No description provided |
+<ResponseField name="gasPrice" type="String">
+  No description provided
+</ResponseField>
 
+<ResponseField name="error" type="String">
+  No description provided
+</ResponseField>
+
+<ResponseField name="errorReason" type="String">
+  No description provided
+</ResponseField>
+
+<ResponseField name="totalFee" type="String">
+  No description provided
+</ResponseField>
+
+
+```graphql GasEstimate
+type GasEstimate {
+  gasLimitEstimate: String
+  gasPrice: String
+  error: String
+  errorReason: String
+  totalFee: String
+}
+```

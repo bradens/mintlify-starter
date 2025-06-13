@@ -3,12 +3,23 @@ title: "StringContainsConditionInput"
 description: "Input for string contains condition."
 ---
 
-**Type:** [StringContainsConditionInput](/api-reference/types/stringcontainsconditioninput)
+### Fields
 
-## Fields
+<ResponseField name="contains" type="[String!]">
+  A list of substrings to be included within the string.
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `contains` → [[String!]](/api-reference/types/string) | A list of substrings to be included within the string. |
-| `notContains` → [[String!]](/api-reference/types/string) | A list of substrings not to be included within the string. |
+<ResponseField name="notContains" type="[String!]">
+  A list of substrings not to be included within the string.
+</ResponseField>
 
+
+```graphql StringContainsConditionInput
+"""Input for string contains condition."""
+input StringContainsConditionInput {
+  """A list of substrings to be included within the string."""
+  contains: [String!]
+  """A list of substrings not to be included within the string."""
+  notContains: [String!]
+}
+```

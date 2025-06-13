@@ -3,13 +3,25 @@ title: "OnPricesUpdatedInput"
 description: "InputObject type"
 ---
 
-**Type:** [OnPricesUpdatedInput](/api-reference/types/onpricesupdatedinput)
+### Fields
 
-## Fields
+<ResponseField name="address" type="String!" required>
+  No description provided
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `address` → [String!](/api-reference/types/string) | No description provided |
-| `networkId` → [Int!](/api-reference/types/int) | No description provided |
-| `sourcePairAddress` → String | No description provided |
+<ResponseField name="networkId" type="Int!" required>
+  No description provided
+</ResponseField>
 
+<ResponseField name="sourcePairAddress" type="String">
+  No description provided
+</ResponseField>
+
+
+```graphql OnPricesUpdatedInput
+input OnPricesUpdatedInput {
+  address: String!
+  networkId: Int!
+  sourcePairAddress: String
+}
+```

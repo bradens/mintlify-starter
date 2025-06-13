@@ -3,12 +3,24 @@ title: "AddUnconfirmedEventsByMakerOutput"
 description: "Object type"
 ---
 
-**Type:** [AddUnconfirmedEventsByMakerOutput](/api-reference/types/addunconfirmedeventsbymakeroutput)
+### Fields
 
-## Fields
+<ResponseField name="makerAddress" type="String!" required>
+  The wallet address of the maker.
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `makerAddress` → [String!](/api-reference/types/string) | The wallet address of the maker. |
-| `events` → [[UnconfirmedEvent!]!](/api-reference/types/unconfirmedevent) | A list of transactions for the maker. |
+<a href="/api-reference/types/unconfirmedevent">
+  <ResponseField name="events" type="[UnconfirmedEvent!]!" required>
+    A list of transactions for the maker.
+  </ResponseField>
+</a>
 
+
+```graphql AddUnconfirmedEventsByMakerOutput
+type AddUnconfirmedEventsByMakerOutput {
+  """The wallet address of the maker."""
+  makerAddress: String!
+  """A list of transactions for the maker."""
+  events: [UnconfirmedEvent!]!
+}
+```

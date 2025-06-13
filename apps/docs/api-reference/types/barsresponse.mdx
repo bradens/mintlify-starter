@@ -3,29 +3,131 @@ title: "BarsResponse"
 description: "Bar chart data to track price changes over time."
 ---
 
-**Type:** [BarsResponse](/api-reference/types/barsresponse)
+### Fields
 
-## Fields
+<ResponseField name="o" type="[Float]!" required>
+  The opening price.
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `o` → [[Float]!](/api-reference/types/float) | The opening price. |
-| `h` → [[Float]!](/api-reference/types/float) | The high price. |
-| `l` → [[Float]!](/api-reference/types/float) | The low price. |
-| `c` → [[Float]!](/api-reference/types/float) | The closing price. |
-| `v` → [[Int]!](/api-reference/types/int) | The volume. |
-| `t` → [[Int!]!](/api-reference/types/int) | The timestamp for the bar. |
-| `s` → [String!](/api-reference/types/string) | The status code for the batch: `ok` for successful data retrieval and `no_data` for empty responses signaling the end of server data. |
-| `volume` → [[String]](/api-reference/types/string) | The volume with higher precision. |
-| `volumeNativeToken` → [[String]](/api-reference/types/string) | The volume in the native token for the network |
-| `buyers` → [[Int]!](/api-reference/types/int) | The number of unique buyers |
-| `buys` → [[Int]!](/api-reference/types/int) | The number of buys |
-| `buyVolume` → [[String]!](/api-reference/types/string) | The buy volume in USD |
-| `sellers` → [[Int]!](/api-reference/types/int) | The number of unique sellers |
-| `sells` → [[Int]!](/api-reference/types/int) | The number of sells |
-| `sellVolume` → [[String]!](/api-reference/types/string) | The sell volume in USD |
-| `liquidity` → [[String]!](/api-reference/types/string) | Liquidity in USD |
-| `traders` → [[Int]!](/api-reference/types/int) | The number of traders |
-| `transactions` → [[Int]!](/api-reference/types/int) | The number of transactions |
-| `pair` → [Pair!](/api-reference/types/pair) | The pair that is being returned |
+<ResponseField name="h" type="[Float]!" required>
+  The high price.
+</ResponseField>
 
+<ResponseField name="l" type="[Float]!" required>
+  The low price.
+</ResponseField>
+
+<ResponseField name="c" type="[Float]!" required>
+  The closing price.
+</ResponseField>
+
+<ResponseField name="v" type="[Int]!" required>
+  The volume.
+    
+    <Warning>
+      This field is deprecated. Use volume field instead
+    </Warning>
+</ResponseField>
+
+<ResponseField name="t" type="[Int!]!" required>
+  The timestamp for the bar.
+</ResponseField>
+
+<ResponseField name="s" type="String!" required>
+  The status code for the batch: `ok` for successful data retrieval and `no_data` for empty responses signaling the end of server data.
+</ResponseField>
+
+<ResponseField name="volume" type="[String]">
+  The volume with higher precision.
+</ResponseField>
+
+<ResponseField name="volumeNativeToken" type="[String]">
+  The volume in the native token for the network
+</ResponseField>
+
+<ResponseField name="buyers" type="[Int]!" required>
+  The number of unique buyers
+</ResponseField>
+
+<ResponseField name="buys" type="[Int]!" required>
+  The number of buys
+</ResponseField>
+
+<ResponseField name="buyVolume" type="[String]!" required>
+  The buy volume in USD
+</ResponseField>
+
+<ResponseField name="sellers" type="[Int]!" required>
+  The number of unique sellers
+</ResponseField>
+
+<ResponseField name="sells" type="[Int]!" required>
+  The number of sells
+</ResponseField>
+
+<ResponseField name="sellVolume" type="[String]!" required>
+  The sell volume in USD
+</ResponseField>
+
+<ResponseField name="liquidity" type="[String]!" required>
+  Liquidity in USD
+</ResponseField>
+
+<ResponseField name="traders" type="[Int]!" required>
+  The number of traders
+</ResponseField>
+
+<ResponseField name="transactions" type="[Int]!" required>
+  The number of transactions
+</ResponseField>
+
+<a href="/api-reference/types/pair">
+  <ResponseField name="pair" type="Pair!" required>
+    The pair that is being returned
+  </ResponseField>
+</a>
+
+
+```graphql BarsResponse
+"""Bar chart data to track price changes over time."""
+type BarsResponse {
+  """The opening price."""
+  o: [Float]!
+  """The high price."""
+  h: [Float]!
+  """The low price."""
+  l: [Float]!
+  """The closing price."""
+  c: [Float]!
+  """The volume."""
+  v: [Int]! @deprecated(reason: "Use volume field instead")
+  """The timestamp for the bar."""
+  t: [Int!]!
+  """The status code for the batch: `ok` for successful data retrieval and `no_data` for empty responses signaling the end of server data."""
+  s: String!
+  """The volume with higher precision."""
+  volume: [String]
+  """The volume in the native token for the network"""
+  volumeNativeToken: [String]
+  """The number of unique buyers"""
+  buyers: [Int]!
+  """The number of buys"""
+  buys: [Int]!
+  """The buy volume in USD"""
+  buyVolume: [String]!
+  """The number of unique sellers"""
+  sellers: [Int]!
+  """The number of sells"""
+  sells: [Int]!
+  """The sell volume in USD"""
+  sellVolume: [String]!
+  """Liquidity in USD"""
+  liquidity: [String]!
+  """The number of traders"""
+  traders: [Int]!
+  """The number of transactions"""
+  transactions: [Int]!
+  """The pair that is being returned"""
+  pair: Pair!
+}
+```

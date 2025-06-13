@@ -3,23 +3,115 @@ title: "ResolutionBarData"
 description: "Price data for each supported resolution."
 ---
 
-**Type:** [ResolutionBarData](/api-reference/types/resolutionbardata)
+### Fields
 
-## Fields
+<a href="/api-reference/types/currencybardata">
+  <ResponseField name="r1S" type="CurrencyBarData">
+    1 second resolution.
+  </ResponseField>
+</a>
 
-| Name | Description |
-|------|-------------|
-| `r1S` → [CurrencyBarData](/api-reference/types/currencybardata) | 1 second resolution. |
-| `r5S` → [CurrencyBarData](/api-reference/types/currencybardata) | 5 second resolution. |
-| `r15S` → [CurrencyBarData](/api-reference/types/currencybardata) | 15 second resolution. |
-| `r30S` → [CurrencyBarData](/api-reference/types/currencybardata) | 30 second resolution. |
-| `r1` → [CurrencyBarData](/api-reference/types/currencybardata) | 1 minute resolution. |
-| `r5` → [CurrencyBarData](/api-reference/types/currencybardata) | 5 minute resolution. |
-| `r15` → [CurrencyBarData](/api-reference/types/currencybardata) | 15 minute resolution. |
-| `r30` → [CurrencyBarData](/api-reference/types/currencybardata) | 30 minute resolution. |
-| `r60` → [CurrencyBarData](/api-reference/types/currencybardata) | 60 minute resolution. |
-| `r240` → [CurrencyBarData](/api-reference/types/currencybardata) | 4 hour resolution. |
-| `r720` → [CurrencyBarData](/api-reference/types/currencybardata) | 12 hour resolution. |
-| `r1D` → [CurrencyBarData](/api-reference/types/currencybardata) | 1 day resolution. |
-| `r7D` → [CurrencyBarData](/api-reference/types/currencybardata) | 1 week resolution. |
+<a href="/api-reference/types/currencybardata">
+  <ResponseField name="r5S" type="CurrencyBarData">
+    5 second resolution.
+  </ResponseField>
+</a>
 
+<a href="/api-reference/types/currencybardata">
+  <ResponseField name="r15S" type="CurrencyBarData">
+    15 second resolution.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/currencybardata">
+  <ResponseField name="r30S" type="CurrencyBarData">
+    30 second resolution.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/currencybardata">
+  <ResponseField name="r1" type="CurrencyBarData">
+    1 minute resolution.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/currencybardata">
+  <ResponseField name="r5" type="CurrencyBarData">
+    5 minute resolution.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/currencybardata">
+  <ResponseField name="r15" type="CurrencyBarData">
+    15 minute resolution.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/currencybardata">
+  <ResponseField name="r30" type="CurrencyBarData">
+    30 minute resolution.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/currencybardata">
+  <ResponseField name="r60" type="CurrencyBarData">
+    60 minute resolution.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/currencybardata">
+  <ResponseField name="r240" type="CurrencyBarData">
+    4 hour resolution.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/currencybardata">
+  <ResponseField name="r720" type="CurrencyBarData">
+    12 hour resolution.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/currencybardata">
+  <ResponseField name="r1D" type="CurrencyBarData">
+    1 day resolution.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/currencybardata">
+  <ResponseField name="r7D" type="CurrencyBarData">
+    1 week resolution.
+  </ResponseField>
+</a>
+
+
+```graphql ResolutionBarData
+"""Price data for each supported resolution."""
+type ResolutionBarData {
+  """1 second resolution."""
+  r1S: CurrencyBarData
+  """5 second resolution."""
+  r5S: CurrencyBarData
+  """15 second resolution."""
+  r15S: CurrencyBarData
+  """30 second resolution."""
+  r30S: CurrencyBarData
+  """1 minute resolution."""
+  r1: CurrencyBarData
+  """5 minute resolution."""
+  r5: CurrencyBarData
+  """15 minute resolution."""
+  r15: CurrencyBarData
+  """30 minute resolution."""
+  r30: CurrencyBarData
+  """60 minute resolution."""
+  r60: CurrencyBarData
+  """4 hour resolution."""
+  r240: CurrencyBarData
+  """12 hour resolution."""
+  r720: CurrencyBarData
+  """1 day resolution."""
+  r1D: CurrencyBarData
+  """1 week resolution."""
+  r7D: CurrencyBarData
+}
+```

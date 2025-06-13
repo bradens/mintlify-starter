@@ -3,14 +3,35 @@ title: "StringFilter"
 description: "Input type of `StringFilter`."
 ---
 
-**Type:** [StringFilter](/api-reference/types/stringfilter)
+### Fields
 
-## Fields
+<ResponseField name="gte" type="String">
+  Greater than or equal to.
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `gte` → String | Greater than or equal to. |
-| `gt` → String | Greater than. |
-| `lte` → String | Less than or equal to. |
-| `lt` → String | Less than. |
+<ResponseField name="gt" type="String">
+  Greater than.
+</ResponseField>
 
+<ResponseField name="lte" type="String">
+  Less than or equal to.
+</ResponseField>
+
+<ResponseField name="lt" type="String">
+  Less than.
+</ResponseField>
+
+
+```graphql StringFilter
+"""Input type of `StringFilter`."""
+input StringFilter {
+  """Greater than or equal to."""
+  gte: String
+  """Greater than."""
+  gt: String
+  """Less than or equal to."""
+  lte: String
+  """Less than."""
+  lt: String
+}
+```

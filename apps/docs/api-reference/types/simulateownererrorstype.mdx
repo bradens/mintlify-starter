@@ -3,13 +3,25 @@ title: "SimulateOwnerErrorsType"
 description: "Object type"
 ---
 
-**Type:** [SimulateOwnerErrorsType](/api-reference/types/simulateownererrorstype)
+### Fields
 
-## Fields
+<ResponseField name="ownerAddressError" type="String">
+  No description provided
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `ownerAddressError` → String | No description provided |
-| `ownerTokenBalanceError` → String | No description provided |
-| `ownerEthBalanceError` → String | No description provided |
+<ResponseField name="ownerTokenBalanceError" type="String">
+  No description provided
+</ResponseField>
 
+<ResponseField name="ownerEthBalanceError" type="String">
+  No description provided
+</ResponseField>
+
+
+```graphql SimulateOwnerErrorsType
+type SimulateOwnerErrorsType {
+  ownerAddressError: String
+  ownerTokenBalanceError: String
+  ownerEthBalanceError: String
+}
+```

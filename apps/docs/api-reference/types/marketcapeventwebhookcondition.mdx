@@ -3,15 +3,51 @@ title: "MarketCapEventWebhookCondition"
 description: "Webhook conditions for a market cap event."
 ---
 
-**Type:** [MarketCapEventWebhookCondition](/api-reference/types/marketcapeventwebhookcondition)
+### Fields
 
-## Fields
+<a href="/api-reference/types/stringequalscondition">
+  <ResponseField name="tokenAddress" type="StringEqualsCondition!" required>
+    The token contract address the webhook is listening for.
+  </ResponseField>
+</a>
 
-| Name | Description |
-|------|-------------|
-| `tokenAddress` → [StringEqualsCondition!](/api-reference/types/stringequalscondition) | The token contract address the webhook is listening for. |
-| `networkId` → [IntEqualsCondition!](/api-reference/types/intequalscondition) | The network ID the webhook is listening on. |
-| `fdvMarketCapUsd` → [ComparisonOperator](/api-reference/types/comparisonoperator) | The market cap condition that must be met in order for the webhook to send. |
-| `circulatingMarketCapUsd` → [ComparisonOperator](/api-reference/types/comparisonoperator) | The circulating market cap condition that must be met in order for the webhook to send. |
-| `pairAddress` → [StringEqualsCondition](/api-reference/types/stringequalscondition) | The pair contract address the webhook is listening for. |
+<a href="/api-reference/types/intequalscondition">
+  <ResponseField name="networkId" type="IntEqualsCondition!" required>
+    The network ID the webhook is listening on.
+  </ResponseField>
+</a>
 
+<a href="/api-reference/types/comparisonoperator">
+  <ResponseField name="fdvMarketCapUsd" type="ComparisonOperator">
+    The market cap condition that must be met in order for the webhook to send.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/comparisonoperator">
+  <ResponseField name="circulatingMarketCapUsd" type="ComparisonOperator">
+    The circulating market cap condition that must be met in order for the webhook to send.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/stringequalscondition">
+  <ResponseField name="pairAddress" type="StringEqualsCondition">
+    The pair contract address the webhook is listening for.
+  </ResponseField>
+</a>
+
+
+```graphql MarketCapEventWebhookCondition
+"""Webhook conditions for a market cap event."""
+type MarketCapEventWebhookCondition {
+  """The token contract address the webhook is listening for."""
+  tokenAddress: StringEqualsCondition!
+  """The network ID the webhook is listening on."""
+  networkId: IntEqualsCondition!
+  """The market cap condition that must be met in order for the webhook to send."""
+  fdvMarketCapUsd: ComparisonOperator
+  """The circulating market cap condition that must be met in order for the webhook to send."""
+  circulatingMarketCapUsd: ComparisonOperator
+  """The pair contract address the webhook is listening for."""
+  pairAddress: StringEqualsCondition
+}
+```

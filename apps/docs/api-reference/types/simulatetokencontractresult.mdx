@@ -3,29 +3,125 @@ title: "SimulateTokenContractResult"
 description: "Object type"
 ---
 
-**Type:** [SimulateTokenContractResult](/api-reference/types/simulatetokencontractresult)
+### Fields
 
-## Fields
+<ResponseField name="id" type="String!" required>
+  No description provided
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `id` → [String!](/api-reference/types/string) | No description provided |
-| `sortKey` → [String!](/api-reference/types/string) | No description provided |
-| `contractHashKey` → [String!](/api-reference/types/string) | No description provided |
-| `uuidHashKey` → [String!](/api-reference/types/string) | No description provided |
-| `blockNumber` → [String!](/api-reference/types/string) | No description provided |
-| `networkId` → [Int!](/api-reference/types/int) | No description provided |
-| `analysisType` → [Int!](/api-reference/types/int) | No description provided |
-| `timestamp` → [Int!](/api-reference/types/int) | No description provided |
-| `status` → [SimulateTokenContractResultStatusEnum!](/api-reference/types/simulatetokencontractresultstatusenum) | No description provided |
-| `errors` → [SimulateTokenContractErrors!](/api-reference/types/simulatetokencontracterrors) | No description provided |
-| `uuid` → [String!](/api-reference/types/string) | No description provided |
-| `token` → [SimulateTokenType!](/api-reference/types/simulatetokentype) | No description provided |
-| `deploy` → [SimulateDeployType!](/api-reference/types/simulatedeploytype) | No description provided |
-| `contractBalance` → [SimulateContractBalanceType!](/api-reference/types/simulatecontractbalancetype) | No description provided |
-| `liquidity` → [SimulateLiquidityType!](/api-reference/types/simulateliquiditytype) | No description provided |
-| `transfer` → [SimulateTransferType!](/api-reference/types/simulatetransfertype) | No description provided |
-| `swap` → [SimulateSwapType!](/api-reference/types/simulateswaptype) | No description provided |
-| `owner` → [SimulateOwnerType!](/api-reference/types/simulateownertype) | No description provided |
-| `creator` → [SimulateCreatorType!](/api-reference/types/simulatecreatortype) | No description provided |
+<ResponseField name="sortKey" type="String!" required>
+  No description provided
+</ResponseField>
 
+<ResponseField name="contractHashKey" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="uuidHashKey" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="blockNumber" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="networkId" type="Int!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="analysisType" type="Int!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="timestamp" type="Int!" required>
+  No description provided
+</ResponseField>
+
+<a href="/api-reference/types/simulatetokencontractresultstatusenum">
+  <ResponseField name="status" type="SimulateTokenContractResultStatusEnum!" required>
+    No description provided
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/simulatetokencontracterrors">
+  <ResponseField name="errors" type="SimulateTokenContractErrors!" required>
+    No description provided
+  </ResponseField>
+</a>
+
+<ResponseField name="uuid" type="String!" required>
+  No description provided
+</ResponseField>
+
+<a href="/api-reference/types/simulatetokentype">
+  <ResponseField name="token" type="SimulateTokenType!" required>
+    No description provided
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/simulatedeploytype">
+  <ResponseField name="deploy" type="SimulateDeployType!" required>
+    No description provided
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/simulatecontractbalancetype">
+  <ResponseField name="contractBalance" type="SimulateContractBalanceType!" required>
+    No description provided
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/simulateliquiditytype">
+  <ResponseField name="liquidity" type="SimulateLiquidityType!" required>
+    No description provided
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/simulatetransfertype">
+  <ResponseField name="transfer" type="SimulateTransferType!" required>
+    No description provided
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/simulateswaptype">
+  <ResponseField name="swap" type="SimulateSwapType!" required>
+    No description provided
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/simulateownertype">
+  <ResponseField name="owner" type="SimulateOwnerType!" required>
+    No description provided
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/simulatecreatortype">
+  <ResponseField name="creator" type="SimulateCreatorType!" required>
+    No description provided
+  </ResponseField>
+</a>
+
+
+```graphql SimulateTokenContractResult
+type SimulateTokenContractResult {
+  id: String!
+  sortKey: String!
+  contractHashKey: String!
+  uuidHashKey: String!
+  blockNumber: String!
+  networkId: Int!
+  analysisType: Int!
+  timestamp: Int!
+  status: SimulateTokenContractResultStatusEnum!
+  errors: SimulateTokenContractErrors!
+  uuid: String!
+  token: SimulateTokenType!
+  deploy: SimulateDeployType!
+  contractBalance: SimulateContractBalanceType!
+  liquidity: SimulateLiquidityType!
+  transfer: SimulateTransferType!
+  swap: SimulateSwapType!
+  owner: SimulateOwnerType!
+  creator: SimulateCreatorType!
+}
+```

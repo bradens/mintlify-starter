@@ -3,12 +3,21 @@ title: "NftEventTradeItemType"
 description: "The type of item involved in the trade."
 ---
 
-**Type:** [NftEventTradeItemType](/api-reference/types/nfteventtradeitemtype)
+### Values
 
-## Values
+<ResponseField name="NFT" type="enum">
+  No description provided
+</ResponseField>
 
-| Value | Description |
-|-------|-------------|
-| `NFT` | No description provided |
-| `TOKEN` | No description provided |
+<ResponseField name="TOKEN" type="enum">
+  No description provided
+</ResponseField>
 
+
+```graphql NftEventTradeItemType
+"""The type of item involved in the trade."""
+enum NftEventTradeItemType {
+  NFT
+  TOKEN
+}
+```

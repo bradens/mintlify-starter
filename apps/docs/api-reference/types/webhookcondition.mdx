@@ -3,9 +3,7 @@ title: "WebhookCondition"
 description: "Webhook conditions that must be met for each webhook type."
 ---
 
-**Type:** [WebhookCondition](/api-reference/types/webhookcondition)
-
-## Union Types
+### Union Types
 
 This union can be one of the following types:
 
@@ -15,3 +13,8 @@ This union can be one of the following types:
 - [NftEventWebhookCondition](/api-reference/types/nfteventwebhookcondition)
 - [RawTransactionWebhookCondition](/api-reference/types/rawtransactionwebhookcondition)
 
+
+```graphql WebhookCondition
+"""Webhook conditions that must be met for each webhook type."""
+union WebhookCondition = PriceEventWebhookCondition | MarketCapEventWebhookCondition | TokenPairEventWebhookCondition | NftEventWebhookCondition | RawTransactionWebhookCondition
+```

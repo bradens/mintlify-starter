@@ -7,10 +7,13 @@ description: "Returns liquidity metadata for a given token. Includes liquidity l
 
 **Returns:** [LiquidityMetadataByToken!](/api-reference/types/liquiditymetadatabytoken)
 
-## Arguments for liquidityMetadataByToken
+### Arguments
 
-| Name | Description |
-|------|-------------|
-| `tokenAddress` ([String!](/api-reference/types/string)) | The address of the token. |
-| `networkId` ([Int!](/api-reference/types/int)) | The network id of the token. |
+<ResponseField name="tokenAddress" type="String!" required>
+  The address of the token.
+</ResponseField>
+
+<ResponseField name="networkId" type="Int!" required>
+  The network id of the token.
+</ResponseField>
 

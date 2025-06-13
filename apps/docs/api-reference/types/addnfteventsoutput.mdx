@@ -3,14 +3,37 @@ title: "AddNftEventsOutput"
 description: "Response returned by `onNftEventsCreated`."
 ---
 
-**Type:** [AddNftEventsOutput](/api-reference/types/addnfteventsoutput)
+### Fields
 
-## Fields
+<ResponseField name="address" type="String!" required>
+  The contract address of the NFT collection.
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `address` → [String!](/api-reference/types/string) | The contract address of the NFT collection. |
-| `networkId` → [Int!](/api-reference/types/int) | The network ID the collection is deployed on. |
-| `id` → [String!](/api-reference/types/string) | The id of the collection (`address`:`networkId`). |
-| `events` → [[NftEvent]!](/api-reference/types/nftevent) | A list of NFT transactions streaming real-time. |
+<ResponseField name="networkId" type="Int!" required>
+  The network ID the collection is deployed on.
+</ResponseField>
 
+<ResponseField name="id" type="String!" required>
+  The id of the collection (`address`:`networkId`).
+</ResponseField>
+
+<a href="/api-reference/types/nftevent">
+  <ResponseField name="events" type="[NftEvent]!" required>
+    A list of NFT transactions streaming real-time.
+  </ResponseField>
+</a>
+
+
+```graphql AddNftEventsOutput
+"""Response returned by `onNftEventsCreated`."""
+type AddNftEventsOutput {
+  """The contract address of the NFT collection."""
+  address: String!
+  """The network ID the collection is deployed on."""
+  networkId: Int!
+  """The id of the collection (`address`:`networkId`)."""
+  id: String!
+  """A list of NFT transactions streaming real-time."""
+  events: [NftEvent]!
+}
+```

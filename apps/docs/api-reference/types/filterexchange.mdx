@@ -3,17 +3,53 @@ title: "FilterExchange"
 description: "Metadata for an exchange."
 ---
 
-**Type:** [FilterExchange](/api-reference/types/filterexchange)
+### Fields
 
-## Fields
+<ResponseField name="address" type="String!" required>
+  The address for the exchange factory contract.
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `address` → [String!](/api-reference/types/string) | The address for the exchange factory contract. |
-| `id` → [String!](/api-reference/types/string) | The ID of the exchange (`address:networkId`). |
-| `name` → String | The name of the exchange. |
-| `exchangeVersion` → String | The version of the exchange. For example, `3` for UniswapV3. |
-| `iconUrl` → String | The URL for the exchange&#39;s icon. |
-| `networkId` → [Int!](/api-reference/types/int) | The network ID the factory is deployed on. |
-| `tradeUrl` → String | The URL for the exchange&#39;s trading platform. |
+<ResponseField name="id" type="String!" required>
+  The ID of the exchange (`address:networkId`).
+</ResponseField>
 
+<ResponseField name="name" type="String">
+  The name of the exchange.
+</ResponseField>
+
+<ResponseField name="exchangeVersion" type="String">
+  The version of the exchange. For example, `3` for UniswapV3.
+</ResponseField>
+
+<ResponseField name="iconUrl" type="String">
+  The URL for the exchange&#39;s icon.
+</ResponseField>
+
+<ResponseField name="networkId" type="Int!" required>
+  The network ID the factory is deployed on.
+</ResponseField>
+
+<ResponseField name="tradeUrl" type="String">
+  The URL for the exchange&#39;s trading platform.
+</ResponseField>
+
+
+```graphql FilterExchange
+"""Metadata for an exchange."""
+type FilterExchange {
+  """The address for the exchange factory contract."""
+  address: String!
+  """The ID of the exchange (`address:networkId`)."""
+  id: String!
+  """The name of the exchange."""
+  name: String
+  """The version of the exchange. For example, `3` for UniswapV3."""
+  exchangeVersion: String
+  """The URL for the exchange's icon."""
+  iconUrl: String
+  """The network ID the factory is deployed on."""
+  networkId: Int!
+  """The URL for the exchange's trading platform."""
+  tradeUrl: String
+}
+```

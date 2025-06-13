@@ -3,11 +3,17 @@ title: "WashtradeLabelForEvent"
 description: "Metadata for a washtrade label."
 ---
 
-**Type:** [WashtradeLabelForEvent](/api-reference/types/washtradelabelforevent)
+### Fields
 
-## Fields
+<ResponseField name="label" type="String!" required>
+  The label type, &#39;washtrade&#39;
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `label` → [String!](/api-reference/types/string) | The label type, &#39;washtrade&#39; |
 
+```graphql WashtradeLabelForEvent
+"""Metadata for a washtrade label."""
+type WashtradeLabelForEvent {
+  """The label type, 'washtrade'"""
+  label: String!
+}
+```

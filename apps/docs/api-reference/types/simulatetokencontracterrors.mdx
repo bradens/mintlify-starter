@@ -3,19 +3,71 @@ title: "SimulateTokenContractErrors"
 description: "Object type"
 ---
 
-**Type:** [SimulateTokenContractErrors](/api-reference/types/simulatetokencontracterrors)
+### Fields
 
-## Fields
+<ResponseField name="simulatorError" type="String">
+  No description provided
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `simulatorError` → String | No description provided |
-| `tokenErrors` → [SimulateTokenErrorsType!](/api-reference/types/simulatetokenerrorstype) | No description provided |
-| `deployErrors` → [SimulateDeployErrorsType!](/api-reference/types/simulatedeployerrorstype) | No description provided |
-| `contractBalanceErrors` → [SimulateContractBalanceErrorsType!](/api-reference/types/simulatecontractbalanceerrorstype) | No description provided |
-| `liquidityErrors` → [SimulateLiquidityErrorsType!](/api-reference/types/simulateliquidityerrorstype) | No description provided |
-| `transferErrors` → [SimulateTransferErrorsType!](/api-reference/types/simulatetransfererrorstype) | No description provided |
-| `swapErrors` → [SimulateSwapErrorsType!](/api-reference/types/simulateswaperrorstype) | No description provided |
-| `ownerErrors` → [SimulateOwnerErrorsType!](/api-reference/types/simulateownererrorstype) | No description provided |
-| `creatorErrors` → [SimulateCreatorErrorsType!](/api-reference/types/simulatecreatorerrorstype) | No description provided |
+<a href="/api-reference/types/simulatetokenerrorstype">
+  <ResponseField name="tokenErrors" type="SimulateTokenErrorsType!" required>
+    No description provided
+  </ResponseField>
+</a>
 
+<a href="/api-reference/types/simulatedeployerrorstype">
+  <ResponseField name="deployErrors" type="SimulateDeployErrorsType!" required>
+    No description provided
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/simulatecontractbalanceerrorstype">
+  <ResponseField name="contractBalanceErrors" type="SimulateContractBalanceErrorsType!" required>
+    No description provided
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/simulateliquidityerrorstype">
+  <ResponseField name="liquidityErrors" type="SimulateLiquidityErrorsType!" required>
+    No description provided
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/simulatetransfererrorstype">
+  <ResponseField name="transferErrors" type="SimulateTransferErrorsType!" required>
+    No description provided
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/simulateswaperrorstype">
+  <ResponseField name="swapErrors" type="SimulateSwapErrorsType!" required>
+    No description provided
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/simulateownererrorstype">
+  <ResponseField name="ownerErrors" type="SimulateOwnerErrorsType!" required>
+    No description provided
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/simulatecreatorerrorstype">
+  <ResponseField name="creatorErrors" type="SimulateCreatorErrorsType!" required>
+    No description provided
+  </ResponseField>
+</a>
+
+
+```graphql SimulateTokenContractErrors
+type SimulateTokenContractErrors {
+  simulatorError: String
+  tokenErrors: SimulateTokenErrorsType!
+  deployErrors: SimulateDeployErrorsType!
+  contractBalanceErrors: SimulateContractBalanceErrorsType!
+  liquidityErrors: SimulateLiquidityErrorsType!
+  transferErrors: SimulateTransferErrorsType!
+  swapErrors: SimulateSwapErrorsType!
+  ownerErrors: SimulateOwnerErrorsType!
+  creatorErrors: SimulateCreatorErrorsType!
+}
+```

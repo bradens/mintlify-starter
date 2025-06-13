@@ -3,17 +3,46 @@ title: "EventDisplayType"
 description: "A more specific breakdown of `EventType`. Splits `Swap` into `Buy` and `Sell`."
 ---
 
-**Type:** [EventDisplayType](/api-reference/types/eventdisplaytype)
+### Values
 
-## Values
+<ResponseField name="Burn" type="enum">
+  No description provided
+</ResponseField>
 
-| Value | Description |
-|-------|-------------|
-| `Burn` | No description provided |
-| `Mint` | No description provided |
-| `Buy` | No description provided |
-| `Sell` | No description provided |
-| `Sync` | No description provided |
-| `Collect` | No description provided |
-| `CollectProtocol` | No description provided |
+<ResponseField name="Mint" type="enum">
+  No description provided
+</ResponseField>
 
+<ResponseField name="Buy" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="Sell" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="Sync" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="Collect" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="CollectProtocol" type="enum">
+  No description provided
+</ResponseField>
+
+
+```graphql EventDisplayType
+"""A more specific breakdown of `EventType`. Splits `Swap` into `Buy` and `Sell`."""
+enum EventDisplayType {
+  Burn
+  Mint
+  Buy
+  Sell
+  Sync
+  Collect
+  CollectProtocol
+}
+```

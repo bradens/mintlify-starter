@@ -3,12 +3,23 @@ title: "NetworkWalletStats"
 description: "Native token balance for a wallet on a network."
 ---
 
-**Type:** [NetworkWalletStats](/api-reference/types/networkwalletstats)
+### Fields
 
-## Fields
+<ResponseField name="networkId" type="Int!" required>
+  The network ID
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `networkId` → [Int!](/api-reference/types/int) | The network ID |
-| `nativeTokenBalance` → [String!](/api-reference/types/string) | The native token balance |
+<ResponseField name="nativeTokenBalance" type="String!" required>
+  The native token balance
+</ResponseField>
 
+
+```graphql NetworkWalletStats
+"""Native token balance for a wallet on a network."""
+type NetworkWalletStats {
+  """The network ID"""
+  networkId: Int!
+  """The native token balance"""
+  nativeTokenBalance: String!
+}
+```

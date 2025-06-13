@@ -7,13 +7,29 @@ description: "Returns a list of exchanges based on a variety of filters."
 
 **Returns:** [ExchangeFilterConnection](/api-reference/types/exchangefilterconnection)
 
-## Arguments for filterExchanges
+### Arguments
 
-| Name | Description |
-|------|-------------|
-| `filters` ([ExchangeFilters](/api-reference/types/exchangefilters)) | A set of filters to apply. |
-| `phrase` (String) | A phrase to search for. Can match an exchange address or ID (`address:networkId`), or partially match an exchange name. |
-| `rankings` ([[ExchangeRanking]](/api-reference/types/exchangeranking)) | A list of ranking attributes to apply. |
-| `limit` (Int) | The maximum number of exchanges to return. |
-| `offset` (Int) | Where in the list the server should start when returning items. Use `count`+`offset` from the previous query to request the next page of results. |
+<a href="/api-reference/types/exchangefilters">
+  <ResponseField name="filters" type="ExchangeFilters">
+    A set of filters to apply.
+  </ResponseField>
+</a>
+
+<ResponseField name="phrase" type="String">
+  A phrase to search for. Can match an exchange address or ID (`address:networkId`), or partially match an exchange name.
+</ResponseField>
+
+<a href="/api-reference/types/exchangeranking">
+  <ResponseField name="rankings" type="[ExchangeRanking]">
+    A list of ranking attributes to apply.
+  </ResponseField>
+</a>
+
+<ResponseField name="limit" type="Int">
+  The maximum number of exchanges to return.
+</ResponseField>
+
+<ResponseField name="offset" type="Int">
+  Where in the list the server should start when returning items. Use `count`+`offset` from the previous query to request the next page of results.
+</ResponseField>
 

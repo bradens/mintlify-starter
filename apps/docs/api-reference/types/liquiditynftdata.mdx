@@ -3,12 +3,23 @@ title: "LiquidityNftData"
 description: "Liquidity NFT position data"
 ---
 
-**Type:** [LiquidityNftData](/api-reference/types/liquiditynftdata)
+### Fields
 
-## Fields
+<ResponseField name="nftTokenId" type="String!" required>
+  The tokenId of the liquidity position nft.
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `nftTokenId` → [String!](/api-reference/types/string) | The tokenId of the liquidity position nft. |
-| `nftPositionManagerAddress` → [String!](/api-reference/types/string) | The address of the nft position manager contract. |
+<ResponseField name="nftPositionManagerAddress" type="String!" required>
+  The address of the nft position manager contract.
+</ResponseField>
 
+
+```graphql LiquidityNftData
+"""Liquidity NFT position data"""
+type LiquidityNftData {
+  """The tokenId of the liquidity position nft."""
+  nftTokenId: String!
+  """The address of the nft position manager contract."""
+  nftPositionManagerAddress: String!
+}
+```

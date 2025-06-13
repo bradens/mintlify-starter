@@ -3,12 +3,20 @@ title: "MigrateTrackedWalletsInput"
 description: "InputObject type"
 ---
 
-**Type:** [MigrateTrackedWalletsInput](/api-reference/types/migratetrackedwalletsinput)
+### Fields
 
-## Fields
+<ResponseField name="fromUserId" type="String!" required>
+  No description provided
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `fromUserId` → [String!](/api-reference/types/string) | No description provided |
-| `toUserId` → [String!](/api-reference/types/string) | No description provided |
+<ResponseField name="toUserId" type="String!" required>
+  No description provided
+</ResponseField>
 
+
+```graphql MigrateTrackedWalletsInput
+input MigrateTrackedWalletsInput {
+  fromUserId: String!
+  toUserId: String!
+}
+```

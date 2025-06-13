@@ -7,12 +7,21 @@ description: "Returns liquidity locks for a given pair."
 
 **Returns:** [LiquidityLockConnection](/api-reference/types/liquiditylockconnection)
 
-## Arguments for liquidityLocks
+### Arguments
 
-| Name | Description |
-|------|-------------|
-| `pairAddress` (String) | The address of the pair. |
-| `tokenAddress` (String) | The address of the token. |
-| `networkId` ([Int!](/api-reference/types/int)) | The network id of the pair. |
-| `cursor` (String) | A cursor for use in pagination. |
+<ResponseField name="pairAddress" type="String">
+  The address of the pair.
+</ResponseField>
+
+<ResponseField name="tokenAddress" type="String">
+  The address of the token.
+</ResponseField>
+
+<ResponseField name="networkId" type="Int!" required>
+  The network id of the pair.
+</ResponseField>
+
+<ResponseField name="cursor" type="String">
+  A cursor for use in pagination.
+</ResponseField>
 

@@ -3,15 +3,41 @@ title: "ComparisonOperatorInput"
 description: "Input for comparison operators."
 ---
 
-**Type:** [ComparisonOperatorInput](/api-reference/types/comparisonoperatorinput)
+### Fields
 
-## Fields
+<ResponseField name="gt" type="String">
+  Greater than.
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `gt` → String | Greater than. |
-| `gte` → String | Greater than or equal. |
-| `lt` → String | Less than. |
-| `lte` → String | Less than or equal. |
-| `eq` → String | Equal to. |
+<ResponseField name="gte" type="String">
+  Greater than or equal.
+</ResponseField>
 
+<ResponseField name="lt" type="String">
+  Less than.
+</ResponseField>
+
+<ResponseField name="lte" type="String">
+  Less than or equal.
+</ResponseField>
+
+<ResponseField name="eq" type="String">
+  Equal to.
+</ResponseField>
+
+
+```graphql ComparisonOperatorInput
+"""Input for comparison operators."""
+input ComparisonOperatorInput {
+  """Greater than."""
+  gt: String
+  """Greater than or equal."""
+  gte: String
+  """Less than."""
+  lt: String
+  """Less than or equal."""
+  lte: String
+  """Equal to."""
+  eq: String
+}
+```

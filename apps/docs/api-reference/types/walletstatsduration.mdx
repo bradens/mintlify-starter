@@ -3,14 +3,31 @@ title: "WalletStatsDuration"
 description: "The period the wallet stats are for."
 ---
 
-**Type:** [WalletStatsDuration](/api-reference/types/walletstatsduration)
+### Values
 
-## Values
+<ResponseField name="year1" type="enum">
+  No description provided
+</ResponseField>
 
-| Value | Description |
-|-------|-------------|
-| `year1` | No description provided |
-| `day30` | No description provided |
-| `week1` | No description provided |
-| `day1` | No description provided |
+<ResponseField name="day30" type="enum">
+  No description provided
+</ResponseField>
 
+<ResponseField name="week1" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="day1" type="enum">
+  No description provided
+</ResponseField>
+
+
+```graphql WalletStatsDuration
+"""The period the wallet stats are for."""
+enum WalletStatsDuration {
+  year1
+  day30
+  week1
+  day1
+}
+```

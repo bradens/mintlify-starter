@@ -3,12 +3,20 @@ title: "SimulateCreatorErrorsType"
 description: "Object type"
 ---
 
-**Type:** [SimulateCreatorErrorsType](/api-reference/types/simulatecreatorerrorstype)
+### Fields
 
-## Fields
+<ResponseField name="creatorTokenBalanceError" type="String">
+  No description provided
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `creatorTokenBalanceError` → String | No description provided |
-| `creatorEthBalanceError` → String | No description provided |
+<ResponseField name="creatorEthBalanceError" type="String">
+  No description provided
+</ResponseField>
 
+
+```graphql SimulateCreatorErrorsType
+type SimulateCreatorErrorsType {
+  creatorTokenBalanceError: String
+  creatorEthBalanceError: String
+}
+```

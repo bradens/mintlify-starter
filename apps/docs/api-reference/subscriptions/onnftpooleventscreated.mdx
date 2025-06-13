@@ -7,12 +7,21 @@ description: "Live streamed NFT pool events for a given pool address or collecti
 
 **Returns:** [AddNftPoolEventsOutput](/api-reference/types/addnftpooleventsoutput)
 
-## Arguments for onNftPoolEventsCreated
+### Arguments
 
-| Name | Description |
-|------|-------------|
-| `poolAddress` (String) | The NFT pool address to filter by. |
-| `networkId` (Int) | The network ID to filter by. |
-| `collectionAddress` (String) | The contract address of the NFT collection to filter by. |
-| `exchangeAddress` (String) | The contract address of the NFT AMM marketplace to filter by. |
+<ResponseField name="poolAddress" type="String">
+  The NFT pool address to filter by.
+</ResponseField>
+
+<ResponseField name="networkId" type="Int">
+  The network ID to filter by.
+</ResponseField>
+
+<ResponseField name="collectionAddress" type="String">
+  The contract address of the NFT collection to filter by.
+</ResponseField>
+
+<ResponseField name="exchangeAddress" type="String">
+  The contract address of the NFT AMM marketplace to filter by.
+</ResponseField>
 

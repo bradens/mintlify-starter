@@ -3,25 +3,109 @@ title: "UnconfirmedEvent"
 description: "An unconfirmed token transaction."
 ---
 
-**Type:** [UnconfirmedEvent](/api-reference/types/unconfirmedevent)
+### Fields
 
-## Fields
+<ResponseField name="address" type="String!" required>
+  The contract address of the token&#39;s top pair.
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `address` → [String!](/api-reference/types/string) | The contract address of the token&#39;s top pair. |
-| `blockHash` → [String!](/api-reference/types/string) | The hash of the block where the transaction occurred. |
-| `blockNumber` → [Int!](/api-reference/types/int) | The block number for the transaction. |
-| `eventType` → [EventType!](/api-reference/types/eventtype) | The type of transaction event. Can be `Burn`, `Mint`, `Swap`, `Sync`, `Collect`, or `CollectProtocol`. |
-| `id` → [String!](/api-reference/types/string) | The ID of the event (`address:networkId`). For example, `0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2:1`. |
-| `logIndex` → [Int!](/api-reference/types/int) | The index of the log in the block. |
-| `maker` → String | The wallet address that performed the transaction. |
-| `networkId` → [Int!](/api-reference/types/int) | The network ID that the token is deployed on. |
-| `quoteToken` → [QuoteToken](/api-reference/types/quotetoken) | The token of interest within the token&#39;s top pair. Can be `token0` or `token1`. |
-| `timestamp` → [Int!](/api-reference/types/int) | The unix timestamp for when the transaction occurred. |
-| `transactionHash` → [String!](/api-reference/types/string) | The unique hash for the transaction. |
-| `transactionIndex` → [Int!](/api-reference/types/int) | The index of the transaction within the block. |
-| `supplementalIndex` → Int | A optional unique identifier of where the event is within the transaction. |
-| `eventDisplayType` → [EventDisplayType](/api-reference/types/eventdisplaytype) | A more specific breakdown of `eventType`. Splits `Swap` into `Buy` or `Sell`. |
-| `data` → [UnconfirmedEventData](/api-reference/types/unconfirmedeventdata) | The event-specific data for the transaction. |
+<ResponseField name="blockHash" type="String!" required>
+  The hash of the block where the transaction occurred.
+</ResponseField>
 
+<ResponseField name="blockNumber" type="Int!" required>
+  The block number for the transaction.
+</ResponseField>
+
+<a href="/api-reference/types/eventtype">
+  <ResponseField name="eventType" type="EventType!" required>
+    The type of transaction event. Can be `Burn`, `Mint`, `Swap`, `Sync`, `Collect`, or `CollectProtocol`.
+  </ResponseField>
+</a>
+
+<ResponseField name="id" type="String!" required>
+  The ID of the event (`address:networkId`). For example, `0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2:1`.
+</ResponseField>
+
+<ResponseField name="logIndex" type="Int!" required>
+  The index of the log in the block.
+</ResponseField>
+
+<ResponseField name="maker" type="String">
+  The wallet address that performed the transaction.
+</ResponseField>
+
+<ResponseField name="networkId" type="Int!" required>
+  The network ID that the token is deployed on.
+</ResponseField>
+
+<a href="/api-reference/types/quotetoken">
+  <ResponseField name="quoteToken" type="QuoteToken">
+    The token of interest within the token&#39;s top pair. Can be `token0` or `token1`.
+  </ResponseField>
+</a>
+
+<ResponseField name="timestamp" type="Int!" required>
+  The unix timestamp for when the transaction occurred.
+</ResponseField>
+
+<ResponseField name="transactionHash" type="String!" required>
+  The unique hash for the transaction.
+</ResponseField>
+
+<ResponseField name="transactionIndex" type="Int!" required>
+  The index of the transaction within the block.
+</ResponseField>
+
+<ResponseField name="supplementalIndex" type="Int">
+  A optional unique identifier of where the event is within the transaction.
+</ResponseField>
+
+<a href="/api-reference/types/eventdisplaytype">
+  <ResponseField name="eventDisplayType" type="EventDisplayType">
+    A more specific breakdown of `eventType`. Splits `Swap` into `Buy` or `Sell`.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/unconfirmedeventdata">
+  <ResponseField name="data" type="UnconfirmedEventData">
+    The event-specific data for the transaction.
+  </ResponseField>
+</a>
+
+
+```graphql UnconfirmedEvent
+"""An unconfirmed token transaction."""
+type UnconfirmedEvent {
+  """The contract address of the token's top pair."""
+  address: String!
+  """The hash of the block where the transaction occurred."""
+  blockHash: String!
+  """The block number for the transaction."""
+  blockNumber: Int!
+  """The type of transaction event. Can be `Burn`, `Mint`, `Swap`, `Sync`, `Collect`, or `CollectProtocol`."""
+  eventType: EventType!
+  """The ID of the event (`address:networkId`). For example, `0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2:1`."""
+  id: String!
+  """The index of the log in the block."""
+  logIndex: Int!
+  """The wallet address that performed the transaction."""
+  maker: String
+  """The network ID that the token is deployed on."""
+  networkId: Int!
+  """The token of interest within the token's top pair. Can be `token0` or `token1`."""
+  quoteToken: QuoteToken
+  """The unix timestamp for when the transaction occurred."""
+  timestamp: Int!
+  """The unique hash for the transaction."""
+  transactionHash: String!
+  """The index of the transaction within the block."""
+  transactionIndex: Int!
+  """A optional unique identifier of where the event is within the transaction."""
+  supplementalIndex: Int
+  """A more specific breakdown of `eventType`. Splits `Swap` into `Buy` or `Sell`."""
+  eventDisplayType: EventDisplayType
+  """The event-specific data for the transaction."""
+  data: UnconfirmedEventData
+}
+```

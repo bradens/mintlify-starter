@@ -7,22 +7,46 @@ description: "Returns bucketed stats for a given token within a pair."
 
 **Returns:** [DetailedPairStats](/api-reference/types/detailedpairstats)
 
-## Arguments for getDetailedPairStats
+### Arguments
 
-| Name | Description |
-|------|-------------|
-| `pairAddress` ([String!](/api-reference/types/string)) | The contract address of the pair. |
-| `networkId` ([Int!](/api-reference/types/int)) | The network ID the pair is deployed on. |
-| `tokenOfInterest` ([TokenOfInterest](/api-reference/types/tokenofinterest)) | The token of interest used to calculate token-specific stats for the pair. Can be `token0` or `token1`. |
-| `timestamp` (Int) | The unix timestamp for the stats. Defaults to current. |
-| `durations` ([[DetailedPairStatsDuration]](/api-reference/types/detailedpairstatsduration)) | The list of durations to get detailed pair stats for. |
-| `bucketCount` (Int) | The number of aggregated values to receive. Note: Each duration has predetermined bucket sizes.
+<ResponseField name="pairAddress" type="String!" required>
+  The contract address of the pair.
+</ResponseField>
+
+<ResponseField name="networkId" type="Int!" required>
+  The network ID the pair is deployed on.
+</ResponseField>
+
+<a href="/api-reference/types/tokenofinterest">
+  <ResponseField name="tokenOfInterest" type="TokenOfInterest">
+    The token of interest used to calculate token-specific stats for the pair. Can be `token0` or `token1`.
+  </ResponseField>
+</a>
+
+<ResponseField name="timestamp" type="Int">
+  The unix timestamp for the stats. Defaults to current.
+</ResponseField>
+
+<a href="/api-reference/types/detailedpairstatsduration">
+  <ResponseField name="durations" type="[DetailedPairStatsDuration]">
+    The list of durations to get detailed pair stats for.
+  </ResponseField>
+</a>
+
+<ResponseField name="bucketCount" type="Int">
+  The number of aggregated values to receive. Note: Each duration has predetermined bucket sizes.
   The first n-1 buckets are historical. The last bucket is a snapshot of current data.
  duration `day1`: 6 buckets (4 hours each) plus 1 partial bucket
  duration `hour12`: 12 buckets (1 hour each) plus 1 partial bucket
  duration `hour4`: 8 buckets (30 min each) plus 1 partial bucket
  duration `hour1`: 12 buckets (5 min each) plus 1 partial bucket
  duration `min5`: 5 buckets (1 min each) plus 1 partial bucket
- For example, requesting 11 buckets for a `min5` duration will return the last 10 minutes worth of data plus a snapshot for the current minute. |
-| `statsType` ([TokenPairStatisticsType](/api-reference/types/tokenpairstatisticstype)) | The type of statistics returned. Can be `FILTERED` or `UNFILTERED` |
+ For example, requesting 11 buckets for a `min5` duration will return the last 10 minutes worth of data plus a snapshot for the current minute.
+</ResponseField>
+
+<a href="/api-reference/types/tokenpairstatisticstype">
+  <ResponseField name="statsType" type="TokenPairStatisticsType">
+    The type of statistics returned. Can be `FILTERED` or `UNFILTERED`
+  </ResponseField>
+</a>
 

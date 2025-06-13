@@ -3,15 +3,45 @@ title: "NftPoolNftWithdrawalEventDataV2"
 description: "Event data for withdrawing an NFT from a pool."
 ---
 
-**Type:** [NftPoolNftWithdrawalEventDataV2](/api-reference/types/nftpoolnftwithdrawaleventdatav2)
+### Fields
 
-## Fields
+<a href="/api-reference/types/nftpooleventtype">
+  <ResponseField name="type" type="NftPoolEventType!" required>
+    The type of NFT pool event, `NFT_WITHDRAWAL`.
+  </ResponseField>
+</a>
 
-| Name | Description |
-|------|-------------|
-| `type` → [NftPoolEventType!](/api-reference/types/nftpooleventtype) | The type of NFT pool event, `NFT_WITHDRAWAL`. |
-| `nftTokenIds` → [[String!]!](/api-reference/types/string) | The list of NFT token IDs withdrawn. |
-| `nftTokenAmounts` → [[String!]!](/api-reference/types/string) | The amount of each NFT token withdrawn. |
-| `tokenBalanceT` → [String!](/api-reference/types/string) | The amount of token in the contract after the block has processed in the pool&#39;s liquidity token. |
-| `nftAssets` → [[NftAsset]](/api-reference/types/nftasset) | *New Param*: The list of NFT assets withdrawn. More extensive info than nftTokenIds. |
+<ResponseField name="nftTokenIds" type="[String!]!" required>
+  The list of NFT token IDs withdrawn.
+</ResponseField>
 
+<ResponseField name="nftTokenAmounts" type="[String!]!" required>
+  The amount of each NFT token withdrawn.
+</ResponseField>
+
+<ResponseField name="tokenBalanceT" type="String!" required>
+  The amount of token in the contract after the block has processed in the pool&#39;s liquidity token.
+</ResponseField>
+
+<a href="/api-reference/types/nftasset">
+  <ResponseField name="nftAssets" type="[NftAsset]">
+    *New Param*: The list of NFT assets withdrawn. More extensive info than nftTokenIds.
+  </ResponseField>
+</a>
+
+
+```graphql NftPoolNftWithdrawalEventDataV2
+"""Event data for withdrawing an NFT from a pool."""
+type NftPoolNftWithdrawalEventDataV2 {
+  """The type of NFT pool event, `NFT_WITHDRAWAL`."""
+  type: NftPoolEventType!
+  """The list of NFT token IDs withdrawn."""
+  nftTokenIds: [String!]!
+  """The amount of each NFT token withdrawn."""
+  nftTokenAmounts: [String!]!
+  """The amount of token in the contract after the block has processed in the pool's liquidity token."""
+  tokenBalanceT: String!
+  """*New Param*: The list of NFT assets withdrawn. More extensive info than nftTokenIds."""
+  nftAssets: [NftAsset]
+}
+```

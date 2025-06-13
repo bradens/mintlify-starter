@@ -7,12 +7,23 @@ description: "Live-streamed transactions for a token."
 
 **Returns:** [AddEventsOutput](/api-reference/types/addeventsoutput)
 
-## Arguments for onEventsCreated
+### Arguments
 
-| Name | Description |
-|------|-------------|
-| `address` (String) | The pair contract address. |
-| `id` (String) | The ID of the pair (`address`:`networkId`). |
-| `quoteToken` ([QuoteToken](/api-reference/types/quotetoken)) | The token of interest within the pair. Can be `token0` or `token1`. |
-| `networkId` (Int) | The networkId to use when getting all events per network |
+<ResponseField name="address" type="String">
+  The pair contract address.
+</ResponseField>
+
+<ResponseField name="id" type="String">
+  The ID of the pair (`address`:`networkId`).
+</ResponseField>
+
+<a href="/api-reference/types/quotetoken">
+  <ResponseField name="quoteToken" type="QuoteToken">
+    The token of interest within the pair. Can be `token0` or `token1`.
+  </ResponseField>
+</a>
+
+<ResponseField name="networkId" type="Int">
+  The networkId to use when getting all events per network
+</ResponseField>
 

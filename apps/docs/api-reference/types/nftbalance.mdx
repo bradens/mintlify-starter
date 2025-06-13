@@ -3,13 +3,29 @@ title: "NftBalance"
 description: "Wallet balance of an Nft Collection."
 ---
 
-**Type:** [NftBalance](/api-reference/types/nftbalance)
+### Fields
 
-## Fields
+<ResponseField name="walletAddress" type="String!" required>
+  The address of the wallet.
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `walletAddress` → [String!](/api-reference/types/string) | The address of the wallet. |
-| `collectionId` → [String!](/api-reference/types/string) | The ID of the collection (`collectionAddress:networkId`). |
-| `balance` → [String!](/api-reference/types/string) | The number of items held by the wallet. |
+<ResponseField name="collectionId" type="String!" required>
+  The ID of the collection (`collectionAddress:networkId`).
+</ResponseField>
 
+<ResponseField name="balance" type="String!" required>
+  The number of items held by the wallet.
+</ResponseField>
+
+
+```graphql NftBalance
+"""Wallet balance of an Nft Collection."""
+type NftBalance {
+  """The address of the wallet."""
+  walletAddress: String!
+  """The ID of the collection (`collectionAddress:networkId`)."""
+  collectionId: String!
+  """The number of items held by the wallet."""
+  balance: String!
+}
+```

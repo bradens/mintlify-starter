@@ -3,11 +3,19 @@ title: "LatestTokenConnection"
 description: "Response returned by `getLatestTokens`."
 ---
 
-**Type:** [LatestTokenConnection](/api-reference/types/latesttokenconnection)
+### Fields
 
-## Fields
+<a href="/api-reference/types/latesttoken">
+  <ResponseField name="items" type="[LatestToken!]!" required>
+    A list of newly created tokens.
+  </ResponseField>
+</a>
 
-| Name | Description |
-|------|-------------|
-| `items` → [[LatestToken!]!](/api-reference/types/latesttoken) | A list of newly created tokens. |
 
+```graphql LatestTokenConnection
+"""Response returned by `getLatestTokens`."""
+type LatestTokenConnection {
+  """A list of newly created tokens."""
+  items: [LatestToken!]!
+}
+```

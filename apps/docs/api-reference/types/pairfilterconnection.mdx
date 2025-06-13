@@ -3,13 +3,31 @@ title: "PairFilterConnection"
 description: "Response returned by `filterPairs`."
 ---
 
-**Type:** [PairFilterConnection](/api-reference/types/pairfilterconnection)
+### Fields
 
-## Fields
+<a href="/api-reference/types/pairfilterresult">
+  <ResponseField name="results" type="[PairFilterResult]">
+    The list of pairs matching the filter parameters.
+  </ResponseField>
+</a>
 
-| Name | Description |
-|------|-------------|
-| `results` → [[PairFilterResult]](/api-reference/types/pairfilterresult) | The list of pairs matching the filter parameters. |
-| `count` → Int | The number of pairs returned. |
-| `offset` → Int | Where in the list the server started when returning items. |
+<ResponseField name="count" type="Int">
+  The number of pairs returned.
+</ResponseField>
 
+<ResponseField name="offset" type="Int">
+  Where in the list the server started when returning items.
+</ResponseField>
+
+
+```graphql PairFilterConnection
+"""Response returned by `filterPairs`."""
+type PairFilterConnection {
+  """The list of pairs matching the filter parameters."""
+  results: [PairFilterResult]
+  """The number of pairs returned."""
+  count: Int
+  """Where in the list the server started when returning items."""
+  offset: Int
+}
+```

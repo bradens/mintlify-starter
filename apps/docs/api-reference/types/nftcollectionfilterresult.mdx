@@ -3,25 +3,109 @@ title: "NftCollectionFilterResult"
 description: "An NFT collection matching a set of filter parameters."
 ---
 
-**Type:** [NftCollectionFilterResult](/api-reference/types/nftcollectionfilterresult)
+### Fields
 
-## Fields
+<ResponseField name="id" type="String">
+  The ID of the NFT collection (`address`:`networkId`).
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `id` → String | The ID of the NFT collection (`address`:`networkId`). |
-| `address` → String | The contract address of the NFT collection. |
-| `grouping` → String | The marketplace address or `all`. Can be used to get marketplace-specific metrics. |
-| `networkId` → Int | The network ID the NFT collection is deployed on. |
-| `name` → String | The name of the NFT collection. |
-| `symbol` → String | The symbol of the NFT collection. |
-| `lastEventTimestamp` → Int | The unix timestamp for the last event. |
-| `ercType` → String | The token standard. Can be a variation of `ERC-721` or `ERC-1155`. |
-| `imageUrl` → String | The image URL for the collection or one of the assets within the collection. |
-| `totalSupply` → String | The total supply of the NFT collection. |
-| `timestamp` → Int | The unix timestamp indicating the last time the data was updated. Updates daily. |
-| `stats1h` → [NftStatsWindowWithChange](/api-reference/types/nftstatswindowwithchange) | Stats for the past hour. |
-| `stats4h` → [NftStatsWindowWithChange](/api-reference/types/nftstatswindowwithchange) | Stats for the past 4 hours. |
-| `stats12h` → [NftStatsWindowWithChange](/api-reference/types/nftstatswindowwithchange) | Stats for the past 12 hours. |
-| `stats24h` → [NftStatsWindowWithChange](/api-reference/types/nftstatswindowwithchange) | Stats for the past 24 hours. |
+<ResponseField name="address" type="String">
+  The contract address of the NFT collection.
+</ResponseField>
 
+<ResponseField name="grouping" type="String">
+  The marketplace address or `all`. Can be used to get marketplace-specific metrics.
+</ResponseField>
+
+<ResponseField name="networkId" type="Int">
+  The network ID the NFT collection is deployed on.
+</ResponseField>
+
+<ResponseField name="name" type="String">
+  The name of the NFT collection.
+</ResponseField>
+
+<ResponseField name="symbol" type="String">
+  The symbol of the NFT collection.
+</ResponseField>
+
+<ResponseField name="lastEventTimestamp" type="Int">
+  The unix timestamp for the last event.
+</ResponseField>
+
+<ResponseField name="ercType" type="String">
+  The token standard. Can be a variation of `ERC-721` or `ERC-1155`.
+</ResponseField>
+
+<ResponseField name="imageUrl" type="String">
+  The image URL for the collection or one of the assets within the collection.
+</ResponseField>
+
+<ResponseField name="totalSupply" type="String">
+  The total supply of the NFT collection.
+</ResponseField>
+
+<ResponseField name="timestamp" type="Int">
+  The unix timestamp indicating the last time the data was updated. Updates daily.
+</ResponseField>
+
+<a href="/api-reference/types/nftstatswindowwithchange">
+  <ResponseField name="stats1h" type="NftStatsWindowWithChange">
+    Stats for the past hour.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/nftstatswindowwithchange">
+  <ResponseField name="stats4h" type="NftStatsWindowWithChange">
+    Stats for the past 4 hours.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/nftstatswindowwithchange">
+  <ResponseField name="stats12h" type="NftStatsWindowWithChange">
+    Stats for the past 12 hours.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/nftstatswindowwithchange">
+  <ResponseField name="stats24h" type="NftStatsWindowWithChange">
+    Stats for the past 24 hours.
+  </ResponseField>
+</a>
+
+
+```graphql NftCollectionFilterResult
+"""An NFT collection matching a set of filter parameters."""
+type NftCollectionFilterResult {
+  """The ID of the NFT collection (`address`:`networkId`)."""
+  id: String
+  """The contract address of the NFT collection."""
+  address: String
+  """The marketplace address or `all`. Can be used to get marketplace-specific metrics."""
+  grouping: String
+  """The network ID the NFT collection is deployed on."""
+  networkId: Int
+  """The name of the NFT collection."""
+  name: String
+  """The symbol of the NFT collection."""
+  symbol: String
+  """The unix timestamp for the last event."""
+  lastEventTimestamp: Int
+  """The token standard. Can be a variation of `ERC-721` or `ERC-1155`."""
+  ercType: String
+  """The image URL for the collection or one of the assets within the collection."""
+  imageUrl: String
+  """The total supply of the NFT collection."""
+  totalSupply: String
+  """The unix timestamp indicating the last time the data was updated. Updates daily."""
+  timestamp: Int
+  """Stats for the past hour."""
+  stats1h: NftStatsWindowWithChange
+  """Stats for the past 4 hours."""
+  stats4h: NftStatsWindowWithChange
+  """Stats for the past 12 hours."""
+  stats12h: NftStatsWindowWithChange
+  """Stats for the past 24 hours."""
+  stats24h: NftStatsWindowWithChange
+}
+```

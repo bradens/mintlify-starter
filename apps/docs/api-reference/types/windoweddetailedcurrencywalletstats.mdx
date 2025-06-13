@@ -3,18 +3,59 @@ title: "WindowedDetailedCurrencyWalletStats"
 description: "The currency stats for a wallet over a time window."
 ---
 
-**Type:** [WindowedDetailedCurrencyWalletStats](/api-reference/types/windoweddetailedcurrencywalletstats)
+### Fields
 
-## Fields
+<ResponseField name="volumeUsd" type="String!" required>
+  The volume in USD
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `volumeUsd` → [String!](/api-reference/types/string) | The volume in USD |
-| `volumeUsdAll` → [String!](/api-reference/types/string) | The volume in USD including tokens sold for which we do not have a price |
-| `heldTokenAcquisitionCostUsd` → [String!](/api-reference/types/string) | The cost of tokens held in the wallet |
-| `soldTokenAcquisitionCostUsd` → [String!](/api-reference/types/string) | The cost of tokens sold during the period |
-| `realizedProfitUsd` → [String!](/api-reference/types/string) | The realized profit in USD |
-| `averageProfitUsdPerTrade` → [String!](/api-reference/types/string) | The average profit in USD per trade |
-| `averageSwapAmountUsd` → [String!](/api-reference/types/string) | The average swap amount in USD |
-| `realizedProfitPercentage` → [Float!](/api-reference/types/float) | The realized profit percentage |
+<ResponseField name="volumeUsdAll" type="String!" required>
+  The volume in USD including tokens sold for which we do not have a price
+</ResponseField>
 
+<ResponseField name="heldTokenAcquisitionCostUsd" type="String!" required>
+  The cost of tokens held in the wallet
+</ResponseField>
+
+<ResponseField name="soldTokenAcquisitionCostUsd" type="String!" required>
+  The cost of tokens sold during the period
+</ResponseField>
+
+<ResponseField name="realizedProfitUsd" type="String!" required>
+  The realized profit in USD
+</ResponseField>
+
+<ResponseField name="averageProfitUsdPerTrade" type="String!" required>
+  The average profit in USD per trade
+</ResponseField>
+
+<ResponseField name="averageSwapAmountUsd" type="String!" required>
+  The average swap amount in USD
+</ResponseField>
+
+<ResponseField name="realizedProfitPercentage" type="Float!" required>
+  The realized profit percentage
+</ResponseField>
+
+
+```graphql WindowedDetailedCurrencyWalletStats
+"""The currency stats for a wallet over a time window."""
+type WindowedDetailedCurrencyWalletStats {
+  """The volume in USD"""
+  volumeUsd: String!
+  """The volume in USD including tokens sold for which we do not have a price"""
+  volumeUsdAll: String!
+  """The cost of tokens held in the wallet"""
+  heldTokenAcquisitionCostUsd: String!
+  """The cost of tokens sold during the period"""
+  soldTokenAcquisitionCostUsd: String!
+  """The realized profit in USD"""
+  realizedProfitUsd: String!
+  """The average profit in USD per trade"""
+  averageProfitUsdPerTrade: String!
+  """The average swap amount in USD"""
+  averageSwapAmountUsd: String!
+  """The realized profit percentage"""
+  realizedProfitPercentage: Float!
+}
+```

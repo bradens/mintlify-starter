@@ -3,11 +3,17 @@ title: "StringEqualsConditionInput"
 description: "Input for string equals condition."
 ---
 
-**Type:** [StringEqualsConditionInput](/api-reference/types/stringequalsconditioninput)
+### Fields
 
-## Fields
+<ResponseField name="eq" type="String!" required>
+  The string to equal.
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `eq` → [String!](/api-reference/types/string) | The string to equal. |
 
+```graphql StringEqualsConditionInput
+"""Input for string equals condition."""
+input StringEqualsConditionInput {
+  """The string to equal."""
+  eq: String!
+}
+```

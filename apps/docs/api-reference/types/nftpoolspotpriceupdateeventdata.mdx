@@ -3,16 +3,49 @@ title: "NftPoolSpotPriceUpdateEventData"
 description: "Event data for updating the spot price of a pool."
 ---
 
-**Type:** [NftPoolSpotPriceUpdateEventData](/api-reference/types/nftpoolspotpriceupdateeventdata)
+### Fields
 
-## Fields
+<a href="/api-reference/types/nftpooleventtype">
+  <ResponseField name="type" type="NftPoolEventType!" required>
+    The type of NFT pool event, `SPOT_PRICE_UPDATE`.
+  </ResponseField>
+</a>
 
-| Name | Description |
-|------|-------------|
-| `type` → [NftPoolEventType!](/api-reference/types/nftpooleventtype) | The type of NFT pool event, `SPOT_PRICE_UPDATE`. |
-| `newSpotPriceT` → [String!](/api-reference/types/string) | The updated spot price in the pool&#39;s liquidity token. |
-| `newSellPriceT` → [String!](/api-reference/types/string) | The updated price at which the pool is willing to sell an NFT in the pool&#39;s liquidity token. |
-| `newBuyPriceT` → [String!](/api-reference/types/string) | The updated price at which the pool is willing to buy an NFT in the pool&#39;s liquidity token. |
-| `nbtRatio` → [String!](/api-reference/types/string) | The ratio of the transaction token to the network&#39;s base token. |
-| `usdRatio` → [String!](/api-reference/types/string) | The ratio of the transaction token to USD. |
+<ResponseField name="newSpotPriceT" type="String!" required>
+  The updated spot price in the pool&#39;s liquidity token.
+</ResponseField>
 
+<ResponseField name="newSellPriceT" type="String!" required>
+  The updated price at which the pool is willing to sell an NFT in the pool&#39;s liquidity token.
+</ResponseField>
+
+<ResponseField name="newBuyPriceT" type="String!" required>
+  The updated price at which the pool is willing to buy an NFT in the pool&#39;s liquidity token.
+</ResponseField>
+
+<ResponseField name="nbtRatio" type="String!" required>
+  The ratio of the transaction token to the network&#39;s base token.
+</ResponseField>
+
+<ResponseField name="usdRatio" type="String!" required>
+  The ratio of the transaction token to USD.
+</ResponseField>
+
+
+```graphql NftPoolSpotPriceUpdateEventData
+"""Event data for updating the spot price of a pool."""
+type NftPoolSpotPriceUpdateEventData {
+  """The type of NFT pool event, `SPOT_PRICE_UPDATE`."""
+  type: NftPoolEventType!
+  """The updated spot price in the pool's liquidity token."""
+  newSpotPriceT: String!
+  """The updated price at which the pool is willing to sell an NFT in the pool's liquidity token."""
+  newSellPriceT: String!
+  """The updated price at which the pool is willing to buy an NFT in the pool's liquidity token."""
+  newBuyPriceT: String!
+  """The ratio of the transaction token to the network's base token."""
+  nbtRatio: String!
+  """The ratio of the transaction token to USD."""
+  usdRatio: String!
+}
+```

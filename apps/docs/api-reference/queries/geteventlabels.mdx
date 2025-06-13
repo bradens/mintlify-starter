@@ -7,12 +7,23 @@ description: "Returns a list of event labels for a pair."
 
 **Returns:** [EventLabelConnection](/api-reference/types/eventlabelconnection)
 
-## Arguments for getEventLabels
+### Arguments
 
-| Name | Description |
-|------|-------------|
-| `id` ([String!](/api-reference/types/string)) | The ID of the pair (`address:networkId`). |
-| `limit` (Int) | The maximum number of event labels to return. |
-| `cursor` (String) | The cursor to use for pagination. |
-| `direction` ([RankingDirection](/api-reference/types/rankingdirection)) | The order to receive the token event labels. Can be `DESC` (default) or `ASC`. |
+<ResponseField name="id" type="String!" required>
+  The ID of the pair (`address:networkId`).
+</ResponseField>
+
+<ResponseField name="limit" type="Int">
+  The maximum number of event labels to return.
+</ResponseField>
+
+<ResponseField name="cursor" type="String">
+  The cursor to use for pagination.
+</ResponseField>
+
+<a href="/api-reference/types/rankingdirection">
+  <ResponseField name="direction" type="RankingDirection">
+    The order to receive the token event labels. Can be `DESC` (default) or `ASC`.
+  </ResponseField>
+</a>
 

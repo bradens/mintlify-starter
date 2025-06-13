@@ -3,12 +3,21 @@ title: "PrimePoolCurrency"
 description: "Currency types for Prime pool events."
 ---
 
-**Type:** [PrimePoolCurrency](/api-reference/types/primepoolcurrency)
+### Values
 
-## Values
+<ResponseField name="ETH" type="enum">
+  No description provided
+</ResponseField>
 
-| Value | Description |
-|-------|-------------|
-| `ETH` | No description provided |
-| `PRIME` | No description provided |
+<ResponseField name="PRIME" type="enum">
+  No description provided
+</ResponseField>
 
+
+```graphql PrimePoolCurrency
+"""Currency types for Prime pool events."""
+enum PrimePoolCurrency {
+  ETH
+  PRIME
+}
+```

@@ -3,14 +3,35 @@ title: "NumberFilter"
 description: "Input type of `NumberFilter`."
 ---
 
-**Type:** [NumberFilter](/api-reference/types/numberfilter)
+### Fields
 
-## Fields
+<ResponseField name="gte" type="Float">
+  Greater than or equal to.
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `gte` → Float | Greater than or equal to. |
-| `gt` → Float | Greater than. |
-| `lte` → Float | Less than or equal to. |
-| `lt` → Float | Less than. |
+<ResponseField name="gt" type="Float">
+  Greater than.
+</ResponseField>
 
+<ResponseField name="lte" type="Float">
+  Less than or equal to.
+</ResponseField>
+
+<ResponseField name="lt" type="Float">
+  Less than.
+</ResponseField>
+
+
+```graphql NumberFilter
+"""Input type of `NumberFilter`."""
+input NumberFilter {
+  """Greater than or equal to."""
+  gte: Float
+  """Greater than."""
+  gt: Float
+  """Less than or equal to."""
+  lte: Float
+  """Less than."""
+  lt: Float
+}
+```

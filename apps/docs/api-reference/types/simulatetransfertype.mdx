@@ -3,13 +3,25 @@ title: "SimulateTransferType"
 description: "Object type"
 ---
 
-**Type:** [SimulateTransferType](/api-reference/types/simulatetransfertype)
+### Fields
 
-## Fields
+<ResponseField name="tokenContractApprovalSuccess" type="Boolean">
+  No description provided
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `tokenContractApprovalSuccess` → Boolean | No description provided |
-| `tokenTransferredToContractSuccess` → Boolean | No description provided |
-| `userApprovalSuccess` → Boolean | No description provided |
+<ResponseField name="tokenTransferredToContractSuccess" type="Boolean">
+  No description provided
+</ResponseField>
 
+<ResponseField name="userApprovalSuccess" type="Boolean">
+  No description provided
+</ResponseField>
+
+
+```graphql SimulateTransferType
+type SimulateTransferType {
+  tokenContractApprovalSuccess: Boolean
+  tokenTransferredToContractSuccess: Boolean
+  userApprovalSuccess: Boolean
+}
+```

@@ -3,12 +3,23 @@ title: "SandwichedLabelData"
 description: "Metadata for a sandwich label."
 ---
 
-**Type:** [SandwichedLabelData](/api-reference/types/sandwichedlabeldata)
+### Fields
 
-## Fields
+<ResponseField name="token0DrainedAmount" type="String">
+  The amount of `token0` drained in the attack.
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `token0DrainedAmount` → String | The amount of `token0` drained in the attack. |
-| `token1DrainedAmount` → String | The amount of `token1` drained in the attack. |
+<ResponseField name="token1DrainedAmount" type="String">
+  The amount of `token1` drained in the attack.
+</ResponseField>
 
+
+```graphql SandwichedLabelData
+"""Metadata for a sandwich label."""
+type SandwichedLabelData {
+  """The amount of `token0` drained in the attack."""
+  token0DrainedAmount: String
+  """The amount of `token1` drained in the attack."""
+  token1DrainedAmount: String
+}
+```

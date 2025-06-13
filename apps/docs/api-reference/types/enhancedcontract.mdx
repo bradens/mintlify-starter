@@ -3,12 +3,15 @@ title: "EnhancedContract"
 description: "Metadata for a contract."
 ---
 
-**Type:** [EnhancedContract](/api-reference/types/enhancedcontract)
-
-## Union Types
+### Union Types
 
 This union can be one of the following types:
 
 - [EnhancedToken](/api-reference/types/enhancedtoken)
 - [EnhancedNftContract](/api-reference/types/enhancednftcontract)
 
+
+```graphql EnhancedContract
+"""Metadata for a contract."""
+union EnhancedContract = EnhancedToken | EnhancedNftContract
+```

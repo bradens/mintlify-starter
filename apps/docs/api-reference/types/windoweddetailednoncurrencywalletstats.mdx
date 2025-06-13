@@ -3,14 +3,35 @@ title: "WindowedDetailedNonCurrencyWalletStats"
 description: "The non-currency stats for a wallet over a time window."
 ---
 
-**Type:** [WindowedDetailedNonCurrencyWalletStats](/api-reference/types/windoweddetailednoncurrencywalletstats)
+### Fields
 
-## Fields
+<ResponseField name="swaps" type="Int!" required>
+  The number of swaps
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `swaps` → [Int!](/api-reference/types/int) | The number of swaps |
-| `uniqueTokens` → [Int!](/api-reference/types/int) | The number of unique tokens |
-| `wins` → [Int!](/api-reference/types/int) | The number of wins |
-| `losses` → [Int!](/api-reference/types/int) | The number of losses |
+<ResponseField name="uniqueTokens" type="Int!" required>
+  The number of unique tokens
+</ResponseField>
 
+<ResponseField name="wins" type="Int!" required>
+  The number of wins
+</ResponseField>
+
+<ResponseField name="losses" type="Int!" required>
+  The number of losses
+</ResponseField>
+
+
+```graphql WindowedDetailedNonCurrencyWalletStats
+"""The non-currency stats for a wallet over a time window."""
+type WindowedDetailedNonCurrencyWalletStats {
+  """The number of swaps"""
+  swaps: Int!
+  """The number of unique tokens"""
+  uniqueTokens: Int!
+  """The number of wins"""
+  wins: Int!
+  """The number of losses"""
+  losses: Int!
+}
+```

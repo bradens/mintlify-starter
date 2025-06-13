@@ -3,12 +3,22 @@ title: "GetSimulateTokenContractResultsConnection"
 description: "Object type"
 ---
 
-**Type:** [GetSimulateTokenContractResultsConnection](/api-reference/types/getsimulatetokencontractresultsconnection)
+### Fields
 
-## Fields
+<a href="/api-reference/types/simulatetokencontractresult">
+  <ResponseField name="results" type="[SimulateTokenContractResult!]!" required>
+    No description provided
+  </ResponseField>
+</a>
 
-| Name | Description |
-|------|-------------|
-| `results` → [[SimulateTokenContractResult!]!](/api-reference/types/simulatetokencontractresult) | No description provided |
-| `cursor` → String | No description provided |
+<ResponseField name="cursor" type="String">
+  No description provided
+</ResponseField>
 
+
+```graphql GetSimulateTokenContractResultsConnection
+type GetSimulateTokenContractResultsConnection {
+  results: [SimulateTokenContractResult!]!
+  cursor: String
+}
+```

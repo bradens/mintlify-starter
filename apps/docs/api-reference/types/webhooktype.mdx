@@ -3,15 +3,36 @@ title: "WebhookType"
 description: "The type of webhook."
 ---
 
-**Type:** [WebhookType](/api-reference/types/webhooktype)
+### Values
 
-## Values
+<ResponseField name="PRICE_EVENT" type="enum">
+  No description provided
+</ResponseField>
 
-| Value | Description |
-|-------|-------------|
-| `PRICE_EVENT` | No description provided |
-| `NFT_EVENT` | No description provided |
-| `TOKEN_PAIR_EVENT` | No description provided |
-| `RAW_TRANSACTION` | No description provided |
-| `MARKET_CAP_EVENT` | No description provided |
+<ResponseField name="NFT_EVENT" type="enum">
+  No description provided
+</ResponseField>
 
+<ResponseField name="TOKEN_PAIR_EVENT" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="RAW_TRANSACTION" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="MARKET_CAP_EVENT" type="enum">
+  No description provided
+</ResponseField>
+
+
+```graphql WebhookType
+"""The type of webhook."""
+enum WebhookType {
+  PRICE_EVENT
+  NFT_EVENT
+  TOKEN_PAIR_EVENT
+  RAW_TRANSACTION
+  MARKET_CAP_EVENT
+}
+```

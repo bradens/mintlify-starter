@@ -3,12 +3,15 @@ title: "TokenLifecycleEventData"
 description: "Event data for a token&#39;s lifecycle."
 ---
 
-**Type:** [TokenLifecycleEventData](/api-reference/types/tokenlifecycleeventdata)
-
-## Union Types
+### Union Types
 
 This union can be one of the following types:
 
 - [TokenBurnEventData](/api-reference/types/tokenburneventdata)
 - [TokenMintEventData](/api-reference/types/tokenminteventdata)
 
+
+```graphql TokenLifecycleEventData
+"""Event data for a token's lifecycle."""
+union TokenLifecycleEventData = TokenBurnEventData | TokenMintEventData
+```

@@ -3,20 +3,73 @@ title: "LiquidityMetadataByToken"
 description: "Metadata about a token&#39;s liquidity. Includes locked liquidity data for up to 100 pairs that the token is in."
 ---
 
-**Type:** [LiquidityMetadataByToken](/api-reference/types/liquiditymetadatabytoken)
+### Fields
 
-## Fields
+<ResponseField name="tokenAddress" type="String!" required>
+  The address of the token.
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `tokenAddress` → [String!](/api-reference/types/string) | The address of the token. |
-| `networkId` → [Int!](/api-reference/types/int) | The network ID the token is deployed on. |
-| `totalLiquidityUsd` → [String!](/api-reference/types/string) | The total liquidity in USD. |
-| `lockedLiquidityUsd` → [String!](/api-reference/types/string) | The locked liquidity in USD. |
-| `totalTokenLiquidity` → [String!](/api-reference/types/string) | The total amount of tokens in pairs. |
-| `totalTokenLiquidityShifted` → [String!](/api-reference/types/string) | The total amount of tokens in pairs shifted by number of decimals the token has. |
-| `lockedTokenLiquidity` → [String!](/api-reference/types/string) | The locked amount of tokens in pairs. |
-| `lockedTokenLiquidityShifted` → [String!](/api-reference/types/string) | The locked amount of tokens in pairs shifted by number of decimals the token has. |
-| `lockedLiquidityPercentage` → [Float!](/api-reference/types/float) | The percentage of liquidity that is locked. |
-| `lockBreakdown` → [[LiquidityLockBreakdownForToken]!](/api-reference/types/liquiditylockbreakdownfortoken) | A breakdown of how much and where liquidity is locked. |
+<ResponseField name="networkId" type="Int!" required>
+  The network ID the token is deployed on.
+</ResponseField>
 
+<ResponseField name="totalLiquidityUsd" type="String!" required>
+  The total liquidity in USD.
+</ResponseField>
+
+<ResponseField name="lockedLiquidityUsd" type="String!" required>
+  The locked liquidity in USD.
+</ResponseField>
+
+<ResponseField name="totalTokenLiquidity" type="String!" required>
+  The total amount of tokens in pairs.
+</ResponseField>
+
+<ResponseField name="totalTokenLiquidityShifted" type="String!" required>
+  The total amount of tokens in pairs shifted by number of decimals the token has.
+</ResponseField>
+
+<ResponseField name="lockedTokenLiquidity" type="String!" required>
+  The locked amount of tokens in pairs.
+</ResponseField>
+
+<ResponseField name="lockedTokenLiquidityShifted" type="String!" required>
+  The locked amount of tokens in pairs shifted by number of decimals the token has.
+</ResponseField>
+
+<ResponseField name="lockedLiquidityPercentage" type="Float!" required>
+  The percentage of liquidity that is locked.
+</ResponseField>
+
+<a href="/api-reference/types/liquiditylockbreakdownfortoken">
+  <ResponseField name="lockBreakdown" type="[LiquidityLockBreakdownForToken]!" required>
+    A breakdown of how much and where liquidity is locked.
+  </ResponseField>
+</a>
+
+
+```graphql LiquidityMetadataByToken
+"""Metadata about a token's liquidity. Includes locked liquidity data for up to 100 pairs that the token is in."""
+type LiquidityMetadataByToken {
+  """The address of the token."""
+  tokenAddress: String!
+  """The network ID the token is deployed on."""
+  networkId: Int!
+  """The total liquidity in USD."""
+  totalLiquidityUsd: String!
+  """The locked liquidity in USD."""
+  lockedLiquidityUsd: String!
+  """The total amount of tokens in pairs."""
+  totalTokenLiquidity: String!
+  """The total amount of tokens in pairs shifted by number of decimals the token has."""
+  totalTokenLiquidityShifted: String!
+  """The locked amount of tokens in pairs."""
+  lockedTokenLiquidity: String!
+  """The locked amount of tokens in pairs shifted by number of decimals the token has."""
+  lockedTokenLiquidityShifted: String!
+  """The percentage of liquidity that is locked."""
+  lockedLiquidityPercentage: Float!
+  """A breakdown of how much and where liquidity is locked."""
+  lockBreakdown: [LiquidityLockBreakdownForToken]!
+}
+```

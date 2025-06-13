@@ -3,13 +3,28 @@ title: "Network"
 description: "A network supported on Defined."
 ---
 
-**Type:** [Network](/api-reference/types/network)
+### Fields
 
-## Fields
+<ResponseField name="name" type="String!" required>
+  The name of the network. For example, `arbitrum`.
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `name` → [String!](/api-reference/types/string) | The name of the network. For example, `arbitrum`. |
-| `id` → [Int!](/api-reference/types/int) | The network ID. For example, `42161` for `arbitrum`. |
-| `networkShortName` → String | No description provided |
+<ResponseField name="id" type="Int!" required>
+  The network ID. For example, `42161` for `arbitrum`.
+</ResponseField>
 
+<ResponseField name="networkShortName" type="String">
+  No description provided
+</ResponseField>
+
+
+```graphql Network
+"""A network supported on Defined."""
+type Network {
+  """The name of the network. For example, `arbitrum`."""
+  name: String!
+  """The network ID. For example, `42161` for `arbitrum`."""
+  id: Int!
+  networkShortName: String
+}
+```

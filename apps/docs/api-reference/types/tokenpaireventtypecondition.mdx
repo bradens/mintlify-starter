@@ -3,11 +3,19 @@ title: "TokenPairEventTypeCondition"
 description: "Webhook condition for token pair event type."
 ---
 
-**Type:** [TokenPairEventTypeCondition](/api-reference/types/tokenpaireventtypecondition)
+### Fields
 
-## Fields
+<a href="/api-reference/types/tokenpaireventtype">
+  <ResponseField name="oneOf" type="[TokenPairEventType!]!" required>
+    The list of token pair event types.
+  </ResponseField>
+</a>
 
-| Name | Description |
-|------|-------------|
-| `oneOf` → [[TokenPairEventType!]!](/api-reference/types/tokenpaireventtype) | The list of token pair event types. |
 
+```graphql TokenPairEventTypeCondition
+"""Webhook condition for token pair event type."""
+type TokenPairEventTypeCondition {
+  """The list of token pair event types."""
+  oneOf: [TokenPairEventType!]!
+}
+```

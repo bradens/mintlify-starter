@@ -3,12 +3,25 @@ title: "NftPoolEventsResponse"
 description: "Response returned by `getNftPoolEvents`."
 ---
 
-**Type:** [NftPoolEventsResponse](/api-reference/types/nftpooleventsresponse)
+### Fields
 
-## Fields
+<a href="/api-reference/types/nftpoolevent">
+  <ResponseField name="items" type="[NftPoolEvent]">
+    A list of transactions for an NFT pool.
+  </ResponseField>
+</a>
 
-| Name | Description |
-|------|-------------|
-| `items` → [[NftPoolEvent]](/api-reference/types/nftpoolevent) | A list of transactions for an NFT pool. |
-| `cursor` → String | A cursor for use in pagination. |
+<ResponseField name="cursor" type="String">
+  A cursor for use in pagination.
+</ResponseField>
 
+
+```graphql NftPoolEventsResponse
+"""Response returned by `getNftPoolEvents`."""
+type NftPoolEventsResponse {
+  """A list of transactions for an NFT pool."""
+  items: [NftPoolEvent]
+  """A cursor for use in pagination."""
+  cursor: String
+}
+```

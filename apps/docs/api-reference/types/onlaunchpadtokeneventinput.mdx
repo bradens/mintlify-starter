@@ -3,14 +3,39 @@ title: "OnLaunchpadTokenEventInput"
 description: "Input for `onLaunchpadTokenEvent`."
 ---
 
-**Type:** [OnLaunchpadTokenEventInput](/api-reference/types/onlaunchpadtokeneventinput)
+### Fields
 
-## Fields
+<a href="/api-reference/types/launchpadtokenprotocol">
+  <ResponseField name="protocol" type="LaunchpadTokenProtocol">
+    The protocol of the token.
+  </ResponseField>
+</a>
 
-| Name | Description |
-|------|-------------|
-| `protocol` → [LaunchpadTokenProtocol](/api-reference/types/launchpadtokenprotocol) | The protocol of the token. |
-| `eventType` → [LaunchpadTokenEventType](/api-reference/types/launchpadtokeneventtype) | The type of event. |
-| `address` → String | The contract address of the token. Required when `networkId` is provided. |
-| `networkId` → Int | The network ID that the token is deployed on. Required when `address` is provided. |
+<a href="/api-reference/types/launchpadtokeneventtype">
+  <ResponseField name="eventType" type="LaunchpadTokenEventType">
+    The type of event.
+  </ResponseField>
+</a>
 
+<ResponseField name="address" type="String">
+  The contract address of the token. Required when `networkId` is provided.
+</ResponseField>
+
+<ResponseField name="networkId" type="Int">
+  The network ID that the token is deployed on. Required when `address` is provided.
+</ResponseField>
+
+
+```graphql OnLaunchpadTokenEventInput
+"""Input for `onLaunchpadTokenEvent`."""
+input OnLaunchpadTokenEventInput {
+  """The protocol of the token."""
+  protocol: LaunchpadTokenProtocol
+  """The type of event."""
+  eventType: LaunchpadTokenEventType
+  """The contract address of the token. Required when `networkId` is provided."""
+  address: String
+  """The network ID that the token is deployed on. Required when `address` is provided."""
+  networkId: Int
+}
+```

@@ -3,18 +3,52 @@ title: "PairMetadataToken"
 description: "Object type"
 ---
 
-**Type:** [PairMetadataToken](/api-reference/types/pairmetadatatoken)
+### Fields
 
-## Fields
+<ResponseField name="address" type="String!" required>
+  No description provided
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `address` → [String!](/api-reference/types/string) | No description provided |
-| `decimals` → Int | No description provided |
-| `name` → [String!](/api-reference/types/string) | No description provided |
-| `networkId` → [Int!](/api-reference/types/int) | No description provided |
-| `pooled` → [String!](/api-reference/types/string) | No description provided |
-| `price` → [String!](/api-reference/types/string) | No description provided |
-| `symbol` → [String!](/api-reference/types/string) | No description provided |
-| `labels` → [[ContractLabel]](/api-reference/types/contractlabel) | No description provided |
+<ResponseField name="decimals" type="Int">
+  No description provided
+</ResponseField>
 
+<ResponseField name="name" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="networkId" type="Int!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="pooled" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="price" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="symbol" type="String!" required>
+  No description provided
+</ResponseField>
+
+<a href="/api-reference/types/contractlabel">
+  <ResponseField name="labels" type="[ContractLabel]">
+    No description provided
+  </ResponseField>
+</a>
+
+
+```graphql PairMetadataToken
+type PairMetadataToken {
+  address: String!
+  decimals: Int
+  name: String!
+  networkId: Int!
+  pooled: String!
+  price: String!
+  symbol: String!
+  labels: [ContractLabel]
+}
+```

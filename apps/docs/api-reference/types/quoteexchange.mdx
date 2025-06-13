@@ -3,18 +3,50 @@ title: "QuoteExchange"
 description: "Object type"
 ---
 
-**Type:** [QuoteExchange](/api-reference/types/quoteexchange)
+### Fields
 
-## Fields
+<ResponseField name="quoterInterface" type="String">
+  No description provided
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `quoterInterface` → String | No description provided |
-| `protocol` → [String!](/api-reference/types/string) | No description provided |
-| `id` → [Int!](/api-reference/types/int) | No description provided |
-| `networkId` → [Int!](/api-reference/types/int) | No description provided |
-| `router` → [String!](/api-reference/types/string) | No description provided |
-| `factory` → [String!](/api-reference/types/string) | No description provided |
-| `quoter` → String | No description provided |
-| `name` → [String!](/api-reference/types/string) | No description provided |
+<ResponseField name="protocol" type="String!" required>
+  No description provided
+</ResponseField>
 
+<ResponseField name="id" type="Int!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="networkId" type="Int!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="router" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="factory" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="quoter" type="String">
+  No description provided
+</ResponseField>
+
+<ResponseField name="name" type="String!" required>
+  No description provided
+</ResponseField>
+
+
+```graphql QuoteExchange
+type QuoteExchange {
+  quoterInterface: String
+  protocol: String!
+  id: Int!
+  networkId: Int!
+  router: String!
+  factory: String!
+  quoter: String
+  name: String!
+}
+```

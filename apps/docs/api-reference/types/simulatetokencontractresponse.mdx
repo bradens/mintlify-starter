@@ -3,13 +3,25 @@ title: "SimulateTokenContractResponse"
 description: "Object type"
 ---
 
-**Type:** [SimulateTokenContractResponse](/api-reference/types/simulatetokencontractresponse)
+### Fields
 
-## Fields
+<ResponseField name="result" type="Boolean!" required>
+  No description provided
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `result` → [Boolean!](/api-reference/types/boolean) | No description provided |
-| `simulationId` → String | No description provided |
-| `error` → String | No description provided |
+<ResponseField name="simulationId" type="String">
+  No description provided
+</ResponseField>
 
+<ResponseField name="error" type="String">
+  No description provided
+</ResponseField>
+
+
+```graphql SimulateTokenContractResponse
+type SimulateTokenContractResponse {
+  result: Boolean!
+  simulationId: String
+  error: String
+}
+```

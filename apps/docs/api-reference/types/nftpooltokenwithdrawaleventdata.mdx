@@ -3,16 +3,49 @@ title: "NftPoolTokenWithdrawalEventData"
 description: "Event data for withdrawing a token from a pool."
 ---
 
-**Type:** [NftPoolTokenWithdrawalEventData](/api-reference/types/nftpooltokenwithdrawaleventdata)
+### Fields
 
-## Fields
+<a href="/api-reference/types/nftpooleventtype">
+  <ResponseField name="type" type="NftPoolEventType!" required>
+    The type of NFT pool event, `TOKEN_WITHDRAWAL`.
+  </ResponseField>
+</a>
 
-| Name | Description |
-|------|-------------|
-| `type` → [NftPoolEventType!](/api-reference/types/nftpooleventtype) | The type of NFT pool event, `TOKEN_WITHDRAWAL`. |
-| `amountT` → [String!](/api-reference/types/string) | The total value of token withdrawn in the pool&#39;s liquidity token. |
-| `nftTokenBalance` → [String!](/api-reference/types/string) | The number of NFTs in the contract after the block has processed. |
-| `tokenBalanceT` → [String!](/api-reference/types/string) | The amount of token in the contract after the block has processed in the pool&#39;s liquidity token. |
-| `nbtRatio` → [String!](/api-reference/types/string) | The ratio of the transaction token to the network&#39;s base token. |
-| `usdRatio` → [String!](/api-reference/types/string) | The ratio of the transaction token to USD. |
+<ResponseField name="amountT" type="String!" required>
+  The total value of token withdrawn in the pool&#39;s liquidity token.
+</ResponseField>
 
+<ResponseField name="nftTokenBalance" type="String!" required>
+  The number of NFTs in the contract after the block has processed.
+</ResponseField>
+
+<ResponseField name="tokenBalanceT" type="String!" required>
+  The amount of token in the contract after the block has processed in the pool&#39;s liquidity token.
+</ResponseField>
+
+<ResponseField name="nbtRatio" type="String!" required>
+  The ratio of the transaction token to the network&#39;s base token.
+</ResponseField>
+
+<ResponseField name="usdRatio" type="String!" required>
+  The ratio of the transaction token to USD.
+</ResponseField>
+
+
+```graphql NftPoolTokenWithdrawalEventData
+"""Event data for withdrawing a token from a pool."""
+type NftPoolTokenWithdrawalEventData {
+  """The type of NFT pool event, `TOKEN_WITHDRAWAL`."""
+  type: NftPoolEventType!
+  """The total value of token withdrawn in the pool's liquidity token."""
+  amountT: String!
+  """The number of NFTs in the contract after the block has processed."""
+  nftTokenBalance: String!
+  """The amount of token in the contract after the block has processed in the pool's liquidity token."""
+  tokenBalanceT: String!
+  """The ratio of the transaction token to the network's base token."""
+  nbtRatio: String!
+  """The ratio of the transaction token to USD."""
+  usdRatio: String!
+}
+```

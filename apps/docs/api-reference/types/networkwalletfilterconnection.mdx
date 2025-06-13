@@ -3,13 +3,30 @@ title: "NetworkWalletFilterConnection"
 description: "Object type"
 ---
 
-**Type:** [NetworkWalletFilterConnection](/api-reference/types/networkwalletfilterconnection)
+### Fields
 
-## Fields
+<a href="/api-reference/types/networkwalletfilterresult">
+  <ResponseField name="results" type="[NetworkWalletFilterResult!]!" required>
+    The list of wallets matching the filter parameters.
+  </ResponseField>
+</a>
 
-| Name | Description |
-|------|-------------|
-| `results` → [[NetworkWalletFilterResult!]!](/api-reference/types/networkwalletfilterresult) | The list of wallets matching the filter parameters. |
-| `count` → [Int!](/api-reference/types/int) | The number of wallets returned. |
-| `offset` → [Int!](/api-reference/types/int) | Where in the list the server started when returning items. |
+<ResponseField name="count" type="Int!" required>
+  The number of wallets returned.
+</ResponseField>
 
+<ResponseField name="offset" type="Int!" required>
+  Where in the list the server started when returning items.
+</ResponseField>
+
+
+```graphql NetworkWalletFilterConnection
+type NetworkWalletFilterConnection {
+  """The list of wallets matching the filter parameters."""
+  results: [NetworkWalletFilterResult!]!
+  """The number of wallets returned."""
+  count: Int!
+  """Where in the list the server started when returning items."""
+  offset: Int!
+}
+```

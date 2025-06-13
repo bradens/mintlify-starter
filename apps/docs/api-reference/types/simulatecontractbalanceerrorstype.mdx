@@ -3,12 +3,20 @@ title: "SimulateContractBalanceErrorsType"
 description: "Object type"
 ---
 
-**Type:** [SimulateContractBalanceErrorsType](/api-reference/types/simulatecontractbalanceerrorstype)
+### Fields
 
-## Fields
+<ResponseField name="tokenContractTokenBalanceError" type="String">
+  No description provided
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `tokenContractTokenBalanceError` → String | No description provided |
-| `tokenContractEthBalanceError` → String | No description provided |
+<ResponseField name="tokenContractEthBalanceError" type="String">
+  No description provided
+</ResponseField>
 
+
+```graphql SimulateContractBalanceErrorsType
+type SimulateContractBalanceErrorsType {
+  tokenContractTokenBalanceError: String
+  tokenContractEthBalanceError: String
+}
+```

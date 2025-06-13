@@ -3,13 +3,29 @@ title: "ChartImageOptions"
 description: "Input options for the chart image."
 ---
 
-**Type:** [ChartImageOptions](/api-reference/types/chartimageoptions)
+### Fields
 
-## Fields
+<ResponseField name="expirationSeconds" type="Int">
+  The expiry time of the image in seconds. Max: 172800 (2 days). Default: 900 (15 minutes).
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `expirationSeconds` → Int | The expiry time of the image in seconds. Max: 172800 (2 days). Default: 900 (15 minutes). |
-| `width` → Int | The width of the image in pixels. Max: 1200. Default: 800. |
-| `height` → Int | The height of the image in pixels. Max: 1200. Default: 450. |
+<ResponseField name="width" type="Int">
+  The width of the image in pixels. Max: 1200. Default: 800.
+</ResponseField>
 
+<ResponseField name="height" type="Int">
+  The height of the image in pixels. Max: 1200. Default: 450.
+</ResponseField>
+
+
+```graphql ChartImageOptions
+"""Input options for the chart image."""
+input ChartImageOptions {
+  """The expiry time of the image in seconds. Max: 172800 (2 days). Default: 900 (15 minutes)."""
+  expirationSeconds: Int
+  """The width of the image in pixels. Max: 1200. Default: 800."""
+  width: Int
+  """The height of the image in pixels. Max: 1200. Default: 450."""
+  height: Int
+}
+```

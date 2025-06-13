@@ -3,23 +3,111 @@ title: "WindowedDetailedStats"
 description: "Detailed stats over a window."
 ---
 
-**Type:** [WindowedDetailedStats](/api-reference/types/windoweddetailedstats)
+### Fields
 
-## Fields
+<a href="/api-reference/types/detailedstatswindowsize">
+  <ResponseField name="windowSize" type="DetailedStatsWindowSize!" required>
+    The window size used to request detailed stats.
+  </ResponseField>
+</a>
 
-| Name | Description |
-|------|-------------|
-| `windowSize` → [DetailedStatsWindowSize!](/api-reference/types/detailedstatswindowsize) | The window size used to request detailed stats. |
-| `timestamp` → [Int!](/api-reference/types/int) | The unix timestamp for the start of the window. |
-| `endTimestamp` → [Int!](/api-reference/types/int) | The unix timestamp for the end of the window. |
-| `buckets` → [[DetailedStatsBucketTimestamp]!](/api-reference/types/detailedstatsbuckettimestamp) | The list of start/end timestamps broken down for each bucket within the window. |
-| `transactions` → [DetailedStatsNumberMetrics!](/api-reference/types/detailedstatsnumbermetrics) | The transaction count over the window. |
-| `volume` → [DetailedStatsStringMetrics!](/api-reference/types/detailedstatsstringmetrics) | The volume over the window. |
-| `buys` → [DetailedStatsNumberMetrics!](/api-reference/types/detailedstatsnumbermetrics) | The number of buys over the window. |
-| `sells` → [DetailedStatsNumberMetrics!](/api-reference/types/detailedstatsnumbermetrics) | The number of sells over the window. |
-| `buyers` → [DetailedStatsNumberMetrics!](/api-reference/types/detailedstatsnumbermetrics) | The number of unique buyers over the window. |
-| `sellers` → [DetailedStatsNumberMetrics!](/api-reference/types/detailedstatsnumbermetrics) | The number of unique sellers over the window. |
-| `traders` → [DetailedStatsNumberMetrics](/api-reference/types/detailedstatsnumbermetrics) | The number of unique traders over the window. |
-| `buyVolume` → [DetailedStatsStringMetrics](/api-reference/types/detailedstatsstringmetrics) | The buy volume over the window. |
-| `sellVolume` → [DetailedStatsStringMetrics](/api-reference/types/detailedstatsstringmetrics) | The sell volume over the window. |
+<ResponseField name="timestamp" type="Int!" required>
+  The unix timestamp for the start of the window.
+</ResponseField>
 
+<ResponseField name="endTimestamp" type="Int!" required>
+  The unix timestamp for the end of the window.
+</ResponseField>
+
+<a href="/api-reference/types/detailedstatsbuckettimestamp">
+  <ResponseField name="buckets" type="[DetailedStatsBucketTimestamp]!" required>
+    The list of start/end timestamps broken down for each bucket within the window.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/detailedstatsnumbermetrics">
+  <ResponseField name="transactions" type="DetailedStatsNumberMetrics!" required>
+    The transaction count over the window.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/detailedstatsstringmetrics">
+  <ResponseField name="volume" type="DetailedStatsStringMetrics!" required>
+    The volume over the window.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/detailedstatsnumbermetrics">
+  <ResponseField name="buys" type="DetailedStatsNumberMetrics!" required>
+    The number of buys over the window.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/detailedstatsnumbermetrics">
+  <ResponseField name="sells" type="DetailedStatsNumberMetrics!" required>
+    The number of sells over the window.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/detailedstatsnumbermetrics">
+  <ResponseField name="buyers" type="DetailedStatsNumberMetrics!" required>
+    The number of unique buyers over the window.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/detailedstatsnumbermetrics">
+  <ResponseField name="sellers" type="DetailedStatsNumberMetrics!" required>
+    The number of unique sellers over the window.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/detailedstatsnumbermetrics">
+  <ResponseField name="traders" type="DetailedStatsNumberMetrics">
+    The number of unique traders over the window.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/detailedstatsstringmetrics">
+  <ResponseField name="buyVolume" type="DetailedStatsStringMetrics">
+    The buy volume over the window.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/detailedstatsstringmetrics">
+  <ResponseField name="sellVolume" type="DetailedStatsStringMetrics">
+    The sell volume over the window.
+  </ResponseField>
+</a>
+
+
+```graphql WindowedDetailedStats
+"""Detailed stats over a window."""
+type WindowedDetailedStats {
+  """The window size used to request detailed stats."""
+  windowSize: DetailedStatsWindowSize!
+  """The unix timestamp for the start of the window."""
+  timestamp: Int!
+  """The unix timestamp for the end of the window."""
+  endTimestamp: Int!
+  """The list of start/end timestamps broken down for each bucket within the window."""
+  buckets: [DetailedStatsBucketTimestamp]!
+  """The transaction count over the window."""
+  transactions: DetailedStatsNumberMetrics!
+  """The volume over the window."""
+  volume: DetailedStatsStringMetrics!
+  """The number of buys over the window."""
+  buys: DetailedStatsNumberMetrics!
+  """The number of sells over the window."""
+  sells: DetailedStatsNumberMetrics!
+  """The number of unique buyers over the window."""
+  buyers: DetailedStatsNumberMetrics!
+  """The number of unique sellers over the window."""
+  sellers: DetailedStatsNumberMetrics!
+  """The number of unique traders over the window."""
+  traders: DetailedStatsNumberMetrics
+  """The buy volume over the window."""
+  buyVolume: DetailedStatsStringMetrics
+  """The sell volume over the window."""
+  sellVolume: DetailedStatsStringMetrics
+}
+```

@@ -3,17 +3,55 @@ title: "BurnEventData"
 description: "Event data for a token burn event."
 ---
 
-**Type:** [BurnEventData](/api-reference/types/burneventdata)
+### Fields
 
-## Fields
+<ResponseField name="amount0" type="String">
+  The amount of `token0` removed from the pair.
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `amount0` → String | The amount of `token0` removed from the pair. |
-| `amount1` → String | The amount of `token1` removed from the pair. |
-| `amount0Shifted` → String | The amount of `token0` removed from the pair, adjusted by the number of decimals in the token. For example, if `amount0` is in WEI, `amount0Shifted` will be in ETH. |
-| `amount1Shifted` → String | The amount of `token1` removed from the pair, adjusted by the number of decimals in the token. For example, USDC `amount1Shifted` will be by 6 decimals. |
-| `tickLower` → String | The lower tick boundary of the position. Only applicable for UniswapV3 events. |
-| `tickUpper` → String | The upper tick boundary of the position. Only applicable for UniswapV3 events. |
-| `type` → [EventType!](/api-reference/types/eventtype) | The type of token event, `Burn`. |
+<ResponseField name="amount1" type="String">
+  The amount of `token1` removed from the pair.
+</ResponseField>
 
+<ResponseField name="amount0Shifted" type="String">
+  The amount of `token0` removed from the pair, adjusted by the number of decimals in the token. For example, if `amount0` is in WEI, `amount0Shifted` will be in ETH.
+</ResponseField>
+
+<ResponseField name="amount1Shifted" type="String">
+  The amount of `token1` removed from the pair, adjusted by the number of decimals in the token. For example, USDC `amount1Shifted` will be by 6 decimals.
+</ResponseField>
+
+<ResponseField name="tickLower" type="String">
+  The lower tick boundary of the position. Only applicable for UniswapV3 events.
+</ResponseField>
+
+<ResponseField name="tickUpper" type="String">
+  The upper tick boundary of the position. Only applicable for UniswapV3 events.
+</ResponseField>
+
+<a href="/api-reference/types/eventtype">
+  <ResponseField name="type" type="EventType!" required>
+    The type of token event, `Burn`.
+  </ResponseField>
+</a>
+
+
+```graphql BurnEventData
+"""Event data for a token burn event."""
+type BurnEventData {
+  """The amount of `token0` removed from the pair."""
+  amount0: String
+  """The amount of `token1` removed from the pair."""
+  amount1: String
+  """The amount of `token0` removed from the pair, adjusted by the number of decimals in the token. For example, if `amount0` is in WEI, `amount0Shifted` will be in ETH."""
+  amount0Shifted: String
+  """The amount of `token1` removed from the pair, adjusted by the number of decimals in the token. For example, USDC `amount1Shifted` will be by 6 decimals."""
+  amount1Shifted: String
+  """The lower tick boundary of the position. Only applicable for UniswapV3 events."""
+  tickLower: String
+  """The upper tick boundary of the position. Only applicable for UniswapV3 events."""
+  tickUpper: String
+  """The type of token event, `Burn`."""
+  type: EventType!
+}
+```

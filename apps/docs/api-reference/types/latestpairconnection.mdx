@@ -3,12 +3,25 @@ title: "LatestPairConnection"
 description: "Response returned by `getLatestPairs`."
 ---
 
-**Type:** [LatestPairConnection](/api-reference/types/latestpairconnection)
+### Fields
 
-## Fields
+<a href="/api-reference/types/latestpair">
+  <ResponseField name="items" type="[LatestPair!]!" required>
+    A list of newly listed pairs.
+  </ResponseField>
+</a>
 
-| Name | Description |
-|------|-------------|
-| `items` → [[LatestPair!]!](/api-reference/types/latestpair) | A list of newly listed pairs. |
-| `cursor` → String | A cursor for use in pagination. |
+<ResponseField name="cursor" type="String">
+  A cursor for use in pagination.
+</ResponseField>
 
+
+```graphql LatestPairConnection
+"""Response returned by `getLatestPairs`."""
+type LatestPairConnection {
+  """A list of newly listed pairs."""
+  items: [LatestPair!]!
+  """A cursor for use in pagination."""
+  cursor: String
+}
+```

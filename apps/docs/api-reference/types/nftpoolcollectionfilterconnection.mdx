@@ -3,13 +3,31 @@ title: "NftPoolCollectionFilterConnection"
 description: "Response returned by `filterNftPoolCollections`."
 ---
 
-**Type:** [NftPoolCollectionFilterConnection](/api-reference/types/nftpoolcollectionfilterconnection)
+### Fields
 
-## Fields
+<a href="/api-reference/types/nftpoolcollectionfilterresult">
+  <ResponseField name="results" type="[NftPoolCollectionFilterResult]">
+    The list of NFT collections matching the filter parameters.
+  </ResponseField>
+</a>
 
-| Name | Description |
-|------|-------------|
-| `results` → [[NftPoolCollectionFilterResult]](/api-reference/types/nftpoolcollectionfilterresult) | The list of NFT collections matching the filter parameters. |
-| `count` → Int | The number of NFT collections returned. |
-| `page` → Int | Where in the list the server started when returning items. |
+<ResponseField name="count" type="Int">
+  The number of NFT collections returned.
+</ResponseField>
 
+<ResponseField name="page" type="Int">
+  Where in the list the server started when returning items.
+</ResponseField>
+
+
+```graphql NftPoolCollectionFilterConnection
+"""Response returned by `filterNftPoolCollections`."""
+type NftPoolCollectionFilterConnection {
+  """The list of NFT collections matching the filter parameters."""
+  results: [NftPoolCollectionFilterResult]
+  """The number of NFT collections returned."""
+  count: Int
+  """Where in the list the server started when returning items."""
+  page: Int
+}
+```

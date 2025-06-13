@@ -3,26 +3,111 @@ title: "LatestPair"
 description: "Metadata for a newly listed pair."
 ---
 
-**Type:** [LatestPair](/api-reference/types/latestpair)
+### Fields
 
-## Fields
+<ResponseField name="address" type="String!" required>
+  The contract address for the pair.
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `address` → [String!](/api-reference/types/string) | The contract address for the pair. |
-| `exchangeHash` → [String!](/api-reference/types/string) | The contract address for the exchange. |
-| `id` → [String!](/api-reference/types/string) | The ID of the pair (`address:networkId`). |
-| `initialPriceUsd` → [String!](/api-reference/types/string) | The listing price, or first known price for the pair, in USD. |
-| `liquidAt` → Int | The unix timestamp for when liquidity was added to the pair. |
-| `liquidity` → [String!](/api-reference/types/string) | The total liquidity in the pair. |
-| `liquidityToken` → String | The token with higher liquidity within the pair. Can be `token0` or `token1`. |
-| `networkId` → [Int!](/api-reference/types/int) | The network ID the pair is deployed on. |
-| `newToken` → [String!](/api-reference/types/string) | The newly added token within the pair. Can be `token0` or `token1`. |
-| `nonLiquidityToken` → String | The token with lower liquidity within the pair. Can be `token0` or `token1`. |
-| `oldToken` → [String!](/api-reference/types/string) | The pre-existing token within the pair. Can be `token0` or `token1`. |
-| `priceChange` → [Float!](/api-reference/types/float) | The percent price change between the listing price and the current price. |
-| `priceUsd` → [String!](/api-reference/types/string) | The newly added token price in USD. |
-| `token0` → [LatestPairToken!](/api-reference/types/latestpairtoken) | Metadata for `token0`. |
-| `token1` → [LatestPairToken!](/api-reference/types/latestpairtoken) | Metadata for `token1`. |
-| `transactionHash` → [String!](/api-reference/types/string) | The unique hash for the transaction that added liquidity, if applicable, otherwise the transaction that added the pair. |
+<ResponseField name="exchangeHash" type="String!" required>
+  The contract address for the exchange.
+</ResponseField>
 
+<ResponseField name="id" type="String!" required>
+  The ID of the pair (`address:networkId`).
+</ResponseField>
+
+<ResponseField name="initialPriceUsd" type="String!" required>
+  The listing price, or first known price for the pair, in USD.
+</ResponseField>
+
+<ResponseField name="liquidAt" type="Int">
+  The unix timestamp for when liquidity was added to the pair.
+</ResponseField>
+
+<ResponseField name="liquidity" type="String!" required>
+  The total liquidity in the pair.
+</ResponseField>
+
+<ResponseField name="liquidityToken" type="String">
+  The token with higher liquidity within the pair. Can be `token0` or `token1`.
+</ResponseField>
+
+<ResponseField name="networkId" type="Int!" required>
+  The network ID the pair is deployed on.
+</ResponseField>
+
+<ResponseField name="newToken" type="String!" required>
+  The newly added token within the pair. Can be `token0` or `token1`.
+</ResponseField>
+
+<ResponseField name="nonLiquidityToken" type="String">
+  The token with lower liquidity within the pair. Can be `token0` or `token1`.
+</ResponseField>
+
+<ResponseField name="oldToken" type="String!" required>
+  The pre-existing token within the pair. Can be `token0` or `token1`.
+</ResponseField>
+
+<ResponseField name="priceChange" type="Float!" required>
+  The percent price change between the listing price and the current price.
+</ResponseField>
+
+<ResponseField name="priceUsd" type="String!" required>
+  The newly added token price in USD.
+</ResponseField>
+
+<a href="/api-reference/types/latestpairtoken">
+  <ResponseField name="token0" type="LatestPairToken!" required>
+    Metadata for `token0`.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/latestpairtoken">
+  <ResponseField name="token1" type="LatestPairToken!" required>
+    Metadata for `token1`.
+  </ResponseField>
+</a>
+
+<ResponseField name="transactionHash" type="String!" required>
+  The unique hash for the transaction that added liquidity, if applicable, otherwise the transaction that added the pair.
+</ResponseField>
+
+
+```graphql LatestPair
+"""Metadata for a newly listed pair."""
+type LatestPair {
+  """The contract address for the pair."""
+  address: String!
+  """The contract address for the exchange."""
+  exchangeHash: String!
+  """The ID of the pair (`address:networkId`)."""
+  id: String!
+  """The listing price, or first known price for the pair, in USD."""
+  initialPriceUsd: String!
+  """The unix timestamp for when liquidity was added to the pair."""
+  liquidAt: Int
+  """The total liquidity in the pair."""
+  liquidity: String!
+  """The token with higher liquidity within the pair. Can be `token0` or `token1`."""
+  liquidityToken: String
+  """The network ID the pair is deployed on."""
+  networkId: Int!
+  """The newly added token within the pair. Can be `token0` or `token1`."""
+  newToken: String!
+  """The token with lower liquidity within the pair. Can be `token0` or `token1`."""
+  nonLiquidityToken: String
+  """The pre-existing token within the pair. Can be `token0` or `token1`."""
+  oldToken: String!
+  """The percent price change between the listing price and the current price."""
+  priceChange: Float!
+  """The newly added token price in USD."""
+  priceUsd: String!
+  """Metadata for `token0`."""
+  token0: LatestPairToken!
+  """Metadata for `token1`."""
+  token1: LatestPairToken!
+  """The unique hash for the transaction that added liquidity, if applicable, otherwise the transaction that added the pair."""
+  transactionHash: String!
+}
+```

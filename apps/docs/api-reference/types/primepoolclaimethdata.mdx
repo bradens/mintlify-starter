@@ -3,16 +3,51 @@ title: "PrimePoolClaimEthData"
 description: "Event-specific data for a Prime pool ClaimEth transaction."
 ---
 
-**Type:** [PrimePoolClaimEthData](/api-reference/types/primepoolclaimethdata)
+### Fields
 
-## Fields
+<a href="/api-reference/types/primepooleventtype">
+  <ResponseField name="type" type="PrimePoolEventType!" required>
+    The Prime pool event type.
+  </ResponseField>
+</a>
 
-| Name | Description |
-|------|-------------|
-| `type` → [PrimePoolEventType!](/api-reference/types/primepooleventtype) | The Prime pool event type. |
-| `user` → [String!](/api-reference/types/string) | The wallet address claiming ETH rewards. |
-| `eventAmount` → [String!](/api-reference/types/string) | The amount of ETH claimed. |
-| `currency` → [PrimePoolCurrency!](/api-reference/types/primepoolcurrency) | The currency type of the event. |
-| `userEthRewardDebt` → [String!](/api-reference/types/string) | The amount of ETH the user is not eligible for either from having already harvesting or from not caching in the past. |
-| `ethClaimed` → String | The total amount of ETH claimed for a pool. |
+<ResponseField name="user" type="String!" required>
+  The wallet address claiming ETH rewards.
+</ResponseField>
 
+<ResponseField name="eventAmount" type="String!" required>
+  The amount of ETH claimed.
+</ResponseField>
+
+<a href="/api-reference/types/primepoolcurrency">
+  <ResponseField name="currency" type="PrimePoolCurrency!" required>
+    The currency type of the event.
+  </ResponseField>
+</a>
+
+<ResponseField name="userEthRewardDebt" type="String!" required>
+  The amount of ETH the user is not eligible for either from having already harvesting or from not caching in the past.
+</ResponseField>
+
+<ResponseField name="ethClaimed" type="String">
+  The total amount of ETH claimed for a pool.
+</ResponseField>
+
+
+```graphql PrimePoolClaimEthData
+"""Event-specific data for a Prime pool ClaimEth transaction."""
+type PrimePoolClaimEthData {
+  """The Prime pool event type."""
+  type: PrimePoolEventType!
+  """The wallet address claiming ETH rewards."""
+  user: String!
+  """The amount of ETH claimed."""
+  eventAmount: String!
+  """The currency type of the event."""
+  currency: PrimePoolCurrency!
+  """The amount of ETH the user is not eligible for either from having already harvesting or from not caching in the past."""
+  userEthRewardDebt: String!
+  """The total amount of ETH claimed for a pool."""
+  ethClaimed: String
+}
+```

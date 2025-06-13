@@ -7,11 +7,19 @@ description: "Live-streamed unconfirmed transactions for a token. (Solana only)"
 
 **Returns:** [AddUnconfirmedEventsOutput](/api-reference/types/addunconfirmedeventsoutput)
 
-## Arguments for onUnconfirmedEventsCreated
+### Arguments
 
-| Name | Description |
-|------|-------------|
-| `address` (String) | The pair contract address. |
-| `id` (String) | The ID of the pair (`address`:`networkId`). |
-| `quoteToken` ([QuoteToken](/api-reference/types/quotetoken)) | The token of interest within the pair. Can be `token0` or `token1`. |
+<ResponseField name="address" type="String">
+  The pair contract address.
+</ResponseField>
+
+<ResponseField name="id" type="String">
+  The ID of the pair (`address`:`networkId`).
+</ResponseField>
+
+<a href="/api-reference/types/quotetoken">
+  <ResponseField name="quoteToken" type="QuoteToken">
+    The token of interest within the pair. Can be `token0` or `token1`.
+  </ResponseField>
+</a>
 

@@ -3,26 +3,107 @@ title: "ParallelCardChangeFields"
 description: "Metadata for a Parallel card."
 ---
 
-**Type:** [ParallelCardChangeFields](/api-reference/types/parallelcardchangefields)
+### Fields
 
-## Fields
+<ResponseField name="parallelId" type="String">
+  The ID used to match other cards with the same name but different class.
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `parallelId` → String | The ID used to match other cards with the same name but different class. |
-| `rarity` → String | The rarity of the asset. Can be `Common`, `Uncommon`, `Rare`, `Legendary`, or `Prime`. |
-| `class` → String | The card class. Can be `Art Card`, `Asset`, `Card Back`, `FE`, `Masterpiece`, `PL`, or `SE`. |
-| `supply` → String | The total supply of this individual asset. |
-| `parallel` → String | The Parallel the asset belongs to. |
-| `cost` → String | The energy used to play in-game. |
-| `attack` → String | The damage dealt when engaged in combat. |
-| `health` → String | The possible damage received before being destroyed. |
-| `cardType` → String | The card type. Can be `Effect`, `Relic`, `Unit`, `Upgrade` or `Paragon`. |
-| `subtype` → String | The card subtype. Can be `Pirate`, `Vehicle` or `Clone`. |
-| `functionText` → String | The description of the card&#39;s in-game abilities. |
-| `passiveAbility` → String | The description of the card&#39;s passive ability. |
-| `flavourText` → String | The asset description, sourced off-chain. Usually equal to the asset&#39;s on-chain `description`. |
-| `expansion` → String | The expansion used for naming base and expansion sets. |
-| `paraset` → String | The paraset the asset belongs to. |
-| `artist` → String | The artist name. |
+<ResponseField name="rarity" type="String">
+  The rarity of the asset. Can be `Common`, `Uncommon`, `Rare`, `Legendary`, or `Prime`.
+</ResponseField>
 
+<ResponseField name="class" type="String">
+  The card class. Can be `Art Card`, `Asset`, `Card Back`, `FE`, `Masterpiece`, `PL`, or `SE`.
+</ResponseField>
+
+<ResponseField name="supply" type="String">
+  The total supply of this individual asset.
+</ResponseField>
+
+<ResponseField name="parallel" type="String">
+  The Parallel the asset belongs to.
+</ResponseField>
+
+<ResponseField name="cost" type="String">
+  The energy used to play in-game.
+</ResponseField>
+
+<ResponseField name="attack" type="String">
+  The damage dealt when engaged in combat.
+</ResponseField>
+
+<ResponseField name="health" type="String">
+  The possible damage received before being destroyed.
+</ResponseField>
+
+<ResponseField name="cardType" type="String">
+  The card type. Can be `Effect`, `Relic`, `Unit`, `Upgrade` or `Paragon`.
+</ResponseField>
+
+<ResponseField name="subtype" type="String">
+  The card subtype. Can be `Pirate`, `Vehicle` or `Clone`.
+</ResponseField>
+
+<ResponseField name="functionText" type="String">
+  The description of the card&#39;s in-game abilities.
+</ResponseField>
+
+<ResponseField name="passiveAbility" type="String">
+  The description of the card&#39;s passive ability.
+</ResponseField>
+
+<ResponseField name="flavourText" type="String">
+  The asset description, sourced off-chain. Usually equal to the asset&#39;s on-chain `description`.
+</ResponseField>
+
+<ResponseField name="expansion" type="String">
+  The expansion used for naming base and expansion sets.
+</ResponseField>
+
+<ResponseField name="paraset" type="String">
+  The paraset the asset belongs to.
+</ResponseField>
+
+<ResponseField name="artist" type="String">
+  The artist name.
+</ResponseField>
+
+
+```graphql ParallelCardChangeFields
+"""Metadata for a Parallel card."""
+type ParallelCardChangeFields {
+  """The ID used to match other cards with the same name but different class."""
+  parallelId: String
+  """The rarity of the asset. Can be `Common`, `Uncommon`, `Rare`, `Legendary`, or `Prime`."""
+  rarity: String
+  """The card class. Can be `Art Card`, `Asset`, `Card Back`, `FE`, `Masterpiece`, `PL`, or `SE`."""
+  class: String
+  """The total supply of this individual asset."""
+  supply: String
+  """The Parallel the asset belongs to."""
+  parallel: String
+  """The energy used to play in-game."""
+  cost: String
+  """The damage dealt when engaged in combat."""
+  attack: String
+  """The possible damage received before being destroyed."""
+  health: String
+  """The card type. Can be `Effect`, `Relic`, `Unit`, `Upgrade` or `Paragon`."""
+  cardType: String
+  """The card subtype. Can be `Pirate`, `Vehicle` or `Clone`."""
+  subtype: String
+  """The description of the card's in-game abilities."""
+  functionText: String
+  """The description of the card's passive ability."""
+  passiveAbility: String
+  """The asset description, sourced off-chain. Usually equal to the asset's on-chain `description`."""
+  flavourText: String
+  """The expansion used for naming base and expansion sets."""
+  expansion: String
+  """The paraset the asset belongs to."""
+  paraset: String
+  """The artist name."""
+  artist: String
+}
+```

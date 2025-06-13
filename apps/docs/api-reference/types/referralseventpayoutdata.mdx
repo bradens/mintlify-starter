@@ -3,11 +3,17 @@ title: "ReferralsEventPayoutData"
 description: "Object type"
 ---
 
-**Type:** [ReferralsEventPayoutData](/api-reference/types/referralseventpayoutdata)
+### Fields
 
-## Fields
+<a href="/api-reference/types/referralspayoutdata">
+  <ResponseField name="payouts" type="[ReferralsPayoutData!]!" required>
+    No description provided
+  </ResponseField>
+</a>
 
-| Name | Description |
-|------|-------------|
-| `payouts` → [[ReferralsPayoutData!]!](/api-reference/types/referralspayoutdata) | No description provided |
 
+```graphql ReferralsEventPayoutData
+type ReferralsEventPayoutData {
+  payouts: [ReferralsPayoutData!]!
+}
+```

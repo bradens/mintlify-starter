@@ -3,12 +3,23 @@ title: "DetailedPairStatsBucketTimestamp"
 description: "The start/end timestamp for a given bucket within the window."
 ---
 
-**Type:** [DetailedPairStatsBucketTimestamp](/api-reference/types/detailedpairstatsbuckettimestamp)
+### Fields
 
-## Fields
+<ResponseField name="start" type="Int!" required>
+  The unix timestamp for the start of the bucket.
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `start` → [Int!](/api-reference/types/int) | The unix timestamp for the start of the bucket. |
-| `end` → [Int!](/api-reference/types/int) | The unix timestamp for the start of the bucket. |
+<ResponseField name="end" type="Int!" required>
+  The unix timestamp for the start of the bucket.
+</ResponseField>
 
+
+```graphql DetailedPairStatsBucketTimestamp
+"""The start/end timestamp for a given bucket within the window."""
+type DetailedPairStatsBucketTimestamp {
+  """The unix timestamp for the start of the bucket."""
+  start: Int!
+  """The unix timestamp for the start of the bucket."""
+  end: Int!
+}
+```

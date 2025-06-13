@@ -3,22 +3,85 @@ title: "NftEventTokenTradeItem"
 description: "Details for a token(s) offered or received as part of an nft trade."
 ---
 
-**Type:** [NftEventTokenTradeItem](/api-reference/types/nfteventtokentradeitem)
+### Fields
 
-## Fields
+<ResponseField name="address" type="String!" required>
+  The contract address for the token.
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `address` → [String!](/api-reference/types/string) | The contract address for the token. |
-| `amount` → [String!](/api-reference/types/string) | The number of tokens transferred. |
-| `recipient` → String | The recipient of the tokens. |
-| `type` → [NftEventTradeItemType!](/api-reference/types/nfteventtradeitemtype) | The type of item involved in the trade. (Always TOKEN) |
-| `isPrice` → [Boolean!](/api-reference/types/boolean) | Whether this should be summed to calculate the price of the NFT received in the base event. Tokens that are payment fees or involved with other sales in the transaction are often represented in sales and would have a value of `false`. |
-| `totalTradePrice` → String | The total trade price for the transaction in the purchasing token. (The transaction can include more than 1 token). |
-| `individualTradePrice` → String | The price of each individual NFT in the purchasing token. |
-| `totalPriceUsd` → String | The total trade price for the transaction in USD. (The transaction can include more than 1 token). |
-| `individualPriceUsd` → String | The price of each individual NFT in USD. |
-| `totalPriceNetworkBaseToken` → String | The total trade price for the transaction in the network&#39;s base token. (The transaction can include more than 1 token). |
-| `individualPriceNetworkBaseToken` → String | The price of each individual NFT in the network&#39;s base token. |
-| `priceError` → String | The reason for the price error, if applicable. Can be `NO_TOKEN_DATA`, `NO_TOKEN_PRICE`, or `LOW_LIQUIDITY_PAIR`. |
+<ResponseField name="amount" type="String!" required>
+  The number of tokens transferred.
+</ResponseField>
 
+<ResponseField name="recipient" type="String">
+  The recipient of the tokens.
+</ResponseField>
+
+<a href="/api-reference/types/nfteventtradeitemtype">
+  <ResponseField name="type" type="NftEventTradeItemType!" required>
+    The type of item involved in the trade. (Always TOKEN)
+  </ResponseField>
+</a>
+
+<ResponseField name="isPrice" type="Boolean!" required>
+  Whether this should be summed to calculate the price of the NFT received in the base event. Tokens that are payment fees or involved with other sales in the transaction are often represented in sales and would have a value of `false`.
+</ResponseField>
+
+<ResponseField name="totalTradePrice" type="String">
+  The total trade price for the transaction in the purchasing token. (The transaction can include more than 1 token).
+</ResponseField>
+
+<ResponseField name="individualTradePrice" type="String">
+  The price of each individual NFT in the purchasing token.
+</ResponseField>
+
+<ResponseField name="totalPriceUsd" type="String">
+  The total trade price for the transaction in USD. (The transaction can include more than 1 token).
+</ResponseField>
+
+<ResponseField name="individualPriceUsd" type="String">
+  The price of each individual NFT in USD.
+</ResponseField>
+
+<ResponseField name="totalPriceNetworkBaseToken" type="String">
+  The total trade price for the transaction in the network&#39;s base token. (The transaction can include more than 1 token).
+</ResponseField>
+
+<ResponseField name="individualPriceNetworkBaseToken" type="String">
+  The price of each individual NFT in the network&#39;s base token.
+</ResponseField>
+
+<ResponseField name="priceError" type="String">
+  The reason for the price error, if applicable. Can be `NO_TOKEN_DATA`, `NO_TOKEN_PRICE`, or `LOW_LIQUIDITY_PAIR`.
+</ResponseField>
+
+
+```graphql NftEventTokenTradeItem
+"""Details for a token(s) offered or received as part of an nft trade."""
+type NftEventTokenTradeItem {
+  """The contract address for the token."""
+  address: String!
+  """The number of tokens transferred."""
+  amount: String!
+  """The recipient of the tokens."""
+  recipient: String
+  """The type of item involved in the trade. (Always TOKEN)"""
+  type: NftEventTradeItemType!
+  """Whether this should be summed to calculate the price of the NFT received in the base event. Tokens that are payment fees or involved with other sales in the transaction are often represented in sales and would have a value of `false`."""
+  isPrice: Boolean!
+  """The total trade price for the transaction in the purchasing token. (The transaction can include more than 1 token)."""
+  totalTradePrice: String
+  """The price of each individual NFT in the purchasing token."""
+  individualTradePrice: String
+  """The total trade price for the transaction in USD. (The transaction can include more than 1 token)."""
+  totalPriceUsd: String
+  """The price of each individual NFT in USD."""
+  individualPriceUsd: String
+  """The total trade price for the transaction in the network's base token. (The transaction can include more than 1 token)."""
+  totalPriceNetworkBaseToken: String
+  """The price of each individual NFT in the network's base token."""
+  individualPriceNetworkBaseToken: String
+  """The reason for the price error, if applicable. Can be `NO_TOKEN_DATA`, `NO_TOKEN_PRICE`, or `LOW_LIQUIDITY_PAIR`."""
+  priceError: String
+}
+```

@@ -3,26 +3,107 @@ title: "GetNetworkStatsResponse"
 description: "Response returned by `getNetworkStats`."
 ---
 
-**Type:** [GetNetworkStatsResponse](/api-reference/types/getnetworkstatsresponse)
+### Fields
 
-## Fields
+<ResponseField name="volume24" type="Float!" required>
+  The network trade volume in USD over the past 24 hours.
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `volume24` → [Float!](/api-reference/types/float) | The network trade volume in USD over the past 24 hours. |
-| `volume12` → [Float!](/api-reference/types/float) | The network trade volume in USD over the past 12 hours. |
-| `volume4` → [Float!](/api-reference/types/float) | The network trade volume in USD over the past 4 hours. |
-| `volume1` → [Float!](/api-reference/types/float) | The network trade volume in USD over the past hour. |
-| `volume5m` → [Float!](/api-reference/types/float) | The network trade volume in USD over the past 5 minutes. |
-| `volumeChange24` → [Float!](/api-reference/types/float) | The network trade volume change over the last 24 hours |
-| `volumeChange12` → [Float!](/api-reference/types/float) | The network trade volume change over the last 12 hours |
-| `volumeChange4` → [Float!](/api-reference/types/float) | The network trade volume change over the last 4 hours |
-| `volumeChange1` → [Float!](/api-reference/types/float) | The network trade volume change over the last hour |
-| `volumeChange5m` → [Float!](/api-reference/types/float) | The network trade volume change over the last 5 minutes |
-| `liquidity` → [Float!](/api-reference/types/float) | The network liquidity in USD. |
-| `transactions24` → [Int!](/api-reference/types/int) | The unique number of transactions in the past 24 hours. |
-| `transactions12` → [Int!](/api-reference/types/int) | The unique number of transactions in the past 12 hours. |
-| `transactions4` → [Int!](/api-reference/types/int) | The unique number of transactions in the past 4 hours. |
-| `transactions1` → [Int!](/api-reference/types/int) | The unique number of transactions in the past hour. |
-| `transactions5m` → [Int!](/api-reference/types/int) | The unique number of transactions in the past 5 minutes. |
+<ResponseField name="volume12" type="Float!" required>
+  The network trade volume in USD over the past 12 hours.
+</ResponseField>
 
+<ResponseField name="volume4" type="Float!" required>
+  The network trade volume in USD over the past 4 hours.
+</ResponseField>
+
+<ResponseField name="volume1" type="Float!" required>
+  The network trade volume in USD over the past hour.
+</ResponseField>
+
+<ResponseField name="volume5m" type="Float!" required>
+  The network trade volume in USD over the past 5 minutes.
+</ResponseField>
+
+<ResponseField name="volumeChange24" type="Float!" required>
+  The network trade volume change over the last 24 hours
+</ResponseField>
+
+<ResponseField name="volumeChange12" type="Float!" required>
+  The network trade volume change over the last 12 hours
+</ResponseField>
+
+<ResponseField name="volumeChange4" type="Float!" required>
+  The network trade volume change over the last 4 hours
+</ResponseField>
+
+<ResponseField name="volumeChange1" type="Float!" required>
+  The network trade volume change over the last hour
+</ResponseField>
+
+<ResponseField name="volumeChange5m" type="Float!" required>
+  The network trade volume change over the last 5 minutes
+</ResponseField>
+
+<ResponseField name="liquidity" type="Float!" required>
+  The network liquidity in USD.
+</ResponseField>
+
+<ResponseField name="transactions24" type="Int!" required>
+  The unique number of transactions in the past 24 hours.
+</ResponseField>
+
+<ResponseField name="transactions12" type="Int!" required>
+  The unique number of transactions in the past 12 hours.
+</ResponseField>
+
+<ResponseField name="transactions4" type="Int!" required>
+  The unique number of transactions in the past 4 hours.
+</ResponseField>
+
+<ResponseField name="transactions1" type="Int!" required>
+  The unique number of transactions in the past hour.
+</ResponseField>
+
+<ResponseField name="transactions5m" type="Int!" required>
+  The unique number of transactions in the past 5 minutes.
+</ResponseField>
+
+
+```graphql GetNetworkStatsResponse
+"""Response returned by `getNetworkStats`."""
+type GetNetworkStatsResponse {
+  """The network trade volume in USD over the past 24 hours."""
+  volume24: Float!
+  """The network trade volume in USD over the past 12 hours."""
+  volume12: Float!
+  """The network trade volume in USD over the past 4 hours."""
+  volume4: Float!
+  """The network trade volume in USD over the past hour."""
+  volume1: Float!
+  """The network trade volume in USD over the past 5 minutes."""
+  volume5m: Float!
+  """The network trade volume change over the last 24 hours"""
+  volumeChange24: Float!
+  """The network trade volume change over the last 12 hours"""
+  volumeChange12: Float!
+  """The network trade volume change over the last 4 hours"""
+  volumeChange4: Float!
+  """The network trade volume change over the last hour"""
+  volumeChange1: Float!
+  """The network trade volume change over the last 5 minutes"""
+  volumeChange5m: Float!
+  """The network liquidity in USD."""
+  liquidity: Float!
+  """The unique number of transactions in the past 24 hours."""
+  transactions24: Int!
+  """The unique number of transactions in the past 12 hours."""
+  transactions12: Int!
+  """The unique number of transactions in the past 4 hours."""
+  transactions4: Int!
+  """The unique number of transactions in the past hour."""
+  transactions1: Int!
+  """The unique number of transactions in the past 5 minutes."""
+  transactions5m: Int!
+}
+```

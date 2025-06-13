@@ -7,11 +7,17 @@ description: "Returns an NFT pool collection with pool stats for a given AMM NFT
 
 **Returns:** [NftPoolCollectionResponse](/api-reference/types/nftpoolcollectionresponse)
 
-## Arguments for getNftPoolCollection
+### Arguments
 
-| Name | Description |
-|------|-------------|
-| `collectionAddress` ([String!](/api-reference/types/string)) | The contract address of the NFT collection. |
-| `exchangeAddress` ([String!](/api-reference/types/string)) | The NFT AMM marketplace address to filter by. |
-| `networkId` ([Int!](/api-reference/types/int)) | The network ID the NFT collection is deployed on. |
+<ResponseField name="collectionAddress" type="String!" required>
+  The contract address of the NFT collection.
+</ResponseField>
+
+<ResponseField name="exchangeAddress" type="String!" required>
+  The NFT AMM marketplace address to filter by.
+</ResponseField>
+
+<ResponseField name="networkId" type="Int!" required>
+  The network ID the NFT collection is deployed on.
+</ResponseField>
 

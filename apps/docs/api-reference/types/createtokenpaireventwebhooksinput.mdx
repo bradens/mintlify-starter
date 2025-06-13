@@ -3,11 +3,19 @@ title: "CreateTokenPairEventWebhooksInput"
 description: "Input for creating token pair event webhooks."
 ---
 
-**Type:** [CreateTokenPairEventWebhooksInput](/api-reference/types/createtokenpaireventwebhooksinput)
+### Fields
 
-## Fields
+<a href="/api-reference/types/createtokenpaireventwebhookargs">
+  <ResponseField name="webhooks" type="[CreateTokenPairEventWebhookArgs!]!" required>
+    A list of token pair event webhooks to create.
+  </ResponseField>
+</a>
 
-| Name | Description |
-|------|-------------|
-| `webhooks` → [[CreateTokenPairEventWebhookArgs!]!](/api-reference/types/createtokenpaireventwebhookargs) | A list of token pair event webhooks to create. |
 
+```graphql CreateTokenPairEventWebhooksInput
+"""Input for creating token pair event webhooks."""
+input CreateTokenPairEventWebhooksInput {
+  """A list of token pair event webhooks to create."""
+  webhooks: [CreateTokenPairEventWebhookArgs!]!
+}
+```

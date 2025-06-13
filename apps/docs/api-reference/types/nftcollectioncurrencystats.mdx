@@ -3,18 +3,75 @@ title: "NftCollectionCurrencyStats"
 description: "Price stats for an NFT collection over a time frame. Either in USD or the network&#39;s base token."
 ---
 
-**Type:** [NftCollectionCurrencyStats](/api-reference/types/nftcollectioncurrencystats)
+### Fields
 
-## Fields
+<a href="/api-reference/types/nftstatsstringmetrics">
+  <ResponseField name="volume" type="NftStatsStringMetrics">
+    The volume over the time frame.
+  </ResponseField>
+</a>
 
-| Name | Description |
-|------|-------------|
-| `volume` → [NftStatsStringMetrics](/api-reference/types/nftstatsstringmetrics) | The volume over the time frame. |
-| `volumeByFillsource` → [[NftFillsourceStatsStringMetrics]](/api-reference/types/nftfillsourcestatsstringmetrics) | The volume partitioned by fillsource over the time frame |
-| `volumePercentByFillsource` → [[NftFillsourceStatsNumberMetrics]](/api-reference/types/nftfillsourcestatsnumbermetrics) | The percentages of total volume partitioned by fillsource over the time frame |
-| `average` → [NftStatsStringMetrics](/api-reference/types/nftstatsstringmetrics) | The average sale price in the time frame. |
-| `open` → [NftStatsStringMetrics](/api-reference/types/nftstatsstringmetrics) | The opening price for the time frame. |
-| `close` → [NftStatsStringMetrics](/api-reference/types/nftstatsstringmetrics) | The closing price for the time frame. |
-| `lowestSale` → [NftStatsStringMetrics](/api-reference/types/nftstatsstringmetrics) | The lowest sale price in the time frame. |
-| `highestSale` → [NftStatsStringMetrics](/api-reference/types/nftstatsstringmetrics) | The highest sale price in the time frame. |
+<a href="/api-reference/types/nftfillsourcestatsstringmetrics">
+  <ResponseField name="volumeByFillsource" type="[NftFillsourceStatsStringMetrics]">
+    The volume partitioned by fillsource over the time frame
+  </ResponseField>
+</a>
 
+<a href="/api-reference/types/nftfillsourcestatsnumbermetrics">
+  <ResponseField name="volumePercentByFillsource" type="[NftFillsourceStatsNumberMetrics]">
+    The percentages of total volume partitioned by fillsource over the time frame
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/nftstatsstringmetrics">
+  <ResponseField name="average" type="NftStatsStringMetrics">
+    The average sale price in the time frame.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/nftstatsstringmetrics">
+  <ResponseField name="open" type="NftStatsStringMetrics">
+    The opening price for the time frame.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/nftstatsstringmetrics">
+  <ResponseField name="close" type="NftStatsStringMetrics">
+    The closing price for the time frame.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/nftstatsstringmetrics">
+  <ResponseField name="lowestSale" type="NftStatsStringMetrics">
+    The lowest sale price in the time frame.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/nftstatsstringmetrics">
+  <ResponseField name="highestSale" type="NftStatsStringMetrics">
+    The highest sale price in the time frame.
+  </ResponseField>
+</a>
+
+
+```graphql NftCollectionCurrencyStats
+"""Price stats for an NFT collection over a time frame. Either in USD or the network's base token."""
+type NftCollectionCurrencyStats {
+  """The volume over the time frame."""
+  volume: NftStatsStringMetrics
+  """The volume partitioned by fillsource over the time frame"""
+  volumeByFillsource: [NftFillsourceStatsStringMetrics]
+  """The percentages of total volume partitioned by fillsource over the time frame"""
+  volumePercentByFillsource: [NftFillsourceStatsNumberMetrics]
+  """The average sale price in the time frame."""
+  average: NftStatsStringMetrics
+  """The opening price for the time frame."""
+  open: NftStatsStringMetrics
+  """The closing price for the time frame."""
+  close: NftStatsStringMetrics
+  """The lowest sale price in the time frame."""
+  lowestSale: NftStatsStringMetrics
+  """The highest sale price in the time frame."""
+  highestSale: NftStatsStringMetrics
+}
+```

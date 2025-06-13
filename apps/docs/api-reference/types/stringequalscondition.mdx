@@ -3,11 +3,17 @@ title: "StringEqualsCondition"
 description: "String equals condition."
 ---
 
-**Type:** [StringEqualsCondition](/api-reference/types/stringequalscondition)
+### Fields
 
-## Fields
+<ResponseField name="eq" type="String!" required>
+  The string to equal.
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `eq` → [String!](/api-reference/types/string) | The string to equal. |
 
+```graphql StringEqualsCondition
+"""String equals condition."""
+type StringEqualsCondition {
+  """The string to equal."""
+  eq: String!
+}
+```

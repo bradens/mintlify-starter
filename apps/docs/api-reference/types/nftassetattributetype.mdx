@@ -3,13 +3,26 @@ title: "NftAssetAttributeType"
 description: "The type for the NFT asset attribute `value` field."
 ---
 
-**Type:** [NftAssetAttributeType](/api-reference/types/nftassetattributetype)
+### Values
 
-## Values
+<ResponseField name="String" type="enum">
+  No description provided
+</ResponseField>
 
-| Value | Description |
-|-------|-------------|
-| `String` | No description provided |
-| `Number` | No description provided |
-| `Array` | No description provided |
+<ResponseField name="Number" type="enum">
+  No description provided
+</ResponseField>
 
+<ResponseField name="Array" type="enum">
+  No description provided
+</ResponseField>
+
+
+```graphql NftAssetAttributeType
+"""The type for the NFT asset attribute `value` field."""
+enum NftAssetAttributeType {
+  String
+  Number
+  Array
+}
+```

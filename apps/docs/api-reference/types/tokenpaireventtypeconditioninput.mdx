@@ -3,11 +3,19 @@ title: "TokenPairEventTypeConditionInput"
 description: "Input for token pair event type condition."
 ---
 
-**Type:** [TokenPairEventTypeConditionInput](/api-reference/types/tokenpaireventtypeconditioninput)
+### Fields
 
-## Fields
+<a href="/api-reference/types/tokenpaireventtype">
+  <ResponseField name="oneOf" type="[TokenPairEventType!]!" required>
+    The list of token event types to equal.
+  </ResponseField>
+</a>
 
-| Name | Description |
-|------|-------------|
-| `oneOf` → [[TokenPairEventType!]!](/api-reference/types/tokenpaireventtype) | The list of token event types to equal. |
 
+```graphql TokenPairEventTypeConditionInput
+"""Input for token pair event type condition."""
+input TokenPairEventTypeConditionInput {
+  """The list of token event types to equal."""
+  oneOf: [TokenPairEventType!]!
+}
+```

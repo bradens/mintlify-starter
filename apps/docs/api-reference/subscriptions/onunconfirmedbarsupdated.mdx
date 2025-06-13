@@ -7,10 +7,15 @@ description: "Unconfirmed live-streamed bar chart data to track price changes ov
 
 **Returns:** [OnUnconfirmedBarsUpdated](/api-reference/types/onunconfirmedbarsupdated)
 
-## Arguments for onUnconfirmedBarsUpdated
+### Arguments
 
-| Name | Description |
-|------|-------------|
-| `pairId` (String) | The ID of the pair (`address`:`networkId`). |
-| `quoteToken` ([QuoteToken](/api-reference/types/quotetoken)) | The token of interest within the pair. Can be `token0` or `token1`. |
+<ResponseField name="pairId" type="String">
+  The ID of the pair (`address`:`networkId`).
+</ResponseField>
+
+<a href="/api-reference/types/quotetoken">
+  <ResponseField name="quoteToken" type="QuoteToken">
+    The token of interest within the pair. Can be `token0` or `token1`.
+  </ResponseField>
+</a>
 

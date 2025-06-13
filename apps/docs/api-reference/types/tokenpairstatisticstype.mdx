@@ -3,12 +3,21 @@ title: "TokenPairStatisticsType"
 description: "The type of statistics returned. Can be `FILTERED` or `UNFILTERED`"
 ---
 
-**Type:** [TokenPairStatisticsType](/api-reference/types/tokenpairstatisticstype)
+### Values
 
-## Values
+<ResponseField name="FILTERED" type="enum">
+  No description provided
+</ResponseField>
 
-| Value | Description |
-|-------|-------------|
-| `FILTERED` | No description provided |
-| `UNFILTERED` | No description provided |
+<ResponseField name="UNFILTERED" type="enum">
+  No description provided
+</ResponseField>
 
+
+```graphql TokenPairStatisticsType
+"""The type of statistics returned. Can be `FILTERED` or `UNFILTERED`"""
+enum TokenPairStatisticsType {
+  FILTERED
+  UNFILTERED
+}
+```

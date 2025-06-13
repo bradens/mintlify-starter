@@ -3,12 +3,20 @@ title: "AddUserAchievementInput"
 description: "InputObject type"
 ---
 
-**Type:** [AddUserAchievementInput](/api-reference/types/adduserachievementinput)
+### Fields
 
-## Fields
+<ResponseField name="userId" type="String!" required>
+  No description provided
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `userId` → [String!](/api-reference/types/string) | No description provided |
-| `quantity` → [Int!](/api-reference/types/int) | No description provided |
+<ResponseField name="quantity" type="Int!" required>
+  No description provided
+</ResponseField>
 
+
+```graphql AddUserAchievementInput
+input AddUserAchievementInput {
+  userId: String!
+  quantity: Int!
+}
+```

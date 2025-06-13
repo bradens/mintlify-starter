@@ -7,10 +7,13 @@ description: "Returns metadata for a given network supported on Codex."
 
 **Returns:** [GetNetworkStatsResponse](/api-reference/types/getnetworkstatsresponse)
 
-## Arguments for getNetworkStats
+### Arguments
 
-| Name | Description |
-|------|-------------|
-| `networkId` ([Int!](/api-reference/types/int)) | The network Id to filter by. |
-| `exchangeAddress` (String) | The exchange address to filter by (optional). |
+<ResponseField name="networkId" type="Int!" required>
+  The network Id to filter by.
+</ResponseField>
+
+<ResponseField name="exchangeAddress" type="String">
+  The exchange address to filter by (optional).
+</ResponseField>
 

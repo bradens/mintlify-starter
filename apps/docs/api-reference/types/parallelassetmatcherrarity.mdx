@@ -3,15 +3,36 @@ title: "ParallelAssetMatcherRarity"
 description: "The Parallel asset rarity."
 ---
 
-**Type:** [ParallelAssetMatcherRarity](/api-reference/types/parallelassetmatcherrarity)
+### Values
 
-## Values
+<ResponseField name="Common" type="enum">
+  No description provided
+</ResponseField>
 
-| Value | Description |
-|-------|-------------|
-| `Common` | No description provided |
-| `Uncommon` | No description provided |
-| `Rare` | No description provided |
-| `Legendary` | No description provided |
-| `Prime` | No description provided |
+<ResponseField name="Uncommon" type="enum">
+  No description provided
+</ResponseField>
 
+<ResponseField name="Rare" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="Legendary" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="Prime" type="enum">
+  No description provided
+</ResponseField>
+
+
+```graphql ParallelAssetMatcherRarity
+"""The Parallel asset rarity."""
+enum ParallelAssetMatcherRarity {
+  Common
+  Uncommon
+  Rare
+  Legendary
+  Prime
+}
+```

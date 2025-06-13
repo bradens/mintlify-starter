@@ -3,11 +3,16 @@ title: "IndexerStateInput"
 description: "InputObject type"
 ---
 
-**Type:** [IndexerStateInput](/api-reference/types/indexerstateinput)
+### Fields
 
-## Fields
+<ResponseField name="networkId" type="Int!" required>
+  The network ID to check the state of.
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `networkId` → [Int!](/api-reference/types/int) | The network ID to check the state of. |
 
+```graphql IndexerStateInput
+input IndexerStateInput {
+  """The network ID to check the state of."""
+  networkId: Int!
+}
+```

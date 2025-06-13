@@ -3,13 +3,31 @@ title: "ParallelAssetFilterConnection"
 description: "Response returned by `filterNftParallelAssets`."
 ---
 
-**Type:** [ParallelAssetFilterConnection](/api-reference/types/parallelassetfilterconnection)
+### Fields
 
-## Fields
+<a href="/api-reference/types/parallelassetfilterresult">
+  <ResponseField name="results" type="[ParallelAssetFilterResult]">
+    The list of Parallel assets matching the filter parameters.
+  </ResponseField>
+</a>
 
-| Name | Description |
-|------|-------------|
-| `results` → [[ParallelAssetFilterResult]](/api-reference/types/parallelassetfilterresult) | The list of Parallel assets matching the filter parameters. |
-| `count` → Int | The number of Parallel assets returned. |
-| `offset` → Int | Where in the list the server started when returning items. |
+<ResponseField name="count" type="Int">
+  The number of Parallel assets returned.
+</ResponseField>
 
+<ResponseField name="offset" type="Int">
+  Where in the list the server started when returning items.
+</ResponseField>
+
+
+```graphql ParallelAssetFilterConnection
+"""Response returned by `filterNftParallelAssets`."""
+type ParallelAssetFilterConnection {
+  """The list of Parallel assets matching the filter parameters."""
+  results: [ParallelAssetFilterResult]
+  """The number of Parallel assets returned."""
+  count: Int
+  """Where in the list the server started when returning items."""
+  offset: Int
+}
+```

@@ -3,13 +3,31 @@ title: "CommunityNotesInput"
 description: "Input type of `getCommunityNotes`."
 ---
 
-**Type:** [CommunityNotesInput](/api-reference/types/communitynotesinput)
+### Fields
 
-## Fields
+<a href="/api-reference/types/communitynotesfilter">
+  <ResponseField name="filter" type="CommunityNotesFilter">
+    A set of filters to apply
+  </ResponseField>
+</a>
 
-| Name | Description |
-|------|-------------|
-| `filter` → [CommunityNotesFilter](/api-reference/types/communitynotesfilter) | A set of filters to apply |
-| `limit` → Int | The maximum number of community notes to return. |
-| `cursor` → String | The cursor to use for pagination. |
+<ResponseField name="limit" type="Int">
+  The maximum number of community notes to return.
+</ResponseField>
 
+<ResponseField name="cursor" type="String">
+  The cursor to use for pagination.
+</ResponseField>
+
+
+```graphql CommunityNotesInput
+"""Input type of `getCommunityNotes`."""
+input CommunityNotesInput {
+  """A set of filters to apply"""
+  filter: CommunityNotesFilter
+  """The maximum number of community notes to return."""
+  limit: Int
+  """The cursor to use for pagination."""
+  cursor: String
+}
+```

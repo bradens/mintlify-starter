@@ -3,12 +3,27 @@ title: "ExchangeRanking"
 description: "Input type of `ExchangeRanking`."
 ---
 
-**Type:** [ExchangeRanking](/api-reference/types/exchangeranking)
+### Fields
 
-## Fields
+<a href="/api-reference/types/exchangerankingattribute">
+  <ResponseField name="attribute" type="ExchangeRankingAttribute">
+    The attribute to rank exchanges by.
+  </ResponseField>
+</a>
 
-| Name | Description |
-|------|-------------|
-| `attribute` → [ExchangeRankingAttribute](/api-reference/types/exchangerankingattribute) | The attribute to rank exchanges by. |
-| `direction` → [RankingDirection](/api-reference/types/rankingdirection) | The direction to apply to the ranking attribute. |
+<a href="/api-reference/types/rankingdirection">
+  <ResponseField name="direction" type="RankingDirection">
+    The direction to apply to the ranking attribute.
+  </ResponseField>
+</a>
 
+
+```graphql ExchangeRanking
+"""Input type of `ExchangeRanking`."""
+input ExchangeRanking {
+  """The attribute to rank exchanges by."""
+  attribute: ExchangeRankingAttribute
+  """The direction to apply to the ranking attribute."""
+  direction: RankingDirection
+}
+```

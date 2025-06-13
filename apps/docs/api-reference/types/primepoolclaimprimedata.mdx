@@ -3,15 +3,45 @@ title: "PrimePoolClaimPrimeData"
 description: "Event-specific data for a Prime pool ClaimPrime transaction."
 ---
 
-**Type:** [PrimePoolClaimPrimeData](/api-reference/types/primepoolclaimprimedata)
+### Fields
 
-## Fields
+<a href="/api-reference/types/primepooleventtype">
+  <ResponseField name="type" type="PrimePoolEventType!" required>
+    The Prime pool event type.
+  </ResponseField>
+</a>
 
-| Name | Description |
-|------|-------------|
-| `type` → [PrimePoolEventType!](/api-reference/types/primepooleventtype) | The Prime pool event type. |
-| `user` → [String!](/api-reference/types/string) | The wallet address claiming PRIME rewards. |
-| `eventAmount` → [String!](/api-reference/types/string) | The amount of PRIME claimed. |
-| `currency` → [PrimePoolCurrency!](/api-reference/types/primepoolcurrency) | The currency type of the event. |
-| `userPrimeRewardDebt` → [String!](/api-reference/types/string) | The total amount of PRIME claimed for a pool. |
+<ResponseField name="user" type="String!" required>
+  The wallet address claiming PRIME rewards.
+</ResponseField>
 
+<ResponseField name="eventAmount" type="String!" required>
+  The amount of PRIME claimed.
+</ResponseField>
+
+<a href="/api-reference/types/primepoolcurrency">
+  <ResponseField name="currency" type="PrimePoolCurrency!" required>
+    The currency type of the event.
+  </ResponseField>
+</a>
+
+<ResponseField name="userPrimeRewardDebt" type="String!" required>
+  The total amount of PRIME claimed for a pool.
+</ResponseField>
+
+
+```graphql PrimePoolClaimPrimeData
+"""Event-specific data for a Prime pool ClaimPrime transaction."""
+type PrimePoolClaimPrimeData {
+  """The Prime pool event type."""
+  type: PrimePoolEventType!
+  """The wallet address claiming PRIME rewards."""
+  user: String!
+  """The amount of PRIME claimed."""
+  eventAmount: String!
+  """The currency type of the event."""
+  currency: PrimePoolCurrency!
+  """The total amount of PRIME claimed for a pool."""
+  userPrimeRewardDebt: String!
+}
+```

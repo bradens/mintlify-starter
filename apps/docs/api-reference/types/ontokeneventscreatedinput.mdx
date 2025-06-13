@@ -3,12 +3,22 @@ title: "OnTokenEventsCreatedInput"
 description: "InputObject type"
 ---
 
-**Type:** [OnTokenEventsCreatedInput](/api-reference/types/ontokeneventscreatedinput)
+### Fields
 
-## Fields
+<ResponseField name="tokenAddress" type="String">
+  The token address to filter by.
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `tokenAddress` → String | The token address to filter by. |
-| `networkId` → [Int!](/api-reference/types/int) | The network ID to filter by. |
+<ResponseField name="networkId" type="Int!" required>
+  The network ID to filter by.
+</ResponseField>
 
+
+```graphql OnTokenEventsCreatedInput
+input OnTokenEventsCreatedInput {
+  """The token address to filter by."""
+  tokenAddress: String
+  """The network ID to filter by."""
+  networkId: Int!
+}
+```

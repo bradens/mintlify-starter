@@ -3,12 +3,22 @@ title: "WalletNftCollectionAsset"
 description: "Object type"
 ---
 
-**Type:** [WalletNftCollectionAsset](/api-reference/types/walletnftcollectionasset)
+### Fields
 
-## Fields
+<ResponseField name="tokenId" type="String!" required>
+  The id of the nft asset.
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `tokenId` → [String!](/api-reference/types/string) | The id of the nft asset. |
-| `quantity` → [String!](/api-reference/types/string) | The number of instances of the nft held by the wallet (Applicable to ERC1155 NFTs). |
+<ResponseField name="quantity" type="String!" required>
+  The number of instances of the nft held by the wallet (Applicable to ERC1155 NFTs).
+</ResponseField>
 
+
+```graphql WalletNftCollectionAsset
+type WalletNftCollectionAsset {
+  """The id of the nft asset."""
+  tokenId: String!
+  """The number of instances of the nft held by the wallet (Applicable to ERC1155 NFTs)."""
+  quantity: String!
+}
+```

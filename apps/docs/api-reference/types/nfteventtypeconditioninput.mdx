@@ -3,11 +3,19 @@ title: "NftEventTypeConditionInput"
 description: "Input for NFT event type."
 ---
 
-**Type:** [NftEventTypeConditionInput](/api-reference/types/nfteventtypeconditioninput)
+### Fields
 
-## Fields
+<a href="/api-reference/types/webhooknfteventtype">
+  <ResponseField name="eq" type="WebhookNftEventType!" required>
+    The NFT event type to equal.
+  </ResponseField>
+</a>
 
-| Name | Description |
-|------|-------------|
-| `eq` → [WebhookNftEventType!](/api-reference/types/webhooknfteventtype) | The NFT event type to equal. |
 
+```graphql NftEventTypeConditionInput
+"""Input for NFT event type."""
+input NftEventTypeConditionInput {
+  """The NFT event type to equal."""
+  eq: WebhookNftEventType!
+}
+```

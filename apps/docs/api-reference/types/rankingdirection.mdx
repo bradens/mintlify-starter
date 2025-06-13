@@ -3,12 +3,21 @@ title: "RankingDirection"
 description: "The order of ranking."
 ---
 
-**Type:** [RankingDirection](/api-reference/types/rankingdirection)
+### Values
 
-## Values
+<ResponseField name="ASC" type="enum">
+  No description provided
+</ResponseField>
 
-| Value | Description |
-|-------|-------------|
-| `ASC` | No description provided |
-| `DESC` | No description provided |
+<ResponseField name="DESC" type="enum">
+  No description provided
+</ResponseField>
 
+
+```graphql RankingDirection
+"""The order of ranking."""
+enum RankingDirection {
+  ASC
+  DESC
+}
+```

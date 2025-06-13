@@ -3,15 +3,36 @@ title: "ParallelAssetMatcherCardType"
 description: "The Parallel asset card type."
 ---
 
-**Type:** [ParallelAssetMatcherCardType](/api-reference/types/parallelassetmatchercardtype)
+### Values
 
-## Values
+<ResponseField name="Effect" type="enum">
+  No description provided
+</ResponseField>
 
-| Value | Description |
-|-------|-------------|
-| `Effect` | No description provided |
-| `Relic` | No description provided |
-| `Unit` | No description provided |
-| `Upgrade` | No description provided |
-| `Paragon` | No description provided |
+<ResponseField name="Relic" type="enum">
+  No description provided
+</ResponseField>
 
+<ResponseField name="Unit" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="Upgrade" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="Paragon" type="enum">
+  No description provided
+</ResponseField>
+
+
+```graphql ParallelAssetMatcherCardType
+"""The Parallel asset card type."""
+enum ParallelAssetMatcherCardType {
+  Effect
+  Relic
+  Unit
+  Upgrade
+  Paragon
+}
+```

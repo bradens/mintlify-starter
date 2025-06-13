@@ -3,56 +3,376 @@ title: "WalletFilters"
 description: "InputObject type"
 ---
 
-**Type:** [WalletFilters](/api-reference/types/walletfilters)
+### Fields
 
-## Fields
+<a href="/api-reference/types/numberfilter">
+  <ResponseField name="lastTransactionAt" type="NumberFilter">
+    The unix timestamp for the last transaction from this wallet.
+  </ResponseField>
+</a>
 
-| Name | Description |
-|------|-------------|
-| `lastTransactionAt` → [NumberFilter](/api-reference/types/numberfilter) | The unix timestamp for the last transaction from this wallet. |
-| `firstTransactionAt` → [NumberFilter](/api-reference/types/numberfilter) | The unix timestamp for the first transaction from this wallet. |
-| `volumeUsd1d` → [NumberFilter](/api-reference/types/numberfilter) | Volume in USD in the past day |
-| `volumeUsdAll1d` → [NumberFilter](/api-reference/types/numberfilter) | Total volume in USD in the past day including all tokens |
-| `realizedProfitUsd1d` → [NumberFilter](/api-reference/types/numberfilter) | Realized profit in USD in the past day |
-| `averageProfitUsdPerTrade1d` → [NumberFilter](/api-reference/types/numberfilter) | Average profit in USD per trade in the past day |
-| `averageSwapAmountUsd1d` → [NumberFilter](/api-reference/types/numberfilter) | Average swap amount in USD in the past day |
-| `realizedProfitPercentage1d` → [NumberFilter](/api-reference/types/numberfilter) | Realized profit percentage in the past day |
-| `swaps1d` → [NumberFilter](/api-reference/types/numberfilter) | Number of swaps in the past day |
-| `swapsAll1d` → [NumberFilter](/api-reference/types/numberfilter) | Total number of swaps in the past day including all tokens |
-| `uniqueTokens1d` → [NumberFilter](/api-reference/types/numberfilter) | Number of unique tokens traded in the past day |
-| `winRate1d` → [NumberFilter](/api-reference/types/numberfilter) | Win rate in the past day |
-| `volumeUsd1w` → [NumberFilter](/api-reference/types/numberfilter) | Volume in USD in the past week |
-| `volumeUsdAll1w` → [NumberFilter](/api-reference/types/numberfilter) | Total volume in USD in the past week including all tokens |
-| `realizedProfitUsd1w` → [NumberFilter](/api-reference/types/numberfilter) | Realized profit in USD in the past week |
-| `averageProfitUsdPerTrade1w` → [NumberFilter](/api-reference/types/numberfilter) | Average profit in USD per trade in the past week |
-| `averageSwapAmountUsd1w` → [NumberFilter](/api-reference/types/numberfilter) | Average swap amount in USD in the past week |
-| `realizedProfitPercentage1w` → [NumberFilter](/api-reference/types/numberfilter) | Realized profit percentage in the past week |
-| `swaps1w` → [NumberFilter](/api-reference/types/numberfilter) | Number of swaps in the past week |
-| `swapsAll1w` → [NumberFilter](/api-reference/types/numberfilter) | Total number of swaps in the past week including all tokens |
-| `uniqueTokens1w` → [NumberFilter](/api-reference/types/numberfilter) | Number of unique tokens traded in the past week |
-| `winRate1w` → [NumberFilter](/api-reference/types/numberfilter) | Win rate in the past week |
-| `volumeUsd30d` → [NumberFilter](/api-reference/types/numberfilter) | Volume in USD in the past 30 days |
-| `volumeUsdAll30d` → [NumberFilter](/api-reference/types/numberfilter) | Total volume in USD in the past 30 days including all tokens |
-| `realizedProfitUsd30d` → [NumberFilter](/api-reference/types/numberfilter) | Realized profit in USD in the past 30 days |
-| `averageProfitUsdPerTrade30d` → [NumberFilter](/api-reference/types/numberfilter) | Average profit in USD per trade in the past 30 days |
-| `averageSwapAmountUsd30d` → [NumberFilter](/api-reference/types/numberfilter) | Average swap amount in USD in the past 30 days |
-| `realizedProfitPercentage30d` → [NumberFilter](/api-reference/types/numberfilter) | Realized profit percentage in the past 30 days |
-| `swaps30d` → [NumberFilter](/api-reference/types/numberfilter) | Number of swaps in the past 30 days |
-| `swapsAll30d` → [NumberFilter](/api-reference/types/numberfilter) | Total number of swaps in the past 30 days including all tokens |
-| `uniqueTokens30d` → [NumberFilter](/api-reference/types/numberfilter) | Number of unique tokens traded in the past 30 days |
-| `winRate30d` → [NumberFilter](/api-reference/types/numberfilter) | Win rate in the past 30 days |
-| `volumeUsd1y` → [NumberFilter](/api-reference/types/numberfilter) | Volume in USD in the past year |
-| `volumeUsdAll1y` → [NumberFilter](/api-reference/types/numberfilter) | Total volume in USD in the past year including all tokens |
-| `realizedProfitUsd1y` → [NumberFilter](/api-reference/types/numberfilter) | Realized profit in USD in the past year |
-| `averageProfitUsdPerTrade1y` → [NumberFilter](/api-reference/types/numberfilter) | Average profit in USD per trade in the past year |
-| `averageSwapAmountUsd1y` → [NumberFilter](/api-reference/types/numberfilter) | Average swap amount in USD in the past year |
-| `realizedProfitPercentage1y` → [NumberFilter](/api-reference/types/numberfilter) | Realized profit percentage in the past year |
-| `swaps1y` → [NumberFilter](/api-reference/types/numberfilter) | Number of swaps in the past year |
-| `swapsAll1y` → [NumberFilter](/api-reference/types/numberfilter) | Total number of swaps in the past year including all tokens |
-| `uniqueTokens1y` → [NumberFilter](/api-reference/types/numberfilter) | Number of unique tokens traded in the past year |
-| `winRate1y` → [NumberFilter](/api-reference/types/numberfilter) | Win rate in the past year |
-| `scammerScore` → [NumberFilter](/api-reference/types/numberfilter) | The scammer score for the wallet. |
-| `botScore` → [NumberFilter](/api-reference/types/numberfilter) | The bot score for the wallet. |
-| `networkId` → Int | The network ID to filter by. |
-| `nativeTokenBalance` → [NumberFilter](/api-reference/types/numberfilter) | The native token balance of the wallet. Can only be used in conjunction with `networkId` filter. |
+<a href="/api-reference/types/numberfilter">
+  <ResponseField name="firstTransactionAt" type="NumberFilter">
+    The unix timestamp for the first transaction from this wallet.
+  </ResponseField>
+</a>
 
+<a href="/api-reference/types/numberfilter">
+  <ResponseField name="volumeUsd1d" type="NumberFilter">
+    Volume in USD in the past day
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/numberfilter">
+  <ResponseField name="volumeUsdAll1d" type="NumberFilter">
+    Total volume in USD in the past day including all tokens
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/numberfilter">
+  <ResponseField name="realizedProfitUsd1d" type="NumberFilter">
+    Realized profit in USD in the past day
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/numberfilter">
+  <ResponseField name="averageProfitUsdPerTrade1d" type="NumberFilter">
+    Average profit in USD per trade in the past day
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/numberfilter">
+  <ResponseField name="averageSwapAmountUsd1d" type="NumberFilter">
+    Average swap amount in USD in the past day
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/numberfilter">
+  <ResponseField name="realizedProfitPercentage1d" type="NumberFilter">
+    Realized profit percentage in the past day
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/numberfilter">
+  <ResponseField name="swaps1d" type="NumberFilter">
+    Number of swaps in the past day
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/numberfilter">
+  <ResponseField name="swapsAll1d" type="NumberFilter">
+    Total number of swaps in the past day including all tokens
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/numberfilter">
+  <ResponseField name="uniqueTokens1d" type="NumberFilter">
+    Number of unique tokens traded in the past day
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/numberfilter">
+  <ResponseField name="winRate1d" type="NumberFilter">
+    Win rate in the past day
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/numberfilter">
+  <ResponseField name="volumeUsd1w" type="NumberFilter">
+    Volume in USD in the past week
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/numberfilter">
+  <ResponseField name="volumeUsdAll1w" type="NumberFilter">
+    Total volume in USD in the past week including all tokens
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/numberfilter">
+  <ResponseField name="realizedProfitUsd1w" type="NumberFilter">
+    Realized profit in USD in the past week
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/numberfilter">
+  <ResponseField name="averageProfitUsdPerTrade1w" type="NumberFilter">
+    Average profit in USD per trade in the past week
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/numberfilter">
+  <ResponseField name="averageSwapAmountUsd1w" type="NumberFilter">
+    Average swap amount in USD in the past week
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/numberfilter">
+  <ResponseField name="realizedProfitPercentage1w" type="NumberFilter">
+    Realized profit percentage in the past week
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/numberfilter">
+  <ResponseField name="swaps1w" type="NumberFilter">
+    Number of swaps in the past week
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/numberfilter">
+  <ResponseField name="swapsAll1w" type="NumberFilter">
+    Total number of swaps in the past week including all tokens
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/numberfilter">
+  <ResponseField name="uniqueTokens1w" type="NumberFilter">
+    Number of unique tokens traded in the past week
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/numberfilter">
+  <ResponseField name="winRate1w" type="NumberFilter">
+    Win rate in the past week
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/numberfilter">
+  <ResponseField name="volumeUsd30d" type="NumberFilter">
+    Volume in USD in the past 30 days
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/numberfilter">
+  <ResponseField name="volumeUsdAll30d" type="NumberFilter">
+    Total volume in USD in the past 30 days including all tokens
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/numberfilter">
+  <ResponseField name="realizedProfitUsd30d" type="NumberFilter">
+    Realized profit in USD in the past 30 days
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/numberfilter">
+  <ResponseField name="averageProfitUsdPerTrade30d" type="NumberFilter">
+    Average profit in USD per trade in the past 30 days
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/numberfilter">
+  <ResponseField name="averageSwapAmountUsd30d" type="NumberFilter">
+    Average swap amount in USD in the past 30 days
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/numberfilter">
+  <ResponseField name="realizedProfitPercentage30d" type="NumberFilter">
+    Realized profit percentage in the past 30 days
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/numberfilter">
+  <ResponseField name="swaps30d" type="NumberFilter">
+    Number of swaps in the past 30 days
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/numberfilter">
+  <ResponseField name="swapsAll30d" type="NumberFilter">
+    Total number of swaps in the past 30 days including all tokens
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/numberfilter">
+  <ResponseField name="uniqueTokens30d" type="NumberFilter">
+    Number of unique tokens traded in the past 30 days
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/numberfilter">
+  <ResponseField name="winRate30d" type="NumberFilter">
+    Win rate in the past 30 days
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/numberfilter">
+  <ResponseField name="volumeUsd1y" type="NumberFilter">
+    Volume in USD in the past year
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/numberfilter">
+  <ResponseField name="volumeUsdAll1y" type="NumberFilter">
+    Total volume in USD in the past year including all tokens
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/numberfilter">
+  <ResponseField name="realizedProfitUsd1y" type="NumberFilter">
+    Realized profit in USD in the past year
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/numberfilter">
+  <ResponseField name="averageProfitUsdPerTrade1y" type="NumberFilter">
+    Average profit in USD per trade in the past year
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/numberfilter">
+  <ResponseField name="averageSwapAmountUsd1y" type="NumberFilter">
+    Average swap amount in USD in the past year
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/numberfilter">
+  <ResponseField name="realizedProfitPercentage1y" type="NumberFilter">
+    Realized profit percentage in the past year
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/numberfilter">
+  <ResponseField name="swaps1y" type="NumberFilter">
+    Number of swaps in the past year
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/numberfilter">
+  <ResponseField name="swapsAll1y" type="NumberFilter">
+    Total number of swaps in the past year including all tokens
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/numberfilter">
+  <ResponseField name="uniqueTokens1y" type="NumberFilter">
+    Number of unique tokens traded in the past year
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/numberfilter">
+  <ResponseField name="winRate1y" type="NumberFilter">
+    Win rate in the past year
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/numberfilter">
+  <ResponseField name="scammerScore" type="NumberFilter">
+    The scammer score for the wallet.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/numberfilter">
+  <ResponseField name="botScore" type="NumberFilter">
+    The bot score for the wallet.
+  </ResponseField>
+</a>
+
+<ResponseField name="networkId" type="Int">
+  The network ID to filter by.
+</ResponseField>
+
+<a href="/api-reference/types/numberfilter">
+  <ResponseField name="nativeTokenBalance" type="NumberFilter">
+    The native token balance of the wallet. Can only be used in conjunction with `networkId` filter.
+  </ResponseField>
+</a>
+
+
+```graphql WalletFilters
+input WalletFilters {
+  """The unix timestamp for the last transaction from this wallet."""
+  lastTransactionAt: NumberFilter
+  """The unix timestamp for the first transaction from this wallet."""
+  firstTransactionAt: NumberFilter
+  """Volume in USD in the past day"""
+  volumeUsd1d: NumberFilter
+  """Total volume in USD in the past day including all tokens"""
+  volumeUsdAll1d: NumberFilter
+  """Realized profit in USD in the past day"""
+  realizedProfitUsd1d: NumberFilter
+  """Average profit in USD per trade in the past day"""
+  averageProfitUsdPerTrade1d: NumberFilter
+  """Average swap amount in USD in the past day"""
+  averageSwapAmountUsd1d: NumberFilter
+  """Realized profit percentage in the past day"""
+  realizedProfitPercentage1d: NumberFilter
+  """Number of swaps in the past day"""
+  swaps1d: NumberFilter
+  """Total number of swaps in the past day including all tokens"""
+  swapsAll1d: NumberFilter
+  """Number of unique tokens traded in the past day"""
+  uniqueTokens1d: NumberFilter
+  """Win rate in the past day"""
+  winRate1d: NumberFilter
+  """Volume in USD in the past week"""
+  volumeUsd1w: NumberFilter
+  """Total volume in USD in the past week including all tokens"""
+  volumeUsdAll1w: NumberFilter
+  """Realized profit in USD in the past week"""
+  realizedProfitUsd1w: NumberFilter
+  """Average profit in USD per trade in the past week"""
+  averageProfitUsdPerTrade1w: NumberFilter
+  """Average swap amount in USD in the past week"""
+  averageSwapAmountUsd1w: NumberFilter
+  """Realized profit percentage in the past week"""
+  realizedProfitPercentage1w: NumberFilter
+  """Number of swaps in the past week"""
+  swaps1w: NumberFilter
+  """Total number of swaps in the past week including all tokens"""
+  swapsAll1w: NumberFilter
+  """Number of unique tokens traded in the past week"""
+  uniqueTokens1w: NumberFilter
+  """Win rate in the past week"""
+  winRate1w: NumberFilter
+  """Volume in USD in the past 30 days"""
+  volumeUsd30d: NumberFilter
+  """Total volume in USD in the past 30 days including all tokens"""
+  volumeUsdAll30d: NumberFilter
+  """Realized profit in USD in the past 30 days"""
+  realizedProfitUsd30d: NumberFilter
+  """Average profit in USD per trade in the past 30 days"""
+  averageProfitUsdPerTrade30d: NumberFilter
+  """Average swap amount in USD in the past 30 days"""
+  averageSwapAmountUsd30d: NumberFilter
+  """Realized profit percentage in the past 30 days"""
+  realizedProfitPercentage30d: NumberFilter
+  """Number of swaps in the past 30 days"""
+  swaps30d: NumberFilter
+  """Total number of swaps in the past 30 days including all tokens"""
+  swapsAll30d: NumberFilter
+  """Number of unique tokens traded in the past 30 days"""
+  uniqueTokens30d: NumberFilter
+  """Win rate in the past 30 days"""
+  winRate30d: NumberFilter
+  """Volume in USD in the past year"""
+  volumeUsd1y: NumberFilter
+  """Total volume in USD in the past year including all tokens"""
+  volumeUsdAll1y: NumberFilter
+  """Realized profit in USD in the past year"""
+  realizedProfitUsd1y: NumberFilter
+  """Average profit in USD per trade in the past year"""
+  averageProfitUsdPerTrade1y: NumberFilter
+  """Average swap amount in USD in the past year"""
+  averageSwapAmountUsd1y: NumberFilter
+  """Realized profit percentage in the past year"""
+  realizedProfitPercentage1y: NumberFilter
+  """Number of swaps in the past year"""
+  swaps1y: NumberFilter
+  """Total number of swaps in the past year including all tokens"""
+  swapsAll1y: NumberFilter
+  """Number of unique tokens traded in the past year"""
+  uniqueTokens1y: NumberFilter
+  """Win rate in the past year"""
+  winRate1y: NumberFilter
+  """The scammer score for the wallet."""
+  scammerScore: NumberFilter
+  """The bot score for the wallet."""
+  botScore: NumberFilter
+  """The network ID to filter by."""
+  networkId: Int
+  """The native token balance of the wallet. Can only be used in conjunction with `networkId` filter."""
+  nativeTokenBalance: NumberFilter
+}
+```

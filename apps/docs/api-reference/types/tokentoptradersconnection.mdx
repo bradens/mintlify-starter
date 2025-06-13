@@ -3,15 +3,45 @@ title: "TokenTopTradersConnection"
 description: "A paginated list of top traders for a token."
 ---
 
-**Type:** [TokenTopTradersConnection](/api-reference/types/tokentoptradersconnection)
+### Fields
 
-## Fields
+<ResponseField name="tokenAddress" type="String!" required>
+  The token address.
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `tokenAddress` → [String!](/api-reference/types/string) | The token address. |
-| `networkId` → [Int!](/api-reference/types/int) | The network ID. |
-| `tradingPeriod` → [TradingPeriod!](/api-reference/types/tradingperiod) | The trading period. |
-| `items` → [[TokenTopTrader]!](/api-reference/types/tokentoptrader) | The list of top traders. |
-| `offset` → Int | The offset of the first trader in the connection. |
+<ResponseField name="networkId" type="Int!" required>
+  The network ID.
+</ResponseField>
 
+<a href="/api-reference/types/tradingperiod">
+  <ResponseField name="tradingPeriod" type="TradingPeriod!" required>
+    The trading period.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/tokentoptrader">
+  <ResponseField name="items" type="[TokenTopTrader]!" required>
+    The list of top traders.
+  </ResponseField>
+</a>
+
+<ResponseField name="offset" type="Int">
+  The offset of the first trader in the connection.
+</ResponseField>
+
+
+```graphql TokenTopTradersConnection
+"""A paginated list of top traders for a token."""
+type TokenTopTradersConnection {
+  """The token address."""
+  tokenAddress: String!
+  """The network ID."""
+  networkId: Int!
+  """The trading period."""
+  tradingPeriod: TradingPeriod!
+  """The list of top traders."""
+  items: [TokenTopTrader]!
+  """The offset of the first trader in the connection."""
+  offset: Int
+}
+```

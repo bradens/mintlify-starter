@@ -3,17 +3,33 @@ title: "searchTokens"
 description: "Returns a list of tokens matching a given query string."
 ---
 
+<Warning>
+  This query is deprecated. This query is no longer supported and will not return up to date data. Use `filterTokens` instead.
+</Warning>
+
 **Type:** Query
 
 **Returns:** [TokenSearchResponse](/api-reference/types/tokensearchresponse)
 
-## Arguments for searchTokens
+### Arguments
 
-| Name | Description |
-|------|-------------|
-| `limit` (Int) | The maximum number of tokens to return. |
-| `lowVolumeFilter` (Boolean) | Whether to filter out low volume results from the response. Low volume is less than $500 USD. This setting has no effect when only low volume results are found. Default is `true`. |
-| `networkFilter` ([[Int!]](/api-reference/types/int)) | The list of network IDs to filter by. |
-| `resolution` (String) | The time frame to use for token metadata. Can be `60`, `240`, `720`, or `1D`. |
-| `search` ([String!](/api-reference/types/string)) | The query string to search for. Can match a token or pair contract address or partially match a token&#39;s name or symbol. Automatically filters out tokens marked as scams. |
+<ResponseField name="limit" type="Int">
+  The maximum number of tokens to return.
+</ResponseField>
+
+<ResponseField name="lowVolumeFilter" type="Boolean">
+  Whether to filter out low volume results from the response. Low volume is less than $500 USD. This setting has no effect when only low volume results are found. Default is `true`.
+</ResponseField>
+
+<ResponseField name="networkFilter" type="[Int!]">
+  The list of network IDs to filter by.
+</ResponseField>
+
+<ResponseField name="resolution" type="String">
+  The time frame to use for token metadata. Can be `60`, `240`, `720`, or `1D`.
+</ResponseField>
+
+<ResponseField name="search" type="String!" required>
+  The query string to search for. Can match a token or pair contract address or partially match a token&#39;s name or symbol. Automatically filters out tokens marked as scams.
+</ResponseField>
 

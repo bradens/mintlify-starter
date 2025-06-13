@@ -3,17 +3,57 @@ title: "NftAssetAttribute"
 description: "Attributes for an NFT asset."
 ---
 
-**Type:** [NftAssetAttribute](/api-reference/types/nftassetattribute)
+### Fields
 
-## Fields
+<ResponseField name="class" type="String">
+  Suggested class name to use for css styling. An optional attribute of ERC-1155 assets.
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `class` → String | Suggested class name to use for css styling. An optional attribute of ERC-1155 assets. |
-| `css` → String | Suggested CSS styling. An optional attribute of ERC-1155 assets. |
-| `displayType` → [NftAssetAttributeDisplayType!](/api-reference/types/nftassetattributedisplaytype) | The attribute display type. Can be `Trait`, `Stat`, `Ranking`, `BoostNumber`, `BoostPercentage` or `Date`. |
-| `maxValue` → String | The max value, if applicable. |
-| `name` → [String!](/api-reference/types/string) | The name of the attribute. |
-| `value` → [String!](/api-reference/types/string) | The value of the attribute. |
-| `valueType` → [NftAssetAttributeType!](/api-reference/types/nftassetattributetype) | The type for the `value` field. Can be `String`, `Number` or `Array`. |
+<ResponseField name="css" type="String">
+  Suggested CSS styling. An optional attribute of ERC-1155 assets.
+</ResponseField>
 
+<a href="/api-reference/types/nftassetattributedisplaytype">
+  <ResponseField name="displayType" type="NftAssetAttributeDisplayType!" required>
+    The attribute display type. Can be `Trait`, `Stat`, `Ranking`, `BoostNumber`, `BoostPercentage` or `Date`.
+  </ResponseField>
+</a>
+
+<ResponseField name="maxValue" type="String">
+  The max value, if applicable.
+</ResponseField>
+
+<ResponseField name="name" type="String!" required>
+  The name of the attribute.
+</ResponseField>
+
+<ResponseField name="value" type="String!" required>
+  The value of the attribute.
+</ResponseField>
+
+<a href="/api-reference/types/nftassetattributetype">
+  <ResponseField name="valueType" type="NftAssetAttributeType!" required>
+    The type for the `value` field. Can be `String`, `Number` or `Array`.
+  </ResponseField>
+</a>
+
+
+```graphql NftAssetAttribute
+"""Attributes for an NFT asset."""
+type NftAssetAttribute {
+  """Suggested class name to use for css styling. An optional attribute of ERC-1155 assets."""
+  class: String
+  """Suggested CSS styling. An optional attribute of ERC-1155 assets."""
+  css: String
+  """The attribute display type. Can be `Trait`, `Stat`, `Ranking`, `BoostNumber`, `BoostPercentage` or `Date`."""
+  displayType: NftAssetAttributeDisplayType!
+  """The max value, if applicable."""
+  maxValue: String
+  """The name of the attribute."""
+  name: String!
+  """The value of the attribute."""
+  value: String!
+  """The type for the `value` field. Can be `String`, `Number` or `Array`."""
+  valueType: NftAssetAttributeType!
+}
+```

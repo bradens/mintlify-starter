@@ -3,13 +3,26 @@ title: "NftEventOrderDirection"
 description: "The direction of the nft sale event."
 ---
 
-**Type:** [NftEventOrderDirection](/api-reference/types/nfteventorderdirection)
+### Values
 
-## Values
+<ResponseField name="BUY" type="enum">
+  No description provided
+</ResponseField>
 
-| Value | Description |
-|-------|-------------|
-| `BUY` | No description provided |
-| `SELL` | No description provided |
-| `OFFER_ACCEPTED` | No description provided |
+<ResponseField name="SELL" type="enum">
+  No description provided
+</ResponseField>
 
+<ResponseField name="OFFER_ACCEPTED" type="enum">
+  No description provided
+</ResponseField>
+
+
+```graphql NftEventOrderDirection
+"""The direction of the nft sale event."""
+enum NftEventOrderDirection {
+  BUY
+  SELL
+  OFFER_ACCEPTED
+}
+```

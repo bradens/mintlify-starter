@@ -3,13 +3,31 @@ title: "ParallelCardChange"
 description: "Tracked changes made to a Parallel card."
 ---
 
-**Type:** [ParallelCardChange](/api-reference/types/parallelcardchange)
+### Fields
 
-## Fields
+<ResponseField name="tokenId" type="String!" required>
+  The token ID of the Parallel asset.
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `tokenId` → [String!](/api-reference/types/string) | The token ID of the Parallel asset. |
-| `timestamp` → [Int!](/api-reference/types/int) | The unix timestamp for the card change. |
-| `diff` → [ParallelCardChangeDiff!](/api-reference/types/parallelcardchangediff) | The Parallel card metadata before and after the card change. |
+<ResponseField name="timestamp" type="Int!" required>
+  The unix timestamp for the card change.
+</ResponseField>
 
+<a href="/api-reference/types/parallelcardchangediff">
+  <ResponseField name="diff" type="ParallelCardChangeDiff!" required>
+    The Parallel card metadata before and after the card change.
+  </ResponseField>
+</a>
+
+
+```graphql ParallelCardChange
+"""Tracked changes made to a Parallel card."""
+type ParallelCardChange {
+  """The token ID of the Parallel asset."""
+  tokenId: String!
+  """The unix timestamp for the card change."""
+  timestamp: Int!
+  """The Parallel card metadata before and after the card change."""
+  diff: ParallelCardChangeDiff!
+}
+```

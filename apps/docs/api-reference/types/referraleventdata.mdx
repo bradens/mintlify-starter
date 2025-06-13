@@ -3,12 +3,14 @@ title: "ReferralEventData"
 description: "Union type"
 ---
 
-**Type:** [ReferralEventData](/api-reference/types/referraleventdata)
-
-## Union Types
+### Union Types
 
 This union can be one of the following types:
 
 - [ReferralsEventRewardData](/api-reference/types/referralseventrewarddata)
 - [ReferralsEventPayoutData](/api-reference/types/referralseventpayoutdata)
 
+
+```graphql ReferralEventData
+union ReferralEventData = ReferralsEventRewardData | ReferralsEventPayoutData
+```

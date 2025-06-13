@@ -3,14 +3,35 @@ title: "RetrySettings"
 description: "Config for retrying failed webhook messages"
 ---
 
-**Type:** [RetrySettings](/api-reference/types/retrysettings)
+### Fields
 
-## Fields
+<ResponseField name="maxTimeElapsed" type="Int">
+  The maximum time in seconds that the webhook will retry sending a message
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `maxTimeElapsed` → Int | The maximum time in seconds that the webhook will retry sending a message |
-| `minRetryDelay` → Int | The minimum time in seconds that the webhook will wait before retrying a failed message |
-| `maxRetryDelay` → Int | The maximum time in seconds that the webhook will wait before retrying a failed message |
-| `maxRetries` → Int | The maximum number of times the webhook will retry sending a message |
+<ResponseField name="minRetryDelay" type="Int">
+  The minimum time in seconds that the webhook will wait before retrying a failed message
+</ResponseField>
 
+<ResponseField name="maxRetryDelay" type="Int">
+  The maximum time in seconds that the webhook will wait before retrying a failed message
+</ResponseField>
+
+<ResponseField name="maxRetries" type="Int">
+  The maximum number of times the webhook will retry sending a message
+</ResponseField>
+
+
+```graphql RetrySettings
+"""Config for retrying failed webhook messages"""
+type RetrySettings {
+  """The maximum time in seconds that the webhook will retry sending a message"""
+  maxTimeElapsed: Int
+  """The minimum time in seconds that the webhook will wait before retrying a failed message"""
+  minRetryDelay: Int
+  """The maximum time in seconds that the webhook will wait before retrying a failed message"""
+  maxRetryDelay: Int
+  """The maximum number of times the webhook will retry sending a message"""
+  maxRetries: Int
+}
+```

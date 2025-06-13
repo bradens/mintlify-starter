@@ -3,13 +3,30 @@ title: "HoldersInput"
 description: "InputObject type"
 ---
 
-**Type:** [HoldersInput](/api-reference/types/holdersinput)
+### Fields
 
-## Fields
+<ResponseField name="tokenId" type="String!" required>
+  The ID of the token (`tokenAddress:networkId`).
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `tokenId` → [String!](/api-reference/types/string) | The ID of the token (`tokenAddress:networkId`). |
-| `cursor` → String | A cursor for use in pagination. |
-| `sort` → [HoldersInputSort](/api-reference/types/holdersinputsort) | The attribute to sort the list on |
+<ResponseField name="cursor" type="String">
+  A cursor for use in pagination.
+</ResponseField>
 
+<a href="/api-reference/types/holdersinputsort">
+  <ResponseField name="sort" type="HoldersInputSort">
+    The attribute to sort the list on
+  </ResponseField>
+</a>
+
+
+```graphql HoldersInput
+input HoldersInput {
+  """The ID of the token (`tokenAddress:networkId`)."""
+  tokenId: String!
+  """A cursor for use in pagination."""
+  cursor: String
+  """The attribute to sort the list on"""
+  sort: HoldersInputSort
+}
+```

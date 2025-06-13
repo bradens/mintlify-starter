@@ -3,13 +3,31 @@ title: "PrimePoolEthRewardsAddedData"
 description: "Event-specific data for a Prime pool LogUpdatePool transaction."
 ---
 
-**Type:** [PrimePoolEthRewardsAddedData](/api-reference/types/primepoolethrewardsaddeddata)
+### Fields
 
-## Fields
+<a href="/api-reference/types/primepooleventtype">
+  <ResponseField name="type" type="PrimePoolEventType!" required>
+    The Prime pool event type.
+  </ResponseField>
+</a>
 
-| Name | Description |
-|------|-------------|
-| `type` → [PrimePoolEventType!](/api-reference/types/primepooleventtype) | The Prime pool event type. |
-| `amount` → [String!](/api-reference/types/string) | The amount of ETH rewards added to the pool. |
-| `totalRewards` → [String!](/api-reference/types/string) | The total ETH rewards for the pool. |
+<ResponseField name="amount" type="String!" required>
+  The amount of ETH rewards added to the pool.
+</ResponseField>
 
+<ResponseField name="totalRewards" type="String!" required>
+  The total ETH rewards for the pool.
+</ResponseField>
+
+
+```graphql PrimePoolEthRewardsAddedData
+"""Event-specific data for a Prime pool LogUpdatePool transaction."""
+type PrimePoolEthRewardsAddedData {
+  """The Prime pool event type."""
+  type: PrimePoolEventType!
+  """The amount of ETH rewards added to the pool."""
+  amount: String!
+  """The total ETH rewards for the pool."""
+  totalRewards: String!
+}
+```

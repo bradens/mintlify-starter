@@ -3,12 +3,25 @@ title: "EventLabelConnection"
 description: "Response returned by `getEventLabels`."
 ---
 
-**Type:** [EventLabelConnection](/api-reference/types/eventlabelconnection)
+### Fields
 
-## Fields
+<a href="/api-reference/types/eventlabel">
+  <ResponseField name="items" type="[EventLabel]">
+    A list of event labels for a pair.
+  </ResponseField>
+</a>
 
-| Name | Description |
-|------|-------------|
-| `items` → [[EventLabel]](/api-reference/types/eventlabel) | A list of event labels for a pair. |
-| `cursor` → String | The cursor to use for pagination. |
+<ResponseField name="cursor" type="String">
+  The cursor to use for pagination.
+</ResponseField>
 
+
+```graphql EventLabelConnection
+"""Response returned by `getEventLabels`."""
+type EventLabelConnection {
+  """A list of event labels for a pair."""
+  items: [EventLabel]
+  """The cursor to use for pagination."""
+  cursor: String
+}
+```

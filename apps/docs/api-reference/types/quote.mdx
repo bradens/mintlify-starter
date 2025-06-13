@@ -3,18 +3,54 @@ title: "Quote"
 description: "Object type"
 ---
 
-**Type:** [Quote](/api-reference/types/quote)
+### Fields
 
-## Fields
+<ResponseField name="poolFee" type="String">
+  No description provided
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `poolFee` → String | No description provided |
-| `poolFeeBps` → Float | No description provided |
-| `quotedAmount` → [String!](/api-reference/types/string) | No description provided |
-| `outputAmountMin` → String | No description provided |
-| `quoteType` → [QuoteType!](/api-reference/types/quotetype) | No description provided |
-| `tradeFee` → [String!](/api-reference/types/string) | No description provided |
-| `tradeFeeBps` → [Float!](/api-reference/types/float) | No description provided |
-| `exchange` → [QuoteExchange!](/api-reference/types/quoteexchange) | No description provided |
+<ResponseField name="poolFeeBps" type="Float">
+  No description provided
+</ResponseField>
 
+<ResponseField name="quotedAmount" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="outputAmountMin" type="String">
+  No description provided
+</ResponseField>
+
+<a href="/api-reference/types/quotetype">
+  <ResponseField name="quoteType" type="QuoteType!" required>
+    No description provided
+  </ResponseField>
+</a>
+
+<ResponseField name="tradeFee" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="tradeFeeBps" type="Float!" required>
+  No description provided
+</ResponseField>
+
+<a href="/api-reference/types/quoteexchange">
+  <ResponseField name="exchange" type="QuoteExchange!" required>
+    No description provided
+  </ResponseField>
+</a>
+
+
+```graphql Quote
+type Quote {
+  poolFee: String
+  poolFeeBps: Float
+  quotedAmount: String!
+  outputAmountMin: String
+  quoteType: QuoteType!
+  tradeFee: String!
+  tradeFeeBps: Float!
+  exchange: QuoteExchange!
+}
+```

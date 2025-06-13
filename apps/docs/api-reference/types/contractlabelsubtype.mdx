@@ -3,14 +3,31 @@ title: "ContractLabelSubType"
 description: "The contract label sub-type."
 ---
 
-**Type:** [ContractLabelSubType](/api-reference/types/contractlabelsubtype)
+### Values
 
-## Values
+<ResponseField name="Generic" type="enum">
+  No description provided
+</ResponseField>
 
-| Value | Description |
-|-------|-------------|
-| `Generic` | No description provided |
-| `HighTax` | No description provided |
-| `HoneyPot` | No description provided |
-| `Imitator` | No description provided |
+<ResponseField name="HighTax" type="enum">
+  No description provided
+</ResponseField>
 
+<ResponseField name="HoneyPot" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="Imitator" type="enum">
+  No description provided
+</ResponseField>
+
+
+```graphql ContractLabelSubType
+"""The contract label sub-type."""
+enum ContractLabelSubType {
+  Generic
+  HighTax
+  HoneyPot
+  Imitator
+}
+```

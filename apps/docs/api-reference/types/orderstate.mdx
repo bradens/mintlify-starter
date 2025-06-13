@@ -3,15 +3,35 @@ title: "OrderState"
 description: "Enum type"
 ---
 
-**Type:** [OrderState](/api-reference/types/orderstate)
+### Values
 
-## Values
+<ResponseField name="CREATED" type="enum">
+  No description provided
+</ResponseField>
 
-| Value | Description |
-|-------|-------------|
-| `CREATED` | No description provided |
-| `PENDING` | No description provided |
-| `COMPLETED` | No description provided |
-| `FAILED` | No description provided |
-| `EXPIRED` | No description provided |
+<ResponseField name="PENDING" type="enum">
+  No description provided
+</ResponseField>
 
+<ResponseField name="COMPLETED" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="FAILED" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="EXPIRED" type="enum">
+  No description provided
+</ResponseField>
+
+
+```graphql OrderState
+enum OrderState {
+  CREATED
+  PENDING
+  COMPLETED
+  FAILED
+  EXPIRED
+}
+```

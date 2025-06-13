@@ -3,11 +3,19 @@ title: "NftEventFillSourceConditionInput"
 description: "Input for NFT event fill source condition."
 ---
 
-**Type:** [NftEventFillSourceConditionInput](/api-reference/types/nfteventfillsourceconditioninput)
+### Fields
 
-## Fields
+<a href="/api-reference/types/webhooknfteventfillsource">
+  <ResponseField name="oneOf" type="[WebhookNftEventFillSource!]!" required>
+    The list of NFT marketplace to equal.
+  </ResponseField>
+</a>
 
-| Name | Description |
-|------|-------------|
-| `oneOf` → [[WebhookNftEventFillSource!]!](/api-reference/types/webhooknfteventfillsource) | The list of NFT marketplace to equal. |
 
+```graphql NftEventFillSourceConditionInput
+"""Input for NFT event fill source condition."""
+input NftEventFillSourceConditionInput {
+  """The list of NFT marketplace to equal."""
+  oneOf: [WebhookNftEventFillSource!]!
+}
+```

@@ -3,11 +3,17 @@ title: "OnUnconfirmedEventsCreatedByMakerInput"
 description: "Input for `onUnconfirmedEventsCreatedByMaker`."
 ---
 
-**Type:** [OnUnconfirmedEventsCreatedByMakerInput](/api-reference/types/onunconfirmedeventscreatedbymakerinput)
+### Fields
 
-## Fields
+<ResponseField name="makerAddress" type="String!" required>
+  The wallet address of the maker.
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `makerAddress` → [String!](/api-reference/types/string) | The wallet address of the maker. |
 
+```graphql OnUnconfirmedEventsCreatedByMakerInput
+"""Input for `onUnconfirmedEventsCreatedByMaker`."""
+input OnUnconfirmedEventsCreatedByMakerInput {
+  """The wallet address of the maker."""
+  makerAddress: String!
+}
+```

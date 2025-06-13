@@ -3,16 +3,59 @@ title: "ParallelAssetFilters"
 description: "Input type of `ParallelAssetFilters`."
 ---
 
-**Type:** [ParallelAssetFilters](/api-reference/types/parallelassetfilters)
+### Fields
 
-## Fields
+<a href="/api-reference/types/numberfilter">
+  <ResponseField name="attack" type="NumberFilter">
+    The damage dealt when engaged in combat.
+  </ResponseField>
+</a>
 
-| Name | Description |
-|------|-------------|
-| `attack` → [NumberFilter](/api-reference/types/numberfilter) | The damage dealt when engaged in combat. |
-| `cost` → [NumberFilter](/api-reference/types/numberfilter) | The energy used to play in-game. |
-| `health` → [NumberFilter](/api-reference/types/numberfilter) | The possible damage received before being destroyed. |
-| `supply` → [NumberFilter](/api-reference/types/numberfilter) | The total supply of this individual asset. |
-| `lastPriceUsd` → [NumberFilter](/api-reference/types/numberfilter) | The last sale price in USD. |
-| `lastPriceNetworkBaseToken` → [NumberFilter](/api-reference/types/numberfilter) | The last sale price in the network&#39;s base token. |
+<a href="/api-reference/types/numberfilter">
+  <ResponseField name="cost" type="NumberFilter">
+    The energy used to play in-game.
+  </ResponseField>
+</a>
 
+<a href="/api-reference/types/numberfilter">
+  <ResponseField name="health" type="NumberFilter">
+    The possible damage received before being destroyed.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/numberfilter">
+  <ResponseField name="supply" type="NumberFilter">
+    The total supply of this individual asset.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/numberfilter">
+  <ResponseField name="lastPriceUsd" type="NumberFilter">
+    The last sale price in USD.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/numberfilter">
+  <ResponseField name="lastPriceNetworkBaseToken" type="NumberFilter">
+    The last sale price in the network&#39;s base token.
+  </ResponseField>
+</a>
+
+
+```graphql ParallelAssetFilters
+"""Input type of `ParallelAssetFilters`."""
+input ParallelAssetFilters {
+  """The damage dealt when engaged in combat."""
+  attack: NumberFilter
+  """The energy used to play in-game."""
+  cost: NumberFilter
+  """The possible damage received before being destroyed."""
+  health: NumberFilter
+  """The total supply of this individual asset."""
+  supply: NumberFilter
+  """The last sale price in USD."""
+  lastPriceUsd: NumberFilter
+  """The last sale price in the network's base token."""
+  lastPriceNetworkBaseToken: NumberFilter
+}
+```

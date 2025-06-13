@@ -3,14 +3,30 @@ title: "SimulateLiquidityErrorsType"
 description: "Object type"
 ---
 
-**Type:** [SimulateLiquidityErrorsType](/api-reference/types/simulateliquidityerrorstype)
+### Fields
 
-## Fields
+<ResponseField name="lpTotalSupplyError" type="String">
+  No description provided
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `lpTotalSupplyError` → String | No description provided |
-| `preLiquidityEnableTradingError` → String | No description provided |
-| `postLiquidityEnableTradingError` → String | No description provided |
-| `addLiquidityError` → String | No description provided |
+<ResponseField name="preLiquidityEnableTradingError" type="String">
+  No description provided
+</ResponseField>
 
+<ResponseField name="postLiquidityEnableTradingError" type="String">
+  No description provided
+</ResponseField>
+
+<ResponseField name="addLiquidityError" type="String">
+  No description provided
+</ResponseField>
+
+
+```graphql SimulateLiquidityErrorsType
+type SimulateLiquidityErrorsType {
+  lpTotalSupplyError: String
+  preLiquidityEnableTradingError: String
+  postLiquidityEnableTradingError: String
+  addLiquidityError: String
+}
+```

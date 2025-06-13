@@ -7,13 +7,29 @@ description: "Returns a list of NFT collections based on a variety of filters."
 
 **Returns:** [NftPoolCollectionFilterConnection](/api-reference/types/nftpoolcollectionfilterconnection)
 
-## Arguments for filterNftPoolCollections
+### Arguments
 
-| Name | Description |
-|------|-------------|
-| `filters` ([NftPoolCollectionFilters](/api-reference/types/nftpoolcollectionfilters)) | A set of filters to apply. |
-| `phrase` (String) | A phrase to search for. Can partially match an NFT collection name. |
-| `rankings` ([[NftPoolCollectionRanking]](/api-reference/types/nftpoolcollectionranking)) | A list of ranking attributes to apply. |
-| `limit` (Int) | The maximum number of NFT collections to return. |
-| `offset` (Int) | Where in the list the server should start when returning items. Use `count`+`page` from the previous query to request the next page of results. |
+<a href="/api-reference/types/nftpoolcollectionfilters">
+  <ResponseField name="filters" type="NftPoolCollectionFilters">
+    A set of filters to apply.
+  </ResponseField>
+</a>
+
+<ResponseField name="phrase" type="String">
+  A phrase to search for. Can partially match an NFT collection name.
+</ResponseField>
+
+<a href="/api-reference/types/nftpoolcollectionranking">
+  <ResponseField name="rankings" type="[NftPoolCollectionRanking]">
+    A list of ranking attributes to apply.
+  </ResponseField>
+</a>
+
+<ResponseField name="limit" type="Int">
+  The maximum number of NFT collections to return.
+</ResponseField>
+
+<ResponseField name="offset" type="Int">
+  Where in the list the server should start when returning items. Use `count`+`page` from the previous query to request the next page of results.
+</ResponseField>
 

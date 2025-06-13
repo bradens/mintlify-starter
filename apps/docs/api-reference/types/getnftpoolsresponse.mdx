@@ -3,12 +3,25 @@ title: "GetNftPoolsResponse"
 description: "Response returned by `getNftPoolsByCollectionAndExchange` and `getNftPoolsByOwner`."
 ---
 
-**Type:** [GetNftPoolsResponse](/api-reference/types/getnftpoolsresponse)
+### Fields
 
-## Fields
+<a href="/api-reference/types/nftpoolresponse">
+  <ResponseField name="items" type="[NftPoolResponse]!" required>
+    A list of NFT pools.
+  </ResponseField>
+</a>
 
-| Name | Description |
-|------|-------------|
-| `items` → [[NftPoolResponse]!](/api-reference/types/nftpoolresponse) | A list of NFT pools. |
-| `cursor` → String | A cursor for use in pagination. |
+<ResponseField name="cursor" type="String">
+  A cursor for use in pagination.
+</ResponseField>
 
+
+```graphql GetNftPoolsResponse
+"""Response returned by `getNftPoolsByCollectionAndExchange` and `getNftPoolsByOwner`."""
+type GetNftPoolsResponse {
+  """A list of NFT pools."""
+  items: [NftPoolResponse]!
+  """A cursor for use in pagination."""
+  cursor: String
+}
+```

@@ -3,14 +3,39 @@ title: "PrimePoolRewardDecreaseData"
 description: "Event-specific data for a Prime pool RewardDecrease transaction."
 ---
 
-**Type:** [PrimePoolRewardDecreaseData](/api-reference/types/primepoolrewarddecreasedata)
+### Fields
 
-## Fields
+<a href="/api-reference/types/primepooleventtype">
+  <ResponseField name="type" type="PrimePoolEventType!" required>
+    The Prime pool event type.
+  </ResponseField>
+</a>
 
-| Name | Description |
-|------|-------------|
-| `type` → [PrimePoolEventType!](/api-reference/types/primepooleventtype) | The Prime pool event type. |
-| `currency` → [PrimePoolCurrency!](/api-reference/types/primepoolcurrency) | The currency type of the event. |
-| `eventAmount` → [String!](/api-reference/types/string) | The amount of rewards decreased. |
-| `updatedAmount` → [String!](/api-reference/types/string) | The updated total rewards for the pool. |
+<a href="/api-reference/types/primepoolcurrency">
+  <ResponseField name="currency" type="PrimePoolCurrency!" required>
+    The currency type of the event.
+  </ResponseField>
+</a>
 
+<ResponseField name="eventAmount" type="String!" required>
+  The amount of rewards decreased.
+</ResponseField>
+
+<ResponseField name="updatedAmount" type="String!" required>
+  The updated total rewards for the pool.
+</ResponseField>
+
+
+```graphql PrimePoolRewardDecreaseData
+"""Event-specific data for a Prime pool RewardDecrease transaction."""
+type PrimePoolRewardDecreaseData {
+  """The Prime pool event type."""
+  type: PrimePoolEventType!
+  """The currency type of the event."""
+  currency: PrimePoolCurrency!
+  """The amount of rewards decreased."""
+  eventAmount: String!
+  """The updated total rewards for the pool."""
+  updatedAmount: String!
+}
+```

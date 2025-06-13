@@ -3,12 +3,26 @@ title: "WalletRanking"
 description: "InputObject type"
 ---
 
-**Type:** [WalletRanking](/api-reference/types/walletranking)
+### Fields
 
-## Fields
+<a href="/api-reference/types/walletrankingattribute">
+  <ResponseField name="attribute" type="WalletRankingAttribute">
+    The attribute to rank wallets by.
+  </ResponseField>
+</a>
 
-| Name | Description |
-|------|-------------|
-| `attribute` → [WalletRankingAttribute](/api-reference/types/walletrankingattribute) | The attribute to rank wallets by. |
-| `direction` → [RankingDirection](/api-reference/types/rankingdirection) | The direction to apply to the ranking attribute. |
+<a href="/api-reference/types/rankingdirection">
+  <ResponseField name="direction" type="RankingDirection">
+    The direction to apply to the ranking attribute.
+  </ResponseField>
+</a>
 
+
+```graphql WalletRanking
+input WalletRanking {
+  """The attribute to rank wallets by."""
+  attribute: WalletRankingAttribute
+  """The direction to apply to the ranking attribute."""
+  direction: RankingDirection
+}
+```

@@ -3,18 +3,73 @@ title: "NftCollectionFilters"
 description: "Input filters for `filterNftCollections`."
 ---
 
-**Type:** [NftCollectionFilters](/api-reference/types/nftcollectionfilters)
+### Fields
 
-## Fields
+<a href="/api-reference/types/numberfilter">
+  <ResponseField name="totalSupply" type="NumberFilter">
+    The total supply of the NFT collection.
+  </ResponseField>
+</a>
 
-| Name | Description |
-|------|-------------|
-| `totalSupply` → [NumberFilter](/api-reference/types/numberfilter) | The total supply of the NFT collection. |
-| `lastEventTimestamp` → [NumberFilter](/api-reference/types/numberfilter) | The unix timestamp for the last event. |
-| `ercType` → [[NftContractErcType]](/api-reference/types/nftcontracterctype) | The list of token standards to filter by. |
-| `network` → [[Int]](/api-reference/types/int) | The list of network IDs to filter by. |
-| `stats1h` → [NftStatsWindowFilter](/api-reference/types/nftstatswindowfilter) | Stats for the past hour. |
-| `stats4h` → [NftStatsWindowFilter](/api-reference/types/nftstatswindowfilter) | Stats for the past 4 hours. |
-| `stats12h` → [NftStatsWindowFilter](/api-reference/types/nftstatswindowfilter) | Stats for the past 12 hours. |
-| `stats24h` → [NftStatsWindowFilter](/api-reference/types/nftstatswindowfilter) | Stats for the past 24 hours. |
+<a href="/api-reference/types/numberfilter">
+  <ResponseField name="lastEventTimestamp" type="NumberFilter">
+    The unix timestamp for the last event.
+  </ResponseField>
+</a>
 
+<a href="/api-reference/types/nftcontracterctype">
+  <ResponseField name="ercType" type="[NftContractErcType]">
+    The list of token standards to filter by.
+  </ResponseField>
+</a>
+
+<ResponseField name="network" type="[Int]">
+  The list of network IDs to filter by.
+</ResponseField>
+
+<a href="/api-reference/types/nftstatswindowfilter">
+  <ResponseField name="stats1h" type="NftStatsWindowFilter">
+    Stats for the past hour.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/nftstatswindowfilter">
+  <ResponseField name="stats4h" type="NftStatsWindowFilter">
+    Stats for the past 4 hours.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/nftstatswindowfilter">
+  <ResponseField name="stats12h" type="NftStatsWindowFilter">
+    Stats for the past 12 hours.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/nftstatswindowfilter">
+  <ResponseField name="stats24h" type="NftStatsWindowFilter">
+    Stats for the past 24 hours.
+  </ResponseField>
+</a>
+
+
+```graphql NftCollectionFilters
+"""Input filters for `filterNftCollections`."""
+input NftCollectionFilters {
+  """The total supply of the NFT collection."""
+  totalSupply: NumberFilter
+  """The unix timestamp for the last event."""
+  lastEventTimestamp: NumberFilter
+  """The list of token standards to filter by."""
+  ercType: [NftContractErcType]
+  """The list of network IDs to filter by."""
+  network: [Int]
+  """Stats for the past hour."""
+  stats1h: NftStatsWindowFilter
+  """Stats for the past 4 hours."""
+  stats4h: NftStatsWindowFilter
+  """Stats for the past 12 hours."""
+  stats12h: NftStatsWindowFilter
+  """Stats for the past 24 hours."""
+  stats24h: NftStatsWindowFilter
+}
+```

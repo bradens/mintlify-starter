@@ -3,17 +3,57 @@ title: "FilterWalletsInput"
 description: "The input for filtering wallets."
 ---
 
-**Type:** [FilterWalletsInput](/api-reference/types/filterwalletsinput)
+### Fields
 
-## Fields
+<a href="/api-reference/types/walletfilters">
+  <ResponseField name="filters" type="WalletFilters">
+    A set of filters to apply.
+  </ResponseField>
+</a>
 
-| Name | Description |
-|------|-------------|
-| `filters` → [WalletFilters](/api-reference/types/walletfilters) | A set of filters to apply. |
-| `wallets` → [[String]](/api-reference/types/string) | A list of wallet addresses to filter by. |
-| `excludeLabels` → [[String]](/api-reference/types/string) | Exclude wallets with these labels. |
-| `includeLabels` → [[String]](/api-reference/types/string) | Include wallets with these labels. |
-| `rankings` → [[WalletRanking]](/api-reference/types/walletranking) | A list of ranking attributes to apply. |
-| `limit` → Int | The maximum number of wallets to return. |
-| `offset` → Int | Where in the list the server should start when returning items. Use `count`+`offset` from the previous query to request the next page of results. |
+<ResponseField name="wallets" type="[String]">
+  A list of wallet addresses to filter by.
+</ResponseField>
 
+<ResponseField name="excludeLabels" type="[String]">
+  Exclude wallets with these labels.
+</ResponseField>
+
+<ResponseField name="includeLabels" type="[String]">
+  Include wallets with these labels.
+</ResponseField>
+
+<a href="/api-reference/types/walletranking">
+  <ResponseField name="rankings" type="[WalletRanking]">
+    A list of ranking attributes to apply.
+  </ResponseField>
+</a>
+
+<ResponseField name="limit" type="Int">
+  The maximum number of wallets to return.
+</ResponseField>
+
+<ResponseField name="offset" type="Int">
+  Where in the list the server should start when returning items. Use `count`+`offset` from the previous query to request the next page of results.
+</ResponseField>
+
+
+```graphql FilterWalletsInput
+"""The input for filtering wallets."""
+input FilterWalletsInput {
+  """A set of filters to apply."""
+  filters: WalletFilters
+  """A list of wallet addresses to filter by."""
+  wallets: [String]
+  """Exclude wallets with these labels."""
+  excludeLabels: [String]
+  """Include wallets with these labels."""
+  includeLabels: [String]
+  """A list of ranking attributes to apply."""
+  rankings: [WalletRanking]
+  """The maximum number of wallets to return."""
+  limit: Int
+  """Where in the list the server should start when returning items. Use `count`+`offset` from the previous query to request the next page of results."""
+  offset: Int
+}
+```

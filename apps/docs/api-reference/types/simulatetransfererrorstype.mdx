@@ -3,13 +3,25 @@ title: "SimulateTransferErrorsType"
 description: "Object type"
 ---
 
-**Type:** [SimulateTransferErrorsType](/api-reference/types/simulatetransfererrorstype)
+### Fields
 
-## Fields
+<ResponseField name="tokenContractApprovalError" type="String">
+  No description provided
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `tokenContractApprovalError` → String | No description provided |
-| `tokenTransferredToContractError` → String | No description provided |
-| `userApprovalError` → String | No description provided |
+<ResponseField name="tokenTransferredToContractError" type="String">
+  No description provided
+</ResponseField>
 
+<ResponseField name="userApprovalError" type="String">
+  No description provided
+</ResponseField>
+
+
+```graphql SimulateTransferErrorsType
+type SimulateTransferErrorsType {
+  tokenContractApprovalError: String
+  tokenTransferredToContractError: String
+  userApprovalError: String
+}
+```

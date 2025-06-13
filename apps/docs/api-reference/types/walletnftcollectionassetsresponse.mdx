@@ -3,14 +3,36 @@ title: "WalletNftCollectionAssetsResponse"
 description: "Object type"
 ---
 
-**Type:** [WalletNftCollectionAssetsResponse](/api-reference/types/walletnftcollectionassetsresponse)
+### Fields
 
-## Fields
+<a href="/api-reference/types/walletnftcollectionasset">
+  <ResponseField name="items" type="[WalletNftCollectionAsset]!" required>
+    The list of nft assets for a wallet.
+  </ResponseField>
+</a>
 
-| Name | Description |
-|------|-------------|
-| `items` → [[WalletNftCollectionAsset]!](/api-reference/types/walletnftcollectionasset) | The list of nft assets for a wallet. |
-| `walletAddress` → [String!](/api-reference/types/string) | The address of the wallet. |
-| `collectionId` → [String!](/api-reference/types/string) | The collection ID (`collectionAddress:networkId`). |
-| `cursor` → String | A cursor for use in pagination. |
+<ResponseField name="walletAddress" type="String!" required>
+  The address of the wallet.
+</ResponseField>
 
+<ResponseField name="collectionId" type="String!" required>
+  The collection ID (`collectionAddress:networkId`).
+</ResponseField>
+
+<ResponseField name="cursor" type="String">
+  A cursor for use in pagination.
+</ResponseField>
+
+
+```graphql WalletNftCollectionAssetsResponse
+type WalletNftCollectionAssetsResponse {
+  """The list of nft assets for a wallet."""
+  items: [WalletNftCollectionAsset]!
+  """The address of the wallet."""
+  walletAddress: String!
+  """The collection ID (`collectionAddress:networkId`)."""
+  collectionId: String!
+  """A cursor for use in pagination."""
+  cursor: String
+}
+```

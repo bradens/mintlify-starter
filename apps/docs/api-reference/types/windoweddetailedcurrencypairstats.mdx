@@ -3,18 +3,75 @@ title: "WindowedDetailedCurrencyPairStats"
 description: "Price stats for a pair over a time frame."
 ---
 
-**Type:** [WindowedDetailedCurrencyPairStats](/api-reference/types/windoweddetailedcurrencypairstats)
+### Fields
 
-## Fields
+<a href="/api-reference/types/detailedpairstatsstringmetrics">
+  <ResponseField name="volume" type="DetailedPairStatsStringMetrics">
+    The volume over the time frame.
+  </ResponseField>
+</a>
 
-| Name | Description |
-|------|-------------|
-| `volume` → [DetailedPairStatsStringMetrics](/api-reference/types/detailedpairstatsstringmetrics) | The volume over the time frame. |
-| `buyVolume` → [DetailedPairStatsStringMetrics](/api-reference/types/detailedpairstatsstringmetrics) | The buy volume over the time frame. |
-| `sellVolume` → [DetailedPairStatsStringMetrics](/api-reference/types/detailedpairstatsstringmetrics) | The sell volume over the time frame. |
-| `open` → [DetailedPairStatsStringMetrics](/api-reference/types/detailedpairstatsstringmetrics) | The opening price for the time frame. |
-| `highest` → [DetailedPairStatsStringMetrics](/api-reference/types/detailedpairstatsstringmetrics) | The highest price in USD in the time frame. |
-| `lowest` → [DetailedPairStatsStringMetrics](/api-reference/types/detailedpairstatsstringmetrics) | The lowest price in USD in the time frame. |
-| `close` → [DetailedPairStatsStringMetrics](/api-reference/types/detailedpairstatsstringmetrics) | The closing price for the time frame. |
-| `liquidity` → [DetailedPairStatsStringMetrics](/api-reference/types/detailedpairstatsstringmetrics) | The liquidity for the time frame. |
+<a href="/api-reference/types/detailedpairstatsstringmetrics">
+  <ResponseField name="buyVolume" type="DetailedPairStatsStringMetrics">
+    The buy volume over the time frame.
+  </ResponseField>
+</a>
 
+<a href="/api-reference/types/detailedpairstatsstringmetrics">
+  <ResponseField name="sellVolume" type="DetailedPairStatsStringMetrics">
+    The sell volume over the time frame.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/detailedpairstatsstringmetrics">
+  <ResponseField name="open" type="DetailedPairStatsStringMetrics">
+    The opening price for the time frame.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/detailedpairstatsstringmetrics">
+  <ResponseField name="highest" type="DetailedPairStatsStringMetrics">
+    The highest price in USD in the time frame.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/detailedpairstatsstringmetrics">
+  <ResponseField name="lowest" type="DetailedPairStatsStringMetrics">
+    The lowest price in USD in the time frame.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/detailedpairstatsstringmetrics">
+  <ResponseField name="close" type="DetailedPairStatsStringMetrics">
+    The closing price for the time frame.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/detailedpairstatsstringmetrics">
+  <ResponseField name="liquidity" type="DetailedPairStatsStringMetrics">
+    The liquidity for the time frame.
+  </ResponseField>
+</a>
+
+
+```graphql WindowedDetailedCurrencyPairStats
+"""Price stats for a pair over a time frame."""
+type WindowedDetailedCurrencyPairStats {
+  """The volume over the time frame."""
+  volume: DetailedPairStatsStringMetrics
+  """The buy volume over the time frame."""
+  buyVolume: DetailedPairStatsStringMetrics
+  """The sell volume over the time frame."""
+  sellVolume: DetailedPairStatsStringMetrics
+  """The opening price for the time frame."""
+  open: DetailedPairStatsStringMetrics
+  """The highest price in USD in the time frame."""
+  highest: DetailedPairStatsStringMetrics
+  """The lowest price in USD in the time frame."""
+  lowest: DetailedPairStatsStringMetrics
+  """The closing price for the time frame."""
+  close: DetailedPairStatsStringMetrics
+  """The liquidity for the time frame."""
+  liquidity: DetailedPairStatsStringMetrics
+}
+```

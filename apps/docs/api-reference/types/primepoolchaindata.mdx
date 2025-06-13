@@ -3,24 +3,95 @@ title: "PrimePoolChainData"
 description: "Values obtained directly from the chain."
 ---
 
-**Type:** [PrimePoolChainData](/api-reference/types/primepoolchaindata)
+### Fields
 
-## Fields
+<ResponseField name="cachingPaused" type="Boolean">
+  Whether caching is paused for this pool.
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `cachingPaused` → Boolean | Whether caching is paused for this pool. |
-| `ethClaimed` → String | How much ETH has been claimed for this pool. |
-| `ethReward` → String | How much ETH reward has been accrued for this pool. |
-| `ethAllocPoint` → String | The pool&#39;s allocation of the contract&#39;s per-second ETH rewards. |
-| `ethTotalAllocPoint` → String | Total share points of the contract&#39;s per-second ETH rewards to the pool. |
-| `ethStartTimestamp` → Int | Caching ETH rewards period start timestamp. |
-| `ethEndTimestamp` → Int | Caching ETH rewards period end timestamp. |
-| `ethLastRewardTimestamp` → Int | Last timestamp at which ETH rewards were assigned. |
-| `ethTimedCachePeriod` → String | Minimum number of timed cache seconds per ETH. |
-| `primeAllocPoint` → String | The pool&#39;s allocation of the contract&#39;s per second PRIME rewards. |
-| `primeTotalAllocPoint` → String | Total share points of the contract&#39;s per second PRIME rewards to the pool. |
-| `primeStartTimestamp` → String | Caching rewards period start timestamp. |
-| `primeEndTimestamp` → Int | Caching rewards period end timestamp. |
-| `primeLastRewardTimestamp` → Int | Last timestamp at which PRIME rewards were assigned. |
+<ResponseField name="ethClaimed" type="String">
+  How much ETH has been claimed for this pool.
+</ResponseField>
 
+<ResponseField name="ethReward" type="String">
+  How much ETH reward has been accrued for this pool.
+</ResponseField>
+
+<ResponseField name="ethAllocPoint" type="String">
+  The pool&#39;s allocation of the contract&#39;s per-second ETH rewards.
+</ResponseField>
+
+<ResponseField name="ethTotalAllocPoint" type="String">
+  Total share points of the contract&#39;s per-second ETH rewards to the pool.
+</ResponseField>
+
+<ResponseField name="ethStartTimestamp" type="Int">
+  Caching ETH rewards period start timestamp.
+</ResponseField>
+
+<ResponseField name="ethEndTimestamp" type="Int">
+  Caching ETH rewards period end timestamp.
+</ResponseField>
+
+<ResponseField name="ethLastRewardTimestamp" type="Int">
+  Last timestamp at which ETH rewards were assigned.
+</ResponseField>
+
+<ResponseField name="ethTimedCachePeriod" type="String">
+  Minimum number of timed cache seconds per ETH.
+</ResponseField>
+
+<ResponseField name="primeAllocPoint" type="String">
+  The pool&#39;s allocation of the contract&#39;s per second PRIME rewards.
+</ResponseField>
+
+<ResponseField name="primeTotalAllocPoint" type="String">
+  Total share points of the contract&#39;s per second PRIME rewards to the pool.
+</ResponseField>
+
+<ResponseField name="primeStartTimestamp" type="String">
+  Caching rewards period start timestamp.
+</ResponseField>
+
+<ResponseField name="primeEndTimestamp" type="Int">
+  Caching rewards period end timestamp.
+</ResponseField>
+
+<ResponseField name="primeLastRewardTimestamp" type="Int">
+  Last timestamp at which PRIME rewards were assigned.
+</ResponseField>
+
+
+```graphql PrimePoolChainData
+"""Values obtained directly from the chain."""
+type PrimePoolChainData {
+  """Whether caching is paused for this pool."""
+  cachingPaused: Boolean
+  """How much ETH has been claimed for this pool."""
+  ethClaimed: String
+  """How much ETH reward has been accrued for this pool."""
+  ethReward: String
+  """The pool's allocation of the contract's per-second ETH rewards."""
+  ethAllocPoint: String
+  """Total share points of the contract's per-second ETH rewards to the pool."""
+  ethTotalAllocPoint: String
+  """Caching ETH rewards period start timestamp."""
+  ethStartTimestamp: Int
+  """Caching ETH rewards period end timestamp."""
+  ethEndTimestamp: Int
+  """Last timestamp at which ETH rewards were assigned."""
+  ethLastRewardTimestamp: Int
+  """Minimum number of timed cache seconds per ETH."""
+  ethTimedCachePeriod: String
+  """The pool's allocation of the contract's per second PRIME rewards."""
+  primeAllocPoint: String
+  """Total share points of the contract's per second PRIME rewards to the pool."""
+  primeTotalAllocPoint: String
+  """Caching rewards period start timestamp."""
+  primeStartTimestamp: String
+  """Caching rewards period end timestamp."""
+  primeEndTimestamp: Int
+  """Last timestamp at which PRIME rewards were assigned."""
+  primeLastRewardTimestamp: Int
+}
+```

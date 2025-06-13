@@ -3,12 +3,25 @@ title: "GetWebhooksResponse"
 description: "Response returned by `getWebhooks`."
 ---
 
-**Type:** [GetWebhooksResponse](/api-reference/types/getwebhooksresponse)
+### Fields
 
-## Fields
+<a href="/api-reference/types/webhook">
+  <ResponseField name="items" type="[Webhook]">
+    A list of webhooks belonging to a user.
+  </ResponseField>
+</a>
 
-| Name | Description |
-|------|-------------|
-| `items` → [[Webhook]](/api-reference/types/webhook) | A list of webhooks belonging to a user. |
-| `cursor` → String | A cursor for use in pagination. |
+<ResponseField name="cursor" type="String">
+  A cursor for use in pagination.
+</ResponseField>
 
+
+```graphql GetWebhooksResponse
+"""Response returned by `getWebhooks`."""
+type GetWebhooksResponse {
+  """A list of webhooks belonging to a user."""
+  items: [Webhook]
+  """A cursor for use in pagination."""
+  cursor: String
+}
+```

@@ -3,14 +3,34 @@ title: "SimulateDeployInput"
 description: "InputObject type"
 ---
 
-**Type:** [SimulateDeployInput](/api-reference/types/simulatedeployinput)
+### Fields
 
-## Fields
+<ResponseField name="networkId" type="Int!" required>
+  The network ID the token is deployed on. Currently only supports 1 (mainnet).
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `networkId` → [Int!](/api-reference/types/int) | The network ID the token is deployed on. Currently only supports 1 (mainnet). |
-| `blockNumber` → [Int!](/api-reference/types/int) | The block number to simulate the contract at. |
-| `contractAddress` → [String!](/api-reference/types/string) | The contract address of the token. |
-| `contractInput` → [String!](/api-reference/types/string) | The contract creation transaction input to simulate. |
+<ResponseField name="blockNumber" type="Int!" required>
+  The block number to simulate the contract at.
+</ResponseField>
 
+<ResponseField name="contractAddress" type="String!" required>
+  The contract address of the token.
+</ResponseField>
+
+<ResponseField name="contractInput" type="String!" required>
+  The contract creation transaction input to simulate.
+</ResponseField>
+
+
+```graphql SimulateDeployInput
+input SimulateDeployInput {
+  """The network ID the token is deployed on. Currently only supports 1 (mainnet)."""
+  networkId: Int!
+  """The block number to simulate the contract at."""
+  blockNumber: Int!
+  """The contract address of the token."""
+  contractAddress: String!
+  """The contract creation transaction input to simulate."""
+  contractInput: String!
+}
+```

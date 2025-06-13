@@ -3,12 +3,25 @@ title: "PrimePoolLogPoolAdditionData"
 description: "Event-specific data for a Prime pool LogPoolAddition (new Prime pool) transaction."
 ---
 
-**Type:** [PrimePoolLogPoolAdditionData](/api-reference/types/primepoollogpooladditiondata)
+### Fields
 
-## Fields
+<a href="/api-reference/types/primepooleventtype">
+  <ResponseField name="type" type="PrimePoolEventType!" required>
+    The Prime pool event type.
+  </ResponseField>
+</a>
 
-| Name | Description |
-|------|-------------|
-| `type` → [PrimePoolEventType!](/api-reference/types/primepooleventtype) | The Prime pool event type. |
-| `tokenIds` → [[String!]!](/api-reference/types/string) | The token ID&#39;s added to the new Prime pool. |
+<ResponseField name="tokenIds" type="[String!]!" required>
+  The token ID&#39;s added to the new Prime pool.
+</ResponseField>
 
+
+```graphql PrimePoolLogPoolAdditionData
+"""Event-specific data for a Prime pool LogPoolAddition (new Prime pool) transaction."""
+type PrimePoolLogPoolAdditionData {
+  """The Prime pool event type."""
+  type: PrimePoolEventType!
+  """The token ID's added to the new Prime pool."""
+  tokenIds: [String!]!
+}
+```

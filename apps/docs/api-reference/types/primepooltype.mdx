@@ -3,13 +3,26 @@ title: "PrimePoolType"
 description: "The type of Prime pool caching contract."
 ---
 
-**Type:** [PrimePoolType](/api-reference/types/primepooltype)
+### Values
 
-## Values
+<ResponseField name="PRIME_REWARDS" type="enum">
+  No description provided
+</ResponseField>
 
-| Value | Description |
-|-------|-------------|
-| `PRIME_REWARDS` | No description provided |
-| `ETH_AND_PRIME_REWARDS` | No description provided |
-| `TIMED_CACHE_ETH_AND_PRIME_REWARDS` | No description provided |
+<ResponseField name="ETH_AND_PRIME_REWARDS" type="enum">
+  No description provided
+</ResponseField>
 
+<ResponseField name="TIMED_CACHE_ETH_AND_PRIME_REWARDS" type="enum">
+  No description provided
+</ResponseField>
+
+
+```graphql PrimePoolType
+"""The type of Prime pool caching contract."""
+enum PrimePoolType {
+  PRIME_REWARDS
+  ETH_AND_PRIME_REWARDS
+  TIMED_CACHE_ETH_AND_PRIME_REWARDS
+}
+```

@@ -3,12 +3,22 @@ title: "LiquidityData"
 description: "Object type"
 ---
 
-**Type:** [LiquidityData](/api-reference/types/liquiditydata)
+### Fields
 
-## Fields
+<ResponseField name="active" type="String!" required>
+  The active liquidity in the pair.
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `active` → [String!](/api-reference/types/string) | The active liquidity in the pair. |
-| `inactive` → [String!](/api-reference/types/string) | The inactive liquidity in the pair. |
+<ResponseField name="inactive" type="String!" required>
+  The inactive liquidity in the pair.
+</ResponseField>
 
+
+```graphql LiquidityData
+type LiquidityData {
+  """The active liquidity in the pair."""
+  active: String!
+  """The inactive liquidity in the pair."""
+  inactive: String!
+}
+```

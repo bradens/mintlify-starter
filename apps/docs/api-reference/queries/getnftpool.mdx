@@ -7,10 +7,13 @@ description: "Returns an NFT pool."
 
 **Returns:** [NftPoolResponse](/api-reference/types/nftpoolresponse)
 
-## Arguments for getNftPool
+### Arguments
 
-| Name | Description |
-|------|-------------|
-| `address` ([String!](/api-reference/types/string)) | The contract address of the NFT pool. |
-| `networkId` ([Int!](/api-reference/types/int)) | The network ID the NFT collection is deployed on. |
+<ResponseField name="address" type="String!" required>
+  The contract address of the NFT pool.
+</ResponseField>
+
+<ResponseField name="networkId" type="Int!" required>
+  The network ID the NFT collection is deployed on.
+</ResponseField>
 

@@ -3,16 +3,41 @@ title: "NftContractErcType"
 description: "Token standards."
 ---
 
-**Type:** [NftContractErcType](/api-reference/types/nftcontracterctype)
+### Values
 
-## Values
+<ResponseField name="ERC721" type="enum">
+  No description provided
+</ResponseField>
 
-| Value | Description |
-|-------|-------------|
-| `ERC721` | No description provided |
-| `ERC721Metadata` | No description provided |
-| `ERC721Enumerable` | No description provided |
-| `ERC1155` | No description provided |
-| `ERC1155Metadata` | No description provided |
-| `Unsupported` | No description provided |
+<ResponseField name="ERC721Metadata" type="enum">
+  No description provided
+</ResponseField>
 
+<ResponseField name="ERC721Enumerable" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="ERC1155" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="ERC1155Metadata" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="Unsupported" type="enum">
+  No description provided
+</ResponseField>
+
+
+```graphql NftContractErcType
+"""Token standards."""
+enum NftContractErcType {
+  ERC721
+  ERC721Metadata
+  ERC721Enumerable
+  ERC1155
+  ERC1155Metadata
+  Unsupported
+}
+```

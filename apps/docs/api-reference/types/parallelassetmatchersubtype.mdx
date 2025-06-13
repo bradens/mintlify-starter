@@ -3,13 +3,26 @@ title: "ParallelAssetMatcherSubtype"
 description: "The Parallel asset subtype."
 ---
 
-**Type:** [ParallelAssetMatcherSubtype](/api-reference/types/parallelassetmatchersubtype)
+### Values
 
-## Values
+<ResponseField name="Pirate" type="enum">
+  No description provided
+</ResponseField>
 
-| Value | Description |
-|-------|-------------|
-| `Pirate` | No description provided |
-| `Vehicle` | No description provided |
-| `Clone` | No description provided |
+<ResponseField name="Vehicle" type="enum">
+  No description provided
+</ResponseField>
 
+<ResponseField name="Clone" type="enum">
+  No description provided
+</ResponseField>
+
+
+```graphql ParallelAssetMatcherSubtype
+"""The Parallel asset subtype."""
+enum ParallelAssetMatcherSubtype {
+  Pirate
+  Vehicle
+  Clone
+}
+```

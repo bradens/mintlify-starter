@@ -3,58 +3,298 @@ title: "WalletFilterResult"
 description: "Object type"
 ---
 
-**Type:** [WalletFilterResult](/api-reference/types/walletfilterresult)
+### Fields
 
-## Fields
+<ResponseField name="address" type="String!" required>
+  The wallet address
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `address` → [String!](/api-reference/types/string) | The wallet address |
-| `firstTransactionAt` → Int | The unix timestamp for the first transaction from this wallet |
-| `lastTransactionAt` → [Int!](/api-reference/types/int) | The unix timestamp for the last transaction from this wallet |
-| `labels` → [[String!]!](/api-reference/types/string) | The labels associated with the wallet |
-| `volumeUsd1d` → [String!](/api-reference/types/string) | Volume in USD in the past day |
-| `volumeUsdAll1d` → [String!](/api-reference/types/string) | Total volume in USD in the past day including all tokens |
-| `realizedProfitUsd1d` → [String!](/api-reference/types/string) | Realized profit in USD in the past day |
-| `averageProfitUsdPerTrade1d` → [String!](/api-reference/types/string) | Average profit in USD per trade in the past day |
-| `averageSwapAmountUsd1d` → [String!](/api-reference/types/string) | Average swap amount in USD in the past day |
-| `realizedProfitPercentage1d` → [Float!](/api-reference/types/float) | Realized profit percentage in the past day |
-| `swaps1d` → [Int!](/api-reference/types/int) | Number of swaps in the past day |
-| `swapsAll1d` → [Int!](/api-reference/types/int) | Total number of swaps in the past day including all tokens |
-| `uniqueTokens1d` → [Int!](/api-reference/types/int) | Number of unique tokens traded in the past day |
-| `winRate1d` → [Float!](/api-reference/types/float) | Win rate in the past day |
-| `volumeUsd1w` → [String!](/api-reference/types/string) | Volume in USD in the past week |
-| `volumeUsdAll1w` → [String!](/api-reference/types/string) | Total volume in USD in the past week including all tokens |
-| `realizedProfitUsd1w` → [String!](/api-reference/types/string) | Realized profit in USD in the past week |
-| `averageProfitUsdPerTrade1w` → [String!](/api-reference/types/string) | Average profit in USD per trade in the past week |
-| `averageSwapAmountUsd1w` → [String!](/api-reference/types/string) | Average swap amount in USD in the past week |
-| `realizedProfitPercentage1w` → [Float!](/api-reference/types/float) | Realized profit percentage in the past week |
-| `swaps1w` → [Int!](/api-reference/types/int) | Number of swaps in the past week |
-| `swapsAll1w` → [Int!](/api-reference/types/int) | Total number of swaps in the past week including all tokens |
-| `uniqueTokens1w` → [Int!](/api-reference/types/int) | Number of unique tokens traded in the past week |
-| `winRate1w` → [Float!](/api-reference/types/float) | Win rate in the past week |
-| `volumeUsd30d` → [String!](/api-reference/types/string) | Volume in USD in the past 30 days |
-| `volumeUsdAll30d` → [String!](/api-reference/types/string) | Total volume in USD in the past 30 days including all tokens |
-| `realizedProfitUsd30d` → [String!](/api-reference/types/string) | Realized profit in USD in the past 30 days |
-| `averageProfitUsdPerTrade30d` → [String!](/api-reference/types/string) | Average profit in USD per trade in the past 30 days |
-| `averageSwapAmountUsd30d` → [String!](/api-reference/types/string) | Average swap amount in USD in the past 30 days |
-| `realizedProfitPercentage30d` → [Float!](/api-reference/types/float) | Realized profit percentage in the past 30 days |
-| `swaps30d` → [Int!](/api-reference/types/int) | Number of swaps in the past 30 days |
-| `swapsAll30d` → [Int!](/api-reference/types/int) | Total number of swaps in the past 30 days including all tokens |
-| `uniqueTokens30d` → [Int!](/api-reference/types/int) | Number of unique tokens traded in the past 30 days |
-| `winRate30d` → [Float!](/api-reference/types/float) | Win rate in the past 30 days |
-| `volumeUsd1y` → [String!](/api-reference/types/string) | Volume in USD in the past year |
-| `volumeUsdAll1y` → [String!](/api-reference/types/string) | Total volume in USD in the past year including all tokens |
-| `realizedProfitUsd1y` → [String!](/api-reference/types/string) | Realized profit in USD in the past year |
-| `averageProfitUsdPerTrade1y` → [String!](/api-reference/types/string) | Average profit in USD per trade in the past year |
-| `averageSwapAmountUsd1y` → [String!](/api-reference/types/string) | Average swap amount in USD in the past year |
-| `realizedProfitPercentage1y` → [Float!](/api-reference/types/float) | Realized profit percentage in the past year |
-| `swaps1y` → [Int!](/api-reference/types/int) | Number of swaps in the past year |
-| `swapsAll1y` → [Int!](/api-reference/types/int) | Total number of swaps in the past year including all tokens |
-| `uniqueTokens1y` → [Int!](/api-reference/types/int) | Number of unique tokens traded in the past year |
-| `winRate1y` → [Float!](/api-reference/types/float) | Win rate in the past year |
-| `scammerScore` → Int | The scammer score for the wallet. |
-| `botScore` → Int | The bot score for the wallet. |
-| `networkId` → Int | The network ID of the wallet (only present if filtered by network) |
-| `nativeTokenBalance` → String | The native token balance of the wallet (only present if filtered by network) |
+<ResponseField name="firstTransactionAt" type="Int">
+  The unix timestamp for the first transaction from this wallet
+</ResponseField>
 
+<ResponseField name="lastTransactionAt" type="Int!" required>
+  The unix timestamp for the last transaction from this wallet
+</ResponseField>
+
+<ResponseField name="labels" type="[String!]!" required>
+  The labels associated with the wallet
+</ResponseField>
+
+<ResponseField name="volumeUsd1d" type="String!" required>
+  Volume in USD in the past day
+</ResponseField>
+
+<ResponseField name="volumeUsdAll1d" type="String!" required>
+  Total volume in USD in the past day including all tokens
+</ResponseField>
+
+<ResponseField name="realizedProfitUsd1d" type="String!" required>
+  Realized profit in USD in the past day
+</ResponseField>
+
+<ResponseField name="averageProfitUsdPerTrade1d" type="String!" required>
+  Average profit in USD per trade in the past day
+</ResponseField>
+
+<ResponseField name="averageSwapAmountUsd1d" type="String!" required>
+  Average swap amount in USD in the past day
+</ResponseField>
+
+<ResponseField name="realizedProfitPercentage1d" type="Float!" required>
+  Realized profit percentage in the past day
+</ResponseField>
+
+<ResponseField name="swaps1d" type="Int!" required>
+  Number of swaps in the past day
+</ResponseField>
+
+<ResponseField name="swapsAll1d" type="Int!" required>
+  Total number of swaps in the past day including all tokens
+</ResponseField>
+
+<ResponseField name="uniqueTokens1d" type="Int!" required>
+  Number of unique tokens traded in the past day
+</ResponseField>
+
+<ResponseField name="winRate1d" type="Float!" required>
+  Win rate in the past day
+</ResponseField>
+
+<ResponseField name="volumeUsd1w" type="String!" required>
+  Volume in USD in the past week
+</ResponseField>
+
+<ResponseField name="volumeUsdAll1w" type="String!" required>
+  Total volume in USD in the past week including all tokens
+</ResponseField>
+
+<ResponseField name="realizedProfitUsd1w" type="String!" required>
+  Realized profit in USD in the past week
+</ResponseField>
+
+<ResponseField name="averageProfitUsdPerTrade1w" type="String!" required>
+  Average profit in USD per trade in the past week
+</ResponseField>
+
+<ResponseField name="averageSwapAmountUsd1w" type="String!" required>
+  Average swap amount in USD in the past week
+</ResponseField>
+
+<ResponseField name="realizedProfitPercentage1w" type="Float!" required>
+  Realized profit percentage in the past week
+</ResponseField>
+
+<ResponseField name="swaps1w" type="Int!" required>
+  Number of swaps in the past week
+</ResponseField>
+
+<ResponseField name="swapsAll1w" type="Int!" required>
+  Total number of swaps in the past week including all tokens
+</ResponseField>
+
+<ResponseField name="uniqueTokens1w" type="Int!" required>
+  Number of unique tokens traded in the past week
+</ResponseField>
+
+<ResponseField name="winRate1w" type="Float!" required>
+  Win rate in the past week
+</ResponseField>
+
+<ResponseField name="volumeUsd30d" type="String!" required>
+  Volume in USD in the past 30 days
+</ResponseField>
+
+<ResponseField name="volumeUsdAll30d" type="String!" required>
+  Total volume in USD in the past 30 days including all tokens
+</ResponseField>
+
+<ResponseField name="realizedProfitUsd30d" type="String!" required>
+  Realized profit in USD in the past 30 days
+</ResponseField>
+
+<ResponseField name="averageProfitUsdPerTrade30d" type="String!" required>
+  Average profit in USD per trade in the past 30 days
+</ResponseField>
+
+<ResponseField name="averageSwapAmountUsd30d" type="String!" required>
+  Average swap amount in USD in the past 30 days
+</ResponseField>
+
+<ResponseField name="realizedProfitPercentage30d" type="Float!" required>
+  Realized profit percentage in the past 30 days
+</ResponseField>
+
+<ResponseField name="swaps30d" type="Int!" required>
+  Number of swaps in the past 30 days
+</ResponseField>
+
+<ResponseField name="swapsAll30d" type="Int!" required>
+  Total number of swaps in the past 30 days including all tokens
+</ResponseField>
+
+<ResponseField name="uniqueTokens30d" type="Int!" required>
+  Number of unique tokens traded in the past 30 days
+</ResponseField>
+
+<ResponseField name="winRate30d" type="Float!" required>
+  Win rate in the past 30 days
+</ResponseField>
+
+<ResponseField name="volumeUsd1y" type="String!" required>
+  Volume in USD in the past year
+</ResponseField>
+
+<ResponseField name="volumeUsdAll1y" type="String!" required>
+  Total volume in USD in the past year including all tokens
+</ResponseField>
+
+<ResponseField name="realizedProfitUsd1y" type="String!" required>
+  Realized profit in USD in the past year
+</ResponseField>
+
+<ResponseField name="averageProfitUsdPerTrade1y" type="String!" required>
+  Average profit in USD per trade in the past year
+</ResponseField>
+
+<ResponseField name="averageSwapAmountUsd1y" type="String!" required>
+  Average swap amount in USD in the past year
+</ResponseField>
+
+<ResponseField name="realizedProfitPercentage1y" type="Float!" required>
+  Realized profit percentage in the past year
+</ResponseField>
+
+<ResponseField name="swaps1y" type="Int!" required>
+  Number of swaps in the past year
+</ResponseField>
+
+<ResponseField name="swapsAll1y" type="Int!" required>
+  Total number of swaps in the past year including all tokens
+</ResponseField>
+
+<ResponseField name="uniqueTokens1y" type="Int!" required>
+  Number of unique tokens traded in the past year
+</ResponseField>
+
+<ResponseField name="winRate1y" type="Float!" required>
+  Win rate in the past year
+</ResponseField>
+
+<ResponseField name="scammerScore" type="Int">
+  The scammer score for the wallet.
+</ResponseField>
+
+<ResponseField name="botScore" type="Int">
+  The bot score for the wallet.
+</ResponseField>
+
+<ResponseField name="networkId" type="Int">
+  The network ID of the wallet (only present if filtered by network)
+</ResponseField>
+
+<ResponseField name="nativeTokenBalance" type="String">
+  The native token balance of the wallet (only present if filtered by network)
+</ResponseField>
+
+
+```graphql WalletFilterResult
+type WalletFilterResult {
+  """The wallet address"""
+  address: String!
+  """The unix timestamp for the first transaction from this wallet"""
+  firstTransactionAt: Int
+  """The unix timestamp for the last transaction from this wallet"""
+  lastTransactionAt: Int!
+  """The labels associated with the wallet"""
+  labels: [String!]!
+  """Volume in USD in the past day"""
+  volumeUsd1d: String!
+  """Total volume in USD in the past day including all tokens"""
+  volumeUsdAll1d: String!
+  """Realized profit in USD in the past day"""
+  realizedProfitUsd1d: String!
+  """Average profit in USD per trade in the past day"""
+  averageProfitUsdPerTrade1d: String!
+  """Average swap amount in USD in the past day"""
+  averageSwapAmountUsd1d: String!
+  """Realized profit percentage in the past day"""
+  realizedProfitPercentage1d: Float!
+  """Number of swaps in the past day"""
+  swaps1d: Int!
+  """Total number of swaps in the past day including all tokens"""
+  swapsAll1d: Int!
+  """Number of unique tokens traded in the past day"""
+  uniqueTokens1d: Int!
+  """Win rate in the past day"""
+  winRate1d: Float!
+  """Volume in USD in the past week"""
+  volumeUsd1w: String!
+  """Total volume in USD in the past week including all tokens"""
+  volumeUsdAll1w: String!
+  """Realized profit in USD in the past week"""
+  realizedProfitUsd1w: String!
+  """Average profit in USD per trade in the past week"""
+  averageProfitUsdPerTrade1w: String!
+  """Average swap amount in USD in the past week"""
+  averageSwapAmountUsd1w: String!
+  """Realized profit percentage in the past week"""
+  realizedProfitPercentage1w: Float!
+  """Number of swaps in the past week"""
+  swaps1w: Int!
+  """Total number of swaps in the past week including all tokens"""
+  swapsAll1w: Int!
+  """Number of unique tokens traded in the past week"""
+  uniqueTokens1w: Int!
+  """Win rate in the past week"""
+  winRate1w: Float!
+  """Volume in USD in the past 30 days"""
+  volumeUsd30d: String!
+  """Total volume in USD in the past 30 days including all tokens"""
+  volumeUsdAll30d: String!
+  """Realized profit in USD in the past 30 days"""
+  realizedProfitUsd30d: String!
+  """Average profit in USD per trade in the past 30 days"""
+  averageProfitUsdPerTrade30d: String!
+  """Average swap amount in USD in the past 30 days"""
+  averageSwapAmountUsd30d: String!
+  """Realized profit percentage in the past 30 days"""
+  realizedProfitPercentage30d: Float!
+  """Number of swaps in the past 30 days"""
+  swaps30d: Int!
+  """Total number of swaps in the past 30 days including all tokens"""
+  swapsAll30d: Int!
+  """Number of unique tokens traded in the past 30 days"""
+  uniqueTokens30d: Int!
+  """Win rate in the past 30 days"""
+  winRate30d: Float!
+  """Volume in USD in the past year"""
+  volumeUsd1y: String!
+  """Total volume in USD in the past year including all tokens"""
+  volumeUsdAll1y: String!
+  """Realized profit in USD in the past year"""
+  realizedProfitUsd1y: String!
+  """Average profit in USD per trade in the past year"""
+  averageProfitUsdPerTrade1y: String!
+  """Average swap amount in USD in the past year"""
+  averageSwapAmountUsd1y: String!
+  """Realized profit percentage in the past year"""
+  realizedProfitPercentage1y: Float!
+  """Number of swaps in the past year"""
+  swaps1y: Int!
+  """Total number of swaps in the past year including all tokens"""
+  swapsAll1y: Int!
+  """Number of unique tokens traded in the past year"""
+  uniqueTokens1y: Int!
+  """Win rate in the past year"""
+  winRate1y: Float!
+  """The scammer score for the wallet."""
+  scammerScore: Int
+  """The bot score for the wallet."""
+  botScore: Int
+  """The network ID of the wallet (only present if filtered by network)"""
+  networkId: Int
+  """The native token balance of the wallet (only present if filtered by network)"""
+  nativeTokenBalance: String
+}
+```

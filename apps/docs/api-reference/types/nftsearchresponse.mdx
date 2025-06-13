@@ -3,12 +3,25 @@ title: "NftSearchResponse"
 description: "Response returned by `searchNfts`."
 ---
 
-**Type:** [NftSearchResponse](/api-reference/types/nftsearchresponse)
+### Fields
 
-## Fields
+<a href="/api-reference/types/nftsearchresponsecollection">
+  <ResponseField name="items" type="[NftSearchResponseCollection]">
+    A list of NFT collections matching a given query string.
+  </ResponseField>
+</a>
 
-| Name | Description |
-|------|-------------|
-| `items` → [[NftSearchResponseCollection]](/api-reference/types/nftsearchresponsecollection) | A list of NFT collections matching a given query string. |
-| `hasMore` → [Int!](/api-reference/types/int) | The number of additional results found. |
+<ResponseField name="hasMore" type="Int!" required>
+  The number of additional results found.
+</ResponseField>
 
+
+```graphql NftSearchResponse
+"""Response returned by `searchNfts`."""
+type NftSearchResponse {
+  """A list of NFT collections matching a given query string."""
+  items: [NftSearchResponseCollection]
+  """The number of additional results found."""
+  hasMore: Int!
+}
+```

@@ -3,17 +3,57 @@ title: "PrimePoolLogSetPerSecondData"
 description: "Event-specific data for a Prime pool LogSetPerSecond transaction."
 ---
 
-**Type:** [PrimePoolLogSetPerSecondData](/api-reference/types/primepoollogsetperseconddata)
+### Fields
 
-## Fields
+<a href="/api-reference/types/primepooleventtype">
+  <ResponseField name="type" type="PrimePoolEventType!" required>
+    The Prime pool event type.
+  </ResponseField>
+</a>
 
-| Name | Description |
-|------|-------------|
-| `type` → [PrimePoolEventType!](/api-reference/types/primepooleventtype) | The Prime pool event type. |
-| `currency` → [PrimePoolCurrency!](/api-reference/types/primepoolcurrency) | The currency type of the event. |
-| `amount` → [String!](/api-reference/types/string) | The updated reward per second for the pool. |
-| `startTimestamp` → [Int!](/api-reference/types/int) | The updated reward start timestamp for the pool. |
-| `endTimestamp` → [Int!](/api-reference/types/int) | The updated reward end timestamp for the pool. |
-| `primeAmountPerSecond` → String | The updated PRIME reward per second for the pool. |
-| `ethAmountPerSecond` → String | The updated ETH reward per second for the pool. |
+<a href="/api-reference/types/primepoolcurrency">
+  <ResponseField name="currency" type="PrimePoolCurrency!" required>
+    The currency type of the event.
+  </ResponseField>
+</a>
 
+<ResponseField name="amount" type="String!" required>
+  The updated reward per second for the pool.
+</ResponseField>
+
+<ResponseField name="startTimestamp" type="Int!" required>
+  The updated reward start timestamp for the pool.
+</ResponseField>
+
+<ResponseField name="endTimestamp" type="Int!" required>
+  The updated reward end timestamp for the pool.
+</ResponseField>
+
+<ResponseField name="primeAmountPerSecond" type="String">
+  The updated PRIME reward per second for the pool.
+</ResponseField>
+
+<ResponseField name="ethAmountPerSecond" type="String">
+  The updated ETH reward per second for the pool.
+</ResponseField>
+
+
+```graphql PrimePoolLogSetPerSecondData
+"""Event-specific data for a Prime pool LogSetPerSecond transaction."""
+type PrimePoolLogSetPerSecondData {
+  """The Prime pool event type."""
+  type: PrimePoolEventType!
+  """The currency type of the event."""
+  currency: PrimePoolCurrency!
+  """The updated reward per second for the pool."""
+  amount: String!
+  """The updated reward start timestamp for the pool."""
+  startTimestamp: Int!
+  """The updated reward end timestamp for the pool."""
+  endTimestamp: Int!
+  """The updated PRIME reward per second for the pool."""
+  primeAmountPerSecond: String
+  """The updated ETH reward per second for the pool."""
+  ethAmountPerSecond: String
+}
+```

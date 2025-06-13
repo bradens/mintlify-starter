@@ -7,13 +7,29 @@ description: "Returns a list of NFT pools based on a variety of filters."
 
 **Returns:** [NftPoolFilterConnection](/api-reference/types/nftpoolfilterconnection)
 
-## Arguments for filterNftPools
+### Arguments
 
-| Name | Description |
-|------|-------------|
-| `filters` ([NftPoolFilters](/api-reference/types/nftpoolfilters)) | A set of filters to apply. |
-| `rankings` ([[NftPoolRanking]](/api-reference/types/nftpoolranking)) | A list of ranking attributes to apply. |
-| `phrase` (String) | No description provided |
-| `limit` (Int) | The maximum number of NFT pools to return. |
-| `offset` (Int) | Where in the list the server should start when returning items. Use `count`+`page` from the previous query to request the next page of results. |
+<a href="/api-reference/types/nftpoolfilters">
+  <ResponseField name="filters" type="NftPoolFilters">
+    A set of filters to apply.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/nftpoolranking">
+  <ResponseField name="rankings" type="[NftPoolRanking]">
+    A list of ranking attributes to apply.
+  </ResponseField>
+</a>
+
+<ResponseField name="phrase" type="String">
+  No description provided
+</ResponseField>
+
+<ResponseField name="limit" type="Int">
+  The maximum number of NFT pools to return.
+</ResponseField>
+
+<ResponseField name="offset" type="Int">
+  Where in the list the server should start when returning items. Use `count`+`page` from the previous query to request the next page of results.
+</ResponseField>
 

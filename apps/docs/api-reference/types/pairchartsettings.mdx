@@ -3,17 +3,57 @@ title: "PairChartSettings"
 description: "Input options for the chart."
 ---
 
-**Type:** [PairChartSettings](/api-reference/types/pairchartsettings)
+### Fields
 
-## Fields
+<ResponseField name="pairAddress" type="String!" required>
+  The contract address of the pair.
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `pairAddress` → [String!](/api-reference/types/string) | The contract address of the pair. |
-| `networkId` → [Int!](/api-reference/types/int) | The network ID the pair is deployed on. |
-| `from` → Int | The unix timestamp for the start of the requested range. |
-| `to` → Int | The unix timestamp for the end of the requested range. |
-| `quoteToken` → [QuoteToken](/api-reference/types/quotetoken) | The token of interest within the token&#39;s top pair. Can be `token0` or `token1`. |
-| `resolution` → String | The time frame for each candle. Available options are `1S`, `5S`, `15S`, `30S`, `1`, `5`, `15`, `30`, `60`, `240`, `720`, `1D`, `7D`. |
-| `theme` → [ChartTheme](/api-reference/types/charttheme) | The color theme of the chart. |
+<ResponseField name="networkId" type="Int!" required>
+  The network ID the pair is deployed on.
+</ResponseField>
 
+<ResponseField name="from" type="Int">
+  The unix timestamp for the start of the requested range.
+</ResponseField>
+
+<ResponseField name="to" type="Int">
+  The unix timestamp for the end of the requested range.
+</ResponseField>
+
+<a href="/api-reference/types/quotetoken">
+  <ResponseField name="quoteToken" type="QuoteToken">
+    The token of interest within the token&#39;s top pair. Can be `token0` or `token1`.
+  </ResponseField>
+</a>
+
+<ResponseField name="resolution" type="String">
+  The time frame for each candle. Available options are `1S`, `5S`, `15S`, `30S`, `1`, `5`, `15`, `30`, `60`, `240`, `720`, `1D`, `7D`.
+</ResponseField>
+
+<a href="/api-reference/types/charttheme">
+  <ResponseField name="theme" type="ChartTheme">
+    The color theme of the chart.
+  </ResponseField>
+</a>
+
+
+```graphql PairChartSettings
+"""Input options for the chart."""
+input PairChartSettings {
+  """The contract address of the pair."""
+  pairAddress: String!
+  """The network ID the pair is deployed on."""
+  networkId: Int!
+  """The unix timestamp for the start of the requested range."""
+  from: Int
+  """The unix timestamp for the end of the requested range."""
+  to: Int
+  """The token of interest within the token's top pair. Can be `token0` or `token1`."""
+  quoteToken: QuoteToken
+  """The time frame for each candle. Available options are `1S`, `5S`, `15S`, `30S`, `1`, `5`, `15`, `30`, `60`, `240`, `720`, `1D`, `7D`."""
+  resolution: String
+  """The color theme of the chart."""
+  theme: ChartTheme
+}
+```

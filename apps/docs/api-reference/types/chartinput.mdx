@@ -3,11 +3,19 @@ title: "ChartInput"
 description: "Input type of `chartUrls`."
 ---
 
-**Type:** [ChartInput](/api-reference/types/chartinput)
+### Fields
 
-## Fields
+<a href="/api-reference/types/pairchartinput">
+  <ResponseField name="pair" type="PairChartInput">
+    The input required to fetch a pair chart.
+  </ResponseField>
+</a>
 
-| Name | Description |
-|------|-------------|
-| `pair` → [PairChartInput](/api-reference/types/pairchartinput) | The input required to fetch a pair chart. |
 
+```graphql ChartInput
+"""Input type of `chartUrls`."""
+input ChartInput {
+  """The input required to fetch a pair chart."""
+  pair: PairChartInput
+}
+```

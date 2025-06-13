@@ -3,12 +3,25 @@ title: "AddTokenEventsOutput"
 description: "Response returned by `onTokenEventsCreated`."
 ---
 
-**Type:** [AddTokenEventsOutput](/api-reference/types/addtokeneventsoutput)
+### Fields
 
-## Fields
+<ResponseField name="id" type="String!" required>
+  The ID of the event (`address`:`networkId`). For example, `0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2:1`.
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `id` → [String!](/api-reference/types/string) | The ID of the event (`address`:`networkId`). For example, `0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2:1`. |
-| `events` → [[Event!]!](/api-reference/types/event) | A list of transactions for the token. |
+<a href="/api-reference/types/event">
+  <ResponseField name="events" type="[Event!]!" required>
+    A list of transactions for the token.
+  </ResponseField>
+</a>
 
+
+```graphql AddTokenEventsOutput
+"""Response returned by `onTokenEventsCreated`."""
+type AddTokenEventsOutput {
+  """The ID of the event (`address`:`networkId`). For example, `0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2:1`."""
+  id: String!
+  """A list of transactions for the token."""
+  events: [Event!]!
+}
+```

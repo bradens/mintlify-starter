@@ -7,14 +7,29 @@ description: "Returns a list of NFT assets in a given collection."
 
 **Returns:** [NftAssetsConnection](/api-reference/types/nftassetsconnection)
 
-## Arguments for getNftAssets
+### Arguments
 
-| Name | Description |
-|------|-------------|
-| `address` ([String!](/api-reference/types/string)) | The contract address of the NFT collection. |
-| `networkId` ([Int!](/api-reference/types/int)) | The network ID the NFT collection is deployed on. |
-| `tokenIds` ([[String]](/api-reference/types/string)) | An optional list of token IDs to filter by. |
-| `fetchMissingAssets` (Boolean) | Whether to trigger fetching onchain metadata for missing assets. Defaults to false. Fetch results are delayed and can be ingested realtime via onNftAssetsCreated subscription. Free tier API users are limited to 1 missing asset fetch per request, and may only retry fetching a missing asset once per week. To remove these limitations, please upgrade your API plan at https://www.dashboard.defined.fi/plan. |
-| `cursor` (String) | The cursor to use for pagination. |
-| `limit` (Int) | The maximum number of NFT assets to return. |
+<ResponseField name="address" type="String!" required>
+  The contract address of the NFT collection.
+</ResponseField>
+
+<ResponseField name="networkId" type="Int!" required>
+  The network ID the NFT collection is deployed on.
+</ResponseField>
+
+<ResponseField name="tokenIds" type="[String]">
+  An optional list of token IDs to filter by.
+</ResponseField>
+
+<ResponseField name="fetchMissingAssets" type="Boolean">
+  Whether to trigger fetching onchain metadata for missing assets. Defaults to false. Fetch results are delayed and can be ingested realtime via onNftAssetsCreated subscription. Free tier API users are limited to 1 missing asset fetch per request, and may only retry fetching a missing asset once per week. To remove these limitations, please upgrade your API plan at https://www.dashboard.defined.fi/plan.
+</ResponseField>
+
+<ResponseField name="cursor" type="String">
+  The cursor to use for pagination.
+</ResponseField>
+
+<ResponseField name="limit" type="Int">
+  The maximum number of NFT assets to return.
+</ResponseField>
 

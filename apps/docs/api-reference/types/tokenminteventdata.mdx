@@ -3,13 +3,29 @@ title: "TokenMintEventData"
 description: "Token mint event data."
 ---
 
-**Type:** [TokenMintEventData](/api-reference/types/tokenminteventdata)
+### Fields
 
-## Fields
+<ResponseField name="amount" type="String!" required>
+  The amount of tokens minted.
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `amount` → [String!](/api-reference/types/string) | The amount of tokens minted. |
-| `totalSupply` → String | The new total supply for the token. |
-| `circulatingSupply` → String | The new circulating supply for the token. |
+<ResponseField name="totalSupply" type="String">
+  The new total supply for the token.
+</ResponseField>
 
+<ResponseField name="circulatingSupply" type="String">
+  The new circulating supply for the token.
+</ResponseField>
+
+
+```graphql TokenMintEventData
+"""Token mint event data."""
+type TokenMintEventData {
+  """The amount of tokens minted."""
+  amount: String!
+  """The new total supply for the token."""
+  totalSupply: String
+  """The new circulating supply for the token."""
+  circulatingSupply: String
+}
+```

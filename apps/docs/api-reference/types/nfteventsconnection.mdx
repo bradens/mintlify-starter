@@ -3,12 +3,25 @@ title: "NftEventsConnection"
 description: "Response returned by `getNftEvents`."
 ---
 
-**Type:** [NftEventsConnection](/api-reference/types/nfteventsconnection)
+### Fields
 
-## Fields
+<a href="/api-reference/types/nftevent">
+  <ResponseField name="items" type="[NftEvent]">
+    A list of transactions for an NFT collection.
+  </ResponseField>
+</a>
 
-| Name | Description |
-|------|-------------|
-| `items` → [[NftEvent]](/api-reference/types/nftevent) | A list of transactions for an NFT collection. |
-| `cursor` → String | A cursor for use in pagination. |
+<ResponseField name="cursor" type="String">
+  A cursor for use in pagination.
+</ResponseField>
 
+
+```graphql NftEventsConnection
+"""Response returned by `getNftEvents`."""
+type NftEventsConnection {
+  """A list of transactions for an NFT collection."""
+  items: [NftEvent]
+  """A cursor for use in pagination."""
+  cursor: String
+}
+```

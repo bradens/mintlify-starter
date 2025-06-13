@@ -3,13 +3,29 @@ title: "CommunityNoteType"
 description: "Type of the community gathered note."
 ---
 
-**Type:** [CommunityNoteType](/api-reference/types/communitynotetype)
+### Values
 
-## Values
+<ResponseField name="ATTRIBUTE" type="enum">
+  An contract attribute change.
+</ResponseField>
 
-| Value | Description |
-|-------|-------------|
-| `ATTRIBUTE` | An contract attribute change. |
-| `SCAM` | A scam report. |
-| `LOGO` | A logo change. |
+<ResponseField name="SCAM" type="enum">
+  A scam report.
+</ResponseField>
 
+<ResponseField name="LOGO" type="enum">
+  A logo change.
+</ResponseField>
+
+
+```graphql CommunityNoteType
+"""Type of the community gathered note."""
+enum CommunityNoteType {
+  """An contract attribute change."""
+  ATTRIBUTE
+  """A scam report."""
+  SCAM
+  """A logo change."""
+  LOGO
+}
+```

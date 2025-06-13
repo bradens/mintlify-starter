@@ -3,15 +3,45 @@ title: "NftPoolNftDepositEventDataV2"
 description: "Event data for depositing an NFT into a pool."
 ---
 
-**Type:** [NftPoolNftDepositEventDataV2](/api-reference/types/nftpoolnftdepositeventdatav2)
+### Fields
 
-## Fields
+<a href="/api-reference/types/nftpooleventtype">
+  <ResponseField name="type" type="NftPoolEventType!" required>
+    The type of NFT pool event, `NFT_DEPOSIT`.
+  </ResponseField>
+</a>
 
-| Name | Description |
-|------|-------------|
-| `type` → [NftPoolEventType!](/api-reference/types/nftpooleventtype) | The type of NFT pool event, `NFT_DEPOSIT`. |
-| `nftTokenIds` → [[String!]!](/api-reference/types/string) | The list of NFT token IDs deposited. |
-| `nftTokenAmounts` → [[String!]!](/api-reference/types/string) | The amount of each NFT token deposited. |
-| `nftAssets` → [[NftAsset]](/api-reference/types/nftasset) | *New Param*: The list of NFT assets withdrawn. More extensive info than nftTokenIds. |
-| `tokenBalanceT` → [String!](/api-reference/types/string) | The amount of token in the contract after the block has processed in the pool&#39;s liquidity token. |
+<ResponseField name="nftTokenIds" type="[String!]!" required>
+  The list of NFT token IDs deposited.
+</ResponseField>
 
+<ResponseField name="nftTokenAmounts" type="[String!]!" required>
+  The amount of each NFT token deposited.
+</ResponseField>
+
+<a href="/api-reference/types/nftasset">
+  <ResponseField name="nftAssets" type="[NftAsset]">
+    *New Param*: The list of NFT assets withdrawn. More extensive info than nftTokenIds.
+  </ResponseField>
+</a>
+
+<ResponseField name="tokenBalanceT" type="String!" required>
+  The amount of token in the contract after the block has processed in the pool&#39;s liquidity token.
+</ResponseField>
+
+
+```graphql NftPoolNftDepositEventDataV2
+"""Event data for depositing an NFT into a pool."""
+type NftPoolNftDepositEventDataV2 {
+  """The type of NFT pool event, `NFT_DEPOSIT`."""
+  type: NftPoolEventType!
+  """The list of NFT token IDs deposited."""
+  nftTokenIds: [String!]!
+  """The amount of each NFT token deposited."""
+  nftTokenAmounts: [String!]!
+  """*New Param*: The list of NFT assets withdrawn. More extensive info than nftTokenIds."""
+  nftAssets: [NftAsset]
+  """The amount of token in the contract after the block has processed in the pool's liquidity token."""
+  tokenBalanceT: String!
+}
+```

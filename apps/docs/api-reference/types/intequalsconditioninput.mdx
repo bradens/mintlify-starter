@@ -3,11 +3,17 @@ title: "IntEqualsConditionInput"
 description: "Input for integer equals condition."
 ---
 
-**Type:** [IntEqualsConditionInput](/api-reference/types/intequalsconditioninput)
+### Fields
 
-## Fields
+<ResponseField name="eq" type="Int!" required>
+  The integer to equal.
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `eq` → [Int!](/api-reference/types/int) | The integer to equal. |
 
+```graphql IntEqualsConditionInput
+"""Input for integer equals condition."""
+input IntEqualsConditionInput {
+  """The integer to equal."""
+  eq: Int!
+}
+```

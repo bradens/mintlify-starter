@@ -3,12 +3,25 @@ title: "PrimePoolEventConnection"
 description: "Response returned by `getPrimePoolEvents`."
 ---
 
-**Type:** [PrimePoolEventConnection](/api-reference/types/primepooleventconnection)
+### Fields
 
-## Fields
+<ResponseField name="cursor" type="String">
+  The cursor to use for pagination.
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `cursor` → String | The cursor to use for pagination. |
-| `items` → [[PrimePoolEvent]](/api-reference/types/primepoolevent) | The list of Prime pool events returned by the query. |
+<a href="/api-reference/types/primepoolevent">
+  <ResponseField name="items" type="[PrimePoolEvent]">
+    The list of Prime pool events returned by the query.
+  </ResponseField>
+</a>
 
+
+```graphql PrimePoolEventConnection
+"""Response returned by `getPrimePoolEvents`."""
+type PrimePoolEventConnection {
+  """The cursor to use for pagination."""
+  cursor: String
+  """The list of Prime pool events returned by the query."""
+  items: [PrimePoolEvent]
+}
+```

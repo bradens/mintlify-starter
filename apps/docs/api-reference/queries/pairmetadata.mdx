@@ -7,11 +7,21 @@ description: "Returns metadata for a pair of tokens."
 
 **Returns:** [PairMetadata!](/api-reference/types/pairmetadata)
 
-## Arguments for pairMetadata
+### Arguments
 
-| Name | Description |
-|------|-------------|
-| `pairId` ([String!](/api-reference/types/string)) | The ID of the pair (`address:networkId`). |
-| `quoteToken` ([QuoteToken](/api-reference/types/quotetoken)) | The token of interest within the pair. Can be `token0` or `token1`. |
-| `statsType` ([TokenPairStatisticsType](/api-reference/types/tokenpairstatisticstype)) | The type of statistics returned. Can be `FILTERED` or `UNFILTERED` |
+<ResponseField name="pairId" type="String!" required>
+  The ID of the pair (`address:networkId`).
+</ResponseField>
+
+<a href="/api-reference/types/quotetoken">
+  <ResponseField name="quoteToken" type="QuoteToken">
+    The token of interest within the pair. Can be `token0` or `token1`.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/tokenpairstatisticstype">
+  <ResponseField name="statsType" type="TokenPairStatisticsType">
+    The type of statistics returned. Can be `FILTERED` or `UNFILTERED`
+  </ResponseField>
+</a>
 

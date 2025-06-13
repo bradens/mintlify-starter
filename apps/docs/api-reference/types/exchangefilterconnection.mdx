@@ -3,13 +3,31 @@ title: "ExchangeFilterConnection"
 description: "Response returned by `filterExchanges`."
 ---
 
-**Type:** [ExchangeFilterConnection](/api-reference/types/exchangefilterconnection)
+### Fields
 
-## Fields
+<a href="/api-reference/types/exchangefilterresult">
+  <ResponseField name="results" type="[ExchangeFilterResult]">
+    The list of exchanges matching the filter parameters.
+  </ResponseField>
+</a>
 
-| Name | Description |
-|------|-------------|
-| `results` → [[ExchangeFilterResult]](/api-reference/types/exchangefilterresult) | The list of exchanges matching the filter parameters. |
-| `count` → Int | The number of exchanges returned. |
-| `offset` → Int | Where in the list the server started when returning items. |
+<ResponseField name="count" type="Int">
+  The number of exchanges returned.
+</ResponseField>
 
+<ResponseField name="offset" type="Int">
+  Where in the list the server started when returning items.
+</ResponseField>
+
+
+```graphql ExchangeFilterConnection
+"""Response returned by `filterExchanges`."""
+type ExchangeFilterConnection {
+  """The list of exchanges matching the filter parameters."""
+  results: [ExchangeFilterResult]
+  """The number of exchanges returned."""
+  count: Int
+  """Where in the list the server started when returning items."""
+  offset: Int
+}
+```

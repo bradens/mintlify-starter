@@ -3,12 +3,27 @@ title: "ParallelCardChangeDiff"
 description: "Parallel card metadata before and after a card change."
 ---
 
-**Type:** [ParallelCardChangeDiff](/api-reference/types/parallelcardchangediff)
+### Fields
 
-## Fields
+<a href="/api-reference/types/parallelcardchangefields">
+  <ResponseField name="old" type="ParallelCardChangeFields!" required>
+    Metadata for a Parallel card before the card change.
+  </ResponseField>
+</a>
 
-| Name | Description |
-|------|-------------|
-| `old` → [ParallelCardChangeFields!](/api-reference/types/parallelcardchangefields) | Metadata for a Parallel card before the card change. |
-| `new` → [ParallelCardChangeFields!](/api-reference/types/parallelcardchangefields) | Metadata for a Parallel card after the card change. |
+<a href="/api-reference/types/parallelcardchangefields">
+  <ResponseField name="new" type="ParallelCardChangeFields!" required>
+    Metadata for a Parallel card after the card change.
+  </ResponseField>
+</a>
 
+
+```graphql ParallelCardChangeDiff
+"""Parallel card metadata before and after a card change."""
+type ParallelCardChangeDiff {
+  """Metadata for a Parallel card before the card change."""
+  old: ParallelCardChangeFields!
+  """Metadata for a Parallel card after the card change."""
+  new: ParallelCardChangeFields!
+}
+```

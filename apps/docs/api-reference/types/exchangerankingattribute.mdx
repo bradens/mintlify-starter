@@ -3,24 +3,81 @@ title: "ExchangeRankingAttribute"
 description: "The attribute used to rank exchanges."
 ---
 
-**Type:** [ExchangeRankingAttribute](/api-reference/types/exchangerankingattribute)
+### Values
 
-## Values
+<ResponseField name="txnCount1" type="enum">
+  No description provided
+</ResponseField>
 
-| Value | Description |
-|-------|-------------|
-| `txnCount1` | No description provided |
-| `txnCount4` | No description provided |
-| `txnCount12` | No description provided |
-| `txnCount24` | No description provided |
-| `volumeUSD1` | No description provided |
-| `volumeUSD4` | No description provided |
-| `volumeUSD12` | No description provided |
-| `volumeUSD24` | No description provided |
-| `volumeNBT1` | No description provided |
-| `volumeNBT4` | No description provided |
-| `volumeNBT12` | No description provided |
-| `volumeNBT24` | No description provided |
-| `dailyActiveUsers` | No description provided |
-| `monthlyActiveUsers` | No description provided |
+<ResponseField name="txnCount4" type="enum">
+  No description provided
+</ResponseField>
 
+<ResponseField name="txnCount12" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="txnCount24" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="volumeUSD1" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="volumeUSD4" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="volumeUSD12" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="volumeUSD24" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="volumeNBT1" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="volumeNBT4" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="volumeNBT12" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="volumeNBT24" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="dailyActiveUsers" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="monthlyActiveUsers" type="enum">
+  No description provided
+</ResponseField>
+
+
+```graphql ExchangeRankingAttribute
+"""The attribute used to rank exchanges."""
+enum ExchangeRankingAttribute {
+  txnCount1
+  txnCount4
+  txnCount12
+  txnCount24
+  volumeUSD1
+  volumeUSD4
+  volumeUSD12
+  volumeUSD24
+  volumeNBT1
+  volumeNBT4
+  volumeNBT12
+  volumeNBT24
+  dailyActiveUsers
+  monthlyActiveUsers
+}
+```

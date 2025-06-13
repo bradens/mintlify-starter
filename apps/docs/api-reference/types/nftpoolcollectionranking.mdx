@@ -3,12 +3,27 @@ title: "NftPoolCollectionRanking"
 description: "Input type of `NftPoolCollectionRanking`."
 ---
 
-**Type:** [NftPoolCollectionRanking](/api-reference/types/nftpoolcollectionranking)
+### Fields
 
-## Fields
+<a href="/api-reference/types/nftpoolcollectionrankingattribute">
+  <ResponseField name="attribute" type="NftPoolCollectionRankingAttribute">
+    The attribute to rank NFT collections by.
+  </ResponseField>
+</a>
 
-| Name | Description |
-|------|-------------|
-| `attribute` → [NftPoolCollectionRankingAttribute](/api-reference/types/nftpoolcollectionrankingattribute) | The attribute to rank NFT collections by. |
-| `direction` → [RankingDirection](/api-reference/types/rankingdirection) | The direction to apply to the ranking attribute. |
+<a href="/api-reference/types/rankingdirection">
+  <ResponseField name="direction" type="RankingDirection">
+    The direction to apply to the ranking attribute.
+  </ResponseField>
+</a>
 
+
+```graphql NftPoolCollectionRanking
+"""Input type of `NftPoolCollectionRanking`."""
+input NftPoolCollectionRanking {
+  """The attribute to rank NFT collections by."""
+  attribute: NftPoolCollectionRankingAttribute
+  """The direction to apply to the ranking attribute."""
+  direction: RankingDirection
+}
+```

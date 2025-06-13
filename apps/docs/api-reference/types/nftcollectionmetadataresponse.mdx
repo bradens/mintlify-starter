@@ -3,14 +3,41 @@ title: "NftCollectionMetadataResponse"
 description: "Response returned by `getNftCollectionMetadata`."
 ---
 
-**Type:** [NftCollectionMetadataResponse](/api-reference/types/nftcollectionmetadataresponse)
+### Fields
 
-## Fields
+<ResponseField name="id" type="String!" required>
+  The ID of the NFT collection (`address`:`networkId`).
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `id` → [String!](/api-reference/types/string) | The ID of the NFT collection (`address`:`networkId`). |
-| `contract` → [NftContract!](/api-reference/types/nftcontract) | Metadata for the NFT collection. |
-| `stats` → [[NftCollectionWindowStats]](/api-reference/types/nftcollectionwindowstats) | A list of stats for the NFT collection across different time frames. |
-| `media` → [NftAssetMedia](/api-reference/types/nftassetmedia) | The media for one of the assets within the NFT collection. |
+<a href="/api-reference/types/nftcontract">
+  <ResponseField name="contract" type="NftContract!" required>
+    Metadata for the NFT collection.
+  </ResponseField>
+</a>
 
+<a href="/api-reference/types/nftcollectionwindowstats">
+  <ResponseField name="stats" type="[NftCollectionWindowStats]">
+    A list of stats for the NFT collection across different time frames.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/nftassetmedia">
+  <ResponseField name="media" type="NftAssetMedia">
+    The media for one of the assets within the NFT collection.
+  </ResponseField>
+</a>
+
+
+```graphql NftCollectionMetadataResponse
+"""Response returned by `getNftCollectionMetadata`."""
+type NftCollectionMetadataResponse {
+  """The ID of the NFT collection (`address`:`networkId`)."""
+  id: String!
+  """Metadata for the NFT collection."""
+  contract: NftContract!
+  """A list of stats for the NFT collection across different time frames."""
+  stats: [NftCollectionWindowStats]
+  """The media for one of the assets within the NFT collection."""
+  media: NftAssetMedia
+}
+```

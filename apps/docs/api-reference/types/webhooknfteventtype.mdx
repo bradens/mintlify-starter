@@ -3,13 +3,26 @@ title: "WebhookNftEventType"
 description: "NFT event types."
 ---
 
-**Type:** [WebhookNftEventType](/api-reference/types/webhooknfteventtype)
+### Values
 
-## Values
+<ResponseField name="MINT" type="enum">
+  No description provided
+</ResponseField>
 
-| Value | Description |
-|-------|-------------|
-| `MINT` | No description provided |
-| `SALE` | No description provided |
-| `TRANSFER` | No description provided |
+<ResponseField name="SALE" type="enum">
+  No description provided
+</ResponseField>
 
+<ResponseField name="TRANSFER" type="enum">
+  No description provided
+</ResponseField>
+
+
+```graphql WebhookNftEventType
+"""NFT event types."""
+enum WebhookNftEventType {
+  MINT
+  SALE
+  TRANSFER
+}
+```

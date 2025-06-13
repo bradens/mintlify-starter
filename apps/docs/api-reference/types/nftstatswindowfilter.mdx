@@ -3,13 +3,35 @@ title: "NftStatsWindowFilter"
 description: "NFT stats for a given time frame."
 ---
 
-**Type:** [NftStatsWindowFilter](/api-reference/types/nftstatswindowfilter)
+### Fields
 
-## Fields
+<a href="/api-reference/types/statscurrency">
+  <ResponseField name="usd" type="statsCurrency">
+    The currency stats in USD, such as volume.
+  </ResponseField>
+</a>
 
-| Name | Description |
-|------|-------------|
-| `usd` → [statsCurrency](/api-reference/types/statscurrency) | The currency stats in USD, such as volume. |
-| `networkBaseToken` → [statsCurrency](/api-reference/types/statscurrency) | The currency stats in the network&#39;s base token, such as volume. |
-| `nonCurrency` → [statsNonCurrency](/api-reference/types/statsnoncurrency) | The numerical stats, such as number of sales. |
+<a href="/api-reference/types/statscurrency">
+  <ResponseField name="networkBaseToken" type="statsCurrency">
+    The currency stats in the network&#39;s base token, such as volume.
+  </ResponseField>
+</a>
 
+<a href="/api-reference/types/statsnoncurrency">
+  <ResponseField name="nonCurrency" type="statsNonCurrency">
+    The numerical stats, such as number of sales.
+  </ResponseField>
+</a>
+
+
+```graphql NftStatsWindowFilter
+"""NFT stats for a given time frame."""
+input NftStatsWindowFilter {
+  """The currency stats in USD, such as volume."""
+  usd: statsCurrency
+  """The currency stats in the network's base token, such as volume."""
+  networkBaseToken: statsCurrency
+  """The numerical stats, such as number of sales."""
+  nonCurrency: statsNonCurrency
+}
+```

@@ -3,16 +3,43 @@ title: "AddNftPoolEventsOutput"
 description: "Response returned by `onNftPoolEventsCreated`."
 ---
 
-**Type:** [AddNftPoolEventsOutput](/api-reference/types/addnftpooleventsoutput)
+### Fields
 
-## Fields
+<ResponseField name="collectionAddress" type="String!" required>
+  No description provided
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `collectionAddress` → [String!](/api-reference/types/string) | No description provided |
-| `exchangeAddress` → [String!](/api-reference/types/string) | No description provided |
-| `poolAddress` → [String!](/api-reference/types/string) | No description provided |
-| `networkId` → [Int!](/api-reference/types/int) | No description provided |
-| `id` → [String!](/api-reference/types/string) | No description provided |
-| `events` → [[NftPoolEvent]!](/api-reference/types/nftpoolevent) | No description provided |
+<ResponseField name="exchangeAddress" type="String!" required>
+  No description provided
+</ResponseField>
 
+<ResponseField name="poolAddress" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="networkId" type="Int!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="id" type="String!" required>
+  No description provided
+</ResponseField>
+
+<a href="/api-reference/types/nftpoolevent">
+  <ResponseField name="events" type="[NftPoolEvent]!" required>
+    No description provided
+  </ResponseField>
+</a>
+
+
+```graphql AddNftPoolEventsOutput
+"""Response returned by `onNftPoolEventsCreated`."""
+type AddNftPoolEventsOutput {
+  collectionAddress: String!
+  exchangeAddress: String!
+  poolAddress: String!
+  networkId: Int!
+  id: String!
+  events: [NftPoolEvent]!
+}
+```

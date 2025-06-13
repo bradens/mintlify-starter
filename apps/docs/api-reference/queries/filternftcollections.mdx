@@ -7,14 +7,33 @@ description: "Returns a list of NFT collection based on a variety of filters."
 
 **Returns:** [NftCollectionFilterConnection](/api-reference/types/nftcollectionfilterconnection)
 
-## Arguments for filterNftCollections
+### Arguments
 
-| Name | Description |
-|------|-------------|
-| `filters` ([NftCollectionFilters](/api-reference/types/nftcollectionfilters)) | A set of filters to apply. |
-| `rankings` ([[NftCollectionRanking]](/api-reference/types/nftcollectionranking)) | A list of ranking attributes to apply. |
-| `phrase` (String) | A phrase to search for. Can match a collection contract address or ID (`address`:`networkId`). |
-| `collections` ([[String]](/api-reference/types/string)) | A list of collection contract addresses or IDs (`address`:`networkId`) to filter by. |
-| `limit` (Int) | The maximum number of NFT collections to return. |
-| `offset` (Int) | Where in the list the server should start when returning items. Use `count`+`offset` from the previous query to request the next page of results. |
+<a href="/api-reference/types/nftcollectionfilters">
+  <ResponseField name="filters" type="NftCollectionFilters">
+    A set of filters to apply.
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/nftcollectionranking">
+  <ResponseField name="rankings" type="[NftCollectionRanking]">
+    A list of ranking attributes to apply.
+  </ResponseField>
+</a>
+
+<ResponseField name="phrase" type="String">
+  A phrase to search for. Can match a collection contract address or ID (`address`:`networkId`).
+</ResponseField>
+
+<ResponseField name="collections" type="[String]">
+  A list of collection contract addresses or IDs (`address`:`networkId`) to filter by.
+</ResponseField>
+
+<ResponseField name="limit" type="Int">
+  The maximum number of NFT collections to return.
+</ResponseField>
+
+<ResponseField name="offset" type="Int">
+  Where in the list the server should start when returning items. Use `count`+`offset` from the previous query to request the next page of results.
+</ResponseField>
 

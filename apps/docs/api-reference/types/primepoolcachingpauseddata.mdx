@@ -3,12 +3,25 @@ title: "PrimePoolCachingPausedData"
 description: "Event-specific data for a Prime pool CachingPaused transaction."
 ---
 
-**Type:** [PrimePoolCachingPausedData](/api-reference/types/primepoolcachingpauseddata)
+### Fields
 
-## Fields
+<a href="/api-reference/types/primepooleventtype">
+  <ResponseField name="type" type="PrimePoolEventType!" required>
+    The Prime pool event type.
+  </ResponseField>
+</a>
 
-| Name | Description |
-|------|-------------|
-| `type` → [PrimePoolEventType!](/api-reference/types/primepooleventtype) | The Prime pool event type. |
-| `cachingPaused` → [Boolean!](/api-reference/types/boolean) | The state of caching paused set on the pool. |
+<ResponseField name="cachingPaused" type="Boolean!" required>
+  The state of caching paused set on the pool.
+</ResponseField>
 
+
+```graphql PrimePoolCachingPausedData
+"""Event-specific data for a Prime pool CachingPaused transaction."""
+type PrimePoolCachingPausedData {
+  """The Prime pool event type."""
+  type: PrimePoolEventType!
+  """The state of caching paused set on the pool."""
+  cachingPaused: Boolean!
+}
+```

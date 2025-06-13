@@ -3,13 +3,26 @@ title: "NftPoolType"
 description: "The pool type selected by the pool creator."
 ---
 
-**Type:** [NftPoolType](/api-reference/types/nftpooltype)
+### Values
 
-## Values
+<ResponseField name="BUY" type="enum">
+  No description provided
+</ResponseField>
 
-| Value | Description |
-|-------|-------------|
-| `BUY` | No description provided |
-| `SELL` | No description provided |
-| `BUY_AND_SELL` | No description provided |
+<ResponseField name="SELL" type="enum">
+  No description provided
+</ResponseField>
 
+<ResponseField name="BUY_AND_SELL" type="enum">
+  No description provided
+</ResponseField>
+
+
+```graphql NftPoolType
+"""The pool type selected by the pool creator."""
+enum NftPoolType {
+  BUY
+  SELL
+  BUY_AND_SELL
+}
+```

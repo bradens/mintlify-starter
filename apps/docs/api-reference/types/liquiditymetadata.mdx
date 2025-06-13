@@ -3,12 +3,27 @@ title: "LiquidityMetadata"
 description: "Metadata about a pair&#39;s liquidity. Includes locked liquidity data."
 ---
 
-**Type:** [LiquidityMetadata](/api-reference/types/liquiditymetadata)
+### Fields
 
-## Fields
+<a href="/api-reference/types/lockedliquiditydata">
+  <ResponseField name="lockedLiquidity" type="LockedLiquidityData!" required>
+    Data about locked liquidity.
+  </ResponseField>
+</a>
 
-| Name | Description |
-|------|-------------|
-| `lockedLiquidity` → [LockedLiquidityData!](/api-reference/types/lockedliquiditydata) | Data about locked liquidity. |
-| `liquidity` → [LiquidityData!](/api-reference/types/liquiditydata) | Data about unlocked liquidity. |
+<a href="/api-reference/types/liquiditydata">
+  <ResponseField name="liquidity" type="LiquidityData!" required>
+    Data about unlocked liquidity.
+  </ResponseField>
+</a>
 
+
+```graphql LiquidityMetadata
+"""Metadata about a pair's liquidity. Includes locked liquidity data."""
+type LiquidityMetadata {
+  """Data about locked liquidity."""
+  lockedLiquidity: LockedLiquidityData!
+  """Data about unlocked liquidity."""
+  liquidity: LiquidityData!
+}
+```

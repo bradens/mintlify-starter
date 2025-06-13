@@ -3,16 +3,52 @@ title: "MakerEventsQueryInput"
 description: "InputObject type"
 ---
 
-**Type:** [MakerEventsQueryInput](/api-reference/types/makereventsqueryinput)
+### Fields
 
-## Fields
+<ResponseField name="maker" type="String!" required>
+  The specific wallet address to filter by.
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `maker` → [String!](/api-reference/types/string) | The specific wallet address to filter by. |
-| `timestamp` → [EventQueryTimestampInput](/api-reference/types/eventquerytimestampinput) | The time range to filter by. |
-| `networkId` → Int | The network ID to filter by. |
-| `priceUsdTotal` → [NumberFilter](/api-reference/types/numberfilter) | The total amount of `quoteToken` involved in the swap in USD (`amountNonLiquidityToken` x `priceUsd`). |
-| `eventType` → [EventType](/api-reference/types/eventtype) | The specific event type to filter by. |
-| `tokenAddress` → String | The token involved in the event. |
+<a href="/api-reference/types/eventquerytimestampinput">
+  <ResponseField name="timestamp" type="EventQueryTimestampInput">
+    The time range to filter by.
+  </ResponseField>
+</a>
 
+<ResponseField name="networkId" type="Int">
+  The network ID to filter by.
+</ResponseField>
+
+<a href="/api-reference/types/numberfilter">
+  <ResponseField name="priceUsdTotal" type="NumberFilter">
+    The total amount of `quoteToken` involved in the swap in USD (`amountNonLiquidityToken` x `priceUsd`).
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/eventtype">
+  <ResponseField name="eventType" type="EventType">
+    The specific event type to filter by.
+  </ResponseField>
+</a>
+
+<ResponseField name="tokenAddress" type="String">
+  The token involved in the event.
+</ResponseField>
+
+
+```graphql MakerEventsQueryInput
+input MakerEventsQueryInput {
+  """The specific wallet address to filter by."""
+  maker: String!
+  """The time range to filter by."""
+  timestamp: EventQueryTimestampInput
+  """The network ID to filter by."""
+  networkId: Int
+  """The total amount of `quoteToken` involved in the swap in USD (`amountNonLiquidityToken` x `priceUsd`)."""
+  priceUsdTotal: NumberFilter
+  """The specific event type to filter by."""
+  eventType: EventType
+  """The token involved in the event."""
+  tokenAddress: String
+}
+```

@@ -3,11 +3,19 @@ title: "CreateRawTransactionWebhooksInput"
 description: "Input for creating Raw Transaction webhooks."
 ---
 
-**Type:** [CreateRawTransactionWebhooksInput](/api-reference/types/createrawtransactionwebhooksinput)
+### Fields
 
-## Fields
+<a href="/api-reference/types/createrawtransactionwebhookargs">
+  <ResponseField name="webhooks" type="[CreateRawTransactionWebhookArgs!]!" required>
+    A list of Raw Transaction webhooks to create.
+  </ResponseField>
+</a>
 
-| Name | Description |
-|------|-------------|
-| `webhooks` → [[CreateRawTransactionWebhookArgs!]!](/api-reference/types/createrawtransactionwebhookargs) | A list of Raw Transaction webhooks to create. |
 
+```graphql CreateRawTransactionWebhooksInput
+"""Input for creating Raw Transaction webhooks."""
+input CreateRawTransactionWebhooksInput {
+  """A list of Raw Transaction webhooks to create."""
+  webhooks: [CreateRawTransactionWebhookArgs!]!
+}
+```

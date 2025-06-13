@@ -3,12 +3,27 @@ title: "TokenRanking"
 description: "Input type of `TokenRanking`."
 ---
 
-**Type:** [TokenRanking](/api-reference/types/tokenranking)
+### Fields
 
-## Fields
+<a href="/api-reference/types/tokenrankingattribute">
+  <ResponseField name="attribute" type="TokenRankingAttribute">
+    The attribute to rank tokens by.
+  </ResponseField>
+</a>
 
-| Name | Description |
-|------|-------------|
-| `attribute` → [TokenRankingAttribute](/api-reference/types/tokenrankingattribute) | The attribute to rank tokens by. |
-| `direction` → [RankingDirection](/api-reference/types/rankingdirection) | The direction to apply to the ranking attribute. |
+<a href="/api-reference/types/rankingdirection">
+  <ResponseField name="direction" type="RankingDirection">
+    The direction to apply to the ranking attribute.
+  </ResponseField>
+</a>
 
+
+```graphql TokenRanking
+"""Input type of `TokenRanking`."""
+input TokenRanking {
+  """The attribute to rank tokens by."""
+  attribute: TokenRankingAttribute
+  """The direction to apply to the ranking attribute."""
+  direction: RankingDirection
+}
+```

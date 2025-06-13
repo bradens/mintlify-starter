@@ -3,13 +3,28 @@ title: "CreateApiTokensInput"
 description: "InputObject type"
 ---
 
-**Type:** [CreateApiTokensInput](/api-reference/types/createapitokensinput)
+### Fields
 
-## Fields
+<ResponseField name="count" type="Int">
+  Number of tokens to create, default is 1
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `count` → Int | Number of tokens to create, default is 1 |
-| `requestLimit` → String | Number of requests allowed per token, represented as a string, default is 5000 |
-| `expiresIn` → Int | Number of seconds until the token expires, defaults to 1 hour (3600) |
+<ResponseField name="requestLimit" type="String">
+  Number of requests allowed per token, represented as a string, default is 5000
+</ResponseField>
 
+<ResponseField name="expiresIn" type="Int">
+  Number of seconds until the token expires, defaults to 1 hour (3600)
+</ResponseField>
+
+
+```graphql CreateApiTokensInput
+input CreateApiTokensInput {
+  """Number of tokens to create, default is 1"""
+  count: Int
+  """Number of requests allowed per token, represented as a string, default is 5000"""
+  requestLimit: String
+  """Number of seconds until the token expires, defaults to 1 hour (3600)"""
+  expiresIn: Int
+}
+```

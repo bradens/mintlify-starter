@@ -7,14 +7,29 @@ description: "Returns a list of Prime pool cached assets."
 
 **Returns:** [PrimePoolAssetConnection](/api-reference/types/primepoolassetconnection)
 
-## Arguments for getPrimePoolAssets
+### Arguments
 
-| Name | Description |
-|------|-------------|
-| `networkId` ([Int!](/api-reference/types/int)) | The network ID the Prime pool is deployed on. |
-| `poolContractAddress` (String) | The contract address of the Prime pool. |
-| `poolId` (String) | The pool ID for the Prime pool, within the contract. |
-| `walletAddress` (String) | The owner wallet address to filter assets by. |
-| `limit` (Int) | The maximum number of Prime Pool assets to return. |
-| `cursor` (String) | The cursor to use for pagination. |
+<ResponseField name="networkId" type="Int!" required>
+  The network ID the Prime pool is deployed on.
+</ResponseField>
+
+<ResponseField name="poolContractAddress" type="String">
+  The contract address of the Prime pool.
+</ResponseField>
+
+<ResponseField name="poolId" type="String">
+  The pool ID for the Prime pool, within the contract.
+</ResponseField>
+
+<ResponseField name="walletAddress" type="String">
+  The owner wallet address to filter assets by.
+</ResponseField>
+
+<ResponseField name="limit" type="Int">
+  The maximum number of Prime Pool assets to return.
+</ResponseField>
+
+<ResponseField name="cursor" type="String">
+  The cursor to use for pagination.
+</ResponseField>
 

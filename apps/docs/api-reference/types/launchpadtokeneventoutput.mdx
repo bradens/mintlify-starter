@@ -3,22 +3,87 @@ title: "LaunchpadTokenEventOutput"
 description: "Response returned by `onLaunchpadTokenEvent`."
 ---
 
-**Type:** [LaunchpadTokenEventOutput](/api-reference/types/launchpadtokeneventoutput)
+### Fields
 
-## Fields
+<ResponseField name="address" type="String!" required>
+  The contract address of the token.
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `address` → [String!](/api-reference/types/string) | The contract address of the token. |
-| `networkId` → [Int!](/api-reference/types/int) | The network ID that the token is deployed on. |
-| `protocol` → [String!](/api-reference/types/string) | The protocol of the token. |
-| `token` → [EnhancedToken!](/api-reference/types/enhancedtoken) | Metadata for the token. |
-| `buyCount1` → Int | The number of buys in the last 24 hours. |
-| `eventType` → [LaunchpadTokenEventType!](/api-reference/types/launchpadtokeneventtype) | The type of event. |
-| `holders` → Int | The number of holders. |
-| `marketCap` → String | The market cap of the token. |
-| `price` → Float | The price of the token. |
-| `sellCount1` → Int | The number of sells in the last 24 hours. |
-| `volume1` → Int | The volume of the token in the last 24 hours. |
-| `transactions1` → Int | The number of transactions in the last 24 hours. |
+<ResponseField name="networkId" type="Int!" required>
+  The network ID that the token is deployed on.
+</ResponseField>
 
+<ResponseField name="protocol" type="String!" required>
+  The protocol of the token.
+</ResponseField>
+
+<a href="/api-reference/types/enhancedtoken">
+  <ResponseField name="token" type="EnhancedToken!" required>
+    Metadata for the token.
+  </ResponseField>
+</a>
+
+<ResponseField name="buyCount1" type="Int">
+  The number of buys in the last 24 hours.
+</ResponseField>
+
+<a href="/api-reference/types/launchpadtokeneventtype">
+  <ResponseField name="eventType" type="LaunchpadTokenEventType!" required>
+    The type of event.
+  </ResponseField>
+</a>
+
+<ResponseField name="holders" type="Int">
+  The number of holders.
+</ResponseField>
+
+<ResponseField name="marketCap" type="String">
+  The market cap of the token.
+</ResponseField>
+
+<ResponseField name="price" type="Float">
+  The price of the token.
+</ResponseField>
+
+<ResponseField name="sellCount1" type="Int">
+  The number of sells in the last 24 hours.
+</ResponseField>
+
+<ResponseField name="volume1" type="Int">
+  The volume of the token in the last 24 hours.
+</ResponseField>
+
+<ResponseField name="transactions1" type="Int">
+  The number of transactions in the last 24 hours.
+</ResponseField>
+
+
+```graphql LaunchpadTokenEventOutput
+"""Response returned by `onLaunchpadTokenEvent`."""
+type LaunchpadTokenEventOutput {
+  """The contract address of the token."""
+  address: String!
+  """The network ID that the token is deployed on."""
+  networkId: Int!
+  """The protocol of the token."""
+  protocol: String!
+  """Metadata for the token."""
+  token: EnhancedToken!
+  """The number of buys in the last 24 hours."""
+  buyCount1: Int
+  """The type of event."""
+  eventType: LaunchpadTokenEventType!
+  """The number of holders."""
+  holders: Int
+  """The market cap of the token."""
+  marketCap: String
+  """The price of the token."""
+  price: Float
+  """The number of sells in the last 24 hours."""
+  sellCount1: Int
+  """The volume of the token in the last 24 hours."""
+  volume1: Int
+  """The number of transactions in the last 24 hours."""
+  transactions1: Int
+}
+```

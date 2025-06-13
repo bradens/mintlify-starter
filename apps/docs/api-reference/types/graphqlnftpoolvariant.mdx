@@ -3,12 +3,21 @@ title: "GraphQlNftPoolVariant"
 description: "The pool variant."
 ---
 
-**Type:** [GraphQlNftPoolVariant](/api-reference/types/graphqlnftpoolvariant)
+### Values
 
-## Values
+<ResponseField name="ERC20" type="enum">
+  No description provided
+</ResponseField>
 
-| Value | Description |
-|-------|-------------|
-| `ERC20` | No description provided |
-| `NATIVE` | No description provided |
+<ResponseField name="NATIVE" type="enum">
+  No description provided
+</ResponseField>
 
+
+```graphql GraphQlNftPoolVariant
+"""The pool variant."""
+enum GraphQlNftPoolVariant {
+  ERC20
+  NATIVE
+}
+```

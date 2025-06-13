@@ -7,17 +7,43 @@ description: "Returns transactions for an NFT collection across any marketplace(
 
 **Returns:** [NftEventsConnection](/api-reference/types/nfteventsconnection)
 
-## Arguments for getNftEvents
+### Arguments
 
-| Name | Description |
-|------|-------------|
-| `address` (String) | The contract address of the NFT collection. |
-| `exchangeAddress` (String) | The NFT marketplace address to filter by. |
-| `poolAddress` (String) | The NFT pool address to filter by. |
-| `networkId` ([Int!](/api-reference/types/int)) | The network ID the NFT collection is deployed on. |
-| `tokenId` (String) | The token ID to filter by. |
-| `cursor` (String) | The cursor to use for pagination. |
-| `timestamp` ([EventQueryTimestampInput](/api-reference/types/eventquerytimestampinput)) | The time range to filter by. |
-| `limit` (Int) | The maximum number of NFT events to return. |
-| `includeTransfers` (Boolean) | No description provided |
+<ResponseField name="address" type="String">
+  The contract address of the NFT collection.
+</ResponseField>
+
+<ResponseField name="exchangeAddress" type="String">
+  The NFT marketplace address to filter by.
+</ResponseField>
+
+<ResponseField name="poolAddress" type="String">
+  The NFT pool address to filter by.
+</ResponseField>
+
+<ResponseField name="networkId" type="Int!" required>
+  The network ID the NFT collection is deployed on.
+</ResponseField>
+
+<ResponseField name="tokenId" type="String">
+  The token ID to filter by.
+</ResponseField>
+
+<ResponseField name="cursor" type="String">
+  The cursor to use for pagination.
+</ResponseField>
+
+<a href="/api-reference/types/eventquerytimestampinput">
+  <ResponseField name="timestamp" type="EventQueryTimestampInput">
+    The time range to filter by.
+  </ResponseField>
+</a>
+
+<ResponseField name="limit" type="Int">
+  The maximum number of NFT events to return.
+</ResponseField>
+
+<ResponseField name="includeTransfers" type="Boolean">
+  No description provided
+</ResponseField>
 

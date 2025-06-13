@@ -3,12 +3,27 @@ title: "PairChartInput"
 description: "Input type of `PairChartInput`."
 ---
 
-**Type:** [PairChartInput](/api-reference/types/pairchartinput)
+### Fields
 
-## Fields
+<a href="/api-reference/types/chartimageoptions">
+  <ResponseField name="imageOptions" type="ChartImageOptions">
+    Options that pertain to the image itself.
+  </ResponseField>
+</a>
 
-| Name | Description |
-|------|-------------|
-| `imageOptions` → [ChartImageOptions](/api-reference/types/chartimageoptions) | Options that pertain to the image itself. |
-| `chartSettings` → [PairChartSettings!](/api-reference/types/pairchartsettings) | Settings that pertain to the chart. |
+<a href="/api-reference/types/pairchartsettings">
+  <ResponseField name="chartSettings" type="PairChartSettings!" required>
+    Settings that pertain to the chart.
+  </ResponseField>
+</a>
 
+
+```graphql PairChartInput
+"""Input type of `PairChartInput`."""
+input PairChartInput {
+  """Options that pertain to the image itself."""
+  imageOptions: ChartImageOptions
+  """Settings that pertain to the chart."""
+  chartSettings: PairChartSettings!
+}
+```

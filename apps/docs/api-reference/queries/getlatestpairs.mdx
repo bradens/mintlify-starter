@@ -3,17 +3,33 @@ title: "getLatestPairs"
 description: "Returns new tokens listed over the last three days."
 ---
 
+<Warning>
+  This query is deprecated. This query is longer supported. Instead use filterPairs with sort order on createdAt DESC
+</Warning>
+
 **Type:** Query
 
 **Returns:** [LatestPairConnection](/api-reference/types/latestpairconnection)
 
-## Arguments for getLatestPairs
+### Arguments
 
-| Name | Description |
-|------|-------------|
-| `limit` (Int) | The maximum number of tokens to return. |
-| `networkFilter` ([[Int!]](/api-reference/types/int)) | The list of network IDs to filter by. |
-| `exchangeFilter` ([[String!]](/api-reference/types/string)) | The list of exchanges to filter by. |
-| `minLiquidityFilter` (Int) | The minimum amount of liquidity to filter by. |
-| `cursor` (String) | The cursor to use for pagination. |
+<ResponseField name="limit" type="Int">
+  The maximum number of tokens to return.
+</ResponseField>
+
+<ResponseField name="networkFilter" type="[Int!]">
+  The list of network IDs to filter by.
+</ResponseField>
+
+<ResponseField name="exchangeFilter" type="[String!]">
+  The list of exchanges to filter by.
+</ResponseField>
+
+<ResponseField name="minLiquidityFilter" type="Int">
+  The minimum amount of liquidity to filter by.
+</ResponseField>
+
+<ResponseField name="cursor" type="String">
+  The cursor to use for pagination.
+</ResponseField>
 

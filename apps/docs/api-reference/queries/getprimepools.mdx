@@ -7,13 +7,25 @@ description: "Returns a list of Prime pools."
 
 **Returns:** [PrimePoolConnection](/api-reference/types/primepoolconnection)
 
-## Arguments for getPrimePools
+### Arguments
 
-| Name | Description |
-|------|-------------|
-| `address` ([String!](/api-reference/types/string)) | The contract address for the prime pool. |
-| `networkId` ([Int!](/api-reference/types/int)) | The network ID the prime pool is deployed on. |
-| `poolIds` ([[String]](/api-reference/types/string)) | An optional list of pool IDs to filter by. |
-| `limit` (Int) | The maximum number of Prime pools to return. |
-| `cursor` (String) | The cursor to use for pagination. |
+<ResponseField name="address" type="String!" required>
+  The contract address for the prime pool.
+</ResponseField>
+
+<ResponseField name="networkId" type="Int!" required>
+  The network ID the prime pool is deployed on.
+</ResponseField>
+
+<ResponseField name="poolIds" type="[String]">
+  An optional list of pool IDs to filter by.
+</ResponseField>
+
+<ResponseField name="limit" type="Int">
+  The maximum number of Prime pools to return.
+</ResponseField>
+
+<ResponseField name="cursor" type="String">
+  The cursor to use for pagination.
+</ResponseField>
 

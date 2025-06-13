@@ -3,14 +3,35 @@ title: "DetailedPairStatsStringMetrics"
 description: "String metrics for detailed pair stats."
 ---
 
-**Type:** [DetailedPairStatsStringMetrics](/api-reference/types/detailedpairstatsstringmetrics)
+### Fields
 
-## Fields
+<ResponseField name="change" type="Float">
+  The percent change between the `currentValue` and `previousValue`. Decimal format.
+</ResponseField>
 
-| Name | Description |
-|------|-------------|
-| `change` → Float | The percent change between the `currentValue` and `previousValue`. Decimal format. |
-| `currentValue` → String | The total value for the most recent duration. |
-| `previousValue` → String | The total value for the previous duration. |
-| `buckets` → [[String]!](/api-reference/types/string) | The list of aggregated values for each bucket. |
+<ResponseField name="currentValue" type="String">
+  The total value for the most recent duration.
+</ResponseField>
 
+<ResponseField name="previousValue" type="String">
+  The total value for the previous duration.
+</ResponseField>
+
+<ResponseField name="buckets" type="[String]!" required>
+  The list of aggregated values for each bucket.
+</ResponseField>
+
+
+```graphql DetailedPairStatsStringMetrics
+"""String metrics for detailed pair stats."""
+type DetailedPairStatsStringMetrics {
+  """The percent change between the `currentValue` and `previousValue`. Decimal format."""
+  change: Float
+  """The total value for the most recent duration."""
+  currentValue: String
+  """The total value for the previous duration."""
+  previousValue: String
+  """The list of aggregated values for each bucket."""
+  buckets: [String]!
+}
+```

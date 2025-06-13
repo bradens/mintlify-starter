@@ -471,8 +471,8 @@ function generateGraphQLDocs() {
   // Get all non-root types
   const allTypes = Object.keys(typeMap)
     .filter(typeName => {
-      // Skip introspection types
-      if (typeName.startsWith('__')) return false;
+      // Skip any types with double underscores (introspection and custom types)
+      if (typeName.includes('__') || typeName === 'Void' || typeName === "JSON") return false;
 
       const type = typeMap[typeName];
       // Skip root operation types as they're handled separately

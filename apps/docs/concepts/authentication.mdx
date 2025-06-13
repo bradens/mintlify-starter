@@ -6,20 +6,55 @@ description: "Learn how to authenticate with the Codex API"
 The Codex API is authenticated using an API key. You can get your API key from the [dashboard](https://dashboard.codex.io).
 
 
-There are two types of api key: Secret, and Short-lived.
+There are two types of API keys: `secret`, and `short-lived`.
 
 Secret keys are long-lived and can be used to make requests to the API indefinitely. You must ensure that you don't leak these
 to your users, as they can be used to make requests to the API indefinitely and incur costs.
 
-Short-lived keys are good for when you need to allow untrusted parties like users directly make
-requests to the Codex API. Maybe for a website that provides the ability for users to subscribe
-to Codex websockets.
+Short-lived keys are good for when you need to allow untrusted parties like users to directly make
+requests to the Codex API. Maybe you have a website that provides the ability for users to subscribe
+to Codex websockets to get real-time updates for example.
 
 You can generate as many short-lived keys as you want, and there are limits you can set on the
 expiration time & number of requests per key. See the details [here](/api-reference/queries/apitokens#apitokens)
 
+## Api Key Example
 
-## Example
+For queries, you just add the Authorization header on every HTTP request to https://graph.codex.io/graphql and it will authorize you.
+
+<CodeGroup>
+```typescript Sdk
+sdk.query(gql`
+  query GetTokenPrices($inputs: [GetTokenPricesInput!]!) {
+    getTokenPrices(inputs: $inputs) {
+      priceUsd
+      timestamp
+      address
+    }
+  }
+  `, {
+  inputs: [{
+    address: "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+    networkId: 56
+  }]
+})
+```
+
+
+```typescript fetch
+fetch("https://graph.codex.io/graphql", {
+  method: "POST",
+  headers: {
+    "Authorization": apiKey,
+  },
+  body: JSON.stringify({ query: 'query { getTokenPrices(inputs: [{ address: "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c", networkId: 56 }]) { priceUsd timestamp address } }' }),
+})
+```
+
+</CodeGroup>
+
+
+## Short-Lived Key Example
 
 Create a single short-lived key with a request limit of 1000 requests.
 

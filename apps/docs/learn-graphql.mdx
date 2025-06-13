@@ -7,6 +7,11 @@ description: 'Learn useful terminology and concepts for using the GraphQL API'
 
 This page has information on how to use the Codex GraphQL API specifically.
 
+## Explorer
+
+The [GraphQL Explorer](/explorer) is a great way to learn about the Codex GraphQL API.
+It's a tool that allows you to explore the API, run queries, and subscriptions, complete with with tabs, persistence, and history.
+
 ## URLs
 
 Codex provides a url for both queries & subscriptions (websockets) at the same resource.
@@ -36,6 +41,15 @@ We do provide the introspection query response, as well as the most recent schem
   </Card>
 </CardGroup>
 
+
+## Communication
+
+All queries and mutations are sent over HTTPS, using the `POST` method.
+
+All websocket messages are sent over the `wss` protocol.
+
+All messages are sent as JSON.
+
 ## Codegen
 
 We recommend using [GraphQL Code Generator](https://www.graphql-code-generator.com/) to generate types and queries for your codebase, using the introspection schema provided [ here ](#introspection).
@@ -56,20 +70,4 @@ const config: CodegenConfig = {
 
 export default config;
 ```
-
-
-## Communication
-
-All queries and mutations are sent over HTTPS, using the `POST` method.
-
-All websocket messages are sent over the `wss` protocol.
-
-All messages are sent as JSON.
-
-## Explorer
-
-The [GraphQL Explorer](/explorer) is a great way to learn about the Codex GraphQL API.
-It's a tool that allows you to explore the API, run queries, and subscriptions, complete with with tabs, persistence, and history.
-
-
 

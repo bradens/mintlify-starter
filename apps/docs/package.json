@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "mintlify dev",
+    "dev": "mintlify dev --no-open",
     "generate-graphql-docs": "node generate-graphql-docs.js"
   },
   "dependencies": {

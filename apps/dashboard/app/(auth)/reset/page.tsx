@@ -70,20 +70,6 @@ function ResetPasswordContent() {
     },
   });
 
-  // Validate token on page load
-  useEffect(() => {
-    if (!token || !email) {
-      setResetState('invalid');
-      setTokenValidation({
-        valid: false,
-        message: 'Invalid reset link. Please request a new password reset.',
-      });
-      return;
-    }
-
-    validateToken();
-  }, [token, email]);
-
   const validateToken = async () => {
     try {
       const response = await fetch('/api/auth/validate-reset-token', {
@@ -122,6 +108,22 @@ function ResetPasswordContent() {
       });
     }
   };
+
+  // Validate token on page load
+  useEffect(() => {
+    if (!token || !email) {
+      setResetState('invalid');
+      setTokenValidation({
+        valid: false,
+        message: 'Invalid reset link. Please request a new password reset.',
+      });
+      return;
+    }
+
+    validateToken();
+  }, [token, email, validateToken]);
+
+
 
   const onSubmit = async (data: ResetPasswordFormData) => {
     try {

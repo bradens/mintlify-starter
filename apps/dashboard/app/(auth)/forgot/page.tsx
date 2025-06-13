@@ -96,7 +96,7 @@ export default function ForgotPasswordPage() {
             </div>
             <CardTitle className='text-2xl'>Forgot Password</CardTitle>
             <CardDescription>
-              Enter your email address and we'll send you instructions to reset your password.
+              Enter your email address and we{"'"}ll send you instructions to reset your password.
             </CardDescription>
           </CardHeader>
 
@@ -147,7 +147,7 @@ export default function ForgotPasswordPage() {
             {result?.success && (
               <div className='space-y-4'>
                 <div className='text-center text-sm text-gray-600'>
-                  <p>Didn't receive the email?</p>
+                  <p>Didn{"'"}t receive the email?</p>
                   <ul className='mt-2 space-y-1'>
                     <li>• Check your spam or junk folder</li>
                     <li>• Make sure you entered the correct email address</li>
@@ -175,7 +175,7 @@ export default function ForgotPasswordPage() {
               </Button>
 
               <div className='text-center text-sm text-gray-600'>
-                Don't have an account?{' '}
+                Don{"'"}t have an account?{' '}
                 <Button
                   variant='link'
                   onClick={() => router.push('/signup')}

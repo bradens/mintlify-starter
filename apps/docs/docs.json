@@ -17,12 +17,13 @@
             "group": "First steps",
             "pages": [
               "index",
-              "quickstart",
-              "development"
+              "get-started",
+              "learn-graphql",
+              "build"
             ]
           },
           {
-            "group": "Essentials",
+            "group": "Concepts",
             "pages": [
               "essentials/markdown",
               "essentials/code",
@@ -31,11 +32,18 @@
               "essentials/navigation",
               "essentials/reusable-snippets"
             ]
+          },
+          {
+            "group": "Recipes",
+            "pages": [
+              "recipes/webhooks",
+              "recipes/subscriptions"
+            ]
           }
         ]
       },
       {
-        "tab": "API Reference",
+        "tab": "GraphQL Reference",
         "groups": [
           {
             "group": "API Documentation",
@@ -59,18 +67,18 @@
       "anchors": [
         {
           "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
+          "href": "https://docs.codex.io",
           "icon": "book-open-cover"
         },
         {
           "anchor": "Community",
-          "href": "https://mintlify.com/community",
-          "icon": "slack"
+          "href": "https://t.co/VlYcv6ZUIC",
+          "icon": "discord"
         },
         {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
+          "anchor": "Dashboard",
+          "href": "https://dashboard.codex.io",
+          "icon": "chart-line"
         }
       ]
     }
@@ -83,20 +91,20 @@
     "links": [
       {
         "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "href": "https://t.co/VlYcv6ZUIC"
       }
     ],
     "primary": {
       "type": "button",
       "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
+      "href": "https://dashboard.codex.io"
     }
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "x": "https://x.com/trycodex",
+      "github": "https://github.com/codex-data",
+      "discord": "https://t.co/VlYcv6ZUIC"
     }
   }
 }

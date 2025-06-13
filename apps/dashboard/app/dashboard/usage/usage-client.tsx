@@ -15,9 +15,8 @@ import {
   ChevronsUpDown,
 } from 'lucide-react';
 import { useSession } from 'next-auth/react';
-import { Bar, BarChart, XAxis, YAxis, CartesianGrid, ResponsiveContainer } from 'recharts';
+import { Bar, BarChart, XAxis, YAxis, CartesianGrid } from 'recharts';
 
-import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import {
@@ -383,7 +382,7 @@ export function UsagePageClient({ user }: UsagePageClientProps) {
     if (selectedApiKeys.length > 0) {
       loadUsageData();
     }
-  }, [loadUsageData]);
+  }, [loadUsageData, selectedApiKeys.length]);
 
   const handleTimeframeChange = (timeframe: string) => {
     setSelectedTimeframe(timeframe);

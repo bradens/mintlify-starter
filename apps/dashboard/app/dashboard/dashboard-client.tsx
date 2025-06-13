@@ -10,13 +10,11 @@ import {
   MessageSquare,
   Webhook,
   Search,
-  Eye,
-  EyeOff,
   Copy,
   Check,
 } from 'lucide-react';
 import { useSession } from 'next-auth/react';
-import { Bar, BarChart, XAxis, YAxis, CartesianGrid, ResponsiveContainer } from 'recharts';
+import { Bar, BarChart, XAxis, YAxis, CartesianGrid } from 'recharts';
 
 import { CreateApiKeyModal } from '@/components/modals/create-api-key-modal';
 import { Badge } from '@/components/ui/badge';
@@ -439,7 +437,7 @@ export function DashboardPageClient({ user }: DashboardPageClientProps) {
       <div className='space-y-2'>
         <h2 className='text-2xl font-bold'>Welcome back{user.name ? `, ${user.name}` : ''}!</h2>
         <p className='text-muted-foreground'>
-          Here's an overview of your API keys and usage statistics.
+          Here{"'"}s an overview of your API keys and usage statistics.
         </p>
       </div>
 

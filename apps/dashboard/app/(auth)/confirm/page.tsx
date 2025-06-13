@@ -60,23 +60,6 @@ function ConfirmContent() {
       code: '',
     },
   });
-
-  useEffect(() => {
-    // If we have a token, attempt to confirm automatically
-    if (token) {
-      confirmEmail(token);
-    } else if (email) {
-      // Show manual code entry form if we only have email
-      setShowCodeForm(true);
-      setConfirmationResult({
-        success: false,
-        state: 'pending',
-        message: 'Enter the 6-digit confirmation code from your email.',
-        email,
-      });
-    }
-  }, [token, email]);
-
   const confirmEmail = async (confirmationToken: string) => {
     try {
       // Call Cognito to confirm the email
@@ -134,6 +117,23 @@ function ConfirmContent() {
       });
     }
   };
+  useEffect(() => {
+    // If we have a token, attempt to confirm automatically
+    if (token) {
+      confirmEmail(token);
+    } else if (email) {
+      // Show manual code entry form if we only have email
+      setShowCodeForm(true);
+      setConfirmationResult({
+        success: false,
+        state: 'pending',
+        message: 'Enter the 6-digit confirmation code from your email.',
+        email,
+      });
+    }
+  }, [token, email, confirmEmail]);
+
+
 
   const onSubmitCode = async (data: CodeFormData) => {
     await confirmEmail(data.code);
@@ -339,12 +339,12 @@ function ConfirmContent() {
 
             {confirmationResult?.state === 'pending' && (
               <div className='text-center text-sm text-gray-600 mt-4'>
-                <p>Didn't receive the email?</p>
+                <p>Didn{"'"}t receive the email?</p>
                 <ul className='mt-2 space-y-1'>
                   <li>• Check your spam or junk folder</li>
                   <li>• Make sure you entered the correct email address</li>
                   <li>• Wait a few minutes for the email to arrive</li>
-                  <li>• Click "Resend Confirmation Email" to get a new code</li>
+                    <li>• Click {"'"}Resend Confirmation Email{"'"} to get a new code</li>
                 </ul>
               </div>
             )}

@@ -28,9 +28,9 @@ description: "An NFT collection transaction."
 | `individualBaseTokenPrice` → String | No description provided |
 | `individualPriceUsd` → String | The price of each individual NFT in USD. |
 | `networkBaseTokenPrice` → String | No description provided |
-| `totalPriceNetworkBaseToken` → String | The total trade price for the transaction in the network's base token. (The transaction can include more than 1 token). |
+| `totalPriceNetworkBaseToken` → String | The total trade price for the transaction in the network&#39;s base token. (The transaction can include more than 1 token). |
 | `individualNetworkBaseTokenPrice` → String | No description provided |
-| `individualPriceNetworkBaseToken` → String | The price of each individual NFT in the network's base token. |
+| `individualPriceNetworkBaseToken` → String | The price of each individual NFT in the network&#39;s base token. |
 | `eventType` → [String!](/api-reference/types/string) | The event type of the transaction. |
 | `exchangeAddress` → [String!](/api-reference/types/string) | The NFT marketplace address of the transaction. |
 | `sortKey` → [String!](/api-reference/types/string) | The sortKey for the event (`blockNumber`#`transactionIndex`#`logIndex` (+ #`marketplaceEventLogIndex` if applicable), zero padded). For example, `0000000016414564#00000224#00000413#00000414`. |
@@ -46,5 +46,5 @@ description: "An NFT collection transaction."
 | `priceError` → String | The reason for the price error, if applicable. Can be `NO_TOKEN_DATA`, `NO_TOKEN_PRICE`, or `LOW_LIQUIDITY_PAIR`. |
 | `tradeOffer` → [[NftEventTradeItem!]](/api-reference/types/nfteventtradeitem) | The tokens/NFTs that were offered to make this transaction occur. |
 | `tradeReceived` → [[NftEventTradeItem!]](/api-reference/types/nfteventtradeitem) | The tokens/NFTs that were received in this transaction. |
-| `orderDirection` → [NftEventOrderDirection](/api-reference/types/nfteventorderdirection) | The direction of the order. One of 'BUY', 'SELL', or 'OFFER_ACCEPTED'. |
+| `orderDirection` → [NftEventOrderDirection](/api-reference/types/nfteventorderdirection) | The direction of the order. One of &#39;BUY&#39;, &#39;SELL&#39;, or &#39;OFFER_ACCEPTED&#39;. |
 

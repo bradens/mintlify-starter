@@ -11,7 +11,15 @@ function shouldHideField(field) {
 // Helper function to clean description text
 function cleanDescription(description) {
   if (!description) return '';
-  return description.replace(/docs: hide/g, '').trim();
+  return description
+    .replace(/<br>/g, '\n') // Convert <br> tags to newlines first
+    .replace(/&/g, '&amp;') // Escape & first (must be done before other entities)
+    .replace(/</g, '&lt;')  // Escape <
+    .replace(/>/g, '&gt;')  // Escape >
+    .replace(/"/g, '&quot;') // Escape quotes
+    .replace(/'/g, '&#39;')  // Escape single quotes
+    .replace(/docs: hide/g, '') // Remove docs: hide directive
+    .trim();
 }
 
 // Helper function to create a slug from a name

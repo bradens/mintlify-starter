@@ -12,7 +12,7 @@ description: "InputObject type"
 | `walletAddress` → String | The wallet address to filter by. |
 | `networks` → [[Int!]](/api-reference/types/int) | The network IDs to filter by. |
 | `tokens` → [[String!]](/api-reference/types/string) | The token IDs (`address:networkId`) or addresses to request the balance for. Requires a list of `networks` if only passing addresses. Include native network balances using `native` as the token address. Only applied when using `walletAddress` (not `walletId`). Max 200 tokens. |
-| `includeNative` → Boolean | Whether to include native network balances in the response (ID will be native:<networkId>). Requires a list of `networks`. Does not apply when using `tokens`. |
+| `includeNative` → Boolean | Whether to include native network balances in the response (ID will be native:&lt;networkId&gt;). Requires a list of `networks`. Does not apply when using `tokens`. |
 | `limit` → Int | The maximum number of holdings to return. Does not apply when using `tokens`. |
 | `cursor` → String | A cursor for use in pagination. |
 | `removeScams` → Boolean | Whether to remove scam tokens from the response. |

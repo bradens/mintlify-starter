@@ -1,13 +1,13 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mint Starter Kit",
+  "name": "Codex",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#2b2b2b",
+    "light": "#e5ff5d",
+    "dark": "#111111"
   },
-  "favicon": "/favicon.svg",
+  "favicon": "/favicon.ico",
   "navigation": {
     "tabs": [
       {
@@ -52,7 +52,7 @@
             ]
           },
           {
-            "group": "Queries",
+            "group": "Reference",
             "pages": [
               {
                 "group": "Queries",
@@ -128,12 +128,7 @@
                   "api-reference/queries/walletchart",
                   "api-reference/queries/getcommunitynotes"
                 ]
-              }
-            ]
-          },
-          {
-            "group": "Subscriptions",
-            "pages": [
+              },
               {
                 "group": "Subscriptions",
                 "pages": [
@@ -162,12 +157,7 @@
                   "api-reference/subscriptions/onlaunchpadtokeneventbatch",
                   "api-reference/subscriptions/onlaunchpadtokenevent"
                 ]
-              }
-            ]
-          },
-          {
-            "group": "Mutations",
-            "pages": [
+              },
               {
                 "group": "Mutations",
                 "pages": [
@@ -176,12 +166,7 @@
                   "api-reference/mutations/createwebhooks",
                   "api-reference/mutations/deletewebhooks"
                 ]
-              }
-            ]
-          },
-          {
-            "group": "Types",
-            "pages": [
+              },
               {
                 "group": "Types",
                 "pages": [
@@ -472,12 +457,7 @@
                   "api-reference/types/join--fieldset",
                   "api-reference/types/link--import"
                 ]
-              }
-            ]
-          },
-          {
-            "group": "Enums",
-            "pages": [
+              },
               {
                 "group": "Enums",
                 "pages": [
@@ -564,12 +544,7 @@
                   "api-reference/types/webhooknfteventtype",
                   "api-reference/types/webhooktype"
                 ]
-              }
-            ]
-          },
-          {
-            "group": "Input Objects",
-            "pages": [
+              },
               {
                 "group": "Input Objects",
                 "pages": [
@@ -680,12 +655,7 @@
                   "api-reference/types/wallettokenfiltersv2",
                   "api-reference/types/wallettokenranking"
                 ]
-              }
-            ]
-          },
-          {
-            "group": "Unions and Interfaces",
-            "pages": [
+              },
               {
                 "group": "Unions and Interfaces",
                 "pages": [

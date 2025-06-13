@@ -3,6 +3,19 @@ title: "Queries"
 description: "Learn how to use queries with the Codex API"
 ---
 
-### Creating a query
+## Queries
 
-To create a query, you need to send a POST request to the `/graphql` endpoint.
+For queries, you just add the `Authorization` header on every HTTP request to `https://graph.codex.io/graphql` and it will authorize you.
+
+
+### Example
+
+```typescript fetch
+fetch("https://graph.codex.io/graphql", {
+  method: "POST",
+  headers: {
+    "Authorization": apiKey,
+  },
+  body: JSON.stringify({ query: 'query { getTokenPrices(inputs: [{ address: "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c", networkId: 56 }]) { priceUsd timestamp address } }' }),
+})
+```

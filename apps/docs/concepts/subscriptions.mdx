@@ -2,3 +2,53 @@
 title: "Subscriptions"
 description: "Learn how to use subscriptions with the Codex API"
 ---
+
+## Websockets
+
+For websockets, you use the `Authorization` connection parameter when sending the `connection_init` payload.
+
+We use the `graphql-ws` library to handle websocket connections on the backend, you can learn more about it [ here ](https://github.com/enisdenjo/graphql-ws).
+
+<Frame caption="note: you must wait for connection_ack before sending any messages">
+  <img className="block" src="/images/websocket-handshake.png" alt="Websocket handshake" />
+</Frame>
+
+### Example
+
+```typescript onPriceUpdated Example expandable
+import { createClient } from "graphql-ws";
+
+const client = createClient({
+  url: "wss://graph.codex.io/graphql",
+  connectionParams: {
+    Authorization: apiKey,
+  },
+});
+
+client.subscribe({
+  query: `
+    subscription($address: String!, $networkId: Int!) {
+      onPriceUpdated(address: $address, networkId: $networkId) {
+        priceUsd
+        timestamp
+        address
+      }
+    }
+  `,
+  variables: {
+    address: "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+    networkId: 56,
+  },
+  sink: {
+    next: (data) => {
+      console.log(data);
+    },
+    error: (error) => {
+      console.error(error);
+    },
+    complete: () => {
+      console.log("complete");
+    },
+  }
+})
+```

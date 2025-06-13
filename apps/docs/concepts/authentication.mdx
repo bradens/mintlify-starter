@@ -2,3 +2,108 @@
 title: "Authentication"
 description: "Learn how to authenticate with the Codex API"
 ---
+
+The Codex API is authenticated using an API key. You can get your API key from the [dashboard](https://dashboard.codex.io).
+
+
+There are two types of api key: Secret, and Short-lived.
+
+Secret keys are long-lived and can be used to make requests to the API indefinitely. You must ensure that you don't leak these
+to your users, as they can be used to make requests to the API indefinitely and incur costs.
+
+Short-lived keys are good for when you need to allow untrusted parties like users directly make
+requests to the Codex API. Maybe for a website that provides the ability for users to subscribe
+to Codex websockets.
+
+You can generate as many short-lived keys as you want, and there are limits you can set on the
+expiration time & number of requests per key. See the details [here](/api-reference/queries/apitokens#apitokens)
+
+
+## Example
+
+Create a single short-lived key with a request limit of 1000 requests.
+
+<CodeGroup>
+
+```typescript Sdk
+sdk.mutation(gql`
+  mutation CreateApiTokens($input: CreateApiTokensInput!) {
+    createApiTokens(input: $input) {
+      expiresTimeString
+      id
+      remaining
+      requestLimit
+      token
+    }
+  }
+`, {
+  input: {
+    count: 1
+    requestLimit: 1000
+  }
+})
+```
+
+```javascript Fetch
+fetch("https://graph.codex.io/graphql", {
+  method: "POST",
+  headers: {
+    "Authorization": apiKey,
+  },
+  body: JSON.stringify({ query: '
+    mutation {
+      createApiTokens(input: {
+        count: 1
+        requestLimit: 1000
+      }) {
+        token
+      }
+    }
+  })
+})
+```
+
+</CodeGroup>
+
+Then you can pass that `token` result as the apiKey when making further requests to the API, or subscribing with websockets.
+
+<Tip>
+  One caveat is that the `token` is a JWT, so you must set the `Authorization`
+  header to `Bearer <token>`. This is different from how secret keys work.
+</Tip>
+
+## Errors
+
+If you send an expired or invalid token, you will get a `Unauthorized` error like this.
+
+```json Unauthorized expandable
+{
+  "data": null,
+  "errors": [
+    {
+      "message": "HTTP fetch failed from 'tokens': 401: Unauthorized",
+      "path": [],
+      "extensions": {
+        "code": "SUBREQUEST_HTTP_ERROR",
+        "service": "tokens",
+        "reason": "401: Unauthorized",
+        "http": {
+          "status": 401
+        }
+      }
+    },
+    {
+      "message": "Your API key was not found",
+      "path": [],
+      "extensions": {
+        "code": "NOT_AUTHORIZED",
+        "service": "tokens"
+      }
+    }
+  ]
+}
+```
+
+
+
+

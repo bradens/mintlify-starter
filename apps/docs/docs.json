@@ -26,6 +26,9 @@
             "group": "Concepts",
             "pages": [
               "concepts/authentication",
+              "concepts/queries",
+              "concepts/subscriptions",
+              "concepts/webhooks",
               "concepts/rate-limits",
               "concepts/optimization"
             ]
@@ -33,8 +36,10 @@
           {
             "group": "Recipes",
             "pages": [
-              "recipes/webhooks",
-              "recipes/subscriptions"
+              "recipes/chatbot",
+              "recipes/chart",
+              "recipes/realtime",
+              "recipes/nextjs"
             ]
           }
         ]

@@ -5,7 +5,7 @@ const { buildSchema, isObjectType, isScalarType, isEnumType, isUnionType, isInpu
 // Helper function to check if a field has "docs: hide" directive
 function shouldHideField(field) {
   if (!field.description) return false;
-  return field.description.includes('docs: hide');
+  return field.description.includes('docs: hide')
 }
 
 // Helper function to clean description text
@@ -197,6 +197,237 @@ description: "${description || `${typeKind} type`}"
   return content;
 }
 
+// Helper function to read existing docs.json
+function readDocsJson() {
+  const docsJsonPath = path.join(__dirname, 'docs.json');
+  try {
+    const content = fs.readFileSync(docsJsonPath, 'utf8');
+    return JSON.parse(content);
+  } catch (error) {
+    console.error('❌ Error reading docs.json:', error.message);
+    process.exit(1);
+  }
+}
+
+// Helper function to write updated docs.json
+function writeDocsJson(docsData) {
+  const docsJsonPath = path.join(__dirname, 'docs.json');
+  try {
+    fs.writeFileSync(docsJsonPath, JSON.stringify(docsData, null, 2));
+    console.log('✅ Updated docs.json');
+  } catch (error) {
+    console.error('❌ Error writing docs.json:', error.message);
+    process.exit(1);
+  }
+}
+
+// Helper function to get existing API reference pages from docs.json
+function getExistingApiPages(docsData) {
+  const existing = {
+    queries: new Set(),
+    mutations: new Set(),
+    subscriptions: new Set(),
+    types: new Set(),
+    enums: new Set(),
+    inputObjects: new Set(),
+    unionsAndInterfaces: new Set()
+  };
+
+  try {
+    const graphqlTab = docsData.navigation.tabs.find(tab => tab.tab === 'GraphQL Reference');
+    if (!graphqlTab) return existing;
+
+    const referenceGroup = graphqlTab.groups.find(group => group.group === 'Reference');
+    if (!referenceGroup) return existing;
+
+    referenceGroup.pages.forEach(page => {
+      if (typeof page === 'object' && page.group) {
+        const groupName = page.group.toLowerCase();
+        page.pages.forEach(pagePath => {
+          const fileName = path.basename(pagePath);
+
+          if (groupName === 'queries') existing.queries.add(fileName);
+          else if (groupName === 'mutations') existing.mutations.add(fileName);
+          else if (groupName === 'subscriptions') existing.subscriptions.add(fileName);
+          else if (groupName === 'types') existing.types.add(fileName);
+          else if (groupName === 'enums') existing.enums.add(fileName);
+          else if (groupName === 'input objects') existing.inputObjects.add(fileName);
+          else if (groupName === 'unions and interfaces') existing.unionsAndInterfaces.add(fileName);
+        });
+      }
+    });
+  } catch (error) {
+    console.warn('⚠️ Warning: Could not parse existing API pages from docs.json:', error.message);
+  }
+
+  return existing;
+}
+
+// Helper function to update docs.json with new navigation
+function updateDocsJson(navigation) {
+  const docsData = readDocsJson();
+  const existingPages = getExistingApiPages(docsData);
+
+  try {
+    const graphqlTab = docsData.navigation.tabs.find(tab => tab.tab === 'GraphQL Reference');
+    if (!graphqlTab) {
+      console.error('❌ Could not find GraphQL Reference tab in docs.json');
+      return;
+    }
+
+    const referenceGroup = graphqlTab.groups.find(group => group.group === 'Reference');
+    if (!referenceGroup) {
+      console.error('❌ Could not find Reference group in docs.json');
+      return;
+    }
+
+    // Update the reference group pages
+    referenceGroup.pages = [
+      {
+        group: 'Queries',
+        pages: navigation.queries
+      },
+      {
+        group: 'Subscriptions',
+        pages: navigation.subscriptions
+      },
+      {
+        group: 'Mutations',
+        pages: navigation.mutations
+      },
+      {
+        group: 'Types',
+        pages: navigation.types.filter(type => navigation.objects.includes(type) || navigation.scalars.includes(type))
+      },
+      {
+        group: 'Enums',
+        pages: navigation.enums
+      },
+      {
+        group: 'Input Objects',
+        pages: navigation.inputs
+      },
+      {
+        group: 'Unions and Interfaces',
+        pages: navigation.unions.concat(navigation.interfaces)
+      }
+    ];
+
+    writeDocsJson(docsData);
+
+    // Log changes
+    const currentPages = {
+      queries: new Set(navigation.queries.map(p => path.basename(p))),
+      mutations: new Set(navigation.mutations.map(p => path.basename(p))),
+      subscriptions: new Set(navigation.subscriptions.map(p => path.basename(p))),
+      types: new Set(navigation.types.map(p => path.basename(p))),
+      enums: new Set(navigation.enums.map(p => path.basename(p))),
+      inputObjects: new Set(navigation.inputs.map(p => path.basename(p))),
+      unionsAndInterfaces: new Set(navigation.unions.concat(navigation.interfaces).map(p => path.basename(p)))
+    };
+
+    // Log added and removed pages
+    Object.keys(existingPages).forEach(category => {
+      const existing = existingPages[category];
+      const current = currentPages[category];
+
+      const added = [...current].filter(x => !existing.has(x));
+      const removed = [...existing].filter(x => !current.has(x));
+
+      if (added.length > 0) {
+        console.log(`➕ Added ${category}: ${added.join(', ')}`);
+      }
+      if (removed.length > 0) {
+        console.log(`➖ Removed ${category}: ${removed.join(', ')}`);
+      }
+    });
+
+  } catch (error) {
+    console.error('❌ Error updating docs.json navigation:', error.message);
+  }
+}
+
+// Helper function to remove outdated files
+function removeOutdatedFiles(currentNavigation, apiRefDir) {
+  const docsData = readDocsJson();
+  const existingPages = getExistingApiPages(docsData);
+
+  const currentPages = {
+    queries: new Set(currentNavigation.queries.map(p => path.basename(p))),
+    mutations: new Set(currentNavigation.mutations.map(p => path.basename(p))),
+    subscriptions: new Set(currentNavigation.subscriptions.map(p => path.basename(p))),
+    types: new Set(currentNavigation.types.map(p => path.basename(p))),
+    enums: new Set(currentNavigation.enums.map(p => path.basename(p))),
+    inputObjects: new Set(currentNavigation.inputs.map(p => path.basename(p))),
+    unionsAndInterfaces: new Set(currentNavigation.unions.concat(currentNavigation.interfaces).map(p => path.basename(p)))
+  };
+
+  const dirMap = {
+    queries: 'queries',
+    mutations: 'mutations',
+    subscriptions: 'subscriptions',
+    types: 'types',
+    enums: 'types',
+    inputObjects: 'types',
+    unionsAndInterfaces: 'types'
+  };
+
+  let removedCount = 0;
+
+  Object.keys(existingPages).forEach(category => {
+    const existing = existingPages[category];
+    const current = currentPages[category];
+    const dirName = dirMap[category];
+
+    const toRemove = [...existing].filter(x => !current.has(x));
+
+    toRemove.forEach(fileName => {
+      const filePath = path.join(apiRefDir, dirName, `${fileName}.mdx`);
+      if (fs.existsSync(filePath)) {
+        fs.unlinkSync(filePath);
+        removedCount++;
+        console.log(`🗑️ Removed outdated file: ${dirName}/${fileName}.mdx`);
+      }
+    });
+  });
+
+  if (removedCount === 0) {
+    console.log('✅ No outdated files to remove');
+  }
+}
+
+// Categorize types for better organization
+function categorizeTypes(allTypes) {
+  const objects = [];
+  const enums = [];
+  const unions = [];
+  const inputs = [];
+  const scalars = [];
+  const interfaces = [];
+
+  allTypes.forEach(type => {
+    if (isObjectType(type)) {
+      objects.push(type);
+    } else if (isEnumType(type)) {
+      enums.push(type);
+    } else if (isUnionType(type)) {
+      unions.push(type);
+    } else if (isInputObjectType(type)) {
+      inputs.push(type);
+    } else if (isInterfaceType(type)) {
+      interfaces.push(type);
+    } else if (isScalarType(type)) {
+      // Only include custom scalars
+      const builtInScalars = ['String', 'Int', 'Float', 'Boolean', 'ID'];
+      if (!builtInScalars.includes(type.name)) {
+        scalars.push(type);
+      }
+    }
+  });
+
+  return { objects, enums, unions, inputs, scalars, interfaces };
+}
+
 // Main function to generate all documentation
 function generateGraphQLDocs() {
   console.log('🚀 Starting GraphQL documentation generation...');
@@ -215,11 +446,6 @@ function generateGraphQLDocs() {
   const queries = [];
   const mutations = [];
   const subscriptions = [];
-  const objects = [];
-  const enums = [];
-  const unions = [];
-  const inputs = [];
-  const scalars = [];
 
   // Get root types
   const queryType = schema.getQueryType();
@@ -242,46 +468,22 @@ function generateGraphQLDocs() {
     subscriptions.push(...fields.filter(field => !shouldHideField(field)));
   }
 
-  // Categorize all types
-  Object.keys(typeMap).forEach(typeName => {
-    // Skip introspection types
-    if (typeName.startsWith('__')) return;
+  // Get all non-root types
+  const allTypes = Object.keys(typeMap)
+    .filter(typeName => {
+      // Skip introspection types
+      if (typeName.startsWith('__')) return false;
 
-    const type = typeMap[typeName];
+      const type = typeMap[typeName];
+      // Skip root operation types as they're handled separately
+      return type !== queryType && type !== mutationType && type !== subscriptionType;
+    })
+    .map(typeName => typeMap[typeName]);
 
-    // Skip root operation types as they're handled separately
-    if (type === queryType || type === mutationType || type === subscriptionType) return;
-
-    if (isObjectType(type)) {
-      objects.push(type);
-    } else if (isEnumType(type)) {
-      enums.push(type);
-    } else if (isUnionType(type)) {
-      unions.push(type);
-    } else if (isInputObjectType(type)) {
-      inputs.push(type);
-    } else if (isScalarType(type)) {
-      // Only include custom scalars
-      const builtInScalars = ['String', 'Int', 'Float', 'Boolean', 'ID'];
-      if (!builtInScalars.includes(typeName)) {
-        scalars.push(type);
-      }
-    }
-  });
-
-  // Clean up old categorized directories
-  const apiRefDir = path.join(__dirname, 'api-reference');
-  const oldDirs = ['objects', 'enums', 'unions', 'inputs', 'scalars'];
-
-  oldDirs.forEach(dir => {
-    const dirPath = path.join(apiRefDir, dir);
-    if (fs.existsSync(dirPath)) {
-      fs.rmSync(dirPath, { recursive: true, force: true });
-      console.log(`🗑️ Removed old directory: ${dir}`);
-    }
-  });
+  const { objects, enums, unions, inputs, scalars, interfaces } = categorizeTypes(allTypes);
 
   // Create directories
+  const apiRefDir = path.join(__dirname, 'api-reference');
   const dirs = ['queries', 'mutations', 'subscriptions', 'types'];
 
   dirs.forEach(dir => {
@@ -290,6 +492,23 @@ function generateGraphQLDocs() {
       fs.mkdirSync(dirPath, { recursive: true });
     }
   });
+
+  // Generate current navigation structure
+  const currentNavigation = {
+    queries: queries.map(q => `api-reference/queries/${createSlug(q.name)}`),
+    mutations: mutations.map(m => `api-reference/mutations/${createSlug(m.name)}`),
+    subscriptions: subscriptions.map(s => `api-reference/subscriptions/${createSlug(s.name)}`),
+    types: [...objects, ...enums, ...unions, ...inputs, ...scalars, ...interfaces].map(t => `api-reference/types/${createSlug(t.name)}`),
+    objects: objects.map(t => `api-reference/types/${createSlug(t.name)}`),
+    enums: enums.map(t => `api-reference/types/${createSlug(t.name)}`),
+    unions: unions.map(t => `api-reference/types/${createSlug(t.name)}`),
+    inputs: inputs.map(t => `api-reference/types/${createSlug(t.name)}`),
+    scalars: scalars.map(t => `api-reference/types/${createSlug(t.name)}`),
+    interfaces: interfaces.map(t => `api-reference/types/${createSlug(t.name)}`)
+  };
+
+  // Remove outdated files before generating new ones
+  removeOutdatedFiles(currentNavigation, apiRefDir);
 
   // Generate query documentation
   console.log(`📝 Generating ${queries.length} query pages...`);
@@ -316,28 +535,21 @@ function generateGraphQLDocs() {
   });
 
   // Generate type documentation (all types go in the types directory for linking)
-  const allTypes = [...objects, ...enums, ...unions, ...inputs, ...scalars];
-  console.log(`📝 Generating ${allTypes.length} type pages...`);
-  allTypes.forEach(type => {
+  const allTypesToGenerate = [...objects, ...enums, ...unions, ...inputs, ...scalars, ...interfaces];
+  console.log(`📝 Generating ${allTypesToGenerate.length} type pages...`);
+  allTypesToGenerate.forEach(type => {
     const content = generateTypeDoc(type);
     const filePath = path.join(apiRefDir, 'types', `${createSlug(type.name)}.mdx`);
     fs.writeFileSync(filePath, content);
   });
 
-  // Generate navigation structure for docs.json
-  console.log('📄 Generating navigation structure...');
-
-  const navigation = {
-    queries: queries.map(q => `api-reference/queries/${createSlug(q.name)}`),
-    mutations: mutations.map(m => `api-reference/mutations/${createSlug(m.name)}`),
-    subscriptions: subscriptions.map(s => `api-reference/subscriptions/${createSlug(s.name)}`),
-    types: allTypes.map(t => `api-reference/types/${createSlug(t.name)}`)
-  };
+  // Update docs.json with new navigation
+  updateDocsJson(currentNavigation);
 
   // Write navigation structure to a JSON file for reference
   fs.writeFileSync(
     path.join(__dirname, 'generated-navigation.json'),
-    JSON.stringify(navigation, null, 2)
+    JSON.stringify(currentNavigation, null, 2)
   );
 
   console.log('✅ GraphQL documentation generation complete!');
@@ -345,12 +557,11 @@ function generateGraphQLDocs() {
   - ${queries.length} queries
   - ${mutations.length} mutations
   - ${subscriptions.length} subscriptions
-  - ${allTypes.length} types (${objects.length} objects, ${enums.length} enums, ${unions.length} unions, ${inputs.length} inputs, ${scalars.length} scalars)`);
+  - ${allTypesToGenerate.length} types (${objects.length} objects, ${enums.length} enums, ${unions.length} unions, ${inputs.length} inputs, ${scalars.length} scalars, ${interfaces.length} interfaces)`);
 
-  console.log('\n📋 Next steps:');
-  console.log('1. Update your docs.json navigation with the generated pages');
-  console.log('2. Check generated-navigation.json for the complete list of pages');
-  console.log('3. Run "pnpm dev" to preview your documentation');
+  console.log('\n📋 Updated docs.json with new navigation structure');
+  console.log('📄 Check generated-navigation.json for the complete list of pages');
+  console.log('🚀 Run "pnpm dev" to preview your documentation');
 }
 
 // Run the generator

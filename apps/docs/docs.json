@@ -452,10 +452,10 @@
                   "api-reference/types/windoweddetailedpairstats",
                   "api-reference/types/windoweddetailedstats",
                   "api-reference/types/windowedwalletstats",
-                  "api-reference/types/json",
-                  "api-reference/types/void",
                   "api-reference/types/join--fieldset",
-                  "api-reference/types/link--import"
+                  "api-reference/types/json",
+                  "api-reference/types/link--import",
+                  "api-reference/types/void"
                 ]
               },
               {
@@ -668,7 +668,8 @@
                   "api-reference/types/referraleventdata",
                   "api-reference/types/tokenlifecycleeventdata",
                   "api-reference/types/unconfirmedeventdata",
-                  "api-reference/types/webhookcondition"
+                  "api-reference/types/webhookcondition",
+                  "api-reference/types/nfteventtradeitembase"
                 ]
               }
             ]

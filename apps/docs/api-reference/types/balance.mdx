@@ -1,0 +1,23 @@
+---
+title: "Balance"
+description: "Wallet balance of a token."
+---
+
+**Type:** [Balance](/api-reference/types/balance)
+
+## Fields
+
+| Name | Description |
+|------|-------------|
+| `walletId` → [String!](/api-reference/types/string) | The ID of the wallet (`walletAddress:networkId`). |
+| `tokenId` → [String!](/api-reference/types/string) | The ID of the token (`tokenAddress:networkId`). |
+| `address` → [String!](/api-reference/types/string) | The wallet address. |
+| `networkId` → [Int!](/api-reference/types/int) | The wallet network. |
+| `tokenAddress` → [String!](/api-reference/types/string) | The contract address of the token. |
+| `balance` → [String!](/api-reference/types/string) | The balance held by the wallet. |
+| `shiftedBalance` → [Float!](/api-reference/types/float) | The balance held by the wallet, adjusted by the number of decimals in the token. |
+| `balanceUsd` → String | The balance held by the wallet in USD. |
+| `tokenPriceUsd` → String | The token price in USD. |
+| `firstHeldTimestamp` → Int | The time that this address first held a token. |
+| `token` → [EnhancedToken](/api-reference/types/enhancedtoken) | Metadata for the token. |
+

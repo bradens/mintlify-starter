@@ -1,0 +1,19 @@
+---
+title: "filterNftPoolCollections"
+description: "Returns a list of NFT collections based on a variety of filters."
+---
+
+**Type:** Query
+
+**Returns:** [NftPoolCollectionFilterConnection](/api-reference/types/nftpoolcollectionfilterconnection)
+
+## Arguments for filterNftPoolCollections
+
+| Name | Description |
+|------|-------------|
+| `filters` ([NftPoolCollectionFilters](/api-reference/types/nftpoolcollectionfilters)) | A set of filters to apply. |
+| `phrase` (String) | A phrase to search for. Can partially match an NFT collection name. |
+| `rankings` ([[NftPoolCollectionRanking]](/api-reference/types/nftpoolcollectionranking)) | A list of ranking attributes to apply. |
+| `limit` (Int) | The maximum number of NFT collections to return. |
+| `offset` (Int) | Where in the list the server should start when returning items. Use `count`+`page` from the previous query to request the next page of results. |
+

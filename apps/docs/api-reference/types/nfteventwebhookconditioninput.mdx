@@ -1,0 +1,20 @@
+---
+title: "NftEventWebhookConditionInput"
+description: "Input conditions for an NFT event webhook."
+---
+
+**Type:** [NftEventWebhookConditionInput](/api-reference/types/nfteventwebhookconditioninput)
+
+## Fields
+
+| Name | Description |
+|------|-------------|
+| `networkId` → [OneOfNumberConditionInput](/api-reference/types/oneofnumberconditioninput) | A list of network IDs to listen on. |
+| `maker` → [StringEqualsConditionInput](/api-reference/types/stringequalsconditioninput) | The maker wallet address to listen for. |
+| `contractAddress` → [StringEqualsConditionInput](/api-reference/types/stringequalsconditioninput) | The NFT collection contract address to listen for. |
+| `exchangeAddress` → [StringEqualsConditionInput](/api-reference/types/stringequalsconditioninput) | The exchange contract address to listen for. |
+| `tokenId` → [StringEqualsConditionInput](/api-reference/types/stringequalsconditioninput) | The token ID to listen for. |
+| `eventType` → [NftEventTypeConditionInput](/api-reference/types/nfteventtypeconditioninput) | The NFT event type to listen for. |
+| `fillSource` → [NftEventFillSourceConditionInput](/api-reference/types/nfteventfillsourceconditioninput) | The NFT marketplaces to listen for. |
+| `ignoreTransfers` → Boolean | Option to ignore all nft transfer events |
+

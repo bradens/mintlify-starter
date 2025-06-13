@@ -1,0 +1,17 @@
+---
+title: "ApiToken"
+description: "Object type"
+---
+
+**Type:** [ApiToken](/api-reference/types/apitoken)
+
+## Fields
+
+| Name | Description |
+|------|-------------|
+| `id` → [String!](/api-reference/types/string) | Unique identifier for the token |
+| `token` → [String!](/api-reference/types/string) | JWT to be passed into the Authorization header for API requests |
+| `expiresTimeString` → [String!](/api-reference/types/string) | ISO time string for the expiry of the token |
+| `requestLimit` → [String!](/api-reference/types/string) | Number of root fields this api token is allowed to resolve before it's rate limited |
+| `remaining` → String | Approximate number of remaining resolutions before this token is rate limited |
+

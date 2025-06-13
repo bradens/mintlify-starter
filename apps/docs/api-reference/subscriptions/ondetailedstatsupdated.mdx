@@ -1,0 +1,16 @@
+---
+title: "onDetailedStatsUpdated"
+description: "Live-streamed bucketed stats for a given token within a pair."
+---
+
+**Type:** Subscription
+
+**Returns:** [DetailedStats](/api-reference/types/detailedstats)
+
+## Arguments for onDetailedStatsUpdated
+
+| Name | Description |
+|------|-------------|
+| `pairId` (String) | The ID of the pair (`address`:`networkId`). |
+| `tokenOfInterest` ([TokenOfInterest](/api-reference/types/tokenofinterest)) | The token of interest within the pair. Can be `token0` or `token1`. |
+

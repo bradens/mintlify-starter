@@ -1,0 +1,16 @@
+---
+title: "NftCollectionMetadataResponse"
+description: "Response returned by `getNftCollectionMetadata`."
+---
+
+**Type:** [NftCollectionMetadataResponse](/api-reference/types/nftcollectionmetadataresponse)
+
+## Fields
+
+| Name | Description |
+|------|-------------|
+| `id` → [String!](/api-reference/types/string) | The ID of the NFT collection (`address`:`networkId`). |
+| `contract` → [NftContract!](/api-reference/types/nftcontract) | Metadata for the NFT collection. |
+| `stats` → [[NftCollectionWindowStats]](/api-reference/types/nftcollectionwindowstats) | A list of stats for the NFT collection across different time frames. |
+| `media` → [NftAssetMedia](/api-reference/types/nftassetmedia) | The media for one of the assets within the NFT collection. |
+

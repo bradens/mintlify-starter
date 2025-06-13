@@ -1,0 +1,22 @@
+---
+title: "filterTokens"
+description: "Returns a list of tokens based on a variety of filters."
+---
+
+**Type:** Query
+
+**Returns:** [TokenFilterConnection](/api-reference/types/tokenfilterconnection)
+
+## Arguments for filterTokens
+
+| Name | Description |
+|------|-------------|
+| `filters` ([TokenFilters](/api-reference/types/tokenfilters)) | A set of filters to apply. |
+| `statsType` ([TokenPairStatisticsType](/api-reference/types/tokenpairstatisticstype)) | The type of statistics returned. Can be `FILTERED` or `UNFILTERED` |
+| `phrase` (String) | A phrase to search for. Can match a token contract address or partially match a token's name or symbol. |
+| `tokens` ([[String]](/api-reference/types/string)) | A list of token IDs (`address:networkId`) or addresses. Can be left blank to discover new tokens. |
+| `excludeTokens` ([[String]](/api-reference/types/string)) | A list of token IDs (`address:networkId`) to exclude from results |
+| `rankings` ([[TokenRanking]](/api-reference/types/tokenranking)) | A list of ranking attributes to apply. |
+| `limit` (Int) | The maximum number of tokens to return. |
+| `offset` (Int) | Where in the list the server should start when returning items. Use `count`+`page` from the previous query to request the next page of results. |
+

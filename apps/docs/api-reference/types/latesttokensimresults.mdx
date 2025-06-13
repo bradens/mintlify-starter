@@ -1,0 +1,24 @@
+---
+title: "LatestTokenSimResults"
+description: "Object type"
+---
+
+**Type:** [LatestTokenSimResults](/api-reference/types/latesttokensimresults)
+
+## Fields
+
+| Name | Description |
+|------|-------------|
+| `buySuccess` → Boolean | Whether or not a token was able to be succesfully bought during simulation. |
+| `buyTax` → String | Tax paid for a buy transaction during simulation. |
+| `buyGasUsed` → String | Gas used for a buy transaction during simulation. |
+| `maxBuyAmount` → String | The maximum token amount an address can buy during simulation. |
+| `sellSuccess` → Boolean | Whether or not a token was able to be succesfully sold during simulation. |
+| `sellTax` → String | Tax paid for a sell transaction during simulation. |
+| `sellGasUsed` → String | Gas used for a sell transaction during simulation. |
+| `maxSellAmount` → String | The maximum token amount an address can sell during simulation. |
+| `canTransferOwnership` → Boolean | Whether or not the contract ownership was able to be transferred during simulation. |
+| `canRenounceOwnership` → Boolean | Whether or not the contract ownership was able to be renounced during simulation. |
+| `isOwnerRenounced` → Boolean | Whether or not the contract ownership is already renounced during simulation (owner is 0x0). |
+| `openTradingCall` → String | If a call was found to trigger liquidity & trading, this is the call name. |
+

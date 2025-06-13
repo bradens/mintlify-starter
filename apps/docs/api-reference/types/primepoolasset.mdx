@@ -1,0 +1,23 @@
+---
+title: "PrimePoolAsset"
+description: "A cached Prime pool asset."
+---
+
+**Type:** [PrimePoolAsset](/api-reference/types/primepoolasset)
+
+## Fields
+
+| Name | Description |
+|------|-------------|
+| `id` → [String!](/api-reference/types/string) | The Prime pool asset ID (poolContractAddress:poolId:networkId) |
+| `sortKey` → [String!](/api-reference/types/string) | The owner wallet address of the cached Prime pool asset. |
+| `amount` → [String!](/api-reference/types/string) | The number of cached Prime pool assets of this type by this owner. |
+| `from` → [String!](/api-reference/types/string) | The owner wallet address of the cached Prime pool asset. |
+| `fromHashKey` → [String!](/api-reference/types/string) | The owner wallet address of the cached Prime pool asset, and network ID (from:networkId). |
+| `fromSortKey` → [String!](/api-reference/types/string) | The Prime pool ID and Prime pool contract address (poolId:poolContractAddress). |
+| `networkId` → [Int!](/api-reference/types/int) | The network ID of the cached Prime pool asset. |
+| `poolContractAddress` → [String!](/api-reference/types/string) | THe contract address of the Prime pool. |
+| `poolId` → [String!](/api-reference/types/string) | The Prime pool ID. |
+| `ethRewardDebt` → String | The amount of ETH the user is not eligible for either from having already harvesting or from not caching in the past. |
+| `primeRewardDebt` → String | The amount of PRIME the user is not eligible for either from having already harvesting or from not caching in the past. |
+

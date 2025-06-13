@@ -1,0 +1,17 @@
+---
+title: "PrimePoolClaimPrimeData"
+description: "Event-specific data for a Prime pool ClaimPrime transaction."
+---
+
+**Type:** [PrimePoolClaimPrimeData](/api-reference/types/primepoolclaimprimedata)
+
+## Fields
+
+| Name | Description |
+|------|-------------|
+| `type` → [PrimePoolEventType!](/api-reference/types/primepooleventtype) | The Prime pool event type. |
+| `user` → [String!](/api-reference/types/string) | The wallet address claiming PRIME rewards. |
+| `eventAmount` → [String!](/api-reference/types/string) | The amount of PRIME claimed. |
+| `currency` → [PrimePoolCurrency!](/api-reference/types/primepoolcurrency) | The currency type of the event. |
+| `userPrimeRewardDebt` → [String!](/api-reference/types/string) | The total amount of PRIME claimed for a pool. |
+

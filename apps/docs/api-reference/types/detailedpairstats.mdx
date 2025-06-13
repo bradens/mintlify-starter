@@ -1,0 +1,28 @@
+---
+title: "DetailedPairStats"
+description: "Detailed stats for a token within a pair."
+---
+
+**Type:** [DetailedPairStats](/api-reference/types/detailedpairstats)
+
+## Fields
+
+| Name | Description |
+|------|-------------|
+| `pairAddress` → [String!](/api-reference/types/string) | The contract address of the pair. |
+| `networkId` → [Int!](/api-reference/types/int) | The network ID the pair is deployed on. |
+| `tokenOfInterest` → [TokenOfInterest](/api-reference/types/tokenofinterest) | The token of interest used to calculate token-specific stats. |
+| `lastTransaction` → Int | The unix timestamp for the last transaction to happen on the pair. |
+| `statsType` → [TokenPairStatisticsType!](/api-reference/types/tokenpairstatisticstype) | The type of statistics returned. Can be `FILTERED` or `UNFILTERED` |
+| `stats_min5` → [WindowedDetailedPairStats](/api-reference/types/windoweddetailedpairstats) | The breakdown of stats over a 5 minute window. |
+| `stats_min15` → [WindowedDetailedPairStats](/api-reference/types/windoweddetailedpairstats) | The breakdown of stats over a 15 minute window. |
+| `stats_hour1` → [WindowedDetailedPairStats](/api-reference/types/windoweddetailedpairstats) | The breakdown of stats over an hour window. |
+| `stats_hour4` → [WindowedDetailedPairStats](/api-reference/types/windoweddetailedpairstats) | The breakdown of stats over a 4 hour window. |
+| `stats_hour12` → [WindowedDetailedPairStats](/api-reference/types/windoweddetailedpairstats) | The breakdown of stats over a 12 hour window. |
+| `stats_day1` → [WindowedDetailedPairStats](/api-reference/types/windoweddetailedpairstats) | The breakdown of stats over a 24 hour window. |
+| `stats_week1` → [WindowedDetailedPairStats](/api-reference/types/windoweddetailedpairstats) | The breakdown of stats over a 7 day window. |
+| `stats_day30` → [WindowedDetailedPairStats](/api-reference/types/windoweddetailedpairstats) | The breakdown of stats over a 30 day window. |
+| `bucketCount` → Int | Number of aggregated buckets specified in input |
+| `queryTimestamp` → Int | The timestamp specified as input to the query |
+| `pair` → [Pair](/api-reference/types/pair) | No description provided |
+

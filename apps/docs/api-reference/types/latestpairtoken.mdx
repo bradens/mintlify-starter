@@ -1,0 +1,22 @@
+---
+title: "LatestPairToken"
+description: "Metadata for a token within a newly listed pair."
+---
+
+**Type:** [LatestPairToken](/api-reference/types/latestpairtoken)
+
+## Fields
+
+| Name | Description |
+|------|-------------|
+| `address` → [String!](/api-reference/types/string) | The contract address for the token. |
+| `currentPoolAmount` → [String!](/api-reference/types/string) | The amount of `token` currently in the pair. |
+| `decimals` → [Int!](/api-reference/types/int) | The precision to which the token can be divided. For example, the smallest unit for USDC is 0.000001 (6 decimals). |
+| `id` → [String!](/api-reference/types/string) | The ID of the token (`address:networkId`). |
+| `initialPoolAmount` → [String!](/api-reference/types/string) | The initial amount of `token` added to the pair. |
+| `name` → [String!](/api-reference/types/string) | The name of the token. |
+| `networkId` → [Int!](/api-reference/types/int) | The network ID the token is deployed on. |
+| `pairId` → [String!](/api-reference/types/string) | The ID of the pair (`pairAddress:networkId`). |
+| `poolVariation` → [Float!](/api-reference/types/float) | The percent change `token` remaining in the pair since the initial add. |
+| `symbol` → [String!](/api-reference/types/string) | The symbol for the token. |
+

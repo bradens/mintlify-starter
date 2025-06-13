@@ -1,0 +1,17 @@
+---
+title: "NftPoolTokenDepositEventDataV2"
+description: "Event data for depositing a token into a pool."
+---
+
+**Type:** [NftPoolTokenDepositEventDataV2](/api-reference/types/nftpooltokendepositeventdatav2)
+
+## Fields
+
+| Name | Description |
+|------|-------------|
+| `type` → [NftPoolEventType!](/api-reference/types/nftpooleventtype) | The type of NFT pool event, `TOKEN_DEPOSIT`. |
+| `amountT` → [String!](/api-reference/types/string) | The total value of token deposited in the pool's liquidity token. |
+| `tokenBalanceT` → [String!](/api-reference/types/string) | The amount of token in the contract after the block has processed in the pool's liquidity token. |
+| `nbtRatio` → [String!](/api-reference/types/string) | The ratio of the transaction token to the network's base token. |
+| `usdRatio` → [String!](/api-reference/types/string) | The ratio of the transaction token to USD. |
+

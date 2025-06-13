@@ -1,0 +1,16 @@
+---
+title: "AddNftEventsOutput"
+description: "Response returned by `onNftEventsCreated`."
+---
+
+**Type:** [AddNftEventsOutput](/api-reference/types/addnfteventsoutput)
+
+## Fields
+
+| Name | Description |
+|------|-------------|
+| `address` → [String!](/api-reference/types/string) | The contract address of the NFT collection. |
+| `networkId` → [Int!](/api-reference/types/int) | The network ID the collection is deployed on. |
+| `id` → [String!](/api-reference/types/string) | The id of the collection (`address`:`networkId`). |
+| `events` → [[NftEvent]!](/api-reference/types/nftevent) | A list of NFT transactions streaming real-time. |
+

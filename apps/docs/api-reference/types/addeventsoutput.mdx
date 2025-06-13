@@ -1,0 +1,17 @@
+---
+title: "AddEventsOutput"
+description: "Response returned by `onEventsCreated`."
+---
+
+**Type:** [AddEventsOutput](/api-reference/types/addeventsoutput)
+
+## Fields
+
+| Name | Description |
+|------|-------------|
+| `address` → [String!](/api-reference/types/string) | The contract address of the pair. |
+| `networkId` → [Int!](/api-reference/types/int) | The network ID that the token is deployed on. |
+| `id` → [String!](/api-reference/types/string) | The ID of the event (`address`:`networkId`). For example, `0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2:1`. |
+| `quoteToken` → [QuoteToken](/api-reference/types/quotetoken) | The token of interest within the pair. Can be `token0` or `token1`. |
+| `events` → [[Event]!](/api-reference/types/event) | A list of transactions for the token. |
+

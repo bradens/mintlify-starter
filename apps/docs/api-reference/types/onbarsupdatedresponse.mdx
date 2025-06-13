@@ -1,0 +1,22 @@
+---
+title: "OnBarsUpdatedResponse"
+description: "Response returned by `onBarsUpdated`."
+---
+
+**Type:** [OnBarsUpdatedResponse](/api-reference/types/onbarsupdatedresponse)
+
+## Fields
+
+| Name | Description |
+|------|-------------|
+| `pairAddress` → [String!](/api-reference/types/string) | The contract address for the pair. |
+| `networkId` → [Int!](/api-reference/types/int) | The network ID the pair is deployed on. |
+| `pairId` → [String!](/api-reference/types/string) | The ID for the pair (`pairAddress`:`networkId`). |
+| `timestamp` → [Int!](/api-reference/types/int) | The unix timestamp for the new bar. |
+| `statsType` → [TokenPairStatisticsType!](/api-reference/types/tokenpairstatisticstype) | The type of statistics used. Can be `Filtered` or `Unfiltered`. |
+| `eventSortKey` → [String!](/api-reference/types/string) | The sortKey for the bar (`blockNumber`#`transactionIndex`#`logIndex`, zero padded).
+For example, `0000000016414564#00000224#00000413`. |
+| `aggregates` → [ResolutionBarData!](/api-reference/types/resolutionbardata) | Price data broken down by resolution. |
+| `quoteToken` → [QuoteToken](/api-reference/types/quotetoken) | The quote token within the pair. |
+| `quoteTokenAddress` → [String!](/api-reference/types/string) | The address of the token being quoted |
+

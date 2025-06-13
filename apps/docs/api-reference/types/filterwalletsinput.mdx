@@ -1,0 +1,19 @@
+---
+title: "FilterWalletsInput"
+description: "The input for filtering wallets."
+---
+
+**Type:** [FilterWalletsInput](/api-reference/types/filterwalletsinput)
+
+## Fields
+
+| Name | Description |
+|------|-------------|
+| `filters` → [WalletFilters](/api-reference/types/walletfilters) | A set of filters to apply. |
+| `wallets` → [[String]](/api-reference/types/string) | A list of wallet addresses to filter by. |
+| `excludeLabels` → [[String]](/api-reference/types/string) | Exclude wallets with these labels. |
+| `includeLabels` → [[String]](/api-reference/types/string) | Include wallets with these labels. |
+| `rankings` → [[WalletRanking]](/api-reference/types/walletranking) | A list of ranking attributes to apply. |
+| `limit` → Int | The maximum number of wallets to return. |
+| `offset` → Int | Where in the list the server should start when returning items. Use `count`+`offset` from the previous query to request the next page of results. |
+

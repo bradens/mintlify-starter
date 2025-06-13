@@ -1,0 +1,39 @@
+---
+title: "Event"
+description: "A token transaction."
+---
+
+**Type:** [Event](/api-reference/types/event)
+
+## Fields
+
+| Name | Description |
+|------|-------------|
+| `address` → [String!](/api-reference/types/string) | The contract address of the token's top pair. |
+| `baseTokenPrice` → String | The price of the network's base token. |
+| `blockHash` → [String!](/api-reference/types/string) | The hash of the block where the transaction occurred. |
+| `blockNumber` → [Int!](/api-reference/types/int) | The block number for the transaction. |
+| `data` → [EventData](/api-reference/types/eventdata) | The event-specific data for the transaction. Can be `BurnEventData` or `MintEventData` or `SwapEventData`. |
+| `eventType` → [EventType!](/api-reference/types/eventtype) | The type of transaction event. Can be `Burn`, `Mint`, `Swap`, `Sync`, `Collect`, or `CollectProtocol`. |
+| `id` → [String!](/api-reference/types/string) | The ID of the event (`address:networkId`). For example, `0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2:1`. |
+| `liquidityToken` → String | The contract address of the token with higher liquidity in the token's top pair. |
+| `logIndex` → [Int!](/api-reference/types/int) | The index of the log in the block. |
+| `maker` → String | The wallet address that performed the transaction. |
+| `networkId` → [Int!](/api-reference/types/int) | The network ID that the token is deployed on. |
+| `quoteToken` → [QuoteToken](/api-reference/types/quotetoken) | The token of interest within the token's top pair. Can be `token0` or `token1`. |
+| `timestamp` → [Int!](/api-reference/types/int) | The unix timestamp for when the transaction occurred. |
+| `token0Address` → String | The address of the event's token0. |
+| `token1Address` → String | The address of the event's token1. |
+| `token0SwapValueUsd` → String | The price of `token0` paid/received in USD, including any fees. |
+| `token1SwapValueUsd` → String | The price of `token1` paid/received in USD, including any fees. |
+| `token0ValueBase` → String | The price of `token0` paid/received in the network's base token, including fees. |
+| `token1ValueBase` → String | The price of `token1` paid/received in the network's base token, including fees. |
+| `token0PoolValueUsd` → String | The updated price of `token0` in USD, calculated after the transaction. |
+| `token1PoolValueUsd` → String | The updated price of `token1` in USD, calculated after the transaction. |
+| `transactionHash` → [String!](/api-reference/types/string) | The unique hash for the transaction. |
+| `transactionIndex` → [Int!](/api-reference/types/int) | The index of the transaction within the block. |
+| `eventDisplayType` → [EventDisplayType](/api-reference/types/eventdisplaytype) | A more specific breakdown of `eventType`. Splits `Swap` into `Buy` or `Sell`. |
+| `labels` → [LabelsForEvent](/api-reference/types/labelsforevent) | Labels attributed to the event. |
+| `walletAge` → Int | The age of the wallet in seconds. |
+| `walletLabels` → [[String!]](/api-reference/types/string) | Labels attributed to the wallet. |
+

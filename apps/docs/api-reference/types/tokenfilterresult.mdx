@@ -1,0 +1,95 @@
+---
+title: "TokenFilterResult"
+description: "A token matching a set of filter parameters."
+---
+
+**Type:** [TokenFilterResult](/api-reference/types/tokenfilterresult)
+
+## Fields
+
+| Name | Description |
+|------|-------------|
+| `createdAt` → Int | The unix timestamp for the creation of the token's first pair. |
+| `lastTransaction` → Int | The unix timestamp for the token's last transaction. |
+| `age` → Int | No description provided |
+| `buyCount5m` → Int | The number of buys in the past 5 minutes. |
+| `buyCount1` → Int | The number of buys in the past hour. |
+| `buyCount12` → Int | The number of buys in the past 12 hours. |
+| `buyCount24` → Int | The number of buys in the past 24 hours. |
+| `buyCount4` → Int | The number of buys in the past 4 hours. |
+| `change5m` → String | The percent price change in the past 5 minutes. Decimal format. |
+| `change1` → String | The percent price change in the past hour. Decimal format. |
+| `change12` → String | The percent price change in the past 12 hours. Decimal format. |
+| `change24` → String | The percent price change in the past 24 hours. Decimal format. |
+| `change4` → String | The percent price change in the past 4 hours. Decimal format. |
+| `volumeChange5m` → String | The percent volume change in the past 5 minutes. Decimal format. |
+| `volumeChange1` → String | The percent volume change in the past hour. Decimal format. |
+| `volumeChange4` → String | The percent volume change in the past 4 hours. Decimal format. |
+| `volumeChange12` → String | The percent volume change in the past 12 hours. Decimal format. |
+| `volumeChange24` → String | The percent volume change in the past 24 hours. Decimal format. |
+| `exchanges` → [[Exchange]](/api-reference/types/exchange) | The exchanges the token is listed on. |
+| `fdv` → String | No description provided |
+| `high5m` → String | The highest price in USD in the past 5 minutes. |
+| `high1` → String | The highest price in USD in the past hour. |
+| `high12` → String | The highest price in USD in the past 12 hours. |
+| `high24` → String | The highest price in USD in the past 24 hours. |
+| `high4` → String | The highest price in USD in the past 4 hours. |
+| `liquidity` → String | Amount of liquidity in the token's top pair. |
+| `quoteToken` → String | The token of interest. Can be `token0` or `token1`. |
+| `low5m` → String | The lowest price in USD in the past 5 minutes. |
+| `low1` → String | The lowest price in USD in the past hour. |
+| `low12` → String | The lowest price in USD in the past 12 hours. |
+| `low24` → String | The lowest price in USD in the past 24 hours. |
+| `low4` → String | The lowest price in USD in the past 4 hours. |
+| `marketCap` → String | The fully diluted market cap. |
+| `circulatingMarketCap` → String | The circulating market cap. |
+| `pair` → [Pair](/api-reference/types/pair) | Metadata for the token's top pair. |
+| `priceUSD` → String | The token price in USD. |
+| `sellCount5m` → Int | The number of sells in the past 5 minutes. |
+| `sellCount1` → Int | The number of sells in the past hour. |
+| `sellCount12` → Int | The number of sells in the past 12 hours. |
+| `sellCount24` → Int | The number of sells in the past 24 hours. |
+| `sellCount4` → Int | The number of sells in the past 4 hours. |
+| `token` → [EnhancedToken](/api-reference/types/enhancedtoken) | Metadata for the token. |
+| `txnCount5m` → Int | The number of transactions in the past 5 minutes. |
+| `txnCount1` → Int | The number of transactions in the past hour. |
+| `txnCount12` → Int | The number of transactions in the past 12 hours. |
+| `txnCount24` → Int | The number of transactions in the past 24 hours. |
+| `txnCount4` → Int | The number of transactions in the past 4 hours. |
+| `uniqueBuys5m` → Int | The unique number of buys in the past 5 minutes. |
+| `uniqueBuys1` → Int | The unique number of buys in the past hour. |
+| `uniqueBuys12` → Int | The unique number of buys in the past 12 hours. |
+| `uniqueBuys24` → Int | The unique number of buys in the past 24 hours. |
+| `uniqueBuys4` → Int | The unique number of buys in the past 4 hours. |
+| `uniqueSells5m` → Int | The unique number of sells in the past 5 minutes. |
+| `uniqueSells1` → Int | The unique number of sells in the past hour. |
+| `uniqueSells12` → Int | The unique number of sells in the past 12 hours. |
+| `uniqueSells24` → Int | The unique number of sells in the past 24 hours. |
+| `uniqueSells4` → Int | The unique number of sells in the past 4 hours. |
+| `uniqueTransactions5m` → Int | The unique number of transactions in the past 5 minutes. |
+| `uniqueTransactions1` → Int | The unique number of transactions in the past hour. |
+| `uniqueTransactions12` → Int | The unique number of transactions in the past 12 hours. |
+| `uniqueTransactions24` → Int | The unique number of transactions in the past 24 hours. |
+| `uniqueTransactions4` → Int | The unique number of transactions in the past 4 hours. |
+| `volume1` → String | The trade volume in USD in the past hour. |
+| `volume5m` → String | The trade volume in USD in the past 5 minutes. |
+| `volume12` → String | The trade volume in USD in the past 12 hours. |
+| `volume24` → String | The trade volume in USD in the past 24 hours. |
+| `volume4` → String | The trade volume in USD in the past 4 hours. |
+| `buyVolume1` → String | The buy volume in USD in the past hour. |
+| `buyVolume12` → String | The buy volume in USD in the past 12 hours. |
+| `buyVolume24` → String | The buy volume in USD in the past 24 hours. |
+| `buyVolume4` → String | The buy volume in USD in the past 4 hours. |
+| `buyVolume5m` → String | The buy volume in USD in the past 5 minutes. |
+| `sellVolume1` → String | The sell volume in USD in the past hour. |
+| `sellVolume12` → String | The sell volume in USD in the past 12 hours. |
+| `sellVolume24` → String | The sell volume in USD in the past 24 hours. |
+| `sellVolume4` → String | The sell volume in USD in the past 4 hours. |
+| `sellVolume5m` → String | The sell volume in USD in the past 5 minutes. |
+| `isScam` → Boolean | Whether the token has been flagged as a scam. |
+| `holders` → Int | The number of different wallets holding the token. |
+| `walletAgeAvg` → String | The average age of the wallets that traded in the last 24h |
+| `walletAgeStd` → String | The standard deviation of age of the wallets that traded in the last 24h |
+| `swapPct1dOldWallet` → String | The percentage of wallets that are less than 1d old that have traded in the last 24h |
+| `swapPct7dOldWallet` → String | The percentage of wallets that are less than 7d old that have traded in the last 24h |
+

@@ -1,0 +1,19 @@
+---
+title: "WindowedWalletStats"
+description: "The stats for a wallet over a time window."
+---
+
+**Type:** [WindowedWalletStats](/api-reference/types/windowedwalletstats)
+
+## Fields
+
+| Name | Description |
+|------|-------------|
+| `walletAddress` → [String!](/api-reference/types/string) | The wallet address |
+| `networkId` → Int | The network ID |
+| `start` → [Int!](/api-reference/types/int) | The start timestamp |
+| `end` → [Int!](/api-reference/types/int) | The end timestamp |
+| `lastTransactionAt` → [Int!](/api-reference/types/int) | The last transaction timestamp |
+| `statsUsd` → [WindowedDetailedCurrencyWalletStats!](/api-reference/types/windoweddetailedcurrencywalletstats) | The stats related to currency |
+| `statsNonCurrency` → [WindowedDetailedNonCurrencyWalletStats!](/api-reference/types/windoweddetailednoncurrencywalletstats) | The stats related to non-currency |
+

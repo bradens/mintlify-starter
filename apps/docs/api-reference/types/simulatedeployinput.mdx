@@ -1,0 +1,16 @@
+---
+title: "SimulateDeployInput"
+description: "InputObject type"
+---
+
+**Type:** [SimulateDeployInput](/api-reference/types/simulatedeployinput)
+
+## Fields
+
+| Name | Description |
+|------|-------------|
+| `networkId` → [Int!](/api-reference/types/int) | The network ID the token is deployed on. Currently only supports 1 (mainnet). |
+| `blockNumber` → [Int!](/api-reference/types/int) | The block number to simulate the contract at. |
+| `contractAddress` → [String!](/api-reference/types/string) | The contract address of the token. |
+| `contractInput` → [String!](/api-reference/types/string) | The contract creation transaction input to simulate. |
+

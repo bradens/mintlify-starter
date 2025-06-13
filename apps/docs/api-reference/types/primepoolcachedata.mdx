@@ -1,0 +1,19 @@
+---
+title: "PrimePoolCacheData"
+description: "Event-specific data for a Prime pool Cache transaction."
+---
+
+**Type:** [PrimePoolCacheData](/api-reference/types/primepoolcachedata)
+
+## Fields
+
+| Name | Description |
+|------|-------------|
+| `type` → [PrimePoolEventType!](/api-reference/types/primepooleventtype) | The Prime pool event type. |
+| `eventAmount` → [String!](/api-reference/types/string) | The amount of Prime pool asset(s) cached. |
+| `totalSupply` → [String!](/api-reference/types/string) | The total supply of assets cached in this Prime pool, including the amount cached in this transaction. |
+| `user` → [String!](/api-reference/types/string) | The owner wallet address of the cached Prime pool asset(s). |
+| `userCachedAmount` → [String!](/api-reference/types/string) | The total number of Prime pool asset(s) cached in this pool by this owner. |
+| `userPrimeRewardDebt` → [String!](/api-reference/types/string) | The amount of PRIME the user is not eligible for either from having already harvesting or from not caching in the past. |
+| `userEthRewardDebt` → [String!](/api-reference/types/string) | The amount of ETH the user is not eligible for either from having already harvesting or from not caching in the past. |
+

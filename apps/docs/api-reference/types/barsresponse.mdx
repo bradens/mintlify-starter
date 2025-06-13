@@ -1,0 +1,31 @@
+---
+title: "BarsResponse"
+description: "Bar chart data to track price changes over time."
+---
+
+**Type:** [BarsResponse](/api-reference/types/barsresponse)
+
+## Fields
+
+| Name | Description |
+|------|-------------|
+| `o` → [[Float]!](/api-reference/types/float) | The opening price. |
+| `h` → [[Float]!](/api-reference/types/float) | The high price. |
+| `l` → [[Float]!](/api-reference/types/float) | The low price. |
+| `c` → [[Float]!](/api-reference/types/float) | The closing price. |
+| `v` → [[Int]!](/api-reference/types/int) | The volume. |
+| `t` → [[Int!]!](/api-reference/types/int) | The timestamp for the bar. |
+| `s` → [String!](/api-reference/types/string) | The status code for the batch: `ok` for successful data retrieval and `no_data` for empty responses signaling the end of server data. |
+| `volume` → [[String]](/api-reference/types/string) | The volume with higher precision. |
+| `volumeNativeToken` → [[String]](/api-reference/types/string) | The volume in the native token for the network |
+| `buyers` → [[Int]!](/api-reference/types/int) | The number of unique buyers |
+| `buys` → [[Int]!](/api-reference/types/int) | The number of buys |
+| `buyVolume` → [[String]!](/api-reference/types/string) | The buy volume in USD |
+| `sellers` → [[Int]!](/api-reference/types/int) | The number of unique sellers |
+| `sells` → [[Int]!](/api-reference/types/int) | The number of sells |
+| `sellVolume` → [[String]!](/api-reference/types/string) | The sell volume in USD |
+| `liquidity` → [[String]!](/api-reference/types/string) | Liquidity in USD |
+| `traders` → [[Int]!](/api-reference/types/int) | The number of traders |
+| `transactions` → [[Int]!](/api-reference/types/int) | The number of transactions |
+| `pair` → [Pair!](/api-reference/types/pair) | The pair that is being returned |
+

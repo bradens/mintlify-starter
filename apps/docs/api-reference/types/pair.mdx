@@ -1,0 +1,24 @@
+---
+title: "Pair"
+description: "Metadata for a token pair."
+---
+
+**Type:** [Pair](/api-reference/types/pair)
+
+## Fields
+
+| Name | Description |
+|------|-------------|
+| `address` → [String!](/api-reference/types/string) | The contract address of the pair. |
+| `exchangeHash` → [String!](/api-reference/types/string) | The address for the exchange factory contract. |
+| `fee` → Int | The exchange fee for swaps. |
+| `id` → [String!](/api-reference/types/string) | The ID for the pair (`address:networkId`). |
+| `networkId` → [Int!](/api-reference/types/int) | The network ID the pair is deployed on. |
+| `tickSpacing` → Int | The amount of required tick separation. Only applicable for pairs on UniswapV3. |
+| `token0` → [String!](/api-reference/types/string) | The contract address of `token0`. |
+| `token1` → [String!](/api-reference/types/string) | The contract address of `token1`. |
+| `createdAt` → Int | The unix timestamp for the creation of the pair. |
+| `token0Data` → [EnhancedToken](/api-reference/types/enhancedtoken) | Metadata for the first token in the pair. |
+| `token1Data` → [EnhancedToken](/api-reference/types/enhancedtoken) | Metadata for the second token in the pair. |
+| `pooled` → [PooledTokenValues](/api-reference/types/pooledtokenvalues) | The pooled amounts of each token in the pair. |
+

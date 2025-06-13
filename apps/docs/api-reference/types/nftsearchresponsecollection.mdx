@@ -1,0 +1,26 @@
+---
+title: "NftSearchResponseCollection"
+description: "An NFT collection matching a given query string."
+---
+
+**Type:** [NftSearchResponseCollection](/api-reference/types/nftsearchresponsecollection)
+
+## Fields
+
+| Name | Description |
+|------|-------------|
+| `id` → [String!](/api-reference/types/string) | The ID of the NFT collection (`address`:`networkId`). |
+| `address` → [String!](/api-reference/types/string) | The contract address of the NFT collection. |
+| `networkId` → [Int!](/api-reference/types/int) | The network ID the NFT collection is deployed on. |
+| `name` → String | The name of the NFT collection. For example, `Bored Ape Yacht Club`. |
+| `symbol` → String | The symbol of the NFT collection. For example, `BAYC`. |
+| `imageUrl` → String | The image URL for the collection or one of the assets within the collection. |
+| `volume` → [String!](/api-reference/types/string) | The trade volume in USD over the `window`. |
+| `volumeChange` → [Float!](/api-reference/types/float) | The change in volume between the previous and current `window`. |
+| `tradeCount` → [String!](/api-reference/types/string) | The trade count over the `window`. |
+| `tradeCountChange` → [Float!](/api-reference/types/float) | The change in trade count between the previous and current `window`. |
+| `floor` → [String!](/api-reference/types/string) | The lowest sale price over the `window`. |
+| `average` → [String!](/api-reference/types/string) | The average sale price over the `window`. |
+| `ceiling` → [String!](/api-reference/types/string) | The highest sale price over the `window`. |
+| `window` → [String!](/api-reference/types/string) | The time frame used for calculating stats. |
+

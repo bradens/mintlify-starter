@@ -1,0 +1,16 @@
+---
+title: "LiquidityLockBreakdownForToken"
+description: "A breakdown of how much and where liquidity is locked."
+---
+
+**Type:** [LiquidityLockBreakdownForToken](/api-reference/types/liquiditylockbreakdownfortoken)
+
+## Fields
+
+| Name | Description |
+|------|-------------|
+| `lockProtocol` → [LiquidityLockProtocol!](/api-reference/types/liquiditylockprotocol) | The protocol with which the liquidity is locked. |
+| `amountLockedUsd` → [String!](/api-reference/types/string) | The amount of liquidity locked in USD. |
+| `amountLockedTokens` → [String!](/api-reference/types/string) | The amount of tokens locked in the protocol. |
+| `amountLockedTokensShifted` → [String!](/api-reference/types/string) | The amount of tokens locked in the protocol shifted by number of decimals the token has. |
+

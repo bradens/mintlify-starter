@@ -1,0 +1,16 @@
+---
+title: "SimulateCreateTransactionInput"
+description: "InputObject type"
+---
+
+**Type:** [SimulateCreateTransactionInput](/api-reference/types/simulatecreatetransactioninput)
+
+## Fields
+
+| Name | Description |
+|------|-------------|
+| `networkId` → [Int!](/api-reference/types/int) | The network ID the token is deployed on. Currently only supports 1 (mainnet). |
+| `blockNumber` → [Int!](/api-reference/types/int) | The block number to simulate the contract at. |
+| `createTransactionHash` → [String!](/api-reference/types/string) | The contract creation transaction hash from the live network. |
+| `contractAddress` → [String!](/api-reference/types/string) | The contract address of the token. |
+

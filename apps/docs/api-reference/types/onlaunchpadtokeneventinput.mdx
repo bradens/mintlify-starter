@@ -1,0 +1,16 @@
+---
+title: "OnLaunchpadTokenEventInput"
+description: "Input for `onLaunchpadTokenEvent`."
+---
+
+**Type:** [OnLaunchpadTokenEventInput](/api-reference/types/onlaunchpadtokeneventinput)
+
+## Fields
+
+| Name | Description |
+|------|-------------|
+| `protocol` → [LaunchpadTokenProtocol](/api-reference/types/launchpadtokenprotocol) | The protocol of the token. |
+| `eventType` → [LaunchpadTokenEventType](/api-reference/types/launchpadtokeneventtype) | The type of event. |
+| `address` → String | The contract address of the token. Required when `networkId` is provided. |
+| `networkId` → Int | The network ID that the token is deployed on. Required when `address` is provided. |
+

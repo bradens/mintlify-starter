@@ -1,0 +1,25 @@
+---
+title: "Webhook"
+description: "Metadata for a webhook."
+---
+
+**Type:** [Webhook](/api-reference/types/webhook)
+
+## Fields
+
+| Name | Description |
+|------|-------------|
+| `id` → [String!](/api-reference/types/string) | The ID of the webhook. |
+| `webhookType` → [WebhookType!](/api-reference/types/webhooktype) | The type of webhook. Can be `PRICE_EVENT`, `NFT_EVENT`, or `TOKEN_PAIR_EVENT`. |
+| `name` → [String!](/api-reference/types/string) | The given name of the webhook. |
+| `created` → [Int!](/api-reference/types/int) | The unix timestamp for the time the webhook was created. |
+| `alertRecurrence` → [AlertRecurrence!](/api-reference/types/alertrecurrence) | The recurrence of the webhook. Can be `INDEFINITE` or `ONCE`. |
+| `callbackUrl` → [String!](/api-reference/types/string) | The url to which the webhook message should be sent. |
+| `status` → [String!](/api-reference/types/string) | The status of the webhook. Can be `ACTIVE` or `INACTIVE`. |
+| `groupId` → String | The webhook group ID used to group webhooks together for ordered message sending. |
+| `conditions` → [WebhookCondition!](/api-reference/types/webhookcondition) | The conditions which must be met in order for the webhook to send a message. |
+| `retrySettings` → [RetrySettings](/api-reference/types/retrysettings) | The settings for retrying failed webhook messages. |
+| `bucketId` → String | An optional bucket ID (max 64 characters). Can be used to query for subgroups of webhooks (useful if you have a large number of webhooks). |
+| `bucketSortkey` → String | An optional bucket sort key (max 64 characters). Can be used to query for subgroups of webhooks (useful if you have a large number of webhooks). |
+| `publishingType` → [PublishingType](/api-reference/types/publishingtype) | The type of publishing for the webhook. If not set, it defaults to `SINGLE`. |
+

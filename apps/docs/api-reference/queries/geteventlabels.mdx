@@ -1,0 +1,18 @@
+---
+title: "getEventLabels"
+description: "Returns a list of event labels for a pair."
+---
+
+**Type:** Query
+
+**Returns:** [EventLabelConnection](/api-reference/types/eventlabelconnection)
+
+## Arguments for getEventLabels
+
+| Name | Description |
+|------|-------------|
+| `id` ([String!](/api-reference/types/string)) | The ID of the pair (`address:networkId`). |
+| `limit` (Int) | The maximum number of event labels to return. |
+| `cursor` (String) | The cursor to use for pagination. |
+| `direction` ([RankingDirection](/api-reference/types/rankingdirection)) | The order to receive the token event labels. Can be `DESC` (default) or `ASC`. |
+

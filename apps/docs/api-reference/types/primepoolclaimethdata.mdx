@@ -1,0 +1,18 @@
+---
+title: "PrimePoolClaimEthData"
+description: "Event-specific data for a Prime pool ClaimEth transaction."
+---
+
+**Type:** [PrimePoolClaimEthData](/api-reference/types/primepoolclaimethdata)
+
+## Fields
+
+| Name | Description |
+|------|-------------|
+| `type` → [PrimePoolEventType!](/api-reference/types/primepooleventtype) | The Prime pool event type. |
+| `user` → [String!](/api-reference/types/string) | The wallet address claiming ETH rewards. |
+| `eventAmount` → [String!](/api-reference/types/string) | The amount of ETH claimed. |
+| `currency` → [PrimePoolCurrency!](/api-reference/types/primepoolcurrency) | The currency type of the event. |
+| `userEthRewardDebt` → [String!](/api-reference/types/string) | The amount of ETH the user is not eligible for either from having already harvesting or from not caching in the past. |
+| `ethClaimed` → String | The total amount of ETH claimed for a pool. |
+

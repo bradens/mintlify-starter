@@ -1,0 +1,25 @@
+---
+title: "SwapEventData"
+description: "Event data for a token swap event."
+---
+
+**Type:** [SwapEventData](/api-reference/types/swapeventdata)
+
+## Fields
+
+| Name | Description |
+|------|-------------|
+| `amount0` → String | The amount of `token0` involved in the swap. Only applicable for UniswapV3 events. |
+| `amount0In` → String | The amount of `token0` that was sold. Only applicable for UniswapV2 events. |
+| `amount0Out` → String | The amount of `token0` that was bought. Only applicable for UniswapV2 events. |
+| `amount1` → String | The amount of `token1` involved in the swap. Only applicable for UniswapV3 events. |
+| `amount1In` → String | The amount of `token1` that was sold. Only applicable for UniswapV2 events. |
+| `amount1Out` → String | The amount of `token1` that was bought. Only applicable for UniswapV2 events. |
+| `amountNonLiquidityToken` → String | The amount of `quoteToken` involved in the swap. For example, if `quoteToken` is USDC for a USDC/WETH pair, `amountNonLiquidityToken` would be the amount of USDC involved in the swap. |
+| `priceBaseToken` → String | The price per `quoteToken` at the time of the swap in the network's base token. For example, if `quoteToken` is USDC for a USDC/WETH pair on ETH network, `priceBaseToken` would the price of USDC in ETH. |
+| `priceBaseTokenTotal` → String | The total amount of `quoteToken` involved in the swap in the network's base token (`amountNonLiquidityToken` x `priceBaseToken`). |
+| `priceUsd` → String | The price per `quoteToken` at the time of the swap in USD. For example, if `quoteToken` is USDC for a USDC/WETH pair on ETH network, `priceBaseToken` would the price of USDC in USD ($1.00). |
+| `priceUsdTotal` → String | The total amount of `quoteToken` involved in the swap in USD (`amountNonLiquidityToken` x `priceUsd`). |
+| `tick` → String | The tick index that the swap occurred in. Only applicable for UniswapV3 events. |
+| `type` → [EventType!](/api-reference/types/eventtype) | The type of token event, `Swap`. |
+

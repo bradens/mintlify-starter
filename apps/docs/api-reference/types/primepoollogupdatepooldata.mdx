@@ -1,0 +1,20 @@
+---
+title: "PrimePoolLogUpdatePoolData"
+description: "Event-specific data for a Prime pool LogUpdatePool transaction."
+---
+
+**Type:** [PrimePoolLogUpdatePoolData](/api-reference/types/primepoollogupdatepooldata)
+
+## Fields
+
+| Name | Description |
+|------|-------------|
+| `type` → [PrimePoolEventType!](/api-reference/types/primepooleventtype) | The Prime pool event type. |
+| `lastRewardTimestamp` → [Int!](/api-reference/types/int) | The timestamp at which rewards were last assigned. |
+| `supply` → [String!](/api-reference/types/string) | The total amount of assets cached in the pool (emitted by the event, before the transaction). |
+| `totalSupply` → [String!](/api-reference/types/string) | The total amount of assets cached in the pool (queried from the pool after the transaction). |
+| `accPerShare` → [String!](/api-reference/types/string) | The amount of accumulated rewards per share. |
+| `currency` → [PrimePoolCurrency!](/api-reference/types/primepoolcurrency) | The currency type of the event. |
+| `primeAmount` → String | The PRIME amount of the pool. |
+| `ethAmount` → String | The ETH amount of the pool. |
+

@@ -1,0 +1,18 @@
+---
+title: "NftPoolSpotPriceUpdateEventDataV2"
+description: "Event data for updating the spot price of a pool."
+---
+
+**Type:** [NftPoolSpotPriceUpdateEventDataV2](/api-reference/types/nftpoolspotpriceupdateeventdatav2)
+
+## Fields
+
+| Name | Description |
+|------|-------------|
+| `type` → [NftPoolEventType!](/api-reference/types/nftpooleventtype) | The type of NFT pool event, `SPOT_PRICE_UPDATE`. |
+| `newSpotPriceT` → [String!](/api-reference/types/string) | The updated spot price in the pool's liquidity token. |
+| `newSellPriceT` → [String!](/api-reference/types/string) | The updated price at which the pool is willing to sell an NFT in the pool's liquidity token. |
+| `newBuyPriceT` → [String!](/api-reference/types/string) | The updated price at which the pool is willing to buy an NFT in the pool's liquidity token. |
+| `nbtRatio` → [String!](/api-reference/types/string) | The ratio of the transaction token to the network's base token. |
+| `usdRatio` → [String!](/api-reference/types/string) | The ratio of the transaction token to USD. |
+

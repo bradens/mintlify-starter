@@ -1,0 +1,50 @@
+---
+title: "TokenWithMetadata"
+description: "A token with metadata."
+---
+
+**Type:** [TokenWithMetadata](/api-reference/types/tokenwithmetadata)
+
+## Fields
+
+| Name | Description |
+|------|-------------|
+| `address` → [String!](/api-reference/types/string) | The contract address of the token. |
+| `decimals` → Int | The precision to which the token can be divided. For example, the smallest unit for USDC is 0.000001 (6 decimals). |
+| `exchanges` → [[Exchange!]!](/api-reference/types/exchange) | The exchanges the token is listed on. |
+| `id` → [String!](/api-reference/types/string) | The ID of the token (`address:networkId`). For example, `0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2:1`. |
+| `liquidity` → [String!](/api-reference/types/string) | The total liquidity of the token's top pair in USD. |
+| `name` → [String!](/api-reference/types/string) | The name of the token. |
+| `networkId` → [Int!](/api-reference/types/int) | The network ID the token is deployed on. |
+| `price` → [Float!](/api-reference/types/float) | The token price in USD. |
+| `priceChange` → [Float!](/api-reference/types/float) | The percent price change for the time frame requested. Decimal format. |
+| `isScam` → Boolean | Whether the token has been flagged as a scam. |
+| `priceChange1` → Float | The percent price change in the past hour. Decimal format. |
+| `priceChange12` → Float | The percent price change in the past 12 hours. Decimal format. |
+| `priceChange24` → Float | The percent price change in the past 24 hours. Decimal format. |
+| `priceChange4` → Float | The percent price change in the past 4 hours. Decimal format. |
+| `quoteToken` → [QuoteToken](/api-reference/types/quotetoken) | The token of interest. Can be `token0` or `token1`. |
+| `marketCap` → String | The market cap of circulating supply. |
+| `txnCount1` → Int | The number of transactions in the past hour. |
+| `txnCount12` → Int | The number of transactions in the past 12 hours. |
+| `txnCount24` → Int | The number of transactions in the past 24 hours. |
+| `txnCount4` → Int | The number of transactions in the past 4 hours. |
+| `uniqueBuys1` → Int | The unique number of buys in the past hour. |
+| `uniqueBuys12` → Int | The unique number of buys in the past 12 hours. |
+| `uniqueBuys24` → Int | The unique number of buys in the past 24 hours. |
+| `uniqueBuys4` → Int | The unique number of buys in the past 4 hours. |
+| `uniqueSells1` → Int | The unique number of sells in the past hour. |
+| `uniqueSells12` → Int | The unique number of sells in the past 12 hours. |
+| `uniqueSells24` → Int | The unique number of sells in the past 24 hours. |
+| `uniqueSells4` → Int | The unique number of sells in the past 4 hours. |
+| `resolution` → [String!](/api-reference/types/string) | The time frame for the results. |
+| `symbol` → [String!](/api-reference/types/string) | The symbol for the token. |
+| `topPairId` → [String!](/api-reference/types/string) | The ID of the token's top pair (`pairAddress:networkId`). |
+| `volume` → [String!](/api-reference/types/string) | The volume over the time frame requested in USD. |
+| `imageThumbUrl` → String | The token logo URL. |
+| `imageSmallUrl` → String | The token logo URL. |
+| `imageLargeUrl` → String | The token logo URL. |
+| `imageBannerUrl` → String | The token banner URL. |
+| `createdAt` → Int | The unix timestamp for the creation of the token's first pair. |
+| `lastTransaction` → Int | The unix timestamp for the token's last transaction. |
+

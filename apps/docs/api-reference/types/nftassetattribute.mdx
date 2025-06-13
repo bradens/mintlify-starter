@@ -1,0 +1,19 @@
+---
+title: "NftAssetAttribute"
+description: "Attributes for an NFT asset."
+---
+
+**Type:** [NftAssetAttribute](/api-reference/types/nftassetattribute)
+
+## Fields
+
+| Name | Description |
+|------|-------------|
+| `class` → String | Suggested class name to use for css styling. An optional attribute of ERC-1155 assets. |
+| `css` → String | Suggested CSS styling. An optional attribute of ERC-1155 assets. |
+| `displayType` → [NftAssetAttributeDisplayType!](/api-reference/types/nftassetattributedisplaytype) | The attribute display type. Can be `Trait`, `Stat`, `Ranking`, `BoostNumber`, `BoostPercentage` or `Date`. |
+| `maxValue` → String | The max value, if applicable. |
+| `name` → [String!](/api-reference/types/string) | The name of the attribute. |
+| `value` → [String!](/api-reference/types/string) | The value of the attribute. |
+| `valueType` → [NftAssetAttributeType!](/api-reference/types/nftassetattributetype) | The type for the `value` field. Can be `String`, `Number` or `Array`. |
+

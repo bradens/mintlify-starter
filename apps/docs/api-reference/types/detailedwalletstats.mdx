@@ -1,0 +1,23 @@
+---
+title: "DetailedWalletStats"
+description: "The detailed stats for a wallet."
+---
+
+**Type:** [DetailedWalletStats](/api-reference/types/detailedwalletstats)
+
+## Fields
+
+| Name | Description |
+|------|-------------|
+| `walletAddress` → [String!](/api-reference/types/string) | The wallet address |
+| `lastTransactionAt` → [Int!](/api-reference/types/int) | The last transaction timestamp |
+| `networkSpecificStats` → [[NetworkWalletStats!]](/api-reference/types/networkwalletstats) | The network specific stats |
+| `networkBreakdown` → [[NetworkBreakdown!]](/api-reference/types/networkbreakdown) | The network breakdown |
+| `labels` → [[String!]!](/api-reference/types/string) | The labels associated with the wallet |
+| `scammerScore` → Int | The likelihood of the wallet being a scammer |
+| `botScore` → Int | The likelihood of the wallet being a bot |
+| `statsDay1` → [WindowedWalletStats](/api-reference/types/windowedwalletstats) | The stats for the last day |
+| `statsWeek1` → [WindowedWalletStats](/api-reference/types/windowedwalletstats) | The stats for the last week |
+| `statsDay30` → [WindowedWalletStats](/api-reference/types/windowedwalletstats) | The stats for the last 30 days |
+| `statsYear1` → [WindowedWalletStats](/api-reference/types/windowedwalletstats) | The stats for the last year |
+

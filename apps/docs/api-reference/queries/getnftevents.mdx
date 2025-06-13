@@ -1,0 +1,23 @@
+---
+title: "getNftEvents"
+description: "Returns transactions for an NFT collection across any marketplace(s)."
+---
+
+**Type:** Query
+
+**Returns:** [NftEventsConnection](/api-reference/types/nfteventsconnection)
+
+## Arguments for getNftEvents
+
+| Name | Description |
+|------|-------------|
+| `address` (String) | The contract address of the NFT collection. |
+| `exchangeAddress` (String) | The NFT marketplace address to filter by. |
+| `poolAddress` (String) | The NFT pool address to filter by. |
+| `networkId` ([Int!](/api-reference/types/int)) | The network ID the NFT collection is deployed on. |
+| `tokenId` (String) | The token ID to filter by. |
+| `cursor` (String) | The cursor to use for pagination. |
+| `timestamp` ([EventQueryTimestampInput](/api-reference/types/eventquerytimestampinput)) | The time range to filter by. |
+| `limit` (Int) | The maximum number of NFT events to return. |
+| `includeTransfers` (Boolean) | No description provided |
+

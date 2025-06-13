@@ -1,0 +1,17 @@
+---
+title: "HoldersResponse"
+description: "Response returned by `holders`."
+---
+
+**Type:** [HoldersResponse](/api-reference/types/holdersresponse)
+
+## Fields
+
+| Name | Description |
+|------|-------------|
+| `items` → [[Balance!]!](/api-reference/types/balance) | The list of wallets holding the token. |
+| `count` → [Int!](/api-reference/types/int) | The unique count of holders for the token. |
+| `cursor` → String | A cursor for use in pagination. |
+| `status` → [HoldersStatus!](/api-reference/types/holdersstatus) | Status of holder. Disabled if on unsupported network or there is insufficient holder data. |
+| `top10HoldersPercent` → Float | What percentage of the total supply do the top 10 holders hold. |
+

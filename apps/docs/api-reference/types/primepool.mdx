@@ -1,0 +1,25 @@
+---
+title: "PrimePool"
+description: "An Echelon Prime Pool."
+---
+
+**Type:** [PrimePool](/api-reference/types/primepool)
+
+## Fields
+
+| Name | Description |
+|------|-------------|
+| `id` → String | The ID of the contract-level Prime Pool (poolContractAddress:networkId). For example, `0x89bb49d06610b4b18e355504551809be5177f3d0:1`. |
+| `poolContractAddress` → String | The contract address for the Prime Pool. |
+| `networkId` → Int | The network ID the Prime Pool is deployed on. |
+| `poolId` → String | The ID of the pool within the contract. |
+| `calcData` → [PrimePoolCalcData](/api-reference/types/primepoolcalcdata) | Values calculated by Defined using on-chain data. |
+| `chainData` → [PrimePoolChainData](/api-reference/types/primepoolchaindata) | Values obtained directly from the chain. |
+| `createdAt` → Int | When the pool was created by Defined. |
+| `discoveryBlockNumber` → Int | The block number for when Defined discovered this pool. |
+| `discoveryTransactionHash` → String | The transaction hash of when Defined discovered this pool. |
+| `nftContractAddress` → String | The contract address for the tokens cached ib the pool. |
+| `poolType` → String | The type of pool for this Prime Pool. |
+| `tokenIds` → [[String]](/api-reference/types/string) | The Parallel tokenIds required to cache in the pool. |
+| `totalSupply` → String | The # of cached sets in the pool. |
+

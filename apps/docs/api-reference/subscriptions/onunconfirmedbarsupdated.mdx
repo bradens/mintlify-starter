@@ -1,0 +1,16 @@
+---
+title: "onUnconfirmedBarsUpdated"
+description: "Unconfirmed live-streamed bar chart data to track price changes over time. (Solana only)"
+---
+
+**Type:** Subscription
+
+**Returns:** [OnUnconfirmedBarsUpdated](/api-reference/types/onunconfirmedbarsupdated)
+
+## Arguments for onUnconfirmedBarsUpdated
+
+| Name | Description |
+|------|-------------|
+| `pairId` (String) | The ID of the pair (`address`:`networkId`). |
+| `quoteToken` ([QuoteToken](/api-reference/types/quotetoken)) | The token of interest within the pair. Can be `token0` or `token1`. |
+

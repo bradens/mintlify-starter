@@ -1,0 +1,16 @@
+---
+title: "onPairMetadataUpdated"
+description: "Live-streamed stat updates for a given token within a pair."
+---
+
+**Type:** Subscription
+
+**Returns:** [PairMetadata](/api-reference/types/pairmetadata)
+
+## Arguments for onPairMetadataUpdated
+
+| Name | Description |
+|------|-------------|
+| `id` (String) | The ID of the pair (`address`:`networkId`). |
+| `quoteToken` ([QuoteToken](/api-reference/types/quotetoken)) | The token of interest within the pair. Can be `token0` or `token1`. |
+

@@ -1,0 +1,24 @@
+---
+title: "PoolBalanceChangedEventData"
+description: "Event data for a BalancerV2 Pool Balance Changed event."
+---
+
+**Type:** [PoolBalanceChangedEventData](/api-reference/types/poolbalancechangedeventdata)
+
+## Fields
+
+| Name | Description |
+|------|-------------|
+| `amount0` → String | The amount of `token0` added or removed from the pair. |
+| `amount1` → String | The amount of `token1` added or from the pair. |
+| `amount0Shifted` → String | The amount of `token0` added or removed from the pair, adjusted by the number of decimals in the token. For example, if `amount0` is in WEI, `amount0Shifted` will be in ETH. |
+| `amount1Shifted` → String | The amount of `token1` added or removed from the pair, adjusted by the number of decimals in the token. For example, USDC `amount1Shifted` will be by 6 decimals. |
+| `token0` → String | The address of `token0` in the pair. |
+| `token1` → String | The address of `token1` in the pair. |
+| `sender` → String | The address of account that added or removed liquidity. |
+| `protocolFeeAmount0` → String | The amount of token0 captured by the protocol. |
+| `protocolFeeAmount1` → String | The amount of token1 captured by the protocol. |
+| `liquidity0` → String | The amount of token0 now in the pool. |
+| `liquidity1` → String | The amount of token1 now in the pool. |
+| `type` → [EventType!](/api-reference/types/eventtype) | The type of token event, `Burn`. |
+

@@ -1,0 +1,27 @@
+---
+title: "ParallelAssetFilterResult"
+description: "A Parallel asset matching a set of filter parameters."
+---
+
+**Type:** [ParallelAssetFilterResult](/api-reference/types/parallelassetfilterresult)
+
+## Fields
+
+| Name | Description |
+|------|-------------|
+| `id` → [String!](/api-reference/types/string) | The ID of the NFT asset (`address`:`tokenId`). |
+| `address` → [String!](/api-reference/types/string) | The contract address of the NFT collection. |
+| `tokenId` → [String!](/api-reference/types/string) | The token ID of the NFT asset. |
+| `parallelId` → [Int!](/api-reference/types/int) | The internal Parallel ID of the NFT asset. |
+| `networkId` → [Int!](/api-reference/types/int) | The network ID the NFT collection is deployed on. |
+| `media` → [NftAssetMedia](/api-reference/types/nftassetmedia) | The NFT asset media. |
+| `name` → String | The name of the NFT asset. |
+| `description` → String | The description of the NFT asset. |
+| `originalImage` → String | The source image URI linked by smart contract metadata. |
+| `uri` → String | The URI provided by the smart contract. Typically JSON that contains metadata. |
+| `timestamp` → Int | The unix timestamp for the last trade. |
+| `lastPriceUsd` → String | The last sale price in USD. |
+| `lastPriceNetworkBaseToken` → String | The last sale price in the network's base token. |
+| `gameData` → [ParallelAssetGameData](/api-reference/types/parallelassetgamedata) | The game data for the NFT asset. |
+| `metadata` → [ParallelAssetMetadata](/api-reference/types/parallelassetmetadata) | Metadata for the NFT asset. |
+

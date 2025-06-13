@@ -1,0 +1,19 @@
+---
+title: "ListPairsForTokenValue"
+description: "Metadata for a pair containing a given token."
+---
+
+**Type:** [ListPairsForTokenValue](/api-reference/types/listpairsfortokenvalue)
+
+## Fields
+
+| Name | Description |
+|------|-------------|
+| `volume` → [String!](/api-reference/types/string) | The volume for the pair in USD. |
+| `liquidity` → [String!](/api-reference/types/string) | The total liquidity in the pair. |
+| `token` → [EnhancedToken!](/api-reference/types/enhancedtoken) | Metadata for token with higher liquidity within the pair. |
+| `backingToken` → [EnhancedToken!](/api-reference/types/enhancedtoken) | Metadata for token with lower liquidity within the pair. |
+| `pair` → [Pair!](/api-reference/types/pair) | Metadata for the pair. |
+| `exchange` → [Exchange!](/api-reference/types/exchange) | Exchange metadata for the pair. |
+| `quoteToken` → [QuoteToken](/api-reference/types/quotetoken) | The token of interest within the pair. Can be `token0` or `token1`. |
+

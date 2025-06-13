@@ -1,0 +1,18 @@
+---
+title: "MakerEventsQueryInput"
+description: "InputObject type"
+---
+
+**Type:** [MakerEventsQueryInput](/api-reference/types/makereventsqueryinput)
+
+## Fields
+
+| Name | Description |
+|------|-------------|
+| `maker` → [String!](/api-reference/types/string) | The specific wallet address to filter by. |
+| `timestamp` → [EventQueryTimestampInput](/api-reference/types/eventquerytimestampinput) | The time range to filter by. |
+| `networkId` → Int | The network ID to filter by. |
+| `priceUsdTotal` → [NumberFilter](/api-reference/types/numberfilter) | The total amount of `quoteToken` involved in the swap in USD (`amountNonLiquidityToken` x `priceUsd`). |
+| `eventType` → [EventType](/api-reference/types/eventtype) | The specific event type to filter by. |
+| `tokenAddress` → String | The token involved in the event. |
+

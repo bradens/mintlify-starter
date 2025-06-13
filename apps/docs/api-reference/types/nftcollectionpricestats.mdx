@@ -1,0 +1,22 @@
+---
+title: "NftCollectionPriceStats"
+description: "Price stats for an NFT collection over a time frame. Either in USD or the network's base token."
+---
+
+**Type:** [NftCollectionPriceStats](/api-reference/types/nftcollectionpricestats)
+
+## Fields
+
+| Name | Description |
+|------|-------------|
+| `volume` → [String!](/api-reference/types/string) | The trade volume. |
+| `floor` → [String!](/api-reference/types/string) | The lowest sale price. |
+| `average` → [String!](/api-reference/types/string) | The average sale price. |
+| `ceiling` → [String!](/api-reference/types/string) | The highest sale price. |
+| `volumeChange` → Float | The change in volume between the previous and current time frame. |
+| `floorChange` → Float | The change in floor price between the previous and current time frame. |
+| `averageChange` → Float | The change in average price between the previous and current time frame. |
+| `ceilingChange` → Float | The change in ceiling price between the previous and current time frame. |
+| `volumeByFillsource` → [[NftCollectionFillsourceStringStat]](/api-reference/types/nftcollectionfillsourcestringstat) | The volume partitioned by fillsource over the time frame |
+| `volumePercentByFillsource` → [[NftCollectionFillsourceNumberStat]](/api-reference/types/nftcollectionfillsourcenumberstat) | The percentages of total volume partitioned by fillsource over the time frame |
+

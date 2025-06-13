@@ -1,0 +1,18 @@
+---
+title: "getTokenEventsForMaker"
+description: "Returns a list of token events for a given maker."
+---
+
+**Type:** Query
+
+**Returns:** [MakerEventConnection](/api-reference/types/makereventconnection)
+
+## Arguments for getTokenEventsForMaker
+
+| Name | Description |
+|------|-------------|
+| `limit` (Int) | The maximum number of events to return. |
+| `query` ([MakerEventsQueryInput!](/api-reference/types/makereventsqueryinput)) | The query filters to apply to the results. |
+| `cursor` (String) | The cursor to use for pagination. |
+| `direction` ([RankingDirection](/api-reference/types/rankingdirection)) | The order to receive the token events. Can be `DESC` (default) or `ASC`. |
+

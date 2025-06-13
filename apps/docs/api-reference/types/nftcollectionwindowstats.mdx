@@ -1,0 +1,17 @@
+---
+title: "NftCollectionWindowStats"
+description: "Stats for an NFT collection for a time frame."
+---
+
+**Type:** [NftCollectionWindowStats](/api-reference/types/nftcollectionwindowstats)
+
+## Fields
+
+| Name | Description |
+|------|-------------|
+| `window` → [String!](/api-reference/types/string) | The time frame used to calculate the stats. |
+| `usdPriceStats` → [NftCollectionPriceStats!](/api-reference/types/nftcollectionpricestats) | The price stats for the NFT collection in USD. |
+| `networkBaseTokenPriceStats` → [NftCollectionPriceStats!](/api-reference/types/nftcollectionpricestats) | The price stats for the NFT collection in the network's base token. |
+| `tradeCount` → [String!](/api-reference/types/string) | The trade count over the `window`. |
+| `tradeCountChange` → [Float!](/api-reference/types/float) | The change in trade count between the previous and current `window`. |
+

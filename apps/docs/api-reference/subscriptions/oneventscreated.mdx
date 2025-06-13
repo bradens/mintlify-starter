@@ -1,0 +1,18 @@
+---
+title: "onEventsCreated"
+description: "Live-streamed transactions for a token."
+---
+
+**Type:** Subscription
+
+**Returns:** [AddEventsOutput](/api-reference/types/addeventsoutput)
+
+## Arguments for onEventsCreated
+
+| Name | Description |
+|------|-------------|
+| `address` (String) | The pair contract address. |
+| `id` (String) | The ID of the pair (`address`:`networkId`). |
+| `quoteToken` ([QuoteToken](/api-reference/types/quotetoken)) | The token of interest within the pair. Can be `token0` or `token1`. |
+| `networkId` (Int) | The networkId to use when getting all events per network |
+

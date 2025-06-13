@@ -1,0 +1,20 @@
+---
+title: "getNftAssets"
+description: "Returns a list of NFT assets in a given collection."
+---
+
+**Type:** Query
+
+**Returns:** [NftAssetsConnection](/api-reference/types/nftassetsconnection)
+
+## Arguments for getNftAssets
+
+| Name | Description |
+|------|-------------|
+| `address` ([String!](/api-reference/types/string)) | The contract address of the NFT collection. |
+| `networkId` ([Int!](/api-reference/types/int)) | The network ID the NFT collection is deployed on. |
+| `tokenIds` ([[String]](/api-reference/types/string)) | An optional list of token IDs to filter by. |
+| `fetchMissingAssets` (Boolean) | Whether to trigger fetching onchain metadata for missing assets. Defaults to false. Fetch results are delayed and can be ingested realtime via onNftAssetsCreated subscription. Free tier API users are limited to 1 missing asset fetch per request, and may only retry fetching a missing asset once per week. To remove these limitations, please upgrade your API plan at https://www.dashboard.defined.fi/plan. |
+| `cursor` (String) | The cursor to use for pagination. |
+| `limit` (Int) | The maximum number of NFT assets to return. |
+

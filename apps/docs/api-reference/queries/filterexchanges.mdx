@@ -1,0 +1,19 @@
+---
+title: "filterExchanges"
+description: "Returns a list of exchanges based on a variety of filters."
+---
+
+**Type:** Query
+
+**Returns:** [ExchangeFilterConnection](/api-reference/types/exchangefilterconnection)
+
+## Arguments for filterExchanges
+
+| Name | Description |
+|------|-------------|
+| `filters` ([ExchangeFilters](/api-reference/types/exchangefilters)) | A set of filters to apply. |
+| `phrase` (String) | A phrase to search for. Can match an exchange address or ID (`address:networkId`), or partially match an exchange name. |
+| `rankings` ([[ExchangeRanking]](/api-reference/types/exchangeranking)) | A list of ranking attributes to apply. |
+| `limit` (Int) | The maximum number of exchanges to return. |
+| `offset` (Int) | Where in the list the server should start when returning items. Use `count`+`offset` from the previous query to request the next page of results. |
+

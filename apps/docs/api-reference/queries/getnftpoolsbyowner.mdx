@@ -1,0 +1,19 @@
+---
+title: "getNftPoolsByOwner"
+description: "Returns a list of NFT pools for a given owner."
+---
+
+**Type:** Query
+
+**Returns:** [GetNftPoolsResponse](/api-reference/types/getnftpoolsresponse)
+
+## Arguments for getNftPoolsByOwner
+
+| Name | Description |
+|------|-------------|
+| `ownerAddress` ([String!](/api-reference/types/string)) | The contract address of the pool owner. |
+| `networkId` ([Int!](/api-reference/types/int)) | The network ID the NFT collection is deployed on. |
+| `exchangeAddress` (String) | The NFT AMM marketplace address to filter by. |
+| `cursor` (String) | The cursor to use for pagination. |
+| `limit` (Int) | The maximum number of NFT pools to return. |
+

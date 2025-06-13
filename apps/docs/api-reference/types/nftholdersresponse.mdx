@@ -1,0 +1,16 @@
+---
+title: "NftHoldersResponse"
+description: "Object type"
+---
+
+**Type:** [NftHoldersResponse](/api-reference/types/nftholdersresponse)
+
+## Fields
+
+| Name | Description |
+|------|-------------|
+| `items` → [[NftBalance!]!](/api-reference/types/nftbalance) | The list wallets for a collection. |
+| `count` → [Int!](/api-reference/types/int) | the unique count of holders for the collection. |
+| `cursor` → String | A cursor for use in pagination. |
+| `status` → [HoldersStatus!](/api-reference/types/holdersstatus) | Status of holder. Disabled if on unsupported network or there is insufficient holder data. |
+

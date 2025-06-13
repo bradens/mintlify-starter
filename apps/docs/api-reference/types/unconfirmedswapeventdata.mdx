@@ -1,0 +1,19 @@
+---
+title: "UnconfirmedSwapEventData"
+description: "Object type"
+---
+
+**Type:** [UnconfirmedSwapEventData](/api-reference/types/unconfirmedswapeventdata)
+
+## Fields
+
+| Name | Description |
+|------|-------------|
+| `amountNonLiquidityToken` → String | The amount of `quoteToken` involved in the swap. For example, if `quoteToken` is USDC for a USDC/WETH pair, `amountNonLiquidityToken` would be the amount of USDC involved in the swap. |
+| `priceBaseToken` → String | The price per `quoteToken` at the time of the swap in the network's base token. For example, if `quoteToken` is USDC for a USDC/WETH pair on ETH network, `priceBaseToken` would the price of USDC in ETH. |
+| `priceBaseTokenTotal` → String | The total amount of `quoteToken` involved in the swap in the network's base token (`amountNonLiquidityToken` x `priceBaseToken`). |
+| `priceUsd` → String | The price per `quoteToken` at the time of the swap in USD. For example, if `quoteToken` is USDC for a USDC/WETH pair on ETH network, `priceBaseToken` would the price of USDC in USD ($1.00). |
+| `priceUsdTotal` → String | The total amount of `quoteToken` involved in the swap in USD (`amountNonLiquidityToken` x `priceUsd`). |
+| `type` → [EventType!](/api-reference/types/eventtype) | The type of token event, `Swap`. |
+| `amountBaseToken` → String | The amount of `baseToken` involved in the swap |
+

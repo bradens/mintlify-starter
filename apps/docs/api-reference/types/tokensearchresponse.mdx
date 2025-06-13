@@ -1,0 +1,15 @@
+---
+title: "TokenSearchResponse"
+description: "Response returned by `searchTokens`."
+---
+
+**Type:** [TokenSearchResponse](/api-reference/types/tokensearchresponse)
+
+## Fields
+
+| Name | Description |
+|------|-------------|
+| `hasMore` → Int | The number of additional high volume results found. Only used if `lowVolumeFilter` is set to `true`. |
+| `hasMoreLowVolume` → Int | If `lowVolumeFilter` is set to `true`, the number of additional low volume results found.  <br>If `lowVolumeFilter` is set to `false`, the number of additional high and low volume results found. |
+| `tokens` → [[TokenWithMetadata!]](/api-reference/types/tokenwithmetadata) | A list of tokens. |
+

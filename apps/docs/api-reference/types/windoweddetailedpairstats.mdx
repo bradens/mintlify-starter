@@ -1,0 +1,18 @@
+---
+title: "WindowedDetailedPairStats"
+description: "Detailed pair stats over a time frame."
+---
+
+**Type:** [WindowedDetailedPairStats](/api-reference/types/windoweddetailedpairstats)
+
+## Fields
+
+| Name | Description |
+|------|-------------|
+| `duration` → [DetailedPairStatsDuration!](/api-reference/types/detailedpairstatsduration) | The duration used to request detailed pair stats. |
+| `start` → [Int!](/api-reference/types/int) | The unix timestamp for the start of the window. |
+| `end` → [Int!](/api-reference/types/int) | The unix timestamp for the end of the window. |
+| `timestamps` → [[DetailedPairStatsBucketTimestamp]!](/api-reference/types/detailedpairstatsbuckettimestamp) | The list of start/end timestamps broken down for each bucket within the window. |
+| `statsUsd` → [WindowedDetailedCurrencyPairStats!](/api-reference/types/windoweddetailedcurrencypairstats) | The currency stats in USD, such as volume. |
+| `statsNonCurrency` → [WindowedDetailedNonCurrencyPairStats!](/api-reference/types/windoweddetailednoncurrencypairstats) | The numerical stats, such as number of buyers. |
+

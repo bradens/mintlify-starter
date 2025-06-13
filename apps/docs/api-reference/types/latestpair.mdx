@@ -1,0 +1,28 @@
+---
+title: "LatestPair"
+description: "Metadata for a newly listed pair."
+---
+
+**Type:** [LatestPair](/api-reference/types/latestpair)
+
+## Fields
+
+| Name | Description |
+|------|-------------|
+| `address` → [String!](/api-reference/types/string) | The contract address for the pair. |
+| `exchangeHash` → [String!](/api-reference/types/string) | The contract address for the exchange. |
+| `id` → [String!](/api-reference/types/string) | The ID of the pair (`address:networkId`). |
+| `initialPriceUsd` → [String!](/api-reference/types/string) | The listing price, or first known price for the pair, in USD. |
+| `liquidAt` → Int | The unix timestamp for when liquidity was added to the pair. |
+| `liquidity` → [String!](/api-reference/types/string) | The total liquidity in the pair. |
+| `liquidityToken` → String | The token with higher liquidity within the pair. Can be `token0` or `token1`. |
+| `networkId` → [Int!](/api-reference/types/int) | The network ID the pair is deployed on. |
+| `newToken` → [String!](/api-reference/types/string) | The newly added token within the pair. Can be `token0` or `token1`. |
+| `nonLiquidityToken` → String | The token with lower liquidity within the pair. Can be `token0` or `token1`. |
+| `oldToken` → [String!](/api-reference/types/string) | The pre-existing token within the pair. Can be `token0` or `token1`. |
+| `priceChange` → [Float!](/api-reference/types/float) | The percent price change between the listing price and the current price. |
+| `priceUsd` → [String!](/api-reference/types/string) | The newly added token price in USD. |
+| `token0` → [LatestPairToken!](/api-reference/types/latestpairtoken) | Metadata for `token0`. |
+| `token1` → [LatestPairToken!](/api-reference/types/latestpairtoken) | Metadata for `token1`. |
+| `transactionHash` → [String!](/api-reference/types/string) | The unique hash for the transaction that added liquidity, if applicable, otherwise the transaction that added the pair. |
+

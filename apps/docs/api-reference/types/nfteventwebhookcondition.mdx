@@ -1,0 +1,22 @@
+---
+title: "NftEventWebhookCondition"
+description: "Webhook conditions for an NFT event."
+---
+
+**Type:** [NftEventWebhookCondition](/api-reference/types/nfteventwebhookcondition)
+
+## Fields
+
+| Name | Description |
+|------|-------------|
+| `networkId` → [OneOfNumberCondition](/api-reference/types/oneofnumbercondition) | The list of network IDs the webhook is listening on. |
+| `maker` → [StringEqualsCondition](/api-reference/types/stringequalscondition) | The maker wallet address the webhook is listening for. |
+| `contractAddress` → [StringEqualsCondition](/api-reference/types/stringequalscondition) | The NFT collection contract address the webhook is listening for. |
+| `exchangeAddress` → [StringEqualsCondition](/api-reference/types/stringequalscondition) | The exchange contract address the webhook is listening for. |
+| `tokenId` → [StringEqualsCondition](/api-reference/types/stringequalscondition) | The token ID the webhook is listening for. |
+| `tokenAddress` → [StringEqualsCondition](/api-reference/types/stringequalscondition) | The token contract address the webhook is listening for. |
+| `individualBaseTokenPrice` → [ComparisonOperator](/api-reference/types/comparisonoperator) | The base token price the webhook is listening for. |
+| `eventType` → [NftEventTypeCondition](/api-reference/types/nfteventtypecondition) | The NFT event type the webhook is listening for. |
+| `fillSource` → [NftEventFillSourceCondition](/api-reference/types/nfteventfillsourcecondition) | The NFT marketplaces the webhook is listening on. |
+| `ignoreTransfers` → Boolean | Option to ignore all nft transfer events |
+

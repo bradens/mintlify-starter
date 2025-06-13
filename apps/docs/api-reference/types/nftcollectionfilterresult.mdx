@@ -1,0 +1,27 @@
+---
+title: "NftCollectionFilterResult"
+description: "An NFT collection matching a set of filter parameters."
+---
+
+**Type:** [NftCollectionFilterResult](/api-reference/types/nftcollectionfilterresult)
+
+## Fields
+
+| Name | Description |
+|------|-------------|
+| `id` → String | The ID of the NFT collection (`address`:`networkId`). |
+| `address` → String | The contract address of the NFT collection. |
+| `grouping` → String | The marketplace address or `all`. Can be used to get marketplace-specific metrics. |
+| `networkId` → Int | The network ID the NFT collection is deployed on. |
+| `name` → String | The name of the NFT collection. |
+| `symbol` → String | The symbol of the NFT collection. |
+| `lastEventTimestamp` → Int | The unix timestamp for the last event. |
+| `ercType` → String | The token standard. Can be a variation of `ERC-721` or `ERC-1155`. |
+| `imageUrl` → String | The image URL for the collection or one of the assets within the collection. |
+| `totalSupply` → String | The total supply of the NFT collection. |
+| `timestamp` → Int | The unix timestamp indicating the last time the data was updated. Updates daily. |
+| `stats1h` → [NftStatsWindowWithChange](/api-reference/types/nftstatswindowwithchange) | Stats for the past hour. |
+| `stats4h` → [NftStatsWindowWithChange](/api-reference/types/nftstatswindowwithchange) | Stats for the past 4 hours. |
+| `stats12h` → [NftStatsWindowWithChange](/api-reference/types/nftstatswindowwithchange) | Stats for the past 12 hours. |
+| `stats24h` → [NftStatsWindowWithChange](/api-reference/types/nftstatswindowwithchange) | Stats for the past 24 hours. |
+

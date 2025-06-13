@@ -1,0 +1,16 @@
+---
+title: "NftPoolNftDepositEventData"
+description: "Event data for depositing an NFT into a pool."
+---
+
+**Type:** [NftPoolNftDepositEventData](/api-reference/types/nftpoolnftdepositeventdata)
+
+## Fields
+
+| Name | Description |
+|------|-------------|
+| `type` → [NftPoolEventType!](/api-reference/types/nftpooleventtype) | The type of NFT pool event, `NFT_DEPOSIT`. |
+| `nftTokenIds` → [[String!]!](/api-reference/types/string) | The list of NFT token IDs deposited. |
+| `nftTokenBalance` → [String!](/api-reference/types/string) | The number of NFTs in the contract after the block has processed. |
+| `tokenBalanceT` → [String!](/api-reference/types/string) | The amount of token in the contract after the block has processed in the pool's liquidity token. |
+

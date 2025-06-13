@@ -1,0 +1,17 @@
+---
+title: "NftEventNftTradeItem"
+description: "Details for an NFT offered or received as part of an nft trade."
+---
+
+**Type:** [NftEventNftTradeItem](/api-reference/types/nfteventnfttradeitem)
+
+## Fields
+
+| Name | Description |
+|------|-------------|
+| `address` → [String!](/api-reference/types/string) | The contract address for the NFT. |
+| `amount` → [String!](/api-reference/types/string) | The number of tokens transferred. (Always 1 for ERC721 NFTs) |
+| `recipient` → String | The recipient of the NFT. |
+| `type` → [NftEventTradeItemType!](/api-reference/types/nfteventtradeitemtype) | The type of item involved in the trade. (Always NFT) |
+| `tokenId` → [String!](/api-reference/types/string) | The token ID of the exchanged NFT |
+

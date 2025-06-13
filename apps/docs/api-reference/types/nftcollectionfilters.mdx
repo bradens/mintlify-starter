@@ -1,0 +1,20 @@
+---
+title: "NftCollectionFilters"
+description: "Input filters for `filterNftCollections`."
+---
+
+**Type:** [NftCollectionFilters](/api-reference/types/nftcollectionfilters)
+
+## Fields
+
+| Name | Description |
+|------|-------------|
+| `totalSupply` → [NumberFilter](/api-reference/types/numberfilter) | The total supply of the NFT collection. |
+| `lastEventTimestamp` → [NumberFilter](/api-reference/types/numberfilter) | The unix timestamp for the last event. |
+| `ercType` → [[NftContractErcType]](/api-reference/types/nftcontracterctype) | The list of token standards to filter by. |
+| `network` → [[Int]](/api-reference/types/int) | The list of network IDs to filter by. |
+| `stats1h` → [NftStatsWindowFilter](/api-reference/types/nftstatswindowfilter) | Stats for the past hour. |
+| `stats4h` → [NftStatsWindowFilter](/api-reference/types/nftstatswindowfilter) | Stats for the past 4 hours. |
+| `stats12h` → [NftStatsWindowFilter](/api-reference/types/nftstatswindowfilter) | Stats for the past 12 hours. |
+| `stats24h` → [NftStatsWindowFilter](/api-reference/types/nftstatswindowfilter) | Stats for the past 24 hours. |
+

@@ -1,0 +1,17 @@
+---
+title: "NftPoolTokenWithdrawalEventDataV2"
+description: "Event data for withdrawing a token from a pool."
+---
+
+**Type:** [NftPoolTokenWithdrawalEventDataV2](/api-reference/types/nftpooltokenwithdrawaleventdatav2)
+
+## Fields
+
+| Name | Description |
+|------|-------------|
+| `type` → [NftPoolEventType!](/api-reference/types/nftpooleventtype) | The type of NFT pool event, `TOKEN_WITHDRAWAL`. |
+| `amountT` → [String!](/api-reference/types/string) | The total value of token withdrawn in the pool's liquidity token. |
+| `tokenBalanceT` → [String!](/api-reference/types/string) | The amount of token in the contract after the block has processed in the pool's liquidity token. |
+| `nbtRatio` → [String!](/api-reference/types/string) | The ratio of the transaction token to the network's base token. |
+| `usdRatio` → [String!](/api-reference/types/string) | The ratio of the transaction token to USD. |
+

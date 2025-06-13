@@ -1,0 +1,20 @@
+---
+title: "getNftPoolStats"
+description: "Returns aggregated NFT pool/collection stats for a given time frame."
+---
+
+**Type:** Query
+
+**Returns:** [NftPoolStatsResponse](/api-reference/types/nftpoolstatsresponse)
+
+## Arguments for getNftPoolStats
+
+| Name | Description |
+|------|-------------|
+| `collectionAddress` ([String!](/api-reference/types/string)) | The contract address of the NFT collection. |
+| `exchangeAddress` ([String!](/api-reference/types/string)) | The NFT AMM marketplace address to filter by. |
+| `networkId` ([Int!](/api-reference/types/int)) | The network ID the NFT collection is deployed on. |
+| `startTime` ([Int!](/api-reference/types/int)) | The unix timestamp for the start of the requested range. |
+| `endTime` ([Int!](/api-reference/types/int)) | The unix timestamp for the end of the requested range. |
+| `poolAddress` (String) | The NFT pool address to filter by. |
+

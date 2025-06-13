@@ -1,0 +1,17 @@
+---
+title: "NftStatsWindowWithChange"
+description: "NFT stats over a time frame."
+---
+
+**Type:** [NftStatsWindowWithChange](/api-reference/types/nftstatswindowwithchange)
+
+## Fields
+
+| Name | Description |
+|------|-------------|
+| `startTime` → Int | The unix timestamp for the start of the window. |
+| `endTime` → Int | The unix timestamp for the end of the window. |
+| `usd` → [NftCollectionCurrencyStats](/api-reference/types/nftcollectioncurrencystats) | The currency stats in USD, such as volume. |
+| `networkBaseToken` → [NftCollectionCurrencyStats](/api-reference/types/nftcollectioncurrencystats) | The currency stats in the network's base token, such as volume. |
+| `nonCurrency` → [NftCollectionNonCurrencyStats](/api-reference/types/nftcollectionnoncurrencystats) | The numerical stats, such as number of sales. |
+

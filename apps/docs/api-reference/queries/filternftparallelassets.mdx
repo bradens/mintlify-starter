@@ -1,0 +1,20 @@
+---
+title: "filterNftParallelAssets"
+description: "Returns a list of Parallel assets based on a variety of filters."
+---
+
+**Type:** Query
+
+**Returns:** [ParallelAssetFilterConnection](/api-reference/types/parallelassetfilterconnection)
+
+## Arguments for filterNftParallelAssets
+
+| Name | Description |
+|------|-------------|
+| `filters` ([ParallelAssetFilters](/api-reference/types/parallelassetfilters)) | A set of filters to apply. |
+| `phrase` (String) | A phrase to search for. Can match a Parallel asset ID (`address`:`tokenId`) or partially match a name. |
+| `match` ([ParallelAssetMatchers](/api-reference/types/parallelassetmatchers)) | A set of parameters to match. |
+| `rankings` ([[ParallelAssetRanking]](/api-reference/types/parallelassetranking)) | A list of ranking attributes to apply. |
+| `limit` (Int) | The maximum number of Parallel assets to return. |
+| `offset` (Int) | Where in the list the server should start when returning items. Use `count`+`offset` from the previous query to request the next page of results. |
+

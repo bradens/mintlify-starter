@@ -1,0 +1,20 @@
+---
+title: "searchNfts"
+description: "Returns a list of NFT collections matching a given query string."
+---
+
+**Type:** Query
+
+**Returns:** [NftSearchResponse](/api-reference/types/nftsearchresponse)
+
+## Arguments for searchNfts
+
+| Name | Description |
+|------|-------------|
+| `limit` (Int) | The maximum number of NFTs to return. |
+| `networkFilter` ([[Int!]](/api-reference/types/int)) | The list of network IDs to filter by. |
+| `window` (String) | The time frame to use for calculating stats. Can be `1h`, `4h`, `12h`, or `1d` (default). |
+| `search` (String) | The query string to search for. Can match an NFT collection contract address or partially match a collection's name or symbol. |
+| `include` ([[NftSearchable!]](/api-reference/types/nftsearchable)) | The level of NFTs to include in the search. Can be `Asset` or `Collection`. |
+| `filterWashTrading` (Boolean) | Whether to filter collections that could be linked to wash trading |
+

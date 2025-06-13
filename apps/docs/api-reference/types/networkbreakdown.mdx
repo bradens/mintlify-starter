@@ -1,0 +1,18 @@
+---
+title: "NetworkBreakdown"
+description: "A breakdown of the wallet's activity by network."
+---
+
+**Type:** [NetworkBreakdown](/api-reference/types/networkbreakdown)
+
+## Fields
+
+| Name | Description |
+|------|-------------|
+| `networkId` → [Int!](/api-reference/types/int) | The network ID |
+| `nativeTokenBalance` → [String!](/api-reference/types/string) | The native token balance |
+| `statsDay1` → [WindowedWalletStats](/api-reference/types/windowedwalletstats) | The stats for the last day |
+| `statsWeek1` → [WindowedWalletStats](/api-reference/types/windowedwalletstats) | The stats for the last week |
+| `statsDay30` → [WindowedWalletStats](/api-reference/types/windowedwalletstats) | The stats for the last 30 days |
+| `statsYear1` → [WindowedWalletStats](/api-reference/types/windowedwalletstats) | The stats for the last year |
+

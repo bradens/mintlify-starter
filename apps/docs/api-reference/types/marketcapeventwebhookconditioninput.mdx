@@ -1,0 +1,17 @@
+---
+title: "MarketCapEventWebhookConditionInput"
+description: "Input conditions for a market cap event webhook."
+---
+
+**Type:** [MarketCapEventWebhookConditionInput](/api-reference/types/marketcapeventwebhookconditioninput)
+
+## Fields
+
+| Name | Description |
+|------|-------------|
+| `tokenAddress` → [StringEqualsConditionInput!](/api-reference/types/stringequalsconditioninput) | The contract address of the token to listen for. |
+| `networkId` → [IntEqualsConditionInput!](/api-reference/types/intequalsconditioninput) | The network ID to listen on. |
+| `fdvMarketCapUsd` → [ComparisonOperatorInput](/api-reference/types/comparisonoperatorinput) | The price conditions to listen for. |
+| `circulatingMarketCapUsd` → [ComparisonOperatorInput](/api-reference/types/comparisonoperatorinput) | The circulating market cap conditions to listen for. |
+| `pairAddress` → [StringEqualsConditionInput](/api-reference/types/stringequalsconditioninput) | The contract address of the pair to listen for. |
+

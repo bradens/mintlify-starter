@@ -1,0 +1,21 @@
+---
+title: "DetailedNftStats"
+description: "Detailed stats for an NFT collection."
+---
+
+**Type:** [DetailedNftStats](/api-reference/types/detailednftstats)
+
+## Fields
+
+| Name | Description |
+|------|-------------|
+| `collectionAddress` → [String!](/api-reference/types/string) | The contract address of the NFT collection. |
+| `networkId` → [Int!](/api-reference/types/int) | The network ID the NFT collection is deployed on. |
+| `grouping` → String | The marketplace address or `all`. Can be used to get marketplace-specific metrics. |
+| `stats_hour1` → [WindowedDetailedNftStats](/api-reference/types/windoweddetailednftstats) | The breakdown of stats over an hour window. |
+| `stats_hour4` → [WindowedDetailedNftStats](/api-reference/types/windoweddetailednftstats) | The breakdown of stats over a 4 hour window. |
+| `stats_hour12` → [WindowedDetailedNftStats](/api-reference/types/windoweddetailednftstats) | The breakdown of stats over a 12 hour window. |
+| `stats_day1` → [WindowedDetailedNftStats](/api-reference/types/windoweddetailednftstats) | The breakdown of stats over a 24 hour window. |
+| `stats_week1` → [WindowedDetailedNftStats](/api-reference/types/windoweddetailednftstats) | The breakdown of stats over a 7 day window. |
+| `stats_day30` → [WindowedDetailedNftStats](/api-reference/types/windoweddetailednftstats) | The breakdown of stats over a 30 day window. |
+

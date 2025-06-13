@@ -1,0 +1,25 @@
+---
+title: "CommunityNote"
+description: "Community gathered proposals for an asset."
+---
+
+**Type:** [CommunityNote](/api-reference/types/communitynote)
+
+## Fields
+
+| Name | Description |
+|------|-------------|
+| `address` → [String!](/api-reference/types/string) | The contract address of the contract. |
+| `contractType` → [ContractType!](/api-reference/types/contracttype) | No description provided |
+| `currentContract` → [EnhancedContract](/api-reference/types/enhancedcontract) | No description provided |
+| `currentData` → [JSON](/api-reference/types/json) | The contract after the community note was applied. |
+| `id` → [String!](/api-reference/types/string) | The ID of the contract (`address:id`). |
+| `moderatedAt` → Int | The unix timestamp of when the community note was moderated. |
+| `networkId` → [Int!](/api-reference/types/int) | The network ID the contract is deployed on. |
+| `previousData` → [JSON](/api-reference/types/json) | The contract before the community note was applied. |
+| `proposalData` → [JSON!](/api-reference/types/json) | The data of the community note. |
+| `proposalNum` → [Int!](/api-reference/types/int) | The ordinal number of the community note. |
+| `proposalType` → [CommunityNoteType!](/api-reference/types/communitynotetype) | The type of the community note. |
+| `proposedAt` → [Int!](/api-reference/types/int) | The unix timestamp of when the community note was created. |
+| `sortKey` → [String!](/api-reference/types/string) | No description provided |
+

@@ -1,0 +1,20 @@
+---
+title: "getDetailedNftStats"
+description: "Returns bucketed stats for a given NFT collection."
+---
+
+**Type:** Query
+
+**Returns:** [DetailedNftStats](/api-reference/types/detailednftstats)
+
+## Arguments for getDetailedNftStats
+
+| Name | Description |
+|------|-------------|
+| `collectionAddress` ([String!](/api-reference/types/string)) | The contract address of the NFT collection. |
+| `networkId` ([Int!](/api-reference/types/int)) | The network ID the NFT collection is deployed on. |
+| `grouping` (String) | The marketplace address to filter by. Can be used to get marketplace-specific metrics, otherwise uses all. |
+| `timestamp` (Int) | The unix timestamp for the stats. Defaults to current. |
+| `durations` ([[DetailedNftStatsDuration]](/api-reference/types/detailednftstatsduration)) | The list of durations to get detailed pair stats for. |
+| `bucketCount` (Int) | The number of aggregated values to receive.<br> Note: Each duration has predetermined bucket sizes.<br> The first n-1 buckets are historical. The last bucket is a snapshot of current data.<br> duration `day1`: 6 buckets (4 hours each) plus 1 partial bucket<br> duration `hour12`: 12 buckets (1 hour each) plus 1 partial bucket<br> duration `hour4`: 8 buckets (30 min each) plus 1 partial bucket<br> duration `hour1`: 12 buckets (5 min each) plus 1 partial bucket<br> duration `min5`: 5 buckets (1 min each) plus 1 partial bucket<br> For example, requesting 11 buckets for a `min5` duration will return the last 10 minutes worth of data plus a snapshot for the current minute. |
+

@@ -1,0 +1,18 @@
+---
+title: "getParallelCardChanges"
+description: "Returns changes made to Parallel card metadata over time."
+---
+
+**Type:** Query
+
+**Returns:** [ParallelCardChangesConnection](/api-reference/types/parallelcardchangesconnection)
+
+## Arguments for getParallelCardChanges
+
+| Name | Description |
+|------|-------------|
+| `tokenId` (String) | The token ID for a Parallel asset. |
+| `timestamp` ([ParallelCardChangeQueryTimestampInput](/api-reference/types/parallelcardchangequerytimestampinput)) | The time frame to request card changes. |
+| `cursor` (String) | The cursor to use for pagination. |
+| `limit` (Int) | The maximum number of Parallel card changes to return. |
+

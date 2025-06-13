@@ -1,0 +1,16 @@
+---
+title: "RetrySettingsInput"
+description: "Config input for retrying failed webhook messages"
+---
+
+**Type:** [RetrySettingsInput](/api-reference/types/retrysettingsinput)
+
+## Fields
+
+| Name | Description |
+|------|-------------|
+| `maxTimeElapsed` → Int | The maximum time in seconds that the webhook will retry sending a message |
+| `minRetryDelay` → Int | The minimum time in seconds that the webhook will wait before retrying a failed message |
+| `maxRetryDelay` → Int | The maximum time in seconds that the webhook will wait before retrying a failed message |
+| `maxRetries` → Int | The maximum number of times the webhook will retry sending a message |
+

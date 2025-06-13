@@ -1,0 +1,21 @@
+---
+title: "getPrimePoolEvents"
+description: "Returns a list of Prime pool events."
+---
+
+**Type:** Query
+
+**Returns:** [PrimePoolEventConnection](/api-reference/types/primepooleventconnection)
+
+## Arguments for getPrimePoolEvents
+
+| Name | Description |
+|------|-------------|
+| `networkId` ([Int!](/api-reference/types/int)) | The network ID the Prime pool is deployed on. |
+| `poolContractAddress` (String) | The contract address of the Prime pool. |
+| `poolId` (String) | The pool ID for the Prime pool, within the contract. |
+| `walletAddress` (String) | The calling wallet address to filter events by. |
+| `eventTypes` ([[PrimePoolEventType]](/api-reference/types/primepooleventtype)) | The event types to query for. |
+| `limit` (Int) | The maximum number of Prime Pool events to return. |
+| `cursor` (String) | The cursor to use for pagination. |
+

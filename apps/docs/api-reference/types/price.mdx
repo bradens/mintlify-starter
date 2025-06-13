@@ -1,0 +1,18 @@
+---
+title: "Price"
+description: "Real-time or historical prices for a token."
+---
+
+**Type:** [Price](/api-reference/types/price)
+
+## Fields
+
+| Name | Description |
+|------|-------------|
+| `address` → [String!](/api-reference/types/string) | The contract address of the token. |
+| `networkId` → [Int!](/api-reference/types/int) | The network ID the token is deployed on. |
+| `priceUsd` → [Float!](/api-reference/types/float) | The token price in USD. |
+| `timestamp` → Int | The unix timestamp for the price. |
+| `poolAddress` → [String!](/api-reference/types/string) | The pool that emitted the swap generating this price |
+| `confidence` → Float | Ratio of how confident we are in the price |
+

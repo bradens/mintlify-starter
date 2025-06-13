@@ -1,0 +1,18 @@
+---
+title: "getTokenEvents"
+description: "Returns transactions for a pair."
+---
+
+**Type:** Query
+
+**Returns:** [EventConnection](/api-reference/types/eventconnection)
+
+## Arguments for getTokenEvents
+
+| Name | Description |
+|------|-------------|
+| `limit` (Int) | The maximum number of transactions to return. |
+| `query` ([EventsQueryInput!](/api-reference/types/eventsqueryinput)) | The query filters to apply to the results. |
+| `cursor` (String) | The cursor to use for pagination. |
+| `direction` ([RankingDirection](/api-reference/types/rankingdirection)) | The order to receive the token events. Can be `DESC` (default) or `ASC`. |
+

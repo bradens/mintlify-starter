@@ -1,0 +1,79 @@
+---
+title: "PairFilters"
+description: "Input type of `PairFilters`."
+---
+
+**Type:** [PairFilters](/api-reference/types/pairfilters)
+
+## Fields
+
+| Name | Description |
+|------|-------------|
+| `createdAt` → [NumberFilter](/api-reference/types/numberfilter) | The unix timestamp for the creation of the pair. |
+| `lastTransaction` → [NumberFilter](/api-reference/types/numberfilter) | The unix timestamp for the last transaction to happen on the pair. |
+| `buyCount1` → [NumberFilter](/api-reference/types/numberfilter) | The number of buys in the past hour. |
+| `buyCount12` → [NumberFilter](/api-reference/types/numberfilter) | The number of buys in the past 12 hours. |
+| `buyCount24` → [NumberFilter](/api-reference/types/numberfilter) | The number of buys in the past 24 hours. |
+| `buyCount4` → [NumberFilter](/api-reference/types/numberfilter) | The number of buys in the past 4 hours. |
+| `exchangeAddress` → [[String]](/api-reference/types/string) | The list of exchange contract addresses to filter by. |
+| `highPrice1` → [NumberFilter](/api-reference/types/numberfilter) | The highest price in USD in the past hour. |
+| `highPrice12` → [NumberFilter](/api-reference/types/numberfilter) | The highest price in USD in the past 12 hours. |
+| `highPrice24` → [NumberFilter](/api-reference/types/numberfilter) | The highest price in USD in the past 24 hours. |
+| `highPrice4` → [NumberFilter](/api-reference/types/numberfilter) | The highest price in USD in the past 4 hours. |
+| `liquidity` → [NumberFilter](/api-reference/types/numberfilter) | The amount of liquidity in the pair. |
+| `lockedLiquidityPercentage` → [NumberFilter](/api-reference/types/numberfilter) | The percent amount of liquidity that is locked |
+| `lowPrice1` → [NumberFilter](/api-reference/types/numberfilter) | The lowest price in USD in the past hour. |
+| `lowPrice12` → [NumberFilter](/api-reference/types/numberfilter) | The lowest price in USD in the past 12 hours. |
+| `lowPrice24` → [NumberFilter](/api-reference/types/numberfilter) | The lowest price in USD in the past 24 hours. |
+| `lowPrice4` → [NumberFilter](/api-reference/types/numberfilter) | The lowest price in USD in the past 4 hours. |
+| `network` → [[Int]](/api-reference/types/int) | The list of network IDs to filter by. |
+| `price` → [NumberFilter](/api-reference/types/numberfilter) | The token price in USD. |
+| `priceChange1` → [NumberFilter](/api-reference/types/numberfilter) | The percent price change in the past hour. Decimal format. |
+| `priceChange12` → [NumberFilter](/api-reference/types/numberfilter) | The percent price change in the past 12 hours. Decimal format. |
+| `priceChange24` → [NumberFilter](/api-reference/types/numberfilter) | The percent price change in the past 24 hours. Decimal format. |
+| `priceChange4` → [NumberFilter](/api-reference/types/numberfilter) | The percent price change in the past 4 hours. Decimal format. |
+| `volumeChange1` → [NumberFilter](/api-reference/types/numberfilter) | The percent volume change in the past hour. Decimal format. |
+| `volumeChange4` → [NumberFilter](/api-reference/types/numberfilter) | The percent volume change in the past 4 hours. Decimal format. |
+| `volumeChange12` → [NumberFilter](/api-reference/types/numberfilter) | The percent volume change in the past 12 hours. Decimal format. |
+| `volumeChange24` → [NumberFilter](/api-reference/types/numberfilter) | The percent volume change in the past 24 hours. Decimal format. |
+| `sellCount1` → [NumberFilter](/api-reference/types/numberfilter) | The number of sells in the past hour. |
+| `sellCount12` → [NumberFilter](/api-reference/types/numberfilter) | The number of sells in the past 12 hours. |
+| `sellCount24` → [NumberFilter](/api-reference/types/numberfilter) | The number of sells in the past 24 hours. |
+| `sellCount4` → [NumberFilter](/api-reference/types/numberfilter) | The number of sells in the past 4 hours. |
+| `tokenAddress` → [[String]](/api-reference/types/string) | The list of token contract addresses to filter by. |
+| `txnCount1` → [NumberFilter](/api-reference/types/numberfilter) | The number of transactions in the past hour. |
+| `txnCount12` → [NumberFilter](/api-reference/types/numberfilter) | The number of transactions in the past 12 hours. |
+| `txnCount24` → [NumberFilter](/api-reference/types/numberfilter) | The number of transactions in the past 24 hours. |
+| `txnCount4` → [NumberFilter](/api-reference/types/numberfilter) | The number of transactions in the past 4 hours. |
+| `uniqueBuys1` → [NumberFilter](/api-reference/types/numberfilter) | The unique number of buys in the past hour. |
+| `uniqueBuys12` → [NumberFilter](/api-reference/types/numberfilter) | The unique number of buys in the past 12 hours. |
+| `uniqueBuys24` → [NumberFilter](/api-reference/types/numberfilter) | The unique number of buys in the past 24 hours. |
+| `uniqueBuys4` → [NumberFilter](/api-reference/types/numberfilter) | The unique number of buys in the past 4 hours. |
+| `uniqueSells1` → [NumberFilter](/api-reference/types/numberfilter) | The unique number of sells in the past hour. |
+| `uniqueSells12` → [NumberFilter](/api-reference/types/numberfilter) | The unique number of sells in the past 12 hours. |
+| `uniqueSells24` → [NumberFilter](/api-reference/types/numberfilter) | The unique number of sells in the past 24 hours. |
+| `uniqueSells4` → [NumberFilter](/api-reference/types/numberfilter) | The unique number of sells in the past 4 hours. |
+| `uniqueTransactions1` → [NumberFilter](/api-reference/types/numberfilter) | The unique number of transactions in the past hour. |
+| `uniqueTransactions12` → [NumberFilter](/api-reference/types/numberfilter) | The unique number of transactions in the past 12 hours. |
+| `uniqueTransactions24` → [NumberFilter](/api-reference/types/numberfilter) | The unique number of transactions in the past 24 hours. |
+| `uniqueTransactions4` → [NumberFilter](/api-reference/types/numberfilter) | The unique number of transactions in the past 4 hours. |
+| `volumeUSD1` → [NumberFilter](/api-reference/types/numberfilter) | The trade volume in USD in the past hour. |
+| `volumeUSD12` → [NumberFilter](/api-reference/types/numberfilter) | The trade volume in USD in the past 12 hours. |
+| `volumeUSD24` → [NumberFilter](/api-reference/types/numberfilter) | The trade volume in USD in the past 24 hours. |
+| `volumeUSD4` → [NumberFilter](/api-reference/types/numberfilter) | The trade volume in USD in the past 4 hours. |
+| `buyVolumeUSD1` → [NumberFilter](/api-reference/types/numberfilter) | The buy volume in USD in the past hour. |
+| `buyVolumeUSD12` → [NumberFilter](/api-reference/types/numberfilter) | The buy volume in USD in the past 12 hours. |
+| `buyVolumeUSD24` → [NumberFilter](/api-reference/types/numberfilter) | The buy volume in USD in the past 24 hours. |
+| `buyVolumeUSD4` → [NumberFilter](/api-reference/types/numberfilter) | The buy volume in USD in the past 4 hours. |
+| `sellVolumeUSD1` → [NumberFilter](/api-reference/types/numberfilter) | The sell volume in USD in the past hour. |
+| `sellVolumeUSD12` → [NumberFilter](/api-reference/types/numberfilter) | The sell volume in USD in the past 12 hours. |
+| `sellVolumeUSD24` → [NumberFilter](/api-reference/types/numberfilter) | The sell volume in USD in the past 24 hours. |
+| `sellVolumeUSD4` → [NumberFilter](/api-reference/types/numberfilter) | The sell volume in USD in the past 4 hours. |
+| `potentialScam` → Boolean | Filter potential Scams |
+| `trendingIgnored` → Boolean | Whether to ignore pairs/tokens not relevant to trending |
+| `isTestnet` → Boolean | Whether to filter for pairs on testnet networks. Use `true` for testnet pairs only, `false` for mainnet pairs only and `undefined` (default) for both. |
+| `walletAgeAvg` → [NumberFilter](/api-reference/types/numberfilter) | The average age of the wallets that traded in the last 24h |
+| `walletAgeStd` → [NumberFilter](/api-reference/types/numberfilter) | The standard deviation of age of the wallets that traded in the last 24h |
+| `swapPct1dOldWallet` → [NumberFilter](/api-reference/types/numberfilter) | The percentage of wallets that are less than 1d old that have traded in the last 24h |
+| `swapPct7dOldWallet` → [NumberFilter](/api-reference/types/numberfilter) | The percentage of wallets that are less than 7d old that have traded in the last 24h |
+

@@ -1,0 +1,16 @@
+---
+title: "DetailedStatsNumberMetrics"
+description: "Number metrics for detailed stats."
+---
+
+**Type:** [DetailedStatsNumberMetrics](/api-reference/types/detailedstatsnumbermetrics)
+
+## Fields
+
+| Name | Description |
+|------|-------------|
+| `change` → [Float!](/api-reference/types/float) | The percent change between the `currentValue` and `previousValue`. Decimal format. |
+| `currentValue` → [Int!](/api-reference/types/int) | The total value for the most recent window. |
+| `previousValue` → [Int!](/api-reference/types/int) | The total value for the previous window. |
+| `buckets` → [[Int]!](/api-reference/types/int) | The list of aggregated values for each bucket. |
+

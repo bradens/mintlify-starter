@@ -1,0 +1,17 @@
+---
+title: "HoldersUpdate"
+description: "Response returned by `onHoldersUpdated`."
+---
+
+**Type:** [HoldersUpdate](/api-reference/types/holdersupdate)
+
+## Fields
+
+| Name | Description |
+|------|-------------|
+| `holders` → [Int!](/api-reference/types/int) | The number of different wallets holding the token. |
+| `tokenId` → [String!](/api-reference/types/string) | The ID of the token (`tokenAddress:networkId`). |
+| `tokenAddress` → [String!](/api-reference/types/string) | The token's contract address. |
+| `networkId` → [Int!](/api-reference/types/int) | The network ID that the token is deployed on. |
+| `balances` → [[Balance!]!](/api-reference/types/balance) | The list of wallets holding the token. |
+

@@ -1,0 +1,50 @@
+---
+title: "NftEvent"
+description: "An NFT collection transaction."
+---
+
+**Type:** [NftEvent](/api-reference/types/nftevent)
+
+## Fields
+
+| Name | Description |
+|------|-------------|
+| `id` → [String!](/api-reference/types/string) | The ID of the NFT event (`contractAddress`:`tokenId`:`networkId`). |
+| `contractAddress` → [String!](/api-reference/types/string) | The contract address of the NFT collection. |
+| `networkId` → [Int!](/api-reference/types/int) | The network ID the NFT collection is deployed on. |
+| `tokenId` → [String!](/api-reference/types/string) | The token ID of the NFT asset involved in the transaction. |
+| `maker` → [String!](/api-reference/types/string) | The wallet address of the buyer. |
+| `taker` → [String!](/api-reference/types/string) | The wallet address of the seller. |
+| `tokenPrice` → [String!](/api-reference/types/string) | No description provided |
+| `totalPrice` → [String!](/api-reference/types/string) | No description provided |
+| `totalTradePrice` → String | The total trade price for the transaction in the purchasing token. (The transaction can include more than 1 token). |
+| `individualTokenPrice` → String | No description provided |
+| `individualPrice` → String | No description provided |
+| `individualTradePrice` → String | The price of each individual NFT in the purchasing token. |
+| `baseTokenAddress` → [String!](/api-reference/types/string) | No description provided |
+| `paymentTokenAddress` → [String!](/api-reference/types/string) | The contract address of the purchasing token. |
+| `baseTokenPrice` → String | No description provided |
+| `totalPriceUsd` → String | The total trade price for the transaction in USD. (The transaction can include more than 1 token). |
+| `individualBaseTokenPrice` → String | No description provided |
+| `individualPriceUsd` → String | The price of each individual NFT in USD. |
+| `networkBaseTokenPrice` → String | No description provided |
+| `totalPriceNetworkBaseToken` → String | The total trade price for the transaction in the network's base token. (The transaction can include more than 1 token). |
+| `individualNetworkBaseTokenPrice` → String | No description provided |
+| `individualPriceNetworkBaseToken` → String | The price of each individual NFT in the network's base token. |
+| `eventType` → [String!](/api-reference/types/string) | The event type of the transaction. |
+| `exchangeAddress` → [String!](/api-reference/types/string) | The NFT marketplace address of the transaction. |
+| `sortKey` → [String!](/api-reference/types/string) | The sortKey for the event (`blockNumber`#`transactionIndex`#`logIndex` (+ #`marketplaceEventLogIndex` if applicable), zero padded). For example, `0000000016414564#00000224#00000413#00000414`. |
+| `blockNumber` → [Int!](/api-reference/types/int) | The block number for the transaction. |
+| `transactionIndex` → [Int!](/api-reference/types/int) | The index of the transaction within the block. |
+| `logIndex` → [Int!](/api-reference/types/int) | The index of the log in the block. |
+| `transactionHash` → [String!](/api-reference/types/string) | The unique hash for the transaction. |
+| `timestamp` → [Int!](/api-reference/types/int) | The unix timestamp for the transaction. |
+| `numberOfTokens` → String | The number of assets involved in the transaction. |
+| `aggregatorAddress` → String | The contract address of the marketplace aggregator that routed the transaction. |
+| `poolAddress` → String | The contract address of the NFT pool, if applicable. |
+| `fillSource` → String | The name of the marketplace that processed the transaction. |
+| `priceError` → String | The reason for the price error, if applicable. Can be `NO_TOKEN_DATA`, `NO_TOKEN_PRICE`, or `LOW_LIQUIDITY_PAIR`. |
+| `tradeOffer` → [[NftEventTradeItem!]](/api-reference/types/nfteventtradeitem) | The tokens/NFTs that were offered to make this transaction occur. |
+| `tradeReceived` → [[NftEventTradeItem!]](/api-reference/types/nfteventtradeitem) | The tokens/NFTs that were received in this transaction. |
+| `orderDirection` → [NftEventOrderDirection](/api-reference/types/nfteventorderdirection) | The direction of the order. One of 'BUY', 'SELL', or 'OFFER_ACCEPTED'. |
+

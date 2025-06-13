@@ -1,0 +1,24 @@
+---
+title: "LaunchpadTokenEventOutput"
+description: "Response returned by `onLaunchpadTokenEvent`."
+---
+
+**Type:** [LaunchpadTokenEventOutput](/api-reference/types/launchpadtokeneventoutput)
+
+## Fields
+
+| Name | Description |
+|------|-------------|
+| `address` → [String!](/api-reference/types/string) | The contract address of the token. |
+| `networkId` → [Int!](/api-reference/types/int) | The network ID that the token is deployed on. |
+| `protocol` → [String!](/api-reference/types/string) | The protocol of the token. |
+| `token` → [EnhancedToken!](/api-reference/types/enhancedtoken) | Metadata for the token. |
+| `buyCount1` → Int | The number of buys in the last 24 hours. |
+| `eventType` → [LaunchpadTokenEventType!](/api-reference/types/launchpadtokeneventtype) | The type of event. |
+| `holders` → Int | The number of holders. |
+| `marketCap` → String | The market cap of the token. |
+| `price` → Float | The price of the token. |
+| `sellCount1` → Int | The number of sells in the last 24 hours. |
+| `volume1` → Int | The volume of the token in the last 24 hours. |
+| `transactions1` → Int | The number of transactions in the last 24 hours. |
+

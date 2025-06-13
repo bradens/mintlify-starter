@@ -1,0 +1,53 @@
+---
+title: "PairMetadata"
+description: "Object type"
+---
+
+**Type:** [PairMetadata](/api-reference/types/pairmetadata)
+
+## Fields
+
+| Name | Description |
+|------|-------------|
+| `exchangeId` → String | The exchange contract ID. |
+| `fee` → Int | The exchange fee for swaps. |
+| `id` → [String!](/api-reference/types/string) | The ID for the pair (`address:networkId`). |
+| `quoteToken` → [QuoteToken](/api-reference/types/quotetoken) | The token of interest within the pair. Can be `token0` or `token1`. |
+| `networkId` → Int | The network ID the pair is deployed on. |
+| `liquidity` → [String!](/api-reference/types/string) | The total liquidity in the pair. |
+| `liquidityToken` → String | The token with higher liquidity within the pair. Can be `token0` or `token1`. |
+| `nonLiquidityToken` → String | The token with lower liquidity within the pair. Can be `token0` or `token1`. |
+| `pairAddress` → [String!](/api-reference/types/string) | The contract address of the pair. |
+| `statsType` → [TokenPairStatisticsType!](/api-reference/types/tokenpairstatisticstype) | The type of statistics returned. Can be `FILTERED` or `UNFILTERED` |
+| `price` → [String!](/api-reference/types/string) | The quote token price in USD. |
+| `priceChange5m` → Float | The percent price change in the past 5 minutes. Decimal format. |
+| `priceChange1` → Float | The percent price change in the past hour. Decimal format. |
+| `priceChange4` → Float | The percent price change in the past 4 hours. Decimal format. |
+| `priceChange12` → Float | The percent price change in the past 12 hours. Decimal format. |
+| `priceChange24` → Float | The percent price change in the past 24 hours. Decimal format. |
+| `priceChange1w` → Float | The percent price change in the past week. Decimal format. |
+| `tickSpacing` → Int | The amount of required tick separation. Only applicable for pairs on UniswapV3. |
+| `token0` → [PairMetadataToken!](/api-reference/types/pairmetadatatoken) | Pair metadata for the first token in the pair. |
+| `token1` → [PairMetadataToken!](/api-reference/types/pairmetadatatoken) | Pair metadata for the second token in the pair. |
+| `volume1` → String | The trade volume in USD in the past hour. |
+| `volume4` → String | The trade volume in USD in the past 4 hours. |
+| `volume12` → String | The trade volume in USD in the past 12 hours. |
+| `volume24` → String | The trade volume in USD in the past 24 hours. |
+| `volume1w` → String | The trade trade volume in USD in the past week. |
+| `volume5m` → String | The trade volume in USD in the past 5 minutes. |
+| `highPrice5m` → String | The highest price in USD in the past 5 minutes. |
+| `highPrice1` → String | The highest price in USD in the past hour. |
+| `highPrice4` → String | The highest price in USD in the past 4 hours. |
+| `highPrice12` → String | The highest price in USD in the past 12 hours. |
+| `highPrice24` → String | The highest price in USD in the past 24 hours. |
+| `highPrice1w` → String | The highest price in USD in the past week. |
+| `lowPrice5m` → String | The lowest price in USD in the past 5 minutes. |
+| `lowPrice1` → String | The lowest price in USD in the past hour. |
+| `lowPrice12` → String | The lowest price in USD in the past 12 hours. |
+| `lowPrice24` → String | The lowest price in USD in the past 24 hours. |
+| `lowPrice4` → String | The lowest price in USD in the past 4 hours. |
+| `lowPrice1w` → String | The lowest price in USD in the past week. |
+| `enhancedToken0` → [EnhancedToken](/api-reference/types/enhancedtoken) | Token metadata for the first token in the pair. |
+| `enhancedToken1` → [EnhancedToken](/api-reference/types/enhancedtoken) | Token metadata for the second token in the pair. |
+| `createdAt` → Int | The unix timestamp for the creation of the pair. |
+

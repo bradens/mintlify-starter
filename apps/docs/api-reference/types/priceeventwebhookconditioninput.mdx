@@ -1,0 +1,16 @@
+---
+title: "PriceEventWebhookConditionInput"
+description: "Input conditions for a price event webhook."
+---
+
+**Type:** [PriceEventWebhookConditionInput](/api-reference/types/priceeventwebhookconditioninput)
+
+## Fields
+
+| Name | Description |
+|------|-------------|
+| `tokenAddress` → [StringEqualsConditionInput!](/api-reference/types/stringequalsconditioninput) | The contract address of the token to listen for. |
+| `networkId` → [IntEqualsConditionInput!](/api-reference/types/intequalsconditioninput) | The network ID to listen on. |
+| `priceUsd` → [ComparisonOperatorInput!](/api-reference/types/comparisonoperatorinput) | The price conditions to listen for. |
+| `pairAddress` → [StringEqualsConditionInput](/api-reference/types/stringequalsconditioninput) | The contract address of the pair to listen for. |
+

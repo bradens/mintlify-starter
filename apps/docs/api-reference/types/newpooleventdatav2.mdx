@@ -1,0 +1,36 @@
+---
+title: "NewPoolEventDataV2"
+description: "Event data for creating a new NFT pool."
+---
+
+**Type:** [NewPoolEventDataV2](/api-reference/types/newpooleventdatav2)
+
+## Fields
+
+| Name | Description |
+|------|-------------|
+| `type` → [NftPoolEventType!](/api-reference/types/nftpooleventtype) | The type of NFT pool event, `NEW_POOL`. |
+| `networkId` → [Int!](/api-reference/types/int) | The network ID the NFT collection is deployed on. |
+| `poolAddress` → [String!](/api-reference/types/string) | The contract address of the NFT pool. |
+| `collectionAddress` → [String!](/api-reference/types/string) | The contract address of the NFT collection. |
+| `tokenAddress` → [String!](/api-reference/types/string) | The contract address of the liquidity token of the pool (usually WETH). |
+| `ownerAddress` → [String!](/api-reference/types/string) | The wallet address of the pool owner. |
+| `assetRecipientAddress` → [String!](/api-reference/types/string) | The wallet address that will receive the tokens or NFT sent to the pair during swaps. |
+| `bondingCurveAddress` → [String!](/api-reference/types/string) | The contract address of the bonding curve. |
+| `bondingCurveType` → [BondingCurveType!](/api-reference/types/bondingcurvetype) | The bonding curve type that defines how the prices of NFTs change after each buy or sell within a pool. |
+| `delta` → [String!](/api-reference/types/string) | The initial delta used in the bonding curve. |
+| `feeAmountT` → [String!](/api-reference/types/string) | The pool fee amount in the pool's liquidity token. |
+| `startPriceT` → [String!](/api-reference/types/string) | The initial spot price in the pool's liquidity token. |
+| `buyPriceT` → [String!](/api-reference/types/string) | The initial price at which the pool is willing to buy an NFT in the pool's liquidity token. |
+| `sellPriceT` → [String!](/api-reference/types/string) | The initial price at which the pool is willing to sell an NFT in the pool's liquidity token. |
+| `createdAt` → [Int!](/api-reference/types/int) | The unix timestamp for the time the pool was created. |
+| `tokenBalanceT` → [String!](/api-reference/types/string) | The amount of token in the contract after the block has processed in the pool's liquidity token. |
+| `nbtRatio` → [String!](/api-reference/types/string) | The ratio of the transaction token to the network's base token. |
+| `usdRatio` → [String!](/api-reference/types/string) | The ratio of the transaction token to USD. |
+| `nftTokenIds` → [[String!]!](/api-reference/types/string) | The list of NFT token IDs initially deposited. |
+| `nftTokenQuantities` → [[String]!](/api-reference/types/string) | The amount of each NFT token initially deposited. |
+| `nftAssets` → [[NftAsset]](/api-reference/types/nftasset) | *New Param*: The list of NFT assets withdrawn. More extensive info than nftTokenIds. |
+| `poolNftType` → [PoolNftType!](/api-reference/types/poolnfttype) | The type of NFT in the pool. |
+| `royalties` → [[NftPoolRoyalty]](/api-reference/types/nftpoolroyalty) | The list of royalties for the pool. Only applicable for `SUDOSWAP_V2` pools. |
+| `propertyChecker` → String | The property checker contract address for the pool. |
+

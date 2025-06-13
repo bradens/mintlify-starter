@@ -1,0 +1,28 @@
+---
+title: "ExchangeFilters"
+description: "Input type of `ExchangeFilters`."
+---
+
+**Type:** [ExchangeFilters](/api-reference/types/exchangefilters)
+
+## Fields
+
+| Name | Description |
+|------|-------------|
+| `txnCount1` → [StringFilter](/api-reference/types/stringfilter) | The number of transactions on the exchange in the past hour. |
+| `txnCount4` → [StringFilter](/api-reference/types/stringfilter) | The number of transactions on the exchange in the past 4 hours. |
+| `txnCount12` → [StringFilter](/api-reference/types/stringfilter) | The number of transactions on the exchange in the past 12 hours. |
+| `txnCount24` → [StringFilter](/api-reference/types/stringfilter) | The number of transactions on the exchange in the past 24 hours. |
+| `volumeUSD1` → [StringFilter](/api-reference/types/stringfilter) | The trade volume in USD in the past hour. |
+| `volumeUSD4` → [StringFilter](/api-reference/types/stringfilter) | The trade volume in USD in the past 4 hours. |
+| `volumeUSD12` → [StringFilter](/api-reference/types/stringfilter) | The trade volume in USD in the past 12 hours. |
+| `volumeUSD24` → [StringFilter](/api-reference/types/stringfilter) | The trade volume in USD in the past 24 hours. |
+| `volumeNBT1` → [StringFilter](/api-reference/types/stringfilter) | The trade volume in the network's base token in the past hour. |
+| `volumeNBT4` → [StringFilter](/api-reference/types/stringfilter) | The trade volume in the network's base token in the past 4 hours. |
+| `volumeNBT12` → [StringFilter](/api-reference/types/stringfilter) | The trade volume in the network's base token in the past 12 hours. |
+| `volumeNBT24` → [StringFilter](/api-reference/types/stringfilter) | The trade volume in the network's base token in the past 24 hours. |
+| `dailyActiveUsers` → [NumberFilter](/api-reference/types/numberfilter) | The total unique daily active users. |
+| `monthlyActiveUsers` → [NumberFilter](/api-reference/types/numberfilter) | The total unique monthly active users (30 days). |
+| `address` → [[String]](/api-reference/types/string) | The list of exchange contract addresses to filter by. |
+| `network` → [[Int]](/api-reference/types/int) | The list of network IDs to filter by. |
+

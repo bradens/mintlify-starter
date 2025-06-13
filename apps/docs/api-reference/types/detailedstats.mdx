@@ -1,0 +1,22 @@
+---
+title: "DetailedStats"
+description: "Detailed stats for a token within a pair."
+---
+
+**Type:** [DetailedStats](/api-reference/types/detailedstats)
+
+## Fields
+
+| Name | Description |
+|------|-------------|
+| `pairId` → [String!](/api-reference/types/string) | The ID of the pair (`pairAddress:networkId`). |
+| `tokenOfInterest` → [TokenOfInterest!](/api-reference/types/tokenofinterest) | The token of interest used to calculate token-specific stats. |
+| `statsType` → [TokenPairStatisticsType!](/api-reference/types/tokenpairstatisticstype) | The type of statistics returned. Can be `FILTERED` or `UNFILTERED` |
+| `stats_min5` → [WindowedDetailedStats](/api-reference/types/windoweddetailedstats) | The breakdown of stats over a 5 minute window. |
+| `stats_hour1` → [WindowedDetailedStats](/api-reference/types/windoweddetailedstats) | The breakdown of stats over an hour window. |
+| `stats_hour4` → [WindowedDetailedStats](/api-reference/types/windoweddetailedstats) | The breakdown of stats over a 4 hour window. |
+| `stats_hour12` → [WindowedDetailedStats](/api-reference/types/windoweddetailedstats) | The breakdown of stats over a 12 hour window. |
+| `stats_day1` → [WindowedDetailedStats](/api-reference/types/windoweddetailedstats) | The breakdown of stats over a 24 hour window. |
+| `bucketCount` → Int | Number of aggregated buckets specified in input |
+| `queryTimestamp` → Int | The timestamp specified as input to the query |
+

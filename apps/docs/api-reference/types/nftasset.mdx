@@ -1,0 +1,24 @@
+---
+title: "NftAsset"
+description: "An NFT asset."
+---
+
+**Type:** [NftAsset](/api-reference/types/nftasset)
+
+## Fields
+
+| Name | Description |
+|------|-------------|
+| `id` → [String!](/api-reference/types/string) | The ID of the NFT asset (`address`:`networkId`). |
+| `address` → [String!](/api-reference/types/string) | The contract address of the NFT collection. |
+| `tokenId` → [String!](/api-reference/types/string) | The token ID of the NFT asset. |
+| `networkId` → [Int!](/api-reference/types/int) | The network ID the NFT collection is deployed on. |
+| `media` → [NftAssetMedia](/api-reference/types/nftassetmedia) | The NFT asset media. |
+| `name` → String | The name of the NFT asset. |
+| `description` → String | The description of the NFT asset. |
+| `originalImage` → String | The source image URI linked by smart contract metadata. |
+| `uri` → String | The URI provided by the smart contract. Typically JSON that contains metadata. |
+| `attributes` → [[NftAssetAttribute!]](/api-reference/types/nftassetattribute) | The attributes for the NFT asset. |
+| `quantity` → String | The number of NFT assets with the same NFT token ID. Only applicable for ERC1155 tokens. |
+| `rawAssetData` → [RawNftAssetData](/api-reference/types/rawnftassetdata) | Raw NFT metadata from the smart contract. |
+

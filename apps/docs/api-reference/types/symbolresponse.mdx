@@ -1,0 +1,19 @@
+---
+title: "SymbolResponse"
+description: "Response returned by `getSymbol`."
+---
+
+**Type:** [SymbolResponse](/api-reference/types/symbolresponse)
+
+## Fields
+
+| Name | Description |
+|------|-------------|
+| `currency_code` → [String!](/api-reference/types/string) | The currencyCode argument passed in (`TOKEN` or `USD`). |
+| `description` → [String!](/api-reference/types/string) | The trading pair. If currencyCode is TOKEN, the base token will be used, otherwise USD. |
+| `name` → [String!](/api-reference/types/string) | The symbols of the pair. |
+| `original_currency_code` → [String!](/api-reference/types/string) | The base token symbol. |
+| `pricescale` → [Float!](/api-reference/types/float) | 10^n, where n is the number of decimal places the price has. Max 16. Used for charting. |
+| `ticker` → [String!](/api-reference/types/string) | The ID of the pair (`address:networkId`). |
+| `supported_resolutions` → [[String!]!](/api-reference/types/string) | The list of time frames supported for the symbol in other charting endpoints, eg. getBars. |
+

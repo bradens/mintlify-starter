@@ -1,0 +1,22 @@
+---
+title: "LiquidityMetadataByToken"
+description: "Metadata about a token's liquidity. Includes locked liquidity data for up to 100 pairs that the token is in."
+---
+
+**Type:** [LiquidityMetadataByToken](/api-reference/types/liquiditymetadatabytoken)
+
+## Fields
+
+| Name | Description |
+|------|-------------|
+| `tokenAddress` → [String!](/api-reference/types/string) | The address of the token. |
+| `networkId` → [Int!](/api-reference/types/int) | The network ID the token is deployed on. |
+| `totalLiquidityUsd` → [String!](/api-reference/types/string) | The total liquidity in USD. |
+| `lockedLiquidityUsd` → [String!](/api-reference/types/string) | The locked liquidity in USD. |
+| `totalTokenLiquidity` → [String!](/api-reference/types/string) | The total amount of tokens in pairs. |
+| `totalTokenLiquidityShifted` → [String!](/api-reference/types/string) | The total amount of tokens in pairs shifted by number of decimals the token has. |
+| `lockedTokenLiquidity` → [String!](/api-reference/types/string) | The locked amount of tokens in pairs. |
+| `lockedTokenLiquidityShifted` → [String!](/api-reference/types/string) | The locked amount of tokens in pairs shifted by number of decimals the token has. |
+| `lockedLiquidityPercentage` → [Float!](/api-reference/types/float) | The percentage of liquidity that is locked. |
+| `lockBreakdown` → [[LiquidityLockBreakdownForToken]!](/api-reference/types/liquiditylockbreakdownfortoken) | A breakdown of how much and where liquidity is locked. |
+

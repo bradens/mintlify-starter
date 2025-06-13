@@ -1,0 +1,28 @@
+---
+title: "PrimePoolEvent"
+description: "A Prime pool event."
+---
+
+**Type:** [PrimePoolEvent](/api-reference/types/primepoolevent)
+
+## Fields
+
+| Name | Description |
+|------|-------------|
+| `id` → [String!](/api-reference/types/string) | The Prime pool event ID (poolContractAddress:poolId:networkId) |
+| `sortKey` → [String!](/api-reference/types/string) | The sort key of the Prime pool event (blockNumber:transactionIndex:logIndex). |
+| `blockHash` → [String!](/api-reference/types/string) | The blockHash of the Prime pool event. |
+| `blockNumber` → [Int!](/api-reference/types/int) | The blockNumber of the Prime pool event. |
+| `data` → [PrimePoolEventData!](/api-reference/types/primepooleventdata) | The event data for the Prime pool event. |
+| `eventType` → [PrimePoolEventType!](/api-reference/types/primepooleventtype) | The Prime pool event type. |
+| `from` → [String!](/api-reference/types/string) | The Prime pool event's calling address. |
+| `fromHashKey` → [String!](/api-reference/types/string) | The Prime pool event's calling address, and network ID (from:networkId). |
+| `logIndex` → [Int!](/api-reference/types/int) | The logIndex of the Prime pool event. |
+| `networkId` → [Int!](/api-reference/types/int) | The network ID of the Prime pool event. |
+| `poolContractAddress` → [String!](/api-reference/types/string) | The Prime pool contract address. |
+| `poolId` → [String!](/api-reference/types/string) | The Prime pool ID. |
+| `poolType` → [PrimePoolType!](/api-reference/types/primepooltype) | The Prime pool type. |
+| `timestamp` → [Int!](/api-reference/types/int) | The timestamp of the Prime pool event. |
+| `transactionHash` → [String!](/api-reference/types/string) | The transactionHash of the Prime pool event. |
+| `transactionIndex` → [Int!](/api-reference/types/int) | The transactionIndex of the Prime pool event. |
+

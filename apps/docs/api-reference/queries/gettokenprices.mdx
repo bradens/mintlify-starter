@@ -1,0 +1,15 @@
+---
+title: "getTokenPrices"
+description: "Returns real-time or historical prices for a list of tokens, fetched in batches."
+---
+
+**Type:** Query
+
+**Returns:** [[Price]](/api-reference/types/price)
+
+## Arguments for getTokenPrices
+
+| Name | Description |
+|------|-------------|
+| `inputs` ([[GetPriceInput]](/api-reference/types/getpriceinput)) | A list of `GetPriceInput`s. Accepts a maximum of 25 inputs (anything over will be truncated). |
+

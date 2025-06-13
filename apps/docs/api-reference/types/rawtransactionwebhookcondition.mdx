@@ -1,0 +1,19 @@
+---
+title: "RawTransactionWebhookCondition"
+description: "Webhook conditions for a raw transaction."
+---
+
+**Type:** [RawTransactionWebhookCondition](/api-reference/types/rawtransactionwebhookcondition)
+
+## Fields
+
+| Name | Description |
+|------|-------------|
+| `networkId` → [OneOfNumberCondition](/api-reference/types/oneofnumbercondition) | A list of network IDs to listen on. |
+| `to` → [StringEqualsCondition](/api-reference/types/stringequalscondition) | The to address to listen for. |
+| `from` → [StringEqualsCondition](/api-reference/types/stringequalscondition) | The from address to listen for. |
+| `toOrFrom` → [StringEqualsCondition](/api-reference/types/stringequalscondition) | Trigger the webhook if either the to or the from address matches. |
+| `input` → [StringContainsCondition](/api-reference/types/stringcontainscondition) | Trigger the webhook if the  contains or doesn't contain the specified string. |
+| `ignoreTokenPairEvents` → Boolean | Do not trigger the webhook if the raw transaction is handled by the TokenPairEvent webhook. |
+| `ignoreNftEvents` → Boolean | Do not trigger the webhook if the raw transaction is handled by the NftEvent webhook. |
+

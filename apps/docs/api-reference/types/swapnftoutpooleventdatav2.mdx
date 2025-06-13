@@ -1,0 +1,26 @@
+---
+title: "SwapNftOutPoolEventDataV2"
+description: "Event data for swapping an NFT out of a pool."
+---
+
+**Type:** [SwapNftOutPoolEventDataV2](/api-reference/types/swapnftoutpooleventdatav2)
+
+## Fields
+
+| Name | Description |
+|------|-------------|
+| `type` → [NftPoolEventType!](/api-reference/types/nftpooleventtype) | The type of NFT pool event, `SWAP_NFT_OUT_POOL`. |
+| `tokenId` → [String!](/api-reference/types/string) | The ID of the token involved in the swap (`address`:`networkId`). |
+| `newDelta` → [String!](/api-reference/types/string) | The updated delta used in the bonding curve. |
+| `poolFeeT` → [String!](/api-reference/types/string) | The fee for the pool in the pool's liquidity token. |
+| `protocolFeeT` → [String!](/api-reference/types/string) | The protocol fee in the pool's liquidity token. |
+| `nftsTransfered` → [[NftPoolEventNftTransferV2]](/api-reference/types/nftpooleventnfttransferv2) | Metadata for each of the NFTs involved in the swap. |
+| `nftAssets` → [[NftAsset]](/api-reference/types/nftasset) | *New Param*: The list of NFT assets withdrawn. More extensive info than nftTokenIds. |
+| `newSpotPriceT` → [String!](/api-reference/types/string) | The updated spot price in the pool's liquidity token. |
+| `newSellPriceT` → [String!](/api-reference/types/string) | The updated price at which the pool is willing to sell an NFT in the pool's liquidity token. |
+| `newBuyPriceT` → [String!](/api-reference/types/string) | The updated price at which the pool is willing to buy an NFT in the pool's liquidity token. |
+| `amountT` → [String!](/api-reference/types/string) | The total value of all NFTs involved in the swap in the pool's liquidity token. |
+| `tokenBalanceT` → [String!](/api-reference/types/string) | The amount of token in the contract after the block has processed in the pool's liquidity token. |
+| `nbtRatio` → [String!](/api-reference/types/string) | The ratio of the transaction token to the network's base token. |
+| `usdRatio` → [String!](/api-reference/types/string) | The ratio of the transaction token to USD. |
+

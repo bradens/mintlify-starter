@@ -1,0 +1,24 @@
+---
+title: "FilterTokenWalletsInput"
+description: "The input for filtering wallets for a token."
+---
+
+**Type:** [FilterTokenWalletsInput](/api-reference/types/filtertokenwalletsinput)
+
+## Fields
+
+| Name | Description |
+|------|-------------|
+| `tokenId` → String | The ID of the token to filter wallets for |
+| `walletAddress` → String | The wallet address to filter wallets for |
+| `wallets` → [[String]](/api-reference/types/string) | A list of wallet addresses to filter wallets for |
+| `networkId` → Int | The network ID to filter wallets for |
+| `filters` → [WalletTokenFilters](/api-reference/types/wallettokenfilters) | A set of filters to apply |
+| `filtersV2` → [WalletTokenFiltersV2](/api-reference/types/wallettokenfiltersv2) | A set of filters to apply |
+| `phrase` → String | A phrase to search for in token symbol and name |
+| `rankings` → [[WalletTokenRanking]](/api-reference/types/wallettokenranking) | A list of ranking attributes to apply |
+| `excludeLabels` → [[String]](/api-reference/types/string) | Exclude wallets with these labels. |
+| `includeLabels` → [[String]](/api-reference/types/string) | Include wallets with these labels. |
+| `limit` → Int | The maximum number of wallets to return |
+| `offset` → Int | Where in the list the server should start when returning items |
+

@@ -1,0 +1,22 @@
+---
+title: "getNftPoolEvents"
+description: "Returns transactions for an NFT collection across all NFT pools or within a given pool."
+---
+
+**Type:** Query
+
+**Returns:** [NftPoolEventsResponse](/api-reference/types/nftpooleventsresponse)
+
+## Arguments for getNftPoolEvents
+
+| Name | Description |
+|------|-------------|
+| `networkId` ([Int!](/api-reference/types/int)) | The network ID the NFT collection is deployed on. |
+| `collectionAddress` (String) | The contract address of the NFT collection. |
+| `poolAddress` (String) | The NFT pool address to filter by. |
+| `exchangeAddress` (String) | The NFT AMM marketplace address to filter by. |
+| `eventTypes` ([[NftPoolEventType!]](/api-reference/types/nftpooleventtype)) | The event types to filter by. |
+| `timestamp` ([EventQueryTimestampInput](/api-reference/types/eventquerytimestampinput)) | The time range to filter by. |
+| `cursor` (String) | The cursor to use for pagination. |
+| `limit` (Int) | The maximum number of NFT pool events to return. |
+

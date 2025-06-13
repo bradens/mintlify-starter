@@ -1,0 +1,24 @@
+---
+title: "TokenLifecycleEvent"
+description: "Events that occur during a token's lifecycle. Only Mint and Burn events right now."
+---
+
+**Type:** [TokenLifecycleEvent](/api-reference/types/tokenlifecycleevent)
+
+## Fields
+
+| Name | Description |
+|------|-------------|
+| `tokenAddress` → [String!](/api-reference/types/string) | The token's contract address. |
+| `networkId` → [Int!](/api-reference/types/int) | The network ID that the token is deployed on. |
+| `blockHash` → [String!](/api-reference/types/string) | The hash of the block where the transaction occurred. |
+| `blockNumber` → [Int!](/api-reference/types/int) | The block number for the transaction. |
+| `id` → [String!](/api-reference/types/string) | The ID of the event (`address:networkId`). For example, `0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2:1`. |
+| `logIndex` → [Int!](/api-reference/types/int) | The index of the log in the block. |
+| `maker` → String | The wallet address that performed the transaction. |
+| `timestamp` → [Int!](/api-reference/types/int) | The unix timestamp for when the transaction occurred. |
+| `transactionHash` → [String!](/api-reference/types/string) | The unique hash for the transaction. |
+| `transactionIndex` → [Int!](/api-reference/types/int) | The index of the transaction within the block. |
+| `eventType` → [TokenLifecycleEventType!](/api-reference/types/tokenlifecycleeventtype) | The type of event. |
+| `data` → [TokenLifecycleEventData!](/api-reference/types/tokenlifecycleeventdata) | The event data, depends on the type of event |
+

@@ -1,0 +1,25 @@
+---
+title: "EventsQueryInput"
+description: "Input type of `EventsQuery`."
+---
+
+**Type:** [EventsQueryInput](/api-reference/types/eventsqueryinput)
+
+## Fields
+
+| Name | Description |
+|------|-------------|
+| `address` → [String!](/api-reference/types/string) | The pair contract address to filter by. If you pass a token address in here, it will instead find the top pair for that token and use that. |
+| `quoteToken` → [QuoteToken](/api-reference/types/quotetoken) | The token of interest. Can be `token0` or `token1`. |
+| `amountNonLiquidityToken` → [NumberFilter](/api-reference/types/numberfilter) | The amount of `quoteToken` involved in the swap. |
+| `eventDisplayType` → [[EventDisplayType]](/api-reference/types/eventdisplaytype) | The list of event display types to filter by. |
+| `eventType` → [EventType](/api-reference/types/eventtype) | The specific event type to filter by. |
+| `maker` → String | The specific wallet address to filter by. |
+| `networkId` → [Int!](/api-reference/types/int) | The network ID to filter by. |
+| `timestamp` → [EventQueryTimestampInput](/api-reference/types/eventquerytimestampinput) | The time range to filter by. |
+| `priceBaseToken` → [NumberFilter](/api-reference/types/numberfilter) | The price per `quoteToken` at the time of the swap in the network's base token. |
+| `priceBaseTokenTotal` → [NumberFilter](/api-reference/types/numberfilter) | The total amount of `quoteToken` involved in the swap in the network's base token (`amountNonLiquidityToken` x `priceBaseToken`). |
+| `priceUsd` → [NumberFilter](/api-reference/types/numberfilter) | The price per `quoteToken` at the time of the swap in USD. |
+| `priceUsdTotal` → [NumberFilter](/api-reference/types/numberfilter) | The total amount of `quoteToken` involved in the swap in USD (`amountNonLiquidityToken` x `priceUsd`). |
+| `symbolType` → [SymbolType](/api-reference/types/symboltype) | Specify the type of symbol you want to fetch values for (TOKEN | POOL) |
+

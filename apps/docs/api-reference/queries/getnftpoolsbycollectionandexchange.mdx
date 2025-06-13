@@ -1,0 +1,19 @@
+---
+title: "getNftPoolsByCollectionAndExchange"
+description: "Returns NFT pools for a given collection and AMM NFT marketplace."
+---
+
+**Type:** Query
+
+**Returns:** [GetNftPoolsResponse](/api-reference/types/getnftpoolsresponse)
+
+## Arguments for getNftPoolsByCollectionAndExchange
+
+| Name | Description |
+|------|-------------|
+| `collectionAddress` ([String!](/api-reference/types/string)) | The contract address of the NFT collection. |
+| `exchangeAddress` ([String!](/api-reference/types/string)) | The NFT AMM marketplace address to filter by. |
+| `networkId` ([Int!](/api-reference/types/int)) | The network ID the NFT collection is deployed on. |
+| `cursor` (String) | The cursor to use for pagination. |
+| `limit` (Int) | The maximum number of NFT pools to return. |
+

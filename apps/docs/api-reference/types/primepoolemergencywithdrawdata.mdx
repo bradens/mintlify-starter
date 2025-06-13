@@ -1,0 +1,19 @@
+---
+title: "PrimePoolEmergencyWithdrawData"
+description: "Event-specific data for a Prime pool EmergencyWithdraw transaction."
+---
+
+**Type:** [PrimePoolEmergencyWithdrawData](/api-reference/types/primepoolemergencywithdrawdata)
+
+## Fields
+
+| Name | Description |
+|------|-------------|
+| `type` → [PrimePoolEventType!](/api-reference/types/primepooleventtype) | The Prime pool event type. |
+| `user` → [String!](/api-reference/types/string) | The wallet address emergency withdrawing from the pool. |
+| `eventAmount` → [String!](/api-reference/types/string) | The amount of Prime pool asset(s) emergency withdrawn. |
+| `totalSupply` → [String!](/api-reference/types/string) | The total supply of assets cached in this Prime pool. |
+| `userCachedAmount` → [String!](/api-reference/types/string) | The updated total number of Prime pool asset(s) cached in this pool by this owner. |
+| `userPrimeRewardDebt` → [String!](/api-reference/types/string) | The amount of PRIME the user is not eligible for either from having already harvesting or from not caching in the past. |
+| `userEthRewardDebt` → [String!](/api-reference/types/string) | The amount of ETH the user is not eligible for either from having already harvesting or from not caching in the past. |
+

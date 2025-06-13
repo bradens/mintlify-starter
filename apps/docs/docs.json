@@ -671,6 +671,17 @@
             ]
           }
         ]
+      },
+      {
+        "tab": "Explorer",
+        "groups": [
+          {
+            "group": "Explorer",
+            "pages": [
+              "explorer/index"
+            ]
+          }
+        ]
       }
     ],
     "global": {

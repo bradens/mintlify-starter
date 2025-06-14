@@ -18,7 +18,8 @@
             "pages": [
               "index",
               "get-started",
-              "learn-graphql"
+              "learn-graphql",
+              "sdk"
             ]
           },
           {
@@ -718,7 +719,8 @@
       "type": "button",
       "label": "Dashboard",
       "href": "https://dashboard.codex.io"
-    }
+    },
+    "contextual": []
   },
   "footer": {
     "socials": {

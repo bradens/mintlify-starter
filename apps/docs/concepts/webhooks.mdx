@@ -3,6 +3,576 @@ title: "Webhooks"
 description: "Learn how to use webhooks with the Codex API"
 ---
 
-### Creating a webhook
+Webhooks are a great way to receive real-time updates from the Codex API directly to your application.
 
-To create a webhook, you need to send a POST request to the `/webhooks` endpoint.
+Webhooks are sent via HTTP, and a 2xx response is expected with 3 seconds, otherwise we will retry sending the message later.
+If you are successfully receiving the message but not responding within 3 seconds, this can result in repeated messages.
+
+We will also retry sending messages up to 5 times before giving up. Periods between retries will gradually increase.
+If your service is down for too long though you may miss some messages.
+
+## Message Payloads
+
+<a href="#webhookpublishermessagetype">
+  <ResponseField name="type" type="WebhookPublisherMessageType" description="The type of message" />
+</a>
+<ResponseField name="deduplicationId" type="String" description="A unique id for the message so that you can avoid reprocessing the same message if for some horrible reason we send it more than once" />
+<ResponseField name="webhookId" type="String" description="The unique id of the webhook" />
+<ResponseField name="groupId" type="String" description="Either the groupId of the webhook (if one was supplied), or the webhookId" />
+<ResponseField name="hash" type="String" description="A SHA256 hash of the webhook's securityToken and the message's deduplicationId." />
+<a href="#webhookpublisherdatamodels">
+  <ResponseField name="data" type="WebhookPublisherDataModels" description="If the publishing type for the webhook is SINGLE, then this will be a single instance of the data model. If the publishing type for the webhook is BATCH, then this will be an array of data models." />
+</a>
+
+
+### WebhookPublisherMessageType
+
+```graphql WebhookPublisherMessageType
+enum {
+  PRICE_EVENT,
+  PRICE_EVENT_BATCH,
+  TOKEN_PAIR_EVENT,
+  TOKEN_PAIR_EVENT_BATCH
+  NFT_EVENT,
+  NFT_EVENT_BATCH,
+}
+```
+
+### WebhookPublisherDataModels
+
+<a href="/api-reference/types/price">
+<ResponseField name="PRICE_EVENT" type="Price">
+  The Price response type
+</ResponseField>
+</a>
+
+<a href="/api-reference/types/price">
+<ResponseField name="PRICE_EVENT_BATCH" type="Price">
+  An array of Prices
+</ResponseField>
+</a>
+
+<a href="#webhooktokenpairevent">
+<ResponseField name="TOKEN_PAIR_EVENT" type="WebhookTokenPairEvent">
+  A WebhookTokenPairEvent
+</ResponseField>
+</a>
+
+<a href="webhooktokenpairevent">
+<ResponseField name="TOKEN_PAIR_EVENT_BATCH" type="WebhookTokenPairEvent">
+  An array of WebhookTokenPairEvents
+</ResponseField>
+</a>
+
+<a href="#nftevent">
+<ResponseField name="NFT_EVENT" type="NftEvent">
+  An NftEvent
+</ResponseField>
+</a>
+
+<a href="#nftevent">
+<ResponseField name="NFT_EVENT_BATCH" type="NftEvent">
+  An array of NftEvents
+</ResponseField>
+</a>
+
+
+### Price Event Example
+
+```json expandable
+
+{
+   "type":"PRICE_EVENT",
+   "deduplicationId":"43b7b2a6-10b4-4a96-86ff-3c8f12854187-0xf4d2888d29d722226fafa5d9b24f9164c092421e:1-0000000016636917#00000008#00000042",
+   "webhookId":"43b7b2a6-10b4-4a96-86ff-3c8f12854187",
+   "groupId":"43b7b2a6-10b4-4a96-86ff-3c8f12854187",
+   "hash":"1b7753a1220e3a73cb9ad80fe2995417391bbbdf5afdc2c20e8d09e1525b5a77",
+   "data":{
+      "id":"0xf4d2888d29d722226fafa5d9b24f9164c092421e:1",
+      "priceUsd":"0.2947524293192561",
+      "weightedMeanPriceUSD":"0.29591661415754684237638544437518137913573321397384173430977975687571741224486479663626573953609440257289752764081859",
+      "address":"0xf4d2888d29d722226fafa5d9b24f9164c092421e",
+      "networkId":1,
+      "timestamp":1676497655,
+      "blockNumber":16636917,
+      "absoluteDeviation":0.0011641848382907423,
+      "deviationsFromMean":3.1257552985434662,
+      "derivedSwapPrice":"0.2943200371838018",
+      "targetTokenAddress":"0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+   }
+}
+
+## BATCH VERSION
+{
+  "type":"PRICE_EVENT_BATCH",
+   "deduplicationId":"43b7b2a6-10b4-4a96-86ff-3c8f12854187-0xf4d2888d29d722226fafa5d9b24f9164c092421e:1-0000000016636917#00000008#00000042",
+   "webhookId":"43b7b2a6-10b4-4a96-86ff-3c8f12854187",
+   "groupId":"43b7b2a6-10b4-4a96-86ff-3c8f12854187",
+   "hash":"1b7753a1220e3a73cb9ad80fe2995417391bbbdf5afdc2c20e8d09e1525b5a77",
+   "data":[
+     {
+        "id":"0xf4d2888d29d722226fafa5d9b24f9164c092421e:1",
+        "priceUsd":"0.2947524293192561",
+        "weightedMeanPriceUSD":"0.29591661415754684237638544437518137913573321397384173430977975687571741224486479663626573953609440257289752764081859",
+        "address":"0xf4d2888d29d722226fafa5d9b24f9164c092421e",
+        "networkId":1,
+        "timestamp":1676497655,
+        "blockNumber":16636917,
+        "absoluteDeviation":0.0011641848382907423,
+        "deviationsFromMean":3.1257552985434662,
+        "derivedSwapPrice":"0.2943200371838018",
+        "targetTokenAddress":"0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+   	 },
+      {
+        "id":"0xf4d2888d29d722226fafa5d9b24f9164c092421e:1",
+        "priceUsd":"0.2947524293192561",
+        "weightedMeanPriceUSD":"0.29591661415754684237638544437518137913573321397384173430977975687571741224486479663626573953609440257289752764081859",
+        "address":"0xf4d2888d29d722226fafa5d9b24f9164c092423fdaf",
+        "networkId":1,
+        "timestamp":1676497688,
+        "blockNumber":16636917,
+        "absoluteDeviation":0.0011641848382907423,
+        "deviationsFromMean":3.1257552985434662,
+        "derivedSwapPrice":"22.09",
+        "targetTokenAddress":"0xa0fwsj894vh487hv85e7hv58hw8437hfw48f43oiunvj"
+   	 }
+   ]
+}
+```
+
+### WebhookTokenPairEvent
+
+<a href="/api-reference/types/pair">
+  <ResponseField name="pair" type="Pair" description="The Pair involved in the event" />
+</a>
+<a href="/api-reference/types/event">
+  <ResponseField name="event" type="Event" description="The Event" />
+</a>
+
+```json Example expandable
+{
+  "deduplicationId": "aa4cd403-b54e-4e2d-825c-f70a69f6fd9f-DbyEjKTHE76qgb8niQ4zDCoaU4CK7Si9PJkD6Ckjtugo:1399811149-0000000256717997#00000000#00000002#00000009",
+  "groupId": "bc9345e6-b0da-4935-9b31-47b34cc5f628",
+  "hash": "e39fa0bfcef1bfcd12d6707c29ac752899228d026338e594e04a398255962022",
+  "type": "TOKEN_PAIR_EVENT",
+  "webhook": {
+    "bucketId": "bc9345e6-b0da-4935-9b31-47b34cc5f628",
+    "bucketSortkey": "GSE6vfr6vws493G22jfwCU6Zawh3dfvSYXYQqKhFsBwe",
+    "id": "aa4cd403-b54e-4e2d-825c-f70a69f6fd9f",
+    "name": "traderpow:GSE6vfr6vws493G22jfwCU6Zawh3dfvSYXYQqKhFsBwe:TOKEN_PAIR_EVENT",
+  },
+  "webhookId": "aa4cd403-b54e-4e2d-825c-f70a69f6fd9f",
+  "data": {
+    "event": {
+      "address": "DbyEjKTHE76qgb8niQ4zDCoaU4CK7Si9PJkD6Ckjtugo",
+      "baseTokenPrice": "18651403264.31996",
+      "blockHash": "DGXgkMSxovvjdA5iKgrsFL7duNyXRPsW86Ztvg2Mc1hL",
+      "blockNumber": 256717997,
+      "data": {
+        "amount0": "7020307392",
+        "amount1": "-2899270904078",
+        "liquidity": "51478999661589",
+        "liquidity0": "1140722809229",
+        "liquidity1": "457845387792910",
+        "protocol": "Orca",
+        "sqrtPriceX64": "376244087403309877755",
+        "tick": "60310",
+        "type": "Swap",
+      },
+      "eventDisplayType": "Buy",
+      "eventType": "Swap",
+      "eventType2": "Token1Buy",
+      "id": "DbyEjKTHE76qgb8niQ4zDCoaU4CK7Si9PJkD6Ckjtugo:1399811149",
+      "labels": {},
+      "liquidityToken": "So11111111111111111111111111111111111111112",
+      "logIndex": 2,
+      "maker": "GSE6vfr6vws493G22jfwCU6Zawh3dfvSYXYQqKhFsBwe",
+      "makerHashKey": "GSE6vfr6vws493G22jfwCU6Zawh3dfvSYXYQqKhFsBwe:DbyEjKTHE76qgb8niQ4zDCoaU4CK7Si9PJkD6Ckjtugo:1399811149",
+      "networkId": 1399811149,
+      "quoteToken": "token1",
+      "sortKey": "0000000256717997#00000000#00000002#00000009",
+      "supplementalIndex": 9,
+      "timestamp": 1711526246,
+      "token0PoolValueUsd": "186.5140326431996",
+      "token0SwapValueUsd": "186.51403264319955960744460600963952776157867455426636901017",
+      "token0ValueBase": "1",
+      "token0ValueUsd": "186.5140326431996",
+      "token1PoolValueUsd": "0.4483442346979745",
+      "token1SwapValueUsd": "0.45162590368325119780671230665069180443756818839541768",
+      "token1ValueBase": "0.0024038096669951625071971972244735217782",
+      "token1ValueUsd": "0.4483442346979745",
+      "transactionHash": "2dd5jDHbVYZpXgYbEQzpv47Z7jwimmHeDxKytiM9FB4GzBA5QeYh5xHTzkQvCScQksvTrHqgq9k7q84MBcGbaFfJ",
+      "transactionIndex": 0,
+      "ttl": 1716710246,
+    },
+    "pair": {
+      "address": "DbyEjKTHE76qgb8niQ4zDCoaU4CK7Si9PJkD6Ckjtugo",
+      "exchangeHash": "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc",
+      "fee": undefined,
+      "id": "DbyEjKTHE76qgb8niQ4zDCoaU4CK7Si9PJkD6Ckjtugo:1399811149",
+      "networkId": 1399811149,
+      "tickSpacing": undefined,
+      "token0": "So11111111111111111111111111111111111111112",
+      "token1": "FU1q8vJpZNUrmqsciSjp8bAKKidGsLmouB8CBdf8TKQv",
+    },
+  },
+}
+
+## BATCH VERSION
+{
+  "deduplicationId": "aa4cd403-b54e-4e2d-825c-f70a69f6fd9f-DbyEjKTHE76qgb8niQ4zDCoaU4CK7Si9PJkD6Ckjtugo:1399811149-0000000256717997#00000000#00000002#00000009",
+  "groupId": "bc9345e6-b0da-4935-9b31-47b34cc5f628",
+  "hash": "e39fa0bfcef1bfcd12d6707c29ac752899228d026338e594e04a398255962022",
+  "type": "TOKEN_PAIR_EVENT_BATCH",
+  "webhook": {
+    "bucketId": "bc9345e6-b0da-4935-9b31-47b34cc5f628",
+    "bucketSortkey": "GSE6vfr6vws493G22jfwCU6Zawh3dfvSYXYQqKhFsBwe",
+    "id": "aa4cd403-b54e-4e2d-825c-f70a69f6fd9f",
+    "name": "traderpow:GSE6vfr6vws493G22jfwCU6Zawh3dfvSYXYQqKhFsBwe:TOKEN_PAIR_EVENT",
+  },
+  "webhookId": "aa4cd403-b54e-4e2d-825c-f70a69f6fd9f",
+  "data": [
+    {
+      "event": {
+        "address": "DbyEjKTHE76qgb8niQ4zDCoaU4CK7Si9PJkD6Ckjtugo",
+        "baseTokenPrice": "18651403264.31996",
+        "blockHash": "DGXgkMSxovvjdA5iKgrsFL7duNyXRPsW86Ztvg2Mc1hL",
+        "blockNumber": 256717997,
+        "data": {
+          "amount0": "7020307392",
+          "amount1": "-2899270904078",
+          "liquidity": "51478999661589",
+          "liquidity0": "1140722809229",
+          "liquidity1": "457845387792910",
+          "protocol": "Orca",
+          "sqrtPriceX64": "376244087403309877755",
+          "tick": "60310",
+          "type": "Swap",
+        },
+        "eventDisplayType": "Buy",
+        "eventType": "Swap",
+        "eventType2": "Token1Buy",
+        "id": "DbyEjKTHE76qgb8niQ4zDCoaU4CK7Si9PJkD6Ckjtugo:1399811149",
+        "labels": {},
+        "liquidityToken": "So11111111111111111111111111111111111111112",
+        "logIndex": 2,
+        "maker": "GSE6vfr6vws493G22jfwCU6Zawh3dfvSYXYQqKhFsBwe",
+        "makerHashKey": "GSE6vfr6vws493G22jfwCU6Zawh3dfvSYXYQqKhFsBwe:DbyEjKTHE76qgb8niQ4zDCoaU4CK7Si9PJkD6Ckjtugo:1399811149",
+        "networkId": 1399811149,
+        "quoteToken": "token1",
+        "sortKey": "0000000256717997#00000000#00000002#00000009",
+        "supplementalIndex": 9,
+        "timestamp": 1711526246,
+        "token0PoolValueUsd": "186.5140326431996",
+        "token0SwapValueUsd": "186.51403264319955960744460600963952776157867455426636901017",
+        "token0ValueBase": "1",
+        "token0ValueUsd": "186.5140326431996",
+        "token1PoolValueUsd": "0.4483442346979745",
+        "token1SwapValueUsd": "0.45162590368325119780671230665069180443756818839541768",
+        "token1ValueBase": "0.0024038096669951625071971972244735217782",
+        "token1ValueUsd": "0.4483442346979745",
+        "transactionHash": "2dd5jDHbVYZpXgYbEQzpv47Z7jwimmHeDxKytiM9FB4GzBA5QeYh5xHTzkQvCScQksvTrHqgq9k7q84MBcGbaFfJ",
+        "transactionIndex": 0,
+        "ttl": 1716710246,
+      },
+      "pair": {
+        "address": "DbyEjKTHE76qgb8niQ4zDCoaU4CK7Si9PJkD6Ckjtugo",
+        "exchangeHash": "whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc",
+        "fee": undefined,
+        "id": "DbyEjKTHE76qgb8niQ4zDCoaU4CK7Si9PJkD6Ckjtugo:1399811149",
+        "networkId": 1399811149,
+        "tickSpacing": undefined,
+        "token0": "So11111111111111111111111111111111111111112",
+        "token1": "FU1q8vJpZNUrmqsciSjp8bAKKidGsLmouB8CBdf8TKQv",
+      },
+    },
+    {
+      "event": {
+        "address": "HKeUEKvx7fjKbLyGSZN5UND6RCJnyj5ApPGQPowUPdbB",
+        "baseTokenPrice": "18651403264.31996",
+        "blockHash": "DGXgkMSxovvjdA5iKgrsFL7duNyXRPsW86Ztvg2Mc1hL",
+        "blockNumber": 256717997,
+        "data": {
+          "amount0": "26155218627555",
+          "amount1": "-35101536960",
+          "protocol": "RaydiumV4",
+          "reserve0": "1058148164348477",
+          "reserve1": "1458745388741",
+          "type": "Swap",
+        },
+        "eventDisplayType": "Sell",
+        "eventType": "Swap",
+        "eventType2": "Token1Buy",
+        "id": "HKeUEKvx7fjKbLyGSZN5UND6RCJnyj5ApPGQPowUPdbB:1399811149",
+        "labels": {},
+        "liquidityToken": "So11111111111111111111111111111111111111112",
+        "logIndex": 2,
+        "maker": "GSE6vfr6vws493G22jfwCU6Zawh3dfvSYXYQqKhFsBwe",
+        "makerHashKey": "GSE6vfr6vws493G22jfwCU6Zawh3dfvSYXYQqKhFsBwe:HKeUEKvx7fjKbLyGSZN5UND6RCJnyj5ApPGQPowUPdbB:1399811149",
+        "networkId": 1399811149,
+        "quoteToken": "token0",
+        "sortKey": "0000000256717997#00000012#00000002#00000001",
+        "supplementalIndex": 1,
+        "timestamp": 1711526246,
+        "token0PoolValueUsd": "0.2571251306959254",
+        "token0SwapValueUsd": "0.25031062839163607245575397421766145134310347613998208",
+        "token0ValueBase": "0.0013785833004201055103623962393194678448",
+        "token0ValueUsd": "0.2571251306959254",
+        "token1PoolValueUsd": "186.5140326431996",
+        "token1SwapValueUsd": "186.5140326431995460110225891373618074187028512286137509928",
+        "token1ValueBase": "1",
+        "token1ValueUsd": "186.5140326431996",
+        "transactionHash": "2dd5jDHbVYZpXgYbEQzpv47Z7jwimmHeDxKytiM9FB4GzBA5QeYh5xHTzkQvCScQksvTrHqgq9k7q84MBcGbaFfJ",
+        "transactionIndex": 12,
+        "ttl": 1716710246,
+      },
+      "pair": {
+        "address": "HKeUEKvx7fjKbLyGSZN5UND6RCJnyj5ApPGQPowUPdbB",
+        "exchangeHash": "675kPX9MHTjS2zt1qfr1NYHuzeLXfQM9H24wFSUt1Mp8",
+        "fee": undefined,
+        "id": "HKeUEKvx7fjKbLyGSZN5UND6RCJnyj5ApPGQPowUPdbB:1399811149",
+        "networkId": 1399811149,
+        "tickSpacing": undefined,
+        "token0": "GumHxsx6Kan7R1BNAEEtRMhZJVULeeZGwMGPcjT162Sp",
+        "token1": "So11111111111111111111111111111111111111112",
+      },
+    },
+  ],
+}
+```
+
+### NftEvent
+
+```json expandable
+{
+  "deduplicationId": "182f0dba-19a2-402d-a5fa-8cf7ac29562c-0x91d60c55e3a8e150aa5b62e705dfca1a0aefb45c:987:1-987#12345",
+  "groupId": "182f0dba-19a2-402d-a5fa-8cf7ac29562c",
+  "hash": "9b25ed220bbf7b142256d5e21095fe254bce96c9cbabbb4937640c5ddb073e19",
+  "type": "NFT_EVENT",
+  "webhook": {
+    "bucketId": "alm",
+    "bucketSortkey": "zpp",
+    "id": "182f0dba-19a2-402d-a5fa-8cf7ac29562c",
+    "name": "Global",
+  },
+  "webhookId": "182f0dba-19a2-402d-a5fa-8cf7ac29562c",
+  "data": {
+    "baseTokenAddress": "0x0c574e080ece5eefcec7888cd2bd3b491e2fd6dd",
+    "baseTokenPrice": "123400000000",
+    "blockHash": "0xM123k12m3k12m3",
+    "blockNumber": "12345",
+    "contractAddress": "0x91d60c55e3a8e150aa5b62e705dfca1a0aefb45c",
+    "data": {
+      "buyHash": "",
+      "maker": "0x59748c740ab9aa73cb5708cec0e05ac001aa11d7",
+      "metadata": "0x00000000000000000000000000000000000",
+      "price": "100000000",
+      "sellHash": "",
+      "taker": "0x7aa6221ff4fbaf6fea223ca834af1e6cc5ea9406",
+      "type": "OrdersMatched",
+    },
+    "eventType": "OrdersMatched",
+    "exchangeAddress": "0xe55b5ceba4dc0d4e26261f3dcd468faaf7d0cdb8",
+    "id": "0x91d60c55e3a8e150aa5b62e705dfca1a0aefb45c:987:1",
+    "individualBaseTokenPrice": "123400000000",
+    "individualNetworkBaseTokenPrice": "129999999999",
+    "individualPrice": "129999999999",
+    "individualPriceNetworkBaseToken": "129999999999",
+    "individualPriceUsd": "123400000000",
+    "individualTokenPrice": "129999999999",
+    "logIndex": 12345,
+    "maker": "0x59748c740ab9aa73cb5708cec0e05ac001aa11d7",
+    "networkBaseTokenPrice": "12312",
+    "networkId": 1,
+    "numberOfTokens": 1,
+    "orderDirection": "BUY",
+    "paymentTokenAddress": "0x0c574e080ece5eefcec7888cd2bd3b491e2fd6dd",
+    "sortKey": "987#12345",
+    "taker": "0x7aa6221ff4fbaf6fea223ca834af1e6cc5ea9406",
+    "timestamp": 1726522569,
+    "tokenId": "987",
+    "tokenPrice": "129999999999",
+    "totalPrice": "129999999999",
+    "totalPriceNetworkBaseToken": "12312",
+    "totalPriceUsd": "123400000000",
+    "tradeOffer": [
+      {
+        "address": "0x0c574e080ece5eefcec7888cd2bd3b491e2fd6dd",
+        "amount": "129999999999",
+        "baseTokenPrice": "123400000000",
+        "individualBaseTokenPrice": "123400000000",
+        "individualNetworkBaseTokenPrice": "129999999999",
+        "individualTokenPrice": "129999999999",
+        "isPrice": true,
+        "networkBaseTokenPrice": "12312",
+        "recipient": "0x59748c740ab9aa73cb5708cec0e05ac001aa11d7",
+        "tokenId": "987",
+        "tokenPrice": "129999999999",
+        "type": "TOKEN",
+      },
+    ],
+    "tradeReceived": [
+      {
+        "address": "0x91d60c55e3a8e150aa5b62e705dfca1a0aefb45c",
+        "amount": 1,
+        "recipient": "0x7aa6221ff4fbaf6fea223ca834af1e6cc5ea9406",
+        "tokenId": "987",
+        "type": "NFT",
+      },
+    ],
+    "transactionHash": "0xKM2km4k32m4k32m4k23",
+    "transactionIndex": 1234,
+  },
+}
+
+## BATCH VERSION
+{
+  "deduplicationId": "182f0dba-19a2-402d-a5fa-8cf7ac29562c-0x91d60c55e3a8e150aa5b62e705dfca1a0aefb45c:987:1-987#12345",
+  "groupId": "182f0dba-19a2-402d-a5fa-8cf7ac29562c",
+  "hash": "9b25ed220bbf7b142256d5e21095fe254bce96c9cbabbb4937640c5ddb073e19",
+  "type": "NFT_EVENT_BATCH",
+  "webhook": {
+    "bucketId": "ava",
+    "bucketSortkey": "lom",
+    "id": "182f0dba-19a2-402d-a5fa-8cf7ac29562c",
+    "name": "Global",
+  },
+  "webhookId": "182f0dba-19a2-402d-a5fa-8cf7ac29562c",
+  "data": [
+    {
+      "baseTokenAddress": "0x0c574e080ece5eefcec7888cd2bd3b491e2fd6dd",
+      "baseTokenPrice": "123400000000",
+      "blockHash": "0xM123k12m3k12m3",
+      "blockNumber": "12345",
+      "contractAddress": "0x91d60c55e3a8e150aa5b62e705dfca1a0aefb45c",
+      "data": {
+        "buyHash": "",
+        "maker": "0x59748c740ab9aa73cb5708cec0e05ac001aa11d7",
+        "metadata": "0x00000000000000000000000000000000000",
+        "price": "100000000",
+        "sellHash": "",
+        "taker": "0x7aa6221ff4fbaf6fea223ca834af1e6cc5ea9406",
+        "type": "OrdersMatched",
+      },
+      "eventType": "OrdersMatched",
+      "exchangeAddress": "0xe55b5ceba4dc0d4e26261f3dcd468faaf7d0cdb8",
+      "id": "0x91d60c55e3a8e150aa5b62e705dfca1a0aefb45c:987:1",
+      "individualBaseTokenPrice": "123400000000",
+      "individualNetworkBaseTokenPrice": "129999999999",
+      "individualPrice": "129999999999",
+      "individualPriceNetworkBaseToken": "129999999999",
+      "individualPriceUsd": "123400000000",
+      "individualTokenPrice": "129999999999",
+      "logIndex": 12345,
+      "maker": "0x59748c740ab9aa73cb5708cec0e05ac001aa11d7",
+      "networkBaseTokenPrice": "12312",
+      "networkId": 1,
+      "numberOfTokens": 1,
+      "orderDirection": "BUY",
+      "paymentTokenAddress": "0x0c574e080ece5eefcec7888cd2bd3b491e2fd6dd",
+      "sortKey": "987#12345",
+      "taker": "0x7aa6221ff4fbaf6fea223ca834af1e6cc5ea9406",
+      "timestamp": 1726522569,
+      "tokenId": "987",
+      "tokenPrice": "129999999999",
+      "totalPrice": "129999999999",
+      "totalPriceNetworkBaseToken": "12312",
+      "totalPriceUsd": "123400000000",
+      "tradeOffer": [
+        {
+          "address": "0x0c574e080ece5eefcec7888cd2bd3b491e2fd6dd",
+          "amount": "129999999999",
+          "baseTokenPrice": "123400000000",
+          "individualBaseTokenPrice": "123400000000",
+          "individualNetworkBaseTokenPrice": "129999999999",
+          "individualTokenPrice": "129999999999",
+          "isPrice": true,
+          "networkBaseTokenPrice": "12312",
+          "recipient": "0x59748c740ab9aa73cb5708cec0e05ac001aa11d7",
+          "tokenId": "987",
+          "tokenPrice": "129999999999",
+          "type": "TOKEN",
+        },
+      ],
+      "tradeReceived": [
+        {
+          "address": "0x91d60c55e3a8e150aa5b62e705dfca1a0aefb45c",
+          "amount": 1,
+          "recipient": "0x7aa6221ff4fbaf6fea223ca834af1e6cc5ea9406",
+          "tokenId": "987",
+          "type": "NFT",
+        },
+      ],
+      "transactionHash": "0xKM2km4k32m4k32m4k23",
+      "transactionIndex": 1234,
+    },
+    {
+      "baseTokenAddress": "0xcdfdc65ff2fdbca50e3f1e5e8e6b1e871ca50de9",
+      "baseTokenPrice": "123400000000",
+      "blockHash": "0xM123k12m3k12m3",
+      "blockNumber": "12345",
+      "contractAddress": "0xcd984d5890c4ce3bcd4acd1b5dca4cb4929cbddc",
+      "data": {
+        "buyHash": "",
+        "maker": "0x6f7fddbbf7ceceb48fbaefa2ac2a6b77d3eacc49",
+        "metadata": "0x00000000000000000000000000000000000",
+        "price": "100000000",
+        "sellHash": "",
+        "taker": "0xa5a53cbbfece874a7b9d1d29552bfdaaf0cdc099",
+        "type": "OrdersMatched",
+      },
+      "eventType": "OrdersMatched",
+      "exchangeAddress": "0xac08fbacc4b1ae98dce55ccfafe01c048ef1dd42",
+      "id": "0xcd984d5890c4ce3bcd4acd1b5dca4cb4929cbddc:987:1",
+      "individualBaseTokenPrice": "123400000000",
+      "individualNetworkBaseTokenPrice": "129999999999",
+      "individualPrice": "129999999999",
+      "individualPriceNetworkBaseToken": "129999999999",
+      "individualPriceUsd": "123400000000",
+      "individualTokenPrice": "129999999999",
+      "logIndex": 12345,
+      "maker": "0x6f7fddbbf7ceceb48fbaefa2ac2a6b77d3eacc49",
+      "networkBaseTokenPrice": "12312",
+      "networkId": 1,
+      "numberOfTokens": 1,
+      "orderDirection": "BUY",
+      "paymentTokenAddress": "0xcdfdc65ff2fdbca50e3f1e5e8e6b1e871ca50de9",
+      "sortKey": "987#12345",
+      "taker": "0xa5a53cbbfece874a7b9d1d29552bfdaaf0cdc099",
+      "timestamp": 1726522569,
+      "tokenId": "987",
+      "tokenPrice": "129999999999",
+      "totalPrice": "129999999999",
+      "totalPriceNetworkBaseToken": "12312",
+      "totalPriceUsd": "123400000000",
+      "tradeOffer": [
+        {
+          "address": "0xcdfdc65ff2fdbca50e3f1e5e8e6b1e871ca50de9",
+          "amount": "129999999999",
+          "baseTokenPrice": "123400000000",
+          "individualBaseTokenPrice": "123400000000",
+          "individualNetworkBaseTokenPrice": "129999999999",
+          "individualTokenPrice": "129999999999",
+          "isPrice": true,
+          "networkBaseTokenPrice": "12312",
+          "recipient": "0x6f7fddbbf7ceceb48fbaefa2ac2a6b77d3eacc49",
+          "tokenId": "987",
+          "tokenPrice": "129999999999",
+          "type": "TOKEN",
+        },
+      ],
+      "tradeReceived": [
+        {
+          "address": "0xcd984d5890c4ce3bcd4acd1b5dca4cb4929cbddc",
+          "amount": 1,
+          "recipient": "0xa5a53cbbfece874a7b9d1d29552bfdaaf0cdc099",
+          "tokenId": "987",
+          "type": "NFT",
+        },
+      ],
+      "transactionHash": "0xKM2km4k32m4k32m4k23",
+      "transactionIndex": 1234,
+    },
+  ],
+}
+```

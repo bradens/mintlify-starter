@@ -2,3 +2,85 @@
 title: "Realtime"
 description: "Learn how to build a realtime dashboard with the Codex API subscriptions"
 ---
+
+In this guide we'll build a nodejs application that listens for price changes on a token in realtime. We'll show
+how to do it two ways, one with webhooks and another with subscriptions.
+
+## Webhooks
+
+Install the Codex SDK
+
+```
+npm install @codex-data/sdk
+```
+
+Create a new file called `index.js` and add the following code:
+
+```js
+const { CodexClient } = require('@codex-data/sdk');
+
+const client = new CodexClient({
+  apiKey: process.env.CODEX_API_KEY,
+});
+
+```
+
+Now we have to add the token address and network id to code so we can start listening for price changes.
+
+```js
+const watchTokenAddress = '0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c';
+const networkId = 56;
+```
+
+Next, we'll need be able to receive webhook deliveries  on our local computer. Let's use loophole to do this.
+
+https://loophole.cloud/download
+
+After getting that setup and seeing your loophole url, copy it and save it for later.
+
+Now lets make the request to make a webook subscription, replacing the value for the  host
+
+
+```js
+const hook = await client.mutation(`
+  mutation CreateWebhooks {
+    createWebhooks(
+      input: {priceWebhooksInput: {webhooks: [{alertRecurrence: INDEFINITE, callbackUrl: "<my loophole url>", name: "uniswap", securityToken: "dasdsfds", groupId: "test-group", conditions: {tokenAddress: {eq: "0x5a98fcbea516cf06857215779fd812ca3bef1b32"}, networkId: {eq: 1}, priceUsd: {gt: "0"}}}]}}
+    ) {
+      priceWebhooks {
+        alertRecurrence
+        callbackUrl
+        created
+        id
+        name
+        webhookType
+        groupId
+        status
+        conditions {
+          ... on PriceEventWebhookCondition {
+            __typename
+            networkId {
+              eq
+            }
+            priceUsd {
+              eq
+              gt
+              gte
+              lt
+              lte
+            }
+            tokenAddress {
+              eq
+            }
+          }
+        }
+      }
+    }
+  }
+`)
+```
+
+
+
+## Subscriptions
+

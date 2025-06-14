@@ -22,7 +22,7 @@ expiration time & number of requests per key. See the details [here](/api-refere
 For queries, you just add the Authorization header on every HTTP request to https://graph.codex.io/graphql and it will authorize you.
 
 <CodeGroup>
-```typescript Sdk
+```typescript sdk
 sdk.query(gql`
   query GetTokenPrices($inputs: [GetTokenPricesInput!]!) {
     getTokenPrices(inputs: $inputs) {
@@ -59,7 +59,7 @@ Create a single short-lived key with a request limit of 1000 requests.
 
 <CodeGroup>
 
-```typescript Sdk
+```typescript sdk
 sdk.mutation(gql`
   mutation CreateApiTokens($input: CreateApiTokensInput!) {
     createApiTokens(input: $input) {
@@ -78,7 +78,7 @@ sdk.mutation(gql`
 })
 ```
 
-```javascript Fetch
+```javascript fetch
 fetch("https://graph.codex.io/graphql", {
   method: "POST",
   headers: {

@@ -7,48 +7,138 @@ description: "Learn how to use subscriptions with the Codex API"
 
 For websockets, you use the `Authorization` connection parameter when sending the `connection_init` payload.
 
-We use the `graphql-ws` library to handle websocket connections on the backend, you can learn more about it [ here ](https://github.com/enisdenjo/graphql-ws).
 
-<Frame caption="note: you must wait for connection_ack before sending any messages">
-  <img className="block" src="/images/websocket-handshake.png" alt="Websocket handshake" />
-</Frame>
 
-### Example
-
-```typescript onPriceUpdated Example expandable
-import { createClient } from "graphql-ws";
-
-const client = createClient({
-  url: "wss://graph.codex.io/graphql",
-  connectionParams: {
-    Authorization: apiKey,
-  },
-});
-
-client.subscribe({
-  query: `
-    subscription($address: String!, $networkId: Int!) {
-      onPriceUpdated(address: $address, networkId: $networkId) {
-        priceUsd
-        timestamp
-        address
+<AccordionGroup>
+  <Accordion title="Typescript SDK" defaultOpen>
+    If you're using the [SDK](/sdk), then you can just call `sdk.subscribe` with the subscription you want to use and it will handle the connections.
+    ```typescript onPriceUpdated
+    sdk.subscribe(gql`
+      subscription($address: String!, $networkId: Int!) {
+        onPriceUpdated(address: $address, networkId: $networkId) {
+          priceUsd
+          timestamp
+          address
+        }
       }
-    }
-  `,
-  variables: {
-    address: "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
-    networkId: 56,
-  },
-  sink: {
-    next: (data) => {
-      console.log(data);
-    },
-    error: (error) => {
-      console.error(error);
-    },
-    complete: () => {
-      console.log("complete");
-    },
-  }
-})
-```
+    `, {
+      address: "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+      networkId: 56,
+    })
+    ```
+  </Accordion>
+  <Accordion title="Your own implementation">
+    We use the `graphql-ws` library to handle websocket connections on the backend, you can learn more about it [ here ](https://github.com/enisdenjo/graphql-ws).
+
+    <Frame caption="note: you must wait for connection_ack before sending any messages">
+      <img className="block" src="/images/websocket-handshake.png" alt="Websocket handshake" />
+    </Frame>
+
+    ### Example
+
+    <CodeGroup>
+
+    ```typescript graphql-ws
+    import { createClient } from "graphql-ws";
+
+    const client = createClient({
+      url: "wss://graph.codex.io/graphql",
+      connectionParams: {
+        Authorization: apiKey,
+      },
+    });
+
+    client.subscribe({
+      query: `
+        subscription($address: String!, $networkId: Int!) {
+          onPriceUpdated(address: $address, networkId: $networkId) {
+            priceUsd
+            timestamp
+            address
+          }
+        }
+      `,
+      variables: {
+        address: "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+        networkId: 56,
+      },
+      sink: {
+        next: (data) => {
+          console.log(data);
+        },
+        error: (error) => {
+          console.error(error);
+        },
+        complete: () => {
+          console.log("complete");
+        },
+      }
+    })
+    ```
+
+    ```javascript browser socket
+      const CODEX_API_KEY = "<your api key>";
+
+      const webSocket = new WebSocket(
+        `wss://graph.codex.io/graphql`,
+        "graphql-transport-ws"
+      );
+
+      webSocket.onopen = () => {
+        console.log("opened");
+        webSocket.send(
+          JSON.stringify({
+            "type": "connection_init",
+            "payload": {
+              "Authorization": CODEX_API_KEY
+            }
+          })
+        );
+      };
+
+      webSocket.onmessage = (event) => {
+        const data = JSON.parse(event.data)
+        if (data.type === "connection_ack") {
+          webSocket.send(
+            JSON.stringify(
+              {
+                id: "my_id",
+                type: "subscribe",
+                payload: {
+                  "variables": {
+                    "address": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+                    "networkId": 56
+                  },
+                  "extensions": {},
+                  "operationName": "onPriceUpdated",
+                  "query": `subscription($address: String!, $networkId: Int!) {
+                    onPriceUpdated(address: $address, networkId: $networkId) {
+                      priceUsd
+                      timestamp
+                      address
+                    }
+                  }`
+                }
+              }
+            )
+          );
+        } else {
+          console.log("message", data);
+        }
+      };
+
+
+      // You can send the `complete` message to the server to unsubscribe from the subscription.
+      setTimeout(() => {
+        webSocket.send(JSON.stringify({
+          id: "my_id",
+          type: "complete",
+        }));
+      }, 10000); // unsubscribe after 10 seconds for demo purposes
+    ```
+    </CodeGroup>
+  </Accordion>
+
+</AccordionGroup>
+
+

@@ -13,18 +13,18 @@ To get a list of swaps for the WBNB token on the BNB chain (networkId 56), you c
   const doc = graphql`
     query {
       getTokenEvents(
-        input: {
-          tokenAddress: "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c"
+        query: {
+          address: "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c"
           networkId: 56
         }
       ) {
-        events {
-          ... on SwapEvent {
-            id
-            tokenAddress
-            networkId
-            timestamp
-          }
+        items {
+          id
+          token0Address
+          token1Address
+          token0SwapValueUsd
+          token1SwapValueUsd
+          transactionHash
         }
       }
     }
@@ -33,7 +33,36 @@ To get a list of swaps for the WBNB token on the BNB chain (networkId 56), you c
   console.log(data);
 ```
 
-To get more (paginate), you can use the `cursor` argument to get the next page of results.
+To get more (paginate), you can use the `cursor` argument to get the next page of results. Modify the query to include the cursor like this:
+
+
+```typescript
+  const doc = graphql`
+    query MyQuery($cursor: String) {
+      getTokenEvents(
+        query: {
+          address: "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c"
+          networkId: 56
+        }
+        cursor: $cursor
+      ) {
+        cursor
+        items {
+          id
+          token0Address
+          token1Address
+          token0SwapValueUsd
+          token1SwapValueUsd
+          transactionHash
+        }
+      }
+    }
+  `
+  const { data } = await client.query(doc);
+  console.log(data);
+```
+
+
 
 
 

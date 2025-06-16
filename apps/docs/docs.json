@@ -1,6 +1,6 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "maple",
+  "theme": "aspen",
   "name": "Codex",
   "colors": {
     "primary": "#2b2b2b",
@@ -674,13 +674,8 @@
       },
       {
         "tab": "Explorer",
-        "groups": [
-          {
-            "group": "Explorer",
-            "pages": [
-              "explorer/index"
-            ]
-          }
+        "pages": [
+          "explorer/index"
         ]
       }
     ],

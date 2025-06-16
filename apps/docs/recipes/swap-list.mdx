@@ -1,0 +1,43 @@
+---
+title: "Swap List"
+description: "Learn how to get a list of swaps for a token"
+---
+
+
+To get a list of swaps for a token, you can use the `getTokenEvents` query.
+
+
+To get a list of swaps for the WBNB token on the BNB chain (networkId 56), you can use the following query:
+
+```typescript
+  const doc = graphql`
+    query {
+      getTokenEvents(
+        input: {
+          tokenAddress: "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c"
+          networkId: 56
+        }
+      ) {
+        events {
+          ... on SwapEvent {
+            id
+            tokenAddress
+            networkId
+            timestamp
+          }
+        }
+      }
+    }
+  `
+  const { data } = await client.query(doc);
+  console.log(data);
+```
+
+To get more (paginate), you can use the `cursor` argument to get the next page of results.
+
+
+
+
+
+
+

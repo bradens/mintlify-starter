@@ -673,9 +673,9 @@
         ]
       },
       {
-        "tab": "Explorer",
+        "tab": "Explore",
         "pages": [
-          "explorer/index"
+          "explore/index"
         ]
       }
     ],

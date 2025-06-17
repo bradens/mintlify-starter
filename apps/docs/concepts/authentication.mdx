@@ -60,7 +60,11 @@ Create a single short-lived key with a request limit of 1000 requests.
 <CodeGroup>
 
 ```typescript sdk
-sdk.mutation(gql`
+import { Codex } from "@codex-data/sdk"
+
+const sdk = new Codex({ apiKey: "your-api-key" })
+
+const { createApiTokens } = await sdk.mutation(gql`
   mutation CreateApiTokens($input: CreateApiTokensInput!) {
     createApiTokens(input: $input) {
       expiresTimeString
@@ -76,6 +80,11 @@ sdk.mutation(gql`
     requestLimit: 1000
   }
 })
+
+const token = createApiTokens[0].token
+
+// Now create a Codex instance with the short-lived key
+const shortLivedCodex = new Codex({ apiKey: `Bearer ${token}` })
 ```
 
 ```javascript fetch

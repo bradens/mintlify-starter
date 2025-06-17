@@ -3,19 +3,39 @@ title: "Queries"
 description: "Learn how to use queries with the Codex API"
 ---
 
+import { EmbedFrame } from "/snippets/embed-frame.mdx"
+
 ## Queries
 
 For queries, you just add the `Authorization` header on every HTTP request to `https://graph.codex.io/graphql` and it will authorize you.
 
+### List
+
+Too see a reference of all the possible queries you can make, go to [`_queries_`](/api-reference/introduction).
 
 ### Example
 
-```typescript fetch
-fetch("https://graph.codex.io/graphql", {
-  method: "POST",
-  headers: {
-    "Authorization": apiKey,
-  },
-  body: JSON.stringify({ query: 'query { getTokenPrices(inputs: [{ address: "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c", networkId: 56 }]) { priceUsd timestamp address } }' }),
-})
-```
+<AccordionGroup>
+  <Accordion title="Try it" defaultOpen>
+    <EmbedFrame query={`
+      query {
+        getTokenPrices(inputs: [{ address: "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c", networkId: 56 }]) {
+          priceUsd
+          timestamp
+          address
+        }
+      }
+    `} />
+  </Accordion>
+  <Accordion title="Fetch Example">
+    ```typescript fetch
+    fetch("https://graph.codex.io/graphql", {
+      method: "POST",
+      headers: {
+        "Authorization": apiKey,
+      },
+      body: JSON.stringify({ query: 'query { getTokenPrices(inputs: [{ address: "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c", networkId: 56 }]) { priceUsd timestamp address } }' }),
+    })
+    ```
+  </Accordion>
+</AccordionGroup>

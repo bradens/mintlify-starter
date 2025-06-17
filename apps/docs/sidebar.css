@@ -1,0 +1,21 @@
+
+[data-codex-explore-page="true"] #sidebar {
+  display: none;
+}
+
+[data-codex-explore-page="true"] #content-area .mdx-content {
+  height: 100%;
+}
+
+[data-codex-explore-page="true"] #content-area .leading-6.mt-14 {
+  display: none;
+}
+
+[data-codex-explore-page="true"] #content-container {
+  margin-left: 0;
+}
+
+[data-codex-explore-page="true"] #navbar-transition-maple {
+  left: 0;
+}
+

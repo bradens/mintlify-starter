@@ -1,6 +1,6 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "palm",
+  "theme": "maple",
   "name": "Codex",
   "colors": {
     "primary": "#2b2b2b",
@@ -41,6 +41,14 @@
               "recipes/chart",
               "recipes/realtime",
               "recipes/nextjs"
+            ]
+          },
+          {
+            "group": "Extra",
+            "pages": [
+              "extra/releases",
+              "extra/faq",
+              "extra/community"
             ]
           }
         ]

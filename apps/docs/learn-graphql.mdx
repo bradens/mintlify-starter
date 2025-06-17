@@ -48,11 +48,13 @@ All queries and mutations are sent over HTTPS, using the `POST` method.
 
 All websocket messages are sent over the `wss` protocol.
 
-All messages are sent as JSON.
+All messages are serialized as JSON.
 
 ## Codegen
 
 We recommend using [GraphQL Code Generator](https://www.graphql-code-generator.com/) to generate types and queries for your codebase, using the introspection schema provided [ here ](#introspection).
+
+Below is an example of how you could integrate the code generator into your project.
 
 ```typescript codegen.ts expandable
 import type { CodegenConfig } from "@graphql-codegen/cli";

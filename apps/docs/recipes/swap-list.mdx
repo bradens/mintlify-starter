@@ -7,7 +7,7 @@ description: "Learn how to get a list of swaps for a token"
 To get a list of swaps for a token, you can use the [`getTokenEvents`](/api-reference/queries/gettokenevents) query.
 
 
-For example, to get a list of swaps for the WBNB token on the BNB chain (networkId 56), you can use the following query:
+For example, for the WBNB token on the BNB chain (networkId 56), you can use the following query:
 
 ```typescript
   const doc = graphql`
@@ -35,7 +35,6 @@ For example, to get a list of swaps for the WBNB token on the BNB chain (network
 
 To get more (paginate), you can use the `cursor` argument to get the next page of results. Modify the query to include the cursor like this:
 
-
 ```typescript
   const doc = graphql`
     query MyQuery($cursor: String) {
@@ -62,7 +61,9 @@ To get more (paginate), you can use the `cursor` argument to get the next page o
   console.log(data);
 ```
 
-Now you know how to use a paginated cursor to fetch more results. This pattern is used in many places in the Codex API.
+Now you know how to use a paginated cursor to fetch more results. This pattern is used in many places in the Codex API, see
+
+
 
 
 

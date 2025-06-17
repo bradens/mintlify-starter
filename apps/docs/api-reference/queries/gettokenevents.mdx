@@ -3,6 +3,8 @@ title: "getTokenEvents"
 description: "Returns transactions for a pair."
 ---
 
+import { EmbedFrame } from '/snippets/embed-frame.mdx'
+
 **Type:** Query
 
 **Returns:** [EventConnection](/api-reference/types/eventconnection)
@@ -28,4 +30,27 @@ description: "Returns transactions for a pair."
     The order to receive the token events. Can be `DESC` (default) or `ASC`.
   </ResponseField>
 </a>
+
+<div className="w-full h-[400px]">
+  <EmbedFrame query={`query MyQuery($cursor: String) {
+      getTokenEvents(
+        query: {
+          address: "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c"
+          networkId: 56
+        }
+        cursor: $cursor
+      ) {
+        cursor
+        items {
+          id
+          token0Address
+          token1Address
+          token0SwapValueUsd
+          token1SwapValueUsd
+          transactionHash
+        }
+      }
+    }
+  `} />
+</div>
 

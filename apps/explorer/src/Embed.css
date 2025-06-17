@@ -1,0 +1,60 @@
+html, body, #root {
+  height: 100%;
+  margin: 0;
+}
+
+
+#root {
+  display: flex;
+  flex: 0 1 100%;
+}
+
+
+#root {
+  flex: 0 1 100%;
+}
+
+.graphiql-editor-tools,
+.graphiql-sidebar,
+.graphiql-session-header,
+.graphiql-logo-link {
+  display: none !important;
+}
+
+.graphiql-toolbar > *:not(.graphiql-execute-button) {
+  display: none !important;
+}
+
+.graphiql-sessions{
+  margin: 0 !important;
+  border-radius: 20px !important;
+}
+
+.graphiql-container .graphiql-query-editor {
+  border-bottom: none !important;
+}
+
+.graphiql-editors {
+  border-radius: 12px !important;
+
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+}
+
+#graphiql-session {
+  position: relative;
+  border-radius: 12px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.CodeMirror-gutter-wrapper, .CodeMirror-gutters {
+  display: none !important;
+}
+
+.CodeMirror-sizer {
+  margin-left: 0 !important;
+}
+
+
+

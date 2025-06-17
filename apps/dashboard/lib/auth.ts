@@ -68,7 +68,8 @@ export const authConfig: NextAuthConfig = {
                 email: payload.email,
                 name: payload.name || payload.given_name || payload.email,
                 emailVerified: payload.email_verified ? new Date() : null,
-                role: payload['custom:role'] || 'user',
+                // Are there more roles that admin & user ?
+                role: payload['cognito:groups']?.includes("admin") ? 'admin' : 'user',
                 username: payload.preferred_username || payload.email,
               };
             }

@@ -14,3 +14,60 @@ html, body, #root {
 .graphiql-logo-link {
   display: none !important;
 }
+
+/* Share button styles */
+.share-button-container {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.graphiql-toolbar-button {
+  background: #242424;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border-radius: 13px;
+  color: var(--color-neutral-60);
+}
+
+.graphiql-toolbar-button:hover {
+  background-color: #363636;
+}
+
+.graphiql-toolbar-button:active {
+  background-color: #565656;
+}
+
+.share-tooltip {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-neutral-90);
+  color: var(--color-neutral-10);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+  z-index: 1000;
+  margin-top: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  background: #242424;
+  color: #fff;
+  font-family: "Inter", sans-serif;
+}
+
+.share-tooltip::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-bottom: 4px solid var(--color-neutral-90);
+}

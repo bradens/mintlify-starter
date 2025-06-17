@@ -1,7 +1,9 @@
 ---
 title: "Subscriptions"
-description: "Learn how to use subscriptions with the Codex API"
+description: "Use GraphQL subscriptions to get real-time updates"
 ---
+
+import { EmbedFrame } from "/snippets/embed-frame.mdx"
 
 ## Websockets
 
@@ -10,7 +12,20 @@ For websockets, you use the `Authorization` connection parameter when sending th
 
 
 <AccordionGroup>
-  <Accordion title="Typescript SDK" defaultOpen>
+  <Accordion title="Try it" defaultOpen>
+    <div className="h-[400px] w-full">
+      <EmbedFrame query={`
+        subscription {
+          onPriceUpdated(address: "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c", networkId: 56) {
+            priceUsd
+            timestamp
+            address
+          }
+        }
+      `} />
+    </div>
+  </Accordion>
+  <Accordion title="SDK">
     If you're using the [SDK](/sdk), then you can just call `sdk.subscribe` with the subscription you want to use and it will handle the connections.
     ```typescript onPriceUpdated
     sdk.subscribe(gql`
@@ -27,7 +42,7 @@ For websockets, you use the `Authorization` connection parameter when sending th
     })
     ```
   </Accordion>
-  <Accordion title="Your own implementation">
+  <Accordion title="Custom">
     We use the `graphql-ws` library to handle websocket connections on the backend, you can learn more about it [ here ](https://github.com/enisdenjo/graphql-ws).
 
     <Frame caption="note: you must wait for connection_ack before sending any messages">

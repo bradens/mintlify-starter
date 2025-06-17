@@ -1,68 +1,125 @@
 ---
-title: "Swaps"
+title: "Transaction List"
 description: "Learn how to get a list of swaps for a token"
 ---
 
+import { EmbedFrame } from "/snippets/embed-frame.mdx"
 
 To get a list of swaps for a token, you can use the [`getTokenEvents`](/api-reference/queries/gettokenevents) query.
 
-
 For example, for the WBNB token on the BNB chain (networkId 56), you can use the following query:
 
-```typescript
-  const doc = graphql`
-    query {
-      getTokenEvents(
-        query: {
-          address: "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c"
-          networkId: 56
+
+<AccordionGroup>
+  <Accordion title="Try it">
+    <div className="h-[400px] w-full">
+      <EmbedFrame query={`
+        query {
+          getTokenEvents(
+            query: {
+              address: "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c"
+              networkId: 56
+            }
+          ) {
+            items {
+              id
+              token0Address
+              token1Address
+              token0SwapValueUsd
+              token1SwapValueUsd
+              transactionHash
+            }
+          }
         }
-      ) {
-        items {
-          id
-          token0Address
-          token1Address
-          token0SwapValueUsd
-          token1SwapValueUsd
-          transactionHash
+      `} />
+    </div>
+  </Accordion>
+  <Accordion title="Code">
+    ```typescript sdk
+      const doc = graphql`
+        query {
+          getTokenEvents(
+            query: {
+              address: "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c"
+              networkId: 56
+            }
+          ) {
+            items {
+              id
+              token0Address
+              token1Address
+              token0SwapValueUsd
+              token1SwapValueUsd
+              transactionHash
+            }
+          }
         }
-      }
-    }
-  `
-  const { data } = await client.query(doc);
-  console.log(data);
-```
+      `
+      const { data } = await client.query(doc);
+      console.log(data);
+    ```
+  </Accordion>
+</AccordionGroup>
 
 To get more (paginate), you can use the `cursor` argument to get the next page of results. Modify the query to include the cursor like this:
 
-```typescript
-  const doc = graphql`
-    query MyQuery($cursor: String) {
-      getTokenEvents(
-        query: {
-          address: "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c"
-          networkId: 56
+<AccordionGroup>
+  <Accordion title="Try it">
+    <div className="h-[400px] w-full">
+      <EmbedFrame query={`
+        query {
+          getTokenEvents(
+            cursor: "eyJpdiI6ImNhYmI1Y2UzMmUyYjRmYzRhOGU4NWM5Njc1NzFjZGEzIiwiY29udGVudCI6ImU4ZGNiNTI3YTRiZDJmYTRlNDNjNzE0ZTM3MGU1MDdjZjE5YjhiNTM4ZWE0NjUxM2MxMzlmYjA0OTQ4YTZjNTA1MmVmM2M1ZTdiNTNhOWIyZDczY2Q2NjYxYjM2MTllZTQ1ZDE2ZTJkMDJmYjllZTU2N2YwOTQ3OWNhYmY1NzRjZDNhZTJlM2IwMDQ3ZjZkZGQzODE1Mzk0YTNkMWExMzBiZTNkZTQ4MGUyOWQyNjRiYmFlNjMwMjQ1NzgwOGFhM2RhZDU1YmY0ZjNhZGFlNWYyNDM2NGJhMjY1OWZlZjI0MzQifQ=="
+            query: {
+              address: "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c"
+              networkId: 56
+            }
+          ) {
+            cursor
+            items {
+              id
+              token0Address
+              token1Address
+              token0SwapValueUsd
+              token1SwapValueUsd
+              transactionHash
+            }
+          }
         }
-        cursor: $cursor
-      ) {
-        cursor
-        items {
-          id
-          token0Address
-          token1Address
-          token0SwapValueUsd
-          token1SwapValueUsd
-          transactionHash
+      `} />
+    </div>
+  </Accordion>
+  <Accordion title="Code">
+    ```typescript
+      const doc = graphql`
+        query MyQuery($cursor: String) {
+          getTokenEvents(
+            query: {
+              address: "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c"
+              networkId: 56
+            }
+            cursor: $cursor
+          ) {
+            cursor
+            items {
+              id
+              token0Address
+              token1Address
+              token0SwapValueUsd
+              token1SwapValueUsd
+              transactionHash
+            }
+          }
         }
-      }
-    }
-  `
-  const { data } = await client.query(doc);
-  console.log(data);
-```
+      `
+      const { data } = await client.query(doc);
+      console.log(data);
+    ```
+  </Accordion>
+</AccordionGroup>
 
-Now you know how to use a paginated cursor to fetch more results. This pattern is used in many places in the Codex API, see
-
+Now you know how to use a paginated cursor to fetch more results.
+This pattern is used in many places in the Codex API, see [`getTokenEventsForMaker`](/api-reference/queries/gettokeneventsformaker), [`holders`](/api-reference/queries/holders) for an example.
 
 
 

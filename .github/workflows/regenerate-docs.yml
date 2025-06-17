@@ -1,0 +1,87 @@
+name: Regenerate GraphQL Documentation
+
+on:
+  workflow_dispatch: # Manual trigger
+
+jobs:
+  regenerate-docs:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: latest
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Install Apollo Rover CLI
+        run: |
+          curl -sSL https://rover.apollo.dev/nix/latest | sh
+          echo "$HOME/.rover/bin" >> $GITHUB_PATH
+
+      - name: Create tmp directory
+        run: mkdir -p tmp
+
+      - name: Fetch GraphQL schema from Apollo
+        env:
+          APOLLO_KEY: ${{ secrets.APOLLO_KEY }}
+        run: |
+          rover supergraph fetch defined-graph@production -o tmp/supergraph.graphql
+
+      - name: Replace existing schema
+        run: |
+          cp tmp/supergraph.graphql supergraph.graphql
+
+      - name: Generate documentation
+        working-directory: apps/docs
+        run: |
+          node generate-graphql-docs.js
+
+      - name: Check for changes
+        id: git-check
+        run: |
+          git diff --exit-code || echo "changed=true" >> $GITHUB_OUTPUT
+
+      - name: Commit and push changes
+        if: steps.git-check.outputs.changed == 'true'
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add .
+          git commit -m "docs: regenerate GraphQL documentation
+
+          - Updated supergraph.graphql from Apollo
+          - Regenerated API reference documentation
+          - Updated navigation structure"
+          git push
+
+      - name: Create summary
+        if: steps.git-check.outputs.changed == 'true'
+        run: |
+          echo "## 📚 Documentation Updated" >> $GITHUB_STEP_SUMMARY
+          echo "Successfully regenerated GraphQL documentation with latest schema from Apollo." >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Changes:" >> $GITHUB_STEP_SUMMARY
+          echo "- ✅ Fetched latest supergraph.graphql" >> $GITHUB_STEP_SUMMARY
+          echo "- ✅ Regenerated API reference pages" >> $GITHUB_STEP_SUMMARY
+          echo "- ✅ Updated navigation structure" >> $GITHUB_STEP_SUMMARY
+
+      - name: No changes summary
+        if: steps.git-check.outputs.changed != 'true'
+        run: |
+          echo "## 📚 Documentation Up to Date" >> $GITHUB_STEP_SUMMARY
+          echo "No changes detected in the GraphQL schema. Documentation is already current." >> $GITHUB_STEP_SUMMARY

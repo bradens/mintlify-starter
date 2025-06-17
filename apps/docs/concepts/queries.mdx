@@ -1,6 +1,6 @@
 ---
 title: "Queries"
-description: "Learn how to use queries with the Codex API"
+description: "The basic building block of the Codex API"
 ---
 
 import { EmbedFrame } from "/snippets/embed-frame.mdx"
@@ -27,8 +27,27 @@ Too see a reference of all the possible queries you can make, go to [`_queries_`
       }
     `} />
   </Accordion>
-  <Accordion title="Fetch Example">
-    ```typescript fetch
+  <Accordion title="SDK">
+    ```typescript
+    import { Codex } from "@codex-data/sdk"
+
+    const sdk = new Codex({ apiKey: "your-api-key" })
+
+    const { getTokenPrices } = await sdk.query(gql`
+      query {
+        getTokenPrices(inputs: [{ address: "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c", networkId: 56 }]) {
+          priceUsd
+          timestamp
+          address
+        }
+      }
+    `)
+    ```
+  </Accordion>
+
+  <Accordion title="Custom">
+    <CodeGroup>
+    ```typescript js
     fetch("https://graph.codex.io/graphql", {
       method: "POST",
       headers: {
@@ -37,5 +56,119 @@ Too see a reference of all the possible queries you can make, go to [`_queries_`
       body: JSON.stringify({ query: 'query { getTokenPrices(inputs: [{ address: "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c", networkId: 56 }]) { priceUsd timestamp address } }' }),
     })
     ```
+    ```python python
+    import requests
+    import json
+
+    url = "https://graph.codex.io/graphql"
+
+    headers = {
+      "content_type":"application/json",
+      "Authorization": "<MY_KEY>"
+    }
+
+    getNetworks = """query GetNetworksQuery { getNetworks { name id } }"""
+
+    response = requests.post(url, headers=headers, json={"query": getNetworks})
+
+    print(json.loads(response.text))
+    ```
+
+    ```php php
+    <?php
+
+    $url = "https://graph.codex.io/graphql";
+
+    $query = array(
+        'query' => '{
+            getNetworks {
+                name
+                id
+            }
+        }'
+    );
+
+    $headers = array(
+        'Content-Type: application/json',
+        'Authorization: ' . "<MY_KEY>"
+    );
+
+    $ch = curl_init($url);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($query));
+    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+    $response = curl_exec($ch);
+    curl_close($ch);
+
+    echo $response;
+    ```
+
+    ```go go
+    package main
+
+    import (
+      "bytes"
+      "fmt"
+      "net/http"
+      "io/ioutil"
+      "encoding/json"
+    )
+
+    func main() {
+      url := "https://graph.codex.io/graphql"
+      apiKey := "<MY_KEY>"
+
+      query := `query GetNetworksQuery { getNetworks { name id } }`
+      payload := map[string]string{"query": query}
+      payloadBytes, _ := json.Marshal(payload)
+
+      req, _ := http.NewRequest("POST", url, bytes.NewBuffer(payloadBytes))
+      req.Header.Set("Content-Type", "application/json")
+      req.Header.Set("Authorization", apiKey)
+
+      client := &http.Client{}
+      res, _ := client.Do(req)
+      defer res.Body.Close()
+
+      body, _ := ioutil.ReadAll(res.Body)
+
+      var response map[string]interface{}
+      json.Unmarshal(body, &response)
+
+      fmt.Println(response)
+    }
+
+    ```
+
+    ```ruby ruby
+    require 'net/http'
+    require 'json'
+
+    uri = URI('https://graph.codex.io/graphql')
+    http = Net::HTTP.new(uri.host, uri.port)
+    http.use_ssl = true
+
+    headers = {
+      'Content-Type' => 'application/json',
+      'Authorization' => '<MY_KEY>'
+    }
+
+    query = {
+      query: '{
+        getNetworks {
+          name
+          id
+        }
+      }'
+    }
+
+    request = Net::HTTP::Post.new(uri.path, headers)
+    request.body = query.to_json
+
+    response = http.request(request)
+    puts response.body
+    ```
+
+    </CodeGroup>
   </Accordion>
 </AccordionGroup>

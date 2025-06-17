@@ -63,10 +63,10 @@
             ]
           },
           {
-            "group": "Reference",
+            "group": "Queries",
             "pages": [
               {
-                "group": "Queries",
+                "group": "Uncategorized",
                 "pages": [
                   "api-reference/queries/apitokens",
                   "api-reference/queries/apitoken",
@@ -139,9 +139,14 @@
                   "api-reference/queries/walletchart",
                   "api-reference/queries/getcommunitynotes"
                 ]
-              },
+              }
+            ]
+          },
+          {
+            "group": "Subscriptions",
+            "pages": [
               {
-                "group": "Subscriptions",
+                "group": "Uncategorized",
                 "pages": [
                   "api-reference/subscriptions/onnfteventscreated",
                   "api-reference/subscriptions/onnftassetscreated",
@@ -168,18 +173,28 @@
                   "api-reference/subscriptions/onlaunchpadtokeneventbatch",
                   "api-reference/subscriptions/onlaunchpadtokenevent"
                 ]
-              },
+              }
+            ]
+          },
+          {
+            "group": "Mutations",
+            "pages": [
               {
-                "group": "Mutations",
+                "group": "Uncategorized",
                 "pages": [
                   "api-reference/mutations/createapitokens",
                   "api-reference/mutations/deleteapitoken",
                   "api-reference/mutations/createwebhooks",
                   "api-reference/mutations/deletewebhooks"
                 ]
-              },
+              }
+            ]
+          },
+          {
+            "group": "Types",
+            "pages": [
               {
-                "group": "Types",
+                "group": "Uncategorized",
                 "pages": [
                   "api-reference/types/addeventsbymakeroutput",
                   "api-reference/types/addeventsoutput",
@@ -464,9 +479,14 @@
                   "api-reference/types/windoweddetailedstats",
                   "api-reference/types/windowedwalletstats"
                 ]
-              },
+              }
+            ]
+          },
+          {
+            "group": "Enums",
+            "pages": [
               {
-                "group": "Enums",
+                "group": "Uncategorized",
                 "pages": [
                   "api-reference/types/addresstype",
                   "api-reference/types/alertrecurrence",
@@ -549,9 +569,14 @@
                   "api-reference/types/webhooknfteventtype",
                   "api-reference/types/webhooktype"
                 ]
-              },
+              }
+            ]
+          },
+          {
+            "group": "Input Objects",
+            "pages": [
               {
-                "group": "Input Objects",
+                "group": "Uncategorized",
                 "pages": [
                   "api-reference/types/adduserachievementinput",
                   "api-reference/types/balancesinput",
@@ -660,21 +685,26 @@
                   "api-reference/types/wallettokenfiltersv2",
                   "api-reference/types/wallettokenranking"
                 ]
-              },
+              }
+            ]
+          },
+          {
+            "group": "Unions and Interfaces",
+            "pages": [
               {
-                "group": "Unions and Interfaces",
+                "group": "Uncategorized",
                 "pages": [
                   "api-reference/types/enhancedcontract",
                   "api-reference/types/eventdata",
                   "api-reference/types/eventlabeldata",
                   "api-reference/types/nfteventtradeitem",
+                  "api-reference/types/nfteventtradeitembase",
                   "api-reference/types/nftpooleventdata",
                   "api-reference/types/primepooleventdata",
                   "api-reference/types/referraleventdata",
                   "api-reference/types/tokenlifecycleeventdata",
                   "api-reference/types/unconfirmedeventdata",
-                  "api-reference/types/webhookcondition",
-                  "api-reference/types/nfteventtradeitembase"
+                  "api-reference/types/webhookcondition"
                 ]
               }
             ]

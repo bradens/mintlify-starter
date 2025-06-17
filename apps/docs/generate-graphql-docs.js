@@ -8,6 +8,27 @@ function shouldHideField(field) {
   return field.description.includes('docs: hide')
 }
 
+// Helper function to parse metadata from description
+function parseMetadata(description) {
+  if (!description) return { category: null, tag: null };
+  
+  const metadata = { category: null, tag: null };
+  
+  // Look for category: value
+  const categoryMatch = description.match(/category:\s*([^\n\r]+)/i);
+  if (categoryMatch) {
+    metadata.category = categoryMatch[1].trim();
+  }
+  
+  // Look for tag: value
+  const tagMatch = description.match(/tag:\s*([^\n\r]+)/i);
+  if (tagMatch) {
+    metadata.tag = tagMatch[1].trim();
+  }
+  
+  return metadata;
+}
+
 // Helper function to clean description text
 function cleanDescription(description) {
   if (!description) return '';
@@ -19,6 +40,8 @@ function cleanDescription(description) {
     .replace(/"/g, '&quot;') // Escape quotes
     .replace(/'/g, '&#39;')  // Escape single quotes
     .replace(/docs: hide/g, '') // Remove docs: hide directive
+    .replace(/category:\s*[^\n\r]+/gi, '') // Remove category metadata
+    .replace(/tag:\s*[^\n\r]+/gi, '') // Remove tag metadata
     .trim();
 }
 
@@ -170,11 +193,17 @@ function formatArgs(args) {
 function generateOperationDoc(operation, operationType) {
   const returnType = createTypeLink(formatType(operation.type));
   const description = cleanDescription(operation.description);
+  const metadata = parseMetadata(operation.description);
 
   let content = `---
 title: "${operation.name}"
-description: "${description || `${operationType} operation`}"
----
+description: "${description || `${operationType} operation`}"`;
+
+  if (metadata.tag) {
+    content += `\ntag: "${metadata.tag}"`;
+  }
+
+  content += `\n---
 
 `;
 
@@ -239,18 +268,24 @@ description: "${description || `${operationType} operation`}"
     }
   }
 
-  return content;
+  return { content, metadata };
 }
 
 // Generate documentation for a type
 function generateTypeDoc(type) {
   const description = cleanDescription(type.description);
+  const metadata = parseMetadata(type.description);
   const typeKind = type.constructor.name.replace('GraphQL', '').replace('Type', '');
 
   let content = `---
 title: "${type.name}"
-description: "${description || `${typeKind} type`}"
----
+description: "${description || `${typeKind} type`}"`;
+
+  if (metadata.tag) {
+    content += `\ntag: "${metadata.tag}"`;
+  }
+
+  content += `\n---
 
 `;
 
@@ -345,7 +380,7 @@ description: "${description || `${typeKind} type`}"
     content += `\n\`\`\`graphql ${type.name}\n${schemaDefinition}\n\`\`\`\n`;
   }
 
-  return content;
+  return { content, metadata };
 }
 
 // Helper function to read existing docs.json
@@ -375,9 +410,7 @@ function writeDocsJson(docsData) {
 // Helper function to get existing API reference pages from docs.json
 function getExistingApiPages(docsData) {
   const existing = {
-    queries: new Set(),
-    mutations: new Set(),
-    subscriptions: new Set(),
+    operations: new Set(),
     types: new Set(),
     enums: new Set(),
     inputObjects: new Set(),
@@ -388,22 +421,49 @@ function getExistingApiPages(docsData) {
     const graphqlTab = docsData.navigation.tabs.find(tab => tab.tab === 'GraphQL Reference');
     if (!graphqlTab) return existing;
 
-    const referenceGroup = graphqlTab.groups.find(group => group.group === 'Reference');
-    if (!referenceGroup) return existing;
-
-    referenceGroup.pages.forEach(page => {
-      if (typeof page === 'object' && page.group) {
-        const groupName = page.group.toLowerCase();
-        page.pages.forEach(pagePath => {
-          const fileName = path.basename(pagePath);
-
-          if (groupName === 'queries') existing.queries.add(fileName);
-          else if (groupName === 'mutations') existing.mutations.add(fileName);
-          else if (groupName === 'subscriptions') existing.subscriptions.add(fileName);
-          else if (groupName === 'types') existing.types.add(fileName);
-          else if (groupName === 'enums') existing.enums.add(fileName);
-          else if (groupName === 'input objects') existing.inputObjects.add(fileName);
-          else if (groupName === 'unions and interfaces') existing.unionsAndInterfaces.add(fileName);
+    graphqlTab.groups.forEach(group => {
+      const groupName = group.group.toLowerCase();
+      
+      // Handle operation groups (Queries, Subscriptions, Mutations)
+      if (['queries', 'subscriptions', 'mutations'].includes(groupName)) {
+        // These groups have sub-categories, so we need to iterate through them
+        group.pages.forEach(categoryOrPage => {
+          if (typeof categoryOrPage === 'object' && categoryOrPage.group) {
+            // This is a category with pages
+            categoryOrPage.pages.forEach(pagePath => {
+              const fileName = path.basename(pagePath);
+              existing.operations.add(fileName);
+            });
+          } else if (typeof categoryOrPage === 'string') {
+            // This is a direct page (shouldn't happen with new structure, but just in case)
+            const fileName = path.basename(categoryOrPage);
+            existing.operations.add(fileName);
+          }
+        });
+      }
+      // Handle type groups (now categorized like operations)
+      else if (['types', 'enums', 'input objects', 'unions and interfaces'].includes(groupName)) {
+        // These groups now have sub-categories, so we need to iterate through them
+        group.pages.forEach(categoryOrPage => {
+          if (typeof categoryOrPage === 'object' && categoryOrPage.group) {
+            // This is a category with pages
+            categoryOrPage.pages.forEach(pagePath => {
+              const fileName = path.basename(pagePath);
+              
+              if (groupName === 'types') existing.types.add(fileName);
+              else if (groupName === 'enums') existing.enums.add(fileName);
+              else if (groupName === 'input objects') existing.inputObjects.add(fileName);
+              else if (groupName === 'unions and interfaces') existing.unionsAndInterfaces.add(fileName);
+            });
+          } else if (typeof categoryOrPage === 'string') {
+            // This is a direct page (for backward compatibility)
+            const fileName = path.basename(categoryOrPage);
+            
+            if (groupName === 'types') existing.types.add(fileName);
+            else if (groupName === 'enums') existing.enums.add(fileName);
+            else if (groupName === 'input objects') existing.inputObjects.add(fileName);
+            else if (groupName === 'unions and interfaces') existing.unionsAndInterfaces.add(fileName);
+          }
         });
       }
     });
@@ -426,70 +486,195 @@ function updateDocsJson(navigation) {
       return;
     }
 
-    const referenceGroup = graphqlTab.groups.find(group => group.group === 'Reference');
-    if (!referenceGroup) {
-      console.error('❌ Could not find Reference group in docs.json');
-      return;
+    // Separate operations by type for the new structure
+    const queriesByCategory = {};
+    const subscriptionsByCategory = {};
+    const mutationsByCategory = {};
+
+    navigation.operations.forEach(operation => {
+      const category = operation.category;
+      
+      if (operation.type === 'Query') {
+        if (!queriesByCategory[category]) queriesByCategory[category] = [];
+        queriesByCategory[category].push(operation);
+      } else if (operation.type === 'Subscription') {
+        if (!subscriptionsByCategory[category]) subscriptionsByCategory[category] = [];
+        subscriptionsByCategory[category].push(operation);
+      } else if (operation.type === 'Mutation') {
+        if (!mutationsByCategory[category]) mutationsByCategory[category] = [];
+        mutationsByCategory[category].push(operation);
+      }
+    });
+
+    // Create category groups for each operation type
+    function createCategoryGroups(operationsByCategory) {
+      const categories = Object.keys(operationsByCategory).sort();
+      return categories.map(category => {
+        const operations = operationsByCategory[category];
+        const categoryDisplayName = category.charAt(0).toUpperCase() + category.slice(1);
+        
+        return {
+          group: categoryDisplayName,
+          pages: operations.map(op => op.path)
+        };
+      });
     }
 
-    // Update the reference group pages
-    referenceGroup.pages = [
+    // Create the new navigation structure
+    const newGroups = [
       {
-        group: 'Queries',
-        pages: navigation.queries
-      },
-      {
-        group: 'Subscriptions',
-        pages: navigation.subscriptions
-      },
-      {
-        group: 'Mutations',
-        pages: navigation.mutations
-      },
-      {
-        group: 'Types',
-        pages: navigation.types.filter(type => navigation.objects.includes(type) || navigation.scalars.includes(type))
-      },
-      {
-        group: 'Enums',
-        pages: navigation.enums
-      },
-      {
-        group: 'Input Objects',
-        pages: navigation.inputs
-      },
-      {
-        group: 'Unions and Interfaces',
-        pages: navigation.unions.concat(navigation.interfaces)
+        group: 'API Documentation',
+        pages: ['api-reference/introduction']
       }
     ];
+
+    // Add Queries group with categories
+    if (Object.keys(queriesByCategory).length > 0) {
+      newGroups.push({
+        group: 'Queries',
+        pages: createCategoryGroups(queriesByCategory)
+      });
+    }
+
+    // Add Subscriptions group with categories
+    if (Object.keys(subscriptionsByCategory).length > 0) {
+      newGroups.push({
+        group: 'Subscriptions',
+        pages: createCategoryGroups(subscriptionsByCategory)
+      });
+    }
+
+    // Add Mutations group with categories
+    if (Object.keys(mutationsByCategory).length > 0) {
+      newGroups.push({
+        group: 'Mutations',
+        pages: createCategoryGroups(mutationsByCategory)
+      });
+    }
+
+    // Add type groups (categorized like operations)
+    function createTypeCategoryGroups(typesByCategory) {
+      const categories = Object.keys(typesByCategory).sort();
+      return categories.map(category => {
+        const types = typesByCategory[category];
+        const categoryDisplayName = category.charAt(0).toUpperCase() + category.slice(1);
+        
+        return {
+          group: categoryDisplayName,
+          pages: types.map(type => type.path)
+        };
+      });
+    }
+
+    // Add Types group with categories
+    if (Object.keys(navigation.typesByCategory.types).length > 0) {
+      newGroups.push({
+        group: 'Types',
+        pages: createTypeCategoryGroups(navigation.typesByCategory.types)
+      });
+    }
+
+    // Add Enums group with categories
+    if (Object.keys(navigation.typesByCategory.enums).length > 0) {
+      newGroups.push({
+        group: 'Enums',
+        pages: createTypeCategoryGroups(navigation.typesByCategory.enums)
+      });
+    }
+
+    // Add Input Objects group with categories
+    if (Object.keys(navigation.typesByCategory.inputs).length > 0) {
+      newGroups.push({
+        group: 'Input Objects',
+        pages: createTypeCategoryGroups(navigation.typesByCategory.inputs)
+      });
+    }
+
+    // Add Unions and Interfaces group with categories
+    if (Object.keys(navigation.typesByCategory.unionsAndInterfaces).length > 0) {
+      newGroups.push({
+        group: 'Unions and Interfaces',
+        pages: createTypeCategoryGroups(navigation.typesByCategory.unionsAndInterfaces)
+      });
+    }
+
+    // Update the GraphQL tab groups
+    graphqlTab.groups = newGroups;
 
     writeDocsJson(docsData);
 
     // Log changes
-    const currentPages = {
-      queries: new Set(navigation.queries.map(p => path.basename(p))),
-      mutations: new Set(navigation.mutations.map(p => path.basename(p))),
-      subscriptions: new Set(navigation.subscriptions.map(p => path.basename(p))),
-      types: new Set(navigation.types.map(p => path.basename(p))),
-      enums: new Set(navigation.enums.map(p => path.basename(p))),
-      inputObjects: new Set(navigation.inputs.map(p => path.basename(p))),
-      unionsAndInterfaces: new Set(navigation.unions.concat(navigation.interfaces).map(p => path.basename(p)))
-    };
+    const currentOperations = new Set(navigation.operations.map(op => path.basename(op.path)));
+    const currentTypes = new Set(navigation.types.map(type => path.basename(type.path)));
+    const currentEnums = new Set(navigation.types.filter(type => type.typeCategory === 'enums').map(type => path.basename(type.path)));
+    const currentInputObjects = new Set(navigation.types.filter(type => type.typeCategory === 'inputs').map(type => path.basename(type.path)));
+    const currentUnionsAndInterfaces = new Set(navigation.types.filter(type => type.typeCategory === 'unionsAndInterfaces').map(type => path.basename(type.path)));
 
     // Log added and removed pages
-    Object.keys(existingPages).forEach(category => {
-      const existing = existingPages[category];
-      const current = currentPages[category];
+    const changeCategories = [
+      { name: 'operations', existing: existingPages.operations, current: currentOperations },
+      { name: 'types', existing: existingPages.types, current: currentTypes },
+      { name: 'enums', existing: existingPages.enums, current: currentEnums },
+      { name: 'input objects', existing: existingPages.inputObjects, current: currentInputObjects },
+      { name: 'unions and interfaces', existing: existingPages.unionsAndInterfaces, current: currentUnionsAndInterfaces }
+    ];
 
+    changeCategories.forEach(({ name, existing, current }) => {
       const added = [...current].filter(x => !existing.has(x));
       const removed = [...existing].filter(x => !current.has(x));
 
       if (added.length > 0) {
-        console.log(`➕ Added ${category}: ${added.join(', ')}`);
+        console.log(`➕ Added ${name}: ${added.join(', ')}`);
       }
       if (removed.length > 0) {
-        console.log(`➖ Removed ${category}: ${removed.join(', ')}`);
+        console.log(`➖ Removed ${name}: ${removed.join(', ')}`);
+      }
+    });
+
+    // Log category information by operation type
+    console.log(`📁 Generated navigation structure:`);
+    
+    if (Object.keys(queriesByCategory).length > 0) {
+      console.log(`  Queries: ${Object.keys(queriesByCategory).length} categories`);
+      Object.keys(queriesByCategory).sort().forEach(category => {
+        const count = queriesByCategory[category].length;
+        console.log(`    - ${category}: ${count} queries`);
+      });
+    }
+
+    if (Object.keys(subscriptionsByCategory).length > 0) {
+      console.log(`  Subscriptions: ${Object.keys(subscriptionsByCategory).length} categories`);
+      Object.keys(subscriptionsByCategory).sort().forEach(category => {
+        const count = subscriptionsByCategory[category].length;
+        console.log(`    - ${category}: ${count} subscriptions`);
+      });
+    }
+
+    if (Object.keys(mutationsByCategory).length > 0) {
+      console.log(`  Mutations: ${Object.keys(mutationsByCategory).length} categories`);
+      Object.keys(mutationsByCategory).sort().forEach(category => {
+        const count = mutationsByCategory[category].length;
+        console.log(`    - ${category}: ${count} mutations`);
+      });
+    }
+
+    // Log type category information
+    const typeCategories = ['types', 'enums', 'inputs', 'unionsAndInterfaces'];
+    const typeCategoryNames = {
+      types: 'Types',
+      enums: 'Enums', 
+      inputs: 'Input Objects',
+      unionsAndInterfaces: 'Unions and Interfaces'
+    };
+
+    typeCategories.forEach(typeCategory => {
+      const categoriesForType = navigation.typesByCategory[typeCategory];
+      if (Object.keys(categoriesForType).length > 0) {
+        console.log(`  ${typeCategoryNames[typeCategory]}: ${Object.keys(categoriesForType).length} categories`);
+        Object.keys(categoriesForType).sort().forEach(category => {
+          const count = categoriesForType[category].length;
+          console.log(`    - ${category}: ${count} ${typeCategory}`);
+        });
       }
     });
 
@@ -503,24 +688,26 @@ function removeOutdatedFiles(currentNavigation, apiRefDir) {
   const docsData = readDocsJson();
   const existingPages = getExistingApiPages(docsData);
 
+  const currentOperations = new Set(currentNavigation.operations.map(op => path.basename(op.path)));
+  const currentTypes = new Set(currentNavigation.types.map(type => path.basename(type.path)));
+  const currentEnums = new Set(currentNavigation.types.filter(type => type.typeCategory === 'enums').map(type => path.basename(type.path)));
+  const currentInputObjects = new Set(currentNavigation.types.filter(type => type.typeCategory === 'inputs').map(type => path.basename(type.path)));
+  const currentUnionsAndInterfaces = new Set(currentNavigation.types.filter(type => type.typeCategory === 'unionsAndInterfaces').map(type => path.basename(type.path)));
+
   const currentPages = {
-    queries: new Set(currentNavigation.queries.map(p => path.basename(p))),
-    mutations: new Set(currentNavigation.mutations.map(p => path.basename(p))),
-    subscriptions: new Set(currentNavigation.subscriptions.map(p => path.basename(p))),
-    types: new Set(currentNavigation.types.map(p => path.basename(p))),
-    enums: new Set(currentNavigation.enums.map(p => path.basename(p))),
-    inputObjects: new Set(currentNavigation.inputs.map(p => path.basename(p))),
-    unionsAndInterfaces: new Set(currentNavigation.unions.concat(currentNavigation.interfaces).map(p => path.basename(p)))
+    operations: currentOperations,
+    types: currentTypes,
+    enums: currentEnums,
+    inputObjects: currentInputObjects,
+    unionsAndInterfaces: currentUnionsAndInterfaces
   };
 
   const dirMap = {
-    queries: 'queries',
-    mutations: 'mutations',
-    subscriptions: 'subscriptions',
-    types: 'types',
-    enums: 'types',
-    inputObjects: 'types',
-    unionsAndInterfaces: 'types'
+    operations: ['queries', 'mutations', 'subscriptions'], // Operations can be in any of these directories
+    types: ['types'],
+    enums: ['types'],
+    inputObjects: ['types'],
+    unionsAndInterfaces: ['types']
   };
 
   let removedCount = 0;
@@ -528,16 +715,31 @@ function removeOutdatedFiles(currentNavigation, apiRefDir) {
   Object.keys(existingPages).forEach(category => {
     const existing = existingPages[category];
     const current = currentPages[category];
-    const dirName = dirMap[category];
+    const dirNames = dirMap[category];
 
     const toRemove = [...existing].filter(x => !current.has(x));
 
     toRemove.forEach(fileName => {
-      const filePath = path.join(apiRefDir, dirName, `${fileName}.mdx`);
-      if (fs.existsSync(filePath)) {
-        fs.unlinkSync(filePath);
-        removedCount++;
-        console.log(`🗑️ Removed outdated file: ${dirName}/${fileName}.mdx`);
+      // For operations, check all possible directories
+      if (category === 'operations') {
+        dirNames.forEach(dirName => {
+          const filePath = path.join(apiRefDir, dirName, `${fileName}.mdx`);
+          if (fs.existsSync(filePath)) {
+            fs.unlinkSync(filePath);
+            removedCount++;
+            console.log(`🗑️ Removed outdated file: ${dirName}/${fileName}.mdx`);
+          }
+        });
+      } else {
+        // For types, only check the types directory
+        dirNames.forEach(dirName => {
+          const filePath = path.join(apiRefDir, dirName, `${fileName}.mdx`);
+          if (fs.existsSync(filePath)) {
+            fs.unlinkSync(filePath);
+            removedCount++;
+            console.log(`🗑️ Removed outdated file: ${dirName}/${fileName}.mdx`);
+          }
+        });
       }
     });
   });
@@ -644,12 +846,135 @@ function generateGraphQLDocs() {
     }
   });
 
+  // Collect all operations with their metadata for categorization
+  const allOperations = [];
+
+  // Generate query documentation and collect metadata
+  console.log(`📝 Generating ${queries.length} query pages...`);
+  queries.forEach(query => {
+    const { content, metadata } = generateOperationDoc(query, 'Query');
+    const filePath = path.join(apiRefDir, 'queries', `${createSlug(query.name)}.mdx`);
+    fs.writeFileSync(filePath, content);
+    
+    allOperations.push({
+      name: query.name,
+      slug: createSlug(query.name),
+      type: 'Query',
+      category: metadata.category || 'uncategorized',
+      path: `api-reference/queries/${createSlug(query.name)}`
+    });
+  });
+
+  // Generate mutation documentation and collect metadata
+  console.log(`📝 Generating ${mutations.length} mutation pages...`);
+  mutations.forEach(mutation => {
+    const { content, metadata } = generateOperationDoc(mutation, 'Mutation');
+    const filePath = path.join(apiRefDir, 'mutations', `${createSlug(mutation.name)}.mdx`);
+    fs.writeFileSync(filePath, content);
+    
+    allOperations.push({
+      name: mutation.name,
+      slug: createSlug(mutation.name),
+      type: 'Mutation',
+      category: metadata.category || 'uncategorized',
+      path: `api-reference/mutations/${createSlug(mutation.name)}`
+    });
+  });
+
+  // Generate subscription documentation and collect metadata
+  console.log(`📝 Generating ${subscriptions.length} subscription pages...`);
+  subscriptions.forEach(subscription => {
+    const { content, metadata } = generateOperationDoc(subscription, 'Subscription');
+    const filePath = path.join(apiRefDir, 'subscriptions', `${createSlug(subscription.name)}.mdx`);
+    fs.writeFileSync(filePath, content);
+    
+    allOperations.push({
+      name: subscription.name,
+      slug: createSlug(subscription.name),
+      type: 'Subscription',
+      category: metadata.category || 'uncategorized',
+      path: `api-reference/subscriptions/${createSlug(subscription.name)}`
+    });
+  });
+
+  // Generate type documentation (all types go in the types directory for linking)
+  const allTypesToGenerate = [...objects, ...enums, ...unions, ...inputs, ...scalars, ...interfaces];
+  console.log(`📝 Generating ${allTypesToGenerate.length} type pages...`);
+  
+  // Collect all types with their metadata for categorization
+  const categorizedTypes = [];
+  
+  allTypesToGenerate.forEach(type => {
+    const { content, metadata } = generateTypeDoc(type);
+    const filePath = path.join(apiRefDir, 'types', `${createSlug(type.name)}.mdx`);
+    fs.writeFileSync(filePath, content);
+    
+    // Determine type category
+    let typeCategory;
+    if (isObjectType(type) || isScalarType(type)) {
+      typeCategory = 'types';
+    } else if (isEnumType(type)) {
+      typeCategory = 'enums';
+    } else if (isInputObjectType(type)) {
+      typeCategory = 'inputs';
+    } else if (isUnionType(type) || isInterfaceType(type)) {
+      typeCategory = 'unionsAndInterfaces';
+    }
+    
+    categorizedTypes.push({
+      name: type.name,
+      slug: createSlug(type.name),
+      typeCategory,
+      category: metadata.category || 'uncategorized',
+      path: `api-reference/types/${createSlug(type.name)}`
+    });
+  });
+
+  // Group types by their type category and then by metadata category
+  const typesByCategory = {
+    types: {},
+    enums: {},
+    inputs: {},
+    unionsAndInterfaces: {}
+  };
+
+  categorizedTypes.forEach(type => {
+    const typeCategory = type.typeCategory;
+    const metadataCategory = type.category;
+    
+    if (!typesByCategory[typeCategory][metadataCategory]) {
+      typesByCategory[typeCategory][metadataCategory] = [];
+    }
+    typesByCategory[typeCategory][metadataCategory].push(type);
+  });
+
+  // Sort types within each category alphabetically
+  Object.keys(typesByCategory).forEach(typeCategory => {
+    Object.keys(typesByCategory[typeCategory]).forEach(metadataCategory => {
+      typesByCategory[typeCategory][metadataCategory].sort((a, b) => a.name.localeCompare(b.name));
+    });
+  });
+
+  // Group operations by category and sort alphabetically within each category
+  const operationsByCategory = {};
+  allOperations.forEach(operation => {
+    if (!operationsByCategory[operation.category]) {
+      operationsByCategory[operation.category] = [];
+    }
+    operationsByCategory[operation.category].push(operation);
+  });
+
+  // Sort operations within each category alphabetically
+  Object.keys(operationsByCategory).forEach(category => {
+    operationsByCategory[category].sort((a, b) => a.name.localeCompare(b.name));
+  });
+
   // Generate current navigation structure
   const currentNavigation = {
-    queries: queries.map(q => `api-reference/queries/${createSlug(q.name)}`),
-    mutations: mutations.map(m => `api-reference/mutations/${createSlug(m.name)}`),
-    subscriptions: subscriptions.map(s => `api-reference/subscriptions/${createSlug(s.name)}`),
-    types: [...objects, ...enums, ...unions, ...inputs, ...scalars, ...interfaces].map(t => `api-reference/types/${createSlug(t.name)}`),
+    operations: allOperations,
+    operationsByCategory,
+    types: categorizedTypes,
+    typesByCategory,
     objects: objects.map(t => `api-reference/types/${createSlug(t.name)}`),
     enums: enums.map(t => `api-reference/types/${createSlug(t.name)}`),
     unions: unions.map(t => `api-reference/types/${createSlug(t.name)}`),
@@ -660,39 +985,6 @@ function generateGraphQLDocs() {
 
   // Remove outdated files before generating new ones
   removeOutdatedFiles(currentNavigation, apiRefDir);
-
-  // Generate query documentation
-  console.log(`📝 Generating ${queries.length} query pages...`);
-  queries.forEach(query => {
-    const content = generateOperationDoc(query, 'Query');
-    const filePath = path.join(apiRefDir, 'queries', `${createSlug(query.name)}.mdx`);
-    fs.writeFileSync(filePath, content);
-  });
-
-  // Generate mutation documentation
-  console.log(`📝 Generating ${mutations.length} mutation pages...`);
-  mutations.forEach(mutation => {
-    const content = generateOperationDoc(mutation, 'Mutation');
-    const filePath = path.join(apiRefDir, 'mutations', `${createSlug(mutation.name)}.mdx`);
-    fs.writeFileSync(filePath, content);
-  });
-
-  // Generate subscription documentation
-  console.log(`📝 Generating ${subscriptions.length} subscription pages...`);
-  subscriptions.forEach(subscription => {
-    const content = generateOperationDoc(subscription, 'Subscription');
-    const filePath = path.join(apiRefDir, 'subscriptions', `${createSlug(subscription.name)}.mdx`);
-    fs.writeFileSync(filePath, content);
-  });
-
-  // Generate type documentation (all types go in the types directory for linking)
-  const allTypesToGenerate = [...objects, ...enums, ...unions, ...inputs, ...scalars, ...interfaces];
-  console.log(`📝 Generating ${allTypesToGenerate.length} type pages...`);
-  allTypesToGenerate.forEach(type => {
-    const content = generateTypeDoc(type);
-    const filePath = path.join(apiRefDir, 'types', `${createSlug(type.name)}.mdx`);
-    fs.writeFileSync(filePath, content);
-  });
 
   // Update docs.json with new navigation
   updateDocsJson(currentNavigation);

@@ -65,7 +65,7 @@ export function ShareButton({ query }: ShareButtonProps) {
       </button>
       {showTooltip && (
         <div className="share-tooltip">
-          {copied ? "Copied!" : "Share query"}
+          {copied ? "Copied!" : "Share"}
         </div>
       )}
     </div>

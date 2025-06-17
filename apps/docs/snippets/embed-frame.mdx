@@ -2,6 +2,6 @@ export const EmbedFrame = ({ query, height }) => {
   const encodedQuery = typeof window === "undefined" ? "" : encodeURIComponent(query);
 
   return (
-    <iframe src={"http://localhost:5173/embed.html?query=" + encodedQuery} width="100%" style={{ height: height || "400px", borderRadius: "12px"}} />
+    <iframe src={"https://codex-dashboard-explorer.vercel.app/embed.html?query=" + encodedQuery} width="100%" style={{ height: height || "400px", borderRadius: "12px"}} />
   );
 }

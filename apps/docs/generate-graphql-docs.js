@@ -5,7 +5,7 @@ const { buildSchema, isObjectType, isScalarType, isEnumType, isUnionType, isInpu
 // Helper function to check if a field has "docs: hide" directive
 function shouldHideField(field) {
   if (!field.description) return false;
-  return field.description.includes('docs: hide')
+  return field.description.includes('docs: hide') || field.description.includes('@hide')
 }
 
 // Helper function to parse metadata from description
@@ -35,6 +35,7 @@ function cleanDescription(description) {
   return description
     .replace(/<br>/g, '\n') // Convert <br> tags to newlines first
     .replace(/docs: hide/g, '') // Remove docs: hide directive
+    .replace(/@hide/g, '') // Remove @hide directive
     .replace(/@category:?\s*[^\s@\n\r]+/gi, '') // Remove @category metadata
     .replace(/@tag:?\s*[^\s@\n\r]+/gi, '') // Remove @tag metadata
     .replace(/\s+/g, ' ') // Normalize multiple spaces to single space

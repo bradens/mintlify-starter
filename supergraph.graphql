@@ -24,7 +24,7 @@ directive @join__unionMember(graph: join__Graph!, member: String!) repeatable on
 
 directive @link(url: String, as: String, for: link__Purpose, import: [link__Import]) repeatable on SCHEMA
 
-"""docs: hide"""
+"""@hide"""
 enum AchievementId
   @join__type(graph: USERS)
 {
@@ -55,7 +55,7 @@ enum AchievementId
   DEFINED_EMPLOYEE_BADGE @join__enumValue(graph: USERS)
 }
 
-"""Response returned by `onEventsCreatedByMaker`."""
+"""Response returned by `onEventsCreatedByMaker`. @category: events"""
 type AddEventsByMakerOutput
   @join__type(graph: TOKENS)
 {
@@ -66,7 +66,7 @@ type AddEventsByMakerOutput
   events: [Event!]!
 }
 
-"""Response returned by `onEventsCreated`."""
+"""Response returned by `onEventsCreated`. @category: events"""
 type AddEventsOutput
   @join__type(graph: TOKENS)
 {
@@ -117,6 +117,7 @@ type AddNftPoolEventsOutput
   events: [NftPoolEvent]!
 }
 
+"""@hide"""
 enum AddressType
   @join__type(graph: USERS)
 {
@@ -125,7 +126,7 @@ enum AddressType
   TRON @join__enumValue(graph: USERS)
 }
 
-"""Response returned by `onTokenEventsCreated`."""
+"""Response returned by `onTokenEventsCreated`. @category: events"""
 type AddTokenEventsOutput
   @join__type(graph: TOKENS)
 {
@@ -138,7 +139,9 @@ type AddTokenEventsOutput
   events: [Event!]!
 }
 
-"""Response returned by `onTokenLifecycleEventsCreated`."""
+"""
+Response returned by `onTokenLifecycleEventsCreated`. @category: events
+"""
 type AddTokenLifecycleEventsOutput
   @join__type(graph: TOKENS)
 {
@@ -153,6 +156,9 @@ type AddTrackedWalletEventsOutput
   events: [TrackedWalletEvent!]!
 }
 
+"""
+Response returned by `onUnconfirmedEventsCreatedByMaker`. @category: events
+"""
 type AddUnconfirmedEventsByMakerOutput
   @join__type(graph: TOKENS)
 {
@@ -163,7 +169,7 @@ type AddUnconfirmedEventsByMakerOutput
   events: [UnconfirmedEvent!]!
 }
 
-"""Response returned by `onUnconfirmedEventsCreated`."""
+"""Response returned by `onUnconfirmedEventsCreated`. @category: events"""
 type AddUnconfirmedEventsOutput
   @join__type(graph: TOKENS)
 {
@@ -185,6 +191,7 @@ type AddUnconfirmedEventsOutput
   events: [UnconfirmedEvent]!
 }
 
+"""@hide"""
 input AddUserAchievementInput
   @join__type(graph: USERS)
 {
@@ -194,7 +201,9 @@ input AddUserAchievementInput
   quantity: Int!
 }
 
-"""The recurrence of the webhook. Can be `INDEFINITE` or `ONCE`."""
+"""
+The recurrence of the webhook. Can be `INDEFINITE` or `ONCE`. @category: webhooks
+"""
 enum AlertRecurrence
   @join__type(graph: META)
 {
@@ -225,6 +234,7 @@ type ApiToken
   remaining: String
 }
 
+"""@hide"""
 type AptosNetworkConfig implements NetworkConfigBase
   @join__implements(graph: META, interface: "NetworkConfigBase")
   @join__type(graph: META)
@@ -251,7 +261,7 @@ type AptosNetworkConfig implements NetworkConfigBase
   rpcs: [AptosRpcConfig!]!
 }
 
-"""docs: hide"""
+"""@hide"""
 type AptosRpcConfig
   @join__type(graph: META)
 {
@@ -259,7 +269,7 @@ type AptosRpcConfig
   apiKey: String
 }
 
-"""docs: hide"""
+"""@hide"""
 input AptosRpcConfigInput
   @join__type(graph: META)
 {
@@ -267,7 +277,7 @@ input AptosRpcConfigInput
   apiKey: String
 }
 
-"""docs: hide"""
+"""@hide"""
 type AuthenticationResponse
   @join__type(graph: USERS)
 {
@@ -279,7 +289,7 @@ type AuthenticationResponse
   NewDeviceMetadata: NewDeviceMetadataType
 }
 
-"""docs: hide"""
+"""@hide"""
 input BackfillHoldersInput
   @join__type(graph: TOKENS)
 {
@@ -287,7 +297,7 @@ input BackfillHoldersInput
   networkId: Int!
 }
 
-"""docs: hide"""
+"""@hide"""
 type BackfillHoldersResponse
   @join__type(graph: TOKENS)
 {
@@ -296,7 +306,7 @@ type BackfillHoldersResponse
   status: BackfillHoldersStatus!
 }
 
-"""docs: hide"""
+"""@hide"""
 enum BackfillHoldersStatus
   @join__type(graph: TOKENS)
 {
@@ -305,7 +315,7 @@ enum BackfillHoldersStatus
   ERROR @join__enumValue(graph: TOKENS)
 }
 
-"""docs: hide"""
+"""@hide"""
 input BackfillWalletInput
   @join__type(graph: TOKENS)
 {
@@ -313,14 +323,14 @@ input BackfillWalletInput
   networkId: Int!
 }
 
-"""docs: hide"""
+"""@hide"""
 type BackfillWalletResponse
   @join__type(graph: TOKENS)
 {
   balances: [Balance!]!
 }
 
-"""Wallet balance of a token."""
+"""Wallet balance of a token. @category: balances"""
 type Balance
   @join__type(graph: TOKENS)
 {
@@ -360,7 +370,7 @@ type Balance
   token: EnhancedToken
 }
 
-"""docs: hide"""
+"""@hide"""
 input BalanceInput
   @join__type(graph: TOKENS)
 {
@@ -374,6 +384,7 @@ input BalanceInput
   balance: String!
 }
 
+"""@category: balances"""
 input BalancesInput
   @join__type(graph: TOKENS)
 {
@@ -413,6 +424,7 @@ input BalancesInput
   filterToken: String @deprecated(reason: "Use tokens list instead")
 }
 
+"""@category: balances"""
 type BalancesResponse
   @join__type(graph: TOKENS)
 {
@@ -423,7 +435,7 @@ type BalancesResponse
   cursor: String
 }
 
-"""docs: hide"""
+"""@hide"""
 type BanDetails
   @join__type(graph: USERS)
 {
@@ -432,7 +444,7 @@ type BanDetails
   bannedReason: String
 }
 
-"""docs: hide"""
+"""@hide"""
 input BanUserInput
   @join__type(graph: USERS)
 {
@@ -440,7 +452,7 @@ input BanUserInput
   bannedReason: String
 }
 
-"""Bar chart data to track price changes over time."""
+"""Bar chart data to track price changes over time. @category: pairs"""
 type BarsResponse
   @join__type(graph: TOKENS)
 {
@@ -504,7 +516,7 @@ type BarsResponse
   pair: Pair!
 }
 
-"""docs: hide"""
+"""@hide"""
 type BetaUser
   @join__type(graph: USERS)
 {
@@ -513,7 +525,7 @@ type BetaUser
   roles: [String!]
 }
 
-"""docs: hide"""
+"""@hide"""
 type BetaUsersResponse
   @join__type(graph: USERS)
 {
@@ -522,7 +534,7 @@ type BetaUsersResponse
 }
 
 """
-The mathematical formula that defines how the prices of NFTs change after each buy or sell within a pool.
+The mathematical formula that defines how the prices of NFTs change after each buy or sell within a pool. @category: nfts
 """
 enum BondingCurveType
   @join__type(graph: NFTS)
@@ -533,7 +545,7 @@ enum BondingCurveType
   GDA @join__enumValue(graph: NFTS)
 }
 
-"""docs: hide"""
+"""@hide"""
 type BridgeQuote
   @join__type(graph: USERS)
 {
@@ -542,7 +554,7 @@ type BridgeQuote
   route: Route!
 }
 
-"""docs: hide"""
+"""@hide"""
 type BridgeQuoteParams
   @join__type(graph: USERS)
 {
@@ -556,7 +568,7 @@ type BridgeQuoteParams
   slippage: Float
 }
 
-"""docs: hide"""
+"""@hide"""
 type BridgeRequestStatus
   @join__type(graph: USERS)
 {
@@ -565,7 +577,7 @@ type BridgeRequestStatus
   axelarTransactionUrl: String
 }
 
-"""Event data for a token burn event."""
+"""Event data for a token burn event. @category: events"""
 type BurnEventData
   @join__type(graph: TOKENS)
 {
@@ -599,7 +611,7 @@ type BurnEventData
   type: EventType!
 }
 
-"""docs: hide"""
+"""@hide"""
 type ChartDrawingsRecord
   @join__type(graph: USERS)
 {
@@ -610,7 +622,7 @@ type ChartDrawingsRecord
   timestamp: Int
 }
 
-"""Input options for the chart image."""
+"""Input options for the chart image. @category: pairs"""
 input ChartImageOptions
   @join__type(graph: TOKENS)
 {
@@ -626,7 +638,7 @@ input ChartImageOptions
   height: Int
 }
 
-"""Input type of `chartUrls`."""
+"""Input type of `chartUrls`. @category: pairs"""
 input ChartInput
   @join__type(graph: TOKENS)
 {
@@ -634,7 +646,7 @@ input ChartInput
   pair: PairChartInput
 }
 
-"""docs: hide"""
+"""@hide"""
 type ChartLayout
   @join__type(graph: USERS)
 {
@@ -646,7 +658,7 @@ type ChartLayout
   resolution: String!
 }
 
-"""docs: hide"""
+"""@hide"""
 input ChartLayoutInput
   @join__type(graph: USERS)
 {
@@ -656,7 +668,7 @@ input ChartLayoutInput
   content: String!
 }
 
-"""The color theme of the chart."""
+"""The color theme of the chart. @category: pairs"""
 enum ChartTheme
   @join__type(graph: TOKENS)
 {
@@ -672,7 +684,7 @@ type ChartUrl
   url: String!
 }
 
-"""The response type for a chart url query."""
+"""The response type for a chart url query. @category: pairs"""
 type ChartUrlsResponse
   @join__type(graph: TOKENS)
 {
@@ -680,7 +692,7 @@ type ChartUrlsResponse
   pair: ChartUrl!
 }
 
-"""docs: hide"""
+"""@hide"""
 input CheckTradeableInput
   @join__type(graph: USERS)
 {
@@ -691,7 +703,7 @@ input CheckTradeableInput
   poolAddress: String
 }
 
-"""docs: hide"""
+"""@hide"""
 type CheckTradeableResponse
   @join__type(graph: USERS)
 {
@@ -699,7 +711,7 @@ type CheckTradeableResponse
   reason: String
 }
 
-"""Community gathered proposals for an asset."""
+"""Community gathered proposals for an asset. @category: proposal"""
 type CommunityNote
   @join__type(graph: USERS)
 {
@@ -740,7 +752,7 @@ type CommunityNote
   sortKey: String!
 }
 
-"""Filters for community notes."""
+"""Filters for community notes. @category: proposal"""
 input CommunityNotesFilter
   @join__type(graph: USERS)
 {
@@ -755,7 +767,7 @@ input CommunityNotesFilter
   proposalType: CommunityNoteType
 }
 
-"""Input type of `getCommunityNotes`."""
+"""Input type of `getCommunityNotes`. @category: proposal"""
 input CommunityNotesInput
   @join__type(graph: USERS)
 {
@@ -769,7 +781,7 @@ input CommunityNotesInput
   cursor: String
 }
 
-"""Community notes data"""
+"""Community notes data. @category: proposal"""
 type CommunityNotesResponse
   @join__type(graph: USERS)
 {
@@ -783,7 +795,7 @@ type CommunityNotesResponse
   cursor: String
 }
 
-"""Type of the community gathered note."""
+"""Type of the community gathered note. @category: proposal"""
 enum CommunityNoteType
   @join__type(graph: USERS)
 {
@@ -837,7 +849,7 @@ input ComparisonOperatorInput
   eq: String
 }
 
-"""docs: hide"""
+"""@hide"""
 type ConstantPriceConfig
   @join__type(graph: META)
 {
@@ -883,7 +895,7 @@ enum ContractLabelType
   Verified @join__enumValue(graph: NFTS) @join__enumValue(graph: TOKENS)
 }
 
-"""docs: hide"""
+"""@hide"""
 type ContractProposalStats
   @join__type(graph: USERS)
 {
@@ -897,7 +909,7 @@ type ContractProposalStats
   updatedAt: Int
 }
 
-"""docs: hide"""
+"""@hide"""
 enum ContractProposalStatsSortColumn
   @join__type(graph: USERS)
 {
@@ -906,7 +918,7 @@ enum ContractProposalStatsSortColumn
   numRejected @join__enumValue(graph: USERS)
 }
 
-"""docs: hide"""
+"""@hide"""
 enum ContractProposalStatus
   @join__type(graph: USERS)
 {
@@ -916,7 +928,7 @@ enum ContractProposalStatus
   REVERTED @join__enumValue(graph: USERS)
 }
 
-"""docs: hide"""
+"""@hide"""
 enum ContractProposalType
   @join__type(graph: USERS)
 {
@@ -925,6 +937,7 @@ enum ContractProposalType
   LOGO @join__enumValue(graph: USERS)
 }
 
+"""Type of the contract. @category: proposal"""
 enum ContractType
   @join__type(graph: USERS)
 {
@@ -953,14 +966,14 @@ input CreateApiTokensInput
   expiresIn: Int
 }
 
-"""docs: hide"""
+"""@hide"""
 input CreateAptosNetworkConfigInput
   @join__type(graph: META)
 {
   rpcs: [AptosRpcConfigInput!]!
 }
 
-"""docs: hide"""
+"""@hide"""
 input CreateConstantPriceConfigInput
   @join__type(graph: META)
 {
@@ -981,7 +994,7 @@ input CreateDecodingInput
   endBlock: Int
 }
 
-"""docs: hide"""
+"""@hide"""
 input CreateEvmNetworkConfigInput
   @join__type(graph: META)
 {
@@ -990,7 +1003,7 @@ input CreateEvmNetworkConfigInput
   evmConfig: EvmConfigInput!
 }
 
-"""docs: hide"""
+"""@hide"""
 input CreateExternalPriceConfigInput
   @join__type(graph: META)
 {
@@ -998,7 +1011,7 @@ input CreateExternalPriceConfigInput
   referenceToken: ExternalPrices!
 }
 
-"""docs: hide"""
+"""@hide"""
 input CreateLimitOrderInput
   @join__type(graph: USERS)
 {
@@ -1031,7 +1044,7 @@ input CreateLimitOrderInput
   exitStrategyId: Int
 }
 
-"""docs: hide"""
+"""@hide"""
 input CreateMappedPriceConfigInput
   @join__type(graph: META)
 {
@@ -1040,7 +1053,7 @@ input CreateMappedPriceConfigInput
   referenceNetworkId: Int!
 }
 
-"""Input for creating a market cap webhook."""
+"""Input for creating a market cap webhook. @category: webhooks @tag: new"""
 input CreateMarketCapWebhookArgs
   @join__type(graph: META)
 {
@@ -1092,7 +1105,7 @@ input CreateMarketCapWebhookArgs
   deduplicate: Boolean
 }
 
-"""Input for creating market cap webhooks."""
+"""Input for creating market cap webhooks. @category: webhooks @tag: new"""
 input CreateMarketCapWebhooksInput
   @join__type(graph: META)
 {
@@ -1100,7 +1113,7 @@ input CreateMarketCapWebhooksInput
   webhooks: [CreateMarketCapWebhookArgs!]!
 }
 
-"""docs: hide"""
+"""@hide"""
 input CreateMarketOrderInput
   @join__type(graph: USERS)
 {
@@ -1124,7 +1137,7 @@ input CreateMarketOrderInput
   exitStrategyId: Int
 }
 
-"""docs: hide"""
+"""@hide"""
 input CreateNetworkConfigInput
   @join__type(graph: META)
 {
@@ -1154,7 +1167,7 @@ input CreateNetworkConfigInput
   pricing: [CreatePriceConfigInput]
 }
 
-"""Input for creating an NFT event webhook."""
+"""Input for creating an NFT event webhook. @category: webhooks"""
 input CreateNftEventWebhookArgs
   @join__type(graph: META)
 {
@@ -1206,7 +1219,7 @@ input CreateNftEventWebhookArgs
   deduplicate: Boolean
 }
 
-"""Input for creating NFT event webhooks."""
+"""Input for creating NFT event webhooks. @category: webhooks"""
 input CreateNftEventWebhooksInput
   @join__type(graph: META)
 {
@@ -1214,7 +1227,7 @@ input CreateNftEventWebhooksInput
   webhooks: [CreateNftEventWebhookArgs!]!
 }
 
-"""docs: hide"""
+"""@hide"""
 input CreateNotableWalletInput
   @join__type(graph: USERS)
 {
@@ -1223,7 +1236,7 @@ input CreateNotableWalletInput
   notes: String
 }
 
-"""docs: hide"""
+"""@hide"""
 input CreatePriceConfigInput
   @join__type(graph: META)
 {
@@ -1232,7 +1245,7 @@ input CreatePriceConfigInput
   externalPriceInput: CreateExternalPriceConfigInput
 }
 
-"""Input for creating a price webhook."""
+"""Input for creating a price webhook. @category: webhooks"""
 input CreatePriceWebhookArgs
   @join__type(graph: META)
 {
@@ -1284,7 +1297,7 @@ input CreatePriceWebhookArgs
   deduplicate: Boolean
 }
 
-"""Input for creating price webhooks."""
+"""Input for creating price webhooks. @category: webhooks"""
 input CreatePriceWebhooksInput
   @join__type(graph: META)
 {
@@ -1292,14 +1305,14 @@ input CreatePriceWebhooksInput
   webhooks: [CreatePriceWebhookArgs!]!
 }
 
-"""docs: hide"""
+"""@hide"""
 type CreateProposalResponse
   @join__type(graph: USERS)
 {
   status: ContractProposalStatus
 }
 
-"""docs: hide"""
+"""@hide"""
 input CreateProposalsInput
   @join__type(graph: USERS)
 {
@@ -1310,7 +1323,7 @@ input CreateProposalsInput
   proposalType: ContractProposalType!
 }
 
-"""Input for creating a Raw Transaction webhook."""
+"""Input for creating a Raw Transaction webhook. @category: webhooks"""
 input CreateRawTransactionWebhookArgs
   @join__type(graph: META)
 {
@@ -1362,7 +1375,7 @@ input CreateRawTransactionWebhookArgs
   deduplicate: Boolean
 }
 
-"""Input for creating Raw Transaction webhooks."""
+"""Input for creating Raw Transaction webhooks. @category: webhooks"""
 input CreateRawTransactionWebhooksInput
   @join__type(graph: META)
 {
@@ -1370,7 +1383,7 @@ input CreateRawTransactionWebhooksInput
   webhooks: [CreateRawTransactionWebhookArgs!]!
 }
 
-"""docs: hide"""
+"""@hide"""
 input CreateSolanaNetworkConfigInput
   @join__type(graph: META)
 {
@@ -1379,14 +1392,14 @@ input CreateSolanaNetworkConfigInput
   geysers: [SolanaGeyserConfigInput!]!
 }
 
-"""docs: hide"""
+"""@hide"""
 input CreateStarknetNetworkConfigInput
   @join__type(graph: META)
 {
   rpcs: [StarknetRpcConfigInput!]!
 }
 
-"""docs: hide"""
+"""@hide"""
 input CreateStrategyInput
   @join__type(graph: USERS)
 {
@@ -1395,7 +1408,7 @@ input CreateStrategyInput
   orderParams: [CreateStrategyOrderParamInput!]!
 }
 
-"""docs: hide"""
+"""@hide"""
 input CreateStrategyOrderParamInput
   @join__type(graph: USERS)
 {
@@ -1404,14 +1417,14 @@ input CreateStrategyOrderParamInput
   amountRatio: Float!
 }
 
-"""docs: hide"""
+"""@hide"""
 input CreateSuiNetworkConfigInput
   @join__type(graph: META)
 {
   rpcs: [SuiRpcConfigInput!]!
 }
 
-"""Input for creating a token pair event webhook."""
+"""Input for creating a token pair event webhook. @category: webhooks"""
 input CreateTokenPairEventWebhookArgs
   @join__type(graph: META)
 {
@@ -1463,7 +1476,7 @@ input CreateTokenPairEventWebhookArgs
   deduplicate: Boolean
 }
 
-"""Input for creating token pair event webhooks."""
+"""Input for creating token pair event webhooks. @category: webhooks"""
 input CreateTokenPairEventWebhooksInput
   @join__type(graph: META)
 {
@@ -1471,7 +1484,7 @@ input CreateTokenPairEventWebhooksInput
   webhooks: [CreateTokenPairEventWebhookArgs!]!
 }
 
-"""docs: hide"""
+"""@hide"""
 input CreateTrackedWalletsInput
   @join__type(graph: META)
 {
@@ -1479,7 +1492,7 @@ input CreateTrackedWalletsInput
   wallets: [TrackedWalletInput!]!
 }
 
-"""docs: hide"""
+"""@hide"""
 input CreateUserContractListInput
   @join__type(graph: USERS)
 {
@@ -1488,7 +1501,7 @@ input CreateUserContractListInput
   public: Boolean
 }
 
-"""docs: hide"""
+"""@hide"""
 input CreateUserContractListItemInput
   @join__type(graph: USERS)
 {
@@ -1500,7 +1513,7 @@ input CreateUserContractListItemInput
   symbol: String!
 }
 
-"""docs: hide"""
+"""@hide"""
 input CreateWalletInput
   @join__type(graph: USERS)
 {
@@ -1509,7 +1522,7 @@ input CreateWalletInput
   networkType: NetworkType!
 }
 
-"""docs: hide"""
+"""@hide"""
 input CreateWalletSuborgInput
   @join__type(graph: USERS)
 {
@@ -1518,7 +1531,7 @@ input CreateWalletSuborgInput
   passkey: WalletPasskey!
 }
 
-"""docs: hide"""
+"""@hide"""
 type CreateWalletSuborgResponse
   @join__type(graph: USERS)
 {
@@ -1526,7 +1539,7 @@ type CreateWalletSuborgResponse
   wallets: [ScarabWallet!]!
 }
 
-"""Input for creating webhooks."""
+"""Input for creating webhooks. @category: webhooks"""
 input CreateWebhooksInput
   @join__type(graph: META)
 {
@@ -1546,7 +1559,7 @@ input CreateWebhooksInput
   marketCapWebhooksInput: CreateMarketCapWebhooksInput
 }
 
-"""Result returned by `createWebhooks`."""
+"""Result returned by `createWebhooks`. @category: webhooks"""
 type CreateWebhooksOutput
   @join__type(graph: META)
 {
@@ -1566,6 +1579,7 @@ type CreateWebhooksOutput
   marketCapWebhooks: [Webhook]!
 }
 
+"""@hide"""
 enum CreationContext
   @join__type(graph: USERS)
 {
@@ -1574,7 +1588,7 @@ enum CreationContext
   MOBILE @join__enumValue(graph: USERS)
 }
 
-"""Price data for a bar at a specific resolution."""
+"""Price data for a bar at a specific resolution. @category: pairs"""
 type CurrencyBarData
   @join__type(graph: TOKENS)
 {
@@ -1588,14 +1602,14 @@ type CurrencyBarData
   token: IndividualBarData!
 }
 
-"""docs: hide"""
+"""@hide"""
 type CustomNotification
   @join__type(graph: META)
 {
   message: String
 }
 
-"""docs: hide"""
+"""@hide"""
 type DailyPointBoostRecord
   @join__type(graph: USERS)
 {
@@ -1649,7 +1663,7 @@ type DecodingStatus
   decodingId: ID!
 }
 
-"""docs: hide"""
+"""@hide"""
 type DefinedUser
   @join__type(graph: USERS)
 {
@@ -1666,14 +1680,14 @@ type DefinedUser
   contractProposalStats: ContractProposalStats
 }
 
-"""docs: hide"""
+"""@hide"""
 type DefinedUserEmail
   @join__type(graph: USERS)
 {
   address: String!
 }
 
-"""docs: hide"""
+"""@hide"""
 input DeleteTrackedWalletsInput
   @join__type(graph: META)
 {
@@ -1681,21 +1695,21 @@ input DeleteTrackedWalletsInput
   walletAddresses: [String!]!
 }
 
-"""docs: hide"""
+"""@hide"""
 input DeleteTurnkeySignerKeyInput
   @join__type(graph: USERS)
 {
   request: SignedRequest!
 }
 
-"""docs: hide"""
+"""@hide"""
 input DeleteUserContractListInput
   @join__type(graph: USERS)
 {
   id: String!
 }
 
-"""docs: hide"""
+"""@hide"""
 input DeleteUserContractListItemInput
   @join__type(graph: USERS)
 {
@@ -1703,7 +1717,7 @@ input DeleteUserContractListItemInput
   sortKey: String!
 }
 
-"""docs: hide"""
+"""@hide"""
 type DeleteUserContractListItemResponse
   @join__type(graph: USERS)
 {
@@ -1711,14 +1725,14 @@ type DeleteUserContractListItemResponse
   sortKey: String!
 }
 
-"""docs: hide"""
+"""@hide"""
 type DeleteUserContractListResponse
   @join__type(graph: USERS)
 {
   id: String!
 }
 
-"""Input for deleting webhooks."""
+"""Input for deleting webhooks. @category: webhooks"""
 input DeleteWebhooksInput
   @join__type(graph: META)
 {
@@ -1726,7 +1740,7 @@ input DeleteWebhooksInput
   webhookIds: [String!]!
 }
 
-"""Result returned by `deleteWebhooks`."""
+"""Result returned by `deleteWebhooks`. @category: webhooks"""
 type DeleteWebhooksOutput
   @join__type(graph: META)
 {
@@ -1779,7 +1793,7 @@ type DetailedNftStatsBucketTimestamp
   end: Int!
 }
 
-"""The duration used to request detailed NFT stats."""
+"""The duration used to request detailed NFT stats. @category: nfts"""
 enum DetailedNftStatsDuration
   @join__type(graph: NFTS)
 {
@@ -1825,7 +1839,7 @@ type DetailedNftStatsStringMetrics
   buckets: [String]!
 }
 
-"""Detailed stats for a token within a pair."""
+"""Detailed stats for a token within a pair. @category: pairs"""
 type DetailedPairStats
   @join__type(graph: TOKENS)
 {
@@ -1876,7 +1890,9 @@ type DetailedPairStats
   pair: Pair
 }
 
-"""The start/end timestamp for a given bucket within the window."""
+"""
+The start/end timestamp for a given bucket within the window. @category: pairs
+"""
 type DetailedPairStatsBucketTimestamp
   @join__type(graph: TOKENS)
 {
@@ -1887,7 +1903,7 @@ type DetailedPairStatsBucketTimestamp
   end: Int!
 }
 
-"""The duration used to request detailed pair stats."""
+"""The duration used to request detailed pair stats. @category: pairs"""
 enum DetailedPairStatsDuration
   @join__type(graph: TOKENS)
 {
@@ -1901,7 +1917,7 @@ enum DetailedPairStatsDuration
   min5 @join__enumValue(graph: TOKENS)
 }
 
-"""Number metrics for detailed pair stats."""
+"""Number metrics for detailed pair stats. @category: pairs"""
 type DetailedPairStatsNumberMetrics
   @join__type(graph: TOKENS)
 {
@@ -1920,7 +1936,7 @@ type DetailedPairStatsNumberMetrics
   buckets: [Int]!
 }
 
-"""String metrics for detailed pair stats."""
+"""String metrics for detailed pair stats. @category: pairs"""
 type DetailedPairStatsStringMetrics
   @join__type(graph: TOKENS)
 {
@@ -1939,7 +1955,7 @@ type DetailedPairStatsStringMetrics
   buckets: [String]!
 }
 
-"""Detailed stats for a token within a pair."""
+"""Detailed stats for a token within a pair. @category: pairs"""
 type DetailedStats
   @join__type(graph: TOKENS)
 {
@@ -1974,7 +1990,9 @@ type DetailedStats
   queryTimestamp: Int @inaccessible
 }
 
-"""The start/end timestamp for a given bucket within the window."""
+"""
+The start/end timestamp for a given bucket within the window. @category: pairs
+"""
 type DetailedStatsBucketTimestamp
   @join__type(graph: TOKENS)
 {
@@ -1985,7 +2003,7 @@ type DetailedStatsBucketTimestamp
   end: Int!
 }
 
-"""Number metrics for detailed stats."""
+"""Number metrics for detailed stats. @category: pairs"""
 type DetailedStatsNumberMetrics
   @join__type(graph: TOKENS)
 {
@@ -2004,7 +2022,7 @@ type DetailedStatsNumberMetrics
   buckets: [Int]!
 }
 
-"""String metrics for detailed stats."""
+"""String metrics for detailed stats. @category: pairs"""
 type DetailedStatsStringMetrics
   @join__type(graph: TOKENS)
 {
@@ -2023,7 +2041,7 @@ type DetailedStatsStringMetrics
   buckets: [String]!
 }
 
-"""The window size used to request detailed stats."""
+"""The window size used to request detailed stats. @category: pairs"""
 enum DetailedStatsWindowSize
   @join__type(graph: TOKENS)
 {
@@ -2034,7 +2052,7 @@ enum DetailedStatsWindowSize
   min5 @join__enumValue(graph: TOKENS)
 }
 
-"""The detailed stats for a wallet."""
+"""The detailed stats for a wallet. @category: wallets"""
 type DetailedWalletStats
   @join__type(graph: TOKENS)
 {
@@ -2072,7 +2090,7 @@ type DetailedWalletStats
   statsYear1: WindowedWalletStats
 }
 
-"""The input for detailed wallet stats."""
+"""The input for detailed wallet stats. @category: wallets"""
 input DetailedWalletStatsInput
   @join__type(graph: TOKENS)
 {
@@ -2135,7 +2153,7 @@ type EnhancedNftContract
   labels: [ContractLabel] @join__field(graph: NFTS)
 }
 
-"""Metadata for a token."""
+"""Metadata for a token. @category: tokens"""
 type EnhancedToken
   @join__type(graph: TOKENS, key: "id")
   @join__type(graph: USERS, key: "id", resolvable: false)
@@ -2199,7 +2217,7 @@ type EnhancedToken
   """The token creator's wallet address."""
   creatorAddress: String @join__field(graph: TOKENS)
 
-  """docs: hide"""
+  """@hide"""
   creatorBalanceNBT: String @join__field(graph: TOKENS)
 
   """The block height the token was created at."""
@@ -2221,6 +2239,7 @@ type EnhancedToken
   launchpad: LaunchpadData @join__field(graph: TOKENS)
 }
 
+"""@hide"""
 enum Entitlement
   @join__type(graph: TOKENS)
 {
@@ -2230,7 +2249,7 @@ enum Entitlement
   WalletStats @join__enumValue(graph: TOKENS)
 }
 
-"""docs: hide"""
+"""@hide"""
 type EthBalance
   @join__type(graph: TOKENS)
 {
@@ -2243,7 +2262,7 @@ type EthBalance
   combinedBalanceShifted: String!
 }
 
-"""docs: hide"""
+"""@hide"""
 input EthBalancesInput
   @join__type(graph: TOKENS)
 {
@@ -2251,14 +2270,14 @@ input EthBalancesInput
   networkId: Int
 }
 
-"""docs: hide"""
+"""@hide"""
 type EthBalancesResponse
   @join__type(graph: TOKENS)
 {
   items: [EthBalance!]!
 }
 
-"""A token transaction."""
+"""A token transaction. @category: events"""
 type Event implements Trackable
   @join__implements(graph: TOKENS, interface: "Trackable")
   @join__type(graph: TOKENS, key: "id blockNumber transactionIndex logIndex")
@@ -2365,7 +2384,7 @@ type Event implements Trackable
   walletLabels: [String!]
 }
 
-"""Response returned by `getTokenEvents`."""
+"""Response returned by `getTokenEvents`. @category: events"""
 type EventConnection
   @join__type(graph: TOKENS)
 {
@@ -2376,7 +2395,7 @@ type EventConnection
   cursor: String
 }
 
-"""Event-specific data for a token transaction."""
+"""Event-specific data for a token transaction. @category: events"""
 union EventData
   @join__type(graph: TOKENS)
   @join__unionMember(graph: TOKENS, member: "BurnEventData")
@@ -2386,7 +2405,7 @@ union EventData
  = BurnEventData | MintEventData | SwapEventData | PoolBalanceChangedEventData
 
 """
-A more specific breakdown of `EventType`. Splits `Swap` into `Buy` and `Sell`.
+A more specific breakdown of `EventType`. Splits `Swap` into `Buy` and `Sell`. @category: events
 """
 enum EventDisplayType
   @join__type(graph: TOKENS)
@@ -2400,7 +2419,7 @@ enum EventDisplayType
   CollectProtocol @join__enumValue(graph: TOKENS)
 }
 
-"""Metadata for an event label."""
+"""Metadata for an event label. @category: events"""
 type EventLabel
   @join__type(graph: TOKENS)
 {
@@ -2429,7 +2448,7 @@ type EventLabel
   transactionHash: String!
 }
 
-"""Response returned by `getEventLabels`."""
+"""Response returned by `getEventLabels`. @category: events"""
 type EventLabelConnection
   @join__type(graph: TOKENS)
 {
@@ -2440,14 +2459,14 @@ type EventLabelConnection
   cursor: String
 }
 
-"""Specific data for an event label."""
+"""Specific data for an event label. @category: events"""
 union EventLabelData
   @join__type(graph: TOKENS)
   @join__unionMember(graph: TOKENS, member: "FrontRunLabelData")
   @join__unionMember(graph: TOKENS, member: "SandwichedLabelData")
  = FrontRunLabelData | SandwichedLabelData
 
-"""The event label type."""
+"""The event label type. @category: events"""
 enum EventLabelType
   @join__type(graph: TOKENS)
 {
@@ -2467,7 +2486,7 @@ input EventQueryTimestampInput
   to: Int!
 }
 
-"""Input type of `EventsQuery`."""
+"""Input type of `EventsQuery`. @category: events"""
 input EventsQueryInput
   @join__type(graph: TOKENS)
 {
@@ -2519,7 +2538,7 @@ input EventsQueryInput
   symbolType: SymbolType
 }
 
-"""The event type for a token transaction."""
+"""The event type for a token transaction. @category: events"""
 enum EventType
   @join__type(graph: TOKENS)
 {
@@ -2532,7 +2551,7 @@ enum EventType
   PoolBalanceChanged @join__enumValue(graph: TOKENS)
 }
 
-"""docs: hide"""
+"""@hide"""
 type EvmConfig
   @join__type(graph: META)
 {
@@ -2541,7 +2560,7 @@ type EvmConfig
   finalityDelay: Int!
 }
 
-"""docs: hide"""
+"""@hide"""
 input EvmConfigInput
   @join__type(graph: META)
 {
@@ -2550,7 +2569,7 @@ input EvmConfigInput
   finalityDelay: Int!
 }
 
-"""docs: hide"""
+"""@hide"""
 type EvmConstants
   @join__type(graph: META)
 {
@@ -2561,7 +2580,7 @@ type EvmConstants
   multicallAddress: String!
 }
 
-"""docs: hide"""
+"""@hide"""
 input EvmConstantsInput
   @join__type(graph: META)
 {
@@ -2572,7 +2591,7 @@ input EvmConstantsInput
   multicallAddress: String!
 }
 
-"""docs: hide"""
+"""@hide"""
 type EvmNetworkConfig implements NetworkConfigBase
   @join__implements(graph: META, interface: "NetworkConfigBase")
   @join__type(graph: META)
@@ -2601,7 +2620,7 @@ type EvmNetworkConfig implements NetworkConfigBase
   pricing: [NetworkPriceConfig!]!
 }
 
-"""docs: hide"""
+"""@hide"""
 type EvmRpcConfig
   @join__type(graph: META)
 {
@@ -2612,7 +2631,7 @@ type EvmRpcConfig
   jwt: String
 }
 
-"""docs: hide"""
+"""@hide"""
 input EvmRpcConfigInput
   @join__type(graph: META)
 {
@@ -2623,7 +2642,7 @@ input EvmRpcConfigInput
   jwt: String
 }
 
-"""Metadata for a decentralized exchange."""
+"""Metadata for a decentralized exchange. @category: tokens"""
 type Exchange
   @join__type(graph: TOKENS, key: "id")
   @join__type(graph: USERS, key: "id")
@@ -2652,11 +2671,11 @@ type Exchange
   """The URL for the exchange."""
   tradeUrl: String @join__field(graph: TOKENS)
 
-  """docs: hide"""
+  """@hide"""
   enabled: Boolean @join__field(graph: TOKENS)
 }
 
-"""Response returned by `filterExchanges`."""
+"""Response returned by `filterExchanges`. @category: tokens"""
 type ExchangeFilterConnection
   @join__type(graph: TOKENS)
 {
@@ -2670,7 +2689,7 @@ type ExchangeFilterConnection
   offset: Int
 }
 
-"""An exchange matching a set of filter parameters."""
+"""An exchange matching a set of filter parameters. @category: tokens"""
 type ExchangeFilterResult
   @join__type(graph: TOKENS)
 {
@@ -2720,7 +2739,7 @@ type ExchangeFilterResult
   monthlyActiveUsers: Int
 }
 
-"""Input type of `ExchangeFilters`."""
+"""Input type of `ExchangeFilters`. @category: tokens"""
 input ExchangeFilters
   @join__type(graph: TOKENS)
 {
@@ -2773,7 +2792,7 @@ input ExchangeFilters
   network: [Int]
 }
 
-"""docs: hide"""
+"""@hide"""
 type ExchangeIconUpdateUrlResponse
   @join__type(graph: USERS)
 {
@@ -2781,7 +2800,7 @@ type ExchangeIconUpdateUrlResponse
   viewUrl: String
 }
 
-"""Input type of `ExchangeRanking`."""
+"""Input type of `ExchangeRanking`. @category: tokens"""
 input ExchangeRanking
   @join__type(graph: TOKENS)
 {
@@ -2792,7 +2811,7 @@ input ExchangeRanking
   direction: RankingDirection
 }
 
-"""The attribute used to rank exchanges."""
+"""The attribute used to rank exchanges. @category: tokens"""
 enum ExchangeRankingAttribute
   @join__type(graph: TOKENS)
 {
@@ -2812,7 +2831,7 @@ enum ExchangeRankingAttribute
   monthlyActiveUsers @join__enumValue(graph: TOKENS)
 }
 
-"""docs: hide"""
+"""@hide"""
 type ExplorerConfig
   @join__type(graph: META)
 {
@@ -2822,7 +2841,7 @@ type ExplorerConfig
   url: String!
 }
 
-"""docs: hide"""
+"""@hide"""
 input ExplorerConfigInput
   @join__type(graph: META)
 {
@@ -2832,7 +2851,7 @@ input ExplorerConfigInput
   url: String!
 }
 
-"""Third party token data sourced from off chain."""
+"""Third party token data sourced from off chain. @category: tokens"""
 type ExplorerTokenData
   @join__type(graph: TOKENS)
 {
@@ -2855,7 +2874,7 @@ type ExplorerTokenData
   tokenType: String
 }
 
-"""docs: hide"""
+"""@hide"""
 type ExternalPriceConfig
   @join__type(graph: META)
 {
@@ -2864,7 +2883,7 @@ type ExternalPriceConfig
   referenceToken: ExternalPrices!
 }
 
-"""docs: hide"""
+"""@hide"""
 enum ExternalPrices
   @join__type(graph: META)
 {
@@ -2879,6 +2898,7 @@ enum ExternalPrices
   DOGE @join__enumValue(graph: META)
 }
 
+"""@hide"""
 type Feature
   @join__type(graph: META)
 {
@@ -2903,7 +2923,7 @@ input FillsourceStatsFilter
   change: NumberFilter
 }
 
-"""Metadata for an exchange."""
+"""Metadata for an exchange. @category: tokens"""
 type FilterExchange
   @join__type(graph: TOKENS)
 {
@@ -2929,7 +2949,7 @@ type FilterExchange
   tradeUrl: String
 }
 
-"""The input for filtering wallets for a network."""
+"""The input for filtering wallets for a network. @category: wallets"""
 input FilterNetworkWalletsInput
   @join__type(graph: TOKENS)
 {
@@ -2960,7 +2980,7 @@ input FilterNetworkWalletsInput
   offset: Int
 }
 
-"""The input for filtering wallets for a token."""
+"""The input for filtering wallets for a token. @category: wallets"""
 input FilterTokenWalletsInput
   @join__type(graph: TOKENS)
 {
@@ -3001,7 +3021,7 @@ input FilterTokenWalletsInput
   offset: Int
 }
 
-"""The input for filtering wallets."""
+"""The input for filtering wallets. @category: wallets"""
 input FilterWalletsInput
   @join__type(graph: TOKENS)
 {
@@ -3029,7 +3049,7 @@ input FilterWalletsInput
   offset: Int
 }
 
-"""Metadata for a front-run label."""
+"""Metadata for a front-run label. @category: events"""
 type FrontRunLabelData
   @join__type(graph: TOKENS)
 {
@@ -3043,6 +3063,7 @@ type FrontRunLabelData
   token1DrainedAmount: String!
 }
 
+"""@hide"""
 type GasEstimate
   @join__type(graph: USERS)
 {
@@ -3053,6 +3074,7 @@ type GasEstimate
   totalFee: String
 }
 
+"""@hide"""
 type GasFee
   @join__type(graph: USERS)
 {
@@ -3060,6 +3082,7 @@ type GasFee
   confirmationTime: Float!
 }
 
+"""@hide"""
 type GasFees
   @join__type(graph: USERS)
 {
@@ -3068,6 +3091,7 @@ type GasFees
   low: GasFee
 }
 
+"""@hide"""
 enum GasPrice
   @join__type(graph: USERS)
 {
@@ -3076,7 +3100,7 @@ enum GasPrice
   HIGH @join__enumValue(graph: USERS)
 }
 
-"""docs: hide"""
+"""@hide"""
 input GetBridgeQuoteInput
   @join__type(graph: USERS)
 {
@@ -3087,7 +3111,7 @@ input GetBridgeQuoteInput
   amount: String!
 }
 
-"""docs: hide"""
+"""@hide"""
 input GetBridgeRequestStatusInput
   @join__type(graph: USERS)
 {
@@ -3095,7 +3119,7 @@ input GetBridgeRequestStatusInput
   requestId: String
 }
 
-"""Input type of `getDetailedPairsStats`."""
+"""Input type of `getDetailedPairsStats`. @category: pairs"""
 input GetDetailedPairsStatsInput
   @join__type(graph: TOKENS)
 {
@@ -3125,6 +3149,7 @@ input GetDetailedPairsStatsInput
   statsType: TokenPairStatisticsType
 }
 
+"""@hide"""
 input GetGasEstimateInput
   @join__type(graph: USERS)
 {
@@ -3143,7 +3168,7 @@ input GetGasEstimateInput
   slippage: Float
 }
 
-"""Response returned by `getNetworkStats`."""
+"""Response returned by `getNetworkStats`. @category: networks"""
 type GetNetworkStatsResponse
   @join__type(graph: TOKENS)
 {
@@ -3196,7 +3221,9 @@ type GetNetworkStatsResponse
   transactions5m: Int!
 }
 
-"""Response returned by `getNftPoolCollectionsByExchange`."""
+"""
+Response returned by `getNftPoolCollectionsByExchange`. @category: nfts
+"""
 type GetNftPoolCollectionsResponse
   @join__type(graph: NFTS)
 {
@@ -3208,7 +3235,7 @@ type GetNftPoolCollectionsResponse
 }
 
 """
-Response returned by `getNftPoolsByCollectionAndExchange` and `getNftPoolsByOwner`.
+Response returned by `getNftPoolsByCollectionAndExchange` and `getNftPoolsByOwner`. @category: nfts
 """
 type GetNftPoolsResponse
   @join__type(graph: NFTS)
@@ -3220,7 +3247,7 @@ type GetNftPoolsResponse
   cursor: String
 }
 
-"""docs: hide"""
+"""@hide"""
 type GetNftRankingsOutput
   @join__type(graph: NFTS)
 {
@@ -3229,7 +3256,7 @@ type GetNftRankingsOutput
   limit: Int!
 }
 
-"""docs: hide"""
+"""@hide"""
 input GetOrdersInput
   @join__type(graph: USERS)
 {
@@ -3238,7 +3265,7 @@ input GetOrdersInput
   cursor: String
 }
 
-"""docs: hide"""
+"""@hide"""
 type GetPointsLeaderboardResponse
   @join__type(graph: USERS)
 {
@@ -3247,7 +3274,7 @@ type GetPointsLeaderboardResponse
   pointsSeason: PointsSeason!
 }
 
-"""Input type of `getTokenPrices`."""
+"""Input type of `getTokenPrices`. @category: tokens"""
 input GetPriceInput
   @join__type(graph: TOKENS)
 {
@@ -3269,6 +3296,7 @@ input GetPriceInput
   maxDeviations: Float @deprecated(reason: "This isn't taken into account anymore.")
 }
 
+"""@hide"""
 input GetQuoteInput
   @join__type(graph: USERS)
 {
@@ -3284,6 +3312,7 @@ input GetQuoteInput
   slippage: Float
 }
 
+"""Response returned by `simulateTokenContract`. @category: simulations"""
 type GetSimulateTokenContractResultsConnection
   @join__type(graph: TOKENS)
 {
@@ -3291,7 +3320,7 @@ type GetSimulateTokenContractResultsConnection
   cursor: String
 }
 
-"""Input type of `getTokensInfo`."""
+"""Input type of `getTokensInfo`. @category: tokens"""
 input GetTokensInfoInput
   @join__type(graph: TOKENS)
 {
@@ -3302,7 +3331,7 @@ input GetTokensInfoInput
   networkId: Int!
 }
 
-"""docs: hide"""
+"""@hide"""
 type GetUserAchievementsResponse
   @join__type(graph: USERS)
 {
@@ -3312,7 +3341,7 @@ type GetUserAchievementsResponse
   quests: [UserQuest!]!
 }
 
-"""docs: hide"""
+"""@hide"""
 input GetUserContractListItemInput
   @join__type(graph: USERS)
 {
@@ -3320,7 +3349,7 @@ input GetUserContractListItemInput
   listId: String
 }
 
-"""docs: hide"""
+"""@hide"""
 input GetUserContractListItemsInput
   @join__type(graph: USERS)
 {
@@ -3330,7 +3359,7 @@ input GetUserContractListItemsInput
   rankings: [TokenRanking]
 }
 
-"""docs: hide"""
+"""@hide"""
 input GetUserContractListsInput
   @join__type(graph: USERS)
 {
@@ -3338,7 +3367,7 @@ input GetUserContractListsInput
   limit: Int @deprecated(reason: "hardcoded to 30")
 }
 
-"""docs: hide"""
+"""@hide"""
 type GetUserPointEventsResponse
   @join__type(graph: USERS)
 {
@@ -3349,7 +3378,7 @@ type GetUserPointEventsResponse
   cursor: String
 }
 
-"""docs: hide"""
+"""@hide"""
 type GetUserPointsResponse
   @join__type(graph: USERS)
 {
@@ -3363,7 +3392,7 @@ type GetUserPointsResponse
   tradeStats: UserPointsLeaderboardStats!
 }
 
-"""docs: hide"""
+"""@hide"""
 type GetUserPointsResponsePointsData
   @join__type(graph: USERS)
 {
@@ -3375,7 +3404,7 @@ type GetUserPointsResponsePointsData
   VOLUME_USD: String
 }
 
-"""docs: hide"""
+"""@hide"""
 type GetUserPointsResponseRankData
   @join__type(graph: USERS)
 {
@@ -3387,7 +3416,7 @@ type GetUserPointsResponseRankData
   VOLUME_USD: Float
 }
 
-"""docs: hide"""
+"""@hide"""
 type GetUserPointsResponseV2
   @join__type(graph: USERS)
 {
@@ -3401,7 +3430,7 @@ type GetUserPointsResponseV2
   tradeStats: UserPointsLeaderboardStats!
 }
 
-"""docs: hide"""
+"""@hide"""
 type GetUserReferralEventsResponse
   @join__type(graph: USERS)
 {
@@ -3410,7 +3439,7 @@ type GetUserReferralEventsResponse
   cursor: String
 }
 
-"""Response returned by `getWebhooks`."""
+"""Response returned by `getWebhooks`. @category: webhooks"""
 type GetWebhooksResponse
   @join__type(graph: META)
 {
@@ -3421,7 +3450,7 @@ type GetWebhooksResponse
   cursor: String
 }
 
-"""The pool variant."""
+"""The pool variant. @category: nfts"""
 enum GraphQlNftPoolVariant
   @join__type(graph: NFTS)
 {
@@ -3429,6 +3458,7 @@ enum GraphQlNftPoolVariant
   NATIVE @join__enumValue(graph: NFTS)
 }
 
+"""@category: balances"""
 input HoldersInput
   @join__type(graph: TOKENS)
 {
@@ -3442,6 +3472,7 @@ input HoldersInput
   sort: HoldersInputSort
 }
 
+"""@category: balances"""
 input HoldersInputSort
   @join__type(graph: TOKENS)
 {
@@ -3452,7 +3483,7 @@ input HoldersInputSort
   direction: RankingDirection
 }
 
-"""Response returned by `holders`."""
+"""Response returned by `holders`. @category: balances"""
 type HoldersResponse
   @join__type(graph: TOKENS)
 {
@@ -3474,6 +3505,7 @@ type HoldersResponse
   top10HoldersPercent: Float
 }
 
+"""@hide"""
 enum HoldersSortAttribute
   @join__type(graph: TOKENS)
 {
@@ -3481,6 +3513,7 @@ enum HoldersSortAttribute
   DATE @join__enumValue(graph: TOKENS)
 }
 
+"""@category: balances"""
 enum HoldersStatus
   @join__type(graph: NFTS)
   @join__type(graph: TOKENS)
@@ -3489,7 +3522,7 @@ enum HoldersStatus
   DISABLED @join__enumValue(graph: NFTS) @join__enumValue(graph: TOKENS)
 }
 
-"""Response returned by `onHoldersUpdated`."""
+"""Response returned by `onHoldersUpdated`. @category: balances"""
 type HoldersUpdate
   @join__type(graph: TOKENS)
 {
@@ -3509,27 +3542,7 @@ type HoldersUpdate
   balances: [Balance!]!
 }
 
-"""docs: hide"""
-type HydrationResponse
-  @join__type(graph: TOKENS)
-{
-  status: HydrationStatus!
-  queryExecutionId: String
-  hydrationId: String!
-  queryExecutionState: String
-}
-
-"""docs: hide"""
-enum HydrationStatus
-  @join__type(graph: TOKENS)
-{
-  Queued @join__enumValue(graph: TOKENS)
-  Failed @join__enumValue(graph: TOKENS)
-  Finished @join__enumValue(graph: TOKENS)
-  Running @join__enumValue(graph: TOKENS)
-}
-
-"""docs: hide"""
+"""@hide"""
 input ImportUserContractListInput
   @join__type(graph: USERS)
 {
@@ -3538,6 +3551,7 @@ input ImportUserContractListInput
   url: String!
 }
 
+"""@hide"""
 input IndexerStateInput
   @join__type(graph: TOKENS)
 {
@@ -3545,7 +3559,7 @@ input IndexerStateInput
   networkId: Int!
 }
 
-"""docs: hide"""
+"""@hide"""
 type IndexerStateResponse
   @join__type(graph: TOKENS)
 {
@@ -3562,6 +3576,7 @@ type IndexerStateResponse
   lastTransactionTime: Int
 }
 
+"""@hide"""
 enum IndexerStatus
   @join__type(graph: TOKENS)
 {
@@ -3569,7 +3584,7 @@ enum IndexerStatus
   Normal @join__enumValue(graph: TOKENS)
 }
 
-"""Bar chart data."""
+"""Bar chart data. @category: pairs"""
 type IndividualBarData
   @join__type(graph: TOKENS)
 {
@@ -3658,7 +3673,7 @@ scalar JSON
   @join__type(graph: META)
   @join__type(graph: USERS)
 
-"""Event labels. Can be `sandwich` or `washtrade`."""
+"""Event labels. Can be `sandwich` or `washtrade`. @category: events"""
 type LabelsForEvent
   @join__type(graph: TOKENS)
 {
@@ -3666,7 +3681,7 @@ type LabelsForEvent
   washtrade: WashtradeLabelForEvent
 }
 
-"""Metadata for a newly listed pair."""
+"""Metadata for a newly listed pair. @category: pairs"""
 type LatestPair
   @join__type(graph: TOKENS)
 {
@@ -3727,7 +3742,7 @@ type LatestPair
   transactionHash: String!
 }
 
-"""Response returned by `getLatestPairs`."""
+"""Response returned by `getLatestPairs`. @category: pairs"""
 type LatestPairConnection
   @join__type(graph: TOKENS)
 {
@@ -3738,7 +3753,7 @@ type LatestPairConnection
   cursor: String
 }
 
-"""Metadata for a token within a newly listed pair."""
+"""Metadata for a token within a newly listed pair. @category: pairs"""
 type LatestPairToken
   @join__type(graph: TOKENS)
 {
@@ -3777,7 +3792,7 @@ type LatestPairToken
   symbol: String!
 }
 
-"""Metadata for a newly created token."""
+"""Metadata for a newly created token. @category: tokens"""
 type LatestToken
   @join__type(graph: TOKENS)
 {
@@ -3832,7 +3847,7 @@ type LatestToken
   simulationResults: [LatestTokenSimResults!]!
 }
 
-"""Response returned by `getLatestTokens`."""
+"""Response returned by `getLatestTokens`. @category: tokens"""
 type LatestTokenConnection
   @join__type(graph: TOKENS)
 {
@@ -3840,6 +3855,7 @@ type LatestTokenConnection
   items: [LatestToken!]!
 }
 
+"""Metadata for a newly created token. @category: tokens"""
 type LatestTokenSimResults
   @join__type(graph: TOKENS)
 {
@@ -3892,6 +3908,7 @@ type LatestTokenSimResults
   openTradingCall: String
 }
 
+"""@category: launchpads"""
 type LaunchpadData
   @join__type(graph: TOKENS)
 {
@@ -3932,7 +3949,7 @@ type LaunchpadData
   launchpadProtocol: String
 }
 
-"""Response returned by `onLaunchpadTokenEvent`."""
+"""Response returned by `onLaunchpadTokenEvent`. @category: launchpads"""
 type LaunchpadTokenEventOutput
   @join__type(graph: TOKENS)
 {
@@ -3954,13 +3971,13 @@ type LaunchpadTokenEventOutput
   """The type of event."""
   eventType: LaunchpadTokenEventType!
 
-  """docs: hide"""
+  """@hide"""
   devBurnt: Boolean
 
-  """docs: hide"""
+  """@hide"""
   devSold: Boolean
 
-  """docs: hide"""
+  """@hide"""
   devSoldAll: Boolean
 
   """The number of holders."""
@@ -3983,7 +4000,7 @@ type LaunchpadTokenEventOutput
 }
 
 """
-The type of event. Note that associated statistics such as `buyCount1`, `price`, etc. are only available for `Updated` events.
+The type of event. Note that associated statistics such as `buyCount1`, `price`, etc. are only available for `Updated` events. @category: launchpads
 """
 enum LaunchpadTokenEventType
   @join__type(graph: TOKENS)
@@ -4004,7 +4021,7 @@ enum LaunchpadTokenEventType
   Migrated @join__enumValue(graph: TOKENS)
 }
 
-"""The protocol of the token."""
+"""The protocol of the token. @category: launchpads"""
 enum LaunchpadTokenProtocol
   @join__type(graph: TOKENS)
 {
@@ -4019,7 +4036,7 @@ enum LaunchpadTokenProtocol
   Moonit @join__enumValue(graph: TOKENS)
 }
 
-"""docs: hide"""
+"""@hide"""
 enum LevelTier
   @join__type(graph: USERS)
 {
@@ -4033,7 +4050,7 @@ enum LevelTier
   DIAMOND @join__enumValue(graph: USERS)
 }
 
-"""docs: hide"""
+"""@hide"""
 enum LimitTriggerDirection
   @join__type(graph: USERS)
 {
@@ -4043,7 +4060,7 @@ enum LimitTriggerDirection
   GTE @join__enumValue(graph: USERS)
 }
 
-"""docs: hide"""
+"""@hide"""
 enum LimitTriggerType
   @join__type(graph: USERS)
 {
@@ -4065,6 +4082,7 @@ enum link__Purpose {
   EXECUTION
 }
 
+"""Data about liquidity in a pair. @category: pairs"""
 type LiquidityData
   @join__type(graph: TOKENS)
 {
@@ -4075,7 +4093,7 @@ type LiquidityData
   inactive: String!
 }
 
-"""A record of locked liquidity"""
+"""A record of locked liquidity. @category: pairs"""
 type LiquidityLock
   @join__type(graph: TOKENS)
 {
@@ -4121,7 +4139,9 @@ type LiquidityLock
   liquidityNftData: LiquidityNftData
 }
 
-"""A breakdown of how much and where liquidity is locked."""
+"""
+A breakdown of how much and where liquidity is locked. @category: pairs
+"""
 type LiquidityLockBreakdownForToken
   @join__type(graph: TOKENS)
 {
@@ -4140,6 +4160,7 @@ type LiquidityLockBreakdownForToken
   amountLockedTokensShifted: String!
 }
 
+"""Response returned by `liquidityLocks`. @category: pairs"""
 type LiquidityLockConnection
   @join__type(graph: TOKENS)
 {
@@ -4150,7 +4171,7 @@ type LiquidityLockConnection
   cursor: String
 }
 
-"""Protocols that can lock liquidity"""
+"""Protocols that can lock liquidity. @category: pairs"""
 enum LiquidityLockProtocol
   @join__type(graph: TOKENS)
 {
@@ -4161,7 +4182,9 @@ enum LiquidityLockProtocol
   BITBOND @join__enumValue(graph: TOKENS)
 }
 
-"""Metadata about a pair's liquidity. Includes locked liquidity data."""
+"""
+Metadata about a pair's liquidity. Includes locked liquidity data. @category: pairs
+"""
 type LiquidityMetadata
   @join__type(graph: TOKENS)
 {
@@ -4173,7 +4196,7 @@ type LiquidityMetadata
 }
 
 """
-Metadata about a token's liquidity. Includes locked liquidity data for up to 100 pairs that the token is in.
+Metadata about a token's liquidity. Includes locked liquidity data for up to 100 pairs that the token is in. @category: pairs
 """
 type LiquidityMetadataByToken
   @join__type(graph: TOKENS)
@@ -4213,7 +4236,7 @@ type LiquidityMetadataByToken
   lockBreakdown: [LiquidityLockBreakdownForToken]!
 }
 
-"""Liquidity NFT position data"""
+"""Liquidity NFT position data. @category: pairs"""
 type LiquidityNftData
   @join__type(graph: TOKENS)
 {
@@ -4224,7 +4247,7 @@ type LiquidityNftData
   nftPositionManagerAddress: String!
 }
 
-"""Protocols that create trading pairs"""
+"""Protocols that create trading pairs. @category: pairs"""
 enum LiquidityProtocol
   @join__type(graph: TOKENS)
 {
@@ -4235,7 +4258,7 @@ enum LiquidityProtocol
   USE_LIQUIDITY_PROTOCOL_V2 @join__enumValue(graph: TOKENS)
 }
 
-"""Response returned by `listPairsWithMetadataForToken`."""
+"""Response returned by `listPairsWithMetadataForToken`. @category: pairs"""
 type ListPairsForTokenResponse
   @join__type(graph: TOKENS)
 {
@@ -4243,7 +4266,7 @@ type ListPairsForTokenResponse
   results: [ListPairsForTokenValue!]!
 }
 
-"""Metadata for a pair containing a given token."""
+"""Metadata for a pair containing a given token. @category: pairs"""
 type ListPairsForTokenValue
   @join__type(graph: TOKENS)
 {
@@ -4269,7 +4292,7 @@ type ListPairsForTokenValue
   quoteToken: QuoteToken
 }
 
-"""docs: hide"""
+"""@hide"""
 input ListTopProposalStatsInput
   @join__type(graph: USERS)
 {
@@ -4278,7 +4301,7 @@ input ListTopProposalStatsInput
   includeAdmin: Boolean
 }
 
-"""Breakdown of how much and where liquidity is locked."""
+"""Breakdown of how much and where liquidity is locked. @category: pairs"""
 type LockBreakdown
   @join__type(graph: TOKENS)
 {
@@ -4292,7 +4315,7 @@ type LockBreakdown
   inactive: String!
 }
 
-"""Data about locked liquidity."""
+"""Data about locked liquidity. @category: pairs"""
 type LockedLiquidityData
   @join__type(graph: TOKENS)
 {
@@ -4306,7 +4329,7 @@ type LockedLiquidityData
   lockBreakdown: [LockBreakdown]!
 }
 
-"""Response returned by `getTokenEventsForMaker`."""
+"""Response returned by `getTokenEventsForMaker`. @category: events"""
 type MakerEventConnection
   @join__type(graph: TOKENS)
 {
@@ -4317,6 +4340,7 @@ type MakerEventConnection
   cursor: String
 }
 
+"""@category: events"""
 input MakerEventsQueryInput
   @join__type(graph: TOKENS)
 {
@@ -4329,7 +4353,7 @@ input MakerEventsQueryInput
   """The network ID to filter by."""
   networkId: Int
 
-  """docs: hide"""
+  """@hide"""
   quoteToken: QuoteToken @deprecated(reason: "Not used")
 
   """
@@ -4344,7 +4368,7 @@ input MakerEventsQueryInput
   tokenAddress: String
 }
 
-"""docs: hide"""
+"""@hide"""
 type MappedPriceConfig
   @join__type(graph: META)
 {
@@ -4354,7 +4378,9 @@ type MappedPriceConfig
   referenceNetworkId: Int!
 }
 
-"""Webhook conditions for a market cap event."""
+"""
+Webhook conditions for a market cap event. @category: webhooks @tag: new
+"""
 type MarketCapEventWebhookCondition
   @join__type(graph: META)
 {
@@ -4378,7 +4404,9 @@ type MarketCapEventWebhookCondition
   pairAddress: StringEqualsCondition
 }
 
-"""Input conditions for a market cap event webhook."""
+"""
+Input conditions for a market cap event webhook. @category: webhooks @tag: new
+"""
 input MarketCapEventWebhookConditionInput
   @join__type(graph: META)
 {
@@ -4398,7 +4426,7 @@ input MarketCapEventWebhookConditionInput
   pairAddress: StringEqualsConditionInput
 }
 
-"""The status for a network supported on Defined."""
+"""The status for a network supported on Defined. @category: networks"""
 type MetadataResponse
   @join__type(graph: META)
 {
@@ -4415,6 +4443,7 @@ type MetadataResponse
   networkName: String!
 }
 
+"""@hide"""
 input MigrateTrackedWalletsInput
   @join__type(graph: META)
 {
@@ -4422,6 +4451,7 @@ input MigrateTrackedWalletsInput
   toUserId: String!
 }
 
+"""@hide"""
 type MigrateTrackedWalletsOutput
   @join__type(graph: META)
 {
@@ -4430,7 +4460,7 @@ type MigrateTrackedWalletsOutput
   status: String!
 }
 
-"""Event data for a token mint event."""
+"""Event data for a token mint event. @category: events"""
 type MintEventData
   @join__type(graph: TOKENS)
 {
@@ -4464,7 +4494,7 @@ type MintEventData
   type: EventType!
 }
 
-"""docs: hide"""
+"""@hide"""
 input ModerateProposalInput
   @join__type(graph: USERS)
 {
@@ -4493,231 +4523,231 @@ type Mutation
   createDecoding(input: CreateDecodingInput!): DecodingStatus! @join__field(graph: DECODINGS)
 
   """
-  Create price, raw transaction, token/pair event, and NFT event webhooks.
+  Create price, raw transaction, token/pair event, and NFT event webhooks. @category: webhooks
   """
   createWebhooks(
     """input: Input for creating webhooks."""
     input: CreateWebhooksInput!
   ): CreateWebhooksOutput! @join__field(graph: META)
 
-  """Delete multiple webhooks."""
+  """Delete multiple webhooks. @category: webhooks"""
   deleteWebhooks(
     """input: Input for deleting webhooks."""
     input: DeleteWebhooksInput!
   ): DeleteWebhooksOutput @join__field(graph: META)
 
-  """docs: hide"""
+  """@hide"""
   updateNetworkConfig(id: ID!, input: UpdateNetworkConfigInput!): NetworkConfig! @join__field(graph: META)
 
-  """docs: hide"""
+  """@hide"""
   createNetworkConfig(input: CreateNetworkConfigInput!): NetworkConfig! @join__field(graph: META)
 
-  """docs: hide"""
+  """@hide"""
   createTrackedWallets(input: CreateTrackedWalletsInput!): [TrackedWallet]! @join__field(graph: META)
 
-  """docs: hide"""
+  """@hide"""
   deleteTrackedWallets(input: DeleteTrackedWalletsInput!): [String]! @join__field(graph: META)
 
-  """docs: hide"""
+  """@hide"""
   updateTrackedWallets(input: UpdateTrackedWalletsInput!): [TrackedWallet]! @join__field(graph: META)
 
-  """docs: hide"""
+  """@hide"""
   setUserTrackedWalletSettings(input: UserTrackedWalletSettingsInput!): UserTrackedWalletSettings! @join__field(graph: META)
 
-  """docs: hide"""
+  """@hide"""
   migrateTrackedWallets(input: MigrateTrackedWalletsInput!): MigrateTrackedWalletsOutput! @join__field(graph: META)
 
-  """docs: hide"""
+  """@hide"""
   updateFeature(input: UpdateFeatureInput!): Feature @join__field(graph: META)
 
-  """docs: hide"""
+  """@hide"""
   refreshNftMetadata(input: RefreshNftMetadataInput): RefreshNftMetadataResponse @join__field(graph: NFTS)
 
-  """docs: hide"""
+  """@hide"""
   simulateTokenContract(input: SimulateTokenContractInput!): SimulateTokenContractResponse @join__field(graph: TOKENS)
 
-  """docs: hide"""
+  """@hide"""
   refreshBalances(input: [RefreshBalancesInput!]!): [Balance!]! @join__field(graph: TOKENS)
 
-  """docs: hide"""
+  """@hide"""
   refreshHolderCount(input: RefreshHolderCountInput!): Int! @join__field(graph: TOKENS)
 
-  """docs: hide"""
+  """@hide"""
   backfillHolders(input: BackfillHoldersInput!): BackfillHoldersResponse! @join__field(graph: TOKENS)
 
-  """docs: hide"""
+  """@hide"""
   backfillWallet(input: BackfillWalletInput!): BackfillWalletResponse! @join__field(graph: TOKENS)
 
-  """docs: hide"""
+  """@hide"""
   backfillWalletAggregates(input: WalletAggregateBackfillInput!): WalletAggregateBackfillStateResponse! @join__field(graph: TOKENS)
 
-  """docs: hide"""
+  """@hide"""
   addBetaUser(address: String!): String! @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   removeBetaUser(address: String!): String! @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   getExchangeIconUpdateUrl(id: String!): ExchangeIconUpdateUrlResponse @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   getTokenIconUpdateUrl(id: String!): TokenIconUpdateUrlResponse @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   updateExchange(id: String!, input: UpdateExchangeInput!): Exchange @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   updateUserNonce(publicWalletAddress: String): UserModel @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   updateUserReferralCode(userId: String!, newReferralCode: String!): UpdateUserReferralCodeResponse @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   payoutUserReferralRewards(userIds: [String!]!): PayoutUserReferralRewardsResponse @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   userLogin(message: String!, signature: String!, referralCode: String): AuthenticationResponse @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   linkReferralUserToReferrer(referralUserId: String!, referralCode: String!): UserModel @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   definedUserLogin: DefinedUser @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   definedUserLinkWallet(walletAddress: String!): DefinedUser @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   deleteDefinedUser: Boolean! @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   banUser(input: BanUserInput): User @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   unbanUser(id: String!): User @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   refreshToken(refreshToken: String!): AuthenticationResponse @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   revokeToken(refreshToken: String!): RevokeTokenResponse @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   createProposals(input: CreateProposalsInput!): [CreateProposalResponse] @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   acceptProposal(input: ModerateProposalInput): Proposal @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   rejectProposal(input: ModerateProposalInput): Proposal @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   saveChartLayout(input: ChartLayoutInput!): ChartLayout @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   saveChartDrawings(input: SaveChartDrawingsInput!): ChartDrawingsRecord @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   createUserContractList(input: CreateUserContractListInput): UserContractList @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   updateUserContractList(input: UpdateUserContractListInput): UserContractList @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   deleteUserContractList(input: DeleteUserContractListInput): DeleteUserContractListResponse @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   importUserContractList(input: ImportUserContractListInput!): Void @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   createUserContractListItem(input: CreateUserContractListItemInput): UserContractListItem @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   deleteUserContractListItem(input: DeleteUserContractListItemInput): DeleteUserContractListItemResponse @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   cancelOrder(orderId: Int!): Int! @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   createWalletSuborg(payload: CreateWalletSuborgInput!): CreateWalletSuborgResponse! @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   createWallet(payload: CreateWalletInput!): ScarabWallet! @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   updateWalletLabel(walletId: Int!, label: String!): ScarabWallet @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   botUserLogin(verificationToken: String!): ScarabUser @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   userConnectScarab(message: String!, signature: String!): ScarabUser @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   createMarketOrder(input: CreateMarketOrderInput!): Order! @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   createLimitOrder(input: CreateLimitOrderInput!): Order! @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   withdraw(input: WithdrawInput!): WithdrawResponse! @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   exportWallet(payload: SignedRequest!): String! @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   setTurnkeySignerKey(payload: SignerKeyInput!, sessionMetadata: SessionMetadata): Int! @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   createTurnkeySession: SessionKey! @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   resetTurnkeySignerKey(payload: ResetSignerKeyInput!, sessionMetadata: SessionMetadata): Int! @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   deleteTurnkeySignerKey: Int! @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   startTurnkeyEmailRecovery(payload: TurnkeyEmailRecoveryInput!): Void @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   setTurnkeyUserEmail(payload: TurnkeyUserEmailInput!, id: String!): Void @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   initPrivateKeyImport(payload: SignedRequest!): String! @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   importPrivateKey(payload: PrivateKeyInput!): ScarabWallet! @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   hidePortfolioToken(tokenId: String!): String! @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   unhidePortfolioToken(tokenId: String!): String! @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   addUserAchievement(payload: AddUserAchievementInput!): UserAchievement! @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   removeUserAchievement(payload: RemoveUserAchievementInput!): Boolean! @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   createNotableWallet(input: CreateNotableWalletInput!): NotableWallet! @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   deleteNotableWallet(walletAddress: String!): Boolean! @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   createScarabStrategy(input: CreateStrategyInput!): Strategy! @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   updateScarabStrategy(id: Int!, input: UpdateStrategyInput!): Strategy! @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   deleteScarabStrategy(id: Int!): Boolean! @join__field(graph: USERS)
 }
 
-"""A network supported on Defined."""
+"""A network supported on Defined. @category: networks"""
 type Network
   @join__type(graph: META)
 {
@@ -4729,7 +4759,7 @@ type Network
   networkShortName: String
 }
 
-"""A breakdown of the wallet's activity by network."""
+"""A breakdown of the wallet's activity by network. @category: wallets"""
 type NetworkBreakdown
   @join__type(graph: TOKENS)
 {
@@ -4752,7 +4782,7 @@ type NetworkBreakdown
   statsYear1: WindowedWalletStats
 }
 
-"""docs: hide"""
+"""@hide"""
 union NetworkConfig
   @join__type(graph: META)
   @join__unionMember(graph: META, member: "EvmNetworkConfig")
@@ -4762,7 +4792,7 @@ union NetworkConfig
   @join__unionMember(graph: META, member: "StarknetNetworkConfig")
  = EvmNetworkConfig | SolanaNetworkConfig | SuiNetworkConfig | AptosNetworkConfig | StarknetNetworkConfig
 
-"""docs: hide"""
+"""@hide"""
 interface NetworkConfigBase
   @join__type(graph: META)
 {
@@ -4787,7 +4817,7 @@ interface NetworkConfigBase
   pricing: [NetworkPriceConfig!]!
 }
 
-"""docs: hide"""
+"""@hide"""
 enum NetworkConfigType
   @join__type(graph: META)
 {
@@ -4798,7 +4828,7 @@ enum NetworkConfigType
   STARKNET @join__enumValue(graph: META)
 }
 
-"""docs: hide"""
+"""@hide"""
 enum NetworkOrderBy
   @join__type(graph: TOKENS)
 {
@@ -4807,7 +4837,7 @@ enum NetworkOrderBy
   TRANSACTIONS @join__enumValue(graph: TOKENS)
 }
 
-"""docs: hide"""
+"""@hide"""
 union NetworkPriceConfig
   @join__type(graph: META)
   @join__unionMember(graph: META, member: "ConstantPriceConfig")
@@ -4815,7 +4845,7 @@ union NetworkPriceConfig
   @join__unionMember(graph: META, member: "ExternalPriceConfig")
  = ConstantPriceConfig | MappedPriceConfig | ExternalPriceConfig
 
-"""docs: hide"""
+"""@hide"""
 enum NetworkPriceType
   @join__type(graph: META)
 {
@@ -4824,7 +4854,7 @@ enum NetworkPriceType
   MAPPED @join__enumValue(graph: META)
 }
 
-"""docs: hide"""
+"""@hide"""
 enum NetworkType
   @join__type(graph: USERS)
 {
@@ -4834,6 +4864,9 @@ enum NetworkType
   STARKNET @join__enumValue(graph: USERS)
 }
 
+"""
+A connection of wallets matching a filter on a specific network. @category: wallets
+"""
 type NetworkWalletFilterConnection
   @join__type(graph: TOKENS)
 {
@@ -4847,6 +4880,7 @@ type NetworkWalletFilterConnection
   offset: Int!
 }
 
+"""A wallet matching a filter on a specific network. @category: wallets"""
 type NetworkWalletFilterResult
   @join__type(graph: TOKENS)
 {
@@ -4995,7 +5029,7 @@ type NetworkWalletFilterResult
   botScore: Int
 }
 
-"""Native token balance for a wallet on a network."""
+"""Native token balance for a wallet on a network. @category: wallets"""
 type NetworkWalletStats
   @join__type(graph: TOKENS)
 {
@@ -5006,7 +5040,7 @@ type NetworkWalletStats
   nativeTokenBalance: String!
 }
 
-"""docs: hide"""
+"""@hide"""
 type NewDeviceMetadataType
   @join__type(graph: USERS)
 {
@@ -5014,7 +5048,7 @@ type NewDeviceMetadataType
   DeviceGroupKey: String
 }
 
-"""docs: hide"""
+"""@hide"""
 type NewPolicy
   @join__type(graph: USERS)
 {
@@ -5025,7 +5059,7 @@ type NewPolicy
   notes: String
 }
 
-"""Event data for creating a new NFT pool."""
+"""Event data for creating a new NFT pool. @category: nfts"""
 type NewPoolEventData
   @join__type(graph: NFTS)
 {
@@ -5099,7 +5133,7 @@ type NewPoolEventData
   usdRatio: String!
 }
 
-"""Event data for creating a new NFT pool."""
+"""Event data for creating a new NFT pool. @category: nfts"""
 type NewPoolEventDataV2
   @join__type(graph: NFTS)
 {
@@ -5192,7 +5226,7 @@ type NewPoolEventDataV2
   propertyChecker: String
 }
 
-"""docs: hide"""
+"""@hide"""
 input NewProposalInput
   @join__type(graph: USERS)
 {
@@ -5203,7 +5237,7 @@ input NewProposalInput
   proposalType: ContractProposalType!
 }
 
-"""An NFT asset."""
+"""An NFT asset. @category: nfts"""
 type NftAsset
   @join__type(graph: NFTS)
 {
@@ -5248,7 +5282,7 @@ type NftAsset
   rawAssetData: RawNftAssetData
 }
 
-"""Attributes for an NFT asset."""
+"""Attributes for an NFT asset. @category: nfts"""
 type NftAssetAttribute
   @join__type(graph: NFTS)
 {
@@ -5278,7 +5312,7 @@ type NftAssetAttribute
   valueType: NftAssetAttributeType!
 }
 
-"""The display type for the NFT asset attribute."""
+"""The display type for the NFT asset attribute. @category: nfts"""
 enum NftAssetAttributeDisplayType
   @join__type(graph: NFTS)
 {
@@ -5290,7 +5324,7 @@ enum NftAssetAttributeDisplayType
   Date @join__enumValue(graph: NFTS)
 }
 
-"""The type for the NFT asset attribute `value` field."""
+"""The type for the NFT asset attribute `value` field. @category: nfts"""
 enum NftAssetAttributeType
   @join__type(graph: NFTS)
 {
@@ -5299,6 +5333,7 @@ enum NftAssetAttributeType
   Array @join__enumValue(graph: NFTS)
 }
 
+"""An NFT asset error. @category: nfts"""
 type NftAssetError
   @join__type(graph: NFTS)
 {
@@ -5321,6 +5356,7 @@ type NftAssetError
   message: String!
 }
 
+"""The status of an NFT asset error. @category: nfts"""
 enum NftAssetErrorStatus
   @join__type(graph: NFTS)
 {
@@ -5328,7 +5364,7 @@ enum NftAssetErrorStatus
   INDEXING_IN_PROGRESS @join__enumValue(graph: NFTS)
 }
 
-"""NFT asset media."""
+"""NFT asset media. @category: nfts"""
 type NftAssetMedia
   @join__type(graph: NFTS)
 {
@@ -5643,7 +5679,7 @@ input NftCollectionRanking
   direction: RankingDirection
 }
 
-"""The attribute used to rank NFT collections."""
+"""The attribute used to rank NFT collections. @category: nfts"""
 enum NftCollectionRankingAttribute
   @join__type(graph: NFTS)
 {
@@ -6203,7 +6239,7 @@ enum NftCollectionRankingAttribute
   stats24hNonCurrencyUniqueMintersChange @join__enumValue(graph: NFTS)
 }
 
-"""The duration used to rank NFTs."""
+"""The duration used to rank NFTs. @category: nfts"""
 enum NftCollectionsLeaderboardDuration
   @join__type(graph: NFTS)
 {
@@ -6236,7 +6272,7 @@ enum NftCollectionsLeaderboardMetric
   sellersGain @join__enumValue(graph: NFTS)
 }
 
-"""docs: hide"""
+"""@hide"""
 type NftCollectionsLeaderboardModel
   @join__type(graph: NFTS)
 {
@@ -6337,7 +6373,7 @@ type NftContract
   image: String
 }
 
-"""Token standards."""
+"""Token standards. @category: nfts"""
 enum NftContractErcType
   @join__type(graph: NFTS)
 {
@@ -6423,7 +6459,7 @@ type NftEvent implements Trackable
   """The event type of the transaction."""
   eventType: String! @join__field(graph: NFTS)
 
-  """docs: hide"""
+  """@hide"""
   data: NftEventData! @join__field(graph: NFTS) @deprecated
 
   """The NFT marketplace address of the transaction."""
@@ -6478,7 +6514,7 @@ type NftEvent implements Trackable
   orderDirection: NftEventOrderDirection @join__field(graph: NFTS)
 }
 
-"""docs: hide"""
+"""@hide"""
 type NftEventData
   @join__type(graph: NFTS)
 {
@@ -6491,7 +6527,7 @@ type NftEventData
   sellHash: String
 }
 
-"""NFT marketplaces for a webhook to listen on."""
+"""NFT marketplaces for a webhook to listen on. @category: webhooks"""
 type NftEventFillSourceCondition
   @join__type(graph: META)
 {
@@ -6499,7 +6535,7 @@ type NftEventFillSourceCondition
   oneOf: [WebhookNftEventFillSource!]!
 }
 
-"""Input for NFT event fill source condition."""
+"""Input for NFT event fill source condition. @category: webhooks"""
 input NftEventFillSourceConditionInput
   @join__type(graph: META)
 {
@@ -6634,7 +6670,7 @@ enum NftEventTradeItemType
   TOKEN @join__enumValue(graph: NFTS)
 }
 
-"""An NFT event type for a webhook to listen for."""
+"""An NFT event type for a webhook to listen for. @category: webhooks"""
 type NftEventTypeCondition
   @join__type(graph: META)
 {
@@ -6642,7 +6678,7 @@ type NftEventTypeCondition
   eq: WebhookNftEventType!
 }
 
-"""Input for NFT event type."""
+"""Input for NFT event type. @category: webhooks"""
 input NftEventTypeConditionInput
   @join__type(graph: META)
 {
@@ -6650,7 +6686,7 @@ input NftEventTypeConditionInput
   eq: WebhookNftEventType!
 }
 
-"""Webhook conditions for an NFT event."""
+"""Webhook conditions for an NFT event. @category: webhooks"""
 type NftEventWebhookCondition
   @join__type(graph: META)
 {
@@ -6685,7 +6721,7 @@ type NftEventWebhookCondition
   ignoreTransfers: Boolean
 }
 
-"""Input conditions for an NFT event webhook."""
+"""Input conditions for an NFT event webhook. @category: webhooks"""
 input NftEventWebhookConditionInput
   @join__type(graph: META)
 {
@@ -6714,7 +6750,7 @@ input NftEventWebhookConditionInput
   ignoreTransfers: Boolean
 }
 
-"""NFT marketplaces."""
+"""NFT marketplaces. @category: nfts"""
 enum NftExchange
   @join__type(graph: NFTS)
 {
@@ -6812,7 +6848,7 @@ type NftHoldersResponse
   status: HoldersStatus!
 }
 
-"""docs: hide"""
+"""@hide"""
 type NftHoldersUpdate
   @join__type(graph: NFTS)
 {
@@ -6822,7 +6858,7 @@ type NftHoldersUpdate
   balances: [NftBalance!]!
 }
 
-"""Event data for updating the asset recipient of a pool."""
+"""Event data for updating the asset recipient of a pool. @category: nfts"""
 type NftPoolAssetRecipientUpdateEventData
   @join__type(graph: NFTS)
 {
@@ -7340,7 +7376,7 @@ input NftPoolCollectionRanking
   direction: RankingDirection
 }
 
-"""The attribute used to rank NFT collections."""
+"""The attribute used to rank NFT collections. @category: nfts"""
 enum NftPoolCollectionRankingAttribute
   @join__type(graph: NFTS)
 {
@@ -7489,7 +7525,7 @@ type NftPoolCollectionResponse
   royaltiesUSDAllEstimate: String
 }
 
-"""The NFT pool contract version."""
+"""The NFT pool contract version. @category: nfts"""
 enum NftPoolContractVersion
   @join__type(graph: NFTS)
 {
@@ -7497,7 +7533,7 @@ enum NftPoolContractVersion
   SUDOSWAP_V2 @join__enumValue(graph: NFTS)
 }
 
-"""Event data for updating the delta of a pool."""
+"""Event data for updating the delta of a pool. @category: nfts"""
 type NftPoolDeltaUpdateEventData
   @join__type(graph: NFTS)
 {
@@ -7568,7 +7604,7 @@ type NftPoolEvent
   data: NftPoolEventData!
 }
 
-"""Event-specific data for an NFT pool transaction."""
+"""Event-specific data for an NFT pool transaction. @category: nfts"""
 union NftPoolEventData
   @join__type(graph: NFTS)
   @join__unionMember(graph: NFTS, member: "NewPoolEventData")
@@ -7593,7 +7629,7 @@ union NftPoolEventData
   @join__unionMember(graph: NFTS, member: "NftPoolOwnershipTransferredEventDataV2")
  = NewPoolEventData | SwapNftOutPoolEventData | SwapNftInPoolEventData | NftPoolNftDepositEventData | NftPoolNftWithdrawalEventData | NftPoolTokenDepositEventData | NftPoolTokenWithdrawalEventData | NftPoolSpotPriceUpdateEventData | NftPoolDeltaUpdateEventData | NftPoolFeeUpdateEventData | NftPoolAssetRecipientUpdateEventData | NewPoolEventDataV2 | SwapNftOutPoolEventDataV2 | SwapNftInPoolEventDataV2 | NftPoolNftDepositEventDataV2 | NftPoolNftWithdrawalEventDataV2 | NftPoolTokenDepositEventDataV2 | NftPoolTokenWithdrawalEventDataV2 | NftPoolSpotPriceUpdateEventDataV2 | NftPoolOwnershipTransferredEventDataV2
 
-"""Metadata for an NFT transfer."""
+"""Metadata for an NFT transfer. @category: nfts"""
 type NftPoolEventNftTransfer
   @join__type(graph: NFTS)
 {
@@ -7604,7 +7640,7 @@ type NftPoolEventNftTransfer
   amountT: String!
 }
 
-"""Metadata for an NFT transfer."""
+"""Metadata for an NFT transfer. @category: nfts"""
 type NftPoolEventNftTransferV2
   @join__type(graph: NFTS)
 {
@@ -7621,7 +7657,7 @@ type NftPoolEventNftTransferV2
   amountT: String!
 }
 
-"""Response returned by `getNftPoolEvents`."""
+"""Response returned by `getNftPoolEvents`. @category: nfts"""
 type NftPoolEventsResponse
   @join__type(graph: NFTS)
 {
@@ -7632,7 +7668,7 @@ type NftPoolEventsResponse
   cursor: String
 }
 
-"""The type of an NFT pool event."""
+"""The type of an NFT pool event. @category: nfts"""
 enum NftPoolEventType
   @join__type(graph: NFTS)
 {
@@ -7658,7 +7694,7 @@ enum NftPoolEventType
   OWNERSHIP_TRANSFERRED @join__enumValue(graph: NFTS)
 }
 
-"""Event data for updating the fee of a pool."""
+"""Event data for updating the fee of a pool. @category: nfts"""
 type NftPoolFeeUpdateEventData
   @join__type(graph: NFTS)
 {
@@ -8134,7 +8170,7 @@ input NftPoolFilters
   ownerAddress: [String]
 }
 
-"""Event data for depositing an NFT into a pool."""
+"""Event data for depositing an NFT into a pool. @category: nfts"""
 type NftPoolNftDepositEventData
   @join__type(graph: NFTS)
 {
@@ -8153,7 +8189,7 @@ type NftPoolNftDepositEventData
   tokenBalanceT: String!
 }
 
-"""Event data for depositing an NFT into a pool."""
+"""Event data for depositing an NFT into a pool. @category: nfts"""
 type NftPoolNftDepositEventDataV2
   @join__type(graph: NFTS)
 {
@@ -8177,7 +8213,7 @@ type NftPoolNftDepositEventDataV2
   tokenBalanceT: String!
 }
 
-"""Event data for withdrawing an NFT from a pool."""
+"""Event data for withdrawing an NFT from a pool. @category: nfts"""
 type NftPoolNftWithdrawalEventData
   @join__type(graph: NFTS)
 {
@@ -8196,7 +8232,7 @@ type NftPoolNftWithdrawalEventData
   tokenBalanceT: String!
 }
 
-"""Event data for withdrawing an NFT from a pool."""
+"""Event data for withdrawing an NFT from a pool. @category: nfts"""
 type NftPoolNftWithdrawalEventDataV2
   @join__type(graph: NFTS)
 {
@@ -8220,7 +8256,7 @@ type NftPoolNftWithdrawalEventDataV2
   nftAssets: [NftAsset]
 }
 
-"""Input type of `NftPoolNumberFilter`."""
+"""Input type of `NftPoolNumberFilter`. @category: nfts"""
 input NftPoolNumberFilter
   @join__type(graph: NFTS)
 {
@@ -8237,6 +8273,7 @@ input NftPoolNumberFilter
   lt: String
 }
 
+"""Event data for transferring ownership of a pool. @category: nfts"""
 type NftPoolOwnershipTransferredEventDataV2
   @join__type(graph: NFTS)
 {
@@ -8247,7 +8284,7 @@ type NftPoolOwnershipTransferredEventDataV2
   newOwner: String!
 }
 
-"""Input type of `NftPoolRanking`."""
+"""Input type of `NftPoolRanking`. @category: nfts"""
 input NftPoolRanking
   @join__type(graph: NFTS)
 {
@@ -8258,7 +8295,7 @@ input NftPoolRanking
   direction: RankingDirection
 }
 
-"""The attribute used to rank NFT pools."""
+"""The attribute used to rank NFT pools. @category: nfts"""
 enum NftPoolRankingAttribute
   @join__type(graph: NFTS)
 {
@@ -8297,7 +8334,7 @@ enum NftPoolRankingAttribute
   volumeUSDAll @join__enumValue(graph: NFTS)
 }
 
-"""An NFT pool."""
+"""An NFT pool. @category: nfts"""
 type NftPoolResponse
   @join__type(graph: NFTS)
 {
@@ -8449,7 +8486,7 @@ type NftPoolRoyalty
   percent: String
 }
 
-"""Event data for updating the spot price of a pool."""
+"""Event data for updating the spot price of a pool. @category: nfts"""
 type NftPoolSpotPriceUpdateEventData
   @join__type(graph: NFTS)
 {
@@ -8476,7 +8513,7 @@ type NftPoolSpotPriceUpdateEventData
   usdRatio: String!
 }
 
-"""Event data for updating the spot price of a pool."""
+"""Event data for updating the spot price of a pool. @category: nfts"""
 type NftPoolSpotPriceUpdateEventDataV2
   @join__type(graph: NFTS)
 {
@@ -8503,7 +8540,7 @@ type NftPoolSpotPriceUpdateEventDataV2
   usdRatio: String!
 }
 
-"""Stats for an NFT pool."""
+"""Stats for an NFT pool. @category: nfts"""
 type NftPoolStatsResponse
   @join__type(graph: NFTS)
 {
@@ -8596,7 +8633,7 @@ type NftPoolStatsResponse
   closeBalanceNBT: String
 }
 
-"""Event data for depositing a token into a pool."""
+"""Event data for depositing a token into a pool. @category: nfts"""
 type NftPoolTokenDepositEventData
   @join__type(graph: NFTS)
 {
@@ -8621,7 +8658,7 @@ type NftPoolTokenDepositEventData
   usdRatio: String!
 }
 
-"""Event data for depositing a token into a pool."""
+"""Event data for depositing a token into a pool. @category: nfts"""
 type NftPoolTokenDepositEventDataV2
   @join__type(graph: NFTS)
 {
@@ -8643,7 +8680,7 @@ type NftPoolTokenDepositEventDataV2
   usdRatio: String!
 }
 
-"""Event data for withdrawing a token from a pool."""
+"""Event data for withdrawing a token from a pool. @category: nfts"""
 type NftPoolTokenWithdrawalEventData
   @join__type(graph: NFTS)
 {
@@ -8668,7 +8705,7 @@ type NftPoolTokenWithdrawalEventData
   usdRatio: String!
 }
 
-"""Event data for withdrawing a token from a pool."""
+"""Event data for withdrawing a token from a pool. @category: nfts"""
 type NftPoolTokenWithdrawalEventDataV2
   @join__type(graph: NFTS)
 {
@@ -8690,7 +8727,7 @@ type NftPoolTokenWithdrawalEventDataV2
   usdRatio: String!
 }
 
-"""The pool type selected by the pool creator."""
+"""The pool type selected by the pool creator. @category: nfts"""
 enum NftPoolType
   @join__type(graph: NFTS)
 {
@@ -8699,7 +8736,7 @@ enum NftPoolType
   BUY_AND_SELL @join__enumValue(graph: NFTS)
 }
 
-"""docs: hide"""
+"""@hide"""
 type NftRankingsOutputItem
   @join__type(graph: NFTS)
 {
@@ -8707,7 +8744,7 @@ type NftRankingsOutputItem
   contract: NftContract
 }
 
-"""docs: hide"""
+"""@hide"""
 type NftScatterplotEvent
   @join__type(graph: NFTS)
 {
@@ -8717,7 +8754,7 @@ type NftScatterplotEvent
   np: String!
 }
 
-"""docs: hide"""
+"""@hide"""
 type NftScatterplotEventsConnection
   @join__type(graph: NFTS)
 {
@@ -8726,7 +8763,7 @@ type NftScatterplotEventsConnection
   cursor: String
 }
 
-"""The level of NFTs to search."""
+"""The level of NFTs to search. @category: nfts"""
 enum NftSearchable
   @join__type(graph: NFTS)
 {
@@ -8856,7 +8893,7 @@ type NftStatsWindowWithChange
   nonCurrency: NftCollectionNonCurrencyStats
 }
 
-"""docs: hide"""
+"""@hide"""
 enum NotableEventType
   @join__type(graph: USERS)
 {
@@ -8865,7 +8902,7 @@ enum NotableEventType
   Burn @join__enumValue(graph: USERS)
 }
 
-"""docs: hide"""
+"""@hide"""
 type NotableHoldersConnection
   @join__type(graph: TOKENS)
 {
@@ -8873,7 +8910,7 @@ type NotableHoldersConnection
   items: [Balance!]!
 }
 
-"""docs: hide"""
+"""@hide"""
 input NotableHoldersInput
   @join__type(graph: TOKENS)
 {
@@ -8882,7 +8919,7 @@ input NotableHoldersInput
   cursor: String
 }
 
-"""docs: hide"""
+"""@hide"""
 type NotableWallet
   @join__type(graph: USERS)
 {
@@ -8894,7 +8931,7 @@ type NotableWallet
   createdAt: Int!
 }
 
-"""docs: hide"""
+"""@hide"""
 enum NotableWalletAddType
   @join__type(graph: USERS)
 {
@@ -8903,7 +8940,7 @@ enum NotableWalletAddType
   Import @join__enumValue(graph: USERS)
 }
 
-"""docs: hide"""
+"""@hide"""
 type NotableWalletEvent
   @join__type(graph: USERS)
 {
@@ -8915,7 +8952,7 @@ type NotableWalletEvent
   swapDirection: NotableWalletEventSwapDirection
 }
 
-"""docs: hide"""
+"""@hide"""
 type NotableWalletEventsConnection
   @join__type(graph: USERS)
 {
@@ -8923,7 +8960,7 @@ type NotableWalletEventsConnection
   cursor: String
 }
 
-"""docs: hide"""
+"""@hide"""
 input NotableWalletEventsInput
   @join__type(graph: USERS)
 {
@@ -8932,7 +8969,7 @@ input NotableWalletEventsInput
   cursor: String
 }
 
-"""docs: hide"""
+"""@hide"""
 input NotableWalletEventSubscriptionInput
   @join__type(graph: USERS)
 {
@@ -8940,7 +8977,7 @@ input NotableWalletEventSubscriptionInput
   walletAddress: String
 }
 
-"""docs: hide"""
+"""@hide"""
 enum NotableWalletEventSwapDirection
   @join__type(graph: USERS)
 {
@@ -8948,7 +8985,7 @@ enum NotableWalletEventSwapDirection
   Sell @join__enumValue(graph: USERS)
 }
 
-"""docs: hide"""
+"""@hide"""
 type NotableWalletsConnection
   @join__type(graph: USERS)
 {
@@ -8956,7 +8993,7 @@ type NotableWalletsConnection
   cursor: String
 }
 
-"""docs: hide"""
+"""@hide"""
 input NotableWalletsInput
   @join__type(graph: USERS)
 {
@@ -8982,7 +9019,7 @@ input NumberFilter
   lt: Float
 }
 
-"""Response returned by `onBarsUpdated`."""
+"""Response returned by `onBarsUpdated`. @category: pairs"""
 type OnBarsUpdatedResponse
   @join__type(graph: TOKENS)
 {
@@ -9033,7 +9070,7 @@ input OneOfNumberConditionInput
   oneOf: [Int!]!
 }
 
-"""Input for `onEventsCreatedByMaker`."""
+"""Input for `onEventsCreatedByMaker`. @category: events"""
 input OnEventsCreatedByMakerInput
   @join__type(graph: TOKENS)
 {
@@ -9041,7 +9078,7 @@ input OnEventsCreatedByMakerInput
   makerAddress: String!
 }
 
-"""docs: hide"""
+"""@hide"""
 input OnLaunchpadTokenEventBatchInput
   @join__type(graph: TOKENS)
 {
@@ -9049,7 +9086,7 @@ input OnLaunchpadTokenEventBatchInput
   networkId: Int
 }
 
-"""Input for `onLaunchpadTokenEvent`."""
+"""Input for `onLaunchpadTokenEvent`. @category: launchpads"""
 input OnLaunchpadTokenEventInput
   @join__type(graph: TOKENS)
 {
@@ -9070,7 +9107,7 @@ input OnLaunchpadTokenEventInput
   networkId: Int
 }
 
-"""docs: hide"""
+"""@hide"""
 input OnNotableHolderUpdatedInput
   @join__type(graph: TOKENS)
 {
@@ -9079,6 +9116,7 @@ input OnNotableHolderUpdatedInput
   networkId: Int
 }
 
+"""@category: tokens"""
 input OnPricesUpdatedInput
   @join__type(graph: TOKENS)
 {
@@ -9087,7 +9125,7 @@ input OnPricesUpdatedInput
   sourcePairAddress: String
 }
 
-"""Response returned by `onBarsUpdated`."""
+"""Response returned by `onBarsUpdated`. @category: tokens"""
 type OnTokenBarsUpdatedResponse
   @join__type(graph: TOKENS)
 {
@@ -9125,6 +9163,7 @@ type OnTokenBarsUpdatedResponse
   tokenId: String!
 }
 
+"""@category: events"""
 input OnTokenEventsCreatedInput
   @join__type(graph: TOKENS)
 {
@@ -9135,7 +9174,7 @@ input OnTokenEventsCreatedInput
   networkId: Int!
 }
 
-"""Response returned by `onUnconfirmedBarsUpdated`."""
+"""Response returned by `onUnconfirmedBarsUpdated`. @category: pairs"""
 type OnUnconfirmedBarsUpdated
   @join__type(graph: TOKENS)
 {
@@ -9167,7 +9206,7 @@ type OnUnconfirmedBarsUpdated
   quoteTokenAddress: String!
 }
 
-"""Input for `onUnconfirmedEventsCreatedByMaker`."""
+"""Input for `onUnconfirmedEventsCreatedByMaker`. @category: events"""
 input OnUnconfirmedEventsCreatedByMakerInput
   @join__type(graph: TOKENS)
 {
@@ -9175,7 +9214,7 @@ input OnUnconfirmedEventsCreatedByMakerInput
   makerAddress: String!
 }
 
-"""docs: hide"""
+"""@hide"""
 type Order
   @join__type(graph: USERS)
 {
@@ -9234,7 +9273,7 @@ type Order
   enhancedToken: EnhancedToken
 }
 
-"""docs: hide"""
+"""@hide"""
 enum OrderConfirmationStatus
   @join__type(graph: USERS)
 {
@@ -9242,7 +9281,7 @@ enum OrderConfirmationStatus
   REJECTED @join__enumValue(graph: USERS)
 }
 
-"""docs: hide"""
+"""@hide"""
 type OrderConfirmedMessage
   @join__type(graph: USERS)
 {
@@ -9253,7 +9292,7 @@ type OrderConfirmedMessage
   status: OrderConfirmationStatus!
 }
 
-"""docs: hide"""
+"""@hide"""
 type OrderConnection
   @join__type(graph: USERS)
 {
@@ -9261,7 +9300,7 @@ type OrderConnection
   cursor: String
 }
 
-"""docs: hide"""
+"""@hide"""
 enum OrderDirection
   @join__type(graph: USERS)
 {
@@ -9269,7 +9308,7 @@ enum OrderDirection
   SELL @join__enumValue(graph: USERS)
 }
 
-"""docs: hide"""
+"""@hide"""
 input OrdersFilter
   @join__type(graph: USERS)
 {
@@ -9282,6 +9321,7 @@ input OrdersFilter
   walletAddress: String
 }
 
+"""@hide"""
 enum OrderState
   @join__type(graph: USERS)
 {
@@ -9292,7 +9332,7 @@ enum OrderState
   EXPIRED @join__enumValue(graph: USERS)
 }
 
-"""docs: hide"""
+"""@hide"""
 enum OrderTransactionStatus
   @join__type(graph: USERS)
 {
@@ -9303,6 +9343,7 @@ enum OrderTransactionStatus
   FAILED @join__enumValue(graph: USERS)
 }
 
+"""@hide"""
 enum OrderType
   @join__type(graph: USERS)
 {
@@ -9311,7 +9352,7 @@ enum OrderType
   LIMIT_STRATEGY @join__enumValue(graph: USERS)
 }
 
-"""docs: hide"""
+"""@hide"""
 type OrderUpdate
   @join__type(graph: USERS)
 {
@@ -9327,7 +9368,7 @@ type OrderUpdate
   userId: Int!
 }
 
-"""Metadata for a token pair."""
+"""Metadata for a token pair. @category: pairs"""
 type Pair
   @join__type(graph: TOKENS)
 {
@@ -9357,7 +9398,7 @@ type Pair
   """The contract address of `token1`."""
   token1: String!
 
-  """docs: hide"""
+  """@hide"""
   age: Int @deprecated(reason: "Age isn't supported - use createdAt instead")
 
   """The unix timestamp for the creation of the pair."""
@@ -9373,7 +9414,7 @@ type Pair
   pooled: PooledTokenValues
 }
 
-"""Input type of `PairChartInput`."""
+"""Input type of `PairChartInput`. @category: pairs"""
 input PairChartInput
   @join__type(graph: TOKENS)
 {
@@ -9384,7 +9425,7 @@ input PairChartInput
   chartSettings: PairChartSettings!
 }
 
-"""Input options for the chart."""
+"""Input options for the chart. @category: pairs"""
 input PairChartSettings
   @join__type(graph: TOKENS)
 {
@@ -9414,7 +9455,7 @@ input PairChartSettings
   theme: ChartTheme
 }
 
-"""Response returned by `filterPairs`."""
+"""Response returned by `filterPairs`. @category: pairs"""
 type PairFilterConnection
   @join__type(graph: TOKENS)
 {
@@ -9428,7 +9469,7 @@ type PairFilterConnection
   offset: Int
 }
 
-"""Input type of `PairFilterMatchTokens`."""
+"""Input type of `PairFilterMatchTokens`. @category: pairs"""
 input PairFilterMatchTokens
   @join__type(graph: TOKENS)
 {
@@ -9439,7 +9480,7 @@ input PairFilterMatchTokens
   token1: String
 }
 
-"""A pair matching a set of filter parameters."""
+"""A pair matching a set of filter parameters. @category: pairs"""
 type PairFilterResult
   @join__type(graph: TOKENS)
 {
@@ -9661,7 +9702,7 @@ type PairFilterResult
   swapPct7dOldWallet: String
 }
 
-"""Input type of `PairFilters`."""
+"""Input type of `PairFilters`. @category: pairs"""
 input PairFilters
   @join__type(graph: TOKENS)
 {
@@ -9875,6 +9916,7 @@ input PairFilters
   swapPct7dOldWallet: NumberFilter
 }
 
+"""@category: pairs"""
 type PairMetadata
   @join__type(graph: TOKENS)
 {
@@ -10008,6 +10050,7 @@ type PairMetadata
   createdAt: Int
 }
 
+"""Metadata for a token in a pair. @category: pairs"""
 type PairMetadataToken
   @join__type(graph: TOKENS)
 {
@@ -10021,7 +10064,7 @@ type PairMetadataToken
   labels: [ContractLabel]
 }
 
-"""Input type of `PairRanking`."""
+"""Input type of `PairRanking`. @category: pairs"""
 input PairRanking
   @join__type(graph: TOKENS)
 {
@@ -10032,7 +10075,7 @@ input PairRanking
   direction: RankingDirection
 }
 
-"""The attribute used to rank tokens."""
+"""The attribute used to rank tokens. @category: pairs"""
 enum PairRankingAttribute
   @join__type(graph: TOKENS)
 {
@@ -10106,7 +10149,7 @@ enum PairRankingAttribute
   swapPct7dOldWallet @join__enumValue(graph: TOKENS)
 }
 
-"""docs: hide"""
+"""@hide"""
 type ParallelAsset
   @join__type(graph: NFTS)
 {
@@ -10419,7 +10462,7 @@ enum ParallelAssetRankingAttribute
   lastPriceNetworkBaseToken @join__enumValue(graph: NFTS)
 }
 
-"""docs: hide"""
+"""@hide"""
 type ParallelAssetsConnection
   @join__type(graph: NFTS)
 {
@@ -10540,13 +10583,14 @@ type ParallelCardChangesConnection
   items: [ParallelCardChange]
 }
 
-"""docs: hide"""
+"""@hide"""
 type PayoutUserReferralRewardsResponse
   @join__type(graph: USERS)
 {
   payoutEvents: [ReferralsEventModel!]!
 }
 
+"""@hide"""
 enum Plan
   @join__type(graph: API_ADMIN)
   @join__type(graph: META)
@@ -10560,7 +10604,7 @@ enum Plan
   FREE @join__enumValue(graph: NFTS) @join__enumValue(graph: TOKENS)
 }
 
-"""docs: hide"""
+"""@hide"""
 type PointEvent
   @join__type(graph: USERS)
 {
@@ -10582,7 +10626,7 @@ type PointEvent
   questId: String
 }
 
-"""docs: hide"""
+"""@hide"""
 type PointEventData
   @join__type(graph: USERS)
 {
@@ -10591,7 +10635,7 @@ type PointEventData
   VOLUME_USD: Float
 }
 
-"""docs: hide"""
+"""@hide"""
 type PointEventStats
   @join__type(graph: USERS)
 {
@@ -10601,7 +10645,7 @@ type PointEventStats
   NUM_ORDERS: Int
 }
 
-"""docs: hide"""
+"""@hide"""
 enum PointsEventSource
   @join__type(graph: USERS)
 {
@@ -10610,7 +10654,7 @@ enum PointsEventSource
   HISTORIC @join__enumValue(graph: USERS)
 }
 
-"""docs: hide"""
+"""@hide"""
 enum PointsLeaderboardType
   @join__type(graph: USERS)
 {
@@ -10622,7 +10666,7 @@ enum PointsLeaderboardType
   VOLUME_USD @join__enumValue(graph: USERS)
 }
 
-"""docs: hide"""
+"""@hide"""
 enum PointsSeason
   @join__type(graph: USERS)
 {
@@ -10635,7 +10679,9 @@ enum PointsSeason
   DEFINEDXP_SEASON_1 @join__enumValue(graph: USERS)
 }
 
-"""Event data for a BalancerV2 Pool Balance Changed event."""
+"""
+Event data for a BalancerV2 Pool Balance Changed event. @category: events
+"""
 type PoolBalanceChangedEventData
   @join__type(graph: TOKENS)
 {
@@ -10687,7 +10733,7 @@ type PooledTokenValues
   token1: String
 }
 
-"""The type of NFT in the pool."""
+"""The type of NFT in the pool. @category: nfts"""
 enum PoolNftType
   @join__type(graph: NFTS)
 {
@@ -10697,14 +10743,14 @@ enum PoolNftType
   ERC1155ERC20 @join__enumValue(graph: NFTS)
 }
 
-"""docs: hide"""
+"""@hide"""
 type Portfolio
   @join__type(graph: TOKENS)
 {
   wallets: [PortfolioWallet!]!
 }
 
-"""docs: hide"""
+"""@hide"""
 type PortfolioToken
   @join__type(graph: TOKENS)
 {
@@ -10718,7 +10764,7 @@ type PortfolioToken
   filterToken: TokenFilterResult
 }
 
-"""docs: hide"""
+"""@hide"""
 type PortfolioWallet
   @join__type(graph: TOKENS)
 {
@@ -10727,7 +10773,7 @@ type PortfolioWallet
   tokens: [PortfolioToken!]!
 }
 
-"""docs: hide"""
+"""@hide"""
 type Position
   @join__type(graph: USERS)
 {
@@ -10757,7 +10803,7 @@ type Position
   token: EnhancedToken
 }
 
-"""docs: hide"""
+"""@hide"""
 input PositionsInput
   @join__type(graph: USERS)
 {
@@ -10766,7 +10812,7 @@ input PositionsInput
   walletAddress: String
 }
 
-"""docs: hide"""
+"""@hide"""
 enum PositionStatus
   @join__type(graph: USERS)
 {
@@ -10774,7 +10820,7 @@ enum PositionStatus
   Closed @join__enumValue(graph: USERS)
 }
 
-"""Real-time or historical prices for a token."""
+"""Real-time or historical prices for a token. @category: tokens"""
 type Price
   @join__type(graph: TOKENS, key: "address networkId timestamp")
   @join__type(graph: USERS, key: "address timestamp networkId")
@@ -10798,7 +10844,7 @@ type Price
   confidence: Float @join__field(graph: TOKENS)
 }
 
-"""Webhook conditions for a price event."""
+"""Webhook conditions for a price event. @category: webhooks"""
 type PriceEventWebhookCondition
   @join__type(graph: META)
 {
@@ -10815,7 +10861,7 @@ type PriceEventWebhookCondition
   pairAddress: StringEqualsCondition
 }
 
-"""Input conditions for a price event webhook."""
+"""Input conditions for a price event webhook. @category: webhooks"""
 input PriceEventWebhookConditionInput
   @join__type(graph: META)
 {
@@ -10832,7 +10878,7 @@ input PriceEventWebhookConditionInput
   pairAddress: StringEqualsConditionInput
 }
 
-"""Response returned by `primeHolders`."""
+"""Response returned by `primeHolders`. @category: prime"""
 type PrimeHolders
   @join__type(graph: TOKENS)
 {
@@ -11579,7 +11625,7 @@ type PrimePoolWithdrawData
   userCachedAmount: String!
 }
 
-"""docs: hide"""
+"""@hide"""
 input PrivateKeyInput
   @join__type(graph: USERS)
 {
@@ -11588,7 +11634,7 @@ input PrivateKeyInput
   label: String
 }
 
-"""docs: hide"""
+"""@hide"""
 type Proposal
   @join__type(graph: USERS)
 {
@@ -11610,7 +11656,7 @@ type Proposal
   sortKey: String!
 }
 
-"""docs: hide"""
+"""@hide"""
 input ProposalFilter
   @join__type(graph: USERS)
 {
@@ -11623,7 +11669,7 @@ input ProposalFilter
   status: ContractProposalStatus
 }
 
-"""docs: hide"""
+"""@hide"""
 input ProposalQueryInput
   @join__type(graph: USERS)
 {
@@ -11632,7 +11678,7 @@ input ProposalQueryInput
   limit: Int
 }
 
-"""docs: hide"""
+"""@hide"""
 type ProposalsConnection
   @join__type(graph: USERS)
 {
@@ -11640,6 +11686,9 @@ type ProposalsConnection
   cursor: String
 }
 
+"""
+The type of publishing for the webhook. If not set, it defaults to `SINGLE`. @category: webhooks
+"""
 enum PublishingType
   @join__type(graph: META)
 {
@@ -11672,22 +11721,24 @@ type Query
   """docs: hide"""
   decodingStatus(id: ID!): DecodingStatus @join__field(graph: DECODINGS)
 
-  """Returns a list of all networks supported on Codex."""
+  """Returns a list of all networks supported on Codex. @category: networks"""
   getNetworks: [Network!]! @join__field(graph: META)
 
-  """Returns the status of a list of networks supported on Codex."""
+  """
+  Returns the status of a list of networks supported on Codex. @category: networks
+  """
   getNetworkStatus(
     """The list of network IDs."""
     networkIds: [Int!]!
   ): [MetadataResponse!] @join__field(graph: META)
 
-  """docs: hide"""
+  """@hide"""
   getReleaseVersion(service: String): ReleaseVersion @join__field(graph: META)
 
-  """docs: hide"""
+  """@hide"""
   getCustomNotification: CustomNotification @join__field(graph: META)
 
-  """Returns a user's list of webhooks."""
+  """Returns a user's list of webhooks. @category: webhooks"""
   getWebhooks(
     """The cursor to use for pagination."""
     cursor: String
@@ -11707,16 +11758,16 @@ type Query
     limit: Int
   ): GetWebhooksResponse @join__field(graph: META)
 
-  """docs: hide"""
+  """@hide"""
   getFeatures: [Feature!]! @join__field(graph: META)
 
-  """docs: hide"""
+  """@hide"""
   getNetworkConfigs(networkIds: [Int!]): [NetworkConfig!]! @join__field(graph: META)
 
-  """docs: hide"""
+  """@hide"""
   trackedWallets(userId: String!, cursor: String, walletAddresses: [String]): TrackedWalletConnection! @join__field(graph: META)
 
-  """docs: hide"""
+  """@hide"""
   userTrackedWalletSettings(userId: String!): UserTrackedWalletSettings! @join__field(graph: META)
 
   """Returns an NFT pool."""
@@ -12031,10 +12082,10 @@ type Query
     includeTransfers: Boolean
   ): NftEventsConnection @join__field(graph: NFTS)
 
-  """docs: hide"""
+  """@hide"""
   getNftScatterplotEvents(address: String!, networkId: Int!, cursor: String, timestamp: EventQueryTimestampInput): NftScatterplotEventsConnection @join__field(graph: NFTS)
 
-  """docs: hide"""
+  """@hide"""
   getNftRankings(
     """
     One of `volumeUsd`, `volumeUsdGain`, `sales`, `salesGain`, `tokensSold`, `tokensSoldGain`, `volumeBase`, `volumeBaseGain`, `mints`, `mintsGain`, `buyers`, `buyersGain`, `sellers`, `sellersGain`.
@@ -12068,7 +12119,7 @@ type Query
     contracts: [NftContractInput]
   ): [EnhancedNftContract] @join__field(graph: NFTS)
 
-  """docs: hide"""
+  """@hide"""
   getParallelAssets(
     """An optional list of token IDs to filter by."""
     tokenIds: [String]
@@ -12198,10 +12249,12 @@ type Query
   """
   walletNftCollectionAssets(input: WalletNftCollectionAssetsInput!): WalletNftCollectionAssetsResponse! @join__field(graph: NFTS)
 
-  """docs: hide"""
+  """@hide"""
   indexerState(input: IndexerStateInput!): IndexerStateResponse! @join__field(graph: TOKENS)
 
-  """Returns a list of tokens based on a variety of filters."""
+  """
+  Returns a list of tokens based on a variety of filters. @category: tokens
+  """
   filterTokens(
     """A set of filters to apply."""
     filters: TokenFilters
@@ -12234,7 +12287,9 @@ type Query
     offset: Int
   ): TokenFilterConnection @join__field(graph: TOKENS)
 
-  """Returns a list of pairs based on a variety of filters."""
+  """
+  Returns a list of pairs based on a variety of filters. @category: pairs
+  """
   filterPairs(
     """A set of filters to apply."""
     filters: PairFilters
@@ -12269,7 +12324,9 @@ type Query
     offset: Int
   ): PairFilterConnection @join__field(graph: TOKENS)
 
-  """Returns a list of exchanges based on a variety of filters."""
+  """
+  Returns a list of exchanges based on a variety of filters. @category: tokens
+  """
   filterExchanges(
     """A set of filters to apply."""
     filters: ExchangeFilters
@@ -12291,7 +12348,7 @@ type Query
     offset: Int
   ): ExchangeFilterConnection @join__field(graph: TOKENS)
 
-  """docs: hide"""
+  """@hide"""
   getTokenInfo(
     """The contract address of the token."""
     address: String!
@@ -12300,10 +12357,10 @@ type Query
     networkId: Int!
   ): TokenInfo @join__field(graph: TOKENS) @deprecated(reason: "Use `token` instead")
 
-  """docs: hide"""
+  """@hide"""
   getTokenCount: String! @join__field(graph: TOKENS)
 
-  """docs: hide"""
+  """@hide"""
   getUniV3Ticks(
     """The contract address of the pool."""
     poolAddress: String!
@@ -12320,7 +12377,7 @@ type Query
     offset: Int
   ): UniV3TickConnection @join__field(graph: TOKENS)
 
-  """docs: hide"""
+  """@hide"""
   getTokensInfo(
     """
     A list of `GetTokensInfoInput`s. Accepts a maximum of 25 inputs (anything over will be truncated).
@@ -12328,7 +12385,9 @@ type Query
     input: [GetTokensInfoInput!]!
   ): [TokenInfo] @join__field(graph: TOKENS) @deprecated(reason: "Use `tokens` instead")
 
-  """Returns bucketed stats for a given token within a pair."""
+  """
+  Returns bucketed stats for a given token within a pair. @category: pairs
+  """
   getDetailedStats(
     """The ID of the pair (`address:networkId`)."""
     pairId: String!
@@ -12353,7 +12412,9 @@ type Query
     statsType: TokenPairStatisticsType
   ): DetailedStats @join__field(graph: TOKENS) @deprecated(reason: "Use `getDetailedPairStats` instead, it has more resolutions and better support")
 
-  """Returns bucketed stats for a given token within a pair."""
+  """
+  Returns bucketed stats for a given token within a pair. @category: pairs
+  """
   getDetailedPairStats(
     """The contract address of the pair."""
     pairAddress: String!
@@ -12381,10 +12442,14 @@ type Query
     statsType: TokenPairStatisticsType
   ): DetailedPairStats @join__field(graph: TOKENS)
 
-  """Returns bucketed stats for a given token within a list of pairs."""
+  """
+  Returns bucketed stats for a given token within a list of pairs. @category: pairs
+  """
   getDetailedPairsStats(input: [GetDetailedPairsStatsInput!]!): [DetailedPairStats] @join__field(graph: TOKENS)
 
-  """Returns a list of trending tokens across any given network(s)."""
+  """
+  Returns a list of trending tokens across any given network(s). @category: tokens
+  """
   listTopTokens(
     """The maximum number of tokens to return. Max is `50`."""
     limit: Int
@@ -12399,7 +12464,7 @@ type Query
   ): [TokenWithMetadata!] @join__field(graph: TOKENS) @deprecated(reason: "This query is no longer supported and will not return up to date data. Use `filterTokens` instead.")
 
   """
-  Returns charting metadata for a given pair. Used for implementing a Trading View datafeed.
+  Returns charting metadata for a given pair. Used for implementing a Trading View datafeed. @category: pairs
   """
   getSymbol(
     """The ID of the pair (`address:networkId`)."""
@@ -12411,7 +12476,9 @@ type Query
     currencyCode: String
   ): SymbolResponse @join__field(graph: TOKENS)
 
-  """Returns metadata for a given network supported on Codex."""
+  """
+  Returns metadata for a given network supported on Codex. @category: networks
+  """
   getNetworkStats(
     """The network Id to filter by."""
     networkId: Int!
@@ -12420,7 +12487,7 @@ type Query
     exchangeAddress: String
   ): GetNetworkStatsResponse @join__field(graph: TOKENS)
 
-  """docs: hide"""
+  """@hide"""
   getOrderedNetworks(
     """
     The networks to sort. Testnets are included at the end. Response is cached for an hour.
@@ -12431,7 +12498,7 @@ type Query
     orderBy: NetworkOrderBy!
   ): [Int!]! @join__field(graph: TOKENS)
 
-  """Returns transactions for a pair."""
+  """Returns transactions for a pair. @category: events"""
   getTokenEvents(
     """The maximum number of transactions to return."""
     limit: Int
@@ -12448,7 +12515,7 @@ type Query
     direction: RankingDirection
   ): EventConnection @join__field(graph: TOKENS)
 
-  """Returns a list of token events for a given maker."""
+  """Returns a list of token events for a given maker. @category: events"""
   getTokenEventsForMaker(
     """The maximum number of events to return."""
     limit: Int
@@ -12466,7 +12533,7 @@ type Query
   ): MakerEventConnection @join__field(graph: TOKENS)
 
   """
-  Returns real-time or historical prices for a list of tokens, fetched in batches.
+  Returns real-time or historical prices for a list of tokens, fetched in batches. @category: tokens
   """
   getTokenPrices(
     """
@@ -12475,10 +12542,12 @@ type Query
     inputs: [GetPriceInput]
   ): [Price] @join__field(graph: TOKENS)
 
-  """docs: hide"""
+  """@hide"""
   tokenSummary(tokenId: String!, refresh: Boolean): TokenSummary @join__field(graph: TOKENS)
 
-  """Returns bar chart data to track price changes over time."""
+  """
+  Returns bar chart data to track price changes over time. @category: pairs
+  """
   getBars(
     """
     The ID of the pair or token (`pairAddress:networkId` or `tokenAddress:networkId`). If a token contract address is provided, the token's top pair is used. For example, `0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2:1` returns WETH's top pair on Ethereum.
@@ -12524,7 +12593,9 @@ type Query
     symbolType: SymbolType
   ): BarsResponse @join__field(graph: TOKENS)
 
-  """Returns a list of tokens matching a given query string."""
+  """
+  Returns a list of tokens matching a given query string. @category: tokens
+  """
   searchTokens(
     """The maximum number of tokens to return."""
     limit: Int
@@ -12549,23 +12620,23 @@ type Query
   ): TokenSearchResponse @join__field(graph: TOKENS) @deprecated(reason: "This query is no longer supported and will not return up to date data. Use `filterTokens` instead.")
 
   """
-  Returns the percentage of a token's total supply held collectively by its top 10 holders.
+  Returns the percentage of a token's total supply held collectively by its top 10 holders. @category: tokens
   """
   top10HoldersPercent(tokenId: String!): Float @join__field(graph: TOKENS)
 
-  """Returns a list of decentralized exchange metadata."""
+  """Returns a list of decentralized exchange metadata. @category: pairs"""
   getExchanges(
     """Get exchanges with missing fields. Default is `false`."""
     showNameless: Boolean
   ): [Exchange!]! @join__field(graph: TOKENS)
 
-  """Returns a URL for a pair chart."""
+  """Returns a URL for a pair chart. @category: pairs"""
   chartUrls(
     """Input required to fetch a pair chart."""
     input: ChartInput!
   ): ChartUrlsResponse @join__field(graph: TOKENS)
 
-  """Returns a list of event labels for a pair."""
+  """Returns a list of event labels for a pair. @category: events"""
   getEventLabels(
     """The ID of the pair (`address:networkId`)."""
     id: String!
@@ -12582,7 +12653,7 @@ type Query
     direction: RankingDirection
   ): EventLabelConnection @join__field(graph: TOKENS)
 
-  """Returns a list of token lifecycle events."""
+  """Returns a list of token lifecycle events. @category: tokens"""
   tokenLifecycleEvents(
     """The maximum number of events to return."""
     limit: Int
@@ -12594,21 +12665,21 @@ type Query
     cursor: String
   ): TokenLifecycleEventConnection @join__field(graph: TOKENS)
 
-  """Returns a single token by its address & network id."""
+  """Returns a single token by its address & network id. @category: tokens"""
   token(
     """Input for a token ID."""
     input: TokenInput!
   ): EnhancedToken! @join__field(graph: TOKENS)
 
   """
-  Returns a list of tokens by their addresses & network id, with pagination.
+  Returns a list of tokens by their addresses & network id, with pagination. @category: tokens
   """
   tokens(
     """A list of token ID input."""
     ids: [TokenInput!]
   ): [EnhancedToken]! @join__field(graph: TOKENS)
 
-  """Returns metadata for a pair of tokens."""
+  """Returns metadata for a pair of tokens. @category: pairs"""
   pairMetadata(
     """The ID of the pair (`address:networkId`)."""
     pairId: String!
@@ -12620,7 +12691,7 @@ type Query
     statsType: TokenPairStatisticsType
   ): PairMetadata! @join__field(graph: TOKENS)
 
-  """Returns new tokens listed over the last three days."""
+  """Returns new tokens listed over the last three days. @category: pairs"""
   getLatestPairs(
     """The maximum number of tokens to return."""
     limit: Int
@@ -12638,7 +12709,7 @@ type Query
     cursor: String
   ): LatestPairConnection @join__field(graph: TOKENS) @deprecated(reason: "This query is longer supported. Instead use filterPairs with sort order on createdAt DESC")
 
-  """Returns a list of pairs containing a given token."""
+  """Returns a list of pairs containing a given token. @category: pairs"""
   listPairsForToken(
     """The maximum number of pairs to return."""
     limit: Int
@@ -12650,7 +12721,7 @@ type Query
     tokenAddress: String!
   ): [Pair]! @join__field(graph: TOKENS)
 
-  """docs: hide"""
+  """@hide"""
   listFavoriteTokens(
     """The list of token IDs to filter by (`address:networkId`)."""
     keys: [String!]!
@@ -12664,7 +12735,7 @@ type Query
     resolution: String
   ): [TokenWithMetadata!] @join__field(graph: TOKENS) @deprecated(reason: "This query is no longer supported and will not return up to date data. Use `filterTokens` instead.")
 
-  """Returns a list of pair metadata for a token."""
+  """Returns a list of pair metadata for a token. @category: pairs"""
   listPairsWithMetadataForToken(
     """The maximum number of pairs to return."""
     limit: Int
@@ -12677,26 +12748,32 @@ type Query
   ): ListPairsForTokenResponse! @join__field(graph: TOKENS)
 
   """
-  Returns a list of token simple chart data (sparklines) for the given tokens.
+  Returns a list of token simple chart data (sparklines) for the given tokens. @category: pairs
   """
   tokenSparklines(input: TokenSparklineInput!): [TokenSparkline!]! @join__field(graph: TOKENS)
 
-  """docs: hide"""
+  """@hide"""
   ethBalances(input: EthBalancesInput!): EthBalancesResponse! @join__field(graph: TOKENS)
 
-  """Returns list of token balances that a wallet has"""
+  """Returns list of token balances that a wallet has. @category: balances"""
   balances(input: BalancesInput!): BalancesResponse! @join__field(graph: TOKENS)
 
   """
-  Returns list of wallets that hold a given token, ordered by holdings descending. Also has the unique count of holders for that token
+  Returns list of wallets that hold a given token, ordered by holdings descending. Also has the unique count of holders for that token. @category: balances
   """
   holders(input: HoldersInput!): HoldersResponse! @join__field(graph: TOKENS)
 
-  """docs: hide"""
+  """@hide"""
   backfillHoldersStatus(input: BackfillHoldersInput!): BackfillHoldersResponse @join__field(graph: TOKENS)
+
+  """
+  Returns a list of token contract buy/sell results. @category: simulations
+  """
   getSimulateTokenContractResults(contractAddress: String!, networkId: Int!, simulationId: String, cursor: String, limit: Int): GetSimulateTokenContractResultsConnection! @join__field(graph: TOKENS)
 
-  """Returns a list of holders of the PRIME token on ethereum."""
+  """
+  Returns a list of holders of the PRIME token on ethereum. @category: prime
+  """
   primeHolders(
     """
     Included in the results. Use the string as an argument to paginate through all the holders.
@@ -12704,8 +12781,10 @@ type Query
     cursor: String
   ): PrimeHolders! @join__field(graph: TOKENS)
 
-  """docs: hide"""
+  """@hide"""
   primeBalance(walletAddress: String!): BalancesResponse! @join__field(graph: TOKENS)
+
+  """Returns a list of latest tokens. @category: tokens"""
   getLatestTokens(
     """
     The maximum number of tokens to return. Maximum number of tokens is 50.
@@ -12719,10 +12798,10 @@ type Query
     offset: Int
   ): LatestTokenConnection @join__field(graph: TOKENS) @deprecated(reason: "This query is no longer supported. Use `filterTokens` with a createdAt: DESC filter instead.")
 
-  """docs: hide"""
+  """@hide"""
   portfolio(walletId: String, networkId: Int, hidden: Boolean): Portfolio! @join__field(graph: TOKENS)
 
-  """Returns liquidity locks for a given pair."""
+  """Returns liquidity locks for a given pair. @category: pairs"""
   liquidityLocks(
     """The address of the pair."""
     pairAddress: String
@@ -12738,7 +12817,7 @@ type Query
   ): LiquidityLockConnection @join__field(graph: TOKENS)
 
   """
-  Returns liquidity metadata for a given pair. Includes liquidity lock data.
+  Returns liquidity metadata for a given pair. Includes liquidity lock data. @category: pairs
   """
   liquidityMetadata(
     """The address of the pair."""
@@ -12749,7 +12828,7 @@ type Query
   ): LiquidityMetadata @join__field(graph: TOKENS)
 
   """
-  Returns liquidity metadata for a given token. Includes liquidity lock data for up to 100 pairs that the token is in.
+  Returns liquidity metadata for a given token. Includes liquidity lock data for up to 100 pairs that the token is in. @category: pairs
   """
   liquidityMetadataByToken(
     """The address of the token."""
@@ -12759,143 +12838,145 @@ type Query
     networkId: Int!
   ): LiquidityMetadataByToken! @join__field(graph: TOKENS)
 
-  """docs: hide"""
+  """@hide"""
   trackedWalletEvents(userId: String!, eventType: [TrackedWalletEventType], limit: Int, cursor: String): TrackedWalletEventsConnection @join__field(graph: TOKENS)
 
-  """docs: hide"""
+  """@hide"""
   backfillWalletState(input: BackfillWalletInput!): Boolean! @join__field(graph: TOKENS)
 
-  """docs: hide"""
+  """@hide"""
   walletAggregateBackfillState(input: WalletAggregateBackfillStateInput!): WalletAggregateBackfillStateResponse! @join__field(graph: TOKENS)
 
-  """docs: hide"""
+  """@hide"""
   notableHolders(input: NotableHoldersInput!): NotableHoldersConnection! @join__field(graph: TOKENS)
 
-  """Returns a list of top traders for a given token."""
+  """Returns a list of top traders for a given token. @category: tokens"""
   tokenTopTraders(input: TokenTopTradersInput!): TokenTopTradersConnection! @join__field(graph: TOKENS)
 
-  """Returns a list of wallets based on a variety of filters."""
+  """
+  Returns a list of wallets based on a variety of filters. @category: wallets
+  """
   filterWallets(input: FilterWalletsInput!): WalletFilterConnection! @join__field(graph: TOKENS)
 
   """
-  Returns a list of wallets with stats narrowed down to a specific network.
+  Returns a list of wallets with stats narrowed down to a specific network. @category: wallets
   """
   filterNetworkWallets(input: FilterNetworkWalletsInput!): NetworkWalletFilterConnection! @join__field(graph: TOKENS) @deprecated(reason: "Use filterWallets instead")
 
   """
-  Returns a list of wallets with stats narrowed down to a specific token.
+  Returns a list of wallets with stats narrowed down to a specific token. @category: wallets
   """
   filterTokenWallets(input: FilterTokenWalletsInput!): TokenWalletFilterConnection! @join__field(graph: TOKENS)
 
-  """Returns detailed stats for a wallet."""
+  """Returns detailed stats for a wallet. @category: wallets"""
   detailedWalletStats(input: DetailedWalletStatsInput!): DetailedWalletStats @join__field(graph: TOKENS)
 
-  """Returns a chart of a wallet's activity."""
+  """Returns a chart of a wallet's activity. @category: wallets"""
   walletChart(input: WalletChartInput!): WalletChartResponse @join__field(graph: TOKENS)
 
-  """docs: hide"""
+  """@hide"""
   referralsMeta: ReferralsMeta! @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   userRevShareMeta(pointsSeason: PointsSeason!): UserRevShareMeta! @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   userRevShare(input: UserRevShareInput!): UserRevShareResponse @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   userRevShareEvents(input: UserRevShareEventsInput!): UserRevShareEventsResponse! @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   isBetaUser(address: String!): Boolean! @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   betaUsers: BetaUsersResponse @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   getUserContractListBySlug(slug: String!): UserContractListAndItems @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   getUserContractLists(input: GetUserContractListsInput!): UserContractListConnection @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   getUserContractListItems(input: GetUserContractListItemsInput!): UserContractListItemConnection @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   getUserContractListItem(input: GetUserContractListItemInput!): UserContractListItem @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   getUser(id: String!): DefinedUser @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   getCurrentUser: DefinedUser @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   getProposals(input: ProposalQueryInput): ProposalsConnection @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   getChartLayout(id: Int @deprecated(reason: "unused (uses default id 0)")): ChartLayout @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   getChartDrawings(chartId: String!, layoutId: String!): ChartDrawingsRecord @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   getUserNonce(publicWalletAddress: String): UserModel @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   getUserReferralCode(referrerUserId: String!): UserModel @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   getUserReferralEvents(referrerUserId: String!, eventType: ReferralsEventType!, limit: Int, cursor: String): GetUserReferralEventsResponse @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   listTopProposalStats(input: ListTopProposalStatsInput): [ContractProposalStats!] @join__field(graph: USERS)
 
-  """Returns community gathered notes."""
+  """Returns community gathered notes. @category: proposal"""
   getCommunityNotes(input: CommunityNotesInput): CommunityNotesResponse! @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   scarabWallets: [ScarabWallet!]! @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   userWallets(userId: String!): [ScarabWallet!]! @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   scarabWallet(walletId: Int!): ScarabWallet! @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   scarabUser: ScarabUser! @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   scarabClient: ScarabClientAttributes! @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   scarabOrders(input: GetOrdersInput): OrderConnection! @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   scarabOrder(orderId: Int!): Order! @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   scarabQuote(input: GetQuoteInput!): Quote @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   scarabCheckTradeable(input: CheckTradeableInput!): CheckTradeableResponse! @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   scarabGasFees(chainId: Int!): GasFees! @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   scarabGasEstimate(input: GetGasEstimateInput!): GasEstimate! @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   getTransactionStatus(input: ScarabTransactionStatusInput!): ScarabTransactionStatusResponse! @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   scarabExchanges: [ScarabExchange!]! @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   getUserPoints(userId: String!, pointsSeason: PointsSeason!, leaderboardType: [PointsLeaderboardType!]): GetUserPointsResponse! @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   getUserPointEvents(
     """The user ID to get point events for."""
     userId: String!
@@ -12913,52 +12994,53 @@ type Query
     pointsEventSource: PointsEventSource
   ): GetUserPointEventsResponse! @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   getPointsLeaderboard(pointsSeason: PointsSeason!, leaderboardType: PointsLeaderboardType!, offset: Int, limit: Int): GetPointsLeaderboardResponse! @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   getUserAchievements(userId: String!, pointsSeason: PointsSeason!): GetUserAchievementsResponse! @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   getTurnkeyUser: TurnkeyPasskeyUser @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   getSolanaLatestBlock: SolanaLatestBlockResponse! @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   getSolanaRawTransaction(rawTransaction: String!): RawTransactionResponse! @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   getSolanaTransactionConfirmation(txId: String!): SolanaTransactionConfirmationResponse @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   getBridgeSupportedNetworks: [Int!] @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   getBridgeQuote(input: GetBridgeQuoteInput!): BridgeQuote! @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   getBridgeRequestStatus(input: GetBridgeRequestStatusInput!): BridgeRequestStatus! @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   positions(input: PositionsInput): [Position!]! @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   notableWallets(input: NotableWalletsInput): NotableWalletsConnection! @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   notableWalletEvents(input: NotableWalletEventsInput!): NotableWalletEventsConnection! @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   scarabStrategies: [Strategy!]! @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   scarabUserStrategies: [Strategy!]! @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   scarabDefaultStrategies: [Strategy!]! @join__field(graph: USERS)
 }
 
+"""@hide"""
 type Quote
   @join__type(graph: USERS)
 {
@@ -12979,6 +13061,7 @@ enum QuoteCurrency
   TOKEN @join__enumValue(graph: TOKENS)
 }
 
+"""@hide"""
 type QuoteExchange
   @join__type(graph: USERS)
 {
@@ -12992,7 +13075,7 @@ type QuoteExchange
   name: String!
 }
 
-"""The quote token within the pair."""
+"""The quote token within the pair. @category: pairs"""
 enum QuoteToken
   @join__type(graph: META)
   @join__type(graph: TOKENS)
@@ -13001,6 +13084,7 @@ enum QuoteToken
   token1 @join__enumValue(graph: META) @join__enumValue(graph: TOKENS)
 }
 
+"""@hide"""
 enum QuoteType
   @join__type(graph: USERS)
 {
@@ -13008,7 +13092,7 @@ enum QuoteType
   OUTPUT @join__enumValue(graph: USERS)
 }
 
-"""The range of time for a chart."""
+"""The range of time for a chart. @category: filters"""
 input RangeInput
   @join__type(graph: TOKENS)
 {
@@ -13026,54 +13110,7 @@ enum RankingDirection
   DESC @join__enumValue(graph: NFTS) @join__enumValue(graph: TOKENS) @join__enumValue(graph: USERS)
 }
 
-"""docs: hide"""
-type RawEvent
-  @join__type(graph: TOKENS)
-{
-  """The contract address of the token's top pair."""
-  address: String!
-
-  """The hash of the block where the transaction occurred."""
-  blockHash: String!
-
-  """The block number for the transaction."""
-  blockNumber: Int!
-
-  """
-  The event-specific data for the transaction. Can be `BurnEventData` or `MintEventData` or `SwapEventData`.
-  """
-  data: EventData
-
-  """
-  The type of transaction event. Can be `Burn`, `Mint`, `Swap`, `Sync`, `Collect`, or `CollectProtocol`.
-  """
-  eventType: EventType!
-
-  """
-  The ID of the event (`address:networkId`). For example, `0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2:1`.
-  """
-  id: String!
-
-  """The index of the log in the block."""
-  logIndex: Int!
-
-  """The wallet address that performed the transaction."""
-  maker: String
-
-  """The network ID that the token is deployed on."""
-  networkId: Int!
-  sortKey: String!
-
-  """The unix timestamp for when the transaction occurred."""
-  timestamp: Int!
-
-  """The unique hash for the transaction."""
-  transactionHash: String!
-
-  """The index of the transaction within the block."""
-  transactionIndex: Int!
-}
-
+"""Raw NFT asset data. @category: nfts"""
 type RawNftAssetData
   @join__type(graph: NFTS)
 {
@@ -13098,7 +13135,7 @@ type RawNftAssetData
   externalUrl: String
 }
 
-"""docs: hide"""
+"""@hide"""
 type RawTransaction implements Trackable
   @join__implements(graph: TOKENS, interface: "Trackable")
   @join__type(graph: TOKENS)
@@ -13124,14 +13161,14 @@ type RawTransaction implements Trackable
   accessList: [String]!
 }
 
-"""docs: hide"""
+"""@hide"""
 type RawTransactionResponse
   @join__type(graph: USERS)
 {
   txId: String
 }
 
-"""Webhook conditions for a raw transaction."""
+"""Webhook conditions for a raw transaction. @category: webhooks"""
 type RawTransactionWebhookCondition
   @join__type(graph: META)
 {
@@ -13163,7 +13200,7 @@ type RawTransactionWebhookCondition
   ignoreNftEvents: Boolean
 }
 
-"""Input conditions for a Raw Transaction webhook."""
+"""Input conditions for a Raw Transaction webhook. @category: webhooks"""
 input RawTransactionWebhookConditionInput
   @join__type(graph: META)
 {
@@ -13195,13 +13232,14 @@ input RawTransactionWebhookConditionInput
   ignoreNftEvents: Boolean
 }
 
+"""@hide"""
 union ReferralEventData
   @join__type(graph: USERS)
   @join__unionMember(graph: USERS, member: "ReferralsEventRewardData")
   @join__unionMember(graph: USERS, member: "ReferralsEventPayoutData")
  = ReferralsEventRewardData | ReferralsEventPayoutData
 
-"""docs: hide"""
+"""@hide"""
 type ReferralsEventModel
   @join__type(graph: USERS)
 {
@@ -13215,12 +13253,14 @@ type ReferralsEventModel
   note: String
 }
 
+"""@hide"""
 type ReferralsEventPayoutData
   @join__type(graph: USERS)
 {
   payouts: [ReferralsPayoutData!]!
 }
 
+"""@hide"""
 type ReferralsEventRewardData
   @join__type(graph: USERS)
 {
@@ -13237,7 +13277,7 @@ type ReferralsEventRewardData
   rewardTokenAddress: String
 }
 
-"""docs: hide"""
+"""@hide"""
 enum ReferralsEventType
   @join__type(graph: USERS)
 {
@@ -13246,7 +13286,7 @@ enum ReferralsEventType
   PAYOUT @join__enumValue(graph: USERS)
 }
 
-"""docs: hide"""
+"""@hide"""
 type ReferralsMeta
   @join__type(graph: USERS)
 {
@@ -13256,6 +13296,7 @@ type ReferralsMeta
   items: [UserModel!]!
 }
 
+"""@hide"""
 type ReferralsPayoutData
   @join__type(graph: USERS)
 {
@@ -13263,7 +13304,7 @@ type ReferralsPayoutData
   tokenAddressNetworkIdPaid: String!
 }
 
-"""docs: hide"""
+"""@hide"""
 input ReferralUsersInput
   @join__type(graph: USERS)
 {
@@ -13272,7 +13313,7 @@ input ReferralUsersInput
   cursor: String
 }
 
-"""docs: hide"""
+"""@hide"""
 input RefreshBalancesInput
   @join__type(graph: TOKENS)
 {
@@ -13283,7 +13324,7 @@ input RefreshBalancesInput
   tokenId: String!
 }
 
-"""docs: hide"""
+"""@hide"""
 input RefreshHolderCountInput
   @join__type(graph: TOKENS)
 {
@@ -13291,7 +13332,7 @@ input RefreshHolderCountInput
   networkId: Int!
 }
 
-"""docs: hide"""
+"""@hide"""
 input RefreshNftMetadataInput
   @join__type(graph: NFTS)
 {
@@ -13308,7 +13349,7 @@ input RefreshNftMetadataInput
   maxTokenId: Int!
 }
 
-"""docs: hide"""
+"""@hide"""
 type RefreshNftMetadataResponse
   @join__type(graph: NFTS)
 {
@@ -13322,7 +13363,7 @@ type RefreshNftMetadataResponse
   refreshedTokens: [Int!]!
 }
 
-"""docs: hide"""
+"""@hide"""
 type ReleaseVersion
   @join__type(graph: META)
 {
@@ -13332,6 +13373,7 @@ type ReleaseVersion
   hardRefresh: Boolean
 }
 
+"""@hide"""
 input RemoveUserAchievementInput
   @join__type(graph: USERS)
 {
@@ -13340,7 +13382,7 @@ input RemoveUserAchievementInput
   pointsSeason: PointsSeason!
 }
 
-"""docs: hide"""
+"""@hide"""
 input ResetSignerKeyInput
   @join__type(graph: USERS)
 {
@@ -13349,7 +13391,7 @@ input ResetSignerKeyInput
   expiresInSeconds: Int
 }
 
-"""Price data for each supported resolution."""
+"""Price data for each supported resolution. @category: pairs"""
 type ResolutionBarData
   @join__type(graph: TOKENS)
 {
@@ -13393,7 +13435,7 @@ type ResolutionBarData
   r7D: CurrencyBarData
 }
 
-"""Config for retrying failed webhook messages"""
+"""Config for retrying failed webhook messages. @category: webhooks"""
 type RetrySettings
   @join__type(graph: META)
 {
@@ -13415,11 +13457,11 @@ type RetrySettings
   """The maximum number of times the webhook will retry sending a message"""
   maxRetries: Int
 
-  """docs: hide"""
+  """@hide"""
   email: String
 }
 
-"""Config input for retrying failed webhook messages"""
+"""Config input for retrying failed webhook messages. @category: webhooks"""
 input RetrySettingsInput
   @join__type(graph: META)
 {
@@ -13442,14 +13484,14 @@ input RetrySettingsInput
   maxRetries: Int
 }
 
-"""docs: hide"""
+"""@hide"""
 type RevokeTokenResponse
   @join__type(graph: USERS)
 {
   success: Boolean!
 }
 
-"""docs: hide"""
+"""@hide"""
 type Route
   @join__type(graph: USERS)
 {
@@ -13458,7 +13500,7 @@ type Route
   params: BridgeQuoteParams!
 }
 
-"""docs: hide"""
+"""@hide"""
 type RouteEstimate
   @join__type(graph: USERS)
 {
@@ -13468,7 +13510,7 @@ type RouteEstimate
   gasCosts: [RouteGasCost!]!
 }
 
-"""docs: hide"""
+"""@hide"""
 type RouteFeeCost
   @join__type(graph: USERS)
 {
@@ -13478,7 +13520,7 @@ type RouteFeeCost
   name: String!
 }
 
-"""docs: hide"""
+"""@hide"""
 type RouteGasCost
   @join__type(graph: USERS)
 {
@@ -13488,7 +13530,7 @@ type RouteGasCost
   type: String!
 }
 
-"""docs: hide"""
+"""@hide"""
 type RouteToken
   @join__type(graph: USERS)
 {
@@ -13498,7 +13540,7 @@ type RouteToken
   decimals: Int!
 }
 
-"""docs: hide"""
+"""@hide"""
 type RouteTransactionRequest
   @join__type(graph: USERS)
 {
@@ -13511,7 +13553,7 @@ type RouteTransactionRequest
   gasPrice: String
 }
 
-"""Metadata for a sandwich label."""
+"""Metadata for a sandwich label. @category: events"""
 type SandwichedLabelData
   @join__type(graph: TOKENS)
 {
@@ -13522,7 +13564,7 @@ type SandwichedLabelData
   token1DrainedAmount: String
 }
 
-"""Metadata for a sandwich label."""
+"""Metadata for a sandwich label. @category: events"""
 type SandwichLabelForEvent
   @join__type(graph: TOKENS)
 {
@@ -13539,7 +13581,7 @@ type SandwichLabelForEvent
   token1DrainedAmount: String!
 }
 
-"""Sandwich event label types."""
+"""Sandwich event label types. @category: events"""
 enum SandwichLabelForEventType
   @join__type(graph: TOKENS)
 {
@@ -13548,7 +13590,7 @@ enum SandwichLabelForEventType
   backrun @join__enumValue(graph: TOKENS)
 }
 
-"""docs: hide"""
+"""@hide"""
 input SaveChartDrawingsInput
   @join__type(graph: USERS)
 {
@@ -13558,7 +13600,7 @@ input SaveChartDrawingsInput
   timestamp: Int @deprecated(reason: "generated automatically")
 }
 
-"""docs: hide"""
+"""@hide"""
 type ScarabClientAttributes
   @join__type(graph: USERS)
 {
@@ -13566,7 +13608,7 @@ type ScarabClientAttributes
   host: String!
 }
 
-"""docs: hide"""
+"""@hide"""
 type ScarabExchange
   @join__type(graph: USERS)
 {
@@ -13577,7 +13619,7 @@ type ScarabExchange
   name: String!
 }
 
-"""docs: hide"""
+"""@hide"""
 type ScarabToken
   @join__type(graph: USERS)
 {
@@ -13590,7 +13632,7 @@ type ScarabToken
   functions: [String]!
 }
 
-"""docs: hide"""
+"""@hide"""
 type ScarabTransaction
   @join__type(graph: USERS)
 {
@@ -13611,7 +13653,7 @@ type ScarabTransaction
   altHash: String
 }
 
-"""docs: hide"""
+"""@hide"""
 enum ScarabTransactionStatus
   @join__type(graph: USERS)
 {
@@ -13620,7 +13662,7 @@ enum ScarabTransactionStatus
   FAILED @join__enumValue(graph: USERS)
 }
 
-"""docs: hide"""
+"""@hide"""
 input ScarabTransactionStatusInput
   @join__type(graph: USERS)
 {
@@ -13628,7 +13670,7 @@ input ScarabTransactionStatusInput
   txHash: String!
 }
 
-"""docs: hide"""
+"""@hide"""
 type ScarabTransactionStatusResponse
   @join__type(graph: USERS)
 {
@@ -13636,7 +13678,7 @@ type ScarabTransactionStatusResponse
   error: String
 }
 
-"""docs: hide"""
+"""@hide"""
 type ScarabUser
   @join__type(graph: USERS)
 {
@@ -13650,7 +13692,7 @@ type ScarabUser
   referrerCode: String
 }
 
-"""docs: hide"""
+"""@hide"""
 type ScarabWallet
   @join__type(graph: USERS)
 {
@@ -13666,7 +13708,7 @@ type ScarabWallet
   exported: Boolean
 }
 
-"""docs: hide"""
+"""@hide"""
 type SessionKey
   @join__type(graph: USERS)
 {
@@ -13676,13 +13718,14 @@ type SessionKey
   publicKeyUncompressed: String!
 }
 
+"""@hide"""
 input SessionMetadata
   @join__type(graph: USERS)
 {
   shouldNotify: Boolean
 }
 
-"""docs: hide"""
+"""@hide"""
 input SignedRequest
   @join__type(graph: USERS)
 {
@@ -13691,7 +13734,7 @@ input SignedRequest
   stamp: SignedRequestStamp!
 }
 
-"""docs: hide"""
+"""@hide"""
 input SignedRequestStamp
   @join__type(graph: USERS)
 {
@@ -13699,7 +13742,7 @@ input SignedRequestStamp
   stampHeaderValue: String!
 }
 
-"""docs: hide"""
+"""@hide"""
 type SignerKey
   @join__type(graph: USERS)
 {
@@ -13709,7 +13752,7 @@ type SignerKey
   newPolicies: [NewPolicy!]!
 }
 
-"""docs: hide"""
+"""@hide"""
 input SignerKeyInput
   @join__type(graph: USERS)
 {
@@ -13719,7 +13762,7 @@ input SignerKeyInput
   createPoliciesRequest: SignedRequest
 }
 
-"""docs: hide"""
+"""@hide"""
 type SignerKeysResponse
   @join__type(graph: USERS)
 {
@@ -13728,6 +13771,7 @@ type SignerKeysResponse
   keyIds: [String!]!
 }
 
+"""Errors for a token contract balance. @category: simulations"""
 type SimulateContractBalanceErrorsType
   @join__type(graph: TOKENS)
 {
@@ -13735,6 +13779,7 @@ type SimulateContractBalanceErrorsType
   tokenContractEthBalanceError: String
 }
 
+"""Result of a token contract balance. @category: simulations"""
 type SimulateContractBalanceType
   @join__type(graph: TOKENS)
 {
@@ -13742,6 +13787,7 @@ type SimulateContractBalanceType
   tokenContractEthBalance: String
 }
 
+"""Input type of `simulateTokenContract`. @category: simulations"""
 input SimulateCreateTransactionInput
   @join__type(graph: TOKENS)
 {
@@ -13760,6 +13806,7 @@ input SimulateCreateTransactionInput
   contractAddress: String!
 }
 
+"""Errors for a token contract creator. @category: simulations"""
 type SimulateCreatorErrorsType
   @join__type(graph: TOKENS)
 {
@@ -13767,6 +13814,7 @@ type SimulateCreatorErrorsType
   creatorEthBalanceError: String
 }
 
+"""Result of a token contract creator. @category: simulations"""
 type SimulateCreatorType
   @join__type(graph: TOKENS)
 {
@@ -13775,6 +13823,7 @@ type SimulateCreatorType
   creatorEthBalance: String
 }
 
+"""Errors for a token contract deploy. @category: simulations"""
 type SimulateDeployErrorsType
   @join__type(graph: TOKENS)
 {
@@ -13782,6 +13831,7 @@ type SimulateDeployErrorsType
   tokenMintedToDeployerError: String
 }
 
+"""Input type of `simulateTokenContract`. @category: simulations"""
 input SimulateDeployInput
   @join__type(graph: TOKENS)
 {
@@ -13800,6 +13850,7 @@ input SimulateDeployInput
   contractInput: String!
 }
 
+"""Result of a token contract deploy. @category: simulations"""
 type SimulateDeployType
   @join__type(graph: TOKENS)
 {
@@ -13807,6 +13858,7 @@ type SimulateDeployType
   tokenMintedToDeployer: String
 }
 
+"""Errors for a token contract liquidity. @category: simulations"""
 type SimulateLiquidityErrorsType
   @join__type(graph: TOKENS)
 {
@@ -13816,6 +13868,7 @@ type SimulateLiquidityErrorsType
   addLiquidityError: String
 }
 
+"""Result of a token contract liquidity. @category: simulations"""
 type SimulateLiquidityType
   @join__type(graph: TOKENS)
 {
@@ -13830,6 +13883,7 @@ type SimulateLiquidityType
   addLiquiditySuccess: Boolean
 }
 
+"""Input type of `simulateTokenContract`. @category: simulations"""
 input SimulateLiveContractInput
   @join__type(graph: TOKENS)
 {
@@ -13845,6 +13899,7 @@ input SimulateLiveContractInput
   contractAddress: String!
 }
 
+"""Errors for a token contract owner. @category: simulations"""
 type SimulateOwnerErrorsType
   @join__type(graph: TOKENS)
 {
@@ -13853,6 +13908,7 @@ type SimulateOwnerErrorsType
   ownerEthBalanceError: String
 }
 
+"""Result of a token contract owner. @category: simulations"""
 type SimulateOwnerType
   @join__type(graph: TOKENS)
 {
@@ -13861,6 +13917,7 @@ type SimulateOwnerType
   ownerEthBalance: String
 }
 
+"""Errors for a token contract swap. @category: simulations"""
 type SimulateSwapErrorsType
   @join__type(graph: TOKENS)
 {
@@ -13870,6 +13927,7 @@ type SimulateSwapErrorsType
   sellErrorEnum: SimulateTokenContractBuySellErrorEnum
 }
 
+"""Result of a token contract swap. @category: simulations"""
 type SimulateSwapType
   @join__type(graph: TOKENS)
 {
@@ -13883,6 +13941,7 @@ type SimulateSwapType
   maxSellAmount: String
 }
 
+"""Error codes for a token contract buy/sell. @category: simulations"""
 enum SimulateTokenContractBuySellErrorEnum
   @join__type(graph: TOKENS)
 {
@@ -13892,6 +13951,7 @@ enum SimulateTokenContractBuySellErrorEnum
   UNKNOWN_ERROR @join__enumValue(graph: TOKENS)
 }
 
+"""Errors for a token contract buy/sell. @category: simulations"""
 type SimulateTokenContractErrors
   @join__type(graph: TOKENS)
 {
@@ -13906,6 +13966,7 @@ type SimulateTokenContractErrors
   creatorErrors: SimulateCreatorErrorsType!
 }
 
+"""Input type of `simulateTokenContract`. @category: simulations"""
 input SimulateTokenContractInput
   @join__type(graph: TOKENS)
 {
@@ -13919,6 +13980,7 @@ input SimulateTokenContractInput
   simulateLiveContractInput: SimulateLiveContractInput
 }
 
+"""Response returned by `simulateTokenContract`. @category: simulations"""
 type SimulateTokenContractResponse
   @join__type(graph: TOKENS)
 {
@@ -13927,6 +13989,7 @@ type SimulateTokenContractResponse
   error: String
 }
 
+"""Result of a token contract buy/sell. @category: simulations"""
 type SimulateTokenContractResult
   @join__type(graph: TOKENS)
 {
@@ -13951,6 +14014,7 @@ type SimulateTokenContractResult
   creator: SimulateCreatorType!
 }
 
+"""Status of a token contract buy/sell. @category: simulations"""
 enum SimulateTokenContractResultStatusEnum
   @join__type(graph: TOKENS)
 {
@@ -13959,6 +14023,7 @@ enum SimulateTokenContractResultStatusEnum
   PENDING @join__enumValue(graph: TOKENS)
 }
 
+"""Errors for a token contract. @category: simulations"""
 type SimulateTokenErrorsType
   @join__type(graph: TOKENS)
 {
@@ -13970,6 +14035,7 @@ type SimulateTokenErrorsType
   canRenounceOwnershipError: String
 }
 
+"""Result of a token contract. @category: simulations"""
 type SimulateTokenType
   @join__type(graph: TOKENS)
 {
@@ -13983,6 +14049,7 @@ type SimulateTokenType
   isOwnerRenounced: Boolean
 }
 
+"""Errors for a token contract transfer. @category: simulations"""
 type SimulateTransferErrorsType
   @join__type(graph: TOKENS)
 {
@@ -13991,6 +14058,7 @@ type SimulateTransferErrorsType
   userApprovalError: String
 }
 
+"""Result of a token contract transfer. @category: simulations"""
 type SimulateTransferType
   @join__type(graph: TOKENS)
 {
@@ -14026,7 +14094,7 @@ type SocialLinks
   youtube: String
 }
 
-"""docs: hide"""
+"""@hide"""
 type SolanaGeyserConfig
   @join__type(graph: META)
 {
@@ -14034,7 +14102,7 @@ type SolanaGeyserConfig
   apiKey: String
 }
 
-"""docs: hide"""
+"""@hide"""
 input SolanaGeyserConfigInput
   @join__type(graph: META)
 {
@@ -14042,7 +14110,7 @@ input SolanaGeyserConfigInput
   apiKey: String
 }
 
-"""docs: hide"""
+"""@hide"""
 type SolanaLatestBlockResponse
   @join__type(graph: USERS)
 {
@@ -14050,7 +14118,7 @@ type SolanaLatestBlockResponse
   blockHash: String!
 }
 
-"""docs: hide"""
+"""@hide"""
 type SolanaNetworkConfig implements NetworkConfigBase
   @join__implements(graph: META, interface: "NetworkConfigBase")
   @join__type(graph: META)
@@ -14079,7 +14147,7 @@ type SolanaNetworkConfig implements NetworkConfigBase
   useGeyserForConfirmedBlocks: Boolean!
 }
 
-"""docs: hide"""
+"""@hide"""
 type SolanaRpcConfig
   @join__type(graph: META)
 {
@@ -14089,7 +14157,7 @@ type SolanaRpcConfig
   geyserApiKey: String @deprecated(reason: "Use geysers on network config model instead")
 }
 
-"""docs: hide"""
+"""@hide"""
 input SolanaRpcConfigInput
   @join__type(graph: META)
 {
@@ -14099,7 +14167,7 @@ input SolanaRpcConfigInput
   geyserApiKey: String
 }
 
-"""docs: hide"""
+"""@hide"""
 type SolanaTransactionConfirmationResponse
   @join__type(graph: USERS)
 {
@@ -14115,6 +14183,7 @@ enum SparklineAttribute
   PRICE @join__enumValue(graph: TOKENS)
 }
 
+"""A value in a sparkline. @category: pairs"""
 type SparklineValue
   @join__type(graph: TOKENS)
 {
@@ -14148,14 +14217,14 @@ type StarknetNetworkConfig implements NetworkConfigBase
   rpcs: [StarknetRpcConfig!]!
 }
 
-"""docs: hide"""
+"""@hide"""
 type StarknetRpcConfig
   @join__type(graph: META)
 {
   url: String!
 }
 
-"""docs: hide"""
+"""@hide"""
 input StarknetRpcConfigInput
   @join__type(graph: META)
 {
@@ -14234,7 +14303,7 @@ input statsNonCurrency
   uniqueMinters: StatsFilter
 }
 
-"""docs: hide"""
+"""@hide"""
 type Strategy
   @join__type(graph: USERS)
 {
@@ -14244,7 +14313,7 @@ type Strategy
   orderParams: [StrategyOrderParam!]!
 }
 
-"""docs: hide"""
+"""@hide"""
 type StrategyOrderParam
   @join__type(graph: USERS)
 {
@@ -14293,7 +14362,7 @@ input StringEqualsConditionInput
   eq: String!
 }
 
-"""Input type of `StringFilter`."""
+"""Input type of `StringFilter`. @category: filters"""
 input StringFilter
   @join__type(graph: TOKENS)
 {
@@ -14353,10 +14422,12 @@ type Subscription
     exchangeAddress: String
   ): AddNftPoolEventsOutput @join__field(graph: NFTS)
 
-  """docs: hide"""
+  """@hide"""
   onNftHoldersUpdated(collectionAddress: String!, networkId: Int!): NftHoldersUpdate @join__field(graph: NFTS)
 
-  """Live-streamed bar chart data to track price changes over time."""
+  """
+  Live-streamed bar chart data to track price changes over time. @category: pairs
+  """
   onBarsUpdated(
     """The ID of the pair (`address`:`networkId`)."""
     pairId: String
@@ -14364,12 +14435,12 @@ type Subscription
     """The token of interest within the pair. Can be `token0` or `token1`."""
     quoteToken: QuoteToken
 
-    """docs: hide"""
+    """@hide"""
     statsType: TokenPairStatisticsType
   ): OnBarsUpdatedResponse @join__field(graph: TOKENS)
 
   """
-  Unconfirmed live-streamed bar chart data to track price changes over time. (Solana only)
+  Unconfirmed live-streamed bar chart data to track price changes over time. (Solana only) @category: pairs
   """
   onUnconfirmedBarsUpdated(
     """The ID of the pair (`address`:`networkId`)."""
@@ -14380,20 +14451,20 @@ type Subscription
   ): OnUnconfirmedBarsUpdated @join__field(graph: TOKENS)
 
   """
-  Live-streamed bar chart data to track price changes over time for a token.
+  Live-streamed bar chart data to track price changes over time for a token. @category: tokens
   """
   onTokenBarsUpdated(
     """The ID of the pair (`address`:`networkId`)."""
     tokenId: String
 
-    """docs: hide"""
+    """@hide"""
     statsType: TokenPairStatisticsType
 
     """The networkId to use when getting all bars per network"""
     networkId: Int
   ): OnTokenBarsUpdatedResponse @join__field(graph: TOKENS)
 
-  """Live-streamed transactions for a token."""
+  """Live-streamed transactions for a token. @category: events"""
   onEventsCreated(
     """The pair contract address."""
     address: String
@@ -14407,23 +14478,16 @@ type Subscription
     """The networkId to use when getting all events per network"""
     networkId: Int
 
-    """docs: hide"""
+    """@hide"""
     maker: String
   ): AddEventsOutput @join__field(graph: TOKENS)
 
-  """Live-streamed transactions for a maker."""
+  """Live-streamed transactions for a maker. @category: events"""
   onEventsCreatedByMaker(input: OnEventsCreatedByMakerInput!): AddEventsByMakerOutput @join__field(graph: TOKENS)
 
-  """docs: hide"""
-  onRawEventsCreated(
-    """The pair contract address."""
-    address: String
-
-    """The ID of the pair (`address`:`networkId`)."""
-    id: String
-  ): [RawEvent!]! @join__field(graph: TOKENS)
-
-  """Live-streamed unconfirmed transactions for a token. (Solana only)"""
+  """
+  Live-streamed unconfirmed transactions for a token. (Solana only) @category: events
+  """
   onUnconfirmedEventsCreated(
     """The pair contract address."""
     address: String
@@ -14435,10 +14499,12 @@ type Subscription
     quoteToken: QuoteToken
   ): AddUnconfirmedEventsOutput @join__field(graph: TOKENS)
 
-  """Live-streamed unconfirmed transactions for a maker. (Solana only)"""
+  """
+  Live-streamed unconfirmed transactions for a maker. (Solana only) @category: events
+  """
   onUnconfirmedEventsCreatedByMaker(input: OnUnconfirmedEventsCreatedByMakerInput!): AddUnconfirmedEventsByMakerOutput @join__field(graph: TOKENS)
 
-  """Live-streamed price updates for a token."""
+  """Live-streamed price updates for a token. @category: tokens"""
   onPriceUpdated(
     """The token contract address."""
     address: String
@@ -14450,10 +14516,12 @@ type Subscription
     sourcePairAddress: String
   ): Price @join__field(graph: TOKENS)
 
-  """Live-streamed price updates for multiple tokens."""
+  """Live-streamed price updates for multiple tokens. @category: tokens"""
   onPricesUpdated(input: [OnPricesUpdatedInput!]!): Price! @join__field(graph: TOKENS)
 
-  """Live-streamed stat updates for a given token within a pair."""
+  """
+  Live-streamed stat updates for a given token within a pair. @category: pairs
+  """
   onPairMetadataUpdated(
     """The ID of the pair (`address`:`networkId`)."""
     id: String
@@ -14461,11 +14529,13 @@ type Subscription
     """The token of interest within the pair. Can be `token0` or `token1`."""
     quoteToken: QuoteToken
 
-    """docs: hide"""
+    """@hide"""
     statsType: TokenPairStatisticsType
   ): PairMetadata @join__field(graph: TOKENS)
 
-  """Live-streamed bucketed stats for a given token within a pair."""
+  """
+  Live-streamed bucketed stats for a given token within a pair. @category: pairs
+  """
   onDetailedStatsUpdated(
     """The ID of the pair (`address`:`networkId`)."""
     pairId: String
@@ -14473,11 +14543,11 @@ type Subscription
     """The token of interest within the pair. Can be `token0` or `token1`."""
     tokenOfInterest: TokenOfInterest
 
-    """docs: hide"""
+    """@hide"""
     statsType: TokenPairStatisticsType
   ): DetailedStats @join__field(graph: TOKENS)
 
-  """Live-streamed updates for newly listed pairs."""
+  """Live-streamed updates for newly listed pairs. @category: pairs"""
   onLatestPairUpdated(
     """The ID of the pair (`address`:`networkId`)."""
     id: String
@@ -14496,25 +14566,29 @@ type Subscription
     tokenAddress: String
   ): LatestToken @join__field(graph: TOKENS)
 
-  """Live-streamed event labels for a token."""
+  """Live-streamed event labels for a token. @category: events"""
   onEventLabelCreated(
     """The ID of the pair (`address`:`networkId`)."""
     id: String
   ): EventLabel @join__field(graph: TOKENS)
   onSimulateTokenContract(contractAddress: String, networkId: Int!, simulationId: String): SimulateTokenContractResult! @join__field(graph: TOKENS)
 
-  """Live-streamed events for a given token across all it's pools"""
+  """
+  Live-streamed events for a given token across all it's pools @category: events
+  """
   onTokenEventsCreated(input: OnTokenEventsCreatedInput!): AddTokenEventsOutput! @join__field(graph: TOKENS)
 
   """
-  Live-streamed list of wallets that hold a given token. Also has the unique count of holders for that token.
+  Live-streamed list of wallets that hold a given token. Also has the unique count of holders for that token. @category: balances
   """
   onHoldersUpdated(tokenId: String!): HoldersUpdate @join__field(graph: TOKENS)
 
-  """Live-streamed balance updates for a given wallet."""
+  """Live-streamed balance updates for a given wallet. @category: balances"""
   onBalanceUpdated(walletAddress: String!): Balance! @join__field(graph: TOKENS)
 
-  """Live-streamed token lifecycle events (mints and burns)."""
+  """
+  Live-streamed token lifecycle events (mints and burns). @category: events
+  """
   onTokenLifecycleEventsCreated(
     """The token contract address."""
     address: String
@@ -14523,24 +14597,31 @@ type Subscription
     networkId: Int
   ): AddTokenLifecycleEventsOutput! @join__field(graph: TOKENS)
 
-  """docs: hide"""
+  """@hide"""
   onTrackedWalletEventsCreated(userId: String!, eventType: [TrackedWalletEventType!]): AddTrackedWalletEventsOutput! @join__field(graph: TOKENS)
 
-  """docs: hide"""
+  """@hide"""
   onNotableHolderUpdated(input: OnNotableHolderUpdatedInput): Balance @join__field(graph: TOKENS)
+
+  """
+  Live-streamed launchpad token events batched (more efficient). @category: launchpads
+  """
   onLaunchpadTokenEventBatch(input: OnLaunchpadTokenEventBatchInput): [LaunchpadTokenEventOutput!]! @join__field(graph: TOKENS)
+
+  """Live-streamed launchpad token event. @category: launchpads"""
   onLaunchpadTokenEvent(input: OnLaunchpadTokenEventInput): LaunchpadTokenEventOutput! @join__field(graph: TOKENS)
 
-  """docs: hide"""
+  """@hide"""
   onOrderUpdated: Order! @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   onOrderConfirmed: OrderConfirmedMessage! @join__field(graph: USERS)
 
-  """docs: hide"""
+  """@hide"""
   onNotableWalletEventCreated(input: NotableWalletEventSubscriptionInput): NotableWalletEvent! @join__field(graph: USERS)
 }
 
+"""@hide"""
 type SuiNetworkConfig implements NetworkConfigBase
   @join__implements(graph: META, interface: "NetworkConfigBase")
   @join__type(graph: META)
@@ -14567,21 +14648,21 @@ type SuiNetworkConfig implements NetworkConfigBase
   rpcs: [SuiRpcConfig!]!
 }
 
-"""docs: hide"""
+"""@hide"""
 type SuiRpcConfig
   @join__type(graph: META)
 {
   url: String!
 }
 
-"""docs: hide"""
+"""@hide"""
 input SuiRpcConfigInput
   @join__type(graph: META)
 {
   url: String!
 }
 
-"""Event data for a token swap event."""
+"""Event data for a token swap event. @category: events"""
 type SwapEventData
   @join__type(graph: TOKENS)
 {
@@ -14649,7 +14730,7 @@ type SwapEventData
   type: EventType!
 }
 
-"""Event data for swapping an NFT into a pool."""
+"""Event data for swapping an NFT into a pool. @category: nfts"""
 type SwapNftInPoolEventData
   @join__type(graph: NFTS)
 {
@@ -14704,7 +14785,7 @@ type SwapNftInPoolEventData
   usdRatio: String!
 }
 
-"""Event data for swapping an NFT into a pool."""
+"""Event data for swapping an NFT into a pool. @category: nfts"""
 type SwapNftInPoolEventDataV2
   @join__type(graph: NFTS)
 {
@@ -14761,7 +14842,7 @@ type SwapNftInPoolEventDataV2
   usdRatio: String!
 }
 
-"""Event data for swapping an NFT out of a pool."""
+"""Event data for swapping an NFT out of a pool. @category: nfts"""
 type SwapNftOutPoolEventData
   @join__type(graph: NFTS)
 {
@@ -14816,7 +14897,7 @@ type SwapNftOutPoolEventData
   usdRatio: String!
 }
 
-"""Event data for swapping an NFT out of a pool."""
+"""Event data for swapping an NFT out of a pool. @category: nfts"""
 type SwapNftOutPoolEventDataV2
   @join__type(graph: NFTS)
 {
@@ -14873,7 +14954,7 @@ type SwapNftOutPoolEventDataV2
   usdRatio: String!
 }
 
-"""Response returned by `getSymbol`."""
+"""Response returned by `getSymbol`. @category: pairs"""
 type SymbolResponse
   @join__type(graph: TOKENS)
 {
@@ -14912,7 +14993,7 @@ enum SymbolType
   POOL @join__enumValue(graph: TOKENS)
 }
 
-"""Token burn event data."""
+"""Token burn event data. @category: events"""
 type TokenBurnEventData
   @join__type(graph: TOKENS)
 {
@@ -14926,7 +15007,7 @@ type TokenBurnEventData
   circulatingSupply: String
 }
 
-"""Response returned by `filterTokens`."""
+"""Response returned by `filterTokens`. @category: tokens"""
 type TokenFilterConnection
   @join__type(graph: TOKENS)
 {
@@ -14940,7 +15021,7 @@ type TokenFilterConnection
   page: Int
 }
 
-"""A token matching a set of filter parameters."""
+"""A token matching a set of filter parameters. @category: tokens"""
 type TokenFilterResult
   @join__type(graph: TOKENS, key: "token { id }")
   @join__type(graph: USERS, key: "token { id }", resolvable: false)
@@ -15196,11 +15277,11 @@ type TokenFilterResult
   """
   swapPct7dOldWallet: String @join__field(graph: TOKENS)
 
-  """docs: hide"""
+  """@hide"""
   notableHolderCount: Int @join__field(graph: TOKENS)
 }
 
-"""Input type of `TokenFilters`."""
+"""Input type of `TokenFilters`. @category: tokens"""
 input TokenFilters
   @join__type(graph: TOKENS)
 {
@@ -15312,7 +15393,7 @@ input TokenFilters
   """The number of different wallets holding the token."""
   holders: NumberFilter
 
-  """docs: hide"""
+  """@hide"""
   notableHolderCount: NumberFilter
 
   """The token price in USD."""
@@ -15506,7 +15587,7 @@ input TokenFilters
   swapPct7dOldWallet: NumberFilter
 }
 
-"""docs: hide"""
+"""@hide"""
 type TokenHistorySettings
   @join__type(graph: META)
 {
@@ -15515,7 +15596,7 @@ type TokenHistorySettings
   expiry: Int
 }
 
-"""docs: hide"""
+"""@hide"""
 input TokenHistorySettingsInput
   @join__type(graph: META)
 {
@@ -15524,7 +15605,7 @@ input TokenHistorySettingsInput
   expiry: Int
 }
 
-"""docs: hide"""
+"""@hide"""
 type TokenIconUpdateUrlResponse
   @join__type(graph: USERS)
 {
@@ -15532,7 +15613,7 @@ type TokenIconUpdateUrlResponse
   viewUrl: String
 }
 
-"""Metadata for a token."""
+"""Metadata for a token. @category: tokens"""
 type TokenInfo
   @join__type(graph: TOKENS)
 {
@@ -15579,7 +15660,7 @@ type TokenInfo
   description: String
 }
 
-"""Input type of `token` and `tokens`."""
+"""Input type of `token` and `tokens`. @category: tokens"""
 input TokenInput
   @join__type(graph: TOKENS)
 {
@@ -15591,7 +15672,7 @@ input TokenInput
 }
 
 """
-Events that occur during a token's lifecycle. Only Mint and Burn events right now.
+Events that occur during a token's lifecycle. Only Mint and Burn events right now. @category: events
 """
 type TokenLifecycleEvent
   @join__type(graph: TOKENS)
@@ -15635,7 +15716,7 @@ type TokenLifecycleEvent
   data: TokenLifecycleEventData!
 }
 
-"""Response returned by `tokenLifecycleEvents`."""
+"""Response returned by `tokenLifecycleEvents`. @category: events"""
 type TokenLifecycleEventConnection
   @join__type(graph: TOKENS)
 {
@@ -15646,14 +15727,14 @@ type TokenLifecycleEventConnection
   cursor: String
 }
 
-"""Event data for a token's lifecycle."""
+"""Event data for a token's lifecycle. @category: events"""
 union TokenLifecycleEventData
   @join__type(graph: TOKENS)
   @join__unionMember(graph: TOKENS, member: "TokenBurnEventData")
   @join__unionMember(graph: TOKENS, member: "TokenMintEventData")
  = TokenBurnEventData | TokenMintEventData
 
-"""Input type of `tokenLifecycleEvents` query."""
+"""Input type of `tokenLifecycleEvents` query. @category: events"""
 input TokenLifecycleEventsQueryInput
   @join__type(graph: TOKENS)
 {
@@ -15664,7 +15745,7 @@ input TokenLifecycleEventsQueryInput
   networkId: Int!
 }
 
-"""Event types for a token. Mint or Burn."""
+"""Event types for a token. Mint or Burn. @category: events"""
 enum TokenLifecycleEventType
   @join__type(graph: TOKENS)
 {
@@ -15672,7 +15753,7 @@ enum TokenLifecycleEventType
   BURN @join__enumValue(graph: TOKENS)
 }
 
-"""Token mint event data."""
+"""Token mint event data. @category: events"""
 type TokenMintEventData
   @join__type(graph: TOKENS)
 {
@@ -15686,7 +15767,9 @@ type TokenMintEventData
   circulatingSupply: String
 }
 
-"""The token of interest within a pair. Can be `token0` or `token1`."""
+"""
+The token of interest within a pair. Can be `token0` or `token1`. @category: pairs
+"""
 enum TokenOfInterest
   @join__type(graph: TOKENS)
 {
@@ -15708,7 +15791,7 @@ enum TokenPairEventType
   COLLECT_PROTOCOL @join__enumValue(graph: META)
 }
 
-"""Webhook condition for token pair event type."""
+"""Webhook condition for token pair event type. @category: webhooks"""
 type TokenPairEventTypeCondition
   @join__type(graph: META)
 {
@@ -15724,7 +15807,7 @@ input TokenPairEventTypeConditionInput
   oneOf: [TokenPairEventType!]!
 }
 
-"""Webhook conditions for a token pair event."""
+"""Webhook conditions for a token pair event. @category: webhooks"""
 type TokenPairEventWebhookCondition
   @join__type(graph: META)
 {
@@ -15750,7 +15833,7 @@ type TokenPairEventWebhookCondition
   eventType: TokenPairEventTypeCondition
 }
 
-"""Input conditions for a token pair event webhook."""
+"""Input conditions for a token pair event webhook. @category: webhooks"""
 input TokenPairEventWebhookConditionInput
   @join__type(graph: META)
 {
@@ -15776,7 +15859,9 @@ input TokenPairEventWebhookConditionInput
   eventType: TokenPairEventTypeConditionInput
 }
 
-"""The type of statistics returned. Can be `FILTERED` or `UNFILTERED`"""
+"""
+The type of statistics returned. Can be `FILTERED` or `UNFILTERED`. @category: pairs
+"""
 enum TokenPairStatisticsType
   @join__type(graph: TOKENS)
 {
@@ -15784,7 +15869,7 @@ enum TokenPairStatisticsType
   UNFILTERED @join__enumValue(graph: TOKENS)
 }
 
-"""Input type of `TokenRanking`."""
+"""Input type of `TokenRanking`. @category: tokens"""
 input TokenRanking
   @join__type(graph: TOKENS)
   @join__type(graph: USERS)
@@ -15796,7 +15881,7 @@ input TokenRanking
   direction: RankingDirection
 }
 
-"""The attribute used to rank tokens."""
+"""The attribute used to rank tokens. @category: tokens"""
 enum TokenRankingAttribute
   @join__type(graph: TOKENS)
   @join__type(graph: USERS)
@@ -15890,7 +15975,7 @@ enum TokenRankingAttribute
   swapPct7dOldWallet @join__enumValue(graph: TOKENS) @join__enumValue(graph: USERS)
 }
 
-"""Response returned by `searchTokens`."""
+"""Response returned by `searchTokens`. @category: tokens"""
 type TokenSearchResponse
   @join__type(graph: TOKENS)
 {
@@ -15908,6 +15993,7 @@ type TokenSearchResponse
   tokens: [TokenWithMetadata!]
 }
 
+"""A sparkline for a token. @category: pairs"""
 type TokenSparkline
   @join__type(graph: TOKENS)
 {
@@ -15921,6 +16007,7 @@ type TokenSparkline
   sparkline: [SparklineValue!]!
 }
 
+"""Input type of `tokenSparkline`. @category: pairs"""
 input TokenSparklineInput
   @join__type(graph: TOKENS)
 {
@@ -15930,7 +16017,7 @@ input TokenSparklineInput
   ids: [String!]!
 }
 
-"""docs: hide"""
+"""@hide"""
 type TokenSummary
   @join__type(graph: TOKENS)
 {
@@ -15938,7 +16025,7 @@ type TokenSummary
   text: String!
 }
 
-"""A top trader for a token."""
+"""A top trader for a token. @category: tokens"""
 type TokenTopTrader
   @join__type(graph: TOKENS)
 {
@@ -15991,7 +16078,7 @@ type TokenTopTrader
   lastTransactionAt: Int!
 }
 
-"""A paginated list of top traders for a token."""
+"""A paginated list of top traders for a token. @category: tokens"""
 type TokenTopTradersConnection
   @join__type(graph: TOKENS)
 {
@@ -16011,7 +16098,7 @@ type TokenTopTradersConnection
   offset: Int
 }
 
-"""Input arguments for the `tokenTopTraders` query."""
+"""Input arguments for the `tokenTopTraders` query. @category: tokens"""
 input TokenTopTradersInput
   @join__type(graph: TOKENS)
 {
@@ -16031,6 +16118,9 @@ input TokenTopTradersInput
   offset: Int
 }
 
+"""
+A connection of wallets matching a filter on a specific token. @category: wallets
+"""
 type TokenWalletFilterConnection
   @join__type(graph: TOKENS)
 {
@@ -16044,7 +16134,7 @@ type TokenWalletFilterConnection
   offset: Int!
 }
 
-"""The result for filtering wallets for a token."""
+"""The result for filtering wallets for a token. @category: filters"""
 type TokenWalletFilterResult
   @join__type(graph: TOKENS)
 {
@@ -16217,7 +16307,7 @@ type TokenWalletFilterResult
   botScore: Int
 }
 
-"""A token with metadata."""
+"""A token with metadata. @category: tokens"""
 type TokenWithMetadata
   @join__type(graph: TOKENS)
 {
@@ -16340,14 +16430,14 @@ type TokenWithMetadata
   lastTransaction: Int
 }
 
-"""docs: hide"""
+"""@hide"""
 interface Trackable
   @join__type(graph: TOKENS)
 {
   networkId: Int!
 }
 
-"""docs: hide"""
+"""@hide"""
 type TrackedWallet
   @join__type(graph: META)
 {
@@ -16359,7 +16449,7 @@ type TrackedWallet
   settings: TrackedWalletSettings
 }
 
-"""docs: hide"""
+"""@hide"""
 type TrackedWalletBotPublishingConfig
   @join__type(graph: META)
 {
@@ -16368,7 +16458,7 @@ type TrackedWalletBotPublishingConfig
   threadId: String
 }
 
-"""docs: hide"""
+"""@hide"""
 input TrackedWalletBotPublishingConfigInput
   @join__type(graph: META)
 {
@@ -16377,7 +16467,7 @@ input TrackedWalletBotPublishingConfigInput
   threadId: String
 }
 
-"""docs: hide"""
+"""@hide"""
 type TrackedWalletConnection
   @join__type(graph: META)
 {
@@ -16386,7 +16476,7 @@ type TrackedWalletConnection
   cursor: String
 }
 
-"""docs: hide"""
+"""@hide"""
 type TrackedWalletEvent
   @join__type(graph: TOKENS)
 {
@@ -16397,7 +16487,7 @@ type TrackedWalletEvent
   eventData: TrackedWalletEventData!
 }
 
-"""docs: hide"""
+"""@hide"""
 union TrackedWalletEventData
   @join__type(graph: TOKENS)
   @join__unionMember(graph: TOKENS, member: "Event")
@@ -16405,7 +16495,7 @@ union TrackedWalletEventData
   @join__unionMember(graph: TOKENS, member: "NftEvent")
  = Event | RawTransaction | NftEvent
 
-"""docs: hide"""
+"""@hide"""
 type TrackedWalletEventsConnection
   @join__type(graph: TOKENS)
 {
@@ -16413,7 +16503,7 @@ type TrackedWalletEventsConnection
   cursor: String
 }
 
-"""docs: hide"""
+"""@hide"""
 enum TrackedWalletEventType
   @join__type(graph: META)
   @join__type(graph: TOKENS)
@@ -16423,7 +16513,7 @@ enum TrackedWalletEventType
   NFT_EVENT @join__enumValue(graph: META) @join__enumValue(graph: TOKENS)
 }
 
-"""docs: hide"""
+"""@hide"""
 input TrackedWalletInput
   @join__type(graph: META)
 {
@@ -16434,7 +16524,7 @@ input TrackedWalletInput
   settings: TrackedWalletSettingsInput
 }
 
-"""docs: hide"""
+"""@hide"""
 type TrackedWalletSettings
   @join__type(graph: META)
 {
@@ -16451,7 +16541,7 @@ type TrackedWalletSettings
   tokenHistorySettings: TokenHistorySettings
 }
 
-"""docs: hide"""
+"""@hide"""
 input TrackedWalletSettingsInput
   @join__type(graph: META)
 {
@@ -16467,7 +16557,7 @@ input TrackedWalletSettingsInput
   tokenHistorySettings: TokenHistorySettingsInput
 }
 
-"""docs: hide"""
+"""@hide"""
 type TrackedWalletWebPublishingConfig
   @join__type(graph: META)
 {
@@ -16475,7 +16565,7 @@ type TrackedWalletWebPublishingConfig
   showAlerts: Boolean
 }
 
-"""docs: hide"""
+"""@hide"""
 input TrackedWalletWebPublishingConfigInput
   @join__type(graph: META)
 {
@@ -16483,7 +16573,9 @@ input TrackedWalletWebPublishingConfigInput
   showAlerts: Boolean!
 }
 
-"""A time period used when calculating wallet trading data."""
+"""
+A time period used when calculating wallet trading data. @category: wallets
+"""
 enum TradingPeriod
   @join__type(graph: TOKENS)
 {
@@ -16493,7 +16585,7 @@ enum TradingPeriod
   YEAR @join__enumValue(graph: TOKENS)
 }
 
-"""docs: hide"""
+"""@hide"""
 input TurnkeyEmailRecoveryInput
   @join__type(graph: USERS)
 {
@@ -16501,7 +16593,7 @@ input TurnkeyEmailRecoveryInput
   email: String!
 }
 
-"""docs: hide"""
+"""@hide"""
 type TurnkeyPasskeyUser
   @join__type(graph: USERS)
 {
@@ -16511,7 +16603,7 @@ type TurnkeyPasskeyUser
   userEmail: String
 }
 
-"""docs: hide"""
+"""@hide"""
 input TurnkeyUserEmailInput
   @join__type(graph: USERS)
 {
@@ -16520,7 +16612,7 @@ input TurnkeyUserEmailInput
   request: SignedRequest!
 }
 
-"""An unconfirmed token transaction."""
+"""An unconfirmed token transaction. @category: events"""
 type UnconfirmedEvent
   @join__type(graph: TOKENS)
 {
@@ -16580,13 +16672,14 @@ type UnconfirmedEvent
   data: UnconfirmedEventData
 }
 
+"""@category: events"""
 union UnconfirmedEventData
   @join__type(graph: TOKENS)
   @join__unionMember(graph: TOKENS, member: "UnconfirmedSwapEventData")
   @join__unionMember(graph: TOKENS, member: "UnconfirmedLiquidityChangeEventData")
  = UnconfirmedSwapEventData | UnconfirmedLiquidityChangeEventData
 
-"""Unconfirmed bar chart data."""
+"""Unconfirmed bar chart data. @category: pairs"""
 type UnconfirmedIndividualBarData
   @join__type(graph: TOKENS)
 {
@@ -16612,6 +16705,7 @@ type UnconfirmedIndividualBarData
   t: Int!
 }
 
+"""Event data for a token liquidity change event. @category: events"""
 type UnconfirmedLiquidityChangeEventData
   @join__type(graph: TOKENS)
 {
@@ -16635,7 +16729,7 @@ type UnconfirmedLiquidityChangeEventData
   type: EventType!
 }
 
-"""Unconfirmed price data for each supported resolution."""
+"""Unconfirmed price data for each supported resolution. @category: pairs"""
 type UnconfirmedResolutionBarData
   @join__type(graph: TOKENS)
 {
@@ -16658,6 +16752,7 @@ type UnconfirmedResolutionBarData
   r15: UnconfirmedIndividualBarData
 }
 
+"""Event data for a token swap event. @category: events"""
 type UnconfirmedSwapEventData
   @join__type(graph: TOKENS)
 {
@@ -16693,7 +16788,7 @@ type UnconfirmedSwapEventData
   amountBaseToken: String
 }
 
-"""docs: hide"""
+"""@hide"""
 type UniV3Tick
   @join__type(graph: TOKENS)
 {
@@ -16703,7 +16798,7 @@ type UniV3Tick
   price1: String
 }
 
-"""docs: hide"""
+"""@hide"""
 type UniV3TickConnection
   @join__type(graph: TOKENS)
 {
@@ -16717,14 +16812,14 @@ type UniV3TickConnection
   offset: Int
 }
 
-"""docs: hide"""
+"""@hide"""
 input UpdateAptosNetworkConfigInput
   @join__type(graph: META)
 {
   rpcs: [AptosRpcConfigInput!]
 }
 
-"""docs: hide"""
+"""@hide"""
 input UpdateConstantPriceConfigInput
   @join__type(graph: META)
 {
@@ -16732,7 +16827,7 @@ input UpdateConstantPriceConfigInput
   value: String!
 }
 
-"""docs: hide"""
+"""@hide"""
 input UpdateEvmNetworkConfigInput
   @join__type(graph: META)
 {
@@ -16741,7 +16836,7 @@ input UpdateEvmNetworkConfigInput
   evmConfig: EvmConfigInput
 }
 
-"""docs: hide"""
+"""@hide"""
 input UpdateExchangeInput
   @join__type(graph: USERS)
 {
@@ -16754,7 +16849,7 @@ input UpdateExchangeInput
   supported: Boolean
 }
 
-"""docs: hide"""
+"""@hide"""
 input UpdateExternalPriceConfigInput
   @join__type(graph: META)
 {
@@ -16762,7 +16857,7 @@ input UpdateExternalPriceConfigInput
   referenceToken: ExternalPrices!
 }
 
-"""docs: hide"""
+"""@hide"""
 input UpdateFeatureInput
   @join__type(graph: META)
 {
@@ -16771,7 +16866,7 @@ input UpdateFeatureInput
   deleted: Boolean
 }
 
-"""docs: hide"""
+"""@hide"""
 input UpdateMappedPriceConfigInput
   @join__type(graph: META)
 {
@@ -16780,7 +16875,7 @@ input UpdateMappedPriceConfigInput
   referenceNetworkId: Int!
 }
 
-"""docs: hide"""
+"""@hide"""
 input UpdateNetworkConfigInput
   @join__type(graph: META)
 {
@@ -16809,7 +16904,7 @@ input UpdateNetworkConfigInput
   suiInput: UpdateSuiNetworkConfigInput
 }
 
-"""docs: hide"""
+"""@hide"""
 input UpdatePriceConfigInput
   @join__type(graph: META)
 {
@@ -16818,7 +16913,7 @@ input UpdatePriceConfigInput
   externalPriceInput: UpdateExternalPriceConfigInput
 }
 
-"""docs: hide"""
+"""@hide"""
 input UpdateSolanaNetworkConfigInput
   @join__type(graph: META)
 {
@@ -16827,14 +16922,14 @@ input UpdateSolanaNetworkConfigInput
   geysers: [SolanaGeyserConfigInput!]!
 }
 
-"""docs: hide"""
+"""@hide"""
 input UpdateStarknetNetworkConfigInput
   @join__type(graph: META)
 {
   rpcs: [StarknetRpcConfigInput!]
 }
 
-"""docs: hide"""
+"""@hide"""
 input UpdateStrategyInput
   @join__type(graph: USERS)
 {
@@ -16842,14 +16937,14 @@ input UpdateStrategyInput
   orderParams: [CreateStrategyOrderParamInput!]!
 }
 
-"""docs: hide"""
+"""@hide"""
 input UpdateSuiNetworkConfigInput
   @join__type(graph: META)
 {
   rpcs: [SuiRpcConfigInput!]
 }
 
-"""docs: hide"""
+"""@hide"""
 input UpdateTrackedWalletInput
   @join__type(graph: META)
 {
@@ -16859,7 +16954,7 @@ input UpdateTrackedWalletInput
   settings: TrackedWalletSettingsInput
 }
 
-"""docs: hide"""
+"""@hide"""
 input UpdateTrackedWalletsInput
   @join__type(graph: META)
 {
@@ -16867,7 +16962,7 @@ input UpdateTrackedWalletsInput
   wallets: [UpdateTrackedWalletInput!]!
 }
 
-"""docs: hide"""
+"""@hide"""
 input UpdateUserContractListInput
   @join__type(graph: USERS)
 {
@@ -16877,7 +16972,7 @@ input UpdateUserContractListInput
   public: Boolean
 }
 
-"""docs: hide"""
+"""@hide"""
 type UpdateUserReferralCodeResponse
   @join__type(graph: USERS)
 {
@@ -16885,7 +16980,7 @@ type UpdateUserReferralCodeResponse
   newReferralCode: String!
 }
 
-"""docs: hide"""
+"""@hide"""
 type User
   @join__type(graph: USERS)
 {
@@ -16899,7 +16994,7 @@ type User
   id: String!
 }
 
-"""docs: hide"""
+"""@hide"""
 type UserAchievement
   @join__type(graph: USERS)
 {
@@ -16914,7 +17009,7 @@ type UserAchievement
   completed: Boolean
 }
 
-"""docs: hide"""
+"""@hide"""
 type UserContractList
   @join__type(graph: USERS)
 {
@@ -16929,7 +17024,7 @@ type UserContractList
   isTokenInList(tokenId: String!): Boolean
 }
 
-"""docs: hide"""
+"""@hide"""
 type UserContractListAndItems
   @join__type(graph: USERS)
 {
@@ -16937,7 +17032,7 @@ type UserContractListAndItems
   items: [UserContractListItem!]!
 }
 
-"""docs: hide"""
+"""@hide"""
 type UserContractListConnection
   @join__type(graph: USERS)
 {
@@ -16945,7 +17040,7 @@ type UserContractListConnection
   cursor: String
 }
 
-"""docs: hide"""
+"""@hide"""
 type UserContractListItem
   @join__type(graph: USERS)
 {
@@ -16962,7 +17057,7 @@ type UserContractListItem
   filterToken: TokenFilterResult
 }
 
-"""docs: hide"""
+"""@hide"""
 type UserContractListItemConnection
   @join__type(graph: USERS)
 {
@@ -16970,7 +17065,7 @@ type UserContractListItemConnection
   cursor: String
 }
 
-"""docs: hide"""
+"""@hide"""
 type UserDailyRanks
   @join__type(graph: USERS)
 {
@@ -16979,7 +17074,7 @@ type UserDailyRanks
   VOLUME_USD: Int
 }
 
-"""docs: hide"""
+"""@hide"""
 type UserModel
   @join__type(graph: USERS)
 {
@@ -16999,7 +17094,7 @@ type UserModel
   referralTradeVolume: JSON
 }
 
-"""docs: hide"""
+"""@hide"""
 type UserPointsLeaderboard
   @join__type(graph: USERS)
 {
@@ -17012,7 +17107,7 @@ type UserPointsLeaderboard
   revShareTrophies: [AchievementId!]
 }
 
-"""docs: hide"""
+"""@hide"""
 type UserPointsLeaderboardStats
   @join__type(graph: USERS)
 {
@@ -17028,7 +17123,7 @@ type UserPointsLeaderboardStats
   dailyStreak: Int
 }
 
-"""docs: hide"""
+"""@hide"""
 type UserPointsLeaderboardV2
   @join__type(graph: USERS)
 {
@@ -17040,7 +17135,7 @@ type UserPointsLeaderboardV2
   numTrophies: Int!
 }
 
-"""docs: hide"""
+"""@hide"""
 type UserQuest
   @join__type(graph: USERS)
 {
@@ -17063,7 +17158,7 @@ type UserQuest
   completedCount: Int
 }
 
-"""docs: hide"""
+"""@hide"""
 enum UserQuestState
   @join__type(graph: USERS)
 {
@@ -17072,7 +17167,7 @@ enum UserQuestState
   INACTIVE @join__enumValue(graph: USERS)
 }
 
-"""docs: hide"""
+"""@hide"""
 type UserRevShare
   @join__type(graph: USERS)
 {
@@ -17082,7 +17177,7 @@ type UserRevShare
   userId: String!
 }
 
-"""docs: hide"""
+"""@hide"""
 type UserRevShareEvent
   @join__type(graph: USERS)
 {
@@ -17091,7 +17186,7 @@ type UserRevShareEvent
   updatedAt: Int!
 }
 
-"""docs: hide"""
+"""@hide"""
 input UserRevShareEventsInput
   @join__type(graph: USERS)
 {
@@ -17101,7 +17196,7 @@ input UserRevShareEventsInput
   cursor: String
 }
 
-"""docs: hide"""
+"""@hide"""
 type UserRevShareEventsResponse
   @join__type(graph: USERS)
 {
@@ -17109,7 +17204,7 @@ type UserRevShareEventsResponse
   cursor: String
 }
 
-"""docs: hide"""
+"""@hide"""
 input UserRevShareInput
   @join__type(graph: USERS)
 {
@@ -17118,7 +17213,7 @@ input UserRevShareInput
   cursor: String
 }
 
-"""docs: hide"""
+"""@hide"""
 type UserRevShareMeta
   @join__type(graph: USERS)
 {
@@ -17126,7 +17221,7 @@ type UserRevShareMeta
   amountUsdPerTier: String!
 }
 
-"""docs: hide"""
+"""@hide"""
 type UserRevShareResponse
   @join__type(graph: USERS)
 {
@@ -17134,7 +17229,7 @@ type UserRevShareResponse
   cursor: String
 }
 
-"""docs: hide"""
+"""@hide"""
 type UserTrackedWalletSettings
   @join__type(graph: META)
 {
@@ -17151,7 +17246,7 @@ type UserTrackedWalletSettings
   tokenHistorySettings: TokenHistorySettings
 }
 
-"""docs: hide"""
+"""@hide"""
 input UserTrackedWalletSettingsInput
   @join__type(graph: META)
 {
@@ -17171,14 +17266,14 @@ input UserTrackedWalletSettingsInput
 scalar Void
   @join__type(graph: USERS)
 
-"""docs: hide"""
+"""@hide"""
 input WalletAggregateBackfillInput
   @join__type(graph: TOKENS)
 {
   walletAddress: String!
 }
 
-"""docs: hide"""
+"""@hide"""
 enum WalletAggregateBackfillState
   @join__type(graph: TOKENS)
 {
@@ -17190,14 +17285,14 @@ enum WalletAggregateBackfillState
   BackfillNotFound @join__enumValue(graph: TOKENS)
 }
 
-"""docs: hide"""
+"""@hide"""
 input WalletAggregateBackfillStateInput
   @join__type(graph: TOKENS)
 {
   walletAddress: String!
 }
 
-"""docs: hide"""
+"""@hide"""
 type WalletAggregateBackfillStateResponse
   @join__type(graph: TOKENS)
 {
@@ -17205,7 +17300,7 @@ type WalletAggregateBackfillStateResponse
   status: WalletAggregateBackfillState!
 }
 
-"""docs: hide"""
+"""@hide"""
 input WalletAttestation
   @join__type(graph: USERS)
 {
@@ -17215,7 +17310,7 @@ input WalletAttestation
   transports: [String!]!
 }
 
-"""The data for a chart of a wallet's activity."""
+"""The data for a chart of a wallet's activity. @category: wallets"""
 type WalletChartData
   @join__type(graph: TOKENS)
 {
@@ -17240,7 +17335,7 @@ type WalletChartData
   swaps: Int!
 }
 
-"""The input for a chart of a wallet's activity."""
+"""The input for a chart of a wallet's activity. @category: wallets"""
 input WalletChartInput
   @join__type(graph: TOKENS)
 {
@@ -17257,7 +17352,7 @@ input WalletChartInput
   resolution: String!
 }
 
-"""The range of time for a chart."""
+"""The range of time for a chart. @category: wallets"""
 type WalletChartRange
   @join__type(graph: TOKENS)
 {
@@ -17265,7 +17360,7 @@ type WalletChartRange
   end: Int!
 }
 
-"""The response for a chart of a wallet's activity."""
+"""The response for a chart of a wallet's activity. @category: wallets"""
 type WalletChartResponse
   @join__type(graph: TOKENS)
 {
@@ -17285,6 +17380,7 @@ type WalletChartResponse
   data: [WalletChartData!]!
 }
 
+"""A connection of wallets matching a filter. @category: wallets"""
 type WalletFilterConnection
   @join__type(graph: TOKENS)
 {
@@ -17298,6 +17394,7 @@ type WalletFilterConnection
   offset: Int!
 }
 
+"""A wallet matching a filter. @category: wallets"""
 type WalletFilterResult
   @join__type(graph: TOKENS)
 {
@@ -17448,6 +17545,7 @@ type WalletFilterResult
   nativeTokenBalance: String
 }
 
+"""Filters for a wallet. @category: wallets"""
 input WalletFilters
   @join__type(graph: TOKENS)
 {
@@ -17592,6 +17690,7 @@ input WalletFilters
   nativeTokenBalance: NumberFilter
 }
 
+"""Filters for a wallet on a specific network. @category: wallets"""
 input WalletNetworkFilters
   @join__type(graph: TOKENS)
 {
@@ -17735,6 +17834,7 @@ input WalletNetworkFilters
   botScore: NumberFilter
 }
 
+"""A wallet ranking on a specific network. @category: wallets"""
 input WalletNetworkRanking
   @join__type(graph: TOKENS)
 {
@@ -17745,6 +17845,9 @@ input WalletNetworkRanking
   direction: RankingDirection
 }
 
+"""
+Attributes for a wallet ranking on a specific network. @category: wallets
+"""
 enum WalletNetworkRankingAttribute
   @join__type(graph: TOKENS)
 {
@@ -17869,7 +17972,7 @@ type WalletNftCollectionsResponse
   cursor: String
 }
 
-"""docs: hide"""
+"""@hide"""
 input WalletPasskey
   @join__type(graph: USERS)
 {
@@ -17877,6 +17980,7 @@ input WalletPasskey
   attestation: WalletAttestation!
 }
 
+"""A wallet ranking. @category: wallets"""
 input WalletRanking
   @join__type(graph: TOKENS)
 {
@@ -17887,6 +17991,7 @@ input WalletRanking
   direction: RankingDirection
 }
 
+"""Attributes for a wallet ranking. @category: wallets"""
 enum WalletRankingAttribute
   @join__type(graph: TOKENS)
 {
@@ -17937,7 +18042,7 @@ enum WalletRankingAttribute
   botScore @join__enumValue(graph: TOKENS)
 }
 
-"""The period the wallet stats are for."""
+"""The period the wallet stats are for. @category: wallets"""
 enum WalletStatsDuration
   @join__type(graph: TOKENS)
 {
@@ -17947,6 +18052,7 @@ enum WalletStatsDuration
   day1 @join__enumValue(graph: TOKENS)
 }
 
+"""A range for a wallet token filter. @category: wallets"""
 input WalletTokenFilterRange
   @join__type(graph: TOKENS)
 {
@@ -17957,6 +18063,7 @@ input WalletTokenFilterRange
   max: String
 }
 
+"""Filters for a wallet on a specific token. @category: wallets"""
 input WalletTokenFilters
   @join__type(graph: TOKENS)
 {
@@ -18078,6 +18185,7 @@ input WalletTokenFilters
   botScore: WalletTokenFilterRange
 }
 
+"""Filters for a wallet on a specific token. @category: wallets"""
 input WalletTokenFiltersV2
   @join__type(graph: TOKENS)
 {
@@ -18199,6 +18307,7 @@ input WalletTokenFiltersV2
   botScore: NumberFilter
 }
 
+"""A wallet ranking on a specific token. @category: wallets"""
 input WalletTokenRanking
   @join__type(graph: TOKENS)
 {
@@ -18209,6 +18318,9 @@ input WalletTokenRanking
   direction: RankingDirection!
 }
 
+"""
+Attributes for a wallet ranking on a specific token. @category: wallets
+"""
 enum WalletTokenRankingAttribute
   @join__type(graph: TOKENS)
 {
@@ -18330,7 +18442,7 @@ enum WalletTokenRankingAttribute
   botScore @join__enumValue(graph: TOKENS)
 }
 
-"""Metadata for a washtrade label."""
+"""Metadata for a washtrade label. @category: events"""
 type WashtradeLabelForEvent
   @join__type(graph: TOKENS)
 {
@@ -18338,7 +18450,7 @@ type WashtradeLabelForEvent
   label: String!
 }
 
-"""Metadata for a webhook."""
+"""Metadata for a webhook. @category: webhooks"""
 type Webhook
   @join__type(graph: META)
 {
@@ -18394,7 +18506,9 @@ type Webhook
   publishingType: PublishingType
 }
 
-"""Webhook conditions that must be met for each webhook type."""
+"""
+Webhook conditions that must be met for each webhook type. @category: webhooks
+"""
 union WebhookCondition
   @join__type(graph: META)
   @join__unionMember(graph: META, member: "PriceEventWebhookCondition")
@@ -18404,7 +18518,7 @@ union WebhookCondition
   @join__unionMember(graph: META, member: "RawTransactionWebhookCondition")
  = PriceEventWebhookCondition | MarketCapEventWebhookCondition | TokenPairEventWebhookCondition | NftEventWebhookCondition | RawTransactionWebhookCondition
 
-"""NFT marketplace names."""
+"""NFT marketplace names. @category: webhooks"""
 enum WebhookNftEventFillSource
   @join__type(graph: META)
 {
@@ -18425,7 +18539,7 @@ enum WebhookNftEventFillSource
   GENIE @join__enumValue(graph: META)
 }
 
-"""NFT event types."""
+"""NFT event types. @category: webhooks"""
 enum WebhookNftEventType
   @join__type(graph: META)
 {
@@ -18434,7 +18548,7 @@ enum WebhookNftEventType
   TRANSFER @join__enumValue(graph: META)
 }
 
-"""The type of webhook."""
+"""The type of webhook. @category: webhooks"""
 enum WebhookType
   @join__type(graph: META)
 {
@@ -18445,7 +18559,7 @@ enum WebhookType
   MARKET_CAP_EVENT @join__enumValue(graph: META)
 }
 
-"""Price stats for a pair over a time frame."""
+"""Price stats for a pair over a time frame. @category: pairs"""
 type WindowedDetailedCurrencyPairStats
   @join__type(graph: TOKENS)
 {
@@ -18474,7 +18588,7 @@ type WindowedDetailedCurrencyPairStats
   liquidity: DetailedPairStatsStringMetrics
 }
 
-"""The currency stats for a wallet over a time window."""
+"""The currency stats for a wallet over a time window. @category: wallets"""
 type WindowedDetailedCurrencyWalletStats
   @join__type(graph: TOKENS)
 {
@@ -18587,7 +18701,7 @@ type WindowedDetailedNftStats
   statsNonCurrency: WindowedDetailedNftNonCurrencyStats!
 }
 
-"""Numerical stats for a pair over a time frame."""
+"""Numerical stats for a pair over a time frame. @category: pairs"""
 type WindowedDetailedNonCurrencyPairStats
   @join__type(graph: TOKENS)
 {
@@ -18610,7 +18724,9 @@ type WindowedDetailedNonCurrencyPairStats
   sellers: DetailedPairStatsNumberMetrics
 }
 
-"""The non-currency stats for a wallet over a time window."""
+"""
+The non-currency stats for a wallet over a time window. @category: wallets
+"""
 type WindowedDetailedNonCurrencyWalletStats
   @join__type(graph: TOKENS)
 {
@@ -18627,7 +18743,7 @@ type WindowedDetailedNonCurrencyWalletStats
   losses: Int!
 }
 
-"""Detailed pair stats over a time frame."""
+"""Detailed pair stats over a time frame. @category: pairs"""
 type WindowedDetailedPairStats
   @join__type(graph: TOKENS)
 {
@@ -18652,7 +18768,7 @@ type WindowedDetailedPairStats
   statsNonCurrency: WindowedDetailedNonCurrencyPairStats!
 }
 
-"""Detailed stats over a window."""
+"""Detailed stats over a window. @category: pairs"""
 type WindowedDetailedStats
   @join__type(graph: TOKENS)
 {
@@ -18698,7 +18814,7 @@ type WindowedDetailedStats
   sellVolume: DetailedStatsStringMetrics
 }
 
-"""The stats for a wallet over a time window."""
+"""The stats for a wallet over a time window. @category: wallets"""
 type WindowedWalletStats
   @join__type(graph: TOKENS)
 {
@@ -18724,7 +18840,7 @@ type WindowedWalletStats
   statsNonCurrency: WindowedDetailedNonCurrencyWalletStats!
 }
 
-"""docs: hide"""
+"""@hide"""
 input WithdrawInput
   @join__type(graph: USERS)
 {
@@ -18737,7 +18853,7 @@ input WithdrawInput
   tokenAddress: String
 }
 
-"""docs: hide"""
+"""@hide"""
 type WithdrawResponse
   @join__type(graph: USERS)
 {

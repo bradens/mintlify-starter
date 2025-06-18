@@ -1,6 +1,6 @@
 ---
 title: "WalletFilters"
-description: "InputObject type"
+description: "Filters for a wallet."
 ---
 
 ### Fields
@@ -281,6 +281,7 @@ description: "InputObject type"
 
 
 ```graphql WalletFilters
+"""Filters for a wallet."""
 input WalletFilters {
   """The unix timestamp for the last transaction from this wallet."""
   lastTransactionAt: NumberFilter

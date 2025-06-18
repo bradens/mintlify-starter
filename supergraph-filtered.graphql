@@ -109,13 +109,15 @@ type Query {
   listPairsWithMetadataForToken(limit: Int, networkId: Int!, tokenAddress: String!): ListPairsForTokenResponse!
   """Returns a list of token simple chart data (sparklines) for the given tokens."""
   tokenSparklines(input: TokenSparklineInput!): [TokenSparkline!]!
-  """Returns list of token balances that a wallet has"""
+  """Returns list of token balances that a wallet has."""
   balances(input: BalancesInput!): BalancesResponse!
-  """Returns list of wallets that hold a given token, ordered by holdings descending. Also has the unique count of holders for that token"""
+  """Returns list of wallets that hold a given token, ordered by holdings descending. Also has the unique count of holders for that token."""
   holders(input: HoldersInput!): HoldersResponse!
+  """Returns a list of token contract buy/sell results."""
   getSimulateTokenContractResults(contractAddress: String!, networkId: Int!, simulationId: String, cursor: String, limit: Int): GetSimulateTokenContractResultsConnection!
   """Returns a list of holders of the PRIME token on ethereum."""
   primeHolders(cursor: String): PrimeHolders!
+  """Returns a list of latest tokens."""
   getLatestTokens(limit: Int, networkFilter: [Int!], offset: Int): LatestTokenConnection
   """Returns liquidity locks for a given pair."""
   liquidityLocks(pairAddress: String, tokenAddress: String, networkId: Int!, cursor: String): LiquidityLockConnection
@@ -193,7 +195,9 @@ type Subscription {
   onBalanceUpdated(walletAddress: String!): Balance!
   """Live-streamed token lifecycle events (mints and burns)."""
   onTokenLifecycleEventsCreated(address: String, networkId: Int): AddTokenLifecycleEventsOutput!
+  """Live-streamed launchpad token events batched (more efficient)."""
   onLaunchpadTokenEventBatch(input: OnLaunchpadTokenEventBatchInput): [LaunchpadTokenEventOutput!]!
+  """Live-streamed launchpad token event."""
   onLaunchpadTokenEvent(input: OnLaunchpadTokenEventInput): LaunchpadTokenEventOutput!
 }
 
@@ -241,12 +245,6 @@ type AddNftPoolEventsOutput {
   events: [NftPoolEvent]!
 }
 
-enum AddressType {
-  EVM
-  SOL
-  TRON
-}
-
 """Response returned by `onTokenEventsCreated`."""
 type AddTokenEventsOutput {
   """The ID of the event (`address`:`networkId`). For example, `0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2:1`."""
@@ -266,6 +264,7 @@ type AddTrackedWalletEventsOutput {
   events: [TrackedWalletEvent!]!
 }
 
+"""Response returned by `onUnconfirmedEventsCreatedByMaker`."""
 type AddUnconfirmedEventsByMakerOutput {
   """The wallet address of the maker."""
   makerAddress: String!
@@ -287,13 +286,6 @@ type AddUnconfirmedEventsOutput {
   events: [UnconfirmedEvent]!
 }
 
-input AddUserAchievementInput {
-  userId: String!
-  achievementId: AchievementId!
-  pointsSeason: PointsSeason!
-  quantity: Int!
-}
-
 """The recurrence of the webhook. Can be `INDEFINITE` or `ONCE`."""
 enum AlertRecurrence {
   INDEFINITE
@@ -311,29 +303,6 @@ type ApiToken {
   requestLimit: String!
   """Approximate number of remaining resolutions before this token is rate limited"""
   remaining: String
-}
-
-type AptosNetworkConfig {
-  id: ID!
-  networkId: Int!
-  baseTokenAddress: String!
-  baseTokenSymbol: String!
-  color: String
-  defaultPairAddress: String!
-  defaultPairQuoteToken: QuoteToken!
-  enabled: Boolean!
-  newTokensEnabled: Boolean
-  explorer: ExplorerConfig!
-  mainnet: Boolean!
-  name: String!
-  networkIconUrl: String!
-  networkName: String!
-  networkShortName: String!
-  networkType: NetworkConfigType!
-  stableCoinAddresses: [String!]
-  wrappedBaseTokenSymbol: String!
-  pricing: [NetworkPriceConfig!]!
-  rpcs: [AptosRpcConfig!]!
 }
 
 """Wallet balance of a token."""
@@ -542,7 +511,7 @@ input CommunityNotesInput {
   cursor: String
 }
 
-"""Community notes data"""
+"""Community notes data."""
 type CommunityNotesResponse {
   """The list of community notes matching the filter parameters."""
   items: [CommunityNote!]!
@@ -614,6 +583,7 @@ enum ContractLabelType {
   Verified
 }
 
+"""Type of the contract."""
 enum ContractType {
   TOKEN
   NFT
@@ -818,12 +788,6 @@ type CreateWebhooksOutput {
   rawTransactionWebhooks: [Webhook]!
   """The list of market cap event webhooks that were created."""
   marketCapWebhooks: [Webhook]!
-}
-
-enum CreationContext {
-  WEB
-  TELEGRAM
-  MOBILE
 }
 
 """Price data for a bar at a specific resolution."""
@@ -1177,13 +1141,6 @@ type EnhancedToken {
   launchpad: LaunchpadData
 }
 
-enum Entitlement {
-  PriceFeed
-  BalanceFeed
-  TopTraders
-  WalletStats
-}
-
 """A token transaction."""
 type Event {
   """The contract address of the token's top pair."""
@@ -1492,11 +1449,6 @@ type ExplorerTokenData {
   tokenType: String
 }
 
-type Feature {
-  name: String!
-  enabled: Boolean!
-}
-
 """Filter for fillsource based NFT stats."""
 input FillsourceStatsFilter {
   """The fillsource to target for the current window."""
@@ -1603,31 +1555,6 @@ type FrontRunLabelData {
   token1DrainedAmount: String!
 }
 
-type GasEstimate {
-  gasLimitEstimate: String
-  gasPrice: String
-  error: String
-  errorReason: String
-  totalFee: String
-}
-
-type GasFee {
-  gasPrice: String!
-  confirmationTime: Float!
-}
-
-type GasFees {
-  high: GasFee
-  medium: GasFee
-  low: GasFee
-}
-
-enum GasPrice {
-  LOW
-  MEDIUM
-  HIGH
-}
-
 """Input type of `getDetailedPairsStats`."""
 input GetDetailedPairsStatsInput {
   """The contract address of the pair."""
@@ -1644,22 +1571,6 @@ input GetDetailedPairsStatsInput {
   bucketCount: Int
   """The type of statistics returned. Can be `FILTERED` or `UNFILTERED`"""
   statsType: TokenPairStatisticsType
-}
-
-input GetGasEstimateInput {
-  direction: OrderDirection!
-  gasPrice: GasPrice
-  inputTokenAddress: String!
-  inputTokenAmount: String!
-  networkId: Int!
-  outputTokenAddress: String!
-  poolAddress: String!
-  exchangeAddress: String!
-  userId: Int
-  walletId: Int
-  customGas: String
-  sendWithPrivateRpc: Boolean
-  slippage: Float
 }
 
 """Response returned by `getNetworkStats`."""
@@ -1728,19 +1639,7 @@ input GetPriceInput {
   maxDeviations: Float
 }
 
-input GetQuoteInput {
-  direction: OrderDirection!
-  inputTokenAddress: String!
-  inputTokenAmount: String!
-  networkId: Int!
-  outputTokenAddress: String!
-  poolAddress: String!
-  exchangeAddress: String!
-  userId: Int
-  customGas: String
-  slippage: Float
-}
-
+"""Response returned by `simulateTokenContract`."""
 type GetSimulateTokenContractResultsConnection {
   results: [SimulateTokenContractResult!]!
   cursor: String
@@ -1798,11 +1697,6 @@ type HoldersResponse {
   top10HoldersPercent: Float
 }
 
-enum HoldersSortAttribute {
-  BALANCE
-  DATE
-}
-
 enum HoldersStatus {
   ENABLED
   DISABLED
@@ -1820,16 +1714,6 @@ type HoldersUpdate {
   networkId: Int!
   """The list of wallets holding the token."""
   balances: [Balance!]!
-}
-
-input IndexerStateInput {
-  """The network ID to check the state of."""
-  networkId: Int!
-}
-
-enum IndexerStatus {
-  Behind
-  Normal
 }
 
 """Bar chart data."""
@@ -2011,6 +1895,7 @@ type LatestTokenConnection {
   items: [LatestToken!]!
 }
 
+"""Metadata for a newly created token."""
 type LatestTokenSimResults {
   """Whether or not a token was able to be succesfully bought during simulation."""
   buySuccess: Boolean
@@ -2129,6 +2014,7 @@ enum link__Purpose {
   EXECUTION
 }
 
+"""Data about liquidity in a pair."""
 type LiquidityData {
   """The active liquidity in the pair."""
   active: String!
@@ -2136,7 +2022,7 @@ type LiquidityData {
   inactive: String!
 }
 
-"""A record of locked liquidity"""
+"""A record of locked liquidity."""
 type LiquidityLock {
   """The pair address."""
   pairAddress: String!
@@ -2178,6 +2064,7 @@ type LiquidityLockBreakdownForToken {
   amountLockedTokensShifted: String!
 }
 
+"""Response returned by `liquidityLocks`."""
 type LiquidityLockConnection {
   """A list of liquidity locks."""
   items: [LiquidityLock!]!
@@ -2185,7 +2072,7 @@ type LiquidityLockConnection {
   cursor: String
 }
 
-"""Protocols that can lock liquidity"""
+"""Protocols that can lock liquidity."""
 enum LiquidityLockProtocol {
   BASECAMP_V1
   UNCX_V2
@@ -2226,7 +2113,7 @@ type LiquidityMetadataByToken {
   lockBreakdown: [LiquidityLockBreakdownForToken]!
 }
 
-"""Liquidity NFT position data"""
+"""Liquidity NFT position data."""
 type LiquidityNftData {
   """The tokenId of the liquidity position nft."""
   nftTokenId: String!
@@ -2234,7 +2121,7 @@ type LiquidityNftData {
   nftPositionManagerAddress: String!
 }
 
-"""Protocols that create trading pairs"""
+"""Protocols that create trading pairs."""
 enum LiquidityProtocol {
   UNISWAP_V3
   UNISWAP_V2
@@ -2350,17 +2237,6 @@ type MetadataResponse {
   networkName: String!
 }
 
-input MigrateTrackedWalletsInput {
-  fromUserId: String!
-  toUserId: String!
-}
-
-type MigrateTrackedWalletsOutput {
-  fromUserId: String!
-  toUserId: String!
-  status: String!
-}
-
 """Event data for a token mint event."""
 type MintEventData {
   """The amount of `token0` added to the pair."""
@@ -2404,6 +2280,7 @@ type NetworkBreakdown {
   statsYear1: WindowedWalletStats
 }
 
+"""A connection of wallets matching a filter on a specific network."""
 type NetworkWalletFilterConnection {
   """The list of wallets matching the filter parameters."""
   results: [NetworkWalletFilterResult!]!
@@ -2413,6 +2290,7 @@ type NetworkWalletFilterConnection {
   offset: Int!
 }
 
+"""A wallet matching a filter on a specific network."""
 type NetworkWalletFilterResult {
   """The wallet address"""
   address: String!
@@ -2677,6 +2555,7 @@ enum NftAssetAttributeType {
   Array
 }
 
+"""An NFT asset error."""
 type NftAssetError {
   """The ID of the NFT asset (`address`:`networkId`)."""
   id: String!
@@ -2692,6 +2571,7 @@ type NftAssetError {
   message: String!
 }
 
+"""The status of an NFT asset error."""
 enum NftAssetErrorStatus {
   NOT_FOUND
   INDEXING_IN_PROGRESS
@@ -4596,6 +4476,7 @@ input NftPoolNumberFilter {
   lt: String
 }
 
+"""Event data for transferring ownership of a pool."""
 type NftPoolOwnershipTransferredEventDataV2 {
   """The type of NFT pool event, `OWNERSHIP_TRANSFERRED`."""
   type: NftPoolEventType!
@@ -5098,20 +4979,6 @@ input OnUnconfirmedEventsCreatedByMakerInput {
   makerAddress: String!
 }
 
-enum OrderState {
-  CREATED
-  PENDING
-  COMPLETED
-  FAILED
-  EXPIRED
-}
-
-enum OrderType {
-  MANUAL
-  LIMIT
-  LIMIT_STRATEGY
-}
-
 """Metadata for a token pair."""
 type Pair {
   """The contract address of the pair."""
@@ -5549,6 +5416,7 @@ type PairMetadata {
   createdAt: Int
 }
 
+"""Metadata for a token in a pair."""
 type PairMetadataToken {
   address: String!
   decimals: Int
@@ -5891,13 +5759,6 @@ type ParallelCardChangesConnection {
   cursor: String
   """A list of tracked changes made to a Parallel card."""
   items: [ParallelCardChange]
-}
-
-enum Plan {
-  ENTERPRISE
-  STANDARD
-  DEFINED
-  FREE
 }
 
 """Event data for a BalancerV2 Pool Balance Changed event."""
@@ -6448,20 +6309,10 @@ type PrimePoolWithdrawData {
   userCachedAmount: String!
 }
 
+"""The type of publishing for the webhook. If not set, it defaults to `SINGLE`."""
 enum PublishingType {
   BATCH
   SINGLE
-}
-
-type Quote {
-  poolFee: String
-  poolFeeBps: Float
-  quotedAmount: String!
-  outputAmountMin: String
-  quoteType: QuoteType!
-  tradeFee: String!
-  tradeFeeBps: Float!
-  exchange: QuoteExchange!
 }
 
 enum QuoteCurrency {
@@ -6469,26 +6320,10 @@ enum QuoteCurrency {
   TOKEN
 }
 
-type QuoteExchange {
-  quoterInterface: String
-  protocol: String!
-  id: Int!
-  networkId: Int!
-  router: String!
-  factory: String!
-  quoter: String
-  name: String!
-}
-
 """The quote token within the pair."""
 enum QuoteToken {
   token0
   token1
-}
-
-enum QuoteType {
-  INPUT
-  OUTPUT
 }
 
 """The range of time for a chart."""
@@ -6503,6 +6338,7 @@ enum RankingDirection {
   DESC
 }
 
+"""Raw NFT asset data."""
 type RawNftAssetData {
   """An optional image field that may or may not be present on the requested NFT asset smart contract."""
   imageUrl: String
@@ -6550,37 +6386,6 @@ input RawTransactionWebhookConditionInput {
   ignoreNftEvents: Boolean
 }
 
-union ReferralEventData = ReferralsEventRewardData | ReferralsEventPayoutData
-
-type ReferralsEventPayoutData {
-  payouts: [ReferralsPayoutData!]!
-}
-
-type ReferralsEventRewardData {
-  networkId: Int!
-  inputTokenAddress: String!
-  outputTokenAddress: String!
-  transactionId: String!
-  transactionTokenAmount: String!
-  transactionTokenAddress: String!
-  transactionFee: String!
-  referralUserId: String!
-  payoutPercent: Float!
-  rewardTokenAmount: String
-  rewardTokenAddress: String
-}
-
-type ReferralsPayoutData {
-  tokenAmountPaid: String!
-  tokenAddressNetworkIdPaid: String!
-}
-
-input RemoveUserAchievementInput {
-  userId: String!
-  achievementId: AchievementId!
-  pointsSeason: PointsSeason!
-}
-
 """Price data for each supported resolution."""
 type ResolutionBarData {
   """1 second resolution."""
@@ -6611,7 +6416,7 @@ type ResolutionBarData {
   r7D: CurrencyBarData
 }
 
-"""Config for retrying failed webhook messages"""
+"""Config for retrying failed webhook messages."""
 type RetrySettings {
   """The maximum time in seconds that the webhook will retry sending a message"""
   maxTimeElapsed: Int
@@ -6623,7 +6428,7 @@ type RetrySettings {
   maxRetries: Int
 }
 
-"""Config input for retrying failed webhook messages"""
+"""Config input for retrying failed webhook messages."""
 input RetrySettingsInput {
   """The maximum time in seconds that the webhook will retry sending a message"""
   maxTimeElapsed: Int
@@ -6662,20 +6467,19 @@ enum SandwichLabelForEventType {
   backrun
 }
 
-input SessionMetadata {
-  shouldNotify: Boolean
-}
-
+"""Errors for a token contract balance."""
 type SimulateContractBalanceErrorsType {
   tokenContractTokenBalanceError: String
   tokenContractEthBalanceError: String
 }
 
+"""Result of a token contract balance."""
 type SimulateContractBalanceType {
   tokenContractTokenBalance: String
   tokenContractEthBalance: String
 }
 
+"""Input type of `simulateTokenContract`."""
 input SimulateCreateTransactionInput {
   """The network ID the token is deployed on. Currently only supports 1 (mainnet)."""
   networkId: Int!
@@ -6687,22 +6491,26 @@ input SimulateCreateTransactionInput {
   contractAddress: String!
 }
 
+"""Errors for a token contract creator."""
 type SimulateCreatorErrorsType {
   creatorTokenBalanceError: String
   creatorEthBalanceError: String
 }
 
+"""Result of a token contract creator."""
 type SimulateCreatorType {
   creatorAddress: String
   creatorTokenBalance: String
   creatorEthBalance: String
 }
 
+"""Errors for a token contract deploy."""
 type SimulateDeployErrorsType {
   deployError: String
   tokenMintedToDeployerError: String
 }
 
+"""Input type of `simulateTokenContract`."""
 input SimulateDeployInput {
   """The network ID the token is deployed on. Currently only supports 1 (mainnet)."""
   networkId: Int!
@@ -6714,11 +6522,13 @@ input SimulateDeployInput {
   contractInput: String!
 }
 
+"""Result of a token contract deploy."""
 type SimulateDeployType {
   deploySuccess: Boolean
   tokenMintedToDeployer: String
 }
 
+"""Errors for a token contract liquidity."""
 type SimulateLiquidityErrorsType {
   lpTotalSupplyError: String
   preLiquidityEnableTradingError: String
@@ -6726,6 +6536,7 @@ type SimulateLiquidityErrorsType {
   addLiquidityError: String
 }
 
+"""Result of a token contract liquidity."""
 type SimulateLiquidityType {
   pairAddress: String
   lpTotalSupply: String
@@ -6738,6 +6549,7 @@ type SimulateLiquidityType {
   addLiquiditySuccess: Boolean
 }
 
+"""Input type of `simulateTokenContract`."""
 input SimulateLiveContractInput {
   """The network ID the token is deployed on. Currently only supports 1 (mainnet)."""
   networkId: Int!
@@ -6747,18 +6559,21 @@ input SimulateLiveContractInput {
   contractAddress: String!
 }
 
+"""Errors for a token contract owner."""
 type SimulateOwnerErrorsType {
   ownerAddressError: String
   ownerTokenBalanceError: String
   ownerEthBalanceError: String
 }
 
+"""Result of a token contract owner."""
 type SimulateOwnerType {
   ownerAddress: String
   ownerTokenBalance: String
   ownerEthBalance: String
 }
 
+"""Errors for a token contract swap."""
 type SimulateSwapErrorsType {
   buyError: String
   buyErrorEnum: SimulateTokenContractBuySellErrorEnum
@@ -6766,6 +6581,7 @@ type SimulateSwapErrorsType {
   sellErrorEnum: SimulateTokenContractBuySellErrorEnum
 }
 
+"""Result of a token contract swap."""
 type SimulateSwapType {
   buySuccess: Boolean
   buyTax: String
@@ -6777,6 +6593,7 @@ type SimulateSwapType {
   maxSellAmount: String
 }
 
+"""Error codes for a token contract buy/sell."""
 enum SimulateTokenContractBuySellErrorEnum {
   INSUFFICIENT_OUTPUT_AMOUNT
   INSUFFICIENT_LIQUIDITY
@@ -6784,6 +6601,7 @@ enum SimulateTokenContractBuySellErrorEnum {
   UNKNOWN_ERROR
 }
 
+"""Errors for a token contract buy/sell."""
 type SimulateTokenContractErrors {
   simulatorError: String
   tokenErrors: SimulateTokenErrorsType!
@@ -6796,6 +6614,7 @@ type SimulateTokenContractErrors {
   creatorErrors: SimulateCreatorErrorsType!
 }
 
+"""Input type of `simulateTokenContract`."""
 input SimulateTokenContractInput {
   """Input for a token contract deploy simulation."""
   simulateDeployInput: SimulateDeployInput
@@ -6805,12 +6624,14 @@ input SimulateTokenContractInput {
   simulateLiveContractInput: SimulateLiveContractInput
 }
 
+"""Response returned by `simulateTokenContract`."""
 type SimulateTokenContractResponse {
   result: Boolean!
   simulationId: String
   error: String
 }
 
+"""Result of a token contract buy/sell."""
 type SimulateTokenContractResult {
   id: String!
   sortKey: String!
@@ -6833,12 +6654,14 @@ type SimulateTokenContractResult {
   creator: SimulateCreatorType!
 }
 
+"""Status of a token contract buy/sell."""
 enum SimulateTokenContractResultStatusEnum {
   SUCCESS
   FAILURE
   PENDING
 }
 
+"""Errors for a token contract."""
 type SimulateTokenErrorsType {
   tokenSymbolError: String
   decimalsError: String
@@ -6848,6 +6671,7 @@ type SimulateTokenErrorsType {
   canRenounceOwnershipError: String
 }
 
+"""Result of a token contract."""
 type SimulateTokenType {
   contractAddress: String!
   tokenSymbol: String
@@ -6859,12 +6683,14 @@ type SimulateTokenType {
   isOwnerRenounced: Boolean
 }
 
+"""Errors for a token contract transfer."""
 type SimulateTransferErrorsType {
   tokenContractApprovalError: String
   tokenTransferredToContractError: String
   userApprovalError: String
 }
 
+"""Result of a token contract transfer."""
 type SimulateTransferType {
   tokenContractApprovalSuccess: Boolean
   tokenTransferredToContractSuccess: Boolean
@@ -6898,6 +6724,7 @@ enum SparklineAttribute {
   PRICE
 }
 
+"""A value in a sparkline."""
 type SparklineValue {
   timestamp: Int!
   value: Float!
@@ -7014,29 +6841,6 @@ input StringFilter {
   lte: String
   """Less than."""
   lt: String
-}
-
-type SuiNetworkConfig {
-  id: ID!
-  networkId: Int!
-  baseTokenAddress: String!
-  baseTokenSymbol: String!
-  color: String
-  defaultPairAddress: String!
-  defaultPairQuoteToken: QuoteToken!
-  enabled: Boolean!
-  newTokensEnabled: Boolean
-  explorer: ExplorerConfig!
-  mainnet: Boolean!
-  name: String!
-  networkIconUrl: String!
-  networkName: String!
-  networkShortName: String!
-  networkType: NetworkConfigType!
-  stableCoinAddresses: [String!]
-  wrappedBaseTokenSymbol: String!
-  pricing: [NetworkPriceConfig!]!
-  rpcs: [SuiRpcConfig!]!
 }
 
 """Event data for a token swap event."""
@@ -7771,7 +7575,7 @@ input TokenPairEventWebhookConditionInput {
   eventType: TokenPairEventTypeConditionInput
 }
 
-"""The type of statistics returned. Can be `FILTERED` or `UNFILTERED`"""
+"""The type of statistics returned. Can be `FILTERED` or `UNFILTERED`."""
 enum TokenPairStatisticsType {
   FILTERED
   UNFILTERED
@@ -7886,6 +7690,7 @@ type TokenSearchResponse {
   tokens: [TokenWithMetadata!]
 }
 
+"""A sparkline for a token."""
 type TokenSparkline {
   """The token id"""
   id: String!
@@ -7895,6 +7700,7 @@ type TokenSparkline {
   sparkline: [SparklineValue!]!
 }
 
+"""Input type of `tokenSparkline`."""
 input TokenSparklineInput {
   """The contract address & networkId of the token, joined by a colon. ex: 0xbe042e9d09cb588331ff911c2b46fd833a3e5bd6:1"""
   ids: [String!]!
@@ -7964,6 +7770,7 @@ input TokenTopTradersInput {
   offset: Int
 }
 
+"""A connection of wallets matching a filter on a specific token."""
 type TokenWalletFilterConnection {
   """The list of wallets matching the filter parameters."""
   results: [TokenWalletFilterResult!]!
@@ -8231,6 +8038,7 @@ type UnconfirmedIndividualBarData {
   t: Int!
 }
 
+"""Event data for a token liquidity change event."""
 type UnconfirmedLiquidityChangeEventData {
   """The amount of `token0` added or removed from the pair."""
   amount0: String
@@ -8260,6 +8068,7 @@ type UnconfirmedResolutionBarData {
   r15: UnconfirmedIndividualBarData
 }
 
+"""Event data for a token swap event."""
 type UnconfirmedSwapEventData {
   """The amount of `quoteToken` involved in the swap. For example, if `quoteToken` is USDC for a USDC/WETH pair, `amountNonLiquidityToken` would be the amount of USDC involved in the swap."""
   amountNonLiquidityToken: String
@@ -8327,6 +8136,7 @@ type WalletChartResponse {
   data: [WalletChartData!]!
 }
 
+"""A connection of wallets matching a filter."""
 type WalletFilterConnection {
   """The list of wallets matching the filter parameters."""
   results: [WalletFilterResult!]!
@@ -8336,6 +8146,7 @@ type WalletFilterConnection {
   offset: Int!
 }
 
+"""A wallet matching a filter."""
 type WalletFilterResult {
   """The wallet address"""
   address: String!
@@ -8435,6 +8246,7 @@ type WalletFilterResult {
   nativeTokenBalance: String
 }
 
+"""Filters for a wallet."""
 input WalletFilters {
   """The unix timestamp for the last transaction from this wallet."""
   lastTransactionAt: NumberFilter
@@ -8530,6 +8342,7 @@ input WalletFilters {
   nativeTokenBalance: NumberFilter
 }
 
+"""Filters for a wallet on a specific network."""
 input WalletNetworkFilters {
   """The unix timestamp for the last transaction from this wallet."""
   lastTransactionAt: NumberFilter
@@ -8623,6 +8436,7 @@ input WalletNetworkFilters {
   botScore: NumberFilter
 }
 
+"""A wallet ranking on a specific network."""
 input WalletNetworkRanking {
   """The attribute to rank wallets by."""
   attribute: WalletNetworkRankingAttribute
@@ -8630,6 +8444,7 @@ input WalletNetworkRanking {
   direction: RankingDirection
 }
 
+"""Attributes for a wallet ranking on a specific network."""
 enum WalletNetworkRankingAttribute {
   firstTransactionAt
   lastTransactionAt
@@ -8728,6 +8543,7 @@ type WalletNftCollectionsResponse {
   cursor: String
 }
 
+"""A wallet ranking."""
 input WalletRanking {
   """The attribute to rank wallets by."""
   attribute: WalletRankingAttribute
@@ -8735,6 +8551,7 @@ input WalletRanking {
   direction: RankingDirection
 }
 
+"""Attributes for a wallet ranking."""
 enum WalletRankingAttribute {
   firstTransactionAt
   lastTransactionAt
@@ -8791,6 +8608,7 @@ enum WalletStatsDuration {
   day1
 }
 
+"""A range for a wallet token filter."""
 input WalletTokenFilterRange {
   """The minimum value (inclusive)"""
   min: String
@@ -8798,6 +8616,7 @@ input WalletTokenFilterRange {
   max: String
 }
 
+"""Filters for a wallet on a specific token."""
 input WalletTokenFilters {
   """Filter by last transaction timestamp"""
   lastTransactionAt: WalletTokenFilterRange
@@ -8879,6 +8698,7 @@ input WalletTokenFilters {
   botScore: WalletTokenFilterRange
 }
 
+"""Filters for a wallet on a specific token."""
 input WalletTokenFiltersV2 {
   """Filter by last transaction timestamp"""
   lastTransactionAt: NumberFilter
@@ -8960,6 +8780,7 @@ input WalletTokenFiltersV2 {
   botScore: NumberFilter
 }
 
+"""A wallet ranking on a specific token."""
 input WalletTokenRanking {
   """The attribute to rank wallets by"""
   attribute: WalletTokenRankingAttribute!
@@ -8967,6 +8788,7 @@ input WalletTokenRanking {
   direction: RankingDirection!
 }
 
+"""Attributes for a wallet ranking on a specific token."""
 enum WalletTokenRankingAttribute {
   """The first transaction timestamp"""
   firstTransactionAt

@@ -1,6 +1,6 @@
 ---
 title: "WalletFilterConnection"
-description: "Object type"
+description: "A connection of wallets matching a filter."
 ---
 
 ### Fields
@@ -21,6 +21,7 @@ description: "Object type"
 
 
 ```graphql WalletFilterConnection
+"""A connection of wallets matching a filter."""
 type WalletFilterConnection {
   """The list of wallets matching the filter parameters."""
   results: [WalletFilterResult!]!

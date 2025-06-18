@@ -1,6 +1,6 @@
 ---
 title: "TokenWalletFilterConnection"
-description: "Object type"
+description: "A connection of wallets matching a filter on a specific token."
 ---
 
 ### Fields
@@ -21,6 +21,7 @@ description: "Object type"
 
 
 ```graphql TokenWalletFilterConnection
+"""A connection of wallets matching a filter on a specific token."""
 type TokenWalletFilterConnection {
   """The list of wallets matching the filter parameters."""
   results: [TokenWalletFilterResult!]!

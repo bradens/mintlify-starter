@@ -1,6 +1,6 @@
 ---
 title: "UnconfirmedSwapEventData"
-description: "Object type"
+description: "Event data for a token swap event."
 ---
 
 ### Fields
@@ -37,6 +37,7 @@ description: "Object type"
 
 
 ```graphql UnconfirmedSwapEventData
+"""Event data for a token swap event."""
 type UnconfirmedSwapEventData {
   """The amount of `quoteToken` involved in the swap. For example, if `quoteToken` is USDC for a USDC/WETH pair, `amountNonLiquidityToken` would be the amount of USDC involved in the swap."""
   amountNonLiquidityToken: String

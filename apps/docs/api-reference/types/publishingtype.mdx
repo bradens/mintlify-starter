@@ -1,6 +1,6 @@
 ---
 title: "PublishingType"
-description: "Enum type"
+description: "The type of publishing for the webhook. If not set, it defaults to `SINGLE`."
 ---
 
 ### Values
@@ -15,6 +15,7 @@ description: "Enum type"
 
 
 ```graphql PublishingType
+"""The type of publishing for the webhook. If not set, it defaults to `SINGLE`."""
 enum PublishingType {
   BATCH
   SINGLE

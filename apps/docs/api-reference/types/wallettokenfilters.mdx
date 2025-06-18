@@ -1,6 +1,6 @@
 ---
 title: "WalletTokenFilters"
-description: "InputObject type"
+description: "Filters for a wallet on a specific token."
 ---
 
 ### Fields
@@ -241,6 +241,7 @@ description: "InputObject type"
 
 
 ```graphql WalletTokenFilters
+"""Filters for a wallet on a specific token."""
 input WalletTokenFilters {
   """Filter by last transaction timestamp"""
   lastTransactionAt: WalletTokenFilterRange

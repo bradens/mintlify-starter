@@ -1,34 +1,50 @@
 ---
 title: "Build With Codex"
-description: "Learn how to build with Codex"
 ---
 
-You can build on the Codex API via the typescript SDK or by the GraphQL API.
-The correct choice depends on what language you're using, and if you want control over the connections.
+You have two options for building on the Codex API:
 
-The Codex SDK is a thin wrapper that gives you
-types, websocket connection handling, and some predefined queries and mutations.
+| Option 1: _SDK_ (recommended)                | Option 2: _GraphQL API_                      |
+| -------------------------------------------- | -------------------------------------------- |
+| Thin wrapper around the API                  | More customizable depending on your use case |
+| Designed to get you started on Codex quickly | Requires more configuration                  |
+| Built-in websocket connection handling       | More control over the connections            |
+| Predefined queries and mutations             | Write your own queries                       |
+| Good choice if you're using Typescript       | Good choice if you're not using Typescript   |
 
 <AccordionGroup>
-  <Accordion title="SDK" defaultOpen={true}>
+  <Accordion title="SDK">
+    [Codex Typescript SDK GitHub](https://github.com/codex-data/sdk)
 
-  The [Codex Typescript SDK](https://github.com/codex-data/sdk) is a library that makes it easy to make calls to the Codex API.
+    Throughout these docs, you'll see examples and code snippets for both the `sdk` and other implementations.
 
-  In this documentation, you'll see examples and code snippets for both the `sdk` and other implementations.
+    ### Installation
 
-  ## Installation
+    <CodeGroup>
 
-  ```bash
-  npm install @codex-data/sdk
-  ```
+    ```bash npm
+    npm install @codex-data/sdk
+    ```
 
-  ```typescript
-  import { Codex } from "@codex-data/sdk";
+    
+    ```bash yarn
+    yarn add @codex-data/sdk
+    ```
 
-  const sdk = new Codex({
-    apiKey: "<your api key>",
-  });
-  ```
+    
+    ```bash pnpm
+    pnpm add @codex-data/sdk
+    ```
+
+    </CodeGroup>
+
+    ```typescript
+    import { Codex } from "@codex-data/sdk";
+    
+    const sdk = new Codex({
+      apiKey: "<your api key>",
+    });
+    ```
   </Accordion>
   <Accordion title="GraphQL">
     Just use the GraphQL API directly by adding the `Authorization` header to your requests. and sending requests to
@@ -36,11 +52,5 @@ types, websocket connection handling, and some predefined queries and mutations.
     ```
     graph.codex.io/graphql
     ```
-
   </Accordion>
 </AccordionGroup>
-
-
-
-
-

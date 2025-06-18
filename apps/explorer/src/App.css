@@ -10,7 +10,6 @@ html, body, #root {
   flex: 0 1 100%;
 }
 
-
 .graphiql-logo-link {
   display: none !important;
 }

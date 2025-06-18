@@ -16,7 +16,8 @@ export function ApiKeyForm() {
     <>
       <form onSubmit={onFormSubmit} className="mt-8 max-w-sm mx-auto">
         <div className="p-4 mb-4 text-sm text-blue-800 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400" role="alert">
-          <span className="font-medium">Heads up!</span> In order to get started with the explorer, you need to submit your api key here.
+          <span className="font-medium">Heads up!</span> In order to get started with the Codex API Explorer, you need to submit your api key here.
+          It's only used for the requests you make in while in the explorer, and is not shared with anyone.
         </div>
         <div className="mb-5">
           <label htmlFor="apikey" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your apiKey</label>

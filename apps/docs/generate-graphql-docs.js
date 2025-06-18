@@ -200,7 +200,8 @@ function generateOperationDoc(operation, operationType) {
 
   let content = `---
 title: "${operation.name}"
-description: "${description || `${operationType} operation`}"`;
+description: "${description || `${operationType} operation`}"
+keywords: ['${operation.name}']`;
 
   if (metadata.tag) {
     content += `\ntag: "${metadata.tag}"`;
@@ -219,9 +220,7 @@ description: "${description || `${operationType} operation`}"`;
 `;
   }
 
-  content += `**Type:** ${operationType}
-
-**Returns:** ${returnType}
+  content += `**Returns:** ${returnType}
 
 `;
 
@@ -282,7 +281,8 @@ function generateTypeDoc(type) {
 
   let content = `---
 title: "${type.name}"
-description: "${description || `${typeKind} type`}"`;
+description: "${description || `${typeKind} type`}"
+keywords: ['${type.name}']`;
 
   if (metadata.tag) {
     content += `\ntag: "${metadata.tag}"`;

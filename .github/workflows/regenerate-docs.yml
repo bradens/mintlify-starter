@@ -8,6 +8,10 @@ on:
 
 jobs:
   regenerate-docs:
+    env:
+      NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GITHUB_NPM_TOKEN: ${{ secrets.DEFINED_GITHUB_NPM_TOKEN }}
+
     runs-on: ubuntu-latest
 
     steps:

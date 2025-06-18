@@ -228,8 +228,7 @@ function generateOperationDoc(operation, operationType) {
 
   let content = `---
 title: "${operation.name}"
-description: "${description || `${operationType} operation`}"
-keywords: ['${operation.name}']`;
+description: "${description || `${operationType} operation`}"`;
 
   if (metadata.tag) {
     content += `\ntag: "${metadata.tag}"`;
@@ -317,7 +316,6 @@ function generateTypeDoc(type) {
   let content = `---
 title: "${type.name}"
 description: "${description || `${typeKind} type`}"
-keywords: ['${type.name}']
 noindex: true`;
 
   if (metadata.tag) {

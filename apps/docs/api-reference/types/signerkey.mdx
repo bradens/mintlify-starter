@@ -1,0 +1,34 @@
+---
+title: "SignerKey"
+description: "Object type"
+---
+
+### Fields
+
+<ResponseField name="subOrgId" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="signingUserId" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="publicKey" type="String!" required>
+  No description provided
+</ResponseField>
+
+<a href="/api-reference/types/newpolicy">
+  <ResponseField name="newPolicies" type="[NewPolicy!]!" required>
+    No description provided
+  </ResponseField>
+</a>
+
+
+```graphql SignerKey
+type SignerKey {
+  subOrgId: String!
+  signingUserId: String!
+  publicKey: String!
+  newPolicies: [NewPolicy!]!
+}
+```

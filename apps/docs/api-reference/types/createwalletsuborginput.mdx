@@ -1,0 +1,29 @@
+---
+title: "CreateWalletSuborgInput"
+description: "InputObject type"
+---
+
+### Fields
+
+<ResponseField name="label" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="email" type="String">
+  No description provided
+</ResponseField>
+
+<a href="/api-reference/types/walletpasskey">
+  <ResponseField name="passkey" type="WalletPasskey!" required>
+    No description provided
+  </ResponseField>
+</a>
+
+
+```graphql CreateWalletSuborgInput
+input CreateWalletSuborgInput {
+  label: String!
+  email: String
+  passkey: WalletPasskey!
+}
+```

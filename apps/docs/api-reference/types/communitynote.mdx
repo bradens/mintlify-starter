@@ -65,6 +65,12 @@ description: "Community gathered proposals for an asset."
   The unix timestamp of when the community note was created.
 </ResponseField>
 
+<a href="/api-reference/types/contractproposalstatus">
+  <ResponseField name="status" type="ContractProposalStatus!" required>
+    The status of the community note.
+  </ResponseField>
+</a>
+
 <ResponseField name="sortKey" type="String!" required>
   No description provided
 </ResponseField>
@@ -95,6 +101,8 @@ type CommunityNote {
   proposalType: CommunityNoteType!
   """The unix timestamp of when the community note was created."""
   proposedAt: Int!
+  """The status of the community note."""
+  status: ContractProposalStatus!
   sortKey: String!
 }
 ```

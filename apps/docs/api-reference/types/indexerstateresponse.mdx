@@ -1,0 +1,38 @@
+---
+title: "IndexerStateResponse"
+description: "Object type"
+---
+
+### Fields
+
+<ResponseField name="networkId" type="Int!" required>
+  The network ID of the indexer.
+</ResponseField>
+
+<a href="/api-reference/types/indexerstatus">
+  <ResponseField name="status" type="IndexerStatus!" required>
+    The state of the indexer.
+  </ResponseField>
+</a>
+
+<ResponseField name="behindBy" type="Int">
+  The number of seconds the indexer is behind.
+</ResponseField>
+
+<ResponseField name="lastTransactionTime" type="Int">
+  The unix timestamp of the last transaction time.
+</ResponseField>
+
+
+```graphql IndexerStateResponse
+type IndexerStateResponse {
+  """The network ID of the indexer."""
+  networkId: Int!
+  """The state of the indexer."""
+  status: IndexerStatus!
+  """The number of seconds the indexer is behind."""
+  behindBy: Int
+  """The unix timestamp of the last transaction time."""
+  lastTransactionTime: Int
+}
+```

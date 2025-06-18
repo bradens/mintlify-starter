@@ -1,0 +1,44 @@
+---
+title: "NotableWallet"
+description: "Object type"
+---
+
+### Fields
+
+<ResponseField name="walletAddress" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="addressType" type="String!" required>
+  No description provided
+</ResponseField>
+
+<a href="/api-reference/types/notablewalletaddtype">
+  <ResponseField name="addType" type="NotableWalletAddType!" required>
+    No description provided
+  </ResponseField>
+</a>
+
+<ResponseField name="label" type="String">
+  No description provided
+</ResponseField>
+
+<ResponseField name="notes" type="String">
+  No description provided
+</ResponseField>
+
+<ResponseField name="createdAt" type="Int!" required>
+  No description provided
+</ResponseField>
+
+
+```graphql NotableWallet
+type NotableWallet {
+  walletAddress: String!
+  addressType: String!
+  addType: NotableWalletAddType!
+  label: String
+  notes: String
+  createdAt: Int!
+}
+```

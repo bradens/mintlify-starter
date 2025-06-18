@@ -1,0 +1,57 @@
+---
+title: "ProposalFilter"
+description: "InputObject type"
+---
+
+### Fields
+
+<ResponseField name="address" type="String">
+  No description provided
+</ResponseField>
+
+<a href="/api-reference/types/contracttype">
+  <ResponseField name="contractType" type="ContractType">
+    No description provided
+  </ResponseField>
+</a>
+
+<ResponseField name="moderatedBy" type="String">
+  No description provided
+</ResponseField>
+
+<ResponseField name="networkId" type="[Int]">
+  No description provided
+    
+    <Warning>
+      This field is deprecated. Not useful
+    </Warning>
+</ResponseField>
+
+<a href="/api-reference/types/contractproposaltype">
+  <ResponseField name="proposalType" type="ContractProposalType">
+    No description provided
+  </ResponseField>
+</a>
+
+<ResponseField name="proposedBy" type="String">
+  No description provided
+</ResponseField>
+
+<a href="/api-reference/types/contractproposalstatus">
+  <ResponseField name="status" type="ContractProposalStatus">
+    No description provided
+  </ResponseField>
+</a>
+
+
+```graphql ProposalFilter
+input ProposalFilter {
+  address: String
+  contractType: ContractType
+  moderatedBy: String
+  networkId: [Int] @deprecated(reason: "Not useful")
+  proposalType: ContractProposalType
+  proposedBy: String
+  status: ContractProposalStatus
+}
+```

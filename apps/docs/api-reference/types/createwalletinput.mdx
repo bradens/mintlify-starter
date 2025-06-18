@@ -1,0 +1,31 @@
+---
+title: "CreateWalletInput"
+description: "InputObject type"
+---
+
+### Fields
+
+<a href="/api-reference/types/signedrequest">
+  <ResponseField name="signedRequest" type="SignedRequest!" required>
+    No description provided
+  </ResponseField>
+</a>
+
+<ResponseField name="label" type="String">
+  No description provided
+</ResponseField>
+
+<a href="/api-reference/types/networktype">
+  <ResponseField name="networkType" type="NetworkType!" required>
+    No description provided
+  </ResponseField>
+</a>
+
+
+```graphql CreateWalletInput
+input CreateWalletInput {
+  signedRequest: SignedRequest!
+  label: String
+  networkType: NetworkType!
+}
+```

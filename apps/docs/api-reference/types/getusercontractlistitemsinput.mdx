@@ -1,0 +1,38 @@
+---
+title: "GetUserContractListItemsInput"
+description: "InputObject type"
+---
+
+### Fields
+
+<ResponseField name="listId" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="cursor" type="String">
+  No description provided
+</ResponseField>
+
+<ResponseField name="limit" type="Int">
+  No description provided
+    
+    <Warning>
+      This field is deprecated. hardcoded to 30
+    </Warning>
+</ResponseField>
+
+<a href="/api-reference/types/tokenranking">
+  <ResponseField name="rankings" type="[TokenRanking]">
+    No description provided
+  </ResponseField>
+</a>
+
+
+```graphql GetUserContractListItemsInput
+input GetUserContractListItemsInput {
+  listId: String!
+  cursor: String
+  limit: Int @deprecated(reason: "hardcoded to 30")
+  rankings: [TokenRanking]
+}
+```

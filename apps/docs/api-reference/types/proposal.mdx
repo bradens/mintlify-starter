@@ -1,0 +1,106 @@
+---
+title: "Proposal"
+description: "Object type"
+---
+
+### Fields
+
+<ResponseField name="address" type="String!" required>
+  No description provided
+</ResponseField>
+
+<a href="/api-reference/types/contracttype">
+  <ResponseField name="contractType" type="ContractType!" required>
+    No description provided
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/enhancedcontract">
+  <ResponseField name="currentContract" type="EnhancedContract">
+    No description provided
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/json">
+  <ResponseField name="currentData" type="JSON">
+    No description provided
+  </ResponseField>
+</a>
+
+<ResponseField name="id" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="moderatedAt" type="Int">
+  No description provided
+</ResponseField>
+
+<ResponseField name="moderatedBy" type="String">
+  No description provided
+</ResponseField>
+
+<ResponseField name="networkId" type="Int!" required>
+  No description provided
+</ResponseField>
+
+<a href="/api-reference/types/json">
+  <ResponseField name="previousData" type="JSON">
+    No description provided
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/json">
+  <ResponseField name="proposalData" type="JSON!" required>
+    No description provided
+  </ResponseField>
+</a>
+
+<ResponseField name="proposalNum" type="Int!" required>
+  No description provided
+</ResponseField>
+
+<a href="/api-reference/types/contractproposaltype">
+  <ResponseField name="proposalType" type="ContractProposalType!" required>
+    No description provided
+  </ResponseField>
+</a>
+
+<ResponseField name="proposedAt" type="Int!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="proposedBy" type="String!" required>
+  No description provided
+</ResponseField>
+
+<a href="/api-reference/types/contractproposalstatus">
+  <ResponseField name="status" type="ContractProposalStatus!" required>
+    No description provided
+  </ResponseField>
+</a>
+
+<ResponseField name="sortKey" type="String!" required>
+  No description provided
+</ResponseField>
+
+
+```graphql Proposal
+type Proposal {
+  address: String!
+  contractType: ContractType!
+  currentContract: EnhancedContract
+  currentData: JSON
+  id: String!
+  moderatedAt: Int
+  moderatedBy: String
+  networkId: Int!
+  previousData: JSON
+  proposalData: JSON!
+  proposalNum: Int!
+  proposalType: ContractProposalType!
+  proposedAt: Int!
+  proposedBy: String!
+  status: ContractProposalStatus!
+  sortKey: String!
+}
+```

@@ -1,0 +1,40 @@
+---
+title: "SolanaRpcConfig"
+description: "Object type"
+---
+
+### Fields
+
+<ResponseField name="url" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="public" type="Boolean!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="geyserUrl" type="String">
+  No description provided
+    
+    <Warning>
+      This field is deprecated. Use geysers on network config model instead
+    </Warning>
+</ResponseField>
+
+<ResponseField name="geyserApiKey" type="String">
+  No description provided
+    
+    <Warning>
+      This field is deprecated. Use geysers on network config model instead
+    </Warning>
+</ResponseField>
+
+
+```graphql SolanaRpcConfig
+type SolanaRpcConfig {
+  url: String!
+  public: Boolean!
+  geyserUrl: String @deprecated(reason: "Use geysers on network config model instead")
+  geyserApiKey: String @deprecated(reason: "Use geysers on network config model instead")
+}
+```

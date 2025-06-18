@@ -1,0 +1,31 @@
+---
+title: "ExternalPriceConfig"
+description: "Object type"
+---
+
+### Fields
+
+<ResponseField name="tokenAddress" type="String!" required>
+  No description provided
+</ResponseField>
+
+<a href="/api-reference/types/networkpricetype">
+  <ResponseField name="type" type="NetworkPriceType!" required>
+    No description provided
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/externalprices">
+  <ResponseField name="referenceToken" type="ExternalPrices!" required>
+    No description provided
+  </ResponseField>
+</a>
+
+
+```graphql ExternalPriceConfig
+type ExternalPriceConfig {
+  tokenAddress: String!
+  type: NetworkPriceType!
+  referenceToken: ExternalPrices!
+}
+```

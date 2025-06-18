@@ -1,0 +1,36 @@
+---
+title: "SaveChartDrawingsInput"
+description: "InputObject type"
+---
+
+### Fields
+
+<ResponseField name="chartId" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="layoutId" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="state" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="timestamp" type="Int">
+  No description provided
+    
+    <Warning>
+      This field is deprecated. generated automatically
+    </Warning>
+</ResponseField>
+
+
+```graphql SaveChartDrawingsInput
+input SaveChartDrawingsInput {
+  chartId: String!
+  layoutId: String!
+  state: String!
+  timestamp: Int @deprecated(reason: "generated automatically")
+}
+```

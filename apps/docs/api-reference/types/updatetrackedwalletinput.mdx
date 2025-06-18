@@ -1,0 +1,34 @@
+---
+title: "UpdateTrackedWalletInput"
+description: "InputObject type"
+---
+
+### Fields
+
+<ResponseField name="walletAddress" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="name" type="String">
+  No description provided
+</ResponseField>
+
+<ResponseField name="labels" type="[String]">
+  No description provided
+</ResponseField>
+
+<a href="/api-reference/types/trackedwalletsettingsinput">
+  <ResponseField name="settings" type="TrackedWalletSettingsInput">
+    No description provided
+  </ResponseField>
+</a>
+
+
+```graphql UpdateTrackedWalletInput
+input UpdateTrackedWalletInput {
+  walletAddress: String!
+  name: String
+  labels: [String]
+  settings: TrackedWalletSettingsInput
+}
+```

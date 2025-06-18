@@ -1,0 +1,24 @@
+---
+title: "CreateTrackedWalletsInput"
+description: "InputObject type"
+---
+
+### Fields
+
+<ResponseField name="userId" type="String!" required>
+  No description provided
+</ResponseField>
+
+<a href="/api-reference/types/trackedwalletinput">
+  <ResponseField name="wallets" type="[TrackedWalletInput!]!" required>
+    No description provided
+  </ResponseField>
+</a>
+
+
+```graphql CreateTrackedWalletsInput
+input CreateTrackedWalletsInput {
+  userId: String!
+  wallets: [TrackedWalletInput!]!
+}
+```

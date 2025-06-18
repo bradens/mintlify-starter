@@ -5,6 +5,12 @@ description: "InputObject type"
 
 ### Fields
 
+<a href="/api-reference/types/orderdirection">
+  <ResponseField name="direction" type="OrderDirection!" required>
+    No description provided
+  </ResponseField>
+</a>
+
 <a href="/api-reference/types/gasprice">
   <ResponseField name="gasPrice" type="GasPrice">
     No description provided
@@ -58,6 +64,7 @@ description: "InputObject type"
 
 ```graphql GetGasEstimateInput
 input GetGasEstimateInput {
+  direction: OrderDirection!
   gasPrice: GasPrice
   inputTokenAddress: String!
   inputTokenAmount: String!

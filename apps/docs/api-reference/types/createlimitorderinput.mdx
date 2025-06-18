@@ -1,0 +1,157 @@
+---
+title: "CreateLimitOrderInput"
+description: "InputObject type"
+---
+
+### Fields
+
+<ResponseField name="userId" type="Int!" required>
+  No description provided
+</ResponseField>
+
+<a href="/api-reference/types/orderdirection">
+  <ResponseField name="direction" type="OrderDirection!" required>
+    No description provided
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/gasprice">
+  <ResponseField name="gasPrice" type="GasPrice">
+    No description provided
+  </ResponseField>
+</a>
+
+<ResponseField name="networkId" type="Int!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="inputTokenAddress" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="inputTokenAmount" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="outputTokenAddress" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="outputAmountMin" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="outputAmountMax" type="String">
+  No description provided
+</ResponseField>
+
+<ResponseField name="walletIds" type="[Int!]!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="simulate" type="Boolean">
+  No description provided
+</ResponseField>
+
+<ResponseField name="limitTriggerValue" type="String!" required>
+  No description provided
+</ResponseField>
+
+<a href="/api-reference/types/limittriggertype">
+  <ResponseField name="limitTriggerType" type="LimitTriggerType!" required>
+    No description provided
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/limittriggerdirection">
+  <ResponseField name="limitTriggerDirection" type="LimitTriggerDirection!" required>
+    No description provided
+  </ResponseField>
+</a>
+
+<ResponseField name="limitMinimumTokenPriceGuard" type="String">
+  No description provided
+</ResponseField>
+
+<ResponseField name="limitMaximumTokenPriceGuard" type="String">
+  No description provided
+</ResponseField>
+
+<ResponseField name="limitMinimumTokenLiquidityGuard" type="String">
+  No description provided
+</ResponseField>
+
+<ResponseField name="limitMaximumTokenLiquidityGuard" type="String">
+  No description provided
+</ResponseField>
+
+<ResponseField name="limitMinimumTokenMarketCapGuard" type="String">
+  No description provided
+</ResponseField>
+
+<ResponseField name="limitMaximumTokenMarketCapGuard" type="String">
+  No description provided
+</ResponseField>
+
+<ResponseField name="poolAddress" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="exchangeAddress" type="String!" required>
+  No description provided
+</ResponseField>
+
+<a href="/api-reference/types/creationcontext">
+  <ResponseField name="creationContext" type="CreationContext">
+    No description provided
+  </ResponseField>
+</a>
+
+<ResponseField name="sendWithPrivateRpc" type="Boolean">
+  No description provided
+</ResponseField>
+
+<ResponseField name="deadline" type="Int">
+  No description provided
+</ResponseField>
+
+<ResponseField name="slippage" type="Float">
+  No description provided
+</ResponseField>
+
+<ResponseField name="exitStrategyId" type="Int">
+  No description provided
+</ResponseField>
+
+
+```graphql CreateLimitOrderInput
+input CreateLimitOrderInput {
+  userId: Int!
+  direction: OrderDirection!
+  gasPrice: GasPrice
+  networkId: Int!
+  inputTokenAddress: String!
+  inputTokenAmount: String!
+  outputTokenAddress: String!
+  outputAmountMin: String!
+  outputAmountMax: String
+  walletIds: [Int!]!
+  simulate: Boolean
+  limitTriggerValue: String!
+  limitTriggerType: LimitTriggerType!
+  limitTriggerDirection: LimitTriggerDirection!
+  limitMinimumTokenPriceGuard: String
+  limitMaximumTokenPriceGuard: String
+  limitMinimumTokenLiquidityGuard: String
+  limitMaximumTokenLiquidityGuard: String
+  limitMinimumTokenMarketCapGuard: String
+  limitMaximumTokenMarketCapGuard: String
+  poolAddress: String!
+  exchangeAddress: String!
+  creationContext: CreationContext
+  sendWithPrivateRpc: Boolean
+  deadline: Int
+  slippage: Float
+  exitStrategyId: Int
+}
+```

@@ -43,6 +43,12 @@ description: "Object type"
   No description provided
 </ResponseField>
 
+<a href="/api-reference/types/explorerconfig">
+  <ResponseField name="explorer" type="ExplorerConfig!" required>
+    No description provided
+  </ResponseField>
+</a>
+
 <ResponseField name="mainnet" type="Boolean!" required>
   No description provided
 </ResponseField>
@@ -63,6 +69,12 @@ description: "Object type"
   No description provided
 </ResponseField>
 
+<a href="/api-reference/types/networkconfigtype">
+  <ResponseField name="networkType" type="NetworkConfigType!" required>
+    No description provided
+  </ResponseField>
+</a>
+
 <ResponseField name="stableCoinAddresses" type="[String!]">
   No description provided
 </ResponseField>
@@ -70,6 +82,18 @@ description: "Object type"
 <ResponseField name="wrappedBaseTokenSymbol" type="String!" required>
   No description provided
 </ResponseField>
+
+<a href="/api-reference/types/networkpriceconfig">
+  <ResponseField name="pricing" type="[NetworkPriceConfig!]!" required>
+    No description provided
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/starknetrpcconfig">
+  <ResponseField name="rpcs" type="[StarknetRpcConfig!]!" required>
+    No description provided
+  </ResponseField>
+</a>
 
 
 ```graphql StarknetNetworkConfig
@@ -83,12 +107,16 @@ type StarknetNetworkConfig {
   defaultPairQuoteToken: QuoteToken!
   enabled: Boolean!
   newTokensEnabled: Boolean
+  explorer: ExplorerConfig!
   mainnet: Boolean!
   name: String!
   networkIconUrl: String!
   networkName: String!
   networkShortName: String!
+  networkType: NetworkConfigType!
   stableCoinAddresses: [String!]
   wrappedBaseTokenSymbol: String!
+  pricing: [NetworkPriceConfig!]!
+  rpcs: [StarknetRpcConfig!]!
 }
 ```

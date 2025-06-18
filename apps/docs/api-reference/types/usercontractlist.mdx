@@ -1,0 +1,57 @@
+---
+title: "UserContractList"
+description: "Object type"
+---
+
+### Fields
+
+<ResponseField name="id" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="userId" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="createdAt" type="Int!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="updatedAt" type="Int!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="title" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="icon" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="public" type="Boolean">
+  No description provided
+</ResponseField>
+
+<ResponseField name="slug" type="String">
+  No description provided
+</ResponseField>
+
+<ResponseField name="isTokenInList" type="Boolean">
+  No description provided
+</ResponseField>
+
+
+```graphql UserContractList
+type UserContractList {
+  id: String!
+  userId: String!
+  createdAt: Int!
+  updatedAt: Int!
+  title: String!
+  icon: String!
+  public: Boolean
+  slug: String
+  isTokenInList(tokenId: String!): Boolean
+}
+```

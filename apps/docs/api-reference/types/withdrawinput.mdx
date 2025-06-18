@@ -1,0 +1,49 @@
+---
+title: "WithdrawInput"
+description: "InputObject type"
+---
+
+### Fields
+
+<ResponseField name="bundlePublicKey" type="String!" required>
+  No description provided
+</ResponseField>
+
+<a href="/api-reference/types/signedrequest">
+  <ResponseField name="createSessionRequest" type="SignedRequest!" required>
+    No description provided
+  </ResponseField>
+</a>
+
+<ResponseField name="networkId" type="Int!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="fromWalletId" type="Int!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="amount" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="toAddress" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="tokenAddress" type="String">
+  No description provided
+</ResponseField>
+
+
+```graphql WithdrawInput
+input WithdrawInput {
+  bundlePublicKey: String!
+  createSessionRequest: SignedRequest!
+  networkId: Int!
+  fromWalletId: Int!
+  amount: String!
+  toAddress: String!
+  tokenAddress: String
+}
+```

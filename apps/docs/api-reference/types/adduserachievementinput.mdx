@@ -9,6 +9,18 @@ description: "InputObject type"
   No description provided
 </ResponseField>
 
+<a href="/api-reference/types/achievementid">
+  <ResponseField name="achievementId" type="AchievementId!" required>
+    No description provided
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/pointsseason">
+  <ResponseField name="pointsSeason" type="PointsSeason!" required>
+    No description provided
+  </ResponseField>
+</a>
+
 <ResponseField name="quantity" type="Int!" required>
   No description provided
 </ResponseField>
@@ -17,6 +29,8 @@ description: "InputObject type"
 ```graphql AddUserAchievementInput
 input AddUserAchievementInput {
   userId: String!
+  achievementId: AchievementId!
+  pointsSeason: PointsSeason!
   quantity: Int!
 }
 ```

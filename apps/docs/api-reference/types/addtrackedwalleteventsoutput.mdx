@@ -9,9 +9,16 @@ description: "Object type"
   No description provided
 </ResponseField>
 
+<a href="/api-reference/types/trackedwalletevent">
+  <ResponseField name="events" type="[TrackedWalletEvent!]!" required>
+    No description provided
+  </ResponseField>
+</a>
+
 
 ```graphql AddTrackedWalletEventsOutput
 type AddTrackedWalletEventsOutput {
   userId: String!
+  events: [TrackedWalletEvent!]!
 }
 ```

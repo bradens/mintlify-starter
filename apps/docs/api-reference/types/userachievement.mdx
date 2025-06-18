@@ -1,0 +1,59 @@
+---
+title: "UserAchievement"
+description: "Object type"
+---
+
+### Fields
+
+<ResponseField name="achievementId" type="String!" required>
+  No description provided
+</ResponseField>
+
+<a href="/api-reference/types/pointsseason">
+  <ResponseField name="pointsSeason" type="PointsSeason!" required>
+    No description provided
+  </ResponseField>
+</a>
+
+<ResponseField name="quantity" type="Int">
+  No description provided
+</ResponseField>
+
+<ResponseField name="type" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="imageUrl" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="name" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="description" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="lockedDescription" type="String">
+  No description provided
+</ResponseField>
+
+<ResponseField name="completed" type="Boolean">
+  No description provided
+</ResponseField>
+
+
+```graphql UserAchievement
+type UserAchievement {
+  achievementId: String!
+  pointsSeason: PointsSeason!
+  quantity: Int
+  type: String!
+  imageUrl: String!
+  name: String!
+  description: String!
+  lockedDescription: String
+  completed: Boolean
+}
+```

@@ -1,0 +1,29 @@
+---
+title: "TurnkeyUserEmailInput"
+description: "InputObject type"
+---
+
+### Fields
+
+<ResponseField name="email" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="verifiedAt" type="Int">
+  No description provided
+</ResponseField>
+
+<a href="/api-reference/types/signedrequest">
+  <ResponseField name="request" type="SignedRequest!" required>
+    No description provided
+  </ResponseField>
+</a>
+
+
+```graphql TurnkeyUserEmailInput
+input TurnkeyUserEmailInput {
+  email: String!
+  verifiedAt: Int
+  request: SignedRequest!
+}
+```

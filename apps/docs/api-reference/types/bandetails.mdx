@@ -1,0 +1,27 @@
+---
+title: "BanDetails"
+description: "Object type"
+---
+
+### Fields
+
+<ResponseField name="bannedAt" type="Int!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="bannedBy" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="bannedReason" type="String">
+  No description provided
+</ResponseField>
+
+
+```graphql BanDetails
+type BanDetails {
+  bannedAt: Int!
+  bannedBy: String!
+  bannedReason: String
+}
+```

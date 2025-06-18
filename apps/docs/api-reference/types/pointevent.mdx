@@ -1,0 +1,102 @@
+---
+title: "PointEvent"
+description: "Object type"
+---
+
+### Fields
+
+<ResponseField name="id" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="sortKey" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="eventIdentifier" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="userId" type="String!" required>
+  No description provided
+</ResponseField>
+
+<a href="/api-reference/types/pointsseason">
+  <ResponseField name="pointsSeason" type="PointsSeason!" required>
+    No description provided
+  </ResponseField>
+</a>
+
+<ResponseField name="timestamp" type="Int!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="type" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="amount" type="Float!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="note" type="String">
+  No description provided
+</ResponseField>
+
+<ResponseField name="source" type="String!" required>
+  No description provided
+</ResponseField>
+
+<a href="/api-reference/types/pointeventstats">
+  <ResponseField name="stats" type="PointEventStats!" required>
+    No description provided
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/pointeventdata">
+  <ResponseField name="points" type="PointEventData!" required>
+    No description provided
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/dailypointboostrecord">
+  <ResponseField name="appliedBoosts" type="[DailyPointBoostRecord!]">
+    No description provided
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/userdailyranks">
+  <ResponseField name="userDailyRanks" type="UserDailyRanks">
+    No description provided
+  </ResponseField>
+</a>
+
+<ResponseField name="dailyStreak" type="Int">
+  No description provided
+</ResponseField>
+
+<ResponseField name="questId" type="String">
+  No description provided
+</ResponseField>
+
+
+```graphql PointEvent
+type PointEvent {
+  id: String!
+  sortKey: String!
+  eventIdentifier: String!
+  userId: String!
+  pointsSeason: PointsSeason!
+  timestamp: Int!
+  type: String!
+  amount: Float!
+  note: String
+  source: String!
+  stats: PointEventStats!
+  points: PointEventData!
+  appliedBoosts: [DailyPointBoostRecord!]
+  userDailyRanks: UserDailyRanks
+  dailyStreak: Int
+  questId: String
+}
+```

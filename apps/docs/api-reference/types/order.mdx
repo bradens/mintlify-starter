@@ -1,0 +1,287 @@
+---
+title: "Order"
+description: "Object type"
+---
+
+### Fields
+
+<ResponseField name="state" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="direction" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="orderType" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="creationContext" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="limitTriggerDirection" type="String">
+  No description provided
+</ResponseField>
+
+<ResponseField name="limitTriggerType" type="String">
+  No description provided
+</ResponseField>
+
+<ResponseField name="id" type="Int!" required>
+  No description provided
+</ResponseField>
+
+<a href="/api-reference/types/gasprice">
+  <ResponseField name="gasPrice" type="GasPrice">
+    No description provided
+  </ResponseField>
+</a>
+
+<ResponseField name="createdAt" type="Int!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="updatedAt" type="Int!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="networkId" type="Int!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="outputTokenAddress" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="inputTokenAddress" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="outputTokenMin" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="inputTokenAmount" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="blockDelay" type="Int">
+  No description provided
+</ResponseField>
+
+<ResponseField name="error" type="String">
+  No description provided
+</ResponseField>
+
+<ResponseField name="notes" type="String">
+  No description provided
+</ResponseField>
+
+<ResponseField name="outputTokenMax" type="String">
+  No description provided
+</ResponseField>
+
+<ResponseField name="simulate" type="Boolean">
+  No description provided
+</ResponseField>
+
+<ResponseField name="triggerFunction" type="String">
+  No description provided
+</ResponseField>
+
+<ResponseField name="triggerOnLiquidity" type="Boolean">
+  No description provided
+</ResponseField>
+
+<ResponseField name="sendWithPrivateRpc" type="Boolean">
+  No description provided
+</ResponseField>
+
+<ResponseField name="privateRpcCustomFee" type="String">
+  No description provided
+</ResponseField>
+
+<ResponseField name="tradeFeeBps" type="Float!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="referralFeeBps" type="Float!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="referrerPayoutAddress" type="String">
+  No description provided
+</ResponseField>
+
+<ResponseField name="userId" type="Int!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="webhookId" type="String">
+  No description provided
+</ResponseField>
+
+<ResponseField name="limitTriggerValue" type="String">
+  No description provided
+</ResponseField>
+
+<ResponseField name="limitMinimumTokenPriceGuard" type="String">
+  No description provided
+</ResponseField>
+
+<ResponseField name="limitMaximumTokenPriceGuard" type="String">
+  No description provided
+</ResponseField>
+
+<ResponseField name="limitMinimumTokenLiquidityGuard" type="String">
+  No description provided
+</ResponseField>
+
+<ResponseField name="limitMaximumTokenLiquidityGuard" type="String">
+  No description provided
+</ResponseField>
+
+<ResponseField name="limitMinimumTokenMarketCapGuard" type="String">
+  No description provided
+</ResponseField>
+
+<ResponseField name="limitMaximumTokenMarketCapGuard" type="String">
+  No description provided
+</ResponseField>
+
+<a href="/api-reference/types/scarabwallet">
+  <ResponseField name="wallets" type="[ScarabWallet!]!" required>
+    No description provided
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/scarabtransaction">
+  <ResponseField name="transactions" type="[ScarabTransaction!]">
+    No description provided
+  </ResponseField>
+</a>
+
+<ResponseField name="poolAddress" type="String">
+  No description provided
+</ResponseField>
+
+<ResponseField name="exchangeAddress" type="String">
+  No description provided
+</ResponseField>
+
+<ResponseField name="pnl" type="Float">
+  No description provided
+</ResponseField>
+
+<ResponseField name="soldAmount" type="String">
+  No description provided
+</ResponseField>
+
+<a href="/api-reference/types/scarabtoken">
+  <ResponseField name="token" type="ScarabToken!" required>
+    No description provided
+  </ResponseField>
+</a>
+
+<ResponseField name="amountUsd" type="Float!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="amountEth" type="Float!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="amountToken" type="Float!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="exactAmountToken" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="executedPriceUsd" type="Float">
+  No description provided
+</ResponseField>
+
+<ResponseField name="executedPriceEth" type="Float">
+  No description provided
+</ResponseField>
+
+<ResponseField name="deadline" type="Int">
+  No description provided
+</ResponseField>
+
+<ResponseField name="exitStrategyId" type="Int">
+  No description provided
+</ResponseField>
+
+<ResponseField name="triggerOrderId" type="Int">
+  No description provided
+</ResponseField>
+
+<a href="/api-reference/types/enhancedtoken">
+  <ResponseField name="enhancedToken" type="EnhancedToken">
+    No description provided
+  </ResponseField>
+</a>
+
+
+```graphql Order
+type Order {
+  state: String!
+  direction: String!
+  orderType: String!
+  creationContext: String!
+  limitTriggerDirection: String
+  limitTriggerType: String
+  id: Int!
+  gasPrice: GasPrice
+  createdAt: Int!
+  updatedAt: Int!
+  networkId: Int!
+  outputTokenAddress: String!
+  inputTokenAddress: String!
+  outputTokenMin: String!
+  inputTokenAmount: String!
+  blockDelay: Int
+  error: String
+  notes: String
+  outputTokenMax: String
+  simulate: Boolean
+  triggerFunction: String
+  triggerOnLiquidity: Boolean
+  sendWithPrivateRpc: Boolean
+  privateRpcCustomFee: String
+  tradeFeeBps: Float!
+  referralFeeBps: Float!
+  referrerPayoutAddress: String
+  userId: Int!
+  webhookId: String
+  limitTriggerValue: String
+  limitMinimumTokenPriceGuard: String
+  limitMaximumTokenPriceGuard: String
+  limitMinimumTokenLiquidityGuard: String
+  limitMaximumTokenLiquidityGuard: String
+  limitMinimumTokenMarketCapGuard: String
+  limitMaximumTokenMarketCapGuard: String
+  wallets: [ScarabWallet!]!
+  transactions: [ScarabTransaction!]
+  poolAddress: String
+  exchangeAddress: String
+  pnl: Float
+  soldAmount: String
+  token: ScarabToken!
+  amountUsd: Float!
+  amountEth: Float!
+  amountToken: Float!
+  exactAmountToken: String!
+  executedPriceUsd: Float
+  executedPriceEth: Float
+  deadline: Int
+  exitStrategyId: Int
+  triggerOrderId: Int
+  enhancedToken: EnhancedToken
+}
+```

@@ -1,0 +1,48 @@
+---
+title: "NotableWalletEvent"
+description: "Object type"
+---
+
+### Fields
+
+<ResponseField name="walletAddress" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="sortKey" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="tokenId" type="String">
+  No description provided
+</ResponseField>
+
+<a href="/api-reference/types/json">
+  <ResponseField name="notableEvent" type="JSON!" required>
+    No description provided
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/notableeventtype">
+  <ResponseField name="notableEventType" type="NotableEventType!" required>
+    No description provided
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/notablewalleteventswapdirection">
+  <ResponseField name="swapDirection" type="NotableWalletEventSwapDirection">
+    No description provided
+  </ResponseField>
+</a>
+
+
+```graphql NotableWalletEvent
+type NotableWalletEvent {
+  walletAddress: String!
+  sortKey: String!
+  tokenId: String
+  notableEvent: JSON!
+  notableEventType: NotableEventType!
+  swapDirection: NotableWalletEventSwapDirection
+}
+```

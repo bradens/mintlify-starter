@@ -1,0 +1,75 @@
+---
+title: "UserTrackedWalletSettingsInput"
+description: "InputObject type"
+---
+
+### Fields
+
+<ResponseField name="userId" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="minSwapValue" type="String">
+  No description provided
+</ResponseField>
+
+<ResponseField name="maxSwapValue" type="String">
+  No description provided
+</ResponseField>
+
+<ResponseField name="minTokenMarketCap" type="String">
+  No description provided
+</ResponseField>
+
+<ResponseField name="maxTokenMarketCap" type="String">
+  No description provided
+</ResponseField>
+
+<ResponseField name="ignoreTokenApprovals" type="Boolean">
+  No description provided
+</ResponseField>
+
+<ResponseField name="addressBlacklist" type="[String]">
+  No description provided
+</ResponseField>
+
+<a href="/api-reference/types/trackedwalleteventtype">
+  <ResponseField name="ignoreEventTypes" type="[TrackedWalletEventType]">
+    No description provided
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/trackedwalletwebpublishingconfiginput">
+  <ResponseField name="webPublishingConfig" type="TrackedWalletWebPublishingConfigInput!" required>
+    No description provided
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/trackedwalletbotpublishingconfiginput">
+  <ResponseField name="botPublishingConfig" type="TrackedWalletBotPublishingConfigInput!" required>
+    No description provided
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/tokenhistorysettingsinput">
+  <ResponseField name="tokenHistorySettings" type="TokenHistorySettingsInput">
+    No description provided
+  </ResponseField>
+</a>
+
+
+```graphql UserTrackedWalletSettingsInput
+input UserTrackedWalletSettingsInput {
+  userId: String!
+  minSwapValue: String
+  maxSwapValue: String
+  minTokenMarketCap: String
+  maxTokenMarketCap: String
+  ignoreTokenApprovals: Boolean
+  addressBlacklist: [String]
+  ignoreEventTypes: [TrackedWalletEventType]
+  webPublishingConfig: TrackedWalletWebPublishingConfigInput!
+  botPublishingConfig: TrackedWalletBotPublishingConfigInput!
+  tokenHistorySettings: TokenHistorySettingsInput
+}
+```

@@ -1,0 +1,44 @@
+---
+title: "AuthenticationResponse"
+description: "Object type"
+---
+
+### Fields
+
+<ResponseField name="AccessToken" type="String">
+  No description provided
+</ResponseField>
+
+<ResponseField name="ExpiresIn" type="Int">
+  No description provided
+</ResponseField>
+
+<ResponseField name="TokenType" type="String">
+  No description provided
+</ResponseField>
+
+<ResponseField name="RefreshToken" type="String">
+  No description provided
+</ResponseField>
+
+<ResponseField name="IdToken" type="String">
+  No description provided
+</ResponseField>
+
+<a href="/api-reference/types/newdevicemetadatatype">
+  <ResponseField name="NewDeviceMetadata" type="NewDeviceMetadataType">
+    No description provided
+  </ResponseField>
+</a>
+
+
+```graphql AuthenticationResponse
+type AuthenticationResponse {
+  AccessToken: String
+  ExpiresIn: Int
+  TokenType: String
+  RefreshToken: String
+  IdToken: String
+  NewDeviceMetadata: NewDeviceMetadataType
+}
+```

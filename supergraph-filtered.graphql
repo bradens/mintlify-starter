@@ -193,7 +193,7 @@ type Subscription {
   onBalanceUpdated(walletAddress: String!): Balance!
   """Live-streamed token lifecycle events (mints and burns)."""
   onTokenLifecycleEventsCreated(address: String, networkId: Int): AddTokenLifecycleEventsOutput!
-  onLaunchpadTokenEventBatch: [LaunchpadTokenEventOutput!]!
+  onLaunchpadTokenEventBatch(input: OnLaunchpadTokenEventBatchInput): [LaunchpadTokenEventOutput!]!
   onLaunchpadTokenEvent(input: OnLaunchpadTokenEventInput): LaunchpadTokenEventOutput!
 }
 
@@ -263,6 +263,7 @@ type AddTokenLifecycleEventsOutput {
 
 type AddTrackedWalletEventsOutput {
   userId: String!
+  events: [TrackedWalletEvent!]!
 }
 
 type AddUnconfirmedEventsByMakerOutput {
@@ -288,6 +289,8 @@ type AddUnconfirmedEventsOutput {
 
 input AddUserAchievementInput {
   userId: String!
+  achievementId: AchievementId!
+  pointsSeason: PointsSeason!
   quantity: Int!
 }
 
@@ -320,13 +323,17 @@ type AptosNetworkConfig {
   defaultPairQuoteToken: QuoteToken!
   enabled: Boolean!
   newTokensEnabled: Boolean
+  explorer: ExplorerConfig!
   mainnet: Boolean!
   name: String!
   networkIconUrl: String!
   networkName: String!
   networkShortName: String!
+  networkType: NetworkConfigType!
   stableCoinAddresses: [String!]
   wrappedBaseTokenSymbol: String!
+  pricing: [NetworkPriceConfig!]!
+  rpcs: [AptosRpcConfig!]!
 }
 
 """Wallet balance of a token."""
@@ -509,6 +516,8 @@ type CommunityNote {
   proposalType: CommunityNoteType!
   """The unix timestamp of when the community note was created."""
   proposedAt: Int!
+  """The status of the community note."""
+  status: ContractProposalStatus!
   sortKey: String!
 }
 
@@ -1638,6 +1647,7 @@ input GetDetailedPairsStatsInput {
 }
 
 input GetGasEstimateInput {
+  direction: OrderDirection!
   gasPrice: GasPrice
   inputTokenAddress: String!
   inputTokenAmount: String!
@@ -1719,6 +1729,7 @@ input GetPriceInput {
 }
 
 input GetQuoteInput {
+  direction: OrderDirection!
   inputTokenAddress: String!
   inputTokenAmount: String!
   networkId: Int!
@@ -2105,6 +2116,8 @@ enum LaunchpadTokenProtocol {
   Vertigo
   Rainbow
   EgoTech
+  ArenaTrade
+  Moonit
 }
 
 scalar link__Import
@@ -6564,6 +6577,8 @@ type ReferralsPayoutData {
 
 input RemoveUserAchievementInput {
   userId: String!
+  achievementId: AchievementId!
+  pointsSeason: PointsSeason!
 }
 
 """Price data for each supported resolution."""
@@ -6898,13 +6913,17 @@ type StarknetNetworkConfig {
   defaultPairQuoteToken: QuoteToken!
   enabled: Boolean!
   newTokensEnabled: Boolean
+  explorer: ExplorerConfig!
   mainnet: Boolean!
   name: String!
   networkIconUrl: String!
   networkName: String!
   networkShortName: String!
+  networkType: NetworkConfigType!
   stableCoinAddresses: [String!]
   wrappedBaseTokenSymbol: String!
+  pricing: [NetworkPriceConfig!]!
+  rpcs: [StarknetRpcConfig!]!
 }
 
 """Currency stats."""
@@ -7007,13 +7026,17 @@ type SuiNetworkConfig {
   defaultPairQuoteToken: QuoteToken!
   enabled: Boolean!
   newTokensEnabled: Boolean
+  explorer: ExplorerConfig!
   mainnet: Boolean!
   name: String!
   networkIconUrl: String!
   networkName: String!
   networkShortName: String!
+  networkType: NetworkConfigType!
   stableCoinAddresses: [String!]
   wrappedBaseTokenSymbol: String!
+  pricing: [NetworkPriceConfig!]!
+  rpcs: [SuiRpcConfig!]!
 }
 
 """Event data for a token swap event."""
@@ -9113,7 +9136,7 @@ type WindowedDetailedCurrencyPairStats {
   highest: DetailedPairStatsStringMetrics
   """The lowest price in USD in the time frame."""
   lowest: DetailedPairStatsStringMetrics
-  """The closing price for the time frame."""
+  """The closing price forr the time frame."""
   close: DetailedPairStatsStringMetrics
   """The liquidity for the time frame."""
   liquidity: DetailedPairStatsStringMetrics

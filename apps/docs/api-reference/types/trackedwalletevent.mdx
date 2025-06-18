@@ -1,0 +1,41 @@
+---
+title: "TrackedWalletEvent"
+description: "Object type"
+---
+
+### Fields
+
+<ResponseField name="userId" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="eventId" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="eventSortKey" type="String!" required>
+  No description provided
+</ResponseField>
+
+<a href="/api-reference/types/trackedwalleteventtype">
+  <ResponseField name="eventType" type="TrackedWalletEventType!" required>
+    No description provided
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/trackedwalleteventdata">
+  <ResponseField name="eventData" type="TrackedWalletEventData!" required>
+    No description provided
+  </ResponseField>
+</a>
+
+
+```graphql TrackedWalletEvent
+type TrackedWalletEvent {
+  userId: String!
+  eventId: String!
+  eventSortKey: String!
+  eventType: TrackedWalletEventType!
+  eventData: TrackedWalletEventData!
+}
+```

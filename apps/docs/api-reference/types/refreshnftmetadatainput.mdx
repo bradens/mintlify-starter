@@ -1,0 +1,36 @@
+---
+title: "RefreshNftMetadataInput"
+description: "InputObject type"
+---
+
+### Fields
+
+<ResponseField name="collectionAddress" type="String!" required>
+  The contract address of the NFT collection.
+</ResponseField>
+
+<ResponseField name="networkId" type="Int!" required>
+  The network ID the NFT collection is deployed on.
+</ResponseField>
+
+<ResponseField name="minTokenId" type="Int!" required>
+  The minimum enumerable token ID to refresh
+</ResponseField>
+
+<ResponseField name="maxTokenId" type="Int!" required>
+  The maximum enumerable token ID to refresh
+</ResponseField>
+
+
+```graphql RefreshNftMetadataInput
+input RefreshNftMetadataInput {
+  """The contract address of the NFT collection."""
+  collectionAddress: String!
+  """The network ID the NFT collection is deployed on."""
+  networkId: Int!
+  """The minimum enumerable token ID to refresh"""
+  minTokenId: Int!
+  """The maximum enumerable token ID to refresh"""
+  maxTokenId: Int!
+}
+```

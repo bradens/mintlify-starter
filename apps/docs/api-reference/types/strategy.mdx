@@ -1,0 +1,34 @@
+---
+title: "Strategy"
+description: "Object type"
+---
+
+### Fields
+
+<ResponseField name="id" type="Int!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="name" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="userId" type="Int">
+  No description provided
+</ResponseField>
+
+<a href="/api-reference/types/strategyorderparam">
+  <ResponseField name="orderParams" type="[StrategyOrderParam!]!" required>
+    No description provided
+  </ResponseField>
+</a>
+
+
+```graphql Strategy
+type Strategy {
+  id: Int!
+  name: String!
+  userId: Int
+  orderParams: [StrategyOrderParam!]!
+}
+```

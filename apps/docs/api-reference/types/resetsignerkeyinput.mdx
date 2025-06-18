@@ -1,0 +1,29 @@
+---
+title: "ResetSignerKeyInput"
+description: "InputObject type"
+---
+
+### Fields
+
+<ResponseField name="bundlePublicKey" type="String!" required>
+  No description provided
+</ResponseField>
+
+<a href="/api-reference/types/signedrequest">
+  <ResponseField name="createSessionRequest" type="SignedRequest!" required>
+    No description provided
+  </ResponseField>
+</a>
+
+<ResponseField name="expiresInSeconds" type="Int">
+  No description provided
+</ResponseField>
+
+
+```graphql ResetSignerKeyInput
+input ResetSignerKeyInput {
+  bundlePublicKey: String!
+  createSessionRequest: SignedRequest!
+  expiresInSeconds: Int
+}
+```

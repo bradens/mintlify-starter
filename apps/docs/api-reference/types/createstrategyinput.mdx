@@ -1,0 +1,29 @@
+---
+title: "CreateStrategyInput"
+description: "InputObject type"
+---
+
+### Fields
+
+<ResponseField name="name" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="userId" type="Int!" required>
+  No description provided
+</ResponseField>
+
+<a href="/api-reference/types/createstrategyorderparaminput">
+  <ResponseField name="orderParams" type="[CreateStrategyOrderParamInput!]!" required>
+    No description provided
+  </ResponseField>
+</a>
+
+
+```graphql CreateStrategyInput
+input CreateStrategyInput {
+  name: String!
+  userId: Int!
+  orderParams: [CreateStrategyOrderParamInput!]!
+}
+```

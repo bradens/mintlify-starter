@@ -1,0 +1,29 @@
+---
+title: "ProposalQueryInput"
+description: "InputObject type"
+---
+
+### Fields
+
+<ResponseField name="cursor" type="String">
+  No description provided
+</ResponseField>
+
+<a href="/api-reference/types/proposalfilter">
+  <ResponseField name="filter" type="ProposalFilter">
+    No description provided
+  </ResponseField>
+</a>
+
+<ResponseField name="limit" type="Int">
+  No description provided
+</ResponseField>
+
+
+```graphql ProposalQueryInput
+input ProposalQueryInput {
+  cursor: String
+  filter: ProposalFilter
+  limit: Int
+}
+```

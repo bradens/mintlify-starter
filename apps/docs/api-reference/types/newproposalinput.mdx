@@ -1,0 +1,43 @@
+---
+title: "NewProposalInput"
+description: "InputObject type"
+---
+
+### Fields
+
+<ResponseField name="address" type="String!" required>
+  No description provided
+</ResponseField>
+
+<a href="/api-reference/types/contracttype">
+  <ResponseField name="contractType" type="ContractType!" required>
+    No description provided
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/json">
+  <ResponseField name="proposalData" type="JSON!" required>
+    No description provided
+  </ResponseField>
+</a>
+
+<ResponseField name="networkId" type="Int!" required>
+  No description provided
+</ResponseField>
+
+<a href="/api-reference/types/contractproposaltype">
+  <ResponseField name="proposalType" type="ContractProposalType!" required>
+    No description provided
+  </ResponseField>
+</a>
+
+
+```graphql NewProposalInput
+input NewProposalInput {
+  address: String!
+  contractType: ContractType!
+  proposalData: JSON!
+  networkId: Int!
+  proposalType: ContractProposalType!
+}
+```

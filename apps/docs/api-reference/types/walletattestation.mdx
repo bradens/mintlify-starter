@@ -1,0 +1,32 @@
+---
+title: "WalletAttestation"
+description: "InputObject type"
+---
+
+### Fields
+
+<ResponseField name="credentialId" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="clientDataJson" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="attestationObject" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="transports" type="[String!]!" required>
+  No description provided
+</ResponseField>
+
+
+```graphql WalletAttestation
+input WalletAttestation {
+  credentialId: String!
+  clientDataJson: String!
+  attestationObject: String!
+  transports: [String!]!
+}
+```

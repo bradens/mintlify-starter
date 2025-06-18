@@ -1,0 +1,34 @@
+---
+title: "RouteGasCost"
+description: "Object type"
+---
+
+### Fields
+
+<ResponseField name="amount" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="amountUsd" type="String!" required>
+  No description provided
+</ResponseField>
+
+<a href="/api-reference/types/routetoken">
+  <ResponseField name="token" type="RouteToken!" required>
+    No description provided
+  </ResponseField>
+</a>
+
+<ResponseField name="type" type="String!" required>
+  No description provided
+</ResponseField>
+
+
+```graphql RouteGasCost
+type RouteGasCost {
+  amount: String!
+  amountUsd: String!
+  token: RouteToken!
+  type: String!
+}
+```

@@ -1,0 +1,44 @@
+---
+title: "CreateUserContractListItemInput"
+description: "InputObject type"
+---
+
+### Fields
+
+<ResponseField name="listId" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="address" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="networkId" type="Int!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="tokenId" type="String">
+  No description provided
+</ResponseField>
+
+<a href="/api-reference/types/contracttype">
+  <ResponseField name="contractType" type="ContractType!" required>
+    No description provided
+  </ResponseField>
+</a>
+
+<ResponseField name="symbol" type="String!" required>
+  No description provided
+</ResponseField>
+
+
+```graphql CreateUserContractListItemInput
+input CreateUserContractListItemInput {
+  listId: String!
+  address: String!
+  networkId: Int!
+  tokenId: String
+  contractType: ContractType!
+  symbol: String!
+}
+```

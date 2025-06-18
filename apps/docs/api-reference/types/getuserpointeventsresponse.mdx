@@ -1,0 +1,26 @@
+---
+title: "GetUserPointEventsResponse"
+description: "Object type"
+---
+
+### Fields
+
+<a href="/api-reference/types/pointevent">
+  <ResponseField name="items" type="[PointEvent!]!" required>
+    The list of point events.
+  </ResponseField>
+</a>
+
+<ResponseField name="cursor" type="String">
+  The cursor for use in pagination.
+</ResponseField>
+
+
+```graphql GetUserPointEventsResponse
+type GetUserPointEventsResponse {
+  """The list of point events."""
+  items: [PointEvent!]!
+  """The cursor for use in pagination."""
+  cursor: String
+}
+```

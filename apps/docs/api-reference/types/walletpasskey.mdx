@@ -1,0 +1,24 @@
+---
+title: "WalletPasskey"
+description: "InputObject type"
+---
+
+### Fields
+
+<ResponseField name="challenge" type="String!" required>
+  No description provided
+</ResponseField>
+
+<a href="/api-reference/types/walletattestation">
+  <ResponseField name="attestation" type="WalletAttestation!" required>
+    No description provided
+  </ResponseField>
+</a>
+
+
+```graphql WalletPasskey
+input WalletPasskey {
+  challenge: String!
+  attestation: WalletAttestation!
+}
+```

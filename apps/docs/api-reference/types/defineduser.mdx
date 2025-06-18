@@ -1,0 +1,73 @@
+---
+title: "DefinedUser"
+description: "Object type"
+---
+
+### Fields
+
+<a href="/api-reference/types/defineduseremail">
+  <ResponseField name="email" type="DefinedUserEmail">
+    No description provided
+  </ResponseField>
+</a>
+
+<ResponseField name="id" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="walletAddress" type="String">
+  No description provided
+</ResponseField>
+
+<ResponseField name="roles" type="[String!]!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="admin" type="Boolean">
+  No description provided
+</ResponseField>
+
+<ResponseField name="createdAt" type="Int!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="updatedAt" type="Int!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="telegramId" type="String">
+  No description provided
+</ResponseField>
+
+<a href="/api-reference/types/bandetails">
+  <ResponseField name="ban" type="BanDetails">
+    No description provided
+  </ResponseField>
+</a>
+
+<ResponseField name="name" type="String">
+  No description provided
+</ResponseField>
+
+<a href="/api-reference/types/contractproposalstats">
+  <ResponseField name="contractProposalStats" type="ContractProposalStats">
+    No description provided
+  </ResponseField>
+</a>
+
+
+```graphql DefinedUser
+type DefinedUser {
+  email: DefinedUserEmail
+  id: String!
+  walletAddress: String
+  roles: [String!]!
+  admin: Boolean
+  createdAt: Int!
+  updatedAt: Int!
+  telegramId: String
+  ban: BanDetails
+  name: String
+  contractProposalStats: ContractProposalStats
+}
+```

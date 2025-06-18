@@ -1,0 +1,34 @@
+---
+title: "UserRevShareEventsInput"
+description: "InputObject type"
+---
+
+### Fields
+
+<ResponseField name="userId" type="String!" required>
+  No description provided
+</ResponseField>
+
+<a href="/api-reference/types/pointsseason">
+  <ResponseField name="pointsSeason" type="PointsSeason!" required>
+    No description provided
+  </ResponseField>
+</a>
+
+<ResponseField name="limit" type="Int">
+  No description provided
+</ResponseField>
+
+<ResponseField name="cursor" type="String">
+  No description provided
+</ResponseField>
+
+
+```graphql UserRevShareEventsInput
+input UserRevShareEventsInput {
+  userId: String!
+  pointsSeason: PointsSeason!
+  limit: Int
+  cursor: String
+}
+```

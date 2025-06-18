@@ -1,0 +1,75 @@
+---
+title: "TrackedWalletSettings"
+description: "Object type"
+---
+
+### Fields
+
+<ResponseField name="minSwapValue" type="String">
+  No description provided
+</ResponseField>
+
+<ResponseField name="maxSwapValue" type="String">
+  No description provided
+</ResponseField>
+
+<ResponseField name="minTokenMarketCap" type="String">
+  No description provided
+</ResponseField>
+
+<ResponseField name="maxTokenMarketCap" type="String">
+  No description provided
+</ResponseField>
+
+<ResponseField name="showAlertsInWeb" type="Boolean">
+  No description provided
+</ResponseField>
+
+<ResponseField name="ignoreTokenApprovals" type="Boolean">
+  No description provided
+</ResponseField>
+
+<ResponseField name="addressBlacklist" type="[String]">
+  No description provided
+</ResponseField>
+
+<a href="/api-reference/types/trackedwalleteventtype">
+  <ResponseField name="ignoreEventTypes" type="[TrackedWalletEventType]">
+    No description provided
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/trackedwalletwebpublishingconfig">
+  <ResponseField name="webPublishingConfig" type="TrackedWalletWebPublishingConfig">
+    No description provided
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/trackedwalletbotpublishingconfig">
+  <ResponseField name="botPublishingConfig" type="TrackedWalletBotPublishingConfig">
+    No description provided
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/tokenhistorysettings">
+  <ResponseField name="tokenHistorySettings" type="TokenHistorySettings">
+    No description provided
+  </ResponseField>
+</a>
+
+
+```graphql TrackedWalletSettings
+type TrackedWalletSettings {
+  minSwapValue: String
+  maxSwapValue: String
+  minTokenMarketCap: String
+  maxTokenMarketCap: String
+  showAlertsInWeb: Boolean
+  ignoreTokenApprovals: Boolean
+  addressBlacklist: [String]
+  ignoreEventTypes: [TrackedWalletEventType]
+  webPublishingConfig: TrackedWalletWebPublishingConfig
+  botPublishingConfig: TrackedWalletBotPublishingConfig
+  tokenHistorySettings: TokenHistorySettings
+}
+```

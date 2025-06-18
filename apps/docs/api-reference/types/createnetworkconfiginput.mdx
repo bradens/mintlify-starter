@@ -1,0 +1,150 @@
+---
+title: "CreateNetworkConfigInput"
+description: "InputObject type"
+---
+
+### Fields
+
+<ResponseField name="networkId" type="Int!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="baseTokenAddress" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="baseTokenSymbol" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="color" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="defaultPairAddress" type="String!" required>
+  No description provided
+</ResponseField>
+
+<a href="/api-reference/types/quotetoken">
+  <ResponseField name="defaultPairQuoteToken" type="QuoteToken!" required>
+    No description provided
+  </ResponseField>
+</a>
+
+<ResponseField name="enabled" type="Boolean!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="newTokensEnabled" type="Boolean">
+  No description provided
+</ResponseField>
+
+<a href="/api-reference/types/explorerconfiginput">
+  <ResponseField name="explorer" type="ExplorerConfigInput!" required>
+    No description provided
+  </ResponseField>
+</a>
+
+<ResponseField name="mainnet" type="Boolean!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="name" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="networkIconUrl" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="networkName" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="networkShortName" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="stableCoinAddresses" type="[String!]">
+  No description provided
+</ResponseField>
+
+<ResponseField name="wrappedBaseTokenSymbol" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="stablecoinAddresses" type="[String!]">
+  No description provided
+</ResponseField>
+
+<a href="/api-reference/types/networkconfigtype">
+  <ResponseField name="networkType" type="NetworkConfigType!" required>
+    No description provided
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/createsolananetworkconfiginput">
+  <ResponseField name="solanaInput" type="CreateSolanaNetworkConfigInput">
+    No description provided
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/createevmnetworkconfiginput">
+  <ResponseField name="evmInput" type="CreateEvmNetworkConfigInput">
+    No description provided
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/createaptosnetworkconfiginput">
+  <ResponseField name="aptosInput" type="CreateAptosNetworkConfigInput">
+    No description provided
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/createstarknetnetworkconfiginput">
+  <ResponseField name="starknetInput" type="CreateStarknetNetworkConfigInput">
+    No description provided
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/createsuinetworkconfiginput">
+  <ResponseField name="suiInput" type="CreateSuiNetworkConfigInput">
+    No description provided
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/createpriceconfiginput">
+  <ResponseField name="pricing" type="[CreatePriceConfigInput]">
+    No description provided
+  </ResponseField>
+</a>
+
+
+```graphql CreateNetworkConfigInput
+input CreateNetworkConfigInput {
+  networkId: Int!
+  baseTokenAddress: String!
+  baseTokenSymbol: String!
+  color: String!
+  defaultPairAddress: String!
+  defaultPairQuoteToken: QuoteToken!
+  enabled: Boolean!
+  newTokensEnabled: Boolean
+  explorer: ExplorerConfigInput!
+  mainnet: Boolean!
+  name: String!
+  networkIconUrl: String!
+  networkName: String!
+  networkShortName: String!
+  stableCoinAddresses: [String!]
+  wrappedBaseTokenSymbol: String!
+  stablecoinAddresses: [String!]
+  networkType: NetworkConfigType!
+  solanaInput: CreateSolanaNetworkConfigInput
+  evmInput: CreateEvmNetworkConfigInput
+  aptosInput: CreateAptosNetworkConfigInput
+  starknetInput: CreateStarknetNetworkConfigInput
+  suiInput: CreateSuiNetworkConfigInput
+  pricing: [CreatePriceConfigInput]
+}
+```

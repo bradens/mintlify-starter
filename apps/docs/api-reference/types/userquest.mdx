@@ -1,0 +1,101 @@
+---
+title: "UserQuest"
+description: "Object type"
+---
+
+### Fields
+
+<ResponseField name="achievementId" type="String!" required>
+  No description provided
+</ResponseField>
+
+<a href="/api-reference/types/pointsseason">
+  <ResponseField name="pointsSeason" type="PointsSeason!" required>
+    No description provided
+  </ResponseField>
+</a>
+
+<ResponseField name="type" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="imageUrl" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="isUnique" type="Boolean">
+  No description provided
+</ResponseField>
+
+<ResponseField name="name" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="description" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="lockedDescription" type="String">
+  No description provided
+</ResponseField>
+
+<ResponseField name="triggerCategory" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="triggerDenomination" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="triggerAmount" type="Int!" required>
+  No description provided
+</ResponseField>
+
+<a href="/api-reference/types/userqueststate">
+  <ResponseField name="state" type="UserQuestState!" required>
+    No description provided
+  </ResponseField>
+</a>
+
+<ResponseField name="pointReward" type="Int">
+  No description provided
+</ResponseField>
+
+<ResponseField name="currentProgress" type="Float">
+  No description provided
+</ResponseField>
+
+<ResponseField name="totalProgress" type="Float">
+  No description provided
+</ResponseField>
+
+<ResponseField name="completedTimestamp" type="Int">
+  No description provided
+</ResponseField>
+
+<ResponseField name="completedCount" type="Int">
+  No description provided
+</ResponseField>
+
+
+```graphql UserQuest
+type UserQuest {
+  achievementId: String!
+  pointsSeason: PointsSeason!
+  type: String!
+  imageUrl: String!
+  isUnique: Boolean
+  name: String!
+  description: String!
+  lockedDescription: String
+  triggerCategory: String!
+  triggerDenomination: String!
+  triggerAmount: Int!
+  state: UserQuestState!
+  pointReward: Int
+  currentProgress: Float
+  totalProgress: Float
+  completedTimestamp: Int
+  completedCount: Int
+}
+```

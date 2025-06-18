@@ -1,0 +1,60 @@
+---
+title: "User"
+description: "Object type"
+---
+
+### Fields
+
+<ResponseField name="createdAt" type="Int!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="updatedAt" type="Int!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="username" type="String!" required>
+  No description provided
+    
+    <Warning>
+      This field is deprecated. use id instead
+    </Warning>
+</ResponseField>
+
+<a href="/api-reference/types/bandetails">
+  <ResponseField name="ban" type="BanDetails">
+    No description provided
+  </ResponseField>
+</a>
+
+<ResponseField name="name" type="String">
+  No description provided
+</ResponseField>
+
+<ResponseField name="groups" type="[String]">
+  No description provided
+</ResponseField>
+
+<a href="/api-reference/types/contractproposalstats">
+  <ResponseField name="contractProposalStats" type="ContractProposalStats">
+    No description provided
+  </ResponseField>
+</a>
+
+<ResponseField name="id" type="String!" required>
+  No description provided
+</ResponseField>
+
+
+```graphql User
+type User {
+  createdAt: Int!
+  updatedAt: Int!
+  username: String! @deprecated(reason: "use id instead")
+  ban: BanDetails
+  name: String
+  groups: [String]
+  contractProposalStats: ContractProposalStats
+  id: String!
+}
+```

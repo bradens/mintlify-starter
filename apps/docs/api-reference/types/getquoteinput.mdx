@@ -5,6 +5,12 @@ description: "InputObject type"
 
 ### Fields
 
+<a href="/api-reference/types/orderdirection">
+  <ResponseField name="direction" type="OrderDirection!" required>
+    No description provided
+  </ResponseField>
+</a>
+
 <ResponseField name="inputTokenAddress" type="String!" required>
   No description provided
 </ResponseField>
@@ -44,6 +50,7 @@ description: "InputObject type"
 
 ```graphql GetQuoteInput
 input GetQuoteInput {
+  direction: OrderDirection!
   inputTokenAddress: String!
   inputTokenAmount: String!
   networkId: Int!

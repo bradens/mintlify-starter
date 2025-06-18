@@ -1,0 +1,29 @@
+---
+title: "SignedRequest"
+description: "InputObject type"
+---
+
+### Fields
+
+<ResponseField name="body" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="url" type="String!" required>
+  No description provided
+</ResponseField>
+
+<a href="/api-reference/types/signedrequeststamp">
+  <ResponseField name="stamp" type="SignedRequestStamp!" required>
+    No description provided
+  </ResponseField>
+</a>
+
+
+```graphql SignedRequest
+input SignedRequest {
+  body: String!
+  url: String!
+  stamp: SignedRequestStamp!
+}
+```

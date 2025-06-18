@@ -1,0 +1,46 @@
+---
+title: "UserPointsLeaderboardV2"
+description: "Object type"
+---
+
+### Fields
+
+<ResponseField name="userId" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="pointsProgress" type="Float!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="level" type="Int!" required>
+  No description provided
+</ResponseField>
+
+<a href="/api-reference/types/leveltier">
+  <ResponseField name="levelTier" type="LevelTier!" required>
+    No description provided
+  </ResponseField>
+</a>
+
+<a href="/api-reference/types/userpointsleaderboardstats">
+  <ResponseField name="stats" type="UserPointsLeaderboardStats!" required>
+    No description provided
+  </ResponseField>
+</a>
+
+<ResponseField name="numTrophies" type="Int!" required>
+  No description provided
+</ResponseField>
+
+
+```graphql UserPointsLeaderboardV2
+type UserPointsLeaderboardV2 {
+  userId: String!
+  pointsProgress: Float!
+  level: Int!
+  levelTier: LevelTier!
+  stats: UserPointsLeaderboardStats!
+  numTrophies: Int!
+}
+```

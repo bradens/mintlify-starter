@@ -1,0 +1,41 @@
+---
+title: "TrackedWalletInput"
+description: "InputObject type"
+---
+
+### Fields
+
+<ResponseField name="walletAddress" type="String!" required>
+  No description provided
+</ResponseField>
+
+<a href="/api-reference/types/networkconfigtype">
+  <ResponseField name="networkType" type="NetworkConfigType!" required>
+    No description provided
+  </ResponseField>
+</a>
+
+<ResponseField name="name" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="labels" type="[String]">
+  No description provided
+</ResponseField>
+
+<a href="/api-reference/types/trackedwalletsettingsinput">
+  <ResponseField name="settings" type="TrackedWalletSettingsInput">
+    No description provided
+  </ResponseField>
+</a>
+
+
+```graphql TrackedWalletInput
+input TrackedWalletInput {
+  walletAddress: String!
+  networkType: NetworkConfigType!
+  name: String!
+  labels: [String]
+  settings: TrackedWalletSettingsInput
+}
+```

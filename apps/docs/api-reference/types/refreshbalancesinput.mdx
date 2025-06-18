@@ -1,0 +1,24 @@
+---
+title: "RefreshBalancesInput"
+description: "InputObject type"
+---
+
+### Fields
+
+<ResponseField name="walletId" type="String!" required>
+  The wallet address(es) in question
+</ResponseField>
+
+<ResponseField name="tokenId" type="String!" required>
+  The token to check balance of
+</ResponseField>
+
+
+```graphql RefreshBalancesInput
+input RefreshBalancesInput {
+  """The wallet address(es) in question"""
+  walletId: String!
+  """The token to check balance of"""
+  tokenId: String!
+}
+```

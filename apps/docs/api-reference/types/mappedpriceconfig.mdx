@@ -1,0 +1,34 @@
+---
+title: "MappedPriceConfig"
+description: "Object type"
+---
+
+### Fields
+
+<ResponseField name="tokenAddress" type="String!" required>
+  No description provided
+</ResponseField>
+
+<a href="/api-reference/types/networkpricetype">
+  <ResponseField name="type" type="NetworkPriceType!" required>
+    No description provided
+  </ResponseField>
+</a>
+
+<ResponseField name="referenceTokenAddress" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="referenceNetworkId" type="Int!" required>
+  No description provided
+</ResponseField>
+
+
+```graphql MappedPriceConfig
+type MappedPriceConfig {
+  tokenAddress: String!
+  type: NetworkPriceType!
+  referenceTokenAddress: String!
+  referenceNetworkId: Int!
+}
+```

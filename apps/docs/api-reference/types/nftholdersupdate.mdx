@@ -1,0 +1,34 @@
+---
+title: "NftHoldersUpdate"
+description: "Object type"
+---
+
+### Fields
+
+<ResponseField name="holders" type="Int!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="collectionAddress" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="networkId" type="Int!" required>
+  No description provided
+</ResponseField>
+
+<a href="/api-reference/types/nftbalance">
+  <ResponseField name="balances" type="[NftBalance!]!" required>
+    No description provided
+  </ResponseField>
+</a>
+
+
+```graphql NftHoldersUpdate
+type NftHoldersUpdate {
+  holders: Int!
+  collectionAddress: String!
+  networkId: Int!
+  balances: [NftBalance!]!
+}
+```

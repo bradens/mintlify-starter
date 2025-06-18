@@ -1,0 +1,37 @@
+---
+title: "EvmRpcConfigInput"
+description: "InputObject type"
+---
+
+### Fields
+
+<ResponseField name="url" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="tracesEnabled" type="Boolean!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="public" type="Boolean!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="archiveNode" type="Boolean!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="jwt" type="String">
+  No description provided
+</ResponseField>
+
+
+```graphql EvmRpcConfigInput
+input EvmRpcConfigInput {
+  url: String!
+  tracesEnabled: Boolean!
+  public: Boolean!
+  archiveNode: Boolean!
+  jwt: String
+}
+```

@@ -11,21 +11,21 @@ function shouldHideField(field) {
 // Helper function to parse metadata from description
 function parseMetadata(description) {
   if (!description) return { category: null, tag: null };
-  
+
   const metadata = { category: null, tag: null };
-  
-  // Look for category: value
-  const categoryMatch = description.match(/category:\s*([^\n\r]+)/i);
+
+  // Look for @category value (can be followed by space, colon, or nothing)
+  const categoryMatch = description.match(/@category:?\s*([^\s@\n\r]+)/i);
   if (categoryMatch) {
     metadata.category = categoryMatch[1].trim();
   }
-  
-  // Look for tag: value
-  const tagMatch = description.match(/tag:\s*([^\n\r]+)/i);
+
+  // Look for @tag value (can be followed by space, colon, or nothing)
+  const tagMatch = description.match(/@tag:?\s*([^\s@\n\r]+)/i);
   if (tagMatch) {
     metadata.tag = tagMatch[1].trim();
   }
-  
+
   return metadata;
 }
 
@@ -34,14 +34,10 @@ function cleanDescription(description) {
   if (!description) return '';
   return description
     .replace(/<br>/g, '\n') // Convert <br> tags to newlines first
-    .replace(/&/g, '&amp;') // Escape & first (must be done before other entities)
-    .replace(/</g, '&lt;')  // Escape <
-    .replace(/>/g, '&gt;')  // Escape >
-    .replace(/"/g, '&quot;') // Escape quotes
-    .replace(/'/g, '&#39;')  // Escape single quotes
     .replace(/docs: hide/g, '') // Remove docs: hide directive
-    .replace(/category:\s*[^\n\r]+/gi, '') // Remove category metadata
-    .replace(/tag:\s*[^\n\r]+/gi, '') // Remove tag metadata
+    .replace(/@category:?\s*[^\s@\n\r]+/gi, '') // Remove @category metadata
+    .replace(/@tag:?\s*[^\s@\n\r]+/gi, '') // Remove @tag metadata
+    .replace(/\s+/g, ' ') // Normalize multiple spaces to single space
     .trim();
 }
 
@@ -122,7 +118,8 @@ function generateGraphQLSchema(type) {
 
   if (isObjectType(type) || isInputObjectType(type) || isInterfaceType(type)) {
     const typeKeyword = isInputObjectType(type) ? 'input' : isInterfaceType(type) ? 'interface' : 'type';
-    const description = type.description ? `"""${type.description}"""\n` : '';
+    const cleanedDescription = cleanDescription(type.description);
+    const description = cleanedDescription ? `"""${cleanedDescription}"""\n` : '';
 
     schemaOutput += `${description}${typeKeyword} ${type.name} {\n`;
 
@@ -130,7 +127,8 @@ function generateGraphQLSchema(type) {
     const visibleFields = fields.filter(field => !shouldHideField(field));
 
     visibleFields.forEach(field => {
-      const fieldDescription = field.description ? `  """${field.description}"""\n` : '';
+      const cleanedFieldDescription = cleanDescription(field.description);
+      const fieldDescription = cleanedFieldDescription ? `  """${cleanedFieldDescription}"""\n` : '';
       const deprecation = isDeprecated(field) ? ` @deprecated(reason: "${getDeprecationReason(field)}")` : '';
 
       // Handle field arguments if any
@@ -151,23 +149,27 @@ function generateGraphQLSchema(type) {
 
     schemaOutput += '}';
   } else if (isEnumType(type)) {
-    const description = type.description ? `"""${type.description}"""\n` : '';
+    const cleanedDescription = cleanDescription(type.description);
+    const description = cleanedDescription ? `"""${cleanedDescription}"""\n` : '';
     schemaOutput += `${description}enum ${type.name} {\n`;
 
     const values = type.getValues().filter(value => !shouldHideField(value));
     values.forEach(value => {
-      const valueDescription = value.description ? `  """${value.description}"""\n` : '';
+      const cleanedValueDescription = cleanDescription(value.description);
+      const valueDescription = cleanedValueDescription ? `  """${cleanedValueDescription}"""\n` : '';
       const deprecation = isDeprecated(value) ? ` @deprecated(reason: "${getDeprecationReason(value)}")` : '';
       schemaOutput += `${valueDescription}  ${value.name}${deprecation}\n`;
     });
 
     schemaOutput += '}';
   } else if (isUnionType(type)) {
-    const description = type.description ? `"""${type.description}"""\n` : '';
+    const cleanedDescription = cleanDescription(type.description);
+    const description = cleanedDescription ? `"""${cleanedDescription}"""\n` : '';
     const unionTypes = type.getTypes().map(t => t.name).join(' | ');
     schemaOutput += `${description}union ${type.name} = ${unionTypes}`;
   } else if (isScalarType(type)) {
-    const description = type.description ? `"""${type.description}"""\n` : '';
+    const cleanedDescription = cleanDescription(type.description);
+    const description = cleanedDescription ? `"""${cleanedDescription}"""\n` : '';
     schemaOutput += `${description}scalar ${type.name}`;
   }
 
@@ -423,7 +425,7 @@ function getExistingApiPages(docsData) {
 
     graphqlTab.groups.forEach(group => {
       const groupName = group.group.toLowerCase();
-      
+
       // Handle operation groups (Queries, Subscriptions, Mutations)
       if (['queries', 'subscriptions', 'mutations'].includes(groupName)) {
         // These groups have sub-categories, so we need to iterate through them
@@ -449,7 +451,7 @@ function getExistingApiPages(docsData) {
             // This is a category with pages
             categoryOrPage.pages.forEach(pagePath => {
               const fileName = path.basename(pagePath);
-              
+
               if (groupName === 'types') existing.types.add(fileName);
               else if (groupName === 'enums') existing.enums.add(fileName);
               else if (groupName === 'input objects') existing.inputObjects.add(fileName);
@@ -458,7 +460,7 @@ function getExistingApiPages(docsData) {
           } else if (typeof categoryOrPage === 'string') {
             // This is a direct page (for backward compatibility)
             const fileName = path.basename(categoryOrPage);
-            
+
             if (groupName === 'types') existing.types.add(fileName);
             else if (groupName === 'enums') existing.enums.add(fileName);
             else if (groupName === 'input objects') existing.inputObjects.add(fileName);
@@ -493,7 +495,7 @@ function updateDocsJson(navigation) {
 
     navigation.operations.forEach(operation => {
       const category = operation.category;
-      
+
       if (operation.type === 'Query') {
         if (!queriesByCategory[category]) queriesByCategory[category] = [];
         queriesByCategory[category].push(operation);
@@ -512,7 +514,7 @@ function updateDocsJson(navigation) {
       return categories.map(category => {
         const operations = operationsByCategory[category];
         const categoryDisplayName = category.charAt(0).toUpperCase() + category.slice(1);
-        
+
         return {
           group: categoryDisplayName,
           pages: operations.map(op => op.path)
@@ -558,7 +560,7 @@ function updateDocsJson(navigation) {
       return categories.map(category => {
         const types = typesByCategory[category];
         const categoryDisplayName = category.charAt(0).toUpperCase() + category.slice(1);
-        
+
         return {
           group: categoryDisplayName,
           pages: types.map(type => type.path)
@@ -633,7 +635,7 @@ function updateDocsJson(navigation) {
 
     // Log category information by operation type
     console.log(`📁 Generated navigation structure:`);
-    
+
     if (Object.keys(queriesByCategory).length > 0) {
       console.log(`  Queries: ${Object.keys(queriesByCategory).length} categories`);
       Object.keys(queriesByCategory).sort().forEach(category => {
@@ -662,7 +664,7 @@ function updateDocsJson(navigation) {
     const typeCategories = ['types', 'enums', 'inputs', 'unionsAndInterfaces'];
     const typeCategoryNames = {
       types: 'Types',
-      enums: 'Enums', 
+      enums: 'Enums',
       inputs: 'Input Objects',
       unionsAndInterfaces: 'Unions and Interfaces'
     };
@@ -781,6 +783,246 @@ function categorizeTypes(allTypes) {
   return { objects, enums, unions, inputs, scalars, interfaces };
 }
 
+// Generate filtered schema (excludes @hide and docs: hide types/fields)
+function generateFilteredSchema(schema) {
+  console.log('\n🔍 Starting filtered schema generation...');
+
+  // Get all types
+  const typeMap = schema.getTypeMap();
+
+  // Track which types to keep
+  const typesToKeep = new Set();
+  const typesToRemove = new Set();
+
+  // Helper function to filter fields from a type
+  function filterFields(fields) {
+    const filteredFields = {};
+
+    Object.keys(fields).forEach(fieldName => {
+      const field = fields[fieldName];
+      if (!shouldHideField(field)) {
+        // Also filter arguments if they exist
+        if (field.args && field.args.length > 0) {
+          const filteredArgs = field.args.filter(arg => !shouldHideField(arg));
+          filteredFields[fieldName] = {
+            ...field,
+            args: filteredArgs
+          };
+        } else {
+          filteredFields[fieldName] = field;
+        }
+      }
+    });
+
+    return filteredFields;
+  }
+
+  // Helper function to filter enum values
+  function filterEnumValues(values) {
+    return values.filter(value => !shouldHideField(value));
+  }
+
+  // Helper function to convert GraphQL type to string
+  function typeToString(type) {
+    if (type.constructor.name === 'GraphQLNonNull') {
+      return typeToString(type.ofType) + '!';
+    }
+    if (type.constructor.name === 'GraphQLList') {
+      return '[' + typeToString(type.ofType) + ']';
+    }
+    return type.name;
+  }
+
+  // Helper function to generate type definition for filtered schema
+  function generateFilteredTypeDefinition(type, fields) {
+    const typeKeyword = isInputObjectType(type) ? 'input' : isInterfaceType(type) ? 'interface' : 'type';
+    const cleanedDescription = cleanDescription(type.description);
+    const description = cleanedDescription ? `"""${cleanedDescription}"""\n` : '';
+
+    let definition = `${description}${typeKeyword} ${type.name} {\n`;
+
+    Object.values(fields).forEach(field => {
+      const cleanedFieldDescription = cleanDescription(field.description);
+      const fieldDescription = cleanedFieldDescription ? `  """${cleanedFieldDescription}"""\n` : '';
+
+      // Handle field arguments
+      let argsString = '';
+      if (field.args && field.args.length > 0) {
+        const visibleArgs = field.args.filter(arg => !shouldHideField(arg));
+        if (visibleArgs.length > 0) {
+          const argStrings = visibleArgs.map(arg => {
+            const defaultValue = arg.defaultValue !== undefined ? ` = ${JSON.stringify(arg.defaultValue)}` : '';
+            return `${arg.name}: ${typeToString(arg.type)}${defaultValue}`;
+          });
+          argsString = `(${argStrings.join(', ')})`;
+        }
+      }
+
+      definition += `${fieldDescription}  ${field.name}${argsString}: ${typeToString(field.type)}\n`;
+    });
+
+    definition += '}\n\n';
+    return definition;
+  }
+
+  // Helper function to generate enum definition for filtered schema
+  function generateFilteredEnumDefinition(type, values) {
+    const cleanedDescription = cleanDescription(type.description);
+    const description = cleanedDescription ? `"""${cleanedDescription}"""\n` : '';
+
+    let definition = `${description}enum ${type.name} {\n`;
+
+    values.forEach(value => {
+      const cleanedValueDescription = cleanDescription(value.description);
+      const valueDescription = cleanedValueDescription ? `  """${cleanedValueDescription}"""\n` : '';
+      definition += `${valueDescription}  ${value.name}\n`;
+    });
+
+    definition += '}\n\n';
+    return definition;
+  }
+
+  // Helper function to generate union definition for filtered schema
+  function generateFilteredUnionDefinition(type, unionTypes) {
+    const cleanedDescription = cleanDescription(type.description);
+    const description = cleanedDescription ? `"""${cleanedDescription}"""\n` : '';
+    const typeNames = unionTypes.map(t => t.name).join(' | ');
+
+    return `${description}union ${type.name} = ${typeNames}\n\n`;
+  }
+
+  // Helper function to generate scalar definition for filtered schema
+  function generateFilteredScalarDefinition(type) {
+    const cleanedDescription = cleanDescription(type.description);
+    const description = cleanedDescription ? `"""${cleanedDescription}"""\n` : '';
+
+    return `${description}scalar ${type.name}\n\n`;
+  }
+
+  // First pass: identify types that should be hidden
+  Object.keys(typeMap).forEach(typeName => {
+    const type = typeMap[typeName];
+
+    // Skip introspection types
+    if (typeName.startsWith('__')) {
+      return;
+    }
+
+    // Check if the type itself should be hidden
+    if (shouldHideField(type)) {
+      typesToRemove.add(typeName);
+      console.log(`🚫 Hiding type: ${typeName}`);
+      return;
+    }
+
+    // For object types, check if all fields are hidden (making the type effectively empty)
+    if (isObjectType(type) || isInputObjectType(type) || isInterfaceType(type)) {
+      const fields = Object.values(type.getFields());
+      const visibleFields = fields.filter(field => !shouldHideField(field));
+
+      if (visibleFields.length === 0 && fields.length > 0) {
+        typesToRemove.add(typeName);
+        console.log(`🚫 Hiding type (no visible fields): ${typeName}`);
+        return;
+      }
+    }
+
+    // For enum types, check if all values are hidden
+    if (isEnumType(type)) {
+      const values = type.getValues();
+      const visibleValues = values.filter(value => !shouldHideField(value));
+
+      if (visibleValues.length === 0 && values.length > 0) {
+        typesToRemove.add(typeName);
+        console.log(`🚫 Hiding enum (no visible values): ${typeName}`);
+        return;
+      }
+    }
+
+    typesToKeep.add(typeName);
+  });
+
+  // Build the filtered schema string manually
+  let filteredSchemaContent = '';
+  const processedTypes = new Set();
+
+  // Process root types first (Query, Mutation, Subscription)
+  const queryType = schema.getQueryType();
+  const mutationType = schema.getMutationType();
+  const subscriptionType = schema.getSubscriptionType();
+
+  if (queryType && typesToKeep.has(queryType.name)) {
+    const fields = filterFields(queryType.getFields());
+    if (Object.keys(fields).length > 0) {
+      filteredSchemaContent += generateFilteredTypeDefinition(queryType, fields);
+      processedTypes.add(queryType.name);
+    }
+  }
+
+  if (mutationType && typesToKeep.has(mutationType.name)) {
+    const fields = filterFields(mutationType.getFields());
+    if (Object.keys(fields).length > 0) {
+      filteredSchemaContent += generateFilteredTypeDefinition(mutationType, fields);
+      processedTypes.add(mutationType.name);
+    }
+  }
+
+  if (subscriptionType && typesToKeep.has(subscriptionType.name)) {
+    const fields = filterFields(subscriptionType.getFields());
+    if (Object.keys(fields).length > 0) {
+      filteredSchemaContent += generateFilteredTypeDefinition(subscriptionType, fields);
+      processedTypes.add(subscriptionType.name);
+    }
+  }
+
+  // Process remaining types
+  typesToKeep.forEach(typeName => {
+    if (!processedTypes.has(typeName)) {
+      const type = typeMap[typeName];
+
+      if (isObjectType(type) || isInputObjectType(type) || isInterfaceType(type)) {
+        const fields = filterFields(type.getFields());
+        if (Object.keys(fields).length > 0) {
+          filteredSchemaContent += generateFilteredTypeDefinition(type, fields);
+        }
+      } else if (isEnumType(type)) {
+        const values = filterEnumValues(type.getValues());
+        if (values.length > 0) {
+          filteredSchemaContent += generateFilteredEnumDefinition(type, values);
+        }
+      } else if (isUnionType(type)) {
+        const unionTypes = type.getTypes().filter(t => typesToKeep.has(t.name));
+        if (unionTypes.length > 0) {
+          filteredSchemaContent += generateFilteredUnionDefinition(type, unionTypes);
+        }
+      } else if (isScalarType(type)) {
+        // Only include custom scalars (not built-in ones)
+        const builtInScalars = ['String', 'Int', 'Float', 'Boolean', 'ID'];
+        if (!builtInScalars.includes(type.name)) {
+          filteredSchemaContent += generateFilteredScalarDefinition(type);
+        }
+      }
+    }
+  });
+
+  // Write the filtered schema
+  const outputPath = path.join(__dirname, '../../supergraph-filtered.graphql');
+  fs.writeFileSync(outputPath, filteredSchemaContent);
+
+  console.log('✅ Filtered schema generation complete!');
+  console.log(`📁 Output: ${outputPath}`);
+  console.log(`🔢 Removed ${typesToRemove.size} types/fields with @hide or docs: hide`);
+  console.log(`✨ Kept ${typesToKeep.size} visible types`);
+
+  // Log removed types for reference
+  if (typesToRemove.size > 0) {
+    console.log('\n🚫 Removed types:');
+    Array.from(typesToRemove).sort().forEach(typeName => {
+      console.log(`  - ${typeName}`);
+    });
+  }
+}
+
 // Main function to generate all documentation
 function generateGraphQLDocs() {
   console.log('🚀 Starting GraphQL documentation generation...');
@@ -855,7 +1097,7 @@ function generateGraphQLDocs() {
     const { content, metadata } = generateOperationDoc(query, 'Query');
     const filePath = path.join(apiRefDir, 'queries', `${createSlug(query.name)}.mdx`);
     fs.writeFileSync(filePath, content);
-    
+
     allOperations.push({
       name: query.name,
       slug: createSlug(query.name),
@@ -871,7 +1113,7 @@ function generateGraphQLDocs() {
     const { content, metadata } = generateOperationDoc(mutation, 'Mutation');
     const filePath = path.join(apiRefDir, 'mutations', `${createSlug(mutation.name)}.mdx`);
     fs.writeFileSync(filePath, content);
-    
+
     allOperations.push({
       name: mutation.name,
       slug: createSlug(mutation.name),
@@ -887,7 +1129,7 @@ function generateGraphQLDocs() {
     const { content, metadata } = generateOperationDoc(subscription, 'Subscription');
     const filePath = path.join(apiRefDir, 'subscriptions', `${createSlug(subscription.name)}.mdx`);
     fs.writeFileSync(filePath, content);
-    
+
     allOperations.push({
       name: subscription.name,
       slug: createSlug(subscription.name),
@@ -900,15 +1142,15 @@ function generateGraphQLDocs() {
   // Generate type documentation (all types go in the types directory for linking)
   const allTypesToGenerate = [...objects, ...enums, ...unions, ...inputs, ...scalars, ...interfaces];
   console.log(`📝 Generating ${allTypesToGenerate.length} type pages...`);
-  
+
   // Collect all types with their metadata for categorization
   const categorizedTypes = [];
-  
+
   allTypesToGenerate.forEach(type => {
     const { content, metadata } = generateTypeDoc(type);
     const filePath = path.join(apiRefDir, 'types', `${createSlug(type.name)}.mdx`);
     fs.writeFileSync(filePath, content);
-    
+
     // Determine type category
     let typeCategory;
     if (isObjectType(type) || isScalarType(type)) {
@@ -920,7 +1162,7 @@ function generateGraphQLDocs() {
     } else if (isUnionType(type) || isInterfaceType(type)) {
       typeCategory = 'unionsAndInterfaces';
     }
-    
+
     categorizedTypes.push({
       name: type.name,
       slug: createSlug(type.name),
@@ -941,7 +1183,7 @@ function generateGraphQLDocs() {
   categorizedTypes.forEach(type => {
     const typeCategory = type.typeCategory;
     const metadataCategory = type.category;
-    
+
     if (!typesByCategory[typeCategory][metadataCategory]) {
       typesByCategory[typeCategory][metadataCategory] = [];
     }
@@ -1004,6 +1246,10 @@ function generateGraphQLDocs() {
 
   console.log('\n📋 Updated docs.json with new navigation structure');
   console.log('📄 Check generated-navigation.json for the complete list of pages');
+
+  // Generate filtered schema
+  generateFilteredSchema(schema);
+
   console.log('🚀 Run "pnpm dev" to preview your documentation');
 }
 

@@ -22,8 +22,7 @@ description: "Response returned by `onUnconfirmedBarsUpdated`."
 </ResponseField>
 
 <ResponseField name="eventSortKey" type="String!" required>
-  The sortKey for the bar (`blockNumber`#`transactionIndex`#`logIndex`, zero padded).
-For example, `0000000016414564#00000224#00000413`.
+  The sortKey for the bar (`blockNumber`#`transactionIndex`#`logIndex`, zero padded). For example, `0000000016414564#00000224#00000413`.
 </ResponseField>
 
 <a href="/api-reference/types/unconfirmedresolutionbardata">
@@ -54,8 +53,7 @@ type OnUnconfirmedBarsUpdated {
   pairId: String!
   """The unix timestamp for the new bar."""
   timestamp: Int!
-  """The sortKey for the bar (`blockNumber`#`transactionIndex`#`logIndex`, zero padded).
-For example, `0000000016414564#00000224#00000413`."""
+  """The sortKey for the bar (`blockNumber`#`transactionIndex`#`logIndex`, zero padded). For example, `0000000016414564#00000224#00000413`."""
   eventSortKey: String!
   """Price data broken down by resolution."""
   aggregates: UnconfirmedResolutionBarData!

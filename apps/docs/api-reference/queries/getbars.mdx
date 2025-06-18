@@ -10,7 +10,7 @@ description: "Returns bar chart data to track price changes over time."
 ### Arguments
 
 <ResponseField name="symbol" type="String!" required>
-  The ID of the pair or token (`pairAddress:networkId` or `tokenAddress:networkId`). If a token contract address is provided, the token&#39;s top pair is used. For example, `0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2:1` returns WETH&#39;s top pair on Ethereum.
+  The ID of the pair or token (`pairAddress:networkId` or `tokenAddress:networkId`). If a token contract address is provided, the token's top pair is used. For example, `0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2:1` returns WETH's top pair on Ethereum.
 </ResponseField>
 
 <ResponseField name="from" type="Int!" required>
@@ -30,7 +30,7 @@ description: "Returns bar chart data to track price changes over time."
 </ResponseField>
 
 <ResponseField name="removeLeadingNullValues" type="Boolean">
-  Whether to remove leading null values from the response. To fetch a token&#39;s entire history, set resolution to `1D`, `from` value to `0` and `removeLeadingNullValues` to `true`. Default is `false`.
+  Whether to remove leading null values from the response. To fetch a token's entire history, set resolution to `1D`, `from` value to `0` and `removeLeadingNullValues` to `true`. Default is `false`.
 </ResponseField>
 
 <ResponseField name="removeEmptyBars" type="Boolean">
@@ -39,7 +39,7 @@ description: "Returns bar chart data to track price changes over time."
 
 <a href="/api-reference/types/quotetoken">
   <ResponseField name="quoteToken" type="QuoteToken">
-    The token of interest within the token&#39;s top pair. Can be `token0` or `token1`.
+    The token of interest within the token's top pair. Can be `token0` or `token1`.
   </ResponseField>
 </a>
 

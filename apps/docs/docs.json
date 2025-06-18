@@ -28,9 +28,7 @@
               "concepts/authentication",
               "concepts/queries",
               "concepts/subscriptions",
-              "concepts/webhooks",
-              "concepts/rate-limits",
-              "concepts/optimization"
+              "concepts/webhooks"
             ]
           },
           {
@@ -44,11 +42,9 @@
             ]
           },
           {
-            "group": "Extra",
+            "group": "Resources",
             "pages": [
-              "extra/releases",
-              "extra/faq",
-              "extra/community"
+              "extra/faq"
             ]
           }
         ]
@@ -65,6 +61,18 @@
           {
             "group": "Queries",
             "pages": [
+              {
+                "group": "Networks",
+                "pages": [
+                  "api-reference/queries/getnetworkstats"
+                ]
+              },
+              {
+                "group": "Token",
+                "pages": [
+                  "api-reference/queries/gettokenevents"
+                ]
+              },
               {
                 "group": "Uncategorized",
                 "pages": [
@@ -105,8 +113,6 @@
                   "api-reference/queries/getdetailedpairsstats",
                   "api-reference/queries/listtoptokens",
                   "api-reference/queries/getsymbol",
-                  "api-reference/queries/getnetworkstats",
-                  "api-reference/queries/gettokenevents",
                   "api-reference/queries/gettokeneventsformaker",
                   "api-reference/queries/gettokenprices",
                   "api-reference/queries/getbars",
@@ -194,6 +200,12 @@
             "group": "Types",
             "pages": [
               {
+                "group": "Token",
+                "pages": [
+                  "api-reference/types/enhancedtoken"
+                ]
+              },
+              {
                 "group": "Uncategorized",
                 "pages": [
                   "api-reference/types/addeventsbymakeroutput",
@@ -234,7 +246,6 @@
                   "api-reference/types/detailedstatsstringmetrics",
                   "api-reference/types/detailedwalletstats",
                   "api-reference/types/enhancednftcontract",
-                  "api-reference/types/enhancedtoken",
                   "api-reference/types/event",
                   "api-reference/types/eventconnection",
                   "api-reference/types/eventlabel",

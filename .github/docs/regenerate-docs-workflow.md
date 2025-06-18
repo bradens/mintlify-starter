@@ -48,11 +48,12 @@ schedule:
 ## What the Workflow Does
 
 1. **Fetches Latest Schema**: Downloads the latest `supergraph.graphql` from your Apollo `defined-graph@production`
-2. **Generates Documentation**: Runs the `generate-graphql-docs.js` script to create:
+2. **Generates Documentation and Filtered Schema**: Runs the `generate-graphql-docs.js` script to create:
    - Query documentation pages
-   - Mutation documentation pages  
+   - Mutation documentation pages
    - Subscription documentation pages
    - Type documentation pages
+   - A public-facing schema (`supergraph-filtered.graphql`) with hidden types/fields removed
 3. **Updates Navigation**: Automatically updates `docs.json` with the new navigation structure
 4. **Commits Changes**: If there are any changes, commits and pushes them with a descriptive message
 
@@ -60,12 +61,13 @@ schedule:
 
 The workflow will update/create files in the `apps/docs/api-reference/` directory:
 - `queries/*.mdx` - Query documentation
-- `mutations/*.mdx` - Mutation documentation  
+- `mutations/*.mdx` - Mutation documentation
 - `subscriptions/*.mdx` - Subscription documentation
 - `types/*.mdx` - Type documentation
 
 It also updates:
 - `supergraph.graphql` - The GraphQL schema file
+- `supergraph-filtered.graphql` - Public-facing filtered schema (excludes @hide types/fields)
 - `apps/docs/docs.json` - Navigation configuration
 - `apps/docs/generated-navigation.json` - Navigation reference
 
@@ -75,7 +77,7 @@ It also updates:
 - Verify your `APOLLO_KEY` secret is set correctly
 - Ensure the API key has the right permissions for the `defined-graph@production`
 
-### Permission Errors  
+### Permission Errors
 - Check that the workflow has write permissions in repository settings
 - Ensure the `GITHUB_TOKEN` has permission to push to the repository
 

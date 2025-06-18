@@ -28,8 +28,7 @@ description: "Response returned by `onBarsUpdated`."
 </a>
 
 <ResponseField name="eventSortKey" type="String!" required>
-  The sortKey for the bar (`blockNumber`#`transactionIndex`#`logIndex`, zero padded).
-For example, `0000000016414564#00000224#00000413`.
+  The sortKey for the bar (`blockNumber`#`transactionIndex`#`logIndex`, zero padded). For example, `0000000016414564#00000224#00000413`.
 </ResponseField>
 
 <a href="/api-reference/types/resolutionbardata">
@@ -66,8 +65,7 @@ type OnTokenBarsUpdatedResponse {
   timestamp: Int!
   """The type of statistics used. Can be `Filtered` or `Unfiltered`."""
   statsType: TokenPairStatisticsType!
-  """The sortKey for the bar (`blockNumber`#`transactionIndex`#`logIndex`, zero padded).
-For example, `0000000016414564#00000224#00000413`."""
+  """The sortKey for the bar (`blockNumber`#`transactionIndex`#`logIndex`, zero padded). For example, `0000000016414564#00000224#00000413`."""
   eventSortKey: String!
   """Price data broken down by resolution."""
   aggregates: ResolutionBarData!

@@ -30,14 +30,7 @@ description: "Input type of `getDetailedPairsStats`."
 </a>
 
 <ResponseField name="bucketCount" type="Int">
-  The number of aggregated values to receive. Note: Each duration has predetermined bucket sizes.
-  The first n-1 buckets are historical. The last bucket is a snapshot of current data.
- duration `day1`: 6 buckets (4 hours each) plus 1 partial bucket
- duration `hour12`: 12 buckets (1 hour each) plus 1 partial bucket
- duration `hour4`: 8 buckets (30 min each) plus 1 partial bucket
- duration `hour1`: 12 buckets (5 min each) plus 1 partial bucket
- duration `min5`: 5 buckets (1 min each) plus 1 partial bucket
- For example, requesting 11 buckets for a `min5` duration will return the last 10 minutes worth of data plus a snapshot for the current minute.
+  The number of aggregated values to receive. Note: Each duration has predetermined bucket sizes. The first n-1 buckets are historical. The last bucket is a snapshot of current data. duration `day1`: 6 buckets (4 hours each) plus 1 partial bucket duration `hour12`: 12 buckets (1 hour each) plus 1 partial bucket duration `hour4`: 8 buckets (30 min each) plus 1 partial bucket duration `hour1`: 12 buckets (5 min each) plus 1 partial bucket duration `min5`: 5 buckets (1 min each) plus 1 partial bucket For example, requesting 11 buckets for a `min5` duration will return the last 10 minutes worth of data plus a snapshot for the current minute.
 </ResponseField>
 
 <a href="/api-reference/types/tokenpairstatisticstype">
@@ -60,7 +53,7 @@ input GetDetailedPairsStatsInput {
   timestamp: Int
   """The list of durations to get detailed pair stats for."""
   durations: [DetailedPairStatsDuration]
-  """The number of aggregated values to receive. Note: Each duration has predetermined bucket sizes.<br>  The first n-1 buckets are historical. The last bucket is a snapshot of current data.<br> duration `day1`: 6 buckets (4 hours each) plus 1 partial bucket<br> duration `hour12`: 12 buckets (1 hour each) plus 1 partial bucket<br> duration `hour4`: 8 buckets (30 min each) plus 1 partial bucket<br> duration `hour1`: 12 buckets (5 min each) plus 1 partial bucket<br> duration `min5`: 5 buckets (1 min each) plus 1 partial bucket<br> For example, requesting 11 buckets for a `min5` duration will return the last 10 minutes worth of data plus a snapshot for the current minute."""
+  """The number of aggregated values to receive. Note: Each duration has predetermined bucket sizes. The first n-1 buckets are historical. The last bucket is a snapshot of current data. duration `day1`: 6 buckets (4 hours each) plus 1 partial bucket duration `hour12`: 12 buckets (1 hour each) plus 1 partial bucket duration `hour4`: 8 buckets (30 min each) plus 1 partial bucket duration `hour1`: 12 buckets (5 min each) plus 1 partial bucket duration `min5`: 5 buckets (1 min each) plus 1 partial bucket For example, requesting 11 buckets for a `min5` duration will return the last 10 minutes worth of data plus a snapshot for the current minute."""
   bucketCount: Int
   """The type of statistics returned. Can be `FILTERED` or `UNFILTERED`"""
   statsType: TokenPairStatisticsType

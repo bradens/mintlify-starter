@@ -263,14 +263,14 @@
       "name": "getNetworkStats",
       "slug": "getnetworkstats",
       "type": "Query",
-      "category": "uncategorized",
+      "category": "networks",
       "path": "api-reference/queries/getnetworkstats"
     },
     {
       "name": "getTokenEvents",
       "slug": "gettokenevents",
       "type": "Query",
-      "category": "uncategorized",
+      "category": "token",
       "path": "api-reference/queries/gettokenevents"
     },
     {
@@ -900,13 +900,6 @@
         "path": "api-reference/queries/getnetworks"
       },
       {
-        "name": "getNetworkStats",
-        "slug": "getnetworkstats",
-        "type": "Query",
-        "category": "uncategorized",
-        "path": "api-reference/queries/getnetworkstats"
-      },
-      {
         "name": "getNetworkStatus",
         "slug": "getnetworkstatus",
         "type": "Query",
@@ -1031,13 +1024,6 @@
         "type": "Query",
         "category": "uncategorized",
         "path": "api-reference/queries/getsymbol"
-      },
-      {
-        "name": "getTokenEvents",
-        "slug": "gettokenevents",
-        "type": "Query",
-        "category": "uncategorized",
-        "path": "api-reference/queries/gettokenevents"
       },
       {
         "name": "getTokenEventsForMaker",
@@ -1375,6 +1361,24 @@
         "category": "uncategorized",
         "path": "api-reference/queries/walletnftcollections"
       }
+    ],
+    "networks": [
+      {
+        "name": "getNetworkStats",
+        "slug": "getnetworkstats",
+        "type": "Query",
+        "category": "networks",
+        "path": "api-reference/queries/getnetworkstats"
+      }
+    ],
+    "token": [
+      {
+        "name": "getTokenEvents",
+        "slug": "gettokenevents",
+        "type": "Query",
+        "category": "token",
+        "path": "api-reference/queries/gettokenevents"
+      }
     ]
   },
   "types": [
@@ -1648,7 +1652,7 @@
       "name": "EnhancedToken",
       "slug": "enhancedtoken",
       "typeCategory": "types",
-      "category": "uncategorized",
+      "category": "token",
       "path": "api-reference/types/enhancedtoken"
     },
     {
@@ -5002,13 +5006,6 @@
           "path": "api-reference/types/enhancednftcontract"
         },
         {
-          "name": "EnhancedToken",
-          "slug": "enhancedtoken",
-          "typeCategory": "types",
-          "category": "uncategorized",
-          "path": "api-reference/types/enhancedtoken"
-        },
-        {
           "name": "Event",
           "slug": "event",
           "typeCategory": "types",
@@ -6708,6 +6705,15 @@
           "typeCategory": "types",
           "category": "uncategorized",
           "path": "api-reference/types/windowedwalletstats"
+        }
+      ],
+      "token": [
+        {
+          "name": "EnhancedToken",
+          "slug": "enhancedtoken",
+          "typeCategory": "types",
+          "category": "token",
+          "path": "api-reference/types/enhancedtoken"
         }
       ]
     },

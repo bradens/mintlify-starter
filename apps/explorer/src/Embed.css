@@ -56,5 +56,18 @@ html, body, #root {
   margin-left: 0 !important;
 }
 
+@media (prefers-color-scheme: dark) {
+  body:not(.graphiql-light) .graphiql-container,
+  body:not(.graphiql-light) .CodeMirror-info,
+  body:not(.graphiql-light) .CodeMirror-lint-tooltip,
+  body:not(.graphiql-light) .graphiql-dialog,
+  body:not(.graphiql-light) .graphiql-dialog-overlay,
+  body:not(.graphiql-light) .graphiql-tooltip,
+  body:not(.graphiql-light) [data-radix-popper-content-wrapper] {
+    --color-base: 219, 29%, 7% !important;
+  }
+}
+
+
 
 

@@ -450,10 +450,8 @@ function writeDocsJson(docsData) {
 function getExistingApiPages(docsData) {
   const existing = {
     operations: new Set(),
-    types: new Set(),
-    enums: new Set(),
-    inputObjects: new Set(),
-    unionsAndInterfaces: new Set()
+    types: new Set()
+    // Note: enums, inputObjects, unionsAndInterfaces are no longer tracked in docs.json
   };
 
   try {
@@ -480,28 +478,20 @@ function getExistingApiPages(docsData) {
           }
         });
       }
-      // Handle type groups (now categorized like operations)
-      else if (['types', 'enums', 'input objects', 'unions and interfaces'].includes(groupName)) {
-        // These groups now have sub-categories, so we need to iterate through them
+      // Handle type groups (only tracking 'types' group now)
+      else if (groupName === 'types') {
+        // This group has sub-categories, so we need to iterate through them
         group.pages.forEach(categoryOrPage => {
           if (typeof categoryOrPage === 'object' && categoryOrPage.group) {
             // This is a category with pages
             categoryOrPage.pages.forEach(pagePath => {
               const fileName = path.basename(pagePath);
-
-              if (groupName === 'types') existing.types.add(fileName);
-              else if (groupName === 'enums') existing.enums.add(fileName);
-              else if (groupName === 'input objects') existing.inputObjects.add(fileName);
-              else if (groupName === 'unions and interfaces') existing.unionsAndInterfaces.add(fileName);
+              existing.types.add(fileName);
             });
           } else if (typeof categoryOrPage === 'string') {
             // This is a direct page (for backward compatibility)
             const fileName = path.basename(categoryOrPage);
-
-            if (groupName === 'types') existing.types.add(fileName);
-            else if (groupName === 'enums') existing.enums.add(fileName);
-            else if (groupName === 'input objects') existing.inputObjects.add(fileName);
-            else if (groupName === 'unions and interfaces') existing.unionsAndInterfaces.add(fileName);
+            existing.types.add(fileName);
           }
         });
       }
@@ -605,7 +595,7 @@ function updateDocsJson(navigation) {
       });
     }
 
-    // Add Types group with categories
+    // Add Types group with categories (only object types and scalars)
     if (Object.keys(navigation.typesByCategory.types).length > 0) {
       newGroups.push({
         group: 'Types',
@@ -613,29 +603,8 @@ function updateDocsJson(navigation) {
       });
     }
 
-    // Add Enums group with categories
-    if (Object.keys(navigation.typesByCategory.enums).length > 0) {
-      newGroups.push({
-        group: 'Enums',
-        pages: createTypeCategoryGroups(navigation.typesByCategory.enums)
-      });
-    }
-
-    // Add Input Objects group with categories
-    if (Object.keys(navigation.typesByCategory.inputs).length > 0) {
-      newGroups.push({
-        group: 'Input Objects',
-        pages: createTypeCategoryGroups(navigation.typesByCategory.inputs)
-      });
-    }
-
-    // Add Unions and Interfaces group with categories
-    if (Object.keys(navigation.typesByCategory.unionsAndInterfaces).length > 0) {
-      newGroups.push({
-        group: 'Unions and Interfaces',
-        pages: createTypeCategoryGroups(navigation.typesByCategory.unionsAndInterfaces)
-      });
-    }
+    // Note: Enums, Input Objects, Unions and Interfaces are generated as pages for linking
+    // but are not included in the navigation structure
 
     // Update the GraphQL tab groups
     graphqlTab.groups = newGroups;
@@ -644,18 +613,13 @@ function updateDocsJson(navigation) {
 
     // Log changes
     const currentOperations = new Set(navigation.operations.map(op => path.basename(op.path)));
-    const currentTypes = new Set(navigation.types.map(type => path.basename(type.path)));
-    const currentEnums = new Set(navigation.types.filter(type => type.typeCategory === 'enums').map(type => path.basename(type.path)));
-    const currentInputObjects = new Set(navigation.types.filter(type => type.typeCategory === 'inputs').map(type => path.basename(type.path)));
-    const currentUnionsAndInterfaces = new Set(navigation.types.filter(type => type.typeCategory === 'unionsAndInterfaces').map(type => path.basename(type.path)));
+    const currentTypes = new Set(navigation.types.filter(type => type.typeCategory === 'types').map(type => path.basename(type.path)));
 
-    // Log added and removed pages
+    // Log added and removed pages (only for navigation-tracked items)
     const changeCategories = [
       { name: 'operations', existing: existingPages.operations, current: currentOperations },
-      { name: 'types', existing: existingPages.types, current: currentTypes },
-      { name: 'enums', existing: existingPages.enums, current: currentEnums },
-      { name: 'input objects', existing: existingPages.inputObjects, current: currentInputObjects },
-      { name: 'unions and interfaces', existing: existingPages.unionsAndInterfaces, current: currentUnionsAndInterfaces }
+      { name: 'types', existing: existingPages.types, current: currentTypes }
+      // Note: enums, input objects, unions and interfaces are still generated as pages but not tracked in navigation
     ];
 
     changeCategories.forEach(({ name, existing, current }) => {
@@ -697,25 +661,42 @@ function updateDocsJson(navigation) {
       });
     }
 
-    // Log type category information
-    const typeCategories = ['types', 'enums', 'inputs', 'unionsAndInterfaces'];
-    const typeCategoryNames = {
-      types: 'Types',
+    // Log type category information (only for navigation-included types)
+    const categoriesForTypes = navigation.typesByCategory.types;
+    if (Object.keys(categoriesForTypes).length > 0) {
+      console.log(`  Types: ${Object.keys(categoriesForTypes).length} categories`);
+      Object.keys(categoriesForTypes).sort().forEach(category => {
+        const count = categoriesForTypes[category].length;
+        console.log(`    - ${category}: ${count} types`);
+      });
+    }
+
+    // Log that other type categories are generated but not in navigation
+    const otherTypeCategories = ['enums', 'inputs', 'unionsAndInterfaces'];
+    const otherTypeCategoryNames = {
       enums: 'Enums',
       inputs: 'Input Objects',
       unionsAndInterfaces: 'Unions and Interfaces'
     };
 
-    typeCategories.forEach(typeCategory => {
+    let hasOtherTypes = false;
+    otherTypeCategories.forEach(typeCategory => {
       const categoriesForType = navigation.typesByCategory[typeCategory];
       if (Object.keys(categoriesForType).length > 0) {
-        console.log(`  ${typeCategoryNames[typeCategory]}: ${Object.keys(categoriesForType).length} categories`);
-        Object.keys(categoriesForType).sort().forEach(category => {
-          const count = categoriesForType[category].length;
-          console.log(`    - ${category}: ${count} ${typeCategory}`);
-        });
+        hasOtherTypes = true;
       }
     });
+
+    if (hasOtherTypes) {
+      console.log(`  Other types (generated as linkable pages only):`);
+      otherTypeCategories.forEach(typeCategory => {
+        const categoriesForType = navigation.typesByCategory[typeCategory];
+        if (Object.keys(categoriesForType).length > 0) {
+          const totalCount = Object.values(categoriesForType).reduce((sum, types) => sum + types.length, 0);
+          console.log(`    - ${otherTypeCategoryNames[typeCategory]}: ${totalCount} types`);
+        }
+      });
+    }
 
   } catch (error) {
     console.error('❌ Error updating docs.json navigation:', error.message);
@@ -735,18 +716,14 @@ function removeOutdatedFiles(currentNavigation, apiRefDir) {
 
   const currentPages = {
     operations: currentOperations,
-    types: currentTypes,
-    enums: currentEnums,
-    inputObjects: currentInputObjects,
-    unionsAndInterfaces: currentUnionsAndInterfaces
+    types: currentTypes
+    // Note: enums, inputObjects, unionsAndInterfaces are no longer tracked in docs.json
+    // but their files are still generated and can be cleaned up manually if needed
   };
 
   const dirMap = {
     operations: ['queries', 'mutations', 'subscriptions'], // Operations can be in any of these directories
-    types: ['types'],
-    enums: ['types'],
-    inputObjects: ['types'],
-    unionsAndInterfaces: ['types']
+    types: ['types']
   };
 
   let removedCount = 0;

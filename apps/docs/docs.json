@@ -34,11 +34,7 @@
           {
             "group": "Recipes",
             "pages": [
-              "recipes/swap-list",
-              "recipes/chatbot",
-              "recipes/chart",
-              "recipes/realtime",
-              "recipes/nextjs"
+              "recipes/swap-list"
             ]
           },
           {

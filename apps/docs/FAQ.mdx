@@ -1,0 +1,230 @@
+---
+title: "Frequently Asked Questions"
+description: "Find answers to commonly asked questions about Codex"
+sidebarTitle: "FAQ"
+---
+
+<Tip>
+  Unable to find the answers you're looking for? Try asking our integrated AI assistant at the top of the page, or reach out to us on [Discord](https://t.co/VlYcv6ZUIC).
+</Tip>
+
+## New Customers Are Asking...
+
+<AccordionGroup>
+  <Accordion title="I'm not sure how to get started with the API. Where can I get help?">
+    Everything you need to get started can be found in our "[Get Started](/apps/docs/get-started)" page. If you need further help, refer to this FAQ or reach out to us on [Discord](https://t.co/VlYcv6ZUIC).
+
+    How can I find practical examples of Codex queries in use?
+  </Accordion>
+  <Accordion title="Do you have an explorer for building and testing queries?">
+    Yes, our [explorer ](https://explorer.codex.io/)is a very powerful tool for testing Codex endpoints. It has been updated to allow multiple tabs and will save your progress when closed for future referencing.
+  </Accordion>
+  <Accordion title="How can I find practical examples of Codex queries currently in use?">
+    We suggest downloading the [Chrome GraphQL Network Inspector](https://chromewebstore.google.com/detail/graphql-network-inspector/ndlbedplllcgconngcnfmkadhokfaaln) and then inspecting the queries used on [Defined.fi](http://Defined.fi) as you navigate through the different sections of the site to find out what’s possible with the Codex API. 
+  </Accordion>
+  <Accordion title="How do websocket requests work for billing purposes?">
+    Websocket requests are billed per message sent by the websocket, but we offer custom plans with discounts for high usage (10m\+/month). Contact us on [Discord](https://t.co/VlYcv6ZUIC) or via Email for information on custom plans.
+  </Accordion>
+  <Accordion title="Are there any limits on the number of tokens I can generate using the Mutations `createApiTokens` endpoint?">
+    It's 25 per call. No limit per account.
+  </Accordion>
+  <Accordion title="How can I hide my API key from my browser's network tab? Can I use a temporary API key?">
+    Yes, we support short-lived tokens. You can find more information below:\
+    Docs reference: [<u>Short-lived API Keys</u>](/apps/docs/api-reference/mutations/createapitokens)\
+    SDK Example: [<u>https://github.com/Codex-Data/sdk/blob/main/examples/simple/apiKeys.ts</u>](https://github.com/Codex-Data/sdk/blob/main/examples/simple/apiKeys.ts)
+  </Accordion>
+  <Accordion title="How are overages handled for billing? If I have a 1m growth plan, what happens if I go over 1m requests?">
+    Overages are charged at the same rate as your subscribed plan. So if you go over 1m requests, your account is charged an additional \$350, giving you up to 2m requests for that billing cycle, and so on.
+  </Accordion>
+</AccordionGroup>
+
+## Understanding Our Data & Coverage...
+
+<AccordionGroup>
+  <Accordion title="How are token prices computed by Codex?">
+    Pricing comes down to finding the most liquid route through pools to a bucket of stablecoins. For example, `getTokenPrices` uses an aggregate vlaue across all pairs based on liquidity and volume. We give each pair a weight and then use that to build a confidence score.
+  </Accordion>
+  <Accordion title="We're getting a lot of unusable data returned. How can we improve our query results to be more meaningful?">
+    We index over 36m tokens (and growing rapidy) across 80\+ networks, so there's going to be a lot of unusable data mixed in. The best way to avoid this is by using filters with minimum (or maximum) values. For example, it will be higher quality data if you filter by tokens with at least 10 buys in the past 24hours, or specific amounts of volume, liquidity, trendingScore, etc.
+  </Accordion>
+  <Accordion title="How far back do your historical prices go on Solana?">
+    Our Solana data begins on March 20th, 2024. Unfortunately, it is not feasible to backfill data prior to this date.
+  </Accordion>
+  <Accordion title="How can we determine which exchange a token's trading data is coming from for our charts?">
+    Our chart data does not explicitly display the exchange source, but you can retrieve this information using the `filterTokens` query and selecting the first result.\
+    \
+    Keep in mind that exchanges are added manually. While we strive to keep our listings up to date, we index over 20,000 exhanges, so not all may be included. If you need specific exchange metadata added, feel free to reach out to our team.
+  </Accordion>
+  <Accordion title="How does Codex handle transactions that end up being dropped and never confirmed? Are chart candles corrected afterwards?">
+    There aren’t that many transactions that are dropped, but we will have multiple streams available (processed and confirmed) and you could dedupe on your end. The difference will be about 1.2s between the two.
+  </Accordion>
+  <Accordion title="Does the API offer a way to get the ATH (all-time high) price of a token?">
+    Not currently, but it’s been a popular request so we may add it in the future. For now you can find it yourself by requesting all the daily `getBars` for a token and finding the highest value, though it’s not a very efficient method.
+  </Accordion>
+  <Accordion title="Are native tokens, such as ETH and SOL, supported?">
+    Codex uses wrapped versions of native tokens, but they are backed 1:1 so the price is the same.
+  </Accordion>
+  <Accordion title="I’m seeing a discrepancy between how Codex returns prices vs other platforms. Is Codex more accurate?">
+    The prices on our charts are the pool liquidity which is the correct pool price. Other sites use the price of the last executed transaction which isn't correct in our opinion. \
+    \
+    You'll notice that our events are not the same price as the chart; the events are the executed price of that transaction and the chart is the current pool price.
+  </Accordion>
+  <Accordion title="Do you have aggregated token data for launchpad tokens? We'd like to show a complete chart from creation->graduation->migration.">
+    We don't have any aggregated views for tokens yet; you have to pass in a specific pair (top pair by default). This is something we want to build in the near future.
+  </Accordion>
+  <Accordion title='Why does Codex report liquidity values much lower than other platforms? How can I see the "total" liquidity?'>
+    If you hover over the liquidity field on [Defined.fi](http://Defined.fi), you’ll get a description with a full breakdown of how the liquidity is displayed. We only display the underlying liquidity token in the pool, which usually means it will be half of other platforms. We report this amount because we believe it is somewhat deceitful to report otherwise. To get the “total” liquidity in the pool, you can simply add both sides of the pool’s liquidity. \
+    \
+    The Codex API includes both pooled amounts in its responses if you would like to add both amounts together for your project when displaying liquidity.
+  </Accordion>
+  <Accordion title="How and when is metadata for tokens obtained?">
+    We fetch data on the first trade. For social links and token images, we pull these from 10\+ sources to try and compile the most comprehensive metadata we can. Some of this is on-chain and some is off-chain. We also allow updates on [<u>Defined.fi</u>](http://Defined.fi) from users, which is a moderated proposal system.
+  </Accordion>
+  <Accordion title="How is market cap calculated when circulating supply is higher than total supply?">
+    If circulating supply exceeds total supply, we fall back to total supply to avoid inaccuracies. You can manually adjust this using: circulatingSupply \* price
+  </Accordion>
+</AccordionGroup>
+
+## Endpoint Queries & Best Practices...
+
+<AccordionGroup>
+  <Accordion title="How can I view more than 200 results when using a query?">
+    Most of our endpoints support pagination with the `cursor` parameter in order to retrieve additional events when necessary.
+  </Accordion>
+  <Accordion title='What is the proper format for the "from" and "to" timestamps?'>
+    They are Unix timestamps. For example, to retrieve data for December 26th 2024 you would use “from: 1735171200 to: 1735257600”
+  </Accordion>
+  <Accordion title="I'm missing transaction data for a specific block, how can I find this data?">
+    If you're using `getTokenEvents`, this looks at the top pair when filtering for events, not all pairs. To find additional data, you can use `listPairsWithMetadataForToken` to find the coorect pool and filter by volume.
+  </Accordion>
+  <Accordion title="Is it possible to fetch pair metadata for multiple pool addresses?">
+    Yes. `filterPairs` could be used for this.
+  </Accordion>
+  <Accordion title="We are calculating market cap with circulating supply * price in the chart, but what if the circulating supply changes? How can we handle this in our charts?">
+    You can subscribe to the `circulatingSupply` through `onPairMetadataUpdated` (within `enhancedToken`) or just check on each page load. For the most part supplies don't really change that often though.
+  </Accordion>
+  <Accordion title="Is it possible to get sparklines for a past time period?">
+    No, but you could use `getBars` and extract the closing values for similar results.
+  </Accordion>
+  <Accordion title="How do I obtain historical liquidity data, token prices, and volumes for a pool?">
+    Use `getDetailedPairStats` for the most accurate historical data (`getBars` can also be useful here). `getTokenPrices` provides a weighted price across all pools, while individual pool prices can vary.
+  </Accordion>
+  <Accordion title="What is the purpose of using statsType/TokenPairStatisticsType?">
+    This parameter is for filtering MEV results and can be set to the following:
+
+    - FILTERED – MEV-related events are excluded from the data.
+    - UNFILTERED – Includes all events, including those related to MEV activity.
+
+    MEV transactions can significantly impact volume, liquidity, and price calculations. By using FILTERED, you get a clearer picture of organic trading activity without MEV influence. Conversely, UNFILTERED provides a full view, including arbitrage and sandwich attacks.
+  </Accordion>
+  <Accordion title="Is it possible to get the creator/dev address for a token?">
+    Yes, it's on `enhancedToken` which is available for most queries.
+  </Accordion>
+  <Accordion title="How can I find the pool with the highest liquidity for a token and get its USD liquidity and price change metrics?">
+    Use the `filterPairs` endpoint to find the pool with the highest liquidity for a given token. Example:
+
+    ```
+      filterPairs(
+        phrase: "0x6982508145454ce325ddbe47a25d4ec3d2311933:1"
+        rankings: { attribute: liquidity, direction: DESC }
+      ) 
+    ```
+
+    The liquidity value represents the USD value of the base token (e.g., ETH or a stablecoin) backing the pair.\
+    \
+    Price change metrics are available in both `filterPairs` and `filterTokens`, covering multiple timeframes.
+  </Accordion>
+  <Accordion title="How does `phrase` search work? I’m searching a token name and getting incorrect results. I’m also using a query that is ranking by `createdAt`.">
+    We suggest not sorting by `createdAt` if you’re using `phrase` search. Instead, use `trendingScore24` or `volume` which should return more meaningful results. We index well over 36m tokens so finding exactly what you want from one word phrase search is a difficult task without meaningful ranking/sorting.
+  </Accordion>
+</AccordionGroup>
+
+## WebSockets & Real-Time Data...
+
+<AccordionGroup>
+  <Accordion title="What's the limit of subscriptions per websocket connection?">
+    The limit is around 500 subscriptions per connection. **Our recommendation is to use ~25 per connection**, but you could have several hundred connections with 25 tokens each, for example. 
+  </Accordion>
+  <Accordion title="Launchpad `Created` events have a 3-4s delay. Is there a faster way to see newly launched tokens?">
+    You can use the `LaunchpadTokenEventType.Deployed` event instead for faster updates. The difference:\
+    **Deployed:** Sent immediately when token is discovered (minimal latency), includes fundamentals but may lack metadata like images. \
+    **Created:** Sent after metadata is fetched (3-4s latency), includes complete token information.\
+    \
+    For fastest results, you can set up two subscriptions and resolve the models on the frontend - use Deployed for immediate notification and Created for full metadata when available.We have plans to increase speeds (specifically for Solana) but will maintain the same Deployed vs Created flow. The naming will be improved in future versions to make this distinction clearer.
+  </Accordion>
+  <Accordion title="Is there a way to update token volume and holders via WebSockets?">
+    Yes, you can use the following:
+
+    - `onPairMetadataUpdated` for volume updates.
+    - `onHoldersUpdated` is available for enterprise users, but you can also poll the `holders` endpoint.
+  </Accordion>
+  <Accordion title="Is there a subscription that sends all token prices rather than just a set?">
+    No, but you can subscribe to up to 25 tokens at a time using `onPricesUpdated`, and you can make multiple subscriptions. You can also subscribe and unsubscribe from individual tokens without closing the connections.
+  </Accordion>
+  <Accordion title="If I'm subscribed to multiple trading pairs and I want to cancel a certain trading pair, what's the method to do so?">
+    You should be able to use shouldResubscribe for this. ([<u>https://www.apollographql.com/docs/react/data/subscriptions#options</u>](https://www.apollographql.com/docs/react/data/subscriptions#options))
+  </Accordion>
+  <Accordion title="I'm getting a 4401 error when connecting to websockets. How can I fix this?">
+    This usually means that you’re trying to subscribe to a websocket before receiving confirmation that you’ve successfully connected to the server. Make sure to wait for the connection_ack before subscribing.
+  </Accordion>
+  <Accordion title="What's the latency for real-time data? For example, retrieveing user token balances after a swap?">
+    For the token balances, it’s updated in real-time after finalization which takes about 1.8s on average.
+  </Accordion>
+  <Accordion title="Is there a way to prevent our subscription from pausing price updates?">
+    If you are using custom code to subscribe to websockets, we advise [<u>sending a ping</u>](https://github.com/enisdenjo/graphql-ws/blob/master/PROTOCOL.md#ping) to keep the connection alive. Alternatively, you can use our SDK which is easier to implement, but can be less flexible.
+  </Accordion>
+  <Accordion title="How can I use temporary tokens for websockets?">
+    You need to call `createApiTokens` then get the token from the response and send it into the Authorization header of subsequent requests:
+
+    ```
+    import { Codex } from "@codex-data/sdk";
+    
+    if (!process.env.API_KEY) throw new Error("Must set API_KEY");
+    
+    const sdk = new Codex(process.env.API_KEY);
+    
+    // Create an api token
+    const res = await sdk.mutations.createApiTokens({
+      input: { expiresIn: 3600 * 1000 },
+    });
+    
+    const token = res.createApiTokens[0].token;
+    
+    const shortLivedSdk = new Codex(`Bearer ${token}`);
+    
+    shortLivedSdk.queries
+      .token({
+        input: {
+          address: "token_address",
+          networkId: 1,
+        },
+      })
+      .then(({ token }) => console.log(`Token: ${token.id} - ${token.symbol}`));
+    ```
+  </Accordion>
+</AccordionGroup>
+
+## Webhooks & Event Monitoring...
+
+<AccordionGroup>
+  <Accordion title="Where can I find info about pushing real-time buys via webhooks?">
+    If you’re only interested in buys, you would create a webhook for the token, only for buy events. The webhook publisher sends the full EnhancedEvent, so you don't need to make a call to get more event data. You can also make another call to the Defined API to get more data about the token. [Get started with Webhooks](/apps/docs/concepts/webhooks).
+  </Accordion>
+  <Accordion title="How many tokens can I add to a webhook?">
+    Webhooks monitor one token at a time, but there is no limit ot how many webhooks you can create.
+  </Accordion>
+  <Accordion title="How is webhook usage measured against my plan's monthly request limit?">
+    Using "buy" events as en example: It's 1 webhook message and 1 call per buy, so if you were processing 10k buys per day it would be 20k requests (or 600k requests per month).
+  </Accordion>
+  <Accordion title="What is the purpose of `securityToken` for webhooks?">
+    There's a hash property on all webhook messages we send, and that property is equal to:
+
+    ```
+    .update(securityToken)
+    .update(deduplicationId)
+    .digest("hex")
+    ```
+
+    So we take the security token you provide, and the deduplicationId of the message, and hash it together with SHA256. You should be able to do the same on your end and verify that the hash matches.
+  </Accordion>
+</AccordionGroup>

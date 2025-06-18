@@ -17,12 +17,10 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          fetch-depth: 0
-      - uses: actions/checkout@v4
+
       - name: Install pnpm
         uses: pnpm/action-setup@v4
+
       - name: Use Node.js
         uses: buildjet/setup-node@v4
         with:
@@ -32,6 +30,8 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
+        env:
+          GITHUB_NPM_TOKEN: ${{ secrets.DEFINED_GITHUB_NPM_TOKEN }}
 
       - name: Install Apollo Rover CLI
         run: |

@@ -28,6 +28,9 @@
   "engines": {
     "node": ">=18"
   },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "resolutions": {
     "@company-z/crypto-data": "37.1.8-beta-braden1",
     "@sentry/node": "7.120.3",

@@ -12,7 +12,7 @@ jobs:
       NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       GITHUB_NPM_TOKEN: ${{ secrets.DEFINED_GITHUB_NPM_TOKEN }}
 
-    runs-on: ubuntu-latest
+    runs-on: buildjet-4vcpu-ubuntu-2204
 
     steps:
       - name: Checkout repository
@@ -20,15 +20,15 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
-
+      - uses: actions/checkout@v4
       - name: Install pnpm
         uses: pnpm/action-setup@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - name: Use Node.js
+        uses: buildjet/setup-node@v4
         with:
-          node-version: '20'
-          cache: 'pnpm'
+          node-version: 20
+          cache: "pnpm"
+          registry-url: https://npm.pkg.github.com/
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile

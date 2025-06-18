@@ -1,0 +1,7017 @@
+---
+title: "Enums"
+description: "All enum types in the GraphQL schema"
+noindex: true
+---
+
+## AlertRecurrence
+
+The recurrence of the webhook. Can be `INDEFINITE` or `ONCE`.
+
+<ResponseField name="INDEFINITE" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="ONCE" type="enum">
+  No description provided
+</ResponseField>
+
+```graphql 
+"""The recurrence of the webhook. Can be `INDEFINITE` or `ONCE`."""
+enum AlertRecurrence {
+  INDEFINITE
+  ONCE
+}
+```
+
+---
+
+## BondingCurveType
+
+The mathematical formula that defines how the prices of NFTs change after each buy or sell within a pool.
+
+<ResponseField name="EXPONENTIAL" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="LINEAR" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="XYK" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="GDA" type="enum">
+  No description provided
+</ResponseField>
+
+```graphql 
+"""The mathematical formula that defines how the prices of NFTs change after each buy or sell within a pool."""
+enum BondingCurveType {
+  EXPONENTIAL
+  LINEAR
+  XYK
+  GDA
+}
+```
+
+---
+
+## ChartTheme
+
+The color theme of the chart.
+
+<ResponseField name="LIGHT" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="DARK" type="enum">
+  No description provided
+</ResponseField>
+
+```graphql 
+"""The color theme of the chart."""
+enum ChartTheme {
+  LIGHT
+  DARK
+}
+```
+
+---
+
+## CommunityNoteType
+
+Type of the community gathered note.
+
+<ResponseField name="ATTRIBUTE" type="enum">
+  An contract attribute change.
+</ResponseField>
+
+<ResponseField name="SCAM" type="enum">
+  A scam report.
+</ResponseField>
+
+<ResponseField name="LOGO" type="enum">
+  A logo change.
+</ResponseField>
+
+```graphql 
+"""Type of the community gathered note."""
+enum CommunityNoteType {
+  """An contract attribute change."""
+  ATTRIBUTE
+  """A scam report."""
+  SCAM
+  """A logo change."""
+  LOGO
+}
+```
+
+---
+
+## ContractLabelSubType
+
+The contract label sub-type.
+
+<ResponseField name="Generic" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="HighTax" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="HoneyPot" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="Imitator" type="enum">
+  No description provided
+</ResponseField>
+
+```graphql 
+"""The contract label sub-type."""
+enum ContractLabelSubType {
+  Generic
+  HighTax
+  HoneyPot
+  Imitator
+}
+```
+
+---
+
+## ContractLabelType
+
+The contract label type.
+
+<ResponseField name="Scam" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="Verified" type="enum">
+  No description provided
+</ResponseField>
+
+```graphql 
+"""The contract label type."""
+enum ContractLabelType {
+  Scam
+  Verified
+}
+```
+
+---
+
+## ContractType
+
+Type of the contract.
+
+<ResponseField name="TOKEN" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="NFT" type="enum">
+  No description provided
+</ResponseField>
+
+```graphql 
+"""Type of the contract."""
+enum ContractType {
+  TOKEN
+  NFT
+}
+```
+
+---
+
+## CostBasisMethod
+
+<ResponseField name="FIFO" type="enum">
+  No description provided
+</ResponseField>
+
+```graphql 
+enum CostBasisMethod {
+  FIFO
+}
+```
+
+---
+
+## DetailedNftStatsDuration
+
+The duration used to request detailed NFT stats.
+
+<ResponseField name="day30" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="week1" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="day1" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="hour12" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="hour4" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="hour1" type="enum">
+  No description provided
+</ResponseField>
+
+```graphql 
+"""The duration used to request detailed NFT stats."""
+enum DetailedNftStatsDuration {
+  day30
+  week1
+  day1
+  hour12
+  hour4
+  hour1
+}
+```
+
+---
+
+## DetailedPairStatsDuration
+
+The duration used to request detailed pair stats.
+
+<ResponseField name="day30" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="week1" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="day1" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="hour12" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="hour4" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="hour1" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="min15" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="min5" type="enum">
+  No description provided
+</ResponseField>
+
+```graphql 
+"""The duration used to request detailed pair stats."""
+enum DetailedPairStatsDuration {
+  day30
+  week1
+  day1
+  hour12
+  hour4
+  hour1
+  min15
+  min5
+}
+```
+
+---
+
+## DetailedStatsWindowSize
+
+The window size used to request detailed stats.
+
+<ResponseField name="day1" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="hour12" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="hour4" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="hour1" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="min5" type="enum">
+  No description provided
+</ResponseField>
+
+```graphql 
+"""The window size used to request detailed stats."""
+enum DetailedStatsWindowSize {
+  day1
+  hour12
+  hour4
+  hour1
+  min5
+}
+```
+
+---
+
+## EventDisplayType
+
+A more specific breakdown of `EventType`. Splits `Swap` into `Buy` and `Sell`.
+
+<ResponseField name="Burn" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="Mint" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="Buy" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="Sell" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="Sync" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="Collect" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="CollectProtocol" type="enum">
+  No description provided
+</ResponseField>
+
+```graphql 
+"""A more specific breakdown of `EventType`. Splits `Swap` into `Buy` and `Sell`."""
+enum EventDisplayType {
+  Burn
+  Mint
+  Buy
+  Sell
+  Sync
+  Collect
+  CollectProtocol
+}
+```
+
+---
+
+## EventLabelType
+
+The event label type.
+
+<ResponseField name="FrontRun" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="Sandwiched" type="enum">
+  No description provided
+</ResponseField>
+
+```graphql 
+"""The event label type."""
+enum EventLabelType {
+  FrontRun
+  Sandwiched
+}
+```
+
+---
+
+## EventType
+
+The event type for a token transaction.
+
+<ResponseField name="Burn" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="Mint" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="Swap" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="Sync" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="Collect" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="CollectProtocol" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="PoolBalanceChanged" type="enum">
+  No description provided
+</ResponseField>
+
+```graphql 
+"""The event type for a token transaction."""
+enum EventType {
+  Burn
+  Mint
+  Swap
+  Sync
+  Collect
+  CollectProtocol
+  PoolBalanceChanged
+}
+```
+
+---
+
+## ExchangeRankingAttribute
+
+The attribute used to rank exchanges.
+
+<ResponseField name="txnCount1" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="txnCount4" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="txnCount12" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="txnCount24" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="volumeUSD1" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="volumeUSD4" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="volumeUSD12" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="volumeUSD24" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="volumeNBT1" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="volumeNBT4" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="volumeNBT12" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="volumeNBT24" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="dailyActiveUsers" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="monthlyActiveUsers" type="enum">
+  No description provided
+</ResponseField>
+
+```graphql 
+"""The attribute used to rank exchanges."""
+enum ExchangeRankingAttribute {
+  txnCount1
+  txnCount4
+  txnCount12
+  txnCount24
+  volumeUSD1
+  volumeUSD4
+  volumeUSD12
+  volumeUSD24
+  volumeNBT1
+  volumeNBT4
+  volumeNBT12
+  volumeNBT24
+  dailyActiveUsers
+  monthlyActiveUsers
+}
+```
+
+---
+
+## GraphQlNftPoolVariant
+
+The pool variant.
+
+<ResponseField name="ERC20" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="NATIVE" type="enum">
+  No description provided
+</ResponseField>
+
+```graphql 
+"""The pool variant."""
+enum GraphQlNftPoolVariant {
+  ERC20
+  NATIVE
+}
+```
+
+---
+
+## HoldersStatus
+
+<ResponseField name="ENABLED" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="DISABLED" type="enum">
+  No description provided
+</ResponseField>
+
+```graphql 
+enum HoldersStatus {
+  ENABLED
+  DISABLED
+}
+```
+
+---
+
+## LaunchpadTokenEventType
+
+The type of event. Note that associated statistics such as `buyCount1`, `price`, etc. are only available for `Updated` events.
+
+<ResponseField name="Deployed" type="enum">
+  The token has been discovered
+</ResponseField>
+
+<ResponseField name="Created" type="enum">
+  The token has been created with metadata
+</ResponseField>
+
+<ResponseField name="Updated" type="enum">
+  The token's statistics have been updated
+</ResponseField>
+
+<ResponseField name="Completed" type="enum">
+  The token has been completed
+</ResponseField>
+
+<ResponseField name="Migrated" type="enum">
+  The token has been migrated
+</ResponseField>
+
+```graphql 
+"""The type of event. Note that associated statistics such as `buyCount1`, `price`, etc. are only available for `Updated` events."""
+enum LaunchpadTokenEventType {
+  """The token has been discovered"""
+  Deployed
+  """The token has been created with metadata"""
+  Created
+  """The token's statistics have been updated"""
+  Updated
+  """The token has been completed"""
+  Completed
+  """The token has been migrated"""
+  Migrated
+}
+```
+
+---
+
+## LaunchpadTokenProtocol
+
+The protocol of the token.
+
+<ResponseField name="Pump" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="FourMeme" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="RaydiumLaunchpad" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="BoopFun" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="Vertigo" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="Rainbow" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="EgoTech" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="ArenaTrade" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="Moonit" type="enum">
+  No description provided
+</ResponseField>
+
+```graphql 
+"""The protocol of the token."""
+enum LaunchpadTokenProtocol {
+  Pump
+  FourMeme
+  RaydiumLaunchpad
+  BoopFun
+  Vertigo
+  Rainbow
+  EgoTech
+  ArenaTrade
+  Moonit
+}
+```
+
+---
+
+## LiquidityLockProtocol
+
+Protocols that can lock liquidity.
+
+<ResponseField name="BASECAMP_V1" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="UNCX_V2" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="UNCX_V3" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="BURN" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="BITBOND" type="enum">
+  No description provided
+</ResponseField>
+
+```graphql 
+"""Protocols that can lock liquidity."""
+enum LiquidityLockProtocol {
+  BASECAMP_V1
+  UNCX_V2
+  UNCX_V3
+  BURN
+  BITBOND
+}
+```
+
+---
+
+## LiquidityProtocol
+
+Protocols that create trading pairs.
+
+<ResponseField name="UNISWAP_V3" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="UNISWAP_V2" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="RAYDIUM_V4" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="PUMP_V1" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="USE_LIQUIDITY_PROTOCOL_V2" type="enum">
+  No description provided
+</ResponseField>
+
+```graphql 
+"""Protocols that create trading pairs."""
+enum LiquidityProtocol {
+  UNISWAP_V3
+  UNISWAP_V2
+  RAYDIUM_V4
+  PUMP_V1
+  USE_LIQUIDITY_PROTOCOL_V2
+}
+```
+
+---
+
+## NftAssetAttributeDisplayType
+
+The display type for the NFT asset attribute.
+
+<ResponseField name="Trait" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="Stat" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="Ranking" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="BoostNumber" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="BoostPercentage" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="Date" type="enum">
+  No description provided
+</ResponseField>
+
+```graphql 
+"""The display type for the NFT asset attribute."""
+enum NftAssetAttributeDisplayType {
+  Trait
+  Stat
+  Ranking
+  BoostNumber
+  BoostPercentage
+  Date
+}
+```
+
+---
+
+## NftAssetAttributeType
+
+The type for the NFT asset attribute `value` field.
+
+<ResponseField name="String" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="Number" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="Array" type="enum">
+  No description provided
+</ResponseField>
+
+```graphql 
+"""The type for the NFT asset attribute `value` field."""
+enum NftAssetAttributeType {
+  String
+  Number
+  Array
+}
+```
+
+---
+
+## NftAssetErrorStatus
+
+The status of an NFT asset error.
+
+<ResponseField name="NOT_FOUND" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="INDEXING_IN_PROGRESS" type="enum">
+  No description provided
+</ResponseField>
+
+```graphql 
+"""The status of an NFT asset error."""
+enum NftAssetErrorStatus {
+  NOT_FOUND
+  INDEXING_IN_PROGRESS
+}
+```
+
+---
+
+## NftCollectionRankingAttribute
+
+The attribute used to rank NFT collections.
+
+<ResponseField name="totalSupply" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="lastEventTimestamp" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hUsdVolumeCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hUsdVolumePrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hUsdVolumeChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hUsdVolumeByFillsourceOpenseaCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hUsdVolumeByFillsourceOpenseaChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hUsdVolumeByFillsourceOpenseaPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hUsdVolumeByFillsourceOpenseaProCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hUsdVolumeByFillsourceOpenseaProChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hUsdVolumeByFillsourceOpenseaProPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hUsdVolumeByFillsourceSeaportCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hUsdVolumeByFillsourceSeaportChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hUsdVolumeByFillsourceSeaportPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hUsdVolumeByFillsourceX2Y2Current" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hUsdVolumeByFillsourceX2Y2Change" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hUsdVolumeByFillsourceX2Y2Previous" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hUsdVolumeByFillsourceLooksrareCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hUsdVolumeByFillsourceLooksrareChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hUsdVolumeByFillsourceLooksrarePrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hUsdVolumeByFillsourceLooksrareV2Current" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hUsdVolumeByFillsourceLooksrareV2Change" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hUsdVolumeByFillsourceLooksrareV2Previous" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hUsdVolumeByFillsourceBlurCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hUsdVolumeByFillsourceBlurChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hUsdVolumeByFillsourceBlurPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hUsdVolumeByFillsourceBlurV2Current" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hUsdVolumeByFillsourceBlurV2Change" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hUsdVolumeByFillsourceBlurV2Previous" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hUsdVolumeByFillsourceBlendCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hUsdVolumeByFillsourceBlendChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hUsdVolumeByFillsourceBlendPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hUsdVolumeByFillsourceGemCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hUsdVolumeByFillsourceGemChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hUsdVolumeByFillsourceGemPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hUsdVolumeByFillsourceSudoswapCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hUsdVolumeByFillsourceSudoswapChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hUsdVolumeByFillsourceSudoswapPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hUsdVolumeByFillsourceSudoswapV2Current" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hUsdVolumeByFillsourceSudoswapV2Change" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hUsdVolumeByFillsourceSudoswapV2Previous" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hUsdVolumeByFillsourceCryptopunksCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hUsdVolumeByFillsourceCryptopunksChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hUsdVolumeByFillsourceCryptopunksPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hUsdAverageCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hUsdAveragePrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hUsdAverageChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hUsdOpenCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hUsdOpenPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hUsdOpenChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hUsdCloseCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hUsdClosePrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hUsdCloseChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hUsdLowestSaleCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hUsdLowestSalePrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hUsdLowestSaleChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hUsdHighestSaleCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hUsdHighestSalePrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hUsdHighestSaleChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hNetworkBaseTokenVolumeCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hNetworkBaseTokenVolumePrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hNetworkBaseTokenVolumeChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hNetworkBaseTokenVolumeByFillsourceOpenseaCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hNetworkBaseTokenVolumeByFillsourceOpenseaChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hNetworkBaseTokenVolumeByFillsourceOpenseaPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hNetworkBaseTokenVolumeByFillsourceOpenseaProCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hNetworkBaseTokenVolumeByFillsourceOpenseaProChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hNetworkBaseTokenVolumeByFillsourceOpenseaProPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hNetworkBaseTokenVolumeByFillsourceSeaportCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hNetworkBaseTokenVolumeByFillsourceSeaportChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hNetworkBaseTokenVolumeByFillsourceSeaportPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hNetworkBaseTokenVolumeByFillsourceX2Y2Current" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hNetworkBaseTokenVolumeByFillsourceX2Y2Change" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hNetworkBaseTokenVolumeByFillsourceX2Y2Previous" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hNetworkBaseTokenVolumeByFillsourceLooksrareCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hNetworkBaseTokenVolumeByFillsourceLooksrareChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hNetworkBaseTokenVolumeByFillsourceLooksrarePrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hNetworkBaseTokenVolumeByFillsourceLooksrareV2Current" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hNetworkBaseTokenVolumeByFillsourceLooksrareV2Change" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hNetworkBaseTokenVolumeByFillsourceLooksrareV2Previous" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hNetworkBaseTokenVolumeByFillsourceBlurCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hNetworkBaseTokenVolumeByFillsourceBlurChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hNetworkBaseTokenVolumeByFillsourceBlurPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hNetworkBaseTokenVolumeByFillsourceBlurV2Current" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hNetworkBaseTokenVolumeByFillsourceBlurV2Change" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hNetworkBaseTokenVolumeByFillsourceBlurV2Previous" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hNetworkBaseTokenVolumeByFillsourceBlendCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hNetworkBaseTokenVolumeByFillsourceBlendChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hNetworkBaseTokenVolumeByFillsourceBlendPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hNetworkBaseTokenVolumeByFillsourceGemCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hNetworkBaseTokenVolumeByFillsourceGemChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hNetworkBaseTokenVolumeByFillsourceGemPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hNetworkBaseTokenVolumeByFillsourceSudoswapCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hNetworkBaseTokenVolumeByFillsourceSudoswapChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hNetworkBaseTokenVolumeByFillsourceSudoswapPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hNetworkBaseTokenVolumeByFillsourceSudoswapV2Current" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hNetworkBaseTokenVolumeByFillsourceSudoswapV2Change" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hNetworkBaseTokenVolumeByFillsourceSudoswapV2Previous" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hNetworkBaseTokenVolumeByFillsourceCryptopunksCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hNetworkBaseTokenVolumeByFillsourceCryptopunksChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hNetworkBaseTokenVolumeByFillsourceCryptopunksPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hNetworkBaseTokenAverageCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hNetworkBaseTokenAveragePrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hNetworkBaseTokenAverageChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hNetworkBaseTokenOpenCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hNetworkBaseTokenOpenPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hNetworkBaseTokenOpenChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hNetworkBaseTokenCloseCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hNetworkBaseTokenClosePrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hNetworkBaseTokenCloseChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hNetworkBaseTokenLowestSaleCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hNetworkBaseTokenLowestSalePrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hNetworkBaseTokenLowestSaleChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hNetworkBaseTokenHighestSaleCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hNetworkBaseTokenHighestSalePrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hNetworkBaseTokenHighestSaleChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hNonCurrencyMintsCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hNonCurrencyMintsPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hNonCurrencyMintsChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hNonCurrencySalesCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hNonCurrencySalesPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hNonCurrencySalesChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hNonCurrencyTokensSoldCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hNonCurrencyTokensSoldPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hNonCurrencyTokensSoldChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hNonCurrencyTransfersCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hNonCurrencyTransfersPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hNonCurrencyTransfersChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hNonCurrencyUniqueBuyersCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hNonCurrencyUniqueBuyersPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hNonCurrencyUniqueBuyersChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hNonCurrencyUniqueSellersCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hNonCurrencyUniqueSellersPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hNonCurrencyUniqueSellersChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hNonCurrencyUniqueSalesWalletsCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hNonCurrencyUniqueSalesWalletsPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hNonCurrencyUniqueSalesWalletsChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hNonCurrencyUniqueMintersCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hNonCurrencyUniqueMintersPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats1hNonCurrencyUniqueMintersChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hUsdVolumeCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hUsdVolumePrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hUsdVolumeChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hUsdVolumeByFillsourceOpenseaCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hUsdVolumeByFillsourceOpenseaChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hUsdVolumeByFillsourceOpenseaPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hUsdVolumeByFillsourceOpenseaProCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hUsdVolumeByFillsourceOpenseaProChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hUsdVolumeByFillsourceOpenseaProPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hUsdVolumeByFillsourceSeaportCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hUsdVolumeByFillsourceSeaportChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hUsdVolumeByFillsourceSeaportPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hUsdVolumeByFillsourceX2Y2Current" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hUsdVolumeByFillsourceX2Y2Change" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hUsdVolumeByFillsourceX2Y2Previous" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hUsdVolumeByFillsourceLooksrareCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hUsdVolumeByFillsourceLooksrareChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hUsdVolumeByFillsourceLooksrarePrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hUsdVolumeByFillsourceLooksrareV2Current" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hUsdVolumeByFillsourceLooksrareV2Change" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hUsdVolumeByFillsourceLooksrareV2Previous" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hUsdVolumeByFillsourceBlurCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hUsdVolumeByFillsourceBlurChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hUsdVolumeByFillsourceBlurPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hUsdVolumeByFillsourceBlurV2Current" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hUsdVolumeByFillsourceBlurV2Change" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hUsdVolumeByFillsourceBlurV2Previous" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hUsdVolumeByFillsourceBlendCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hUsdVolumeByFillsourceBlendChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hUsdVolumeByFillsourceBlendPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hUsdVolumeByFillsourceGemCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hUsdVolumeByFillsourceGemChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hUsdVolumeByFillsourceGemPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hUsdVolumeByFillsourceSudoswapCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hUsdVolumeByFillsourceSudoswapChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hUsdVolumeByFillsourceSudoswapPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hUsdVolumeByFillsourceSudoswapV2Current" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hUsdVolumeByFillsourceSudoswapV2Change" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hUsdVolumeByFillsourceSudoswapV2Previous" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hUsdVolumeByFillsourceCryptopunksCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hUsdVolumeByFillsourceCryptopunksChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hUsdVolumeByFillsourceCryptopunksPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hUsdAverageCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hUsdAveragePrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hUsdAverageChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hUsdOpenCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hUsdOpenPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hUsdOpenChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hUsdCloseCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hUsdClosePrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hUsdCloseChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hUsdLowestSaleCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hUsdLowestSalePrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hUsdLowestSaleChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hUsdHighestSaleCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hUsdHighestSalePrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hUsdHighestSaleChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hNetworkBaseTokenVolumeCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hNetworkBaseTokenVolumePrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hNetworkBaseTokenVolumeChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hNetworkBaseTokenVolumeByFillsourceOpenseaCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hNetworkBaseTokenVolumeByFillsourceOpenseaChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hNetworkBaseTokenVolumeByFillsourceOpenseaPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hNetworkBaseTokenVolumeByFillsourceOpenseaProCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hNetworkBaseTokenVolumeByFillsourceOpenseaProChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hNetworkBaseTokenVolumeByFillsourceOpenseaProPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hNetworkBaseTokenVolumeByFillsourceSeaportCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hNetworkBaseTokenVolumeByFillsourceSeaportChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hNetworkBaseTokenVolumeByFillsourceSeaportPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hNetworkBaseTokenVolumeByFillsourceX2Y2Current" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hNetworkBaseTokenVolumeByFillsourceX2Y2Change" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hNetworkBaseTokenVolumeByFillsourceX2Y2Previous" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hNetworkBaseTokenVolumeByFillsourceLooksrareCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hNetworkBaseTokenVolumeByFillsourceLooksrareChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hNetworkBaseTokenVolumeByFillsourceLooksrarePrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hNetworkBaseTokenVolumeByFillsourceLooksrareV2Current" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hNetworkBaseTokenVolumeByFillsourceLooksrareV2Change" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hNetworkBaseTokenVolumeByFillsourceLooksrareV2Previous" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hNetworkBaseTokenVolumeByFillsourceBlurCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hNetworkBaseTokenVolumeByFillsourceBlurChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hNetworkBaseTokenVolumeByFillsourceBlurPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hNetworkBaseTokenVolumeByFillsourceBlurV2Current" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hNetworkBaseTokenVolumeByFillsourceBlurV2Change" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hNetworkBaseTokenVolumeByFillsourceBlurV2Previous" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hNetworkBaseTokenVolumeByFillsourceBlendCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hNetworkBaseTokenVolumeByFillsourceBlendChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hNetworkBaseTokenVolumeByFillsourceBlendPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hNetworkBaseTokenVolumeByFillsourceGemCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hNetworkBaseTokenVolumeByFillsourceGemChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hNetworkBaseTokenVolumeByFillsourceGemPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hNetworkBaseTokenVolumeByFillsourceSudoswapCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hNetworkBaseTokenVolumeByFillsourceSudoswapChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hNetworkBaseTokenVolumeByFillsourceSudoswapPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hNetworkBaseTokenVolumeByFillsourceSudoswapV2Current" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hNetworkBaseTokenVolumeByFillsourceSudoswapV2Change" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hNetworkBaseTokenVolumeByFillsourceSudoswapV2Previous" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hNetworkBaseTokenVolumeByFillsourceCryptopunksCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hNetworkBaseTokenVolumeByFillsourceCryptopunksChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hNetworkBaseTokenVolumeByFillsourceCryptopunksPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hNetworkBaseTokenAverageCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hNetworkBaseTokenAveragePrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hNetworkBaseTokenAverageChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hNetworkBaseTokenOpenCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hNetworkBaseTokenOpenPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hNetworkBaseTokenOpenChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hNetworkBaseTokenCloseCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hNetworkBaseTokenClosePrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hNetworkBaseTokenCloseChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hNetworkBaseTokenLowestSaleCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hNetworkBaseTokenLowestSalePrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hNetworkBaseTokenLowestSaleChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hNetworkBaseTokenHighestSaleCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hNetworkBaseTokenHighestSalePrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hNetworkBaseTokenHighestSaleChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hNonCurrencyMintsCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hNonCurrencyMintsPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hNonCurrencyMintsChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hNonCurrencySalesCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hNonCurrencySalesPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hNonCurrencySalesChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hNonCurrencyTokensSoldCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hNonCurrencyTokensSoldPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hNonCurrencyTokensSoldChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hNonCurrencyTransfersCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hNonCurrencyTransfersPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hNonCurrencyTransfersChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hNonCurrencyUniqueBuyersCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hNonCurrencyUniqueBuyersPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hNonCurrencyUniqueBuyersChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hNonCurrencyUniqueSellersCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hNonCurrencyUniqueSellersPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hNonCurrencyUniqueSellersChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hNonCurrencyUniqueSalesWalletsCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hNonCurrencyUniqueSalesWalletsPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hNonCurrencyUniqueSalesWalletsChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hNonCurrencyUniqueMintersCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hNonCurrencyUniqueMintersPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats4hNonCurrencyUniqueMintersChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hUsdVolumeCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hUsdVolumePrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hUsdVolumeChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hUsdVolumeByFillsourceOpenseaCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hUsdVolumeByFillsourceOpenseaChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hUsdVolumeByFillsourceOpenseaPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hUsdVolumeByFillsourceOpenseaProCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hUsdVolumeByFillsourceOpenseaProChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hUsdVolumeByFillsourceOpenseaProPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hUsdVolumeByFillsourceSeaportCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hUsdVolumeByFillsourceSeaportChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hUsdVolumeByFillsourceSeaportPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hUsdVolumeByFillsourceX2Y2Current" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hUsdVolumeByFillsourceX2Y2Change" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hUsdVolumeByFillsourceX2Y2Previous" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hUsdVolumeByFillsourceLooksrareCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hUsdVolumeByFillsourceLooksrareChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hUsdVolumeByFillsourceLooksrarePrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hUsdVolumeByFillsourceLooksrareV2Current" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hUsdVolumeByFillsourceLooksrareV2Change" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hUsdVolumeByFillsourceLooksrareV2Previous" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hUsdVolumeByFillsourceBlurCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hUsdVolumeByFillsourceBlurChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hUsdVolumeByFillsourceBlurPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hUsdVolumeByFillsourceBlurV2Current" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hUsdVolumeByFillsourceBlurV2Change" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hUsdVolumeByFillsourceBlurV2Previous" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hUsdVolumeByFillsourceBlendCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hUsdVolumeByFillsourceBlendChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hUsdVolumeByFillsourceBlendPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hUsdVolumeByFillsourceGemCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hUsdVolumeByFillsourceGemChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hUsdVolumeByFillsourceGemPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hUsdVolumeByFillsourceSudoswapCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hUsdVolumeByFillsourceSudoswapChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hUsdVolumeByFillsourceSudoswapPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hUsdVolumeByFillsourceSudoswapV2Current" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hUsdVolumeByFillsourceSudoswapV2Change" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hUsdVolumeByFillsourceSudoswapV2Previous" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hUsdVolumeByFillsourceCryptopunksCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hUsdVolumeByFillsourceCryptopunksChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hUsdVolumeByFillsourceCryptopunksPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hUsdAverageCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hUsdAveragePrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hUsdAverageChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hUsdOpenCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hUsdOpenPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hUsdOpenChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hUsdCloseCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hUsdClosePrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hUsdCloseChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hUsdLowestSaleCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hUsdLowestSalePrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hUsdLowestSaleChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hUsdHighestSaleCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hUsdHighestSalePrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hUsdHighestSaleChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hNetworkBaseTokenVolumeCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hNetworkBaseTokenVolumePrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hNetworkBaseTokenVolumeChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hNetworkBaseTokenVolumeByFillsourceOpenseaCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hNetworkBaseTokenVolumeByFillsourceOpenseaChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hNetworkBaseTokenVolumeByFillsourceOpenseaPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hNetworkBaseTokenVolumeByFillsourceOpenseaProCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hNetworkBaseTokenVolumeByFillsourceOpenseaProChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hNetworkBaseTokenVolumeByFillsourceOpenseaProPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hNetworkBaseTokenVolumeByFillsourceSeaportCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hNetworkBaseTokenVolumeByFillsourceSeaportChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hNetworkBaseTokenVolumeByFillsourceSeaportPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hNetworkBaseTokenVolumeByFillsourceX2Y2Current" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hNetworkBaseTokenVolumeByFillsourceX2Y2Change" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hNetworkBaseTokenVolumeByFillsourceX2Y2Previous" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hNetworkBaseTokenVolumeByFillsourceLooksrareCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hNetworkBaseTokenVolumeByFillsourceLooksrareChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hNetworkBaseTokenVolumeByFillsourceLooksrarePrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hNetworkBaseTokenVolumeByFillsourceLooksrareV2Current" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hNetworkBaseTokenVolumeByFillsourceLooksrareV2Change" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hNetworkBaseTokenVolumeByFillsourceLooksrareV2Previous" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hNetworkBaseTokenVolumeByFillsourceBlurCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hNetworkBaseTokenVolumeByFillsourceBlurChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hNetworkBaseTokenVolumeByFillsourceBlurPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hNetworkBaseTokenVolumeByFillsourceBlurV2Current" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hNetworkBaseTokenVolumeByFillsourceBlurV2Change" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hNetworkBaseTokenVolumeByFillsourceBlurV2Previous" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hNetworkBaseTokenVolumeByFillsourceBlendCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hNetworkBaseTokenVolumeByFillsourceBlendChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hNetworkBaseTokenVolumeByFillsourceBlendPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hNetworkBaseTokenVolumeByFillsourceGemCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hNetworkBaseTokenVolumeByFillsourceGemChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hNetworkBaseTokenVolumeByFillsourceGemPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hNetworkBaseTokenVolumeByFillsourceSudoswapCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hNetworkBaseTokenVolumeByFillsourceSudoswapChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hNetworkBaseTokenVolumeByFillsourceSudoswapPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hNetworkBaseTokenVolumeByFillsourceSudoswapV2Current" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hNetworkBaseTokenVolumeByFillsourceSudoswapV2Change" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hNetworkBaseTokenVolumeByFillsourceSudoswapV2Previous" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hNetworkBaseTokenVolumeByFillsourceCryptopunksCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hNetworkBaseTokenVolumeByFillsourceCryptopunksChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hNetworkBaseTokenVolumeByFillsourceCryptopunksPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hNetworkBaseTokenAverageCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hNetworkBaseTokenAveragePrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hNetworkBaseTokenAverageChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hNetworkBaseTokenOpenCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hNetworkBaseTokenOpenPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hNetworkBaseTokenOpenChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hNetworkBaseTokenCloseCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hNetworkBaseTokenClosePrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hNetworkBaseTokenCloseChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hNetworkBaseTokenLowestSaleCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hNetworkBaseTokenLowestSalePrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hNetworkBaseTokenLowestSaleChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hNetworkBaseTokenHighestSaleCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hNetworkBaseTokenHighestSalePrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hNetworkBaseTokenHighestSaleChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hNonCurrencyMintsCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hNonCurrencyMintsPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hNonCurrencyMintsChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hNonCurrencySalesCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hNonCurrencySalesPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hNonCurrencySalesChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hNonCurrencyTokensSoldCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hNonCurrencyTokensSoldPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hNonCurrencyTokensSoldChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hNonCurrencyTransfersCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hNonCurrencyTransfersPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hNonCurrencyTransfersChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hNonCurrencyUniqueBuyersCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hNonCurrencyUniqueBuyersPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hNonCurrencyUniqueBuyersChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hNonCurrencyUniqueSellersCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hNonCurrencyUniqueSellersPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hNonCurrencyUniqueSellersChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hNonCurrencyUniqueSalesWalletsCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hNonCurrencyUniqueSalesWalletsPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hNonCurrencyUniqueSalesWalletsChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hNonCurrencyUniqueMintersCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hNonCurrencyUniqueMintersPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats12hNonCurrencyUniqueMintersChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hUsdVolumeCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hUsdVolumePrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hUsdVolumeChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hUsdVolumeByFillsourceOpenseaCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hUsdVolumeByFillsourceOpenseaChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hUsdVolumeByFillsourceOpenseaPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hUsdVolumeByFillsourceOpenseaProCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hUsdVolumeByFillsourceOpenseaProChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hUsdVolumeByFillsourceOpenseaProPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hUsdVolumeByFillsourceSeaportCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hUsdVolumeByFillsourceSeaportChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hUsdVolumeByFillsourceSeaportPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hUsdVolumeByFillsourceX2Y2Current" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hUsdVolumeByFillsourceX2Y2Change" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hUsdVolumeByFillsourceX2Y2Previous" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hUsdVolumeByFillsourceLooksrareCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hUsdVolumeByFillsourceLooksrareChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hUsdVolumeByFillsourceLooksrarePrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hUsdVolumeByFillsourceLooksrareV2Current" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hUsdVolumeByFillsourceLooksrareV2Change" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hUsdVolumeByFillsourceLooksrareV2Previous" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hUsdVolumeByFillsourceBlurCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hUsdVolumeByFillsourceBlurChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hUsdVolumeByFillsourceBlurPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hUsdVolumeByFillsourceBlurV2Current" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hUsdVolumeByFillsourceBlurV2Change" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hUsdVolumeByFillsourceBlurV2Previous" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hUsdVolumeByFillsourceBlendCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hUsdVolumeByFillsourceBlendChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hUsdVolumeByFillsourceBlendPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hUsdVolumeByFillsourceGemCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hUsdVolumeByFillsourceGemChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hUsdVolumeByFillsourceGemPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hUsdVolumeByFillsourceSudoswapCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hUsdVolumeByFillsourceSudoswapChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hUsdVolumeByFillsourceSudoswapPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hUsdVolumeByFillsourceSudoswapV2Current" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hUsdVolumeByFillsourceSudoswapV2Change" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hUsdVolumeByFillsourceSudoswapV2Previous" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hUsdVolumeByFillsourceCryptopunksCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hUsdVolumeByFillsourceCryptopunksChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hUsdVolumeByFillsourceCryptopunksPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hUsdAverageCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hUsdAveragePrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hUsdAverageChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hUsdOpenCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hUsdOpenPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hUsdOpenChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hUsdCloseCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hUsdClosePrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hUsdCloseChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hUsdLowestSaleCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hUsdLowestSalePrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hUsdLowestSaleChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hUsdHighestSaleCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hUsdHighestSalePrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hUsdHighestSaleChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hNetworkBaseTokenVolumeCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hNetworkBaseTokenVolumePrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hNetworkBaseTokenVolumeChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hNetworkBaseTokenVolumeByFillsourceOpenseaCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hNetworkBaseTokenVolumeByFillsourceOpenseaChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hNetworkBaseTokenVolumeByFillsourceOpenseaPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hNetworkBaseTokenVolumeByFillsourceOpenseaProCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hNetworkBaseTokenVolumeByFillsourceOpenseaProChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hNetworkBaseTokenVolumeByFillsourceOpenseaProPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hNetworkBaseTokenVolumeByFillsourceSeaportCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hNetworkBaseTokenVolumeByFillsourceSeaportChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hNetworkBaseTokenVolumeByFillsourceSeaportPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hNetworkBaseTokenVolumeByFillsourceX2Y2Current" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hNetworkBaseTokenVolumeByFillsourceX2Y2Change" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hNetworkBaseTokenVolumeByFillsourceX2Y2Previous" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hNetworkBaseTokenVolumeByFillsourceLooksrareCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hNetworkBaseTokenVolumeByFillsourceLooksrareChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hNetworkBaseTokenVolumeByFillsourceLooksrarePrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hNetworkBaseTokenVolumeByFillsourceLooksrareV2Current" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hNetworkBaseTokenVolumeByFillsourceLooksrareV2Change" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hNetworkBaseTokenVolumeByFillsourceLooksrareV2Previous" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hNetworkBaseTokenVolumeByFillsourceBlurCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hNetworkBaseTokenVolumeByFillsourceBlurChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hNetworkBaseTokenVolumeByFillsourceBlurPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hNetworkBaseTokenVolumeByFillsourceBlurV2Current" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hNetworkBaseTokenVolumeByFillsourceBlurV2Change" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hNetworkBaseTokenVolumeByFillsourceBlurV2Previous" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hNetworkBaseTokenVolumeByFillsourceBlendCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hNetworkBaseTokenVolumeByFillsourceBlendChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hNetworkBaseTokenVolumeByFillsourceBlendPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hNetworkBaseTokenVolumeByFillsourceGemCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hNetworkBaseTokenVolumeByFillsourceGemChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hNetworkBaseTokenVolumeByFillsourceGemPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hNetworkBaseTokenVolumeByFillsourceSudoswapCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hNetworkBaseTokenVolumeByFillsourceSudoswapChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hNetworkBaseTokenVolumeByFillsourceSudoswapPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hNetworkBaseTokenVolumeByFillsourceSudoswapV2Current" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hNetworkBaseTokenVolumeByFillsourceSudoswapV2Change" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hNetworkBaseTokenVolumeByFillsourceSudoswapV2Previous" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hNetworkBaseTokenVolumeByFillsourceCryptopunksCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hNetworkBaseTokenVolumeByFillsourceCryptopunksChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hNetworkBaseTokenVolumeByFillsourceCryptopunksPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hNetworkBaseTokenAverageCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hNetworkBaseTokenAveragePrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hNetworkBaseTokenAverageChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hNetworkBaseTokenOpenCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hNetworkBaseTokenOpenPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hNetworkBaseTokenOpenChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hNetworkBaseTokenCloseCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hNetworkBaseTokenClosePrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hNetworkBaseTokenCloseChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hNetworkBaseTokenLowestSaleCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hNetworkBaseTokenLowestSalePrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hNetworkBaseTokenLowestSaleChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hNetworkBaseTokenHighestSaleCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hNetworkBaseTokenHighestSalePrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hNetworkBaseTokenHighestSaleChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hNonCurrencyMintsCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hNonCurrencyMintsPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hNonCurrencyMintsChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hNonCurrencySalesCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hNonCurrencySalesPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hNonCurrencySalesChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hNonCurrencyTokensSoldCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hNonCurrencyTokensSoldPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hNonCurrencyTokensSoldChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hNonCurrencyTransfersCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hNonCurrencyTransfersPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hNonCurrencyTransfersChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hNonCurrencyUniqueBuyersCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hNonCurrencyUniqueBuyersPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hNonCurrencyUniqueBuyersChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hNonCurrencyUniqueSellersCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hNonCurrencyUniqueSellersPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hNonCurrencyUniqueSellersChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hNonCurrencyUniqueSalesWalletsCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hNonCurrencyUniqueSalesWalletsPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hNonCurrencyUniqueSalesWalletsChange" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hNonCurrencyUniqueMintersCurrent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hNonCurrencyUniqueMintersPrevious" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="stats24hNonCurrencyUniqueMintersChange" type="enum">
+  No description provided
+</ResponseField>
+
+```graphql 
+"""The attribute used to rank NFT collections."""
+enum NftCollectionRankingAttribute {
+  totalSupply
+  lastEventTimestamp
+  stats1hUsdVolumeCurrent
+  stats1hUsdVolumePrevious
+  stats1hUsdVolumeChange
+  stats1hUsdVolumeByFillsourceOpenseaCurrent
+  stats1hUsdVolumeByFillsourceOpenseaChange
+  stats1hUsdVolumeByFillsourceOpenseaPrevious
+  stats1hUsdVolumeByFillsourceOpenseaProCurrent
+  stats1hUsdVolumeByFillsourceOpenseaProChange
+  stats1hUsdVolumeByFillsourceOpenseaProPrevious
+  stats1hUsdVolumeByFillsourceSeaportCurrent
+  stats1hUsdVolumeByFillsourceSeaportChange
+  stats1hUsdVolumeByFillsourceSeaportPrevious
+  stats1hUsdVolumeByFillsourceX2Y2Current
+  stats1hUsdVolumeByFillsourceX2Y2Change
+  stats1hUsdVolumeByFillsourceX2Y2Previous
+  stats1hUsdVolumeByFillsourceLooksrareCurrent
+  stats1hUsdVolumeByFillsourceLooksrareChange
+  stats1hUsdVolumeByFillsourceLooksrarePrevious
+  stats1hUsdVolumeByFillsourceLooksrareV2Current
+  stats1hUsdVolumeByFillsourceLooksrareV2Change
+  stats1hUsdVolumeByFillsourceLooksrareV2Previous
+  stats1hUsdVolumeByFillsourceBlurCurrent
+  stats1hUsdVolumeByFillsourceBlurChange
+  stats1hUsdVolumeByFillsourceBlurPrevious
+  stats1hUsdVolumeByFillsourceBlurV2Current
+  stats1hUsdVolumeByFillsourceBlurV2Change
+  stats1hUsdVolumeByFillsourceBlurV2Previous
+  stats1hUsdVolumeByFillsourceBlendCurrent
+  stats1hUsdVolumeByFillsourceBlendChange
+  stats1hUsdVolumeByFillsourceBlendPrevious
+  stats1hUsdVolumeByFillsourceGemCurrent
+  stats1hUsdVolumeByFillsourceGemChange
+  stats1hUsdVolumeByFillsourceGemPrevious
+  stats1hUsdVolumeByFillsourceSudoswapCurrent
+  stats1hUsdVolumeByFillsourceSudoswapChange
+  stats1hUsdVolumeByFillsourceSudoswapPrevious
+  stats1hUsdVolumeByFillsourceSudoswapV2Current
+  stats1hUsdVolumeByFillsourceSudoswapV2Change
+  stats1hUsdVolumeByFillsourceSudoswapV2Previous
+  stats1hUsdVolumeByFillsourceCryptopunksCurrent
+  stats1hUsdVolumeByFillsourceCryptopunksChange
+  stats1hUsdVolumeByFillsourceCryptopunksPrevious
+  stats1hUsdAverageCurrent
+  stats1hUsdAveragePrevious
+  stats1hUsdAverageChange
+  stats1hUsdOpenCurrent
+  stats1hUsdOpenPrevious
+  stats1hUsdOpenChange
+  stats1hUsdCloseCurrent
+  stats1hUsdClosePrevious
+  stats1hUsdCloseChange
+  stats1hUsdLowestSaleCurrent
+  stats1hUsdLowestSalePrevious
+  stats1hUsdLowestSaleChange
+  stats1hUsdHighestSaleCurrent
+  stats1hUsdHighestSalePrevious
+  stats1hUsdHighestSaleChange
+  stats1hNetworkBaseTokenVolumeCurrent
+  stats1hNetworkBaseTokenVolumePrevious
+  stats1hNetworkBaseTokenVolumeChange
+  stats1hNetworkBaseTokenVolumeByFillsourceOpenseaCurrent
+  stats1hNetworkBaseTokenVolumeByFillsourceOpenseaChange
+  stats1hNetworkBaseTokenVolumeByFillsourceOpenseaPrevious
+  stats1hNetworkBaseTokenVolumeByFillsourceOpenseaProCurrent
+  stats1hNetworkBaseTokenVolumeByFillsourceOpenseaProChange
+  stats1hNetworkBaseTokenVolumeByFillsourceOpenseaProPrevious
+  stats1hNetworkBaseTokenVolumeByFillsourceSeaportCurrent
+  stats1hNetworkBaseTokenVolumeByFillsourceSeaportChange
+  stats1hNetworkBaseTokenVolumeByFillsourceSeaportPrevious
+  stats1hNetworkBaseTokenVolumeByFillsourceX2Y2Current
+  stats1hNetworkBaseTokenVolumeByFillsourceX2Y2Change
+  stats1hNetworkBaseTokenVolumeByFillsourceX2Y2Previous
+  stats1hNetworkBaseTokenVolumeByFillsourceLooksrareCurrent
+  stats1hNetworkBaseTokenVolumeByFillsourceLooksrareChange
+  stats1hNetworkBaseTokenVolumeByFillsourceLooksrarePrevious
+  stats1hNetworkBaseTokenVolumeByFillsourceLooksrareV2Current
+  stats1hNetworkBaseTokenVolumeByFillsourceLooksrareV2Change
+  stats1hNetworkBaseTokenVolumeByFillsourceLooksrareV2Previous
+  stats1hNetworkBaseTokenVolumeByFillsourceBlurCurrent
+  stats1hNetworkBaseTokenVolumeByFillsourceBlurChange
+  stats1hNetworkBaseTokenVolumeByFillsourceBlurPrevious
+  stats1hNetworkBaseTokenVolumeByFillsourceBlurV2Current
+  stats1hNetworkBaseTokenVolumeByFillsourceBlurV2Change
+  stats1hNetworkBaseTokenVolumeByFillsourceBlurV2Previous
+  stats1hNetworkBaseTokenVolumeByFillsourceBlendCurrent
+  stats1hNetworkBaseTokenVolumeByFillsourceBlendChange
+  stats1hNetworkBaseTokenVolumeByFillsourceBlendPrevious
+  stats1hNetworkBaseTokenVolumeByFillsourceGemCurrent
+  stats1hNetworkBaseTokenVolumeByFillsourceGemChange
+  stats1hNetworkBaseTokenVolumeByFillsourceGemPrevious
+  stats1hNetworkBaseTokenVolumeByFillsourceSudoswapCurrent
+  stats1hNetworkBaseTokenVolumeByFillsourceSudoswapChange
+  stats1hNetworkBaseTokenVolumeByFillsourceSudoswapPrevious
+  stats1hNetworkBaseTokenVolumeByFillsourceSudoswapV2Current
+  stats1hNetworkBaseTokenVolumeByFillsourceSudoswapV2Change
+  stats1hNetworkBaseTokenVolumeByFillsourceSudoswapV2Previous
+  stats1hNetworkBaseTokenVolumeByFillsourceCryptopunksCurrent
+  stats1hNetworkBaseTokenVolumeByFillsourceCryptopunksChange
+  stats1hNetworkBaseTokenVolumeByFillsourceCryptopunksPrevious
+  stats1hNetworkBaseTokenAverageCurrent
+  stats1hNetworkBaseTokenAveragePrevious
+  stats1hNetworkBaseTokenAverageChange
+  stats1hNetworkBaseTokenOpenCurrent
+  stats1hNetworkBaseTokenOpenPrevious
+  stats1hNetworkBaseTokenOpenChange
+  stats1hNetworkBaseTokenCloseCurrent
+  stats1hNetworkBaseTokenClosePrevious
+  stats1hNetworkBaseTokenCloseChange
+  stats1hNetworkBaseTokenLowestSaleCurrent
+  stats1hNetworkBaseTokenLowestSalePrevious
+  stats1hNetworkBaseTokenLowestSaleChange
+  stats1hNetworkBaseTokenHighestSaleCurrent
+  stats1hNetworkBaseTokenHighestSalePrevious
+  stats1hNetworkBaseTokenHighestSaleChange
+  stats1hNonCurrencyMintsCurrent
+  stats1hNonCurrencyMintsPrevious
+  stats1hNonCurrencyMintsChange
+  stats1hNonCurrencySalesCurrent
+  stats1hNonCurrencySalesPrevious
+  stats1hNonCurrencySalesChange
+  stats1hNonCurrencyTokensSoldCurrent
+  stats1hNonCurrencyTokensSoldPrevious
+  stats1hNonCurrencyTokensSoldChange
+  stats1hNonCurrencyTransfersCurrent
+  stats1hNonCurrencyTransfersPrevious
+  stats1hNonCurrencyTransfersChange
+  stats1hNonCurrencyUniqueBuyersCurrent
+  stats1hNonCurrencyUniqueBuyersPrevious
+  stats1hNonCurrencyUniqueBuyersChange
+  stats1hNonCurrencyUniqueSellersCurrent
+  stats1hNonCurrencyUniqueSellersPrevious
+  stats1hNonCurrencyUniqueSellersChange
+  stats1hNonCurrencyUniqueSalesWalletsCurrent
+  stats1hNonCurrencyUniqueSalesWalletsPrevious
+  stats1hNonCurrencyUniqueSalesWalletsChange
+  stats1hNonCurrencyUniqueMintersCurrent
+  stats1hNonCurrencyUniqueMintersPrevious
+  stats1hNonCurrencyUniqueMintersChange
+  stats4hUsdVolumeCurrent
+  stats4hUsdVolumePrevious
+  stats4hUsdVolumeChange
+  stats4hUsdVolumeByFillsourceOpenseaCurrent
+  stats4hUsdVolumeByFillsourceOpenseaChange
+  stats4hUsdVolumeByFillsourceOpenseaPrevious
+  stats4hUsdVolumeByFillsourceOpenseaProCurrent
+  stats4hUsdVolumeByFillsourceOpenseaProChange
+  stats4hUsdVolumeByFillsourceOpenseaProPrevious
+  stats4hUsdVolumeByFillsourceSeaportCurrent
+  stats4hUsdVolumeByFillsourceSeaportChange
+  stats4hUsdVolumeByFillsourceSeaportPrevious
+  stats4hUsdVolumeByFillsourceX2Y2Current
+  stats4hUsdVolumeByFillsourceX2Y2Change
+  stats4hUsdVolumeByFillsourceX2Y2Previous
+  stats4hUsdVolumeByFillsourceLooksrareCurrent
+  stats4hUsdVolumeByFillsourceLooksrareChange
+  stats4hUsdVolumeByFillsourceLooksrarePrevious
+  stats4hUsdVolumeByFillsourceLooksrareV2Current
+  stats4hUsdVolumeByFillsourceLooksrareV2Change
+  stats4hUsdVolumeByFillsourceLooksrareV2Previous
+  stats4hUsdVolumeByFillsourceBlurCurrent
+  stats4hUsdVolumeByFillsourceBlurChange
+  stats4hUsdVolumeByFillsourceBlurPrevious
+  stats4hUsdVolumeByFillsourceBlurV2Current
+  stats4hUsdVolumeByFillsourceBlurV2Change
+  stats4hUsdVolumeByFillsourceBlurV2Previous
+  stats4hUsdVolumeByFillsourceBlendCurrent
+  stats4hUsdVolumeByFillsourceBlendChange
+  stats4hUsdVolumeByFillsourceBlendPrevious
+  stats4hUsdVolumeByFillsourceGemCurrent
+  stats4hUsdVolumeByFillsourceGemChange
+  stats4hUsdVolumeByFillsourceGemPrevious
+  stats4hUsdVolumeByFillsourceSudoswapCurrent
+  stats4hUsdVolumeByFillsourceSudoswapChange
+  stats4hUsdVolumeByFillsourceSudoswapPrevious
+  stats4hUsdVolumeByFillsourceSudoswapV2Current
+  stats4hUsdVolumeByFillsourceSudoswapV2Change
+  stats4hUsdVolumeByFillsourceSudoswapV2Previous
+  stats4hUsdVolumeByFillsourceCryptopunksCurrent
+  stats4hUsdVolumeByFillsourceCryptopunksChange
+  stats4hUsdVolumeByFillsourceCryptopunksPrevious
+  stats4hUsdAverageCurrent
+  stats4hUsdAveragePrevious
+  stats4hUsdAverageChange
+  stats4hUsdOpenCurrent
+  stats4hUsdOpenPrevious
+  stats4hUsdOpenChange
+  stats4hUsdCloseCurrent
+  stats4hUsdClosePrevious
+  stats4hUsdCloseChange
+  stats4hUsdLowestSaleCurrent
+  stats4hUsdLowestSalePrevious
+  stats4hUsdLowestSaleChange
+  stats4hUsdHighestSaleCurrent
+  stats4hUsdHighestSalePrevious
+  stats4hUsdHighestSaleChange
+  stats4hNetworkBaseTokenVolumeCurrent
+  stats4hNetworkBaseTokenVolumePrevious
+  stats4hNetworkBaseTokenVolumeChange
+  stats4hNetworkBaseTokenVolumeByFillsourceOpenseaCurrent
+  stats4hNetworkBaseTokenVolumeByFillsourceOpenseaChange
+  stats4hNetworkBaseTokenVolumeByFillsourceOpenseaPrevious
+  stats4hNetworkBaseTokenVolumeByFillsourceOpenseaProCurrent
+  stats4hNetworkBaseTokenVolumeByFillsourceOpenseaProChange
+  stats4hNetworkBaseTokenVolumeByFillsourceOpenseaProPrevious
+  stats4hNetworkBaseTokenVolumeByFillsourceSeaportCurrent
+  stats4hNetworkBaseTokenVolumeByFillsourceSeaportChange
+  stats4hNetworkBaseTokenVolumeByFillsourceSeaportPrevious
+  stats4hNetworkBaseTokenVolumeByFillsourceX2Y2Current
+  stats4hNetworkBaseTokenVolumeByFillsourceX2Y2Change
+  stats4hNetworkBaseTokenVolumeByFillsourceX2Y2Previous
+  stats4hNetworkBaseTokenVolumeByFillsourceLooksrareCurrent
+  stats4hNetworkBaseTokenVolumeByFillsourceLooksrareChange
+  stats4hNetworkBaseTokenVolumeByFillsourceLooksrarePrevious
+  stats4hNetworkBaseTokenVolumeByFillsourceLooksrareV2Current
+  stats4hNetworkBaseTokenVolumeByFillsourceLooksrareV2Change
+  stats4hNetworkBaseTokenVolumeByFillsourceLooksrareV2Previous
+  stats4hNetworkBaseTokenVolumeByFillsourceBlurCurrent
+  stats4hNetworkBaseTokenVolumeByFillsourceBlurChange
+  stats4hNetworkBaseTokenVolumeByFillsourceBlurPrevious
+  stats4hNetworkBaseTokenVolumeByFillsourceBlurV2Current
+  stats4hNetworkBaseTokenVolumeByFillsourceBlurV2Change
+  stats4hNetworkBaseTokenVolumeByFillsourceBlurV2Previous
+  stats4hNetworkBaseTokenVolumeByFillsourceBlendCurrent
+  stats4hNetworkBaseTokenVolumeByFillsourceBlendChange
+  stats4hNetworkBaseTokenVolumeByFillsourceBlendPrevious
+  stats4hNetworkBaseTokenVolumeByFillsourceGemCurrent
+  stats4hNetworkBaseTokenVolumeByFillsourceGemChange
+  stats4hNetworkBaseTokenVolumeByFillsourceGemPrevious
+  stats4hNetworkBaseTokenVolumeByFillsourceSudoswapCurrent
+  stats4hNetworkBaseTokenVolumeByFillsourceSudoswapChange
+  stats4hNetworkBaseTokenVolumeByFillsourceSudoswapPrevious
+  stats4hNetworkBaseTokenVolumeByFillsourceSudoswapV2Current
+  stats4hNetworkBaseTokenVolumeByFillsourceSudoswapV2Change
+  stats4hNetworkBaseTokenVolumeByFillsourceSudoswapV2Previous
+  stats4hNetworkBaseTokenVolumeByFillsourceCryptopunksCurrent
+  stats4hNetworkBaseTokenVolumeByFillsourceCryptopunksChange
+  stats4hNetworkBaseTokenVolumeByFillsourceCryptopunksPrevious
+  stats4hNetworkBaseTokenAverageCurrent
+  stats4hNetworkBaseTokenAveragePrevious
+  stats4hNetworkBaseTokenAverageChange
+  stats4hNetworkBaseTokenOpenCurrent
+  stats4hNetworkBaseTokenOpenPrevious
+  stats4hNetworkBaseTokenOpenChange
+  stats4hNetworkBaseTokenCloseCurrent
+  stats4hNetworkBaseTokenClosePrevious
+  stats4hNetworkBaseTokenCloseChange
+  stats4hNetworkBaseTokenLowestSaleCurrent
+  stats4hNetworkBaseTokenLowestSalePrevious
+  stats4hNetworkBaseTokenLowestSaleChange
+  stats4hNetworkBaseTokenHighestSaleCurrent
+  stats4hNetworkBaseTokenHighestSalePrevious
+  stats4hNetworkBaseTokenHighestSaleChange
+  stats4hNonCurrencyMintsCurrent
+  stats4hNonCurrencyMintsPrevious
+  stats4hNonCurrencyMintsChange
+  stats4hNonCurrencySalesCurrent
+  stats4hNonCurrencySalesPrevious
+  stats4hNonCurrencySalesChange
+  stats4hNonCurrencyTokensSoldCurrent
+  stats4hNonCurrencyTokensSoldPrevious
+  stats4hNonCurrencyTokensSoldChange
+  stats4hNonCurrencyTransfersCurrent
+  stats4hNonCurrencyTransfersPrevious
+  stats4hNonCurrencyTransfersChange
+  stats4hNonCurrencyUniqueBuyersCurrent
+  stats4hNonCurrencyUniqueBuyersPrevious
+  stats4hNonCurrencyUniqueBuyersChange
+  stats4hNonCurrencyUniqueSellersCurrent
+  stats4hNonCurrencyUniqueSellersPrevious
+  stats4hNonCurrencyUniqueSellersChange
+  stats4hNonCurrencyUniqueSalesWalletsCurrent
+  stats4hNonCurrencyUniqueSalesWalletsPrevious
+  stats4hNonCurrencyUniqueSalesWalletsChange
+  stats4hNonCurrencyUniqueMintersCurrent
+  stats4hNonCurrencyUniqueMintersPrevious
+  stats4hNonCurrencyUniqueMintersChange
+  stats12hUsdVolumeCurrent
+  stats12hUsdVolumePrevious
+  stats12hUsdVolumeChange
+  stats12hUsdVolumeByFillsourceOpenseaCurrent
+  stats12hUsdVolumeByFillsourceOpenseaChange
+  stats12hUsdVolumeByFillsourceOpenseaPrevious
+  stats12hUsdVolumeByFillsourceOpenseaProCurrent
+  stats12hUsdVolumeByFillsourceOpenseaProChange
+  stats12hUsdVolumeByFillsourceOpenseaProPrevious
+  stats12hUsdVolumeByFillsourceSeaportCurrent
+  stats12hUsdVolumeByFillsourceSeaportChange
+  stats12hUsdVolumeByFillsourceSeaportPrevious
+  stats12hUsdVolumeByFillsourceX2Y2Current
+  stats12hUsdVolumeByFillsourceX2Y2Change
+  stats12hUsdVolumeByFillsourceX2Y2Previous
+  stats12hUsdVolumeByFillsourceLooksrareCurrent
+  stats12hUsdVolumeByFillsourceLooksrareChange
+  stats12hUsdVolumeByFillsourceLooksrarePrevious
+  stats12hUsdVolumeByFillsourceLooksrareV2Current
+  stats12hUsdVolumeByFillsourceLooksrareV2Change
+  stats12hUsdVolumeByFillsourceLooksrareV2Previous
+  stats12hUsdVolumeByFillsourceBlurCurrent
+  stats12hUsdVolumeByFillsourceBlurChange
+  stats12hUsdVolumeByFillsourceBlurPrevious
+  stats12hUsdVolumeByFillsourceBlurV2Current
+  stats12hUsdVolumeByFillsourceBlurV2Change
+  stats12hUsdVolumeByFillsourceBlurV2Previous
+  stats12hUsdVolumeByFillsourceBlendCurrent
+  stats12hUsdVolumeByFillsourceBlendChange
+  stats12hUsdVolumeByFillsourceBlendPrevious
+  stats12hUsdVolumeByFillsourceGemCurrent
+  stats12hUsdVolumeByFillsourceGemChange
+  stats12hUsdVolumeByFillsourceGemPrevious
+  stats12hUsdVolumeByFillsourceSudoswapCurrent
+  stats12hUsdVolumeByFillsourceSudoswapChange
+  stats12hUsdVolumeByFillsourceSudoswapPrevious
+  stats12hUsdVolumeByFillsourceSudoswapV2Current
+  stats12hUsdVolumeByFillsourceSudoswapV2Change
+  stats12hUsdVolumeByFillsourceSudoswapV2Previous
+  stats12hUsdVolumeByFillsourceCryptopunksCurrent
+  stats12hUsdVolumeByFillsourceCryptopunksChange
+  stats12hUsdVolumeByFillsourceCryptopunksPrevious
+  stats12hUsdAverageCurrent
+  stats12hUsdAveragePrevious
+  stats12hUsdAverageChange
+  stats12hUsdOpenCurrent
+  stats12hUsdOpenPrevious
+  stats12hUsdOpenChange
+  stats12hUsdCloseCurrent
+  stats12hUsdClosePrevious
+  stats12hUsdCloseChange
+  stats12hUsdLowestSaleCurrent
+  stats12hUsdLowestSalePrevious
+  stats12hUsdLowestSaleChange
+  stats12hUsdHighestSaleCurrent
+  stats12hUsdHighestSalePrevious
+  stats12hUsdHighestSaleChange
+  stats12hNetworkBaseTokenVolumeCurrent
+  stats12hNetworkBaseTokenVolumePrevious
+  stats12hNetworkBaseTokenVolumeChange
+  stats12hNetworkBaseTokenVolumeByFillsourceOpenseaCurrent
+  stats12hNetworkBaseTokenVolumeByFillsourceOpenseaChange
+  stats12hNetworkBaseTokenVolumeByFillsourceOpenseaPrevious
+  stats12hNetworkBaseTokenVolumeByFillsourceOpenseaProCurrent
+  stats12hNetworkBaseTokenVolumeByFillsourceOpenseaProChange
+  stats12hNetworkBaseTokenVolumeByFillsourceOpenseaProPrevious
+  stats12hNetworkBaseTokenVolumeByFillsourceSeaportCurrent
+  stats12hNetworkBaseTokenVolumeByFillsourceSeaportChange
+  stats12hNetworkBaseTokenVolumeByFillsourceSeaportPrevious
+  stats12hNetworkBaseTokenVolumeByFillsourceX2Y2Current
+  stats12hNetworkBaseTokenVolumeByFillsourceX2Y2Change
+  stats12hNetworkBaseTokenVolumeByFillsourceX2Y2Previous
+  stats12hNetworkBaseTokenVolumeByFillsourceLooksrareCurrent
+  stats12hNetworkBaseTokenVolumeByFillsourceLooksrareChange
+  stats12hNetworkBaseTokenVolumeByFillsourceLooksrarePrevious
+  stats12hNetworkBaseTokenVolumeByFillsourceLooksrareV2Current
+  stats12hNetworkBaseTokenVolumeByFillsourceLooksrareV2Change
+  stats12hNetworkBaseTokenVolumeByFillsourceLooksrareV2Previous
+  stats12hNetworkBaseTokenVolumeByFillsourceBlurCurrent
+  stats12hNetworkBaseTokenVolumeByFillsourceBlurChange
+  stats12hNetworkBaseTokenVolumeByFillsourceBlurPrevious
+  stats12hNetworkBaseTokenVolumeByFillsourceBlurV2Current
+  stats12hNetworkBaseTokenVolumeByFillsourceBlurV2Change
+  stats12hNetworkBaseTokenVolumeByFillsourceBlurV2Previous
+  stats12hNetworkBaseTokenVolumeByFillsourceBlendCurrent
+  stats12hNetworkBaseTokenVolumeByFillsourceBlendChange
+  stats12hNetworkBaseTokenVolumeByFillsourceBlendPrevious
+  stats12hNetworkBaseTokenVolumeByFillsourceGemCurrent
+  stats12hNetworkBaseTokenVolumeByFillsourceGemChange
+  stats12hNetworkBaseTokenVolumeByFillsourceGemPrevious
+  stats12hNetworkBaseTokenVolumeByFillsourceSudoswapCurrent
+  stats12hNetworkBaseTokenVolumeByFillsourceSudoswapChange
+  stats12hNetworkBaseTokenVolumeByFillsourceSudoswapPrevious
+  stats12hNetworkBaseTokenVolumeByFillsourceSudoswapV2Current
+  stats12hNetworkBaseTokenVolumeByFillsourceSudoswapV2Change
+  stats12hNetworkBaseTokenVolumeByFillsourceSudoswapV2Previous
+  stats12hNetworkBaseTokenVolumeByFillsourceCryptopunksCurrent
+  stats12hNetworkBaseTokenVolumeByFillsourceCryptopunksChange
+  stats12hNetworkBaseTokenVolumeByFillsourceCryptopunksPrevious
+  stats12hNetworkBaseTokenAverageCurrent
+  stats12hNetworkBaseTokenAveragePrevious
+  stats12hNetworkBaseTokenAverageChange
+  stats12hNetworkBaseTokenOpenCurrent
+  stats12hNetworkBaseTokenOpenPrevious
+  stats12hNetworkBaseTokenOpenChange
+  stats12hNetworkBaseTokenCloseCurrent
+  stats12hNetworkBaseTokenClosePrevious
+  stats12hNetworkBaseTokenCloseChange
+  stats12hNetworkBaseTokenLowestSaleCurrent
+  stats12hNetworkBaseTokenLowestSalePrevious
+  stats12hNetworkBaseTokenLowestSaleChange
+  stats12hNetworkBaseTokenHighestSaleCurrent
+  stats12hNetworkBaseTokenHighestSalePrevious
+  stats12hNetworkBaseTokenHighestSaleChange
+  stats12hNonCurrencyMintsCurrent
+  stats12hNonCurrencyMintsPrevious
+  stats12hNonCurrencyMintsChange
+  stats12hNonCurrencySalesCurrent
+  stats12hNonCurrencySalesPrevious
+  stats12hNonCurrencySalesChange
+  stats12hNonCurrencyTokensSoldCurrent
+  stats12hNonCurrencyTokensSoldPrevious
+  stats12hNonCurrencyTokensSoldChange
+  stats12hNonCurrencyTransfersCurrent
+  stats12hNonCurrencyTransfersPrevious
+  stats12hNonCurrencyTransfersChange
+  stats12hNonCurrencyUniqueBuyersCurrent
+  stats12hNonCurrencyUniqueBuyersPrevious
+  stats12hNonCurrencyUniqueBuyersChange
+  stats12hNonCurrencyUniqueSellersCurrent
+  stats12hNonCurrencyUniqueSellersPrevious
+  stats12hNonCurrencyUniqueSellersChange
+  stats12hNonCurrencyUniqueSalesWalletsCurrent
+  stats12hNonCurrencyUniqueSalesWalletsPrevious
+  stats12hNonCurrencyUniqueSalesWalletsChange
+  stats12hNonCurrencyUniqueMintersCurrent
+  stats12hNonCurrencyUniqueMintersPrevious
+  stats12hNonCurrencyUniqueMintersChange
+  stats24hUsdVolumeCurrent
+  stats24hUsdVolumePrevious
+  stats24hUsdVolumeChange
+  stats24hUsdVolumeByFillsourceOpenseaCurrent
+  stats24hUsdVolumeByFillsourceOpenseaChange
+  stats24hUsdVolumeByFillsourceOpenseaPrevious
+  stats24hUsdVolumeByFillsourceOpenseaProCurrent
+  stats24hUsdVolumeByFillsourceOpenseaProChange
+  stats24hUsdVolumeByFillsourceOpenseaProPrevious
+  stats24hUsdVolumeByFillsourceSeaportCurrent
+  stats24hUsdVolumeByFillsourceSeaportChange
+  stats24hUsdVolumeByFillsourceSeaportPrevious
+  stats24hUsdVolumeByFillsourceX2Y2Current
+  stats24hUsdVolumeByFillsourceX2Y2Change
+  stats24hUsdVolumeByFillsourceX2Y2Previous
+  stats24hUsdVolumeByFillsourceLooksrareCurrent
+  stats24hUsdVolumeByFillsourceLooksrareChange
+  stats24hUsdVolumeByFillsourceLooksrarePrevious
+  stats24hUsdVolumeByFillsourceLooksrareV2Current
+  stats24hUsdVolumeByFillsourceLooksrareV2Change
+  stats24hUsdVolumeByFillsourceLooksrareV2Previous
+  stats24hUsdVolumeByFillsourceBlurCurrent
+  stats24hUsdVolumeByFillsourceBlurChange
+  stats24hUsdVolumeByFillsourceBlurPrevious
+  stats24hUsdVolumeByFillsourceBlurV2Current
+  stats24hUsdVolumeByFillsourceBlurV2Change
+  stats24hUsdVolumeByFillsourceBlurV2Previous
+  stats24hUsdVolumeByFillsourceBlendCurrent
+  stats24hUsdVolumeByFillsourceBlendChange
+  stats24hUsdVolumeByFillsourceBlendPrevious
+  stats24hUsdVolumeByFillsourceGemCurrent
+  stats24hUsdVolumeByFillsourceGemChange
+  stats24hUsdVolumeByFillsourceGemPrevious
+  stats24hUsdVolumeByFillsourceSudoswapCurrent
+  stats24hUsdVolumeByFillsourceSudoswapChange
+  stats24hUsdVolumeByFillsourceSudoswapPrevious
+  stats24hUsdVolumeByFillsourceSudoswapV2Current
+  stats24hUsdVolumeByFillsourceSudoswapV2Change
+  stats24hUsdVolumeByFillsourceSudoswapV2Previous
+  stats24hUsdVolumeByFillsourceCryptopunksCurrent
+  stats24hUsdVolumeByFillsourceCryptopunksChange
+  stats24hUsdVolumeByFillsourceCryptopunksPrevious
+  stats24hUsdAverageCurrent
+  stats24hUsdAveragePrevious
+  stats24hUsdAverageChange
+  stats24hUsdOpenCurrent
+  stats24hUsdOpenPrevious
+  stats24hUsdOpenChange
+  stats24hUsdCloseCurrent
+  stats24hUsdClosePrevious
+  stats24hUsdCloseChange
+  stats24hUsdLowestSaleCurrent
+  stats24hUsdLowestSalePrevious
+  stats24hUsdLowestSaleChange
+  stats24hUsdHighestSaleCurrent
+  stats24hUsdHighestSalePrevious
+  stats24hUsdHighestSaleChange
+  stats24hNetworkBaseTokenVolumeCurrent
+  stats24hNetworkBaseTokenVolumePrevious
+  stats24hNetworkBaseTokenVolumeChange
+  stats24hNetworkBaseTokenVolumeByFillsourceOpenseaCurrent
+  stats24hNetworkBaseTokenVolumeByFillsourceOpenseaChange
+  stats24hNetworkBaseTokenVolumeByFillsourceOpenseaPrevious
+  stats24hNetworkBaseTokenVolumeByFillsourceOpenseaProCurrent
+  stats24hNetworkBaseTokenVolumeByFillsourceOpenseaProChange
+  stats24hNetworkBaseTokenVolumeByFillsourceOpenseaProPrevious
+  stats24hNetworkBaseTokenVolumeByFillsourceSeaportCurrent
+  stats24hNetworkBaseTokenVolumeByFillsourceSeaportChange
+  stats24hNetworkBaseTokenVolumeByFillsourceSeaportPrevious
+  stats24hNetworkBaseTokenVolumeByFillsourceX2Y2Current
+  stats24hNetworkBaseTokenVolumeByFillsourceX2Y2Change
+  stats24hNetworkBaseTokenVolumeByFillsourceX2Y2Previous
+  stats24hNetworkBaseTokenVolumeByFillsourceLooksrareCurrent
+  stats24hNetworkBaseTokenVolumeByFillsourceLooksrareChange
+  stats24hNetworkBaseTokenVolumeByFillsourceLooksrarePrevious
+  stats24hNetworkBaseTokenVolumeByFillsourceLooksrareV2Current
+  stats24hNetworkBaseTokenVolumeByFillsourceLooksrareV2Change
+  stats24hNetworkBaseTokenVolumeByFillsourceLooksrareV2Previous
+  stats24hNetworkBaseTokenVolumeByFillsourceBlurCurrent
+  stats24hNetworkBaseTokenVolumeByFillsourceBlurChange
+  stats24hNetworkBaseTokenVolumeByFillsourceBlurPrevious
+  stats24hNetworkBaseTokenVolumeByFillsourceBlurV2Current
+  stats24hNetworkBaseTokenVolumeByFillsourceBlurV2Change
+  stats24hNetworkBaseTokenVolumeByFillsourceBlurV2Previous
+  stats24hNetworkBaseTokenVolumeByFillsourceBlendCurrent
+  stats24hNetworkBaseTokenVolumeByFillsourceBlendChange
+  stats24hNetworkBaseTokenVolumeByFillsourceBlendPrevious
+  stats24hNetworkBaseTokenVolumeByFillsourceGemCurrent
+  stats24hNetworkBaseTokenVolumeByFillsourceGemChange
+  stats24hNetworkBaseTokenVolumeByFillsourceGemPrevious
+  stats24hNetworkBaseTokenVolumeByFillsourceSudoswapCurrent
+  stats24hNetworkBaseTokenVolumeByFillsourceSudoswapChange
+  stats24hNetworkBaseTokenVolumeByFillsourceSudoswapPrevious
+  stats24hNetworkBaseTokenVolumeByFillsourceSudoswapV2Current
+  stats24hNetworkBaseTokenVolumeByFillsourceSudoswapV2Change
+  stats24hNetworkBaseTokenVolumeByFillsourceSudoswapV2Previous
+  stats24hNetworkBaseTokenVolumeByFillsourceCryptopunksCurrent
+  stats24hNetworkBaseTokenVolumeByFillsourceCryptopunksChange
+  stats24hNetworkBaseTokenVolumeByFillsourceCryptopunksPrevious
+  stats24hNetworkBaseTokenAverageCurrent
+  stats24hNetworkBaseTokenAveragePrevious
+  stats24hNetworkBaseTokenAverageChange
+  stats24hNetworkBaseTokenOpenCurrent
+  stats24hNetworkBaseTokenOpenPrevious
+  stats24hNetworkBaseTokenOpenChange
+  stats24hNetworkBaseTokenCloseCurrent
+  stats24hNetworkBaseTokenClosePrevious
+  stats24hNetworkBaseTokenCloseChange
+  stats24hNetworkBaseTokenLowestSaleCurrent
+  stats24hNetworkBaseTokenLowestSalePrevious
+  stats24hNetworkBaseTokenLowestSaleChange
+  stats24hNetworkBaseTokenHighestSaleCurrent
+  stats24hNetworkBaseTokenHighestSalePrevious
+  stats24hNetworkBaseTokenHighestSaleChange
+  stats24hNonCurrencyMintsCurrent
+  stats24hNonCurrencyMintsPrevious
+  stats24hNonCurrencyMintsChange
+  stats24hNonCurrencySalesCurrent
+  stats24hNonCurrencySalesPrevious
+  stats24hNonCurrencySalesChange
+  stats24hNonCurrencyTokensSoldCurrent
+  stats24hNonCurrencyTokensSoldPrevious
+  stats24hNonCurrencyTokensSoldChange
+  stats24hNonCurrencyTransfersCurrent
+  stats24hNonCurrencyTransfersPrevious
+  stats24hNonCurrencyTransfersChange
+  stats24hNonCurrencyUniqueBuyersCurrent
+  stats24hNonCurrencyUniqueBuyersPrevious
+  stats24hNonCurrencyUniqueBuyersChange
+  stats24hNonCurrencyUniqueSellersCurrent
+  stats24hNonCurrencyUniqueSellersPrevious
+  stats24hNonCurrencyUniqueSellersChange
+  stats24hNonCurrencyUniqueSalesWalletsCurrent
+  stats24hNonCurrencyUniqueSalesWalletsPrevious
+  stats24hNonCurrencyUniqueSalesWalletsChange
+  stats24hNonCurrencyUniqueMintersCurrent
+  stats24hNonCurrencyUniqueMintersPrevious
+  stats24hNonCurrencyUniqueMintersChange
+}
+```
+
+---
+
+## NftCollectionsLeaderboardDuration
+
+The duration used to rank NFTs.
+
+<ResponseField name="day30" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="week1" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="day1" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="hour12" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="hour4" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="hour1" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="min15" type="enum">
+  No description provided
+</ResponseField>
+
+```graphql 
+"""The duration used to rank NFTs."""
+enum NftCollectionsLeaderboardDuration {
+  day30
+  week1
+  day1
+  hour12
+  hour4
+  hour1
+  min15
+}
+```
+
+---
+
+## NftCollectionsLeaderboardMetric
+
+The attribute used to rank NFT collections.
+
+<ResponseField name="volumeUsd" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="volumeUsdGain" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="sales" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="salesGain" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="tokensSold" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="tokensSoldGain" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="volumeBase" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="volumeBaseGain" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="mints" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="mintsGain" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="buyers" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="buyersGain" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="sellers" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="sellersGain" type="enum">
+  No description provided
+</ResponseField>
+
+```graphql 
+"""The attribute used to rank NFT collections."""
+enum NftCollectionsLeaderboardMetric {
+  volumeUsd
+  volumeUsdGain
+  sales
+  salesGain
+  tokensSold
+  tokensSoldGain
+  volumeBase
+  volumeBaseGain
+  mints
+  mintsGain
+  buyers
+  buyersGain
+  sellers
+  sellersGain
+}
+```
+
+---
+
+## NftContractErcType
+
+Token standards.
+
+<ResponseField name="ERC721" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="ERC721Metadata" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="ERC721Enumerable" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="ERC1155" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="ERC1155Metadata" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="Unsupported" type="enum">
+  No description provided
+</ResponseField>
+
+```graphql 
+"""Token standards."""
+enum NftContractErcType {
+  ERC721
+  ERC721Metadata
+  ERC721Enumerable
+  ERC1155
+  ERC1155Metadata
+  Unsupported
+}
+```
+
+---
+
+## NftEventOrderDirection
+
+The direction of the nft sale event.
+
+<ResponseField name="BUY" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="SELL" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="OFFER_ACCEPTED" type="enum">
+  No description provided
+</ResponseField>
+
+```graphql 
+"""The direction of the nft sale event."""
+enum NftEventOrderDirection {
+  BUY
+  SELL
+  OFFER_ACCEPTED
+}
+```
+
+---
+
+## NftEventTradeItemType
+
+The type of item involved in the trade.
+
+<ResponseField name="NFT" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="TOKEN" type="enum">
+  No description provided
+</ResponseField>
+
+```graphql 
+"""The type of item involved in the trade."""
+enum NftEventTradeItemType {
+  NFT
+  TOKEN
+}
+```
+
+---
+
+## NftExchange
+
+NFT marketplaces.
+
+<ResponseField name="OPENSEA" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="SEAPORT" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="X2Y2" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="SUDOSWAPV2" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="LOOKSRARE" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="LOOKSRAREV2" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="TOFUNFT" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="TREASURE" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="ZEROEXV3" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="ZEROEXV4" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="QUIXOTIC" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="JOEPEGS" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="STRATOS" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="PLAYDAPP" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="BLUR" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="CRYPTOPUNKS" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="BITKEEP" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="MINTED" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="ALTO" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="PROVENANT" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="BLURV2" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="BLEND" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="SUDOSWAPAMMV2" type="enum">
+  No description provided
+</ResponseField>
+
+```graphql 
+"""NFT marketplaces."""
+enum NftExchange {
+  OPENSEA
+  SEAPORT
+  X2Y2
+  SUDOSWAPV2
+  LOOKSRARE
+  LOOKSRAREV2
+  TOFUNFT
+  TREASURE
+  ZEROEXV3
+  ZEROEXV4
+  QUIXOTIC
+  JOEPEGS
+  STRATOS
+  PLAYDAPP
+  BLUR
+  CRYPTOPUNKS
+  BITKEEP
+  MINTED
+  ALTO
+  PROVENANT
+  BLURV2
+  BLEND
+  SUDOSWAPAMMV2
+}
+```
+
+---
+
+## NftPoolCollectionRankingAttribute
+
+The attribute used to rank NFT collections.
+
+<ResponseField name="balanceNBT" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="balanceUSD" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="expenseNBT24" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="expenseNBTAll" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="expenseUSD24" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="expenseUSDAll" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="floorNBT" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="floorUSD" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="highPriceNBT24" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="highPriceNBTAll" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="highPriceUSD24" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="highPriceUSDAll" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="lowPriceNBT24" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="lowPriceNBTAll" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="lowPriceUSD24" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="lowPriceUSDAll" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="nftBalance" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="nftsBought24" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="nftsBoughtAll" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="nftsSold24" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="nftsSoldAll" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="nftVolume24" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="nftVolumeAll" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="offerNBT" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="offerUSD" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="poolFeesNBT24" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="poolFeesNBTAll" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="poolFeesUSD24" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="poolFeesUSDAll" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="protocolFeesNBT24" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="protocolFeesNBTAll" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="protocolFeesUSD24" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="protocolFeesUSDAll" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="revenueNBT24" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="revenueNBTAll" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="revenueUSD24" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="revenueUSDAll" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="totalSupply" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="volumeNBT24" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="volumeNBTAll" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="volumeUSD24" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="volumeUSDAll" type="enum">
+  No description provided
+</ResponseField>
+
+```graphql 
+"""The attribute used to rank NFT collections."""
+enum NftPoolCollectionRankingAttribute {
+  balanceNBT
+  balanceUSD
+  expenseNBT24
+  expenseNBTAll
+  expenseUSD24
+  expenseUSDAll
+  floorNBT
+  floorUSD
+  highPriceNBT24
+  highPriceNBTAll
+  highPriceUSD24
+  highPriceUSDAll
+  lowPriceNBT24
+  lowPriceNBTAll
+  lowPriceUSD24
+  lowPriceUSDAll
+  nftBalance
+  nftsBought24
+  nftsBoughtAll
+  nftsSold24
+  nftsSoldAll
+  nftVolume24
+  nftVolumeAll
+  offerNBT
+  offerUSD
+  poolFeesNBT24
+  poolFeesNBTAll
+  poolFeesUSD24
+  poolFeesUSDAll
+  protocolFeesNBT24
+  protocolFeesNBTAll
+  protocolFeesUSD24
+  protocolFeesUSDAll
+  revenueNBT24
+  revenueNBTAll
+  revenueUSD24
+  revenueUSDAll
+  totalSupply
+  volumeNBT24
+  volumeNBTAll
+  volumeUSD24
+  volumeUSDAll
+}
+```
+
+---
+
+## NftPoolContractVersion
+
+The NFT pool contract version.
+
+<ResponseField name="SUDOSWAP_V1" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="SUDOSWAP_V2" type="enum">
+  No description provided
+</ResponseField>
+
+```graphql 
+"""The NFT pool contract version."""
+enum NftPoolContractVersion {
+  SUDOSWAP_V1
+  SUDOSWAP_V2
+}
+```
+
+---
+
+## NftPoolEventType
+
+The type of an NFT pool event.
+
+<ResponseField name="NEW_POOL" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="SWAP_NFT_IN_POOL" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="SWAP_NFT_OUT_POOL" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="NFT_DEPOSIT" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="NFT_WITHDRAWAL" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="TOKEN_DEPOSIT" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="TOKEN_WITHDRAWAL" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="SPOT_PRICE_UPDATE" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="DELTA_UPDATE" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="FEE_UPDATE" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="ASSET_RECIPIENT_CHANGE" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="NEW_POOL_V2" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="SWAP_NFT_IN_POOL_V2" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="SWAP_NFT_OUT_POOL_V2" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="NFT_DEPOSIT_V2" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="NFT_WITHDRAWAL_V2" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="TOKEN_DEPOSIT_V2" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="TOKEN_WITHDRAWAL_V2" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="SPOT_PRICE_UPDATE_V2" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="OWNERSHIP_TRANSFERRED" type="enum">
+  No description provided
+</ResponseField>
+
+```graphql 
+"""The type of an NFT pool event."""
+enum NftPoolEventType {
+  NEW_POOL
+  SWAP_NFT_IN_POOL
+  SWAP_NFT_OUT_POOL
+  NFT_DEPOSIT
+  NFT_WITHDRAWAL
+  TOKEN_DEPOSIT
+  TOKEN_WITHDRAWAL
+  SPOT_PRICE_UPDATE
+  DELTA_UPDATE
+  FEE_UPDATE
+  ASSET_RECIPIENT_CHANGE
+  NEW_POOL_V2
+  SWAP_NFT_IN_POOL_V2
+  SWAP_NFT_OUT_POOL_V2
+  NFT_DEPOSIT_V2
+  NFT_WITHDRAWAL_V2
+  TOKEN_DEPOSIT_V2
+  TOKEN_WITHDRAWAL_V2
+  SPOT_PRICE_UPDATE_V2
+  OWNERSHIP_TRANSFERRED
+}
+```
+
+---
+
+## NftPoolRankingAttribute
+
+The attribute used to rank NFT pools.
+
+<ResponseField name="balanceNBT" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="balanceUSD" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="expenseNBT24" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="expenseNBTAll" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="expenseUSD24" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="expenseUSDAll" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="nftBalance" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="nftsBought24" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="nftsBoughtAll" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="nftsSold24" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="nftsSoldAll" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="nftVolume24" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="nftVolumeAll" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="offerNBT" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="offerUSD" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="poolFeesNBT24" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="poolFeesNBTAll" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="poolFeesUSD24" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="poolFeesUSDAll" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="protocolFeesNBT24" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="protocolFeesNBTAll" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="protocolFeesUSD24" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="protocolFeesUSDAll" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="revenueNBT24" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="revenueNBTAll" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="revenueUSD24" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="revenueUSDAll" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="sellNBT" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="sellUSD" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="volumeNBT24" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="volumeNBTAll" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="volumeUSD24" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="volumeUSDAll" type="enum">
+  No description provided
+</ResponseField>
+
+```graphql 
+"""The attribute used to rank NFT pools."""
+enum NftPoolRankingAttribute {
+  balanceNBT
+  balanceUSD
+  expenseNBT24
+  expenseNBTAll
+  expenseUSD24
+  expenseUSDAll
+  nftBalance
+  nftsBought24
+  nftsBoughtAll
+  nftsSold24
+  nftsSoldAll
+  nftVolume24
+  nftVolumeAll
+  offerNBT
+  offerUSD
+  poolFeesNBT24
+  poolFeesNBTAll
+  poolFeesUSD24
+  poolFeesUSDAll
+  protocolFeesNBT24
+  protocolFeesNBTAll
+  protocolFeesUSD24
+  protocolFeesUSDAll
+  revenueNBT24
+  revenueNBTAll
+  revenueUSD24
+  revenueUSDAll
+  sellNBT
+  sellUSD
+  volumeNBT24
+  volumeNBTAll
+  volumeUSD24
+  volumeUSDAll
+}
+```
+
+---
+
+## NftPoolType
+
+The pool type selected by the pool creator.
+
+<ResponseField name="BUY" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="SELL" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="BUY_AND_SELL" type="enum">
+  No description provided
+</ResponseField>
+
+```graphql 
+"""The pool type selected by the pool creator."""
+enum NftPoolType {
+  BUY
+  SELL
+  BUY_AND_SELL
+}
+```
+
+---
+
+## NftSearchable
+
+The level of NFTs to search.
+
+<ResponseField name="Asset" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="Collection" type="enum">
+  No description provided
+</ResponseField>
+
+```graphql 
+"""The level of NFTs to search."""
+enum NftSearchable {
+  Asset
+  Collection
+}
+```
+
+---
+
+## PairRankingAttribute
+
+The attribute used to rank tokens.
+
+<ResponseField name="createdAt" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="lastTransaction" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="buyCount1" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="buyCount4" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="buyCount12" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="buyCount24" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="highPrice1" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="highPrice4" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="highPrice12" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="highPrice24" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="liquidity" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="lockedLiquidityPercentage" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="lowPrice1" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="lowPrice4" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="lowPrice12" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="lowPrice24" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="marketCap" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="price" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="priceChange1" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="priceChange4" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="priceChange12" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="priceChange24" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="volumeChange1" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="volumeChange4" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="volumeChange12" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="volumeChange24" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="sellCount1" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="sellCount4" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="sellCount12" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="sellCount24" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="trendingScore" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="trendingScore5m" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="trendingScore1" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="trendingScore4" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="trendingScore12" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="trendingScore24" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="txnCount1" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="txnCount4" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="txnCount12" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="txnCount24" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="uniqueBuys1" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="uniqueBuys4" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="uniqueBuys12" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="uniqueBuys24" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="uniqueSells1" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="uniqueSells4" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="uniqueSells12" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="uniqueSells24" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="uniqueTransactions1" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="uniqueTransactions4" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="uniqueTransactions12" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="uniqueTransactions24" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="volumeUSD1" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="volumeUSD4" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="volumeUSD12" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="volumeUSD24" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="buyVolumeUSD1" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="buyVolumeUSD4" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="buyVolumeUSD12" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="buyVolumeUSD24" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="sellVolumeUSD1" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="sellVolumeUSD4" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="sellVolumeUSD12" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="sellVolumeUSD24" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="walletAgeAvg" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="walletAgeStd" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="swapPct1dOldWallet" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="swapPct7dOldWallet" type="enum">
+  No description provided
+</ResponseField>
+
+```graphql 
+"""The attribute used to rank tokens."""
+enum PairRankingAttribute {
+  createdAt
+  lastTransaction
+  buyCount1
+  buyCount4
+  buyCount12
+  buyCount24
+  highPrice1
+  highPrice4
+  highPrice12
+  highPrice24
+  liquidity
+  lockedLiquidityPercentage
+  lowPrice1
+  lowPrice4
+  lowPrice12
+  lowPrice24
+  marketCap
+  price
+  priceChange1
+  priceChange4
+  priceChange12
+  priceChange24
+  volumeChange1
+  volumeChange4
+  volumeChange12
+  volumeChange24
+  sellCount1
+  sellCount4
+  sellCount12
+  sellCount24
+  trendingScore
+  trendingScore5m
+  trendingScore1
+  trendingScore4
+  trendingScore12
+  trendingScore24
+  txnCount1
+  txnCount4
+  txnCount12
+  txnCount24
+  uniqueBuys1
+  uniqueBuys4
+  uniqueBuys12
+  uniqueBuys24
+  uniqueSells1
+  uniqueSells4
+  uniqueSells12
+  uniqueSells24
+  uniqueTransactions1
+  uniqueTransactions4
+  uniqueTransactions12
+  uniqueTransactions24
+  volumeUSD1
+  volumeUSD4
+  volumeUSD12
+  volumeUSD24
+  buyVolumeUSD1
+  buyVolumeUSD4
+  buyVolumeUSD12
+  buyVolumeUSD24
+  sellVolumeUSD1
+  sellVolumeUSD4
+  sellVolumeUSD12
+  sellVolumeUSD24
+  walletAgeAvg
+  walletAgeStd
+  swapPct1dOldWallet
+  swapPct7dOldWallet
+}
+```
+
+---
+
+## ParallelAssetMatcherCardType
+
+The Parallel asset card type.
+
+<ResponseField name="Effect" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="Relic" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="Unit" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="Upgrade" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="Paragon" type="enum">
+  No description provided
+</ResponseField>
+
+```graphql 
+"""The Parallel asset card type."""
+enum ParallelAssetMatcherCardType {
+  Effect
+  Relic
+  Unit
+  Upgrade
+  Paragon
+}
+```
+
+---
+
+## ParallelAssetMatcherClass
+
+The Parallel asset class.
+
+<ResponseField name="FE" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="SE" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="Asset" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="ArtCard" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="CardBack" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="Masterpiece" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="PL" type="enum">
+  No description provided
+</ResponseField>
+
+```graphql 
+"""The Parallel asset class."""
+enum ParallelAssetMatcherClass {
+  FE
+  SE
+  Asset
+  ArtCard
+  CardBack
+  Masterpiece
+  PL
+}
+```
+
+---
+
+## ParallelAssetMatcherParallel
+
+The Parallel stream of evolution.
+
+<ResponseField name="Augencore" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="Marcolian" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="Shroud" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="Earthen" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="Kathari" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="UnknownOrigins" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="Universal" type="enum">
+  No description provided
+</ResponseField>
+
+```graphql 
+"""The Parallel stream of evolution."""
+enum ParallelAssetMatcherParallel {
+  Augencore
+  Marcolian
+  Shroud
+  Earthen
+  Kathari
+  UnknownOrigins
+  Universal
+}
+```
+
+---
+
+## ParallelAssetMatcherRarity
+
+The Parallel asset rarity.
+
+<ResponseField name="Common" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="Uncommon" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="Rare" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="Legendary" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="Prime" type="enum">
+  No description provided
+</ResponseField>
+
+```graphql 
+"""The Parallel asset rarity."""
+enum ParallelAssetMatcherRarity {
+  Common
+  Uncommon
+  Rare
+  Legendary
+  Prime
+}
+```
+
+---
+
+## ParallelAssetMatcherSubtype
+
+The Parallel asset subtype.
+
+<ResponseField name="Pirate" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="Vehicle" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="Clone" type="enum">
+  No description provided
+</ResponseField>
+
+```graphql 
+"""The Parallel asset subtype."""
+enum ParallelAssetMatcherSubtype {
+  Pirate
+  Vehicle
+  Clone
+}
+```
+
+---
+
+## ParallelAssetRankingAttribute
+
+Attribute used to rank Parallel assets.
+
+<ResponseField name="attack" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="cost" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="health" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="supply" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="lastPriceUsd" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="lastPriceNetworkBaseToken" type="enum">
+  No description provided
+</ResponseField>
+
+```graphql 
+"""Attribute used to rank Parallel assets."""
+enum ParallelAssetRankingAttribute {
+  attack
+  cost
+  health
+  supply
+  lastPriceUsd
+  lastPriceNetworkBaseToken
+}
+```
+
+---
+
+## PoolNftType
+
+The type of NFT in the pool.
+
+<ResponseField name="ERC721ETH" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="ERC721ERC20" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="ERC1155ETH" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="ERC1155ERC20" type="enum">
+  No description provided
+</ResponseField>
+
+```graphql 
+"""The type of NFT in the pool."""
+enum PoolNftType {
+  ERC721ETH
+  ERC721ERC20
+  ERC1155ETH
+  ERC1155ERC20
+}
+```
+
+---
+
+## PrimePoolCurrency
+
+Currency types for Prime pool events.
+
+<ResponseField name="ETH" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="PRIME" type="enum">
+  No description provided
+</ResponseField>
+
+```graphql 
+"""Currency types for Prime pool events."""
+enum PrimePoolCurrency {
+  ETH
+  PRIME
+}
+```
+
+---
+
+## PrimePoolEventType
+
+A Prime pool event type.
+
+<ResponseField name="CACHE" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="CACHING_PAUSED" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="CLAIM" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="EMERGENCY_WITHDRAW" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="END_TIMESTAMP_UPDATED" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="ETH_REWARDS_ADDED" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="ETH_REWARDS_SET" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="LOG_POOL_ADDITION" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="LOG_POOL_SET_ALLOC_POINT" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="LOG_SET_PER_SECOND" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="LOG_UPDATE_POOL" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="POOL_DISCOVERED" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="REWARD_DECREASE" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="REWARD_INCREASE" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="TIME_CACHE_PERIOD_UPDATED" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="WITHDRAW" type="enum">
+  No description provided
+</ResponseField>
+
+```graphql 
+"""A Prime pool event type."""
+enum PrimePoolEventType {
+  CACHE
+  CACHING_PAUSED
+  CLAIM
+  EMERGENCY_WITHDRAW
+  END_TIMESTAMP_UPDATED
+  ETH_REWARDS_ADDED
+  ETH_REWARDS_SET
+  LOG_POOL_ADDITION
+  LOG_POOL_SET_ALLOC_POINT
+  LOG_SET_PER_SECOND
+  LOG_UPDATE_POOL
+  POOL_DISCOVERED
+  REWARD_DECREASE
+  REWARD_INCREASE
+  TIME_CACHE_PERIOD_UPDATED
+  WITHDRAW
+}
+```
+
+---
+
+## PrimePoolType
+
+The type of Prime pool caching contract.
+
+<ResponseField name="PRIME_REWARDS" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="ETH_AND_PRIME_REWARDS" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="TIMED_CACHE_ETH_AND_PRIME_REWARDS" type="enum">
+  No description provided
+</ResponseField>
+
+```graphql 
+"""The type of Prime pool caching contract."""
+enum PrimePoolType {
+  PRIME_REWARDS
+  ETH_AND_PRIME_REWARDS
+  TIMED_CACHE_ETH_AND_PRIME_REWARDS
+}
+```
+
+---
+
+## PublishingType
+
+The type of publishing for the webhook. If not set, it defaults to `SINGLE`.
+
+<ResponseField name="BATCH" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="SINGLE" type="enum">
+  No description provided
+</ResponseField>
+
+```graphql 
+"""The type of publishing for the webhook. If not set, it defaults to `SINGLE`."""
+enum PublishingType {
+  BATCH
+  SINGLE
+}
+```
+
+---
+
+## QuoteCurrency
+
+<ResponseField name="USD" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="TOKEN" type="enum">
+  No description provided
+</ResponseField>
+
+```graphql 
+enum QuoteCurrency {
+  USD
+  TOKEN
+}
+```
+
+---
+
+## QuoteToken
+
+The quote token within the pair.
+
+<ResponseField name="token0" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="token1" type="enum">
+  No description provided
+</ResponseField>
+
+```graphql 
+"""The quote token within the pair."""
+enum QuoteToken {
+  token0
+  token1
+}
+```
+
+---
+
+## RankingDirection
+
+The order of ranking.
+
+<ResponseField name="ASC" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="DESC" type="enum">
+  No description provided
+</ResponseField>
+
+```graphql 
+"""The order of ranking."""
+enum RankingDirection {
+  ASC
+  DESC
+}
+```
+
+---
+
+## SandwichLabelForEventType
+
+Sandwich event label types.
+
+<ResponseField name="sandwiched" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="frontrun" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="backrun" type="enum">
+  No description provided
+</ResponseField>
+
+```graphql 
+"""Sandwich event label types."""
+enum SandwichLabelForEventType {
+  sandwiched
+  frontrun
+  backrun
+}
+```
+
+---
+
+## SimulateTokenContractBuySellErrorEnum
+
+Error codes for a token contract buy/sell.
+
+<ResponseField name="INSUFFICIENT_OUTPUT_AMOUNT" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="INSUFFICIENT_LIQUIDITY" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="TRANSFER_FAILED" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="UNKNOWN_ERROR" type="enum">
+  No description provided
+</ResponseField>
+
+```graphql 
+"""Error codes for a token contract buy/sell."""
+enum SimulateTokenContractBuySellErrorEnum {
+  INSUFFICIENT_OUTPUT_AMOUNT
+  INSUFFICIENT_LIQUIDITY
+  TRANSFER_FAILED
+  UNKNOWN_ERROR
+}
+```
+
+---
+
+## SimulateTokenContractResultStatusEnum
+
+Status of a token contract buy/sell.
+
+<ResponseField name="SUCCESS" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="FAILURE" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="PENDING" type="enum">
+  No description provided
+</ResponseField>
+
+```graphql 
+"""Status of a token contract buy/sell."""
+enum SimulateTokenContractResultStatusEnum {
+  SUCCESS
+  FAILURE
+  PENDING
+}
+```
+
+---
+
+## SparklineAttribute
+
+<ResponseField name="PRICE" type="enum">
+  No description provided
+</ResponseField>
+
+```graphql 
+enum SparklineAttribute {
+  PRICE
+}
+```
+
+---
+
+## SymbolType
+
+<ResponseField name="TOKEN" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="POOL" type="enum">
+  No description provided
+</ResponseField>
+
+```graphql 
+enum SymbolType {
+  TOKEN
+  POOL
+}
+```
+
+---
+
+## TokenLifecycleEventType
+
+Event types for a token. Mint or Burn.
+
+<ResponseField name="MINT" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="BURN" type="enum">
+  No description provided
+</ResponseField>
+
+```graphql 
+"""Event types for a token. Mint or Burn."""
+enum TokenLifecycleEventType {
+  MINT
+  BURN
+}
+```
+
+---
+
+## TokenOfInterest
+
+The token of interest within a pair. Can be `token0` or `token1`.
+
+<ResponseField name="token0" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="token1" type="enum">
+  No description provided
+</ResponseField>
+
+```graphql 
+"""The token of interest within a pair. Can be `token0` or `token1`."""
+enum TokenOfInterest {
+  token0
+  token1
+}
+```
+
+---
+
+## TokenPairEventType
+
+Token pair event types.
+
+<ResponseField name="SWAP" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="MINT" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="BURN" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="SYNC" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="BUY" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="SELL" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="COLLECT" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="COLLECT_PROTOCOL" type="enum">
+  No description provided
+</ResponseField>
+
+```graphql 
+"""Token pair event types."""
+enum TokenPairEventType {
+  SWAP
+  MINT
+  BURN
+  SYNC
+  BUY
+  SELL
+  COLLECT
+  COLLECT_PROTOCOL
+}
+```
+
+---
+
+## TokenPairStatisticsType
+
+The type of statistics returned. Can be `FILTERED` or `UNFILTERED`.
+
+<ResponseField name="FILTERED" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="UNFILTERED" type="enum">
+  No description provided
+</ResponseField>
+
+```graphql 
+"""The type of statistics returned. Can be `FILTERED` or `UNFILTERED`."""
+enum TokenPairStatisticsType {
+  FILTERED
+  UNFILTERED
+}
+```
+
+---
+
+## TokenRankingAttribute
+
+The attribute used to rank tokens.
+
+<ResponseField name="createdAt" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="lastTransaction" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="age" type="enum">
+  No description provided
+  
+  <Warning>
+    This value is deprecated. Use createdAt instead
+  </Warning>
+</ResponseField>
+
+<ResponseField name="buyCount5m" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="buyCount1" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="buyCount4" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="buyCount12" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="buyCount24" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="change5m" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="change1" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="change4" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="change12" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="change24" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="volumeChange5m" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="volumeChange1" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="volumeChange4" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="volumeChange12" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="volumeChange24" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="high5m" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="high1" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="high4" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="high12" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="high24" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="holders" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="notableHolderCount" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="liquidity" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="low5m" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="low1" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="low4" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="low12" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="low24" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="marketCap" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="circulatingMarketCap" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="priceUSD" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="sellCount5m" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="sellCount1" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="sellCount4" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="sellCount12" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="sellCount24" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="trendingScore" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="trendingScore5m" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="trendingScore1" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="trendingScore4" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="trendingScore12" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="trendingScore24" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="txnCount5m" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="txnCount1" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="txnCount4" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="txnCount12" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="txnCount24" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="uniqueBuys5m" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="uniqueBuys1" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="uniqueBuys4" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="uniqueBuys12" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="uniqueBuys24" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="uniqueSells5m" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="uniqueSells1" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="uniqueSells4" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="uniqueSells12" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="uniqueSells24" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="uniqueTransactions5m" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="uniqueTransactions1" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="uniqueTransactions4" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="uniqueTransactions12" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="uniqueTransactions24" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="volume5m" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="volume1" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="volume4" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="volume12" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="volume24" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="buyVolume5m" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="buyVolume1" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="buyVolume4" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="buyVolume12" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="buyVolume24" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="sellVolume5m" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="sellVolume1" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="sellVolume4" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="sellVolume12" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="sellVolume24" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="launchpadCompletedAt" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="launchpadMigratedAt" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="graduationPercent" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="walletAgeAvg" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="walletAgeStd" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="swapPct1dOldWallet" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="swapPct7dOldWallet" type="enum">
+  No description provided
+</ResponseField>
+
+```graphql 
+"""The attribute used to rank tokens."""
+enum TokenRankingAttribute {
+  createdAt
+  lastTransaction
+  age @deprecated(reason: "Use createdAt instead")
+  buyCount5m
+  buyCount1
+  buyCount4
+  buyCount12
+  buyCount24
+  change5m
+  change1
+  change4
+  change12
+  change24
+  volumeChange5m
+  volumeChange1
+  volumeChange4
+  volumeChange12
+  volumeChange24
+  high5m
+  high1
+  high4
+  high12
+  high24
+  holders
+  notableHolderCount
+  liquidity
+  low5m
+  low1
+  low4
+  low12
+  low24
+  marketCap
+  circulatingMarketCap
+  priceUSD
+  sellCount5m
+  sellCount1
+  sellCount4
+  sellCount12
+  sellCount24
+  trendingScore
+  trendingScore5m
+  trendingScore1
+  trendingScore4
+  trendingScore12
+  trendingScore24
+  txnCount5m
+  txnCount1
+  txnCount4
+  txnCount12
+  txnCount24
+  uniqueBuys5m
+  uniqueBuys1
+  uniqueBuys4
+  uniqueBuys12
+  uniqueBuys24
+  uniqueSells5m
+  uniqueSells1
+  uniqueSells4
+  uniqueSells12
+  uniqueSells24
+  uniqueTransactions5m
+  uniqueTransactions1
+  uniqueTransactions4
+  uniqueTransactions12
+  uniqueTransactions24
+  volume5m
+  volume1
+  volume4
+  volume12
+  volume24
+  buyVolume5m
+  buyVolume1
+  buyVolume4
+  buyVolume12
+  buyVolume24
+  sellVolume5m
+  sellVolume1
+  sellVolume4
+  sellVolume12
+  sellVolume24
+  launchpadCompletedAt
+  launchpadMigratedAt
+  graduationPercent
+  walletAgeAvg
+  walletAgeStd
+  swapPct1dOldWallet
+  swapPct7dOldWallet
+}
+```
+
+---
+
+## TradingPeriod
+
+A time period used when calculating wallet trading data.
+
+<ResponseField name="DAY" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="WEEK" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="MONTH" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="YEAR" type="enum">
+  No description provided
+</ResponseField>
+
+```graphql 
+"""A time period used when calculating wallet trading data."""
+enum TradingPeriod {
+  DAY
+  WEEK
+  MONTH
+  YEAR
+}
+```
+
+---
+
+## WalletNetworkRankingAttribute
+
+Attributes for a wallet ranking on a specific network.
+
+<ResponseField name="firstTransactionAt" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="lastTransactionAt" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="volumeUsd1d" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="volumeUsdAll1d" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="realizedProfitUsd1d" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="averageProfitUsdPerTrade1d" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="averageSwapAmountUsd1d" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="realizedProfitPercentage1d" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="swaps1d" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="swapsAll1d" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="uniqueTokens1d" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="winRate1d" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="volumeUsd1w" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="volumeUsdAll1w" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="realizedProfitUsd1w" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="averageProfitUsdPerTrade1w" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="averageSwapAmountUsd1w" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="realizedProfitPercentage1w" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="swaps1w" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="swapsAll1w" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="uniqueTokens1w" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="winRate1w" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="volumeUsd30d" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="volumeUsdAll30d" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="realizedProfitUsd30d" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="averageProfitUsdPerTrade30d" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="averageSwapAmountUsd30d" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="realizedProfitPercentage30d" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="swaps30d" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="swapsAll30d" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="uniqueTokens30d" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="winRate30d" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="volumeUsd1y" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="volumeUsdAll1y" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="realizedProfitUsd1y" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="averageProfitUsdPerTrade1y" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="averageSwapAmountUsd1y" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="realizedProfitPercentage1y" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="swaps1y" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="swapsAll1y" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="uniqueTokens1y" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="winRate1y" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="nativeTokenBalance" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="scammerScore" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="botScore" type="enum">
+  No description provided
+</ResponseField>
+
+```graphql 
+"""Attributes for a wallet ranking on a specific network."""
+enum WalletNetworkRankingAttribute {
+  firstTransactionAt
+  lastTransactionAt
+  volumeUsd1d
+  volumeUsdAll1d
+  realizedProfitUsd1d
+  averageProfitUsdPerTrade1d
+  averageSwapAmountUsd1d
+  realizedProfitPercentage1d
+  swaps1d
+  swapsAll1d
+  uniqueTokens1d
+  winRate1d
+  volumeUsd1w
+  volumeUsdAll1w
+  realizedProfitUsd1w
+  averageProfitUsdPerTrade1w
+  averageSwapAmountUsd1w
+  realizedProfitPercentage1w
+  swaps1w
+  swapsAll1w
+  uniqueTokens1w
+  winRate1w
+  volumeUsd30d
+  volumeUsdAll30d
+  realizedProfitUsd30d
+  averageProfitUsdPerTrade30d
+  averageSwapAmountUsd30d
+  realizedProfitPercentage30d
+  swaps30d
+  swapsAll30d
+  uniqueTokens30d
+  winRate30d
+  volumeUsd1y
+  volumeUsdAll1y
+  realizedProfitUsd1y
+  averageProfitUsdPerTrade1y
+  averageSwapAmountUsd1y
+  realizedProfitPercentage1y
+  swaps1y
+  swapsAll1y
+  uniqueTokens1y
+  winRate1y
+  nativeTokenBalance
+  scammerScore
+  botScore
+}
+```
+
+---
+
+## WalletRankingAttribute
+
+Attributes for a wallet ranking.
+
+<ResponseField name="firstTransactionAt" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="lastTransactionAt" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="volumeUsd1d" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="volumeUsdAll1d" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="realizedProfitUsd1d" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="averageProfitUsdPerTrade1d" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="averageSwapAmountUsd1d" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="realizedProfitPercentage1d" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="swaps1d" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="swapsAll1d" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="uniqueTokens1d" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="winRate1d" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="volumeUsd1w" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="volumeUsdAll1w" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="realizedProfitUsd1w" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="averageProfitUsdPerTrade1w" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="averageSwapAmountUsd1w" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="realizedProfitPercentage1w" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="swaps1w" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="swapsAll1w" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="uniqueTokens1w" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="winRate1w" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="volumeUsd30d" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="volumeUsdAll30d" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="realizedProfitUsd30d" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="averageProfitUsdPerTrade30d" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="averageSwapAmountUsd30d" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="realizedProfitPercentage30d" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="swaps30d" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="swapsAll30d" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="uniqueTokens30d" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="winRate30d" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="volumeUsd1y" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="volumeUsdAll1y" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="realizedProfitUsd1y" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="averageProfitUsdPerTrade1y" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="averageSwapAmountUsd1y" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="realizedProfitPercentage1y" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="swaps1y" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="swapsAll1y" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="uniqueTokens1y" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="winRate1y" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="nativeTokenBalance" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="scammerScore" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="botScore" type="enum">
+  No description provided
+</ResponseField>
+
+```graphql 
+"""Attributes for a wallet ranking."""
+enum WalletRankingAttribute {
+  firstTransactionAt
+  lastTransactionAt
+  volumeUsd1d
+  volumeUsdAll1d
+  realizedProfitUsd1d
+  averageProfitUsdPerTrade1d
+  averageSwapAmountUsd1d
+  realizedProfitPercentage1d
+  swaps1d
+  swapsAll1d
+  uniqueTokens1d
+  winRate1d
+  volumeUsd1w
+  volumeUsdAll1w
+  realizedProfitUsd1w
+  averageProfitUsdPerTrade1w
+  averageSwapAmountUsd1w
+  realizedProfitPercentage1w
+  swaps1w
+  swapsAll1w
+  uniqueTokens1w
+  winRate1w
+  volumeUsd30d
+  volumeUsdAll30d
+  realizedProfitUsd30d
+  averageProfitUsdPerTrade30d
+  averageSwapAmountUsd30d
+  realizedProfitPercentage30d
+  swaps30d
+  swapsAll30d
+  uniqueTokens30d
+  winRate30d
+  volumeUsd1y
+  volumeUsdAll1y
+  realizedProfitUsd1y
+  averageProfitUsdPerTrade1y
+  averageSwapAmountUsd1y
+  realizedProfitPercentage1y
+  swaps1y
+  swapsAll1y
+  uniqueTokens1y
+  winRate1y
+  nativeTokenBalance
+  scammerScore
+  botScore
+}
+```
+
+---
+
+## WalletStatsDuration
+
+The period the wallet stats are for.
+
+<ResponseField name="year1" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="day30" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="week1" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="day1" type="enum">
+  No description provided
+</ResponseField>
+
+```graphql 
+"""The period the wallet stats are for."""
+enum WalletStatsDuration {
+  year1
+  day30
+  week1
+  day1
+}
+```
+
+---
+
+## WalletTokenRankingAttribute
+
+Attributes for a wallet ranking on a specific token.
+
+<ResponseField name="firstTransactionAt" type="enum">
+  The first transaction timestamp
+</ResponseField>
+
+<ResponseField name="lastTransactionAt" type="enum">
+  The last transaction timestamp
+</ResponseField>
+
+<ResponseField name="tokenAmountBought1d" type="enum">
+  Token amount bought in the past day
+</ResponseField>
+
+<ResponseField name="tokenAmountSold1d" type="enum">
+  Token amount sold in the past day
+</ResponseField>
+
+<ResponseField name="amountBoughtUsd1d" type="enum">
+  Amount bought in USD in the past day
+</ResponseField>
+
+<ResponseField name="amountSoldUsd1d" type="enum">
+  Amount sold in USD in the past day
+</ResponseField>
+
+<ResponseField name="realizedProfitUsd1d" type="enum">
+  Realized profit in USD in the past day
+</ResponseField>
+
+<ResponseField name="realizedProfitPercentage1d" type="enum">
+  Realized profit percentage in the past day
+</ResponseField>
+
+<ResponseField name="buys1d" type="enum">
+  Number of buys in the past day
+</ResponseField>
+
+<ResponseField name="sells1d" type="enum">
+  Number of sells in the past day
+</ResponseField>
+
+<ResponseField name="tokenAmountBought1w" type="enum">
+  Token amount bought in the past week
+</ResponseField>
+
+<ResponseField name="tokenAmountSold1w" type="enum">
+  Token amount sold in the past week
+</ResponseField>
+
+<ResponseField name="amountBoughtUsd1w" type="enum">
+  Amount bought in USD in the past week
+</ResponseField>
+
+<ResponseField name="amountSoldUsd1w" type="enum">
+  Amount sold in USD in the past week
+</ResponseField>
+
+<ResponseField name="realizedProfitUsd1w" type="enum">
+  Realized profit in USD in the past week
+</ResponseField>
+
+<ResponseField name="realizedProfitPercentage1w" type="enum">
+  Realized profit percentage in the past week
+</ResponseField>
+
+<ResponseField name="buys1w" type="enum">
+  Number of buys in the past week
+</ResponseField>
+
+<ResponseField name="sells1w" type="enum">
+  Number of sells in the past week
+</ResponseField>
+
+<ResponseField name="tokenAmountBought30d" type="enum">
+  Token amount bought in the past 30 days
+</ResponseField>
+
+<ResponseField name="tokenAmountSold30d" type="enum">
+  Token amount sold in the past 30 days
+</ResponseField>
+
+<ResponseField name="amountBoughtUsd30d" type="enum">
+  Amount bought in USD in the past 30 days
+</ResponseField>
+
+<ResponseField name="amountSoldUsd30d" type="enum">
+  Amount sold in USD in the past 30 days
+</ResponseField>
+
+<ResponseField name="realizedProfitUsd30d" type="enum">
+  Realized profit in USD in the past 30 days
+</ResponseField>
+
+<ResponseField name="realizedProfitPercentage30d" type="enum">
+  Realized profit percentage in the past 30 days
+</ResponseField>
+
+<ResponseField name="buys30d" type="enum">
+  Number of buys in the past 30 days
+</ResponseField>
+
+<ResponseField name="sells30d" type="enum">
+  Number of sells in the past 30 days
+</ResponseField>
+
+<ResponseField name="tokenAmountBought1y" type="enum">
+  Token amount bought in the past year
+</ResponseField>
+
+<ResponseField name="tokenAmountSold1y" type="enum">
+  Token amount sold in the past year
+</ResponseField>
+
+<ResponseField name="amountBoughtUsd1y" type="enum">
+  Amount bought in USD in the past year
+</ResponseField>
+
+<ResponseField name="amountSoldUsd1y" type="enum">
+  Amount sold in USD in the past year
+</ResponseField>
+
+<ResponseField name="realizedProfitUsd1y" type="enum">
+  Realized profit in USD in the past year
+</ResponseField>
+
+<ResponseField name="realizedProfitPercentage1y" type="enum">
+  Realized profit percentage in the past year
+</ResponseField>
+
+<ResponseField name="buys1y" type="enum">
+  Number of buys in the past year
+</ResponseField>
+
+<ResponseField name="sells1y" type="enum">
+  Number of sells in the past year
+</ResponseField>
+
+<ResponseField name="tokenBalance" type="enum">
+  Token balance
+</ResponseField>
+
+<ResponseField name="purchasedTokenBalance" type="enum">
+  Purchased token balance
+</ResponseField>
+
+<ResponseField name="tokenAcquisitionCostUsd" type="enum">
+  Token acquisition cost in USD
+</ResponseField>
+
+<ResponseField name="scammerScore" type="enum">
+  The scammer score for the wallet.
+</ResponseField>
+
+<ResponseField name="botScore" type="enum">
+  The bot score for the wallet.
+</ResponseField>
+
+```graphql 
+"""Attributes for a wallet ranking on a specific token."""
+enum WalletTokenRankingAttribute {
+  """The first transaction timestamp"""
+  firstTransactionAt
+  """The last transaction timestamp"""
+  lastTransactionAt
+  """Token amount bought in the past day"""
+  tokenAmountBought1d
+  """Token amount sold in the past day"""
+  tokenAmountSold1d
+  """Amount bought in USD in the past day"""
+  amountBoughtUsd1d
+  """Amount sold in USD in the past day"""
+  amountSoldUsd1d
+  """Realized profit in USD in the past day"""
+  realizedProfitUsd1d
+  """Realized profit percentage in the past day"""
+  realizedProfitPercentage1d
+  """Number of buys in the past day"""
+  buys1d
+  """Number of sells in the past day"""
+  sells1d
+  """Token amount bought in the past week"""
+  tokenAmountBought1w
+  """Token amount sold in the past week"""
+  tokenAmountSold1w
+  """Amount bought in USD in the past week"""
+  amountBoughtUsd1w
+  """Amount sold in USD in the past week"""
+  amountSoldUsd1w
+  """Realized profit in USD in the past week"""
+  realizedProfitUsd1w
+  """Realized profit percentage in the past week"""
+  realizedProfitPercentage1w
+  """Number of buys in the past week"""
+  buys1w
+  """Number of sells in the past week"""
+  sells1w
+  """Token amount bought in the past 30 days"""
+  tokenAmountBought30d
+  """Token amount sold in the past 30 days"""
+  tokenAmountSold30d
+  """Amount bought in USD in the past 30 days"""
+  amountBoughtUsd30d
+  """Amount sold in USD in the past 30 days"""
+  amountSoldUsd30d
+  """Realized profit in USD in the past 30 days"""
+  realizedProfitUsd30d
+  """Realized profit percentage in the past 30 days"""
+  realizedProfitPercentage30d
+  """Number of buys in the past 30 days"""
+  buys30d
+  """Number of sells in the past 30 days"""
+  sells30d
+  """Token amount bought in the past year"""
+  tokenAmountBought1y
+  """Token amount sold in the past year"""
+  tokenAmountSold1y
+  """Amount bought in USD in the past year"""
+  amountBoughtUsd1y
+  """Amount sold in USD in the past year"""
+  amountSoldUsd1y
+  """Realized profit in USD in the past year"""
+  realizedProfitUsd1y
+  """Realized profit percentage in the past year"""
+  realizedProfitPercentage1y
+  """Number of buys in the past year"""
+  buys1y
+  """Number of sells in the past year"""
+  sells1y
+  """Token balance"""
+  tokenBalance
+  """Purchased token balance"""
+  purchasedTokenBalance
+  """Token acquisition cost in USD"""
+  tokenAcquisitionCostUsd
+  """The scammer score for the wallet."""
+  scammerScore
+  """The bot score for the wallet."""
+  botScore
+}
+```
+
+---
+
+## WebhookNftEventFillSource
+
+NFT marketplace names.
+
+<ResponseField name="GEM" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="ENSVISION" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="BLUR" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="NFTNERDS" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="OPENSEA" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="RARIBLE" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="FLIPXYZ" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="ECHELON" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="SOUNDXYZ" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="COINBASE" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="MAGICEDEN" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="ELEMENT" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="KODEX" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="RESERVOIRTOOLS" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="GENIE" type="enum">
+  No description provided
+</ResponseField>
+
+```graphql 
+"""NFT marketplace names."""
+enum WebhookNftEventFillSource {
+  GEM
+  ENSVISION
+  BLUR
+  NFTNERDS
+  OPENSEA
+  RARIBLE
+  FLIPXYZ
+  ECHELON
+  SOUNDXYZ
+  COINBASE
+  MAGICEDEN
+  ELEMENT
+  KODEX
+  RESERVOIRTOOLS
+  GENIE
+}
+```
+
+---
+
+## WebhookNftEventType
+
+NFT event types.
+
+<ResponseField name="MINT" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="SALE" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="TRANSFER" type="enum">
+  No description provided
+</ResponseField>
+
+```graphql 
+"""NFT event types."""
+enum WebhookNftEventType {
+  MINT
+  SALE
+  TRANSFER
+}
+```
+
+---
+
+## WebhookType
+
+The type of webhook.
+
+<ResponseField name="PRICE_EVENT" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="NFT_EVENT" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="TOKEN_PAIR_EVENT" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="RAW_TRANSACTION" type="enum">
+  No description provided
+</ResponseField>
+
+<ResponseField name="MARKET_CAP_EVENT" type="enum">
+  No description provided
+</ResponseField>
+
+```graphql 
+"""The type of webhook."""
+enum WebhookType {
+  PRICE_EVENT
+  NFT_EVENT
+  TOKEN_PAIR_EVENT
+  RAW_TRANSACTION
+  MARKET_CAP_EVENT
+}
+```
+
+---
+

@@ -3,17 +3,17 @@ title: "filterPairs"
 description: "Returns a list of pairs based on a variety of filters."
 ---
 
-**Returns:** [PairFilterConnection](/api-reference/types/pairfilterconnection)
+**Returns:** [PairFilterConnection](/api-reference/types#pairfilterconnection)
 
 ### Arguments
 
-<a href="/api-reference/types/pairfilters">
+<a href="/api-reference/input-objects#pairfilters">
   <ResponseField name="filters" type="PairFilters">
     A set of filters to apply.
   </ResponseField>
 </a>
 
-<a href="/api-reference/types/tokenpairstatisticstype">
+<a href="/api-reference/enums#tokenpairstatisticstype">
   <ResponseField name="statsType" type="TokenPairStatisticsType">
     The type of statistics returned. Can be `FILTERED` or `UNFILTERED`
   </ResponseField>
@@ -27,13 +27,13 @@ description: "Returns a list of pairs based on a variety of filters."
   A list of pair or token contract addresses or IDs (`address:networkId`) to filter by.
 </ResponseField>
 
-<a href="/api-reference/types/pairfiltermatchtokens">
+<a href="/api-reference/input-objects#pairfiltermatchtokens">
   <ResponseField name="matchTokens" type="PairFilterMatchTokens">
     A set of token contract addresses that make up a pair. Can be used in place of a pair contract address.
   </ResponseField>
 </a>
 
-<a href="/api-reference/types/pairranking">
+<a href="/api-reference/input-objects#pairranking">
   <ResponseField name="rankings" type="[PairRanking]">
     A list of ranking attributes to apply.
   </ResponseField>

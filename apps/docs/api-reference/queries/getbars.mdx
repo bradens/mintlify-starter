@@ -3,7 +3,7 @@ title: "getBars"
 description: "Returns bar chart data to track price changes over time."
 ---
 
-**Returns:** [BarsResponse](/api-reference/types/barsresponse)
+**Returns:** [BarsResponse](/api-reference/types#barsresponse)
 
 ### Arguments
 
@@ -35,13 +35,13 @@ description: "Returns bar chart data to track price changes over time."
   Whether to remove empty bars from the response. Default is `false`.
 </ResponseField>
 
-<a href="/api-reference/types/quotetoken">
+<a href="/api-reference/enums#quotetoken">
   <ResponseField name="quoteToken" type="QuoteToken">
     The token of interest within the token's top pair. Can be `token0` or `token1`.
   </ResponseField>
 </a>
 
-<a href="/api-reference/types/tokenpairstatisticstype">
+<a href="/api-reference/enums#tokenpairstatisticstype">
   <ResponseField name="statsType" type="TokenPairStatisticsType">
     The type of statistics returned. Can be `FILTERED` or `UNFILTERED`
   </ResponseField>
@@ -51,7 +51,7 @@ description: "Returns bar chart data to track price changes over time."
   guarantees number of bars returned is at most this number
 </ResponseField>
 
-<a href="/api-reference/types/symboltype">
+<a href="/api-reference/enums#symboltype">
   <ResponseField name="symbolType" type="SymbolType">
     specify the type of symbol you want to fetch values for (TOKEN | POOL)
   </ResponseField>

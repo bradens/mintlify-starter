@@ -3,17 +3,17 @@ title: "filterTokens"
 description: "Returns a list of tokens based on a variety of filters."
 ---
 
-**Returns:** [TokenFilterConnection](/api-reference/types/tokenfilterconnection)
+**Returns:** [TokenFilterConnection](/api-reference/types#tokenfilterconnection)
 
 ### Arguments
 
-<a href="/api-reference/types/tokenfilters">
+<a href="/api-reference/input-objects#tokenfilters">
   <ResponseField name="filters" type="TokenFilters">
     A set of filters to apply.
   </ResponseField>
 </a>
 
-<a href="/api-reference/types/tokenpairstatisticstype">
+<a href="/api-reference/enums#tokenpairstatisticstype">
   <ResponseField name="statsType" type="TokenPairStatisticsType">
     The type of statistics returned. Can be `FILTERED` or `UNFILTERED`
   </ResponseField>
@@ -31,7 +31,7 @@ description: "Returns a list of tokens based on a variety of filters."
   A list of token IDs (`address:networkId`) to exclude from results
 </ResponseField>
 
-<a href="/api-reference/types/tokenranking">
+<a href="/api-reference/input-objects#tokenranking">
   <ResponseField name="rankings" type="[TokenRanking]">
     A list of ranking attributes to apply.
   </ResponseField>

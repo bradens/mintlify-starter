@@ -1,0 +1,225 @@
+---
+title: "Unions and Interfaces"
+description: "All union types, interface types, and custom scalar types in the GraphQL schema"
+noindex: true
+---
+
+# Union Types
+
+### EnhancedContract
+
+Metadata for a contract.
+
+This union can be one of the following types:
+
+- EnhancedToken
+- EnhancedNftContract
+
+```graphql 
+"""Metadata for a contract."""
+union EnhancedContract = EnhancedToken | EnhancedNftContract
+```
+
+---
+
+### EventData
+
+Event-specific data for a token transaction.
+
+This union can be one of the following types:
+
+- BurnEventData
+- MintEventData
+- SwapEventData
+- PoolBalanceChangedEventData
+
+```graphql 
+"""Event-specific data for a token transaction."""
+union EventData = BurnEventData | MintEventData | SwapEventData | PoolBalanceChangedEventData
+```
+
+---
+
+### EventLabelData
+
+Specific data for an event label.
+
+This union can be one of the following types:
+
+- FrontRunLabelData
+- SandwichedLabelData
+
+```graphql 
+"""Specific data for an event label."""
+union EventLabelData = FrontRunLabelData | SandwichedLabelData
+```
+
+---
+
+### NftEventTradeItem
+
+An item that was either offered or received as part of an NFT trade.
+
+This union can be one of the following types:
+
+- NftEventNftTradeItem
+- NftEventTokenTradeItem
+
+```graphql 
+"""An item that was either offered or received as part of an NFT trade."""
+union NftEventTradeItem = NftEventNftTradeItem | NftEventTokenTradeItem
+```
+
+---
+
+### NftPoolEventData
+
+Event-specific data for an NFT pool transaction.
+
+This union can be one of the following types:
+
+- NewPoolEventData
+- SwapNftOutPoolEventData
+- SwapNftInPoolEventData
+- NftPoolNftDepositEventData
+- NftPoolNftWithdrawalEventData
+- NftPoolTokenDepositEventData
+- NftPoolTokenWithdrawalEventData
+- NftPoolSpotPriceUpdateEventData
+- NftPoolDeltaUpdateEventData
+- NftPoolFeeUpdateEventData
+- NftPoolAssetRecipientUpdateEventData
+- NewPoolEventDataV2
+- SwapNftOutPoolEventDataV2
+- SwapNftInPoolEventDataV2
+- NftPoolNftDepositEventDataV2
+- NftPoolNftWithdrawalEventDataV2
+- NftPoolTokenDepositEventDataV2
+- NftPoolTokenWithdrawalEventDataV2
+- NftPoolSpotPriceUpdateEventDataV2
+- NftPoolOwnershipTransferredEventDataV2
+
+```graphql 
+"""Event-specific data for an NFT pool transaction."""
+union NftPoolEventData = NewPoolEventData | SwapNftOutPoolEventData | SwapNftInPoolEventData | NftPoolNftDepositEventData | NftPoolNftWithdrawalEventData | NftPoolTokenDepositEventData | NftPoolTokenWithdrawalEventData | NftPoolSpotPriceUpdateEventData | NftPoolDeltaUpdateEventData | NftPoolFeeUpdateEventData | NftPoolAssetRecipientUpdateEventData | NewPoolEventDataV2 | SwapNftOutPoolEventDataV2 | SwapNftInPoolEventDataV2 | NftPoolNftDepositEventDataV2 | NftPoolNftWithdrawalEventDataV2 | NftPoolTokenDepositEventDataV2 | NftPoolTokenWithdrawalEventDataV2 | NftPoolSpotPriceUpdateEventDataV2 | NftPoolOwnershipTransferredEventDataV2
+```
+
+---
+
+### PrimePoolEventData
+
+Event-specific data for a Prime pool transaction.
+
+This union can be one of the following types:
+
+- PrimePoolCacheData
+- PrimePoolCachingPausedData
+- PrimePoolClaimEthData
+- PrimePoolClaimPrimeData
+- PrimePoolEmergencyWithdrawData
+- PrimePoolEndTimestampUpdatedEthData
+- PrimePoolEndTimestampUpdatedPrimeData
+- PrimePoolEthRewardsAddedData
+- PrimePoolEthRewardsSetData
+- PrimePoolLogPoolAdditionData
+- PrimePoolLogPoolSetAllocPointData
+- PrimePoolLogSetPerSecondData
+- PrimePoolLogUpdatePoolData
+- PrimePoolRewardDecreaseData
+- PrimePoolRewardIncreaseData
+- PrimePoolTimeCachePeriodUpdateData
+- PrimePoolWithdrawData
+
+```graphql 
+"""Event-specific data for a Prime pool transaction."""
+union PrimePoolEventData = PrimePoolCacheData | PrimePoolCachingPausedData | PrimePoolClaimEthData | PrimePoolClaimPrimeData | PrimePoolEmergencyWithdrawData | PrimePoolEndTimestampUpdatedEthData | PrimePoolEndTimestampUpdatedPrimeData | PrimePoolEthRewardsAddedData | PrimePoolEthRewardsSetData | PrimePoolLogPoolAdditionData | PrimePoolLogPoolSetAllocPointData | PrimePoolLogSetPerSecondData | PrimePoolLogUpdatePoolData | PrimePoolRewardDecreaseData | PrimePoolRewardIncreaseData | PrimePoolTimeCachePeriodUpdateData | PrimePoolWithdrawData
+```
+
+---
+
+### TokenLifecycleEventData
+
+Event data for a token's lifecycle.
+
+This union can be one of the following types:
+
+- TokenBurnEventData
+- TokenMintEventData
+
+```graphql 
+"""Event data for a token's lifecycle."""
+union TokenLifecycleEventData = TokenBurnEventData | TokenMintEventData
+```
+
+---
+
+### UnconfirmedEventData
+
+This union can be one of the following types:
+
+- UnconfirmedSwapEventData
+- UnconfirmedLiquidityChangeEventData
+
+```graphql 
+union UnconfirmedEventData = UnconfirmedSwapEventData | UnconfirmedLiquidityChangeEventData
+```
+
+---
+
+### WebhookCondition
+
+Webhook conditions that must be met for each webhook type.
+
+This union can be one of the following types:
+
+- PriceEventWebhookCondition
+- MarketCapEventWebhookCondition
+- TokenPairEventWebhookCondition
+- NftEventWebhookCondition
+- RawTransactionWebhookCondition
+
+```graphql 
+"""Webhook conditions that must be met for each webhook type."""
+union WebhookCondition = PriceEventWebhookCondition | MarketCapEventWebhookCondition | TokenPairEventWebhookCondition | NftEventWebhookCondition | RawTransactionWebhookCondition
+```
+
+---
+
+# Interface Types
+
+### NftEventTradeItemBase
+
+Fields that are common in all items offered or received as part of an nft trade.
+
+<ResponseField name="address" type="String!" required>
+  The contract address for the item.
+</ResponseField>
+
+<ResponseField name="amount" type="String">
+  The number of items transferred.
+</ResponseField>
+
+<ResponseField name="recipient" type="String">
+  The recipient of the items.
+</ResponseField>
+
+<ResponseField name="type" type="NftEventTradeItemType!" required>
+  The type of item involved in the trade. (NFT or TOKEN)
+</ResponseField>
+
+```graphql 
+"""Fields that are common in all items offered or received as part of an nft trade."""
+interface NftEventTradeItemBase {
+  """The contract address for the item."""
+  address: String!
+  """The number of items transferred."""
+  amount: String
+  """The recipient of the items."""
+  recipient: String
+  """The type of item involved in the trade. (NFT or TOKEN)"""
+  type: NftEventTradeItemType!
+}
+```
+
+---
+

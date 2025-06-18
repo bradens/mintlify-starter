@@ -7,7 +7,7 @@ description: "Returns bucketed stats for a given token within a pair."
   This query is deprecated. Use `getDetailedPairStats` instead, it has more resolutions and better support
 </Warning>
 
-**Returns:** [DetailedStats](/api-reference/types/detailedstats)
+**Returns:** [DetailedStats](/api-reference/types#detailedstats)
 
 ### Arguments
 
@@ -15,7 +15,7 @@ description: "Returns bucketed stats for a given token within a pair."
   The ID of the pair (`address:networkId`).
 </ResponseField>
 
-<a href="/api-reference/types/tokenofinterest">
+<a href="/api-reference/enums#tokenofinterest">
   <ResponseField name="tokenOfInterest" type="TokenOfInterest">
     The token of interest used to calculate token-specific stats for the pair. Can be `token0` or `token1`.
   </ResponseField>
@@ -25,7 +25,7 @@ description: "Returns bucketed stats for a given token within a pair."
   The unix timestamp for the stats. Defaults to current.
 </ResponseField>
 
-<a href="/api-reference/types/detailedstatswindowsize">
+<a href="/api-reference/enums#detailedstatswindowsize">
   <ResponseField name="windowSizes" type="[DetailedStatsWindowSize]">
     The list of window sizes to get detailed stats for.
   </ResponseField>
@@ -35,7 +35,7 @@ description: "Returns bucketed stats for a given token within a pair."
   The number of aggregated values to receive. Note: Each duration has predetermined bucket sizes. The first n-1 buckets are historical. The last bucket is a snapshot of current data. duration `day1`: 6 buckets (4 hours each) plus 1 partial bucket duration `hour12`: 12 buckets (1 hour each) plus 1 partial bucket duration `hour4`: 8 buckets (30 min each) plus 1 partial bucket duration `hour1`: 12 buckets (5 min each) plus 1 partial bucket duration `min5`: 5 buckets (1 min each) plus 1 partial bucket For example, requesting 11 buckets for a `min5` duration will return the last 10 minutes worth of data plus a snapshot for the current minute.
 </ResponseField>
 
-<a href="/api-reference/types/tokenpairstatisticstype">
+<a href="/api-reference/enums#tokenpairstatisticstype">
   <ResponseField name="statsType" type="TokenPairStatisticsType">
     The type of statistics returned. Can be `FILTERED` or `UNFILTERED`
   </ResponseField>

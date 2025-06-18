@@ -83,7 +83,7 @@ function formatType(type) {
 }
 
 // Helper function to create type links
-function createTypeLink(typeName) {
+function createTypeLink(typeName, typeCategories = null) {
   if (!typeName || typeName === 'Unknown') {
     return 'Unknown';
   }
@@ -95,8 +95,24 @@ function createTypeLink(typeName) {
 
   // Remove any GraphQL syntax markers
   const cleanTypeName = typeName.replace(/[!\[\]]/g, '');
-  const slug = createSlug(cleanTypeName);
 
+  if (typeCategories) {
+    // Determine which consolidated page this type belongs to
+    if (typeCategories.objects.find(t => t.name === cleanTypeName)) {
+      return `[${typeName}](/api-reference/types#${cleanTypeName.toLowerCase()})`;
+    } else if (typeCategories.enums.find(t => t.name === cleanTypeName)) {
+      return `[${typeName}](/api-reference/enums#${cleanTypeName.toLowerCase()})`;
+    } else if (typeCategories.inputs.find(t => t.name === cleanTypeName)) {
+      return `[${typeName}](/api-reference/input-objects#${cleanTypeName.toLowerCase()})`;
+    } else if (typeCategories.unions.find(t => t.name === cleanTypeName) ||
+               typeCategories.interfaces.find(t => t.name === cleanTypeName) ||
+               typeCategories.scalars.find(t => t.name === cleanTypeName)) {
+      return `[${typeName}](/api-reference/unions-and-interfaces#${cleanTypeName.toLowerCase()})`;
+    }
+  }
+
+  // Fallback to old behavior if type categorization not available
+  const slug = createSlug(cleanTypeName);
   return `[${typeName}](/api-reference/types/${slug})`;
 }
 
@@ -221,8 +237,8 @@ function formatArgs(args) {
 }
 
 // Generate documentation for a query/mutation/subscription
-function generateOperationDoc(operation, operationType) {
-  const returnType = createTypeLink(formatType(operation.type));
+function generateOperationDoc(operation, operationType, typeCategories = null) {
+  const returnType = createTypeLink(formatType(operation.type), typeCategories);
   const description = cleanDescription(operation.description);
   const metadata = parseMetadata(operation.description);
 
@@ -268,7 +284,29 @@ description: "${description || `${operationType} operation`}"`;
         const builtInTypes = ['String', 'Int', 'Float', 'Boolean', 'ID'];
         const shouldLink = !builtInTypes.includes(cleanTypeName);
 
-        if (shouldLink) {
+        if (shouldLink && typeCategories) {
+          // Determine which consolidated page this type belongs to
+          let linkUrl = '';
+          if (typeCategories.objects.find(t => t.name === cleanTypeName)) {
+            linkUrl = `/api-reference/types#${cleanTypeName.toLowerCase()}`;
+          } else if (typeCategories.enums.find(t => t.name === cleanTypeName)) {
+            linkUrl = `/api-reference/enums#${cleanTypeName.toLowerCase()}`;
+          } else if (typeCategories.inputs.find(t => t.name === cleanTypeName)) {
+            linkUrl = `/api-reference/input-objects#${cleanTypeName.toLowerCase()}`;
+          } else if (typeCategories.unions.find(t => t.name === cleanTypeName) ||
+                     typeCategories.interfaces.find(t => t.name === cleanTypeName) ||
+                     typeCategories.scalars.find(t => t.name === cleanTypeName)) {
+            linkUrl = `/api-reference/unions-and-interfaces#${cleanTypeName.toLowerCase()}`;
+          } else {
+            // Fallback to old linking for unknown types
+            linkUrl = `/api-reference/types/${createSlug(cleanTypeName)}`;
+          }
+
+          content += `<a href="${linkUrl}">
+  <ResponseField name="${arg.name}" type="${typeName}"${required ? ' required' : ''}>
+    ${argDescription}`;
+        } else if (shouldLink) {
+          // Fallback to old behavior when typeCategories not available
           const slug = createSlug(cleanTypeName);
           content += `<a href="/api-reference/types/${slug}">
   <ResponseField name="${arg.name}" type="${typeName}"${required ? ' required' : ''}>
@@ -307,83 +345,99 @@ description: "${description || `${operationType} operation`}"`;
   return { content, metadata };
 }
 
-// Generate documentation for a type
-function generateTypeDoc(type) {
-  const description = cleanDescription(type.description);
-  const metadata = parseMetadata(type.description);
-  const typeKind = type.constructor.name.replace('GraphQL', '').replace('Type', '');
-
+// Generate consolidated documentation for object types
+function generateObjectTypesDoc(types) {
   let content = `---
-title: "${type.name}"
-description: "${description || `${typeKind} type`}"
-noindex: true`;
-
-  if (metadata.tag) {
-    content += `\ntag: "${metadata.tag}"`;
-  }
-
-  content += `\n---
+title: "Object Types"
+description: "All object types in the GraphQL schema"
+noindex: true
+---
 
 `;
 
-  // Add deprecation warning for the type itself if deprecated
-  if (isDeprecated(type)) {
-    content += `<Warning>
+  types.forEach(type => {
+    const description = cleanDescription(type.description);
+
+    content += `## ${type.name}\n\n`;
+
+    if (description) {
+      content += `${description}\n\n`;
+    }
+
+    // Add deprecation warning for the type itself if deprecated
+    if (isDeprecated(type)) {
+      content += `<Warning>
   This type is deprecated. ${cleanDescription(getDeprecationReason(type))}
 </Warning>
 
 `;
-  }
+    }
 
-  if (isObjectType(type) || isInputObjectType(type) || isInterfaceType(type)) {
     const fields = Object.values(type.getFields());
     const visibleFields = fields.filter(field => !shouldHideField(field));
 
     if (visibleFields.length > 0) {
-      content += `### Fields\n\n`;
-
       visibleFields.forEach(field => {
         const typeName = formatType(field.type);
         const required = isFieldRequired(field.type);
         const fieldDescription = cleanDescription(field.description) || 'No description provided';
 
-        // Check if we need to link to another type
-        const cleanTypeName = typeName.replace(/[!\[\]]/g, '');
-        const builtInTypes = ['String', 'Int', 'Float', 'Boolean', 'ID'];
-        const shouldLink = !builtInTypes.includes(cleanTypeName);
-
-        if (shouldLink) {
-          const slug = createSlug(cleanTypeName);
-          content += `<a href="/api-reference/types/${slug}">
-  <ResponseField name="${field.name}" type="${typeName}"${required ? ' required' : ''}>
-    ${fieldDescription}`;
-        } else {
-          content += `<ResponseField name="${field.name}" type="${typeName}"${required ? ' required' : ''}>
+        content += `<ResponseField name="${field.name}" type="${typeName}"${required ? ' required' : ''}>
   ${fieldDescription}`;
-        }
 
         // Add deprecation warning for the field if deprecated
         if (isDeprecated(field)) {
-          content += `\n    \n    <Warning>\n      This field is deprecated. ${cleanDescription(getDeprecationReason(field))}\n    </Warning>`;
+          content += `\n  \n  <Warning>\n    This field is deprecated. ${cleanDescription(getDeprecationReason(field))}\n  </Warning>`;
         }
 
-        if (shouldLink) {
-          content += `\n  </ResponseField>
-</a>
+        content += `\n</ResponseField>
 
 `;
-        } else {
-          content += `\n</ResponseField>
-
-`;
-        }
       });
     }
-  } else if (isEnumType(type)) {
+
+    // Add GraphQL schema definition
+    const schemaDefinition = generateGraphQLSchema(type);
+    if (schemaDefinition) {
+      content += `\`\`\`graphql \n${schemaDefinition}\n\`\`\`\n\n`;
+    }
+
+    content += `---\n\n`;
+  });
+
+  return content;
+}
+
+// Generate consolidated documentation for enums
+function generateEnumsDoc(types) {
+  let content = `---
+title: "Enums"
+description: "All enum types in the GraphQL schema"
+noindex: true
+---
+
+`;
+
+  types.forEach(type => {
+    const description = cleanDescription(type.description);
+
+    content += `## ${type.name}\n\n`;
+
+    if (description) {
+      content += `${description}\n\n`;
+    }
+
+    // Add deprecation warning for the type itself if deprecated
+    if (isDeprecated(type)) {
+      content += `<Warning>
+  This type is deprecated. ${cleanDescription(getDeprecationReason(type))}
+</Warning>
+
+`;
+    }
+
     const values = type.getValues().filter(value => !shouldHideField(value));
     if (values.length > 0) {
-      content += `### Values\n\n`;
-
       values.forEach(value => {
         const valueDescription = cleanDescription(value.description) || 'No description provided';
 
@@ -400,25 +454,221 @@ noindex: true`;
 `;
       });
     }
-  } else if (isUnionType(type)) {
-    const unionTypes = type.getTypes();
-    content += `### Union Types\n\nThis union can be one of the following types:\n\n`;
-    unionTypes.forEach(unionType => {
-      content += `- ${createTypeLink(unionType.name)}\n`;
+
+    // Add GraphQL schema definition
+    const schemaDefinition = generateGraphQLSchema(type);
+    if (schemaDefinition) {
+      content += `\`\`\`graphql \n${schemaDefinition}\n\`\`\`\n\n`;
+    }
+
+    content += `---\n\n`;
+  });
+
+  return content;
+}
+
+// Generate consolidated documentation for input objects
+function generateInputObjectsDoc(types) {
+  let content = `---
+title: "Input Objects"
+description: "All input object types in the GraphQL schema"
+noindex: true
+---
+
+`;
+
+  types.forEach(type => {
+    const description = cleanDescription(type.description);
+
+    content += `## ${type.name}\n\n`;
+
+    if (description) {
+      content += `${description}\n\n`;
+    }
+
+    // Add deprecation warning for the type itself if deprecated
+    if (isDeprecated(type)) {
+      content += `<Warning>
+  This type is deprecated. ${cleanDescription(getDeprecationReason(type))}
+</Warning>
+
+`;
+    }
+
+    const fields = Object.values(type.getFields());
+    const visibleFields = fields.filter(field => !shouldHideField(field));
+
+    if (visibleFields.length > 0) {
+      visibleFields.forEach(field => {
+        const typeName = formatType(field.type);
+        const required = isFieldRequired(field.type);
+        const fieldDescription = cleanDescription(field.description) || 'No description provided';
+
+        content += `<ResponseField name="${field.name}" type="${typeName}"${required ? ' required' : ''}>
+  ${fieldDescription}`;
+
+        // Add deprecation warning for the field if deprecated
+        if (isDeprecated(field)) {
+          content += `\n  \n  <Warning>\n    This field is deprecated. ${cleanDescription(getDeprecationReason(field))}\n  </Warning>`;
+        }
+
+        content += `\n</ResponseField>
+
+`;
+      });
+    }
+
+    // Add GraphQL schema definition
+    const schemaDefinition = generateGraphQLSchema(type);
+    if (schemaDefinition) {
+      content += `\`\`\`graphql \n${schemaDefinition}\n\`\`\`\n\n`;
+    }
+
+    content += `---\n\n`;
+  });
+
+  return content;
+}
+
+// Generate consolidated documentation for unions and interfaces
+function generateUnionsAndInterfacesDoc(unions, interfaces, scalars) {
+  let content = `---
+title: "Unions and Interfaces"
+description: "All union types, interface types, and custom scalar types in the GraphQL schema"
+noindex: true
+---
+
+`;
+
+  // Add unions
+  if (unions.length > 0) {
+    content += `# Union Types\n\n`;
+
+    unions.forEach(type => {
+      const description = cleanDescription(type.description);
+
+      content += `### ${type.name}\n\n`;
+
+      if (description) {
+        content += `${description}\n\n`;
+      }
+
+      // Add deprecation warning for the type itself if deprecated
+      if (isDeprecated(type)) {
+        content += `<Warning>
+  This type is deprecated. ${cleanDescription(getDeprecationReason(type))}
+</Warning>
+
+`;
+      }
+
+      const unionTypes = type.getTypes();
+      content += `This union can be one of the following types:\n\n`;
+      unionTypes.forEach(unionType => {
+        content += `- ${unionType.name}\n`;
+      });
+      content += `\n`;
+
+      // Add GraphQL schema definition
+      const schemaDefinition = generateGraphQLSchema(type);
+      if (schemaDefinition) {
+        content += `\`\`\`graphql \n${schemaDefinition}\n\`\`\`\n\n`;
+      }
+
+      content += `---\n\n`;
     });
-    content += `\n`;
-  } else if (isScalarType(type)) {
-    content += `### Description\n\nThis is a custom scalar type.\n\n`;
   }
 
-  // Add GraphQL schema definition at the end
-  const schemaDefinition = generateGraphQLSchema(type);
-  if (schemaDefinition) {
-    content += `### Schema\n\n`;
-    content += `\n\`\`\`graphql \n${schemaDefinition}\n\`\`\`\n`;
+  // Add interfaces
+  if (interfaces.length > 0) {
+    content += `# Interface Types\n\n`;
+
+    interfaces.forEach(type => {
+      const description = cleanDescription(type.description);
+
+      content += `### ${type.name}\n\n`;
+
+      if (description) {
+        content += `${description}\n\n`;
+      }
+
+      // Add deprecation warning for the type itself if deprecated
+      if (isDeprecated(type)) {
+        content += `<Warning>
+  This type is deprecated. ${cleanDescription(getDeprecationReason(type))}
+</Warning>
+
+`;
+      }
+
+      const fields = Object.values(type.getFields());
+      const visibleFields = fields.filter(field => !shouldHideField(field));
+
+      if (visibleFields.length > 0) {
+        visibleFields.forEach(field => {
+          const typeName = formatType(field.type);
+          const required = isFieldRequired(field.type);
+          const fieldDescription = cleanDescription(field.description) || 'No description provided';
+
+          content += `<ResponseField name="${field.name}" type="${typeName}"${required ? ' required' : ''}>
+  ${fieldDescription}`;
+
+          // Add deprecation warning for the field if deprecated
+          if (isDeprecated(field)) {
+            content += `\n  \n  <Warning>\n    This field is deprecated. ${cleanDescription(getDeprecationReason(field))}\n  </Warning>`;
+          }
+
+          content += `\n</ResponseField>
+
+`;
+        });
+      }
+
+      // Add GraphQL schema definition
+      const schemaDefinition = generateGraphQLSchema(type);
+      if (schemaDefinition) {
+        content += `\`\`\`graphql \n${schemaDefinition}\n\`\`\`\n\n`;
+      }
+
+      content += `---\n\n`;
+    });
   }
 
-  return { content, metadata };
+  // Add custom scalars
+  if (scalars.length > 0) {
+    content += `# Custom Scalar Types\n\n`;
+
+    scalars.forEach(type => {
+      const description = cleanDescription(type.description);
+
+      content += `### ${type.name}\n\n`;
+
+      if (description) {
+        content += `${description}\n\n`;
+      } else {
+        content += `This is a custom scalar type.\n\n`;
+      }
+
+      // Add deprecation warning for the type itself if deprecated
+      if (isDeprecated(type)) {
+        content += `<Warning>
+  This type is deprecated. ${cleanDescription(getDeprecationReason(type))}
+</Warning>
+
+`;
+      }
+
+      // Add GraphQL schema definition
+      const schemaDefinition = generateGraphQLSchema(type);
+      if (schemaDefinition) {
+        content += `\`\`\`graphql \n${schemaDefinition}\n\`\`\`\n\n`;
+      }
+
+      content += `---\n\n`;
+    });
+  }
+
+  return content;
 }
 
 // Helper function to read existing docs.json
@@ -590,49 +840,11 @@ function updateDocsJson(navigation) {
       });
     }
 
-    // Add type groups (categorized like operations)
-    function createTypeCategoryGroups(typesByCategory) {
-      const categories = Object.keys(typesByCategory).sort();
-      return categories.map(category => {
-        const types = typesByCategory[category];
-        const categoryDisplayName = category.charAt(0).toUpperCase() + category.slice(1);
-
-        return {
-          group: categoryDisplayName,
-          pages: types.map(type => type.path)
-        };
-      });
-    }
-
-    // Add Types group with categories
-    if (Object.keys(navigation.typesByCategory.types).length > 0) {
+    // Add consolidated Types group
+    if (navigation.types.length > 0) {
       newGroups.push({
         group: 'Types',
-        pages: createTypeCategoryGroups(navigation.typesByCategory.types)
-      });
-    }
-
-    // Add Enums group with categories
-    if (Object.keys(navigation.typesByCategory.enums).length > 0) {
-      newGroups.push({
-        group: 'Enums',
-        pages: createTypeCategoryGroups(navigation.typesByCategory.enums)
-      });
-    }
-
-    // Add Input Objects group with categories
-    if (Object.keys(navigation.typesByCategory.inputs).length > 0) {
-      newGroups.push({
-        group: 'Input Objects',
-        pages: createTypeCategoryGroups(navigation.typesByCategory.inputs)
-      });
-    }
-
-    // Add Unions and Interfaces group with categories
-    if (Object.keys(navigation.typesByCategory.unionsAndInterfaces).length > 0) {
-      newGroups.push({
-        group: 'Unions and Interfaces',
-        pages: createTypeCategoryGroups(navigation.typesByCategory.unionsAndInterfaces)
+        pages: navigation.types.map(typeGroup => typeGroup.path)
       });
     }
 
@@ -643,31 +855,28 @@ function updateDocsJson(navigation) {
 
     // Log changes
     const currentOperations = new Set(navigation.operations.map(op => path.basename(op.path)));
-    const currentTypes = new Set(navigation.types.map(type => path.basename(type.path)));
-    const currentEnums = new Set(navigation.types.filter(type => type.typeCategory === 'enums').map(type => path.basename(type.path)));
-    const currentInputObjects = new Set(navigation.types.filter(type => type.typeCategory === 'inputs').map(type => path.basename(type.path)));
-    const currentUnionsAndInterfaces = new Set(navigation.types.filter(type => type.typeCategory === 'unionsAndInterfaces').map(type => path.basename(type.path)));
+    const currentConsolidatedTypes = new Set(navigation.types.map(type => path.basename(type.path)));
 
-    // Log added and removed pages
-    const changeCategories = [
-      { name: 'operations', existing: existingPages.operations, current: currentOperations },
-      { name: 'types', existing: existingPages.types, current: currentTypes },
-      { name: 'enums', existing: existingPages.enums, current: currentEnums },
-      { name: 'input objects', existing: existingPages.inputObjects, current: currentInputObjects },
-      { name: 'unions and interfaces', existing: existingPages.unionsAndInterfaces, current: currentUnionsAndInterfaces }
-    ];
+    // Log operation changes
+    const addedOperations = [...currentOperations].filter(x => !existingPages.operations.has(x));
+    const removedOperations = [...existingPages.operations].filter(x => !currentOperations.has(x));
 
-    changeCategories.forEach(({ name, existing, current }) => {
-      const added = [...current].filter(x => !existing.has(x));
-      const removed = [...existing].filter(x => !current.has(x));
+    if (addedOperations.length > 0) {
+      console.log(`➕ Added operations: ${addedOperations.join(', ')}`);
+    }
+    if (removedOperations.length > 0) {
+      console.log(`➖ Removed operations: ${removedOperations.join(', ')}`);
+    }
 
-      if (added.length > 0) {
-        console.log(`➕ Added ${name}: ${added.join(', ')}`);
-      }
-      if (removed.length > 0) {
-        console.log(`➖ Removed ${name}: ${removed.join(', ')}`);
-      }
-    });
+    // Log type structure changes
+    const totalExistingTypes = existingPages.types.size + existingPages.enums.size + existingPages.inputObjects.size + existingPages.unionsAndInterfaces.size;
+    const totalCurrentTypes = currentConsolidatedTypes.size;
+
+    if (totalExistingTypes > 0) {
+      console.log(`🔄 Converted ${totalExistingTypes} individual type pages to ${totalCurrentTypes} consolidated pages`);
+    } else if (totalCurrentTypes > 0) {
+      console.log(`➕ Added ${totalCurrentTypes} consolidated type pages`);
+    }
 
     // Log category information by operation type
     console.log(`📁 Generated navigation structure:`);
@@ -696,25 +905,13 @@ function updateDocsJson(navigation) {
       });
     }
 
-    // Log type category information
-    const typeCategories = ['types', 'enums', 'inputs', 'unionsAndInterfaces'];
-    const typeCategoryNames = {
-      types: 'Types',
-      enums: 'Enums',
-      inputs: 'Input Objects',
-      unionsAndInterfaces: 'Unions and Interfaces'
-    };
-
-    typeCategories.forEach(typeCategory => {
-      const categoriesForType = navigation.typesByCategory[typeCategory];
-      if (Object.keys(categoriesForType).length > 0) {
-        console.log(`  ${typeCategoryNames[typeCategory]}: ${Object.keys(categoriesForType).length} categories`);
-        Object.keys(categoriesForType).sort().forEach(category => {
-          const count = categoriesForType[category].length;
-          console.log(`    - ${category}: ${count} ${typeCategory}`);
-        });
-      }
-    });
+    // Log consolidated type information
+    if (navigation.types.length > 0) {
+      console.log(`  Consolidated Type Pages: ${navigation.types.length} pages`);
+      navigation.types.forEach(typeGroup => {
+        console.log(`    - ${typeGroup.name}: 1 consolidated page`);
+      });
+    }
 
   } catch (error) {
     console.error('❌ Error updating docs.json navigation:', error.message);
@@ -727,63 +924,56 @@ function removeOutdatedFiles(currentNavigation, apiRefDir) {
   const existingPages = getExistingApiPages(docsData);
 
   const currentOperations = new Set(currentNavigation.operations.map(op => path.basename(op.path)));
-  const currentTypes = new Set(currentNavigation.types.map(type => path.basename(type.path)));
-  const currentEnums = new Set(currentNavigation.types.filter(type => type.typeCategory === 'enums').map(type => path.basename(type.path)));
-  const currentInputObjects = new Set(currentNavigation.types.filter(type => type.typeCategory === 'inputs').map(type => path.basename(type.path)));
-  const currentUnionsAndInterfaces = new Set(currentNavigation.types.filter(type => type.typeCategory === 'unionsAndInterfaces').map(type => path.basename(type.path)));
 
-  const currentPages = {
-    operations: currentOperations,
-    types: currentTypes,
-    enums: currentEnums,
-    inputObjects: currentInputObjects,
-    unionsAndInterfaces: currentUnionsAndInterfaces
-  };
-
-  const dirMap = {
-    operations: ['queries', 'mutations', 'subscriptions'], // Operations can be in any of these directories
-    types: ['types'],
-    enums: ['types'],
-    inputObjects: ['types'],
-    unionsAndInterfaces: ['types']
-  };
+  // For consolidated pages, we need a different approach
+  const currentConsolidatedPages = new Set(['index.mdx']); // All consolidated pages use index.mdx
 
   let removedCount = 0;
 
-  Object.keys(existingPages).forEach(category => {
-    const existing = existingPages[category];
-    const current = currentPages[category];
-    const dirNames = dirMap[category];
+  // Remove individual type files (since we now use consolidated pages)
+  const typeDirectories = ['types', 'enums', 'input-objects', 'unions-and-interfaces'];
 
-    const toRemove = [...existing].filter(x => !current.has(x));
+  typeDirectories.forEach(dirName => {
+    const dirPath = path.join(apiRefDir, dirName);
+    if (fs.existsSync(dirPath)) {
+      const files = fs.readdirSync(dirPath);
+      files.forEach(fileName => {
+        const filePath = path.join(dirPath, fileName);
 
-    toRemove.forEach(fileName => {
-      // For operations, check all possible directories
-      if (category === 'operations') {
-        dirNames.forEach(dirName => {
-          const filePath = path.join(apiRefDir, dirName, `${fileName}.mdx`);
-          if (fs.existsSync(filePath)) {
+        // Keep only index.mdx files for consolidated pages, remove individual type files
+        if (fileName !== 'index.mdx' && fileName.endsWith('.mdx')) {
+          fs.unlinkSync(filePath);
+          removedCount++;
+          console.log(`🗑️ Removed individual type file: ${dirName}/${fileName}`);
+        }
+      });
+    }
+  });
+
+  // Handle operations (keep existing logic for operations)
+  const operationDirectories = ['queries', 'mutations', 'subscriptions'];
+  operationDirectories.forEach(dirName => {
+    const dirPath = path.join(apiRefDir, dirName);
+    if (fs.existsSync(dirPath)) {
+      const files = fs.readdirSync(dirPath);
+      files.forEach(fileName => {
+        if (fileName.endsWith('.mdx')) {
+          const baseName = path.basename(fileName, '.mdx');
+          if (!currentOperations.has(baseName)) {
+            const filePath = path.join(dirPath, fileName);
             fs.unlinkSync(filePath);
             removedCount++;
-            console.log(`🗑️ Removed outdated file: ${dirName}/${fileName}.mdx`);
+            console.log(`🗑️ Removed outdated operation file: ${dirName}/${fileName}`);
           }
-        });
-      } else {
-        // For types, only check the types directory
-        dirNames.forEach(dirName => {
-          const filePath = path.join(apiRefDir, dirName, `${fileName}.mdx`);
-          if (fs.existsSync(filePath)) {
-            fs.unlinkSync(filePath);
-            removedCount++;
-            console.log(`🗑️ Removed outdated file: ${dirName}/${fileName}.mdx`);
-          }
-        });
-      }
-    });
+        }
+      });
+    }
   });
 
   if (removedCount === 0) {
     console.log('✅ No outdated files to remove');
+  } else {
+    console.log(`🧹 Removed ${removedCount} outdated files`);
   }
 }
 
@@ -1120,7 +1310,7 @@ function generateGraphQLDocs() {
 
   // Create directories
   const apiRefDir = path.join(__dirname, 'api-reference');
-  const dirs = ['queries', 'mutations', 'subscriptions', 'types'];
+  const dirs = ['queries', 'mutations', 'subscriptions', 'types', 'enums', 'input-objects', 'unions-and-interfaces'];
 
   dirs.forEach(dir => {
     const dirPath = path.join(apiRefDir, dir);
@@ -1132,10 +1322,13 @@ function generateGraphQLDocs() {
   // Collect all operations with their metadata for categorization
   const allOperations = [];
 
+  // Prepare type categorization for linking
+  const typeCategories = { objects, enums, unions, inputs, scalars, interfaces };
+
   // Generate query documentation and collect metadata
   console.log(`📝 Generating ${queries.length} query pages...`);
   queries.forEach(query => {
-    const { content, metadata } = generateOperationDoc(query, 'Query');
+    const { content, metadata } = generateOperationDoc(query, 'Query', typeCategories);
     const filePath = path.join(apiRefDir, 'queries', `${createSlug(query.name)}.mdx`);
     fs.writeFileSync(filePath, content);
 
@@ -1151,7 +1344,7 @@ function generateGraphQLDocs() {
   // Generate mutation documentation and collect metadata
   console.log(`📝 Generating ${mutations.length} mutation pages...`);
   mutations.forEach(mutation => {
-    const { content, metadata } = generateOperationDoc(mutation, 'Mutation');
+    const { content, metadata } = generateOperationDoc(mutation, 'Mutation', typeCategories);
     const filePath = path.join(apiRefDir, 'mutations', `${createSlug(mutation.name)}.mdx`);
     fs.writeFileSync(filePath, content);
 
@@ -1167,7 +1360,7 @@ function generateGraphQLDocs() {
   // Generate subscription documentation and collect metadata
   console.log(`📝 Generating ${subscriptions.length} subscription pages...`);
   subscriptions.forEach(subscription => {
-    const { content, metadata } = generateOperationDoc(subscription, 'Subscription');
+    const { content, metadata } = generateOperationDoc(subscription, 'Subscription', typeCategories);
     const filePath = path.join(apiRefDir, 'subscriptions', `${createSlug(subscription.name)}.mdx`);
     fs.writeFileSync(filePath, content);
 
@@ -1180,63 +1373,37 @@ function generateGraphQLDocs() {
     });
   });
 
-  // Generate type documentation (all types go in the types directory for linking)
-  const allTypesToGenerate = [...objects, ...enums, ...unions, ...inputs, ...scalars, ...interfaces];
-  console.log(`📝 Generating ${allTypesToGenerate.length} type pages...`);
+  // Generate consolidated type documentation
+  console.log(`📝 Generating consolidated type pages...`);
 
-  // Collect all types with their metadata for categorization
-  const categorizedTypes = [];
+  // Generate consolidated pages
+  if (objects.length > 0) {
+    console.log(`📝 Generating types page with ${objects.length} object types...`);
+    const objectTypesContent = generateObjectTypesDoc(objects.sort((a, b) => a.name.localeCompare(b.name)));
+    fs.writeFileSync(path.join(apiRefDir, 'types', 'index.mdx'), objectTypesContent);
+  }
 
-  allTypesToGenerate.forEach(type => {
-    const { content, metadata } = generateTypeDoc(type);
-    const filePath = path.join(apiRefDir, 'types', `${createSlug(type.name)}.mdx`);
-    fs.writeFileSync(filePath, content);
+  if (enums.length > 0) {
+    console.log(`📝 Generating enums page with ${enums.length} enum types...`);
+    const enumsContent = generateEnumsDoc(enums.sort((a, b) => a.name.localeCompare(b.name)));
+    fs.writeFileSync(path.join(apiRefDir, 'enums', 'index.mdx'), enumsContent);
+  }
 
-    // Determine type category
-    let typeCategory;
-    if (isObjectType(type) || isScalarType(type)) {
-      typeCategory = 'types';
-    } else if (isEnumType(type)) {
-      typeCategory = 'enums';
-    } else if (isInputObjectType(type)) {
-      typeCategory = 'inputs';
-    } else if (isUnionType(type) || isInterfaceType(type)) {
-      typeCategory = 'unionsAndInterfaces';
-    }
+  if (inputs.length > 0) {
+    console.log(`📝 Generating input objects page with ${inputs.length} input types...`);
+    const inputObjectsContent = generateInputObjectsDoc(inputs.sort((a, b) => a.name.localeCompare(b.name)));
+    fs.writeFileSync(path.join(apiRefDir, 'input-objects', 'index.mdx'), inputObjectsContent);
+  }
 
-    categorizedTypes.push({
-      name: type.name,
-      slug: createSlug(type.name),
-      typeCategory,
-      category: metadata.category || 'uncategorized',
-      path: `api-reference/types/${createSlug(type.name)}`
-    });
-  });
-
-  // Group types by their type category and then by metadata category
-  const typesByCategory = {
-    types: {},
-    enums: {},
-    inputs: {},
-    unionsAndInterfaces: {}
-  };
-
-  categorizedTypes.forEach(type => {
-    const typeCategory = type.typeCategory;
-    const metadataCategory = type.category;
-
-    if (!typesByCategory[typeCategory][metadataCategory]) {
-      typesByCategory[typeCategory][metadataCategory] = [];
-    }
-    typesByCategory[typeCategory][metadataCategory].push(type);
-  });
-
-  // Sort types within each category alphabetically
-  Object.keys(typesByCategory).forEach(typeCategory => {
-    Object.keys(typesByCategory[typeCategory]).forEach(metadataCategory => {
-      typesByCategory[typeCategory][metadataCategory].sort((a, b) => a.name.localeCompare(b.name));
-    });
-  });
+  if (unions.length > 0 || interfaces.length > 0 || scalars.length > 0) {
+    console.log(`📝 Generating unions and interfaces page with ${unions.length} unions, ${interfaces.length} interfaces, and ${scalars.length} scalars...`);
+    const unionsAndInterfacesContent = generateUnionsAndInterfacesDoc(
+      unions.sort((a, b) => a.name.localeCompare(b.name)),
+      interfaces.sort((a, b) => a.name.localeCompare(b.name)),
+      scalars.sort((a, b) => a.name.localeCompare(b.name))
+    );
+    fs.writeFileSync(path.join(apiRefDir, 'unions-and-interfaces', 'index.mdx'), unionsAndInterfacesContent);
+  }
 
   // Group operations by category and sort alphabetically within each category
   const operationsByCategory = {};
@@ -1253,17 +1420,50 @@ function generateGraphQLDocs() {
   });
 
   // Generate current navigation structure
+  const consolidatedTypes = [];
+
+    if (objects.length > 0) {
+    consolidatedTypes.push({
+      name: 'Object Types',
+      path: 'api-reference/types/index',
+      typeCategory: 'types'
+    });
+  }
+
+  if (enums.length > 0) {
+    consolidatedTypes.push({
+      name: 'Enums',
+      path: 'api-reference/enums/index',
+      typeCategory: 'enums'
+    });
+  }
+
+  if (inputs.length > 0) {
+    consolidatedTypes.push({
+      name: 'Input Objects',
+      path: 'api-reference/input-objects/index',
+      typeCategory: 'inputs'
+    });
+  }
+
+  if (unions.length > 0 || interfaces.length > 0 || scalars.length > 0) {
+    consolidatedTypes.push({
+      name: 'Unions and Interfaces',
+      path: 'api-reference/unions-and-interfaces/index',
+      typeCategory: 'unionsAndInterfaces'
+    });
+  }
+
   const currentNavigation = {
     operations: allOperations,
     operationsByCategory,
-    types: categorizedTypes,
-    typesByCategory,
-    objects: objects.map(t => `api-reference/types/${createSlug(t.name)}`),
-    enums: enums.map(t => `api-reference/types/${createSlug(t.name)}`),
-    unions: unions.map(t => `api-reference/types/${createSlug(t.name)}`),
-    inputs: inputs.map(t => `api-reference/types/${createSlug(t.name)}`),
-    scalars: scalars.map(t => `api-reference/types/${createSlug(t.name)}`),
-    interfaces: interfaces.map(t => `api-reference/types/${createSlug(t.name)}`)
+    types: consolidatedTypes,
+    typesByCategory: {
+      types: objects.length > 0 ? { 'consolidated': [{ name: 'Object Types', path: 'api-reference/types/index' }] } : {},
+      enums: enums.length > 0 ? { 'consolidated': [{ name: 'Enums', path: 'api-reference/enums/index' }] } : {},
+      inputs: inputs.length > 0 ? { 'consolidated': [{ name: 'Input Objects', path: 'api-reference/input-objects/index' }] } : {},
+      unionsAndInterfaces: (unions.length > 0 || interfaces.length > 0 || scalars.length > 0) ? { 'consolidated': [{ name: 'Unions and Interfaces', path: 'api-reference/unions-and-interfaces/index' }] } : {}
+    }
   };
 
   // Remove outdated files before generating new ones
@@ -1283,7 +1483,17 @@ function generateGraphQLDocs() {
   - ${queries.length} queries
   - ${mutations.length} mutations
   - ${subscriptions.length} subscriptions
-  - ${allTypesToGenerate.length} types (${objects.length} objects, ${enums.length} enums, ${unions.length} unions, ${inputs.length} inputs, ${scalars.length} scalars, ${interfaces.length} interfaces)`);
+  - ${consolidatedTypes.length} consolidated type pages:`);
+
+  consolidatedTypes.forEach(type => {
+    let count = 0;
+    if (type.typeCategory === 'types') count = objects.length;
+    else if (type.typeCategory === 'enums') count = enums.length;
+    else if (type.typeCategory === 'inputs') count = inputs.length;
+    else if (type.typeCategory === 'unionsAndInterfaces') count = unions.length + interfaces.length + scalars.length;
+
+    console.log(`    - ${type.name}: ${count} types`);
+  });
 
   console.log('\n📋 Updated docs.json with new navigation structure');
   console.log('📄 Check generated-navigation.json for the complete list of pages');

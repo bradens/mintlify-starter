@@ -1,0 +1,5911 @@
+---
+title: "Input Objects"
+description: "All input object types in the GraphQL schema"
+noindex: true
+---
+
+## BalancesInput
+
+<ResponseField name="walletAddress" type="String">
+  The wallet address to filter by.
+</ResponseField>
+
+<ResponseField name="networks" type="[Int!]">
+  The network IDs to filter by.
+</ResponseField>
+
+<ResponseField name="tokens" type="[String!]">
+  The token IDs (`address:networkId`) or addresses to request the balance for. Requires a list of `networks` if only passing addresses. Include native network balances using `native` as the token address. Only applied when using `walletAddress` (not `walletId`). Max 200 tokens.
+</ResponseField>
+
+<ResponseField name="includeNative" type="Boolean">
+  Whether to include native network balances in the response (ID will be native:&lt;networkId&gt;). Requires a list of `networks`. Does not apply when using `tokens`.
+</ResponseField>
+
+<ResponseField name="limit" type="Int">
+  The maximum number of holdings to return. Does not apply when using `tokens`.
+</ResponseField>
+
+<ResponseField name="cursor" type="String">
+  A cursor for use in pagination.
+</ResponseField>
+
+<ResponseField name="removeScams" type="Boolean">
+  Whether to remove scam tokens from the response.
+</ResponseField>
+
+<ResponseField name="walletId" type="String">
+  The ID of the wallet (`walletAddress:networkId`).
+  
+  <Warning>
+    This field is deprecated. Use walletAddress and networkId instead
+  </Warning>
+</ResponseField>
+
+<ResponseField name="filterToken" type="String">
+  Optional token specifically request the balance for. Only works with `walletId`.
+  
+  <Warning>
+    This field is deprecated. Use tokens list instead
+  </Warning>
+</ResponseField>
+
+```graphql 
+input BalancesInput {
+  """The wallet address to filter by."""
+  walletAddress: String
+  """The network IDs to filter by."""
+  networks: [Int!]
+  """The token IDs (`address:networkId`) or addresses to request the balance for. Requires a list of `networks` if only passing addresses. Include native network balances using `native` as the token address. Only applied when using `walletAddress` (not `walletId`). Max 200 tokens."""
+  tokens: [String!]
+  """Whether to include native network balances in the response (ID will be native:&lt;networkId&gt;). Requires a list of `networks`. Does not apply when using `tokens`."""
+  includeNative: Boolean
+  """The maximum number of holdings to return. Does not apply when using `tokens`."""
+  limit: Int
+  """A cursor for use in pagination."""
+  cursor: String
+  """Whether to remove scam tokens from the response."""
+  removeScams: Boolean
+  """The ID of the wallet (`walletAddress:networkId`)."""
+  walletId: String @deprecated(reason: "Use walletAddress and networkId instead")
+  """Optional token specifically request the balance for. Only works with `walletId`."""
+  filterToken: String @deprecated(reason: "Use tokens list instead")
+}
+```
+
+---
+
+## ChartImageOptions
+
+Input options for the chart image.
+
+<ResponseField name="expirationSeconds" type="Int">
+  The expiry time of the image in seconds. Max: 172800 (2 days). Default: 900 (15 minutes).
+</ResponseField>
+
+<ResponseField name="width" type="Int">
+  The width of the image in pixels. Max: 1200. Default: 800.
+</ResponseField>
+
+<ResponseField name="height" type="Int">
+  The height of the image in pixels. Max: 1200. Default: 450.
+</ResponseField>
+
+```graphql 
+"""Input options for the chart image."""
+input ChartImageOptions {
+  """The expiry time of the image in seconds. Max: 172800 (2 days). Default: 900 (15 minutes)."""
+  expirationSeconds: Int
+  """The width of the image in pixels. Max: 1200. Default: 800."""
+  width: Int
+  """The height of the image in pixels. Max: 1200. Default: 450."""
+  height: Int
+}
+```
+
+---
+
+## ChartInput
+
+Input type of `chartUrls`.
+
+<ResponseField name="pair" type="PairChartInput">
+  The input required to fetch a pair chart.
+</ResponseField>
+
+```graphql 
+"""Input type of `chartUrls`."""
+input ChartInput {
+  """The input required to fetch a pair chart."""
+  pair: PairChartInput
+}
+```
+
+---
+
+## CommunityNotesFilter
+
+Filters for community notes.
+
+<ResponseField name="address" type="String">
+  The contract address of the contract.
+</ResponseField>
+
+<ResponseField name="contractType" type="ContractType">
+  No description provided
+</ResponseField>
+
+<ResponseField name="networkId" type="[Int]">
+  The network ID the contract is deployed on.
+</ResponseField>
+
+<ResponseField name="proposalType" type="CommunityNoteType">
+  The type of the proposal.
+</ResponseField>
+
+```graphql 
+"""Filters for community notes."""
+input CommunityNotesFilter {
+  """The contract address of the contract."""
+  address: String
+  contractType: ContractType
+  """The network ID the contract is deployed on."""
+  networkId: [Int]
+  """The type of the proposal."""
+  proposalType: CommunityNoteType
+}
+```
+
+---
+
+## CommunityNotesInput
+
+Input type of `getCommunityNotes`.
+
+<ResponseField name="filter" type="CommunityNotesFilter">
+  A set of filters to apply
+</ResponseField>
+
+<ResponseField name="limit" type="Int">
+  The maximum number of community notes to return.
+</ResponseField>
+
+<ResponseField name="cursor" type="String">
+  The cursor to use for pagination.
+</ResponseField>
+
+```graphql 
+"""Input type of `getCommunityNotes`."""
+input CommunityNotesInput {
+  """A set of filters to apply"""
+  filter: CommunityNotesFilter
+  """The maximum number of community notes to return."""
+  limit: Int
+  """The cursor to use for pagination."""
+  cursor: String
+}
+```
+
+---
+
+## ComparisonOperatorInput
+
+Input for comparison operators.
+
+<ResponseField name="gt" type="String">
+  Greater than.
+</ResponseField>
+
+<ResponseField name="gte" type="String">
+  Greater than or equal.
+</ResponseField>
+
+<ResponseField name="lt" type="String">
+  Less than.
+</ResponseField>
+
+<ResponseField name="lte" type="String">
+  Less than or equal.
+</ResponseField>
+
+<ResponseField name="eq" type="String">
+  Equal to.
+</ResponseField>
+
+```graphql 
+"""Input for comparison operators."""
+input ComparisonOperatorInput {
+  """Greater than."""
+  gt: String
+  """Greater than or equal."""
+  gte: String
+  """Less than."""
+  lt: String
+  """Less than or equal."""
+  lte: String
+  """Equal to."""
+  eq: String
+}
+```
+
+---
+
+## CreateApiTokensInput
+
+<ResponseField name="count" type="Int">
+  Number of tokens to create, default is 1
+</ResponseField>
+
+<ResponseField name="requestLimit" type="String">
+  Number of requests allowed per token, represented as a string, default is 5000
+</ResponseField>
+
+<ResponseField name="expiresIn" type="Int">
+  Number of seconds until the token expires, defaults to 1 hour (3600)
+</ResponseField>
+
+```graphql 
+input CreateApiTokensInput {
+  """Number of tokens to create, default is 1"""
+  count: Int
+  """Number of requests allowed per token, represented as a string, default is 5000"""
+  requestLimit: String
+  """Number of seconds until the token expires, defaults to 1 hour (3600)"""
+  expiresIn: Int
+}
+```
+
+---
+
+## CreateMarketCapWebhookArgs
+
+Input for creating a market cap webhook.
+
+<ResponseField name="name" type="String!" required>
+  The name of the webhook (max 128 characters).
+</ResponseField>
+
+<ResponseField name="callbackUrl" type="String!" required>
+  The url to which the webhook message should be sent.
+</ResponseField>
+
+<ResponseField name="securityToken" type="String!" required>
+  A string value to hash along with `deduplicationId` using SHA-256. Included in the webhook message for added security.
+</ResponseField>
+
+<ResponseField name="alertRecurrence" type="AlertRecurrence!" required>
+  The recurrence of the webhook. Can be `INDEFINITE` or `ONCE`.
+</ResponseField>
+
+<ResponseField name="groupId" type="String">
+  A webhook group ID (max 64 characters). Can be used to group webhooks so that their messages are kept in order as a group rather than by individual webhook.
+</ResponseField>
+
+<ResponseField name="conditions" type="MarketCapEventWebhookConditionInput!" required>
+  The conditions which must be met in order for the webhook to send a message.
+</ResponseField>
+
+<ResponseField name="retrySettings" type="RetrySettingsInput">
+  The settings for retrying failed webhook messages.
+</ResponseField>
+
+<ResponseField name="bucketId" type="String">
+  An optional bucket ID (max 64 characters). Can be used to query for subgroups of webhooks (useful if you have a large number of webhooks).
+</ResponseField>
+
+<ResponseField name="bucketSortkey" type="String">
+  An optional bucket sort key (max 64 characters). Can be used to query for subgroups of webhooks (useful if you have a large number of webhooks).
+</ResponseField>
+
+<ResponseField name="publishingType" type="PublishingType">
+  The type of publishing for the webhook. If not set, it defaults to `SINGLE`.
+</ResponseField>
+
+<ResponseField name="deduplicate" type="Boolean">
+  If enabled, new webhooks won't be created if a webhook with the same parameters already exists. If callbackUrl, conditions, publishingType, and alertRecurrence all match, then we return the existing webhook.
+</ResponseField>
+
+```graphql 
+"""Input for creating a market cap webhook."""
+input CreateMarketCapWebhookArgs {
+  """The name of the webhook (max 128 characters)."""
+  name: String!
+  """The url to which the webhook message should be sent."""
+  callbackUrl: String!
+  """A string value to hash along with `deduplicationId` using SHA-256. Included in the webhook message for added security."""
+  securityToken: String!
+  """The recurrence of the webhook. Can be `INDEFINITE` or `ONCE`."""
+  alertRecurrence: AlertRecurrence!
+  """A webhook group ID (max 64 characters). Can be used to group webhooks so that their messages are kept in order as a group rather than by individual webhook."""
+  groupId: String
+  """The conditions which must be met in order for the webhook to send a message."""
+  conditions: MarketCapEventWebhookConditionInput!
+  """The settings for retrying failed webhook messages."""
+  retrySettings: RetrySettingsInput
+  """An optional bucket ID (max 64 characters). Can be used to query for subgroups of webhooks (useful if you have a large number of webhooks)."""
+  bucketId: String
+  """An optional bucket sort key (max 64 characters). Can be used to query for subgroups of webhooks (useful if you have a large number of webhooks)."""
+  bucketSortkey: String
+  """The type of publishing for the webhook. If not set, it defaults to `SINGLE`."""
+  publishingType: PublishingType
+  """If enabled, new webhooks won't be created if a webhook with the same parameters already exists. If callbackUrl, conditions, publishingType, and alertRecurrence all match, then we return the existing webhook."""
+  deduplicate: Boolean
+}
+```
+
+---
+
+## CreateMarketCapWebhooksInput
+
+Input for creating market cap webhooks.
+
+<ResponseField name="webhooks" type="[CreateMarketCapWebhookArgs!]!" required>
+  A list of market cap webhooks to create.
+</ResponseField>
+
+```graphql 
+"""Input for creating market cap webhooks."""
+input CreateMarketCapWebhooksInput {
+  """A list of market cap webhooks to create."""
+  webhooks: [CreateMarketCapWebhookArgs!]!
+}
+```
+
+---
+
+## CreateNftEventWebhookArgs
+
+Input for creating an NFT event webhook.
+
+<ResponseField name="name" type="String!" required>
+  The name of the webhook (max 128 characters).
+</ResponseField>
+
+<ResponseField name="callbackUrl" type="String!" required>
+  The url to which the webhook message should be sent.
+</ResponseField>
+
+<ResponseField name="securityToken" type="String!" required>
+  A string value to hash along with `deduplicationId` using SHA-256. Included in the webhook message for added security.
+</ResponseField>
+
+<ResponseField name="alertRecurrence" type="AlertRecurrence!" required>
+  The recurrence of the webhook. Can be `INDEFINITE` or `ONCE`.
+</ResponseField>
+
+<ResponseField name="groupId" type="String">
+  A webhook group ID (max 64 characters). Can be used to group webhooks so that their messages are kept in order as a group rather than by individual webhook.
+</ResponseField>
+
+<ResponseField name="conditions" type="NftEventWebhookConditionInput!" required>
+  The conditions which must be met in order for the webhook to send a message.
+</ResponseField>
+
+<ResponseField name="retrySettings" type="RetrySettingsInput">
+  The settings for retrying failed webhook messages.
+</ResponseField>
+
+<ResponseField name="bucketId" type="String">
+  An optional bucket ID (max 64 characters). Can be used to query for subgroups of webhooks (useful if you have a large number of webhooks).
+</ResponseField>
+
+<ResponseField name="bucketSortkey" type="String">
+  An optional bucket sort key (max 64 characters). Can be used to query for subgroups of webhooks (useful if you have a large number of webhooks).
+</ResponseField>
+
+<ResponseField name="publishingType" type="PublishingType">
+  The type of publishing for the webhook. If not set, it defaults to `SINGLE`.
+</ResponseField>
+
+<ResponseField name="deduplicate" type="Boolean">
+  If enabled, new webhooks won't be created if a webhook with the same parameters already exists. If callbackUrl, conditions, publishingType, and alertRecurrence all match, then we return the existing webhook.
+</ResponseField>
+
+```graphql 
+"""Input for creating an NFT event webhook."""
+input CreateNftEventWebhookArgs {
+  """The name of the webhook (max 128 characters)."""
+  name: String!
+  """The url to which the webhook message should be sent."""
+  callbackUrl: String!
+  """A string value to hash along with `deduplicationId` using SHA-256. Included in the webhook message for added security."""
+  securityToken: String!
+  """The recurrence of the webhook. Can be `INDEFINITE` or `ONCE`."""
+  alertRecurrence: AlertRecurrence!
+  """A webhook group ID (max 64 characters). Can be used to group webhooks so that their messages are kept in order as a group rather than by individual webhook."""
+  groupId: String
+  """The conditions which must be met in order for the webhook to send a message."""
+  conditions: NftEventWebhookConditionInput!
+  """The settings for retrying failed webhook messages."""
+  retrySettings: RetrySettingsInput
+  """An optional bucket ID (max 64 characters). Can be used to query for subgroups of webhooks (useful if you have a large number of webhooks)."""
+  bucketId: String
+  """An optional bucket sort key (max 64 characters). Can be used to query for subgroups of webhooks (useful if you have a large number of webhooks)."""
+  bucketSortkey: String
+  """The type of publishing for the webhook. If not set, it defaults to `SINGLE`."""
+  publishingType: PublishingType
+  """If enabled, new webhooks won't be created if a webhook with the same parameters already exists. If callbackUrl, conditions, publishingType, and alertRecurrence all match, then we return the existing webhook."""
+  deduplicate: Boolean
+}
+```
+
+---
+
+## CreateNftEventWebhooksInput
+
+Input for creating NFT event webhooks.
+
+<ResponseField name="webhooks" type="[CreateNftEventWebhookArgs!]!" required>
+  A list of NFT event webhooks to create.
+</ResponseField>
+
+```graphql 
+"""Input for creating NFT event webhooks."""
+input CreateNftEventWebhooksInput {
+  """A list of NFT event webhooks to create."""
+  webhooks: [CreateNftEventWebhookArgs!]!
+}
+```
+
+---
+
+## CreatePriceWebhookArgs
+
+Input for creating a price webhook.
+
+<ResponseField name="name" type="String!" required>
+  The name of the webhook (max 128 characters).
+</ResponseField>
+
+<ResponseField name="callbackUrl" type="String!" required>
+  The url to which the webhook message should be sent.
+</ResponseField>
+
+<ResponseField name="securityToken" type="String!" required>
+  A string value to hash along with `deduplicationId` using SHA-256. Included in the webhook message for added security.
+</ResponseField>
+
+<ResponseField name="alertRecurrence" type="AlertRecurrence!" required>
+  The recurrence of the webhook. Can be `INDEFINITE` or `ONCE`.
+</ResponseField>
+
+<ResponseField name="groupId" type="String">
+  A webhook group ID (max 64 characters). Can be used to group webhooks so that their messages are kept in order as a group rather than by individual webhook.
+</ResponseField>
+
+<ResponseField name="conditions" type="PriceEventWebhookConditionInput!" required>
+  The conditions which must be met in order for the webhook to send a message.
+</ResponseField>
+
+<ResponseField name="retrySettings" type="RetrySettingsInput">
+  The settings for retrying failed webhook messages.
+</ResponseField>
+
+<ResponseField name="bucketId" type="String">
+  An optional bucket ID (max 64 characters). Can be used to query for subgroups of webhooks (useful if you have a large number of webhooks).
+</ResponseField>
+
+<ResponseField name="bucketSortkey" type="String">
+  An optional bucket sort key (max 64 characters). Can be used to query for subgroups of webhooks (useful if you have a large number of webhooks).
+</ResponseField>
+
+<ResponseField name="publishingType" type="PublishingType">
+  The type of publishing for the webhook. If not set, it defaults to `SINGLE`.
+</ResponseField>
+
+<ResponseField name="deduplicate" type="Boolean">
+  If enabled, new webhooks won't be created if a webhook with the same parameters already exists. If callbackUrl, conditions, publishingType, and alertRecurrence all match, then we return the existing webhook.
+</ResponseField>
+
+```graphql 
+"""Input for creating a price webhook."""
+input CreatePriceWebhookArgs {
+  """The name of the webhook (max 128 characters)."""
+  name: String!
+  """The url to which the webhook message should be sent."""
+  callbackUrl: String!
+  """A string value to hash along with `deduplicationId` using SHA-256. Included in the webhook message for added security."""
+  securityToken: String!
+  """The recurrence of the webhook. Can be `INDEFINITE` or `ONCE`."""
+  alertRecurrence: AlertRecurrence!
+  """A webhook group ID (max 64 characters). Can be used to group webhooks so that their messages are kept in order as a group rather than by individual webhook."""
+  groupId: String
+  """The conditions which must be met in order for the webhook to send a message."""
+  conditions: PriceEventWebhookConditionInput!
+  """The settings for retrying failed webhook messages."""
+  retrySettings: RetrySettingsInput
+  """An optional bucket ID (max 64 characters). Can be used to query for subgroups of webhooks (useful if you have a large number of webhooks)."""
+  bucketId: String
+  """An optional bucket sort key (max 64 characters). Can be used to query for subgroups of webhooks (useful if you have a large number of webhooks)."""
+  bucketSortkey: String
+  """The type of publishing for the webhook. If not set, it defaults to `SINGLE`."""
+  publishingType: PublishingType
+  """If enabled, new webhooks won't be created if a webhook with the same parameters already exists. If callbackUrl, conditions, publishingType, and alertRecurrence all match, then we return the existing webhook."""
+  deduplicate: Boolean
+}
+```
+
+---
+
+## CreatePriceWebhooksInput
+
+Input for creating price webhooks.
+
+<ResponseField name="webhooks" type="[CreatePriceWebhookArgs!]!" required>
+  A list of price webhooks to create.
+</ResponseField>
+
+```graphql 
+"""Input for creating price webhooks."""
+input CreatePriceWebhooksInput {
+  """A list of price webhooks to create."""
+  webhooks: [CreatePriceWebhookArgs!]!
+}
+```
+
+---
+
+## CreateRawTransactionWebhookArgs
+
+Input for creating a Raw Transaction webhook.
+
+<ResponseField name="name" type="String!" required>
+  The name of the webhook (max 128 characters).
+</ResponseField>
+
+<ResponseField name="callbackUrl" type="String!" required>
+  The url to which the webhook message should be sent.
+</ResponseField>
+
+<ResponseField name="securityToken" type="String!" required>
+  A string value to hash along with `deduplicationId` using SHA-256. Included in the webhook message for added security.
+</ResponseField>
+
+<ResponseField name="alertRecurrence" type="AlertRecurrence!" required>
+  The recurrence of the webhook. Can be `INDEFINITE` or `ONCE`.
+</ResponseField>
+
+<ResponseField name="groupId" type="String">
+  A webhook group ID (max 64 characters). Can be used to group webhooks so that their messages are kept in order as a group rather than by individual webhook.
+</ResponseField>
+
+<ResponseField name="conditions" type="RawTransactionWebhookConditionInput!" required>
+  The conditions which must be met in order for the webhook to send a message.
+</ResponseField>
+
+<ResponseField name="retrySettings" type="RetrySettingsInput">
+  The settings for retrying failed webhook messages.
+</ResponseField>
+
+<ResponseField name="bucketId" type="String">
+  An optional bucket ID (max 64 characters). Can be used to query for subgroups of webhooks (useful if you have a large number of webhooks).
+</ResponseField>
+
+<ResponseField name="bucketSortkey" type="String">
+  An optional bucket sort key (max 64 characters). Can be used to query for subgroups of webhooks (useful if you have a large number of webhooks).
+</ResponseField>
+
+<ResponseField name="publishingType" type="PublishingType">
+  The type of publishing for the webhook. If not set, it defaults to `SINGLE`.
+</ResponseField>
+
+<ResponseField name="deduplicate" type="Boolean">
+  If enabled, new webhooks won't be created if a webhook with the same parameters already exists. If callbackUrl, conditions, publishingType, and alertRecurrence all match, then we return the existing webhook.
+</ResponseField>
+
+```graphql 
+"""Input for creating a Raw Transaction webhook."""
+input CreateRawTransactionWebhookArgs {
+  """The name of the webhook (max 128 characters)."""
+  name: String!
+  """The url to which the webhook message should be sent."""
+  callbackUrl: String!
+  """A string value to hash along with `deduplicationId` using SHA-256. Included in the webhook message for added security."""
+  securityToken: String!
+  """The recurrence of the webhook. Can be `INDEFINITE` or `ONCE`."""
+  alertRecurrence: AlertRecurrence!
+  """A webhook group ID (max 64 characters). Can be used to group webhooks so that their messages are kept in order as a group rather than by individual webhook."""
+  groupId: String
+  """The conditions which must be met in order for the webhook to send a message."""
+  conditions: RawTransactionWebhookConditionInput!
+  """The settings for retrying failed webhook messages."""
+  retrySettings: RetrySettingsInput
+  """An optional bucket ID (max 64 characters). Can be used to query for subgroups of webhooks (useful if you have a large number of webhooks)."""
+  bucketId: String
+  """An optional bucket sort key (max 64 characters). Can be used to query for subgroups of webhooks (useful if you have a large number of webhooks)."""
+  bucketSortkey: String
+  """The type of publishing for the webhook. If not set, it defaults to `SINGLE`."""
+  publishingType: PublishingType
+  """If enabled, new webhooks won't be created if a webhook with the same parameters already exists. If callbackUrl, conditions, publishingType, and alertRecurrence all match, then we return the existing webhook."""
+  deduplicate: Boolean
+}
+```
+
+---
+
+## CreateRawTransactionWebhooksInput
+
+Input for creating Raw Transaction webhooks.
+
+<ResponseField name="webhooks" type="[CreateRawTransactionWebhookArgs!]!" required>
+  A list of Raw Transaction webhooks to create.
+</ResponseField>
+
+```graphql 
+"""Input for creating Raw Transaction webhooks."""
+input CreateRawTransactionWebhooksInput {
+  """A list of Raw Transaction webhooks to create."""
+  webhooks: [CreateRawTransactionWebhookArgs!]!
+}
+```
+
+---
+
+## CreateTokenPairEventWebhookArgs
+
+Input for creating a token pair event webhook.
+
+<ResponseField name="name" type="String!" required>
+  The name of the webhook (max 128 characters).
+</ResponseField>
+
+<ResponseField name="callbackUrl" type="String!" required>
+  The url to which the webhook message should be sent.
+</ResponseField>
+
+<ResponseField name="securityToken" type="String!" required>
+  A string value to hash along with `deduplicationId` using SHA-256. Included in the webhook message for added security.
+</ResponseField>
+
+<ResponseField name="alertRecurrence" type="AlertRecurrence!" required>
+  The recurrence of the webhook. Can be `INDEFINITE` or `ONCE`.
+</ResponseField>
+
+<ResponseField name="groupId" type="String">
+  A webhook group ID (max 64 characters). Can be used to group webhooks so that their messages are kept in order as a group rather than by individual webhook.
+</ResponseField>
+
+<ResponseField name="conditions" type="TokenPairEventWebhookConditionInput!" required>
+  The conditions which must be met in order for the webhook to send a message.
+</ResponseField>
+
+<ResponseField name="retrySettings" type="RetrySettingsInput">
+  The settings for retrying failed webhook messages.
+</ResponseField>
+
+<ResponseField name="bucketId" type="String">
+  An optional bucket ID (max 64 characters). Can be used to query for subgroups of webhooks (useful if you have a large number of webhooks).
+</ResponseField>
+
+<ResponseField name="bucketSortkey" type="String">
+  An optional bucket sort key (max 64 characters). Can be used to query for subgroups of webhooks (useful if you have a large number of webhooks).
+</ResponseField>
+
+<ResponseField name="publishingType" type="PublishingType">
+  The type of publishing for the webhook. If not set, it defaults to `SINGLE`.
+</ResponseField>
+
+<ResponseField name="deduplicate" type="Boolean">
+  If enabled, new webhooks won't be created if a webhook with the same parameters already exists. If callbackUrl, conditions, publishingType, and alertRecurrence all match, then we return the existing webhook.
+</ResponseField>
+
+```graphql 
+"""Input for creating a token pair event webhook."""
+input CreateTokenPairEventWebhookArgs {
+  """The name of the webhook (max 128 characters)."""
+  name: String!
+  """The url to which the webhook message should be sent."""
+  callbackUrl: String!
+  """A string value to hash along with `deduplicationId` using SHA-256. Included in the webhook message for added security."""
+  securityToken: String!
+  """The recurrence of the webhook. Can be `INDEFINITE` or `ONCE`."""
+  alertRecurrence: AlertRecurrence!
+  """A webhook group ID (max 64 characters). Can be used to group webhooks so that their messages are kept in order as a group rather than by individual webhook."""
+  groupId: String
+  """The conditions which must be met in order for the webhook to send a message."""
+  conditions: TokenPairEventWebhookConditionInput!
+  """The settings for retrying failed webhook messages."""
+  retrySettings: RetrySettingsInput
+  """An optional bucket ID (max 64 characters). Can be used to query for subgroups of webhooks (useful if you have a large number of webhooks)."""
+  bucketId: String
+  """An optional bucket sort key (max 64 characters). Can be used to query for subgroups of webhooks (useful if you have a large number of webhooks)."""
+  bucketSortkey: String
+  """The type of publishing for the webhook. If not set, it defaults to `SINGLE`."""
+  publishingType: PublishingType
+  """If enabled, new webhooks won't be created if a webhook with the same parameters already exists. If callbackUrl, conditions, publishingType, and alertRecurrence all match, then we return the existing webhook."""
+  deduplicate: Boolean
+}
+```
+
+---
+
+## CreateTokenPairEventWebhooksInput
+
+Input for creating token pair event webhooks.
+
+<ResponseField name="webhooks" type="[CreateTokenPairEventWebhookArgs!]!" required>
+  A list of token pair event webhooks to create.
+</ResponseField>
+
+```graphql 
+"""Input for creating token pair event webhooks."""
+input CreateTokenPairEventWebhooksInput {
+  """A list of token pair event webhooks to create."""
+  webhooks: [CreateTokenPairEventWebhookArgs!]!
+}
+```
+
+---
+
+## CreateWebhooksInput
+
+Input for creating webhooks.
+
+<ResponseField name="priceWebhooksInput" type="CreatePriceWebhooksInput">
+  Input for creating price webhooks.
+</ResponseField>
+
+<ResponseField name="tokenPairEventWebhooksInput" type="CreateTokenPairEventWebhooksInput">
+  Input for creating token pair event webhooks.
+</ResponseField>
+
+<ResponseField name="nftEventWebhooksInput" type="CreateNftEventWebhooksInput">
+  Input for creating NFT event webhooks.
+</ResponseField>
+
+<ResponseField name="rawTransactionWebhooksInput" type="CreateRawTransactionWebhooksInput">
+  Input for creating raw transaction webhooks.
+</ResponseField>
+
+<ResponseField name="marketCapWebhooksInput" type="CreateMarketCapWebhooksInput">
+  Input for creating market cap webhooks.
+</ResponseField>
+
+```graphql 
+"""Input for creating webhooks."""
+input CreateWebhooksInput {
+  """Input for creating price webhooks."""
+  priceWebhooksInput: CreatePriceWebhooksInput
+  """Input for creating token pair event webhooks."""
+  tokenPairEventWebhooksInput: CreateTokenPairEventWebhooksInput
+  """Input for creating NFT event webhooks."""
+  nftEventWebhooksInput: CreateNftEventWebhooksInput
+  """Input for creating raw transaction webhooks."""
+  rawTransactionWebhooksInput: CreateRawTransactionWebhooksInput
+  """Input for creating market cap webhooks."""
+  marketCapWebhooksInput: CreateMarketCapWebhooksInput
+}
+```
+
+---
+
+## DeleteWebhooksInput
+
+Input for deleting webhooks.
+
+<ResponseField name="webhookIds" type="[String!]!" required>
+  A list of webhook IDs to delete.
+</ResponseField>
+
+```graphql 
+"""Input for deleting webhooks."""
+input DeleteWebhooksInput {
+  """A list of webhook IDs to delete."""
+  webhookIds: [String!]!
+}
+```
+
+---
+
+## DetailedWalletStatsInput
+
+The input for detailed wallet stats.
+
+<ResponseField name="walletAddress" type="String!" required>
+  The wallet address
+</ResponseField>
+
+<ResponseField name="networkId" type="Int">
+  The network ID
+</ResponseField>
+
+<ResponseField name="timestamp" type="Int">
+  The timestamp to get stats for
+</ResponseField>
+
+<ResponseField name="includeNetworkBreakdown" type="Boolean">
+  Whether to include network breakdown stats
+</ResponseField>
+
+```graphql 
+"""The input for detailed wallet stats."""
+input DetailedWalletStatsInput {
+  """The wallet address"""
+  walletAddress: String!
+  """The network ID"""
+  networkId: Int
+  """The timestamp to get stats for"""
+  timestamp: Int
+  """Whether to include network breakdown stats"""
+  includeNetworkBreakdown: Boolean
+}
+```
+
+---
+
+## EventQueryTimestampInput
+
+Input type of `EventQueryTimestamp`.
+
+<ResponseField name="from" type="Int!" required>
+  The unix timestamp for the start of the requested range.
+</ResponseField>
+
+<ResponseField name="to" type="Int!" required>
+  The unix timestamp for the end of the requested range.
+</ResponseField>
+
+```graphql 
+"""Input type of `EventQueryTimestamp`."""
+input EventQueryTimestampInput {
+  """The unix timestamp for the start of the requested range."""
+  from: Int!
+  """The unix timestamp for the end of the requested range."""
+  to: Int!
+}
+```
+
+---
+
+## EventsQueryInput
+
+Input type of `EventsQuery`.
+
+<ResponseField name="address" type="String!" required>
+  The pair contract address to filter by. If you pass a token address in here, it will instead find the top pair for that token and use that.
+</ResponseField>
+
+<ResponseField name="quoteToken" type="QuoteToken">
+  The token of interest. Can be `token0` or `token1`.
+</ResponseField>
+
+<ResponseField name="amountNonLiquidityToken" type="NumberFilter">
+  The amount of `quoteToken` involved in the swap.
+</ResponseField>
+
+<ResponseField name="eventDisplayType" type="[EventDisplayType]">
+  The list of event display types to filter by.
+</ResponseField>
+
+<ResponseField name="eventType" type="EventType">
+  The specific event type to filter by.
+</ResponseField>
+
+<ResponseField name="maker" type="String">
+  The specific wallet address to filter by.
+</ResponseField>
+
+<ResponseField name="networkId" type="Int!" required>
+  The network ID to filter by.
+</ResponseField>
+
+<ResponseField name="timestamp" type="EventQueryTimestampInput">
+  The time range to filter by.
+</ResponseField>
+
+<ResponseField name="priceBaseToken" type="NumberFilter">
+  The price per `quoteToken` at the time of the swap in the network's base token.
+</ResponseField>
+
+<ResponseField name="priceBaseTokenTotal" type="NumberFilter">
+  The total amount of `quoteToken` involved in the swap in the network's base token (`amountNonLiquidityToken` x `priceBaseToken`).
+</ResponseField>
+
+<ResponseField name="priceUsd" type="NumberFilter">
+  The price per `quoteToken` at the time of the swap in USD.
+</ResponseField>
+
+<ResponseField name="priceUsdTotal" type="NumberFilter">
+  The total amount of `quoteToken` involved in the swap in USD (`amountNonLiquidityToken` x `priceUsd`).
+</ResponseField>
+
+<ResponseField name="symbolType" type="SymbolType">
+  Specify the type of symbol you want to fetch values for (TOKEN | POOL)
+</ResponseField>
+
+```graphql 
+"""Input type of `EventsQuery`."""
+input EventsQueryInput {
+  """The pair contract address to filter by. If you pass a token address in here, it will instead find the top pair for that token and use that."""
+  address: String!
+  """The token of interest. Can be `token0` or `token1`."""
+  quoteToken: QuoteToken
+  """The amount of `quoteToken` involved in the swap."""
+  amountNonLiquidityToken: NumberFilter
+  """The list of event display types to filter by."""
+  eventDisplayType: [EventDisplayType]
+  """The specific event type to filter by."""
+  eventType: EventType
+  """The specific wallet address to filter by."""
+  maker: String
+  """The network ID to filter by."""
+  networkId: Int!
+  """The time range to filter by."""
+  timestamp: EventQueryTimestampInput
+  """The price per `quoteToken` at the time of the swap in the network's base token."""
+  priceBaseToken: NumberFilter
+  """The total amount of `quoteToken` involved in the swap in the network's base token (`amountNonLiquidityToken` x `priceBaseToken`)."""
+  priceBaseTokenTotal: NumberFilter
+  """The price per `quoteToken` at the time of the swap in USD."""
+  priceUsd: NumberFilter
+  """The total amount of `quoteToken` involved in the swap in USD (`amountNonLiquidityToken` x `priceUsd`)."""
+  priceUsdTotal: NumberFilter
+  """Specify the type of symbol you want to fetch values for (TOKEN | POOL)"""
+  symbolType: SymbolType
+}
+```
+
+---
+
+## ExchangeFilters
+
+Input type of `ExchangeFilters`.
+
+<ResponseField name="txnCount1" type="StringFilter">
+  The number of transactions on the exchange in the past hour.
+</ResponseField>
+
+<ResponseField name="txnCount4" type="StringFilter">
+  The number of transactions on the exchange in the past 4 hours.
+</ResponseField>
+
+<ResponseField name="txnCount12" type="StringFilter">
+  The number of transactions on the exchange in the past 12 hours.
+</ResponseField>
+
+<ResponseField name="txnCount24" type="StringFilter">
+  The number of transactions on the exchange in the past 24 hours.
+</ResponseField>
+
+<ResponseField name="volumeUSD1" type="StringFilter">
+  The trade volume in USD in the past hour.
+</ResponseField>
+
+<ResponseField name="volumeUSD4" type="StringFilter">
+  The trade volume in USD in the past 4 hours.
+</ResponseField>
+
+<ResponseField name="volumeUSD12" type="StringFilter">
+  The trade volume in USD in the past 12 hours.
+</ResponseField>
+
+<ResponseField name="volumeUSD24" type="StringFilter">
+  The trade volume in USD in the past 24 hours.
+</ResponseField>
+
+<ResponseField name="volumeNBT1" type="StringFilter">
+  The trade volume in the network's base token in the past hour.
+</ResponseField>
+
+<ResponseField name="volumeNBT4" type="StringFilter">
+  The trade volume in the network's base token in the past 4 hours.
+</ResponseField>
+
+<ResponseField name="volumeNBT12" type="StringFilter">
+  The trade volume in the network's base token in the past 12 hours.
+</ResponseField>
+
+<ResponseField name="volumeNBT24" type="StringFilter">
+  The trade volume in the network's base token in the past 24 hours.
+</ResponseField>
+
+<ResponseField name="dailyActiveUsers" type="NumberFilter">
+  The total unique daily active users.
+</ResponseField>
+
+<ResponseField name="monthlyActiveUsers" type="NumberFilter">
+  The total unique monthly active users (30 days).
+</ResponseField>
+
+<ResponseField name="address" type="[String]">
+  The list of exchange contract addresses to filter by.
+</ResponseField>
+
+<ResponseField name="network" type="[Int]">
+  The list of network IDs to filter by.
+</ResponseField>
+
+```graphql 
+"""Input type of `ExchangeFilters`."""
+input ExchangeFilters {
+  """The number of transactions on the exchange in the past hour."""
+  txnCount1: StringFilter
+  """The number of transactions on the exchange in the past 4 hours."""
+  txnCount4: StringFilter
+  """The number of transactions on the exchange in the past 12 hours."""
+  txnCount12: StringFilter
+  """The number of transactions on the exchange in the past 24 hours."""
+  txnCount24: StringFilter
+  """The trade volume in USD in the past hour."""
+  volumeUSD1: StringFilter
+  """The trade volume in USD in the past 4 hours."""
+  volumeUSD4: StringFilter
+  """The trade volume in USD in the past 12 hours."""
+  volumeUSD12: StringFilter
+  """The trade volume in USD in the past 24 hours."""
+  volumeUSD24: StringFilter
+  """The trade volume in the network's base token in the past hour."""
+  volumeNBT1: StringFilter
+  """The trade volume in the network's base token in the past 4 hours."""
+  volumeNBT4: StringFilter
+  """The trade volume in the network's base token in the past 12 hours."""
+  volumeNBT12: StringFilter
+  """The trade volume in the network's base token in the past 24 hours."""
+  volumeNBT24: StringFilter
+  """The total unique daily active users."""
+  dailyActiveUsers: NumberFilter
+  """The total unique monthly active users (30 days)."""
+  monthlyActiveUsers: NumberFilter
+  """The list of exchange contract addresses to filter by."""
+  address: [String]
+  """The list of network IDs to filter by."""
+  network: [Int]
+}
+```
+
+---
+
+## ExchangeRanking
+
+Input type of `ExchangeRanking`.
+
+<ResponseField name="attribute" type="ExchangeRankingAttribute">
+  The attribute to rank exchanges by.
+</ResponseField>
+
+<ResponseField name="direction" type="RankingDirection">
+  The direction to apply to the ranking attribute.
+</ResponseField>
+
+```graphql 
+"""Input type of `ExchangeRanking`."""
+input ExchangeRanking {
+  """The attribute to rank exchanges by."""
+  attribute: ExchangeRankingAttribute
+  """The direction to apply to the ranking attribute."""
+  direction: RankingDirection
+}
+```
+
+---
+
+## FillsourceStatsFilter
+
+Filter for fillsource based NFT stats.
+
+<ResponseField name="fillsource" type="String!" required>
+  The fillsource to target for the current window.
+</ResponseField>
+
+<ResponseField name="current" type="NumberFilter">
+  The total value for the current window.
+</ResponseField>
+
+<ResponseField name="previous" type="NumberFilter">
+  The total value for the previous window.
+</ResponseField>
+
+<ResponseField name="change" type="NumberFilter">
+  The percent change between the `current` and `previous`.
+</ResponseField>
+
+```graphql 
+"""Filter for fillsource based NFT stats."""
+input FillsourceStatsFilter {
+  """The fillsource to target for the current window."""
+  fillsource: String!
+  """The total value for the current window."""
+  current: NumberFilter
+  """The total value for the previous window."""
+  previous: NumberFilter
+  """The percent change between the `current` and `previous`."""
+  change: NumberFilter
+}
+```
+
+---
+
+## FilterNetworkWalletsInput
+
+The input for filtering wallets for a network.
+
+<ResponseField name="networkId" type="Int!" required>
+  The network ID to filter wallets for
+</ResponseField>
+
+<ResponseField name="filters" type="WalletNetworkFilters">
+  A set of filters to apply.
+</ResponseField>
+
+<ResponseField name="wallets" type="[String]">
+  A list of wallet addresses to filter by.
+</ResponseField>
+
+<ResponseField name="excludeLabels" type="[String]">
+  Exclude wallets with these labels.
+</ResponseField>
+
+<ResponseField name="includeLabels" type="[String]">
+  Include wallets with these labels.
+</ResponseField>
+
+<ResponseField name="rankings" type="[WalletNetworkRanking]">
+  A list of ranking attributes to apply.
+</ResponseField>
+
+<ResponseField name="limit" type="Int">
+  The maximum number of wallets to return.
+</ResponseField>
+
+<ResponseField name="offset" type="Int">
+  Where in the list the server should start when returning items. Use `count`+`offset` from the previous query to request the next page of results.
+</ResponseField>
+
+```graphql 
+"""The input for filtering wallets for a network."""
+input FilterNetworkWalletsInput {
+  """The network ID to filter wallets for"""
+  networkId: Int!
+  """A set of filters to apply."""
+  filters: WalletNetworkFilters
+  """A list of wallet addresses to filter by."""
+  wallets: [String]
+  """Exclude wallets with these labels."""
+  excludeLabels: [String]
+  """Include wallets with these labels."""
+  includeLabels: [String]
+  """A list of ranking attributes to apply."""
+  rankings: [WalletNetworkRanking]
+  """The maximum number of wallets to return."""
+  limit: Int
+  """Where in the list the server should start when returning items. Use `count`+`offset` from the previous query to request the next page of results."""
+  offset: Int
+}
+```
+
+---
+
+## FilterTokenWalletsInput
+
+The input for filtering wallets for a token.
+
+<ResponseField name="tokenId" type="String">
+  The ID of the token to filter wallets for
+</ResponseField>
+
+<ResponseField name="walletAddress" type="String">
+  The wallet address to filter wallets for
+  
+  <Warning>
+    This field is deprecated. Use wallets instead
+  </Warning>
+</ResponseField>
+
+<ResponseField name="wallets" type="[String]">
+  A list of wallet addresses to filter wallets for
+</ResponseField>
+
+<ResponseField name="networkId" type="Int">
+  The network ID to filter wallets for
+</ResponseField>
+
+<ResponseField name="filters" type="WalletTokenFilters">
+  A set of filters to apply
+  
+  <Warning>
+    This field is deprecated. Use filtersV2 instead
+  </Warning>
+</ResponseField>
+
+<ResponseField name="filtersV2" type="WalletTokenFiltersV2">
+  A set of filters to apply
+</ResponseField>
+
+<ResponseField name="phrase" type="String">
+  A phrase to search for in token symbol and name
+</ResponseField>
+
+<ResponseField name="rankings" type="[WalletTokenRanking]">
+  A list of ranking attributes to apply
+</ResponseField>
+
+<ResponseField name="excludeLabels" type="[String]">
+  Exclude wallets with these labels.
+</ResponseField>
+
+<ResponseField name="includeLabels" type="[String]">
+  Include wallets with these labels.
+</ResponseField>
+
+<ResponseField name="limit" type="Int">
+  The maximum number of wallets to return
+</ResponseField>
+
+<ResponseField name="offset" type="Int">
+  Where in the list the server should start when returning items
+</ResponseField>
+
+```graphql 
+"""The input for filtering wallets for a token."""
+input FilterTokenWalletsInput {
+  """The ID of the token to filter wallets for"""
+  tokenId: String
+  """The wallet address to filter wallets for"""
+  walletAddress: String @deprecated(reason: "Use wallets instead")
+  """A list of wallet addresses to filter wallets for"""
+  wallets: [String]
+  """The network ID to filter wallets for"""
+  networkId: Int
+  """A set of filters to apply"""
+  filters: WalletTokenFilters @deprecated(reason: "Use filtersV2 instead")
+  """A set of filters to apply"""
+  filtersV2: WalletTokenFiltersV2
+  """A phrase to search for in token symbol and name"""
+  phrase: String
+  """A list of ranking attributes to apply"""
+  rankings: [WalletTokenRanking]
+  """Exclude wallets with these labels."""
+  excludeLabels: [String]
+  """Include wallets with these labels."""
+  includeLabels: [String]
+  """The maximum number of wallets to return"""
+  limit: Int
+  """Where in the list the server should start when returning items"""
+  offset: Int
+}
+```
+
+---
+
+## FilterWalletsInput
+
+The input for filtering wallets.
+
+<ResponseField name="filters" type="WalletFilters">
+  A set of filters to apply.
+</ResponseField>
+
+<ResponseField name="wallets" type="[String]">
+  A list of wallet addresses to filter by.
+</ResponseField>
+
+<ResponseField name="excludeLabels" type="[String]">
+  Exclude wallets with these labels.
+</ResponseField>
+
+<ResponseField name="includeLabels" type="[String]">
+  Include wallets with these labels.
+</ResponseField>
+
+<ResponseField name="rankings" type="[WalletRanking]">
+  A list of ranking attributes to apply.
+</ResponseField>
+
+<ResponseField name="limit" type="Int">
+  The maximum number of wallets to return.
+</ResponseField>
+
+<ResponseField name="offset" type="Int">
+  Where in the list the server should start when returning items. Use `count`+`offset` from the previous query to request the next page of results.
+</ResponseField>
+
+```graphql 
+"""The input for filtering wallets."""
+input FilterWalletsInput {
+  """A set of filters to apply."""
+  filters: WalletFilters
+  """A list of wallet addresses to filter by."""
+  wallets: [String]
+  """Exclude wallets with these labels."""
+  excludeLabels: [String]
+  """Include wallets with these labels."""
+  includeLabels: [String]
+  """A list of ranking attributes to apply."""
+  rankings: [WalletRanking]
+  """The maximum number of wallets to return."""
+  limit: Int
+  """Where in the list the server should start when returning items. Use `count`+`offset` from the previous query to request the next page of results."""
+  offset: Int
+}
+```
+
+---
+
+## GetDetailedPairsStatsInput
+
+Input type of `getDetailedPairsStats`.
+
+<ResponseField name="pairAddress" type="String!" required>
+  The contract address of the pair.
+</ResponseField>
+
+<ResponseField name="networkId" type="Int!" required>
+  The network ID the pair is deployed on.
+</ResponseField>
+
+<ResponseField name="tokenOfInterest" type="TokenOfInterest">
+  The token of interest used to calculate token-specific stats for the pair. Can be `token0` or `token1`.
+</ResponseField>
+
+<ResponseField name="timestamp" type="Int">
+  The unix timestamp for the stats. Defaults to current.
+</ResponseField>
+
+<ResponseField name="durations" type="[DetailedPairStatsDuration]">
+  The list of durations to get detailed pair stats for.
+</ResponseField>
+
+<ResponseField name="bucketCount" type="Int">
+  The number of aggregated values to receive. Note: Each duration has predetermined bucket sizes. The first n-1 buckets are historical. The last bucket is a snapshot of current data. duration `day1`: 6 buckets (4 hours each) plus 1 partial bucket duration `hour12`: 12 buckets (1 hour each) plus 1 partial bucket duration `hour4`: 8 buckets (30 min each) plus 1 partial bucket duration `hour1`: 12 buckets (5 min each) plus 1 partial bucket duration `min5`: 5 buckets (1 min each) plus 1 partial bucket For example, requesting 11 buckets for a `min5` duration will return the last 10 minutes worth of data plus a snapshot for the current minute.
+</ResponseField>
+
+<ResponseField name="statsType" type="TokenPairStatisticsType">
+  The type of statistics returned. Can be `FILTERED` or `UNFILTERED`
+</ResponseField>
+
+```graphql 
+"""Input type of `getDetailedPairsStats`."""
+input GetDetailedPairsStatsInput {
+  """The contract address of the pair."""
+  pairAddress: String!
+  """The network ID the pair is deployed on."""
+  networkId: Int!
+  """The token of interest used to calculate token-specific stats for the pair. Can be `token0` or `token1`."""
+  tokenOfInterest: TokenOfInterest
+  """The unix timestamp for the stats. Defaults to current."""
+  timestamp: Int
+  """The list of durations to get detailed pair stats for."""
+  durations: [DetailedPairStatsDuration]
+  """The number of aggregated values to receive. Note: Each duration has predetermined bucket sizes. The first n-1 buckets are historical. The last bucket is a snapshot of current data. duration `day1`: 6 buckets (4 hours each) plus 1 partial bucket duration `hour12`: 12 buckets (1 hour each) plus 1 partial bucket duration `hour4`: 8 buckets (30 min each) plus 1 partial bucket duration `hour1`: 12 buckets (5 min each) plus 1 partial bucket duration `min5`: 5 buckets (1 min each) plus 1 partial bucket For example, requesting 11 buckets for a `min5` duration will return the last 10 minutes worth of data plus a snapshot for the current minute."""
+  bucketCount: Int
+  """The type of statistics returned. Can be `FILTERED` or `UNFILTERED`"""
+  statsType: TokenPairStatisticsType
+}
+```
+
+---
+
+## GetPriceInput
+
+Input type of `getTokenPrices`.
+
+<ResponseField name="address" type="String!" required>
+  The contract address of the token.
+</ResponseField>
+
+<ResponseField name="networkId" type="Int!" required>
+  The network ID the token is deployed on.
+</ResponseField>
+
+<ResponseField name="timestamp" type="Int">
+  The unix timestamp for the price.
+</ResponseField>
+
+<ResponseField name="poolAddress" type="String">
+  The address of the pool, when omitted the top pool is used.
+</ResponseField>
+
+<ResponseField name="maxDeviations" type="Float">
+  The maximum number of deviations from the token's Liquidity-Weighted Mean Price. This is used to mitigate low liquidity pairs producing prices that are not representative of reality. Default is `1`.
+  
+  <Warning>
+    This field is deprecated. This isn't taken into account anymore.
+  </Warning>
+</ResponseField>
+
+```graphql 
+"""Input type of `getTokenPrices`."""
+input GetPriceInput {
+  """The contract address of the token."""
+  address: String!
+  """The network ID the token is deployed on."""
+  networkId: Int!
+  """The unix timestamp for the price."""
+  timestamp: Int
+  """The address of the pool, when omitted the top pool is used."""
+  poolAddress: String
+  """The maximum number of deviations from the token's Liquidity-Weighted Mean Price. This is used to mitigate low liquidity pairs producing prices that are not representative of reality. Default is `1`."""
+  maxDeviations: Float @deprecated(reason: "This isn't taken into account anymore.")
+}
+```
+
+---
+
+## GetTokensInfoInput
+
+Input type of `getTokensInfo`.
+
+<ResponseField name="address" type="String!" required>
+  The contract address of the token.
+</ResponseField>
+
+<ResponseField name="networkId" type="Int!" required>
+  The network ID the token is deployed on.
+</ResponseField>
+
+```graphql 
+"""Input type of `getTokensInfo`."""
+input GetTokensInfoInput {
+  """The contract address of the token."""
+  address: String!
+  """The network ID the token is deployed on."""
+  networkId: Int!
+}
+```
+
+---
+
+## HoldersInput
+
+<ResponseField name="tokenId" type="String!" required>
+  The ID of the token (`tokenAddress:networkId`).
+</ResponseField>
+
+<ResponseField name="cursor" type="String">
+  A cursor for use in pagination.
+</ResponseField>
+
+<ResponseField name="sort" type="HoldersInputSort">
+  The attribute to sort the list on
+</ResponseField>
+
+```graphql 
+input HoldersInput {
+  """The ID of the token (`tokenAddress:networkId`)."""
+  tokenId: String!
+  """A cursor for use in pagination."""
+  cursor: String
+  """The attribute to sort the list on"""
+  sort: HoldersInputSort
+}
+```
+
+---
+
+## HoldersInputSort
+
+<ResponseField name="attribute" type="HoldersSortAttribute">
+  The attribute to sort the list on
+</ResponseField>
+
+<ResponseField name="direction" type="RankingDirection">
+  The direction to apply to the ranking attribute.
+</ResponseField>
+
+```graphql 
+input HoldersInputSort {
+  """The attribute to sort the list on"""
+  attribute: HoldersSortAttribute
+  """The direction to apply to the ranking attribute."""
+  direction: RankingDirection
+}
+```
+
+---
+
+## IntEqualsConditionInput
+
+Input for integer equals condition.
+
+<ResponseField name="eq" type="Int!" required>
+  The integer to equal.
+</ResponseField>
+
+```graphql 
+"""Input for integer equals condition."""
+input IntEqualsConditionInput {
+  """The integer to equal."""
+  eq: Int!
+}
+```
+
+---
+
+## MakerEventsQueryInput
+
+<ResponseField name="maker" type="String!" required>
+  The specific wallet address to filter by.
+</ResponseField>
+
+<ResponseField name="timestamp" type="EventQueryTimestampInput">
+  The time range to filter by.
+</ResponseField>
+
+<ResponseField name="networkId" type="Int">
+  The network ID to filter by.
+</ResponseField>
+
+<ResponseField name="priceUsdTotal" type="NumberFilter">
+  The total amount of `quoteToken` involved in the swap in USD (`amountNonLiquidityToken` x `priceUsd`).
+</ResponseField>
+
+<ResponseField name="eventType" type="EventType">
+  The specific event type to filter by.
+</ResponseField>
+
+<ResponseField name="tokenAddress" type="String">
+  The token involved in the event.
+</ResponseField>
+
+```graphql 
+input MakerEventsQueryInput {
+  """The specific wallet address to filter by."""
+  maker: String!
+  """The time range to filter by."""
+  timestamp: EventQueryTimestampInput
+  """The network ID to filter by."""
+  networkId: Int
+  """The total amount of `quoteToken` involved in the swap in USD (`amountNonLiquidityToken` x `priceUsd`)."""
+  priceUsdTotal: NumberFilter
+  """The specific event type to filter by."""
+  eventType: EventType
+  """The token involved in the event."""
+  tokenAddress: String
+}
+```
+
+---
+
+## MarketCapEventWebhookConditionInput
+
+Input conditions for a market cap event webhook.
+
+<ResponseField name="tokenAddress" type="StringEqualsConditionInput!" required>
+  The contract address of the token to listen for.
+</ResponseField>
+
+<ResponseField name="networkId" type="IntEqualsConditionInput!" required>
+  The network ID to listen on.
+</ResponseField>
+
+<ResponseField name="fdvMarketCapUsd" type="ComparisonOperatorInput">
+  The price conditions to listen for.
+</ResponseField>
+
+<ResponseField name="circulatingMarketCapUsd" type="ComparisonOperatorInput">
+  The circulating market cap conditions to listen for.
+</ResponseField>
+
+<ResponseField name="pairAddress" type="StringEqualsConditionInput">
+  The contract address of the pair to listen for.
+</ResponseField>
+
+```graphql 
+"""Input conditions for a market cap event webhook."""
+input MarketCapEventWebhookConditionInput {
+  """The contract address of the token to listen for."""
+  tokenAddress: StringEqualsConditionInput!
+  """The network ID to listen on."""
+  networkId: IntEqualsConditionInput!
+  """The price conditions to listen for."""
+  fdvMarketCapUsd: ComparisonOperatorInput
+  """The circulating market cap conditions to listen for."""
+  circulatingMarketCapUsd: ComparisonOperatorInput
+  """The contract address of the pair to listen for."""
+  pairAddress: StringEqualsConditionInput
+}
+```
+
+---
+
+## NftCollectionFilters
+
+Input filters for `filterNftCollections`.
+
+<ResponseField name="totalSupply" type="NumberFilter">
+  The total supply of the NFT collection.
+</ResponseField>
+
+<ResponseField name="lastEventTimestamp" type="NumberFilter">
+  The unix timestamp for the last event.
+</ResponseField>
+
+<ResponseField name="ercType" type="[NftContractErcType]">
+  The list of token standards to filter by.
+</ResponseField>
+
+<ResponseField name="network" type="[Int]">
+  The list of network IDs to filter by.
+</ResponseField>
+
+<ResponseField name="stats1h" type="NftStatsWindowFilter">
+  Stats for the past hour.
+</ResponseField>
+
+<ResponseField name="stats4h" type="NftStatsWindowFilter">
+  Stats for the past 4 hours.
+</ResponseField>
+
+<ResponseField name="stats12h" type="NftStatsWindowFilter">
+  Stats for the past 12 hours.
+</ResponseField>
+
+<ResponseField name="stats24h" type="NftStatsWindowFilter">
+  Stats for the past 24 hours.
+</ResponseField>
+
+```graphql 
+"""Input filters for `filterNftCollections`."""
+input NftCollectionFilters {
+  """The total supply of the NFT collection."""
+  totalSupply: NumberFilter
+  """The unix timestamp for the last event."""
+  lastEventTimestamp: NumberFilter
+  """The list of token standards to filter by."""
+  ercType: [NftContractErcType]
+  """The list of network IDs to filter by."""
+  network: [Int]
+  """Stats for the past hour."""
+  stats1h: NftStatsWindowFilter
+  """Stats for the past 4 hours."""
+  stats4h: NftStatsWindowFilter
+  """Stats for the past 12 hours."""
+  stats12h: NftStatsWindowFilter
+  """Stats for the past 24 hours."""
+  stats24h: NftStatsWindowFilter
+}
+```
+
+---
+
+## NftCollectionRanking
+
+Input type of `NftCollectionRanking`.
+
+<ResponseField name="attribute" type="NftCollectionRankingAttribute">
+  The attribute to rank NFT collections by.
+</ResponseField>
+
+<ResponseField name="direction" type="RankingDirection">
+  The direction to apply to the ranking attribute.
+</ResponseField>
+
+```graphql 
+"""Input type of `NftCollectionRanking`."""
+input NftCollectionRanking {
+  """The attribute to rank NFT collections by."""
+  attribute: NftCollectionRankingAttribute
+  """The direction to apply to the ranking attribute."""
+  direction: RankingDirection
+}
+```
+
+---
+
+## NftContractInput
+
+Input type of `getNftContracts`.
+
+<ResponseField name="address" type="String!" required>
+  The NFT contract address.
+</ResponseField>
+
+<ResponseField name="networkId" type="Int!" required>
+  The network ID the NFT collection is deployed on.
+</ResponseField>
+
+```graphql 
+"""Input type of `getNftContracts`."""
+input NftContractInput {
+  """The NFT contract address."""
+  address: String!
+  """The network ID the NFT collection is deployed on."""
+  networkId: Int!
+}
+```
+
+---
+
+## NftEventFillSourceConditionInput
+
+Input for NFT event fill source condition.
+
+<ResponseField name="oneOf" type="[WebhookNftEventFillSource!]!" required>
+  The list of NFT marketplace to equal.
+</ResponseField>
+
+```graphql 
+"""Input for NFT event fill source condition."""
+input NftEventFillSourceConditionInput {
+  """The list of NFT marketplace to equal."""
+  oneOf: [WebhookNftEventFillSource!]!
+}
+```
+
+---
+
+## NftEventTypeConditionInput
+
+Input for NFT event type.
+
+<ResponseField name="eq" type="WebhookNftEventType!" required>
+  The NFT event type to equal.
+</ResponseField>
+
+```graphql 
+"""Input for NFT event type."""
+input NftEventTypeConditionInput {
+  """The NFT event type to equal."""
+  eq: WebhookNftEventType!
+}
+```
+
+---
+
+## NftEventWebhookConditionInput
+
+Input conditions for an NFT event webhook.
+
+<ResponseField name="networkId" type="OneOfNumberConditionInput">
+  A list of network IDs to listen on.
+</ResponseField>
+
+<ResponseField name="maker" type="StringEqualsConditionInput">
+  The maker wallet address to listen for.
+</ResponseField>
+
+<ResponseField name="contractAddress" type="StringEqualsConditionInput">
+  The NFT collection contract address to listen for.
+</ResponseField>
+
+<ResponseField name="exchangeAddress" type="StringEqualsConditionInput">
+  The exchange contract address to listen for.
+</ResponseField>
+
+<ResponseField name="tokenId" type="StringEqualsConditionInput">
+  The token ID to listen for.
+</ResponseField>
+
+<ResponseField name="eventType" type="NftEventTypeConditionInput">
+  The NFT event type to listen for.
+</ResponseField>
+
+<ResponseField name="fillSource" type="NftEventFillSourceConditionInput">
+  The NFT marketplaces to listen for.
+</ResponseField>
+
+<ResponseField name="ignoreTransfers" type="Boolean">
+  Option to ignore all nft transfer events
+</ResponseField>
+
+```graphql 
+"""Input conditions for an NFT event webhook."""
+input NftEventWebhookConditionInput {
+  """A list of network IDs to listen on."""
+  networkId: OneOfNumberConditionInput
+  """The maker wallet address to listen for."""
+  maker: StringEqualsConditionInput
+  """The NFT collection contract address to listen for."""
+  contractAddress: StringEqualsConditionInput
+  """The exchange contract address to listen for."""
+  exchangeAddress: StringEqualsConditionInput
+  """The token ID to listen for."""
+  tokenId: StringEqualsConditionInput
+  """The NFT event type to listen for."""
+  eventType: NftEventTypeConditionInput
+  """The NFT marketplaces to listen for."""
+  fillSource: NftEventFillSourceConditionInput
+  """Option to ignore all nft transfer events"""
+  ignoreTransfers: Boolean
+}
+```
+
+---
+
+## NftHoldersInput
+
+<ResponseField name="collectionAddress" type="String!" required>
+  The address of the collection contract.
+</ResponseField>
+
+<ResponseField name="networkId" type="Int!" required>
+  The network ID the collection is deployed on.
+</ResponseField>
+
+<ResponseField name="cursor" type="String">
+  A cursor for use in pagination.
+</ResponseField>
+
+```graphql 
+input NftHoldersInput {
+  """The address of the collection contract."""
+  collectionAddress: String!
+  """The network ID the collection is deployed on."""
+  networkId: Int!
+  """A cursor for use in pagination."""
+  cursor: String
+}
+```
+
+---
+
+## NftPoolCollectionFilters
+
+Input type of `NftPoolCollectionFilters`.
+
+<ResponseField name="nftBalance" type="NumberFilter">
+  The number of NFTs in all of the collection's pools.
+</ResponseField>
+
+<ResponseField name="balanceNBT" type="NumberFilter">
+  The total liquidity of the collection in the network's base token.
+</ResponseField>
+
+<ResponseField name="floorNBT" type="NumberFilter">
+  The lowest price at which any of the collection's pools are willing to sell an NFT in the network's base token.
+</ResponseField>
+
+<ResponseField name="offerNBT" type="NumberFilter">
+  The highest price at which any of the collection's pools are willing to buy an NFT in the network's base token.
+</ResponseField>
+
+<ResponseField name="balanceUSD" type="NumberFilter">
+  The total liquidity of the collection in USD.
+</ResponseField>
+
+<ResponseField name="floorUSD" type="NumberFilter">
+  The lowest price at which any of the collection's pools are willing to sell an NFT in USD.
+</ResponseField>
+
+<ResponseField name="offerUSD" type="NumberFilter">
+  The highest price at which any of the collection's pools are willing to buy an NFT in USD.
+</ResponseField>
+
+<ResponseField name="totalSupply" type="NumberFilter">
+  The total supply of the collection.
+</ResponseField>
+
+<ResponseField name="nftsSoldAll" type="NumberFilter">
+  The number of NFTs sold in any of the collection's pools over the collection's lifetime.
+</ResponseField>
+
+<ResponseField name="nftsBoughtAll" type="NumberFilter">
+  The number of NFTs bought in any of the collection's pools over the collection's lifetime.
+</ResponseField>
+
+<ResponseField name="nftVolumeAll" type="NumberFilter">
+  The number of NFTs bought or sold in any of the collection's pools over the collection's lifetime.
+</ResponseField>
+
+<ResponseField name="volumeNBTAll" type="NumberFilter">
+  The total volume of the collection in the network's base token over the collection's lifetime.
+</ResponseField>
+
+<ResponseField name="revenueNBTAll" type="NumberFilter">
+  The total buy volume of the collection in the network's base token over the collection's lifetime.
+</ResponseField>
+
+<ResponseField name="expenseNBTAll" type="NumberFilter">
+  The total sell volume of the collection in the network's base token over the collection's lifetime.
+</ResponseField>
+
+<ResponseField name="highPriceNBTAll" type="NumberFilter">
+  The highest sale price within the collection in the network's base token in the collection's lifetime.
+</ResponseField>
+
+<ResponseField name="lowPriceNBTAll" type="NumberFilter">
+  The lowest sale price within the collection in the network's base token in the collection's lifetime.
+</ResponseField>
+
+<ResponseField name="poolFeesNBTAll" type="NumberFilter">
+  The sum of pool fees generated by the collection in the network's base token over the collection's lifetime.
+</ResponseField>
+
+<ResponseField name="protocolFeesNBTAll" type="NumberFilter">
+  The sum of protocol fees generated by the collection in the network's base token over the collection's lifetime.
+</ResponseField>
+
+<ResponseField name="volumeUSDAll" type="NumberFilter">
+  The total volume of the collection in USD over the collection's lifetime.
+</ResponseField>
+
+<ResponseField name="revenueUSDAll" type="NumberFilter">
+  The total buy volume of the collection in USD over the collection's lifetime.
+</ResponseField>
+
+<ResponseField name="expenseUSDAll" type="NumberFilter">
+  The total sell volume of the collection in USD over the collection's lifetime.
+</ResponseField>
+
+<ResponseField name="highPriceUSDAll" type="NumberFilter">
+  The highest sale price within the collection in USD in the collection's lifetime.
+</ResponseField>
+
+<ResponseField name="lowPriceUSDAll" type="NumberFilter">
+  The lowest sale price within the collection in USD in the collection's lifetime.
+</ResponseField>
+
+<ResponseField name="poolFeesUSDAll" type="NumberFilter">
+  The sum of pool fees generated by the collection in USD over the collection's lifetime.
+</ResponseField>
+
+<ResponseField name="protocolFeesUSDAll" type="NumberFilter">
+  The sum of protocol fees generated by the collection in USD over the collection's lifetime.
+</ResponseField>
+
+<ResponseField name="nftsSold24" type="NumberFilter">
+  The number of NFTs sold in any of the collection's pools over the past 24 hours.
+</ResponseField>
+
+<ResponseField name="nftsBought24" type="NumberFilter">
+  The number of NFTs bought in any of the collection's pools over the past 24 hours.
+</ResponseField>
+
+<ResponseField name="nftVolume24" type="NumberFilter">
+  The number of NFTs bought in any of the collection's pools over the past 24 hours.
+</ResponseField>
+
+<ResponseField name="volumeNBT24" type="NumberFilter">
+  The total volume of the collection in the network's base token over the past 24 hours.
+</ResponseField>
+
+<ResponseField name="revenueNBT24" type="NumberFilter">
+  The total buy volume of the collection in the network's base token over the past 24 hours.
+</ResponseField>
+
+<ResponseField name="expenseNBT24" type="NumberFilter">
+  The total sell volume of the collection in the network's base token over the past 24 hours.
+</ResponseField>
+
+<ResponseField name="highPriceNBT24" type="NumberFilter">
+  The highest sale price within the collection in the network's base token in the past 24 hours.
+</ResponseField>
+
+<ResponseField name="lowPriceNBT24" type="NumberFilter">
+  The lowest sale price within the collection in the network's base token in the past 24 hours.
+</ResponseField>
+
+<ResponseField name="poolFeesNBT24" type="NumberFilter">
+  The sum of pool fees generated by the collection in the network's base token over the past 24 hours.
+</ResponseField>
+
+<ResponseField name="protocolFeesNBT24" type="NumberFilter">
+  The sum of protocol fees generated by the collection in the network's base token over the past 24 hours.
+</ResponseField>
+
+<ResponseField name="volumeUSD24" type="NumberFilter">
+  The total volume of the collection in USD over the past 24 hours.
+</ResponseField>
+
+<ResponseField name="revenueUSD24" type="NumberFilter">
+  The total buy volume of the collection in USD over the past 24 hours.
+</ResponseField>
+
+<ResponseField name="expenseUSD24" type="NumberFilter">
+  The total sell volume of the collection in USD over the past 24 hours.
+</ResponseField>
+
+<ResponseField name="highPriceUSD24" type="NumberFilter">
+  The highest sale price within the collection in USD in the past 24 hours.
+</ResponseField>
+
+<ResponseField name="lowPriceUSD24" type="NumberFilter">
+  The lowest sale price within the collection in USD in the past 24 hours.
+</ResponseField>
+
+<ResponseField name="poolFeesUSD24" type="NumberFilter">
+  The sum of pool fees generated by the collection in USD over the past 24 hours.
+</ResponseField>
+
+<ResponseField name="protocolFeesUSD24" type="NumberFilter">
+  The sum of protocol fees generated by the collection in USD over the past 24 hours.
+</ResponseField>
+
+<ResponseField name="network" type="[Int]">
+  The list of network IDs to filter by.
+</ResponseField>
+
+<ResponseField name="exchange" type="[String]">
+  The list of NFT AMM marketplace addresses to filter by.
+</ResponseField>
+
+<ResponseField name="ercType" type="[String]">
+  The list of token standards to filter by. Can be a variation of `ERC-721` or `ERC-1155`.
+</ResponseField>
+
+```graphql 
+"""Input type of `NftPoolCollectionFilters`."""
+input NftPoolCollectionFilters {
+  """The number of NFTs in all of the collection's pools."""
+  nftBalance: NumberFilter
+  """The total liquidity of the collection in the network's base token."""
+  balanceNBT: NumberFilter
+  """The lowest price at which any of the collection's pools are willing to sell an NFT in the network's base token."""
+  floorNBT: NumberFilter
+  """The highest price at which any of the collection's pools are willing to buy an NFT in the network's base token."""
+  offerNBT: NumberFilter
+  """The total liquidity of the collection in USD."""
+  balanceUSD: NumberFilter
+  """The lowest price at which any of the collection's pools are willing to sell an NFT in USD."""
+  floorUSD: NumberFilter
+  """The highest price at which any of the collection's pools are willing to buy an NFT in USD."""
+  offerUSD: NumberFilter
+  """The total supply of the collection."""
+  totalSupply: NumberFilter
+  """The number of NFTs sold in any of the collection's pools over the collection's lifetime."""
+  nftsSoldAll: NumberFilter
+  """The number of NFTs bought in any of the collection's pools over the collection's lifetime."""
+  nftsBoughtAll: NumberFilter
+  """The number of NFTs bought or sold in any of the collection's pools over the collection's lifetime."""
+  nftVolumeAll: NumberFilter
+  """The total volume of the collection in the network's base token over the collection's lifetime."""
+  volumeNBTAll: NumberFilter
+  """The total buy volume of the collection in the network's base token over the collection's lifetime."""
+  revenueNBTAll: NumberFilter
+  """The total sell volume of the collection in the network's base token over the collection's lifetime."""
+  expenseNBTAll: NumberFilter
+  """The highest sale price within the collection in the network's base token in the collection's lifetime."""
+  highPriceNBTAll: NumberFilter
+  """The lowest sale price within the collection in the network's base token in the collection's lifetime."""
+  lowPriceNBTAll: NumberFilter
+  """The sum of pool fees generated by the collection in the network's base token over the collection's lifetime."""
+  poolFeesNBTAll: NumberFilter
+  """The sum of protocol fees generated by the collection in the network's base token over the collection's lifetime."""
+  protocolFeesNBTAll: NumberFilter
+  """The total volume of the collection in USD over the collection's lifetime."""
+  volumeUSDAll: NumberFilter
+  """The total buy volume of the collection in USD over the collection's lifetime."""
+  revenueUSDAll: NumberFilter
+  """The total sell volume of the collection in USD over the collection's lifetime."""
+  expenseUSDAll: NumberFilter
+  """The highest sale price within the collection in USD in the collection's lifetime."""
+  highPriceUSDAll: NumberFilter
+  """The lowest sale price within the collection in USD in the collection's lifetime."""
+  lowPriceUSDAll: NumberFilter
+  """The sum of pool fees generated by the collection in USD over the collection's lifetime."""
+  poolFeesUSDAll: NumberFilter
+  """The sum of protocol fees generated by the collection in USD over the collection's lifetime."""
+  protocolFeesUSDAll: NumberFilter
+  """The number of NFTs sold in any of the collection's pools over the past 24 hours."""
+  nftsSold24: NumberFilter
+  """The number of NFTs bought in any of the collection's pools over the past 24 hours."""
+  nftsBought24: NumberFilter
+  """The number of NFTs bought in any of the collection's pools over the past 24 hours."""
+  nftVolume24: NumberFilter
+  """The total volume of the collection in the network's base token over the past 24 hours."""
+  volumeNBT24: NumberFilter
+  """The total buy volume of the collection in the network's base token over the past 24 hours."""
+  revenueNBT24: NumberFilter
+  """The total sell volume of the collection in the network's base token over the past 24 hours."""
+  expenseNBT24: NumberFilter
+  """The highest sale price within the collection in the network's base token in the past 24 hours."""
+  highPriceNBT24: NumberFilter
+  """The lowest sale price within the collection in the network's base token in the past 24 hours."""
+  lowPriceNBT24: NumberFilter
+  """The sum of pool fees generated by the collection in the network's base token over the past 24 hours."""
+  poolFeesNBT24: NumberFilter
+  """The sum of protocol fees generated by the collection in the network's base token over the past 24 hours."""
+  protocolFeesNBT24: NumberFilter
+  """The total volume of the collection in USD over the past 24 hours."""
+  volumeUSD24: NumberFilter
+  """The total buy volume of the collection in USD over the past 24 hours."""
+  revenueUSD24: NumberFilter
+  """The total sell volume of the collection in USD over the past 24 hours."""
+  expenseUSD24: NumberFilter
+  """The highest sale price within the collection in USD in the past 24 hours."""
+  highPriceUSD24: NumberFilter
+  """The lowest sale price within the collection in USD in the past 24 hours."""
+  lowPriceUSD24: NumberFilter
+  """The sum of pool fees generated by the collection in USD over the past 24 hours."""
+  poolFeesUSD24: NumberFilter
+  """The sum of protocol fees generated by the collection in USD over the past 24 hours."""
+  protocolFeesUSD24: NumberFilter
+  """The list of network IDs to filter by."""
+  network: [Int]
+  """The list of NFT AMM marketplace addresses to filter by."""
+  exchange: [String]
+  """The list of token standards to filter by. Can be a variation of `ERC-721` or `ERC-1155`."""
+  ercType: [String]
+}
+```
+
+---
+
+## NftPoolCollectionRanking
+
+Input type of `NftPoolCollectionRanking`.
+
+<ResponseField name="attribute" type="NftPoolCollectionRankingAttribute">
+  The attribute to rank NFT collections by.
+</ResponseField>
+
+<ResponseField name="direction" type="RankingDirection">
+  The direction to apply to the ranking attribute.
+</ResponseField>
+
+```graphql 
+"""Input type of `NftPoolCollectionRanking`."""
+input NftPoolCollectionRanking {
+  """The attribute to rank NFT collections by."""
+  attribute: NftPoolCollectionRankingAttribute
+  """The direction to apply to the ranking attribute."""
+  direction: RankingDirection
+}
+```
+
+---
+
+## NftPoolFilters
+
+Input type of `NftPoolFilters`.
+
+<ResponseField name="nftBalance" type="NftPoolNumberFilter">
+  The number of NFTs in the pool.
+</ResponseField>
+
+<ResponseField name="balanceNBT" type="NftPoolNumberFilter">
+  The pool liquidity in the network's base token.
+</ResponseField>
+
+<ResponseField name="sellNBT" type="NftPoolNumberFilter">
+  The current sell price of the pool in the network's base token.
+</ResponseField>
+
+<ResponseField name="offerNBT" type="NftPoolNumberFilter">
+  The price at which the pool is willing to buy an NFT in the network's base token.
+</ResponseField>
+
+<ResponseField name="balanceUSD" type="NftPoolNumberFilter">
+  The pool liquidity in USD.
+</ResponseField>
+
+<ResponseField name="sellUSD" type="NftPoolNumberFilter">
+  The current sell price of the pool in USD.
+</ResponseField>
+
+<ResponseField name="offerUSD" type="NftPoolNumberFilter">
+  The price at which the pool is willing to buy an NFT in USD.
+</ResponseField>
+
+<ResponseField name="nftsSoldAll" type="NftPoolNumberFilter">
+  The number of NFTs sold over the pool's lifetime.
+</ResponseField>
+
+<ResponseField name="nftsBoughtAll" type="NftPoolNumberFilter">
+  The number of NFTs bought over the pool's lifetime.
+</ResponseField>
+
+<ResponseField name="nftVolumeAll" type="NftPoolNumberFilter">
+  The number of NFTs bought or sold over the pool's lifetime.
+</ResponseField>
+
+<ResponseField name="volumeNBTAll" type="NftPoolNumberFilter">
+  The total volume of the pool in the network's base token over the pool's lifetime.
+</ResponseField>
+
+<ResponseField name="revenueNBTAll" type="NftPoolNumberFilter">
+  The total buy volume of the pool in the network's base token over the pool's lifetime.
+</ResponseField>
+
+<ResponseField name="expenseNBTAll" type="NftPoolNumberFilter">
+  The total sell volume of the pool in the network's base token over the pool's lifetime.
+</ResponseField>
+
+<ResponseField name="poolFeesNBTAll" type="NftPoolNumberFilter">
+  The sum of fees generated by the pool in the network's base token over the pool's lifetime.
+</ResponseField>
+
+<ResponseField name="protocolFeesNBTAll" type="NftPoolNumberFilter">
+  The sum of protocol fees generated by the pool in the network's base token over the pool's lifetime.
+</ResponseField>
+
+<ResponseField name="volumeUSDAll" type="NftPoolNumberFilter">
+  The total volume of the pool in USD over the pool's lifetime.
+</ResponseField>
+
+<ResponseField name="revenueUSDAll" type="NftPoolNumberFilter">
+  The total buy volume of the pool in USD over the pool's lifetime.
+</ResponseField>
+
+<ResponseField name="expenseUSDAll" type="NftPoolNumberFilter">
+  The total sell volume of the pool in USD over the pool's lifetime.
+</ResponseField>
+
+<ResponseField name="poolFeesUSDAll" type="NftPoolNumberFilter">
+  The sum of fees generated by the pool in USD over the pool's lifetime.
+</ResponseField>
+
+<ResponseField name="protocolFeesUSDAll" type="NftPoolNumberFilter">
+  The sum of protocol fees generated by the pool in USD over the pool's lifetime.
+</ResponseField>
+
+<ResponseField name="nftsSold24" type="NftPoolNumberFilter">
+  The number of NFTs sold over the past 24 hours.
+</ResponseField>
+
+<ResponseField name="nftsBought24" type="NftPoolNumberFilter">
+  The number of NFTs bought over the past 24 hours.
+</ResponseField>
+
+<ResponseField name="nftVolume24" type="NftPoolNumberFilter">
+  The number of NFTs bought or sold over the past 24 hours.
+</ResponseField>
+
+<ResponseField name="volumeNBT24" type="NftPoolNumberFilter">
+  The total volume of the pool in the network's base token over the past 24 hours.
+</ResponseField>
+
+<ResponseField name="revenueNBT24" type="NftPoolNumberFilter">
+  The total buy volume of the pool in the network's base token over the past 24 hours.
+</ResponseField>
+
+<ResponseField name="expenseNBT24" type="NftPoolNumberFilter">
+  The total sell volume of the pool in the network's base token over the past 24 hours.
+</ResponseField>
+
+<ResponseField name="poolFeesNBT24" type="NftPoolNumberFilter">
+  The sum of fees generated by the pool in the network's base token in the past 24 hours.
+</ResponseField>
+
+<ResponseField name="protocolFeesNBT24" type="NftPoolNumberFilter">
+  The sum of protocol fees generated by the pool in the network's base token over the past 24 hours.
+</ResponseField>
+
+<ResponseField name="volumeUSD24" type="NftPoolNumberFilter">
+  The total volume of the pool in USD over the past 24 hours.
+</ResponseField>
+
+<ResponseField name="revenueUSD24" type="NftPoolNumberFilter">
+  The total buy volume of the pool in USD over the past 24 hours.
+</ResponseField>
+
+<ResponseField name="expenseUSD24" type="NftPoolNumberFilter">
+  The total sell volume of the pool in USD over the past 24 hours.
+</ResponseField>
+
+<ResponseField name="poolFeesUSD24" type="NftPoolNumberFilter">
+  The sum of fees generated by the pool in USD in the past 24 hours.
+</ResponseField>
+
+<ResponseField name="protocolFeesUSD24" type="NftPoolNumberFilter">
+  The sum of protocol fees generated by the pool in USD over the past 24 hours.
+</ResponseField>
+
+<ResponseField name="network" type="[Int]">
+  The list of network IDs to filter by.
+</ResponseField>
+
+<ResponseField name="exchangeAddress" type="[String]">
+  The list of NFT AMM marketplace addresses to filter by.
+</ResponseField>
+
+<ResponseField name="collectionAddress" type="[String]">
+  The contract address of the NFT collection.
+</ResponseField>
+
+<ResponseField name="acceptedNftTokenIds" type="[String]">
+  For ERC1155 pools, the list of NFT token IDs that are accepted by the pool.
+</ResponseField>
+
+<ResponseField name="ownerAddress" type="[String]">
+  The wallet address of the pool owner.
+</ResponseField>
+
+```graphql 
+"""Input type of `NftPoolFilters`."""
+input NftPoolFilters {
+  """The number of NFTs in the pool."""
+  nftBalance: NftPoolNumberFilter
+  """The pool liquidity in the network's base token."""
+  balanceNBT: NftPoolNumberFilter
+  """The current sell price of the pool in the network's base token."""
+  sellNBT: NftPoolNumberFilter
+  """The price at which the pool is willing to buy an NFT in the network's base token."""
+  offerNBT: NftPoolNumberFilter
+  """The pool liquidity in USD."""
+  balanceUSD: NftPoolNumberFilter
+  """The current sell price of the pool in USD."""
+  sellUSD: NftPoolNumberFilter
+  """The price at which the pool is willing to buy an NFT in USD."""
+  offerUSD: NftPoolNumberFilter
+  """The number of NFTs sold over the pool's lifetime."""
+  nftsSoldAll: NftPoolNumberFilter
+  """The number of NFTs bought over the pool's lifetime."""
+  nftsBoughtAll: NftPoolNumberFilter
+  """The number of NFTs bought or sold over the pool's lifetime."""
+  nftVolumeAll: NftPoolNumberFilter
+  """The total volume of the pool in the network's base token over the pool's lifetime."""
+  volumeNBTAll: NftPoolNumberFilter
+  """The total buy volume of the pool in the network's base token over the pool's lifetime."""
+  revenueNBTAll: NftPoolNumberFilter
+  """The total sell volume of the pool in the network's base token over the pool's lifetime."""
+  expenseNBTAll: NftPoolNumberFilter
+  """The sum of fees generated by the pool in the network's base token over the pool's lifetime."""
+  poolFeesNBTAll: NftPoolNumberFilter
+  """The sum of protocol fees generated by the pool in the network's base token over the pool's lifetime."""
+  protocolFeesNBTAll: NftPoolNumberFilter
+  """The total volume of the pool in USD over the pool's lifetime."""
+  volumeUSDAll: NftPoolNumberFilter
+  """The total buy volume of the pool in USD over the pool's lifetime."""
+  revenueUSDAll: NftPoolNumberFilter
+  """The total sell volume of the pool in USD over the pool's lifetime."""
+  expenseUSDAll: NftPoolNumberFilter
+  """The sum of fees generated by the pool in USD over the pool's lifetime."""
+  poolFeesUSDAll: NftPoolNumberFilter
+  """The sum of protocol fees generated by the pool in USD over the pool's lifetime."""
+  protocolFeesUSDAll: NftPoolNumberFilter
+  """The number of NFTs sold over the past 24 hours."""
+  nftsSold24: NftPoolNumberFilter
+  """The number of NFTs bought over the past 24 hours."""
+  nftsBought24: NftPoolNumberFilter
+  """The number of NFTs bought or sold over the past 24 hours."""
+  nftVolume24: NftPoolNumberFilter
+  """The total volume of the pool in the network's base token over the past 24 hours."""
+  volumeNBT24: NftPoolNumberFilter
+  """The total buy volume of the pool in the network's base token over the past 24 hours."""
+  revenueNBT24: NftPoolNumberFilter
+  """The total sell volume of the pool in the network's base token over the past 24 hours."""
+  expenseNBT24: NftPoolNumberFilter
+  """The sum of fees generated by the pool in the network's base token in the past 24 hours."""
+  poolFeesNBT24: NftPoolNumberFilter
+  """The sum of protocol fees generated by the pool in the network's base token over the past 24 hours."""
+  protocolFeesNBT24: NftPoolNumberFilter
+  """The total volume of the pool in USD over the past 24 hours."""
+  volumeUSD24: NftPoolNumberFilter
+  """The total buy volume of the pool in USD over the past 24 hours."""
+  revenueUSD24: NftPoolNumberFilter
+  """The total sell volume of the pool in USD over the past 24 hours."""
+  expenseUSD24: NftPoolNumberFilter
+  """The sum of fees generated by the pool in USD in the past 24 hours."""
+  poolFeesUSD24: NftPoolNumberFilter
+  """The sum of protocol fees generated by the pool in USD over the past 24 hours."""
+  protocolFeesUSD24: NftPoolNumberFilter
+  """The list of network IDs to filter by."""
+  network: [Int]
+  """The list of NFT AMM marketplace addresses to filter by."""
+  exchangeAddress: [String]
+  """The contract address of the NFT collection."""
+  collectionAddress: [String]
+  """For ERC1155 pools, the list of NFT token IDs that are accepted by the pool."""
+  acceptedNftTokenIds: [String]
+  """The wallet address of the pool owner."""
+  ownerAddress: [String]
+}
+```
+
+---
+
+## NftPoolNumberFilter
+
+Input type of `NftPoolNumberFilter`.
+
+<ResponseField name="gte" type="String">
+  Greater than or equal to.
+</ResponseField>
+
+<ResponseField name="gt" type="String">
+  Greater than.
+</ResponseField>
+
+<ResponseField name="lte" type="String">
+  Less than or equal to.
+</ResponseField>
+
+<ResponseField name="lt" type="String">
+  Less than.
+</ResponseField>
+
+```graphql 
+"""Input type of `NftPoolNumberFilter`."""
+input NftPoolNumberFilter {
+  """Greater than or equal to."""
+  gte: String
+  """Greater than."""
+  gt: String
+  """Less than or equal to."""
+  lte: String
+  """Less than."""
+  lt: String
+}
+```
+
+---
+
+## NftPoolRanking
+
+Input type of `NftPoolRanking`.
+
+<ResponseField name="attribute" type="NftPoolRankingAttribute">
+  The attribute to rank NFT pools by.
+</ResponseField>
+
+<ResponseField name="direction" type="RankingDirection">
+  The direction to apply to the ranking attribute.
+</ResponseField>
+
+```graphql 
+"""Input type of `NftPoolRanking`."""
+input NftPoolRanking {
+  """The attribute to rank NFT pools by."""
+  attribute: NftPoolRankingAttribute
+  """The direction to apply to the ranking attribute."""
+  direction: RankingDirection
+}
+```
+
+---
+
+## NftStatsWindowFilter
+
+NFT stats for a given time frame.
+
+<ResponseField name="usd" type="statsCurrency">
+  The currency stats in USD, such as volume.
+</ResponseField>
+
+<ResponseField name="networkBaseToken" type="statsCurrency">
+  The currency stats in the network's base token, such as volume.
+</ResponseField>
+
+<ResponseField name="nonCurrency" type="statsNonCurrency">
+  The numerical stats, such as number of sales.
+</ResponseField>
+
+```graphql 
+"""NFT stats for a given time frame."""
+input NftStatsWindowFilter {
+  """The currency stats in USD, such as volume."""
+  usd: statsCurrency
+  """The currency stats in the network's base token, such as volume."""
+  networkBaseToken: statsCurrency
+  """The numerical stats, such as number of sales."""
+  nonCurrency: statsNonCurrency
+}
+```
+
+---
+
+## NumberFilter
+
+Input type of `NumberFilter`.
+
+<ResponseField name="gte" type="Float">
+  Greater than or equal to.
+</ResponseField>
+
+<ResponseField name="gt" type="Float">
+  Greater than.
+</ResponseField>
+
+<ResponseField name="lte" type="Float">
+  Less than or equal to.
+</ResponseField>
+
+<ResponseField name="lt" type="Float">
+  Less than.
+</ResponseField>
+
+```graphql 
+"""Input type of `NumberFilter`."""
+input NumberFilter {
+  """Greater than or equal to."""
+  gte: Float
+  """Greater than."""
+  gt: Float
+  """Less than or equal to."""
+  lte: Float
+  """Less than."""
+  lt: Float
+}
+```
+
+---
+
+## OneOfNumberConditionInput
+
+Input for integer list condition.
+
+<ResponseField name="oneOf" type="[Int!]!" required>
+  The list of integers.
+</ResponseField>
+
+```graphql 
+"""Input for integer list condition."""
+input OneOfNumberConditionInput {
+  """The list of integers."""
+  oneOf: [Int!]!
+}
+```
+
+---
+
+## OnEventsCreatedByMakerInput
+
+Input for `onEventsCreatedByMaker`.
+
+<ResponseField name="makerAddress" type="String!" required>
+  The wallet address of the maker.
+</ResponseField>
+
+```graphql 
+"""Input for `onEventsCreatedByMaker`."""
+input OnEventsCreatedByMakerInput {
+  """The wallet address of the maker."""
+  makerAddress: String!
+}
+```
+
+---
+
+## OnLaunchpadTokenEventInput
+
+Input for `onLaunchpadTokenEvent`.
+
+<ResponseField name="protocol" type="LaunchpadTokenProtocol">
+  The protocol of the token.
+</ResponseField>
+
+<ResponseField name="eventType" type="LaunchpadTokenEventType">
+  The type of event.
+</ResponseField>
+
+<ResponseField name="address" type="String">
+  The contract address of the token. Required when `networkId` is provided.
+</ResponseField>
+
+<ResponseField name="networkId" type="Int">
+  The network ID that the token is deployed on. Required when `address` is provided.
+</ResponseField>
+
+```graphql 
+"""Input for `onLaunchpadTokenEvent`."""
+input OnLaunchpadTokenEventInput {
+  """The protocol of the token."""
+  protocol: LaunchpadTokenProtocol
+  """The type of event."""
+  eventType: LaunchpadTokenEventType
+  """The contract address of the token. Required when `networkId` is provided."""
+  address: String
+  """The network ID that the token is deployed on. Required when `address` is provided."""
+  networkId: Int
+}
+```
+
+---
+
+## OnPricesUpdatedInput
+
+<ResponseField name="address" type="String!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="networkId" type="Int!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="sourcePairAddress" type="String">
+  No description provided
+</ResponseField>
+
+```graphql 
+input OnPricesUpdatedInput {
+  address: String!
+  networkId: Int!
+  sourcePairAddress: String
+}
+```
+
+---
+
+## OnTokenEventsCreatedInput
+
+<ResponseField name="tokenAddress" type="String">
+  The token address to filter by.
+</ResponseField>
+
+<ResponseField name="networkId" type="Int!" required>
+  The network ID to filter by.
+</ResponseField>
+
+```graphql 
+input OnTokenEventsCreatedInput {
+  """The token address to filter by."""
+  tokenAddress: String
+  """The network ID to filter by."""
+  networkId: Int!
+}
+```
+
+---
+
+## OnUnconfirmedEventsCreatedByMakerInput
+
+Input for `onUnconfirmedEventsCreatedByMaker`.
+
+<ResponseField name="makerAddress" type="String!" required>
+  The wallet address of the maker.
+</ResponseField>
+
+```graphql 
+"""Input for `onUnconfirmedEventsCreatedByMaker`."""
+input OnUnconfirmedEventsCreatedByMakerInput {
+  """The wallet address of the maker."""
+  makerAddress: String!
+}
+```
+
+---
+
+## PairChartInput
+
+Input type of `PairChartInput`.
+
+<ResponseField name="imageOptions" type="ChartImageOptions">
+  Options that pertain to the image itself.
+</ResponseField>
+
+<ResponseField name="chartSettings" type="PairChartSettings!" required>
+  Settings that pertain to the chart.
+</ResponseField>
+
+```graphql 
+"""Input type of `PairChartInput`."""
+input PairChartInput {
+  """Options that pertain to the image itself."""
+  imageOptions: ChartImageOptions
+  """Settings that pertain to the chart."""
+  chartSettings: PairChartSettings!
+}
+```
+
+---
+
+## PairChartSettings
+
+Input options for the chart.
+
+<ResponseField name="pairAddress" type="String!" required>
+  The contract address of the pair.
+</ResponseField>
+
+<ResponseField name="networkId" type="Int!" required>
+  The network ID the pair is deployed on.
+</ResponseField>
+
+<ResponseField name="from" type="Int">
+  The unix timestamp for the start of the requested range.
+</ResponseField>
+
+<ResponseField name="to" type="Int">
+  The unix timestamp for the end of the requested range.
+</ResponseField>
+
+<ResponseField name="quoteToken" type="QuoteToken">
+  The token of interest within the token's top pair. Can be `token0` or `token1`.
+</ResponseField>
+
+<ResponseField name="resolution" type="String">
+  The time frame for each candle. Available options are `1S`, `5S`, `15S`, `30S`, `1`, `5`, `15`, `30`, `60`, `240`, `720`, `1D`, `7D`.
+</ResponseField>
+
+<ResponseField name="theme" type="ChartTheme">
+  The color theme of the chart.
+</ResponseField>
+
+```graphql 
+"""Input options for the chart."""
+input PairChartSettings {
+  """The contract address of the pair."""
+  pairAddress: String!
+  """The network ID the pair is deployed on."""
+  networkId: Int!
+  """The unix timestamp for the start of the requested range."""
+  from: Int
+  """The unix timestamp for the end of the requested range."""
+  to: Int
+  """The token of interest within the token's top pair. Can be `token0` or `token1`."""
+  quoteToken: QuoteToken
+  """The time frame for each candle. Available options are `1S`, `5S`, `15S`, `30S`, `1`, `5`, `15`, `30`, `60`, `240`, `720`, `1D`, `7D`."""
+  resolution: String
+  """The color theme of the chart."""
+  theme: ChartTheme
+}
+```
+
+---
+
+## PairFilterMatchTokens
+
+Input type of `PairFilterMatchTokens`.
+
+<ResponseField name="token0" type="String">
+  The contract address of `token0` to filter by.
+</ResponseField>
+
+<ResponseField name="token1" type="String">
+  The contract address of `token1` to filter by.
+</ResponseField>
+
+```graphql 
+"""Input type of `PairFilterMatchTokens`."""
+input PairFilterMatchTokens {
+  """The contract address of `token0` to filter by."""
+  token0: String
+  """The contract address of `token1` to filter by."""
+  token1: String
+}
+```
+
+---
+
+## PairFilters
+
+Input type of `PairFilters`.
+
+<ResponseField name="createdAt" type="NumberFilter">
+  The unix timestamp for the creation of the pair.
+</ResponseField>
+
+<ResponseField name="lastTransaction" type="NumberFilter">
+  The unix timestamp for the last transaction to happen on the pair.
+</ResponseField>
+
+<ResponseField name="buyCount1" type="NumberFilter">
+  The number of buys in the past hour.
+</ResponseField>
+
+<ResponseField name="buyCount12" type="NumberFilter">
+  The number of buys in the past 12 hours.
+</ResponseField>
+
+<ResponseField name="buyCount24" type="NumberFilter">
+  The number of buys in the past 24 hours.
+</ResponseField>
+
+<ResponseField name="buyCount4" type="NumberFilter">
+  The number of buys in the past 4 hours.
+</ResponseField>
+
+<ResponseField name="exchangeAddress" type="[String]">
+  The list of exchange contract addresses to filter by.
+</ResponseField>
+
+<ResponseField name="highPrice1" type="NumberFilter">
+  The highest price in USD in the past hour.
+</ResponseField>
+
+<ResponseField name="highPrice12" type="NumberFilter">
+  The highest price in USD in the past 12 hours.
+</ResponseField>
+
+<ResponseField name="highPrice24" type="NumberFilter">
+  The highest price in USD in the past 24 hours.
+</ResponseField>
+
+<ResponseField name="highPrice4" type="NumberFilter">
+  The highest price in USD in the past 4 hours.
+</ResponseField>
+
+<ResponseField name="liquidity" type="NumberFilter">
+  The amount of liquidity in the pair.
+</ResponseField>
+
+<ResponseField name="lockedLiquidityPercentage" type="NumberFilter">
+  The percent amount of liquidity that is locked
+</ResponseField>
+
+<ResponseField name="lowPrice1" type="NumberFilter">
+  The lowest price in USD in the past hour.
+</ResponseField>
+
+<ResponseField name="lowPrice12" type="NumberFilter">
+  The lowest price in USD in the past 12 hours.
+</ResponseField>
+
+<ResponseField name="lowPrice24" type="NumberFilter">
+  The lowest price in USD in the past 24 hours.
+</ResponseField>
+
+<ResponseField name="lowPrice4" type="NumberFilter">
+  The lowest price in USD in the past 4 hours.
+</ResponseField>
+
+<ResponseField name="network" type="[Int]">
+  The list of network IDs to filter by.
+</ResponseField>
+
+<ResponseField name="price" type="NumberFilter">
+  The token price in USD.
+</ResponseField>
+
+<ResponseField name="priceChange1" type="NumberFilter">
+  The percent price change in the past hour. Decimal format.
+</ResponseField>
+
+<ResponseField name="priceChange12" type="NumberFilter">
+  The percent price change in the past 12 hours. Decimal format.
+</ResponseField>
+
+<ResponseField name="priceChange24" type="NumberFilter">
+  The percent price change in the past 24 hours. Decimal format.
+</ResponseField>
+
+<ResponseField name="priceChange4" type="NumberFilter">
+  The percent price change in the past 4 hours. Decimal format.
+</ResponseField>
+
+<ResponseField name="volumeChange1" type="NumberFilter">
+  The percent volume change in the past hour. Decimal format.
+</ResponseField>
+
+<ResponseField name="volumeChange4" type="NumberFilter">
+  The percent volume change in the past 4 hours. Decimal format.
+</ResponseField>
+
+<ResponseField name="volumeChange12" type="NumberFilter">
+  The percent volume change in the past 12 hours. Decimal format.
+</ResponseField>
+
+<ResponseField name="volumeChange24" type="NumberFilter">
+  The percent volume change in the past 24 hours. Decimal format.
+</ResponseField>
+
+<ResponseField name="sellCount1" type="NumberFilter">
+  The number of sells in the past hour.
+</ResponseField>
+
+<ResponseField name="sellCount12" type="NumberFilter">
+  The number of sells in the past 12 hours.
+</ResponseField>
+
+<ResponseField name="sellCount24" type="NumberFilter">
+  The number of sells in the past 24 hours.
+</ResponseField>
+
+<ResponseField name="sellCount4" type="NumberFilter">
+  The number of sells in the past 4 hours.
+</ResponseField>
+
+<ResponseField name="tokenAddress" type="[String]">
+  The list of token contract addresses to filter by.
+</ResponseField>
+
+<ResponseField name="txnCount1" type="NumberFilter">
+  The number of transactions in the past hour.
+</ResponseField>
+
+<ResponseField name="txnCount12" type="NumberFilter">
+  The number of transactions in the past 12 hours.
+</ResponseField>
+
+<ResponseField name="txnCount24" type="NumberFilter">
+  The number of transactions in the past 24 hours.
+</ResponseField>
+
+<ResponseField name="txnCount4" type="NumberFilter">
+  The number of transactions in the past 4 hours.
+</ResponseField>
+
+<ResponseField name="uniqueBuys1" type="NumberFilter">
+  The unique number of buys in the past hour.
+</ResponseField>
+
+<ResponseField name="uniqueBuys12" type="NumberFilter">
+  The unique number of buys in the past 12 hours.
+</ResponseField>
+
+<ResponseField name="uniqueBuys24" type="NumberFilter">
+  The unique number of buys in the past 24 hours.
+</ResponseField>
+
+<ResponseField name="uniqueBuys4" type="NumberFilter">
+  The unique number of buys in the past 4 hours.
+</ResponseField>
+
+<ResponseField name="uniqueSells1" type="NumberFilter">
+  The unique number of sells in the past hour.
+</ResponseField>
+
+<ResponseField name="uniqueSells12" type="NumberFilter">
+  The unique number of sells in the past 12 hours.
+</ResponseField>
+
+<ResponseField name="uniqueSells24" type="NumberFilter">
+  The unique number of sells in the past 24 hours.
+</ResponseField>
+
+<ResponseField name="uniqueSells4" type="NumberFilter">
+  The unique number of sells in the past 4 hours.
+</ResponseField>
+
+<ResponseField name="uniqueTransactions1" type="NumberFilter">
+  The unique number of transactions in the past hour.
+</ResponseField>
+
+<ResponseField name="uniqueTransactions12" type="NumberFilter">
+  The unique number of transactions in the past 12 hours.
+</ResponseField>
+
+<ResponseField name="uniqueTransactions24" type="NumberFilter">
+  The unique number of transactions in the past 24 hours.
+</ResponseField>
+
+<ResponseField name="uniqueTransactions4" type="NumberFilter">
+  The unique number of transactions in the past 4 hours.
+</ResponseField>
+
+<ResponseField name="volumeUSD1" type="NumberFilter">
+  The trade volume in USD in the past hour.
+</ResponseField>
+
+<ResponseField name="volumeUSD12" type="NumberFilter">
+  The trade volume in USD in the past 12 hours.
+</ResponseField>
+
+<ResponseField name="volumeUSD24" type="NumberFilter">
+  The trade volume in USD in the past 24 hours.
+</ResponseField>
+
+<ResponseField name="volumeUSD4" type="NumberFilter">
+  The trade volume in USD in the past 4 hours.
+</ResponseField>
+
+<ResponseField name="buyVolumeUSD1" type="NumberFilter">
+  The buy volume in USD in the past hour.
+</ResponseField>
+
+<ResponseField name="buyVolumeUSD12" type="NumberFilter">
+  The buy volume in USD in the past 12 hours.
+</ResponseField>
+
+<ResponseField name="buyVolumeUSD24" type="NumberFilter">
+  The buy volume in USD in the past 24 hours.
+</ResponseField>
+
+<ResponseField name="buyVolumeUSD4" type="NumberFilter">
+  The buy volume in USD in the past 4 hours.
+</ResponseField>
+
+<ResponseField name="sellVolumeUSD1" type="NumberFilter">
+  The sell volume in USD in the past hour.
+</ResponseField>
+
+<ResponseField name="sellVolumeUSD12" type="NumberFilter">
+  The sell volume in USD in the past 12 hours.
+</ResponseField>
+
+<ResponseField name="sellVolumeUSD24" type="NumberFilter">
+  The sell volume in USD in the past 24 hours.
+</ResponseField>
+
+<ResponseField name="sellVolumeUSD4" type="NumberFilter">
+  The sell volume in USD in the past 4 hours.
+</ResponseField>
+
+<ResponseField name="potentialScam" type="Boolean">
+  Filter potential Scams
+</ResponseField>
+
+<ResponseField name="trendingIgnored" type="Boolean">
+  Whether to ignore pairs/tokens not relevant to trending
+</ResponseField>
+
+<ResponseField name="isTestnet" type="Boolean">
+  Whether to filter for pairs on testnet networks. Use `true` for testnet pairs only, `false` for mainnet pairs only and `undefined` (default) for both.
+</ResponseField>
+
+<ResponseField name="walletAgeAvg" type="NumberFilter">
+  The average age of the wallets that traded in the last 24h
+</ResponseField>
+
+<ResponseField name="walletAgeStd" type="NumberFilter">
+  The standard deviation of age of the wallets that traded in the last 24h
+</ResponseField>
+
+<ResponseField name="swapPct1dOldWallet" type="NumberFilter">
+  The percentage of wallets that are less than 1d old that have traded in the last 24h
+</ResponseField>
+
+<ResponseField name="swapPct7dOldWallet" type="NumberFilter">
+  The percentage of wallets that are less than 7d old that have traded in the last 24h
+</ResponseField>
+
+```graphql 
+"""Input type of `PairFilters`."""
+input PairFilters {
+  """The unix timestamp for the creation of the pair."""
+  createdAt: NumberFilter
+  """The unix timestamp for the last transaction to happen on the pair."""
+  lastTransaction: NumberFilter
+  """The number of buys in the past hour."""
+  buyCount1: NumberFilter
+  """The number of buys in the past 12 hours."""
+  buyCount12: NumberFilter
+  """The number of buys in the past 24 hours."""
+  buyCount24: NumberFilter
+  """The number of buys in the past 4 hours."""
+  buyCount4: NumberFilter
+  """The list of exchange contract addresses to filter by."""
+  exchangeAddress: [String]
+  """The highest price in USD in the past hour."""
+  highPrice1: NumberFilter
+  """The highest price in USD in the past 12 hours."""
+  highPrice12: NumberFilter
+  """The highest price in USD in the past 24 hours."""
+  highPrice24: NumberFilter
+  """The highest price in USD in the past 4 hours."""
+  highPrice4: NumberFilter
+  """The amount of liquidity in the pair."""
+  liquidity: NumberFilter
+  """The percent amount of liquidity that is locked"""
+  lockedLiquidityPercentage: NumberFilter
+  """The lowest price in USD in the past hour."""
+  lowPrice1: NumberFilter
+  """The lowest price in USD in the past 12 hours."""
+  lowPrice12: NumberFilter
+  """The lowest price in USD in the past 24 hours."""
+  lowPrice24: NumberFilter
+  """The lowest price in USD in the past 4 hours."""
+  lowPrice4: NumberFilter
+  """The list of network IDs to filter by."""
+  network: [Int]
+  """The token price in USD."""
+  price: NumberFilter
+  """The percent price change in the past hour. Decimal format."""
+  priceChange1: NumberFilter
+  """The percent price change in the past 12 hours. Decimal format."""
+  priceChange12: NumberFilter
+  """The percent price change in the past 24 hours. Decimal format."""
+  priceChange24: NumberFilter
+  """The percent price change in the past 4 hours. Decimal format."""
+  priceChange4: NumberFilter
+  """The percent volume change in the past hour. Decimal format."""
+  volumeChange1: NumberFilter
+  """The percent volume change in the past 4 hours. Decimal format."""
+  volumeChange4: NumberFilter
+  """The percent volume change in the past 12 hours. Decimal format."""
+  volumeChange12: NumberFilter
+  """The percent volume change in the past 24 hours. Decimal format."""
+  volumeChange24: NumberFilter
+  """The number of sells in the past hour."""
+  sellCount1: NumberFilter
+  """The number of sells in the past 12 hours."""
+  sellCount12: NumberFilter
+  """The number of sells in the past 24 hours."""
+  sellCount24: NumberFilter
+  """The number of sells in the past 4 hours."""
+  sellCount4: NumberFilter
+  """The list of token contract addresses to filter by."""
+  tokenAddress: [String]
+  """The number of transactions in the past hour."""
+  txnCount1: NumberFilter
+  """The number of transactions in the past 12 hours."""
+  txnCount12: NumberFilter
+  """The number of transactions in the past 24 hours."""
+  txnCount24: NumberFilter
+  """The number of transactions in the past 4 hours."""
+  txnCount4: NumberFilter
+  """The unique number of buys in the past hour."""
+  uniqueBuys1: NumberFilter
+  """The unique number of buys in the past 12 hours."""
+  uniqueBuys12: NumberFilter
+  """The unique number of buys in the past 24 hours."""
+  uniqueBuys24: NumberFilter
+  """The unique number of buys in the past 4 hours."""
+  uniqueBuys4: NumberFilter
+  """The unique number of sells in the past hour."""
+  uniqueSells1: NumberFilter
+  """The unique number of sells in the past 12 hours."""
+  uniqueSells12: NumberFilter
+  """The unique number of sells in the past 24 hours."""
+  uniqueSells24: NumberFilter
+  """The unique number of sells in the past 4 hours."""
+  uniqueSells4: NumberFilter
+  """The unique number of transactions in the past hour."""
+  uniqueTransactions1: NumberFilter
+  """The unique number of transactions in the past 12 hours."""
+  uniqueTransactions12: NumberFilter
+  """The unique number of transactions in the past 24 hours."""
+  uniqueTransactions24: NumberFilter
+  """The unique number of transactions in the past 4 hours."""
+  uniqueTransactions4: NumberFilter
+  """The trade volume in USD in the past hour."""
+  volumeUSD1: NumberFilter
+  """The trade volume in USD in the past 12 hours."""
+  volumeUSD12: NumberFilter
+  """The trade volume in USD in the past 24 hours."""
+  volumeUSD24: NumberFilter
+  """The trade volume in USD in the past 4 hours."""
+  volumeUSD4: NumberFilter
+  """The buy volume in USD in the past hour."""
+  buyVolumeUSD1: NumberFilter
+  """The buy volume in USD in the past 12 hours."""
+  buyVolumeUSD12: NumberFilter
+  """The buy volume in USD in the past 24 hours."""
+  buyVolumeUSD24: NumberFilter
+  """The buy volume in USD in the past 4 hours."""
+  buyVolumeUSD4: NumberFilter
+  """The sell volume in USD in the past hour."""
+  sellVolumeUSD1: NumberFilter
+  """The sell volume in USD in the past 12 hours."""
+  sellVolumeUSD12: NumberFilter
+  """The sell volume in USD in the past 24 hours."""
+  sellVolumeUSD24: NumberFilter
+  """The sell volume in USD in the past 4 hours."""
+  sellVolumeUSD4: NumberFilter
+  """Filter potential Scams"""
+  potentialScam: Boolean
+  """Whether to ignore pairs/tokens not relevant to trending"""
+  trendingIgnored: Boolean
+  """Whether to filter for pairs on testnet networks. Use `true` for testnet pairs only, `false` for mainnet pairs only and `undefined` (default) for both."""
+  isTestnet: Boolean
+  """The average age of the wallets that traded in the last 24h"""
+  walletAgeAvg: NumberFilter
+  """The standard deviation of age of the wallets that traded in the last 24h"""
+  walletAgeStd: NumberFilter
+  """The percentage of wallets that are less than 1d old that have traded in the last 24h"""
+  swapPct1dOldWallet: NumberFilter
+  """The percentage of wallets that are less than 7d old that have traded in the last 24h"""
+  swapPct7dOldWallet: NumberFilter
+}
+```
+
+---
+
+## PairRanking
+
+Input type of `PairRanking`.
+
+<ResponseField name="attribute" type="PairRankingAttribute">
+  The attribute to rank pairs by.
+</ResponseField>
+
+<ResponseField name="direction" type="RankingDirection">
+  The direction to apply to the ranking attribute.
+</ResponseField>
+
+```graphql 
+"""Input type of `PairRanking`."""
+input PairRanking {
+  """The attribute to rank pairs by."""
+  attribute: PairRankingAttribute
+  """The direction to apply to the ranking attribute."""
+  direction: RankingDirection
+}
+```
+
+---
+
+## ParallelAssetFilters
+
+Input type of `ParallelAssetFilters`.
+
+<ResponseField name="attack" type="NumberFilter">
+  The damage dealt when engaged in combat.
+</ResponseField>
+
+<ResponseField name="cost" type="NumberFilter">
+  The energy used to play in-game.
+</ResponseField>
+
+<ResponseField name="health" type="NumberFilter">
+  The possible damage received before being destroyed.
+</ResponseField>
+
+<ResponseField name="supply" type="NumberFilter">
+  The total supply of this individual asset.
+</ResponseField>
+
+<ResponseField name="lastPriceUsd" type="NumberFilter">
+  The last sale price in USD.
+</ResponseField>
+
+<ResponseField name="lastPriceNetworkBaseToken" type="NumberFilter">
+  The last sale price in the network's base token.
+</ResponseField>
+
+```graphql 
+"""Input type of `ParallelAssetFilters`."""
+input ParallelAssetFilters {
+  """The damage dealt when engaged in combat."""
+  attack: NumberFilter
+  """The energy used to play in-game."""
+  cost: NumberFilter
+  """The possible damage received before being destroyed."""
+  health: NumberFilter
+  """The total supply of this individual asset."""
+  supply: NumberFilter
+  """The last sale price in USD."""
+  lastPriceUsd: NumberFilter
+  """The last sale price in the network's base token."""
+  lastPriceNetworkBaseToken: NumberFilter
+}
+```
+
+---
+
+## ParallelAssetMatchers
+
+Input type of `ParallelAssetMatchers`.
+
+<ResponseField name="tokenId" type="[String]">
+  No description provided
+</ResponseField>
+
+<ResponseField name="parallel" type="[ParallelAssetMatcherParallel]">
+  The Parallel the asset belongs to.
+</ResponseField>
+
+<ResponseField name="cardType" type="[ParallelAssetMatcherCardType]">
+  The card type. Can be `Effect`, `Relic`, `Unit`, `Upgrade` or `Paragon`.
+</ResponseField>
+
+<ResponseField name="class" type="[ParallelAssetMatcherClass]">
+  The card class. Can be `Art Card`, `Asset`, `Card Back`, `FE`, `Masterpiece`, `PL`, or `SE`.
+</ResponseField>
+
+<ResponseField name="paraset" type="[String]">
+  The paraset the asset belongs to.
+</ResponseField>
+
+<ResponseField name="rarity" type="[ParallelAssetMatcherRarity]">
+  The list of rarities. Can be `Common`, `Uncommon`, `Rare`, `Legendary`, or `Prime`.
+</ResponseField>
+
+<ResponseField name="subtype" type="[ParallelAssetMatcherSubtype]">
+  The card subtype. Can be `Pirate`, `Vehicle` or `Clone`.
+</ResponseField>
+
+<ResponseField name="expansion" type="[String]">
+  The expansion used for naming base and expansion sets.
+</ResponseField>
+
+```graphql 
+"""Input type of `ParallelAssetMatchers`."""
+input ParallelAssetMatchers {
+  tokenId: [String]
+  """The Parallel the asset belongs to."""
+  parallel: [ParallelAssetMatcherParallel]
+  """The card type. Can be `Effect`, `Relic`, `Unit`, `Upgrade` or `Paragon`."""
+  cardType: [ParallelAssetMatcherCardType]
+  """The card class. Can be `Art Card`, `Asset`, `Card Back`, `FE`, `Masterpiece`, `PL`, or `SE`."""
+  class: [ParallelAssetMatcherClass]
+  """The paraset the asset belongs to."""
+  paraset: [String]
+  """The list of rarities. Can be `Common`, `Uncommon`, `Rare`, `Legendary`, or `Prime`."""
+  rarity: [ParallelAssetMatcherRarity]
+  """The card subtype. Can be `Pirate`, `Vehicle` or `Clone`."""
+  subtype: [ParallelAssetMatcherSubtype]
+  """The expansion used for naming base and expansion sets."""
+  expansion: [String]
+}
+```
+
+---
+
+## ParallelAssetRanking
+
+Input type of `ParallelAssetRanking`.
+
+<ResponseField name="attribute" type="ParallelAssetRankingAttribute">
+  The attribute to rank Parallel assets by.
+</ResponseField>
+
+<ResponseField name="direction" type="RankingDirection">
+  The direction to apply to the ranking attribute.
+</ResponseField>
+
+```graphql 
+"""Input type of `ParallelAssetRanking`."""
+input ParallelAssetRanking {
+  """The attribute to rank Parallel assets by."""
+  attribute: ParallelAssetRankingAttribute
+  """The direction to apply to the ranking attribute."""
+  direction: RankingDirection
+}
+```
+
+---
+
+## ParallelCardChangeQueryTimestampInput
+
+Input type of `ParallelCardChangeQueryTimestamp.
+
+<ResponseField name="from" type="Int">
+  The unix timestamp for the start of the requested range.
+</ResponseField>
+
+<ResponseField name="to" type="Int">
+  The unix timestamp for the end of the requested range.
+</ResponseField>
+
+```graphql 
+"""Input type of `ParallelCardChangeQueryTimestamp."""
+input ParallelCardChangeQueryTimestampInput {
+  """The unix timestamp for the start of the requested range."""
+  from: Int
+  """The unix timestamp for the end of the requested range."""
+  to: Int
+}
+```
+
+---
+
+## PriceEventWebhookConditionInput
+
+Input conditions for a price event webhook.
+
+<ResponseField name="tokenAddress" type="StringEqualsConditionInput!" required>
+  The contract address of the token to listen for.
+</ResponseField>
+
+<ResponseField name="networkId" type="IntEqualsConditionInput!" required>
+  The network ID to listen on.
+</ResponseField>
+
+<ResponseField name="priceUsd" type="ComparisonOperatorInput!" required>
+  The price conditions to listen for.
+</ResponseField>
+
+<ResponseField name="pairAddress" type="StringEqualsConditionInput">
+  The contract address of the pair to listen for.
+</ResponseField>
+
+```graphql 
+"""Input conditions for a price event webhook."""
+input PriceEventWebhookConditionInput {
+  """The contract address of the token to listen for."""
+  tokenAddress: StringEqualsConditionInput!
+  """The network ID to listen on."""
+  networkId: IntEqualsConditionInput!
+  """The price conditions to listen for."""
+  priceUsd: ComparisonOperatorInput!
+  """The contract address of the pair to listen for."""
+  pairAddress: StringEqualsConditionInput
+}
+```
+
+---
+
+## PrimePoolInput
+
+Input Type of `PrimePoolQuery`
+
+<ResponseField name="address" type="String!" required>
+  The address of the pool contract.
+</ResponseField>
+
+<ResponseField name="networkId" type="Int!" required>
+  The network that the pool is deployed on.
+</ResponseField>
+
+<ResponseField name="poolIds" type="[String]">
+  Optional list of pool ids to fetch.
+</ResponseField>
+
+```graphql 
+"""Input Type of `PrimePoolQuery`"""
+input PrimePoolInput {
+  """The address of the pool contract."""
+  address: String!
+  """The network that the pool is deployed on."""
+  networkId: Int!
+  """Optional list of pool ids to fetch."""
+  poolIds: [String]
+}
+```
+
+---
+
+## RangeInput
+
+The range of time for a chart.
+
+<ResponseField name="start" type="Int!" required>
+  No description provided
+</ResponseField>
+
+<ResponseField name="end" type="Int!" required>
+  No description provided
+</ResponseField>
+
+```graphql 
+"""The range of time for a chart."""
+input RangeInput {
+  start: Int!
+  end: Int!
+}
+```
+
+---
+
+## RawTransactionWebhookConditionInput
+
+Input conditions for a Raw Transaction webhook.
+
+<ResponseField name="networkId" type="OneOfNumberConditionInput">
+  A list of network IDs to listen on.
+</ResponseField>
+
+<ResponseField name="to" type="StringEqualsConditionInput">
+  The to address to listen for.
+</ResponseField>
+
+<ResponseField name="from" type="StringEqualsConditionInput">
+  The from address to listen for.
+</ResponseField>
+
+<ResponseField name="toOrFrom" type="StringEqualsConditionInput">
+  Trigger the webhook if either the to or the from address matches.
+</ResponseField>
+
+<ResponseField name="input" type="StringContainsConditionInput">
+  Trigger the webhook if the input contains or doesn't contain the specified string.
+</ResponseField>
+
+<ResponseField name="ignoreTokenPairEvents" type="Boolean">
+  Do not trigger the webhook if the raw transaction is handled by the TokenPairEvent webhook.
+</ResponseField>
+
+<ResponseField name="ignoreNftEvents" type="Boolean">
+  Do not trigger the webhook if the raw transaction is handled by the NftEvent webhook.
+</ResponseField>
+
+```graphql 
+"""Input conditions for a Raw Transaction webhook."""
+input RawTransactionWebhookConditionInput {
+  """A list of network IDs to listen on."""
+  networkId: OneOfNumberConditionInput
+  """The to address to listen for."""
+  to: StringEqualsConditionInput
+  """The from address to listen for."""
+  from: StringEqualsConditionInput
+  """Trigger the webhook if either the to or the from address matches."""
+  toOrFrom: StringEqualsConditionInput
+  """Trigger the webhook if the input contains or doesn't contain the specified string."""
+  input: StringContainsConditionInput
+  """Do not trigger the webhook if the raw transaction is handled by the TokenPairEvent webhook."""
+  ignoreTokenPairEvents: Boolean
+  """Do not trigger the webhook if the raw transaction is handled by the NftEvent webhook."""
+  ignoreNftEvents: Boolean
+}
+```
+
+---
+
+## RetrySettingsInput
+
+Config input for retrying failed webhook messages.
+
+<ResponseField name="maxTimeElapsed" type="Int">
+  The maximum time in seconds that the webhook will retry sending a message
+</ResponseField>
+
+<ResponseField name="minRetryDelay" type="Int">
+  The minimum time in seconds that the webhook will wait before retrying a failed message
+</ResponseField>
+
+<ResponseField name="maxRetryDelay" type="Int">
+  The maximum time in seconds that the webhook will wait before retrying a failed message
+</ResponseField>
+
+<ResponseField name="maxRetries" type="Int">
+  The maximum number of times the webhook will retry sending a message
+</ResponseField>
+
+```graphql 
+"""Config input for retrying failed webhook messages."""
+input RetrySettingsInput {
+  """The maximum time in seconds that the webhook will retry sending a message"""
+  maxTimeElapsed: Int
+  """The minimum time in seconds that the webhook will wait before retrying a failed message"""
+  minRetryDelay: Int
+  """The maximum time in seconds that the webhook will wait before retrying a failed message"""
+  maxRetryDelay: Int
+  """The maximum number of times the webhook will retry sending a message"""
+  maxRetries: Int
+}
+```
+
+---
+
+## SimulateCreateTransactionInput
+
+Input type of `simulateTokenContract`.
+
+<ResponseField name="networkId" type="Int!" required>
+  The network ID the token is deployed on. Currently only supports 1 (mainnet).
+</ResponseField>
+
+<ResponseField name="blockNumber" type="Int!" required>
+  The block number to simulate the contract at.
+</ResponseField>
+
+<ResponseField name="createTransactionHash" type="String!" required>
+  The contract creation transaction hash from the live network.
+</ResponseField>
+
+<ResponseField name="contractAddress" type="String!" required>
+  The contract address of the token.
+</ResponseField>
+
+```graphql 
+"""Input type of `simulateTokenContract`."""
+input SimulateCreateTransactionInput {
+  """The network ID the token is deployed on. Currently only supports 1 (mainnet)."""
+  networkId: Int!
+  """The block number to simulate the contract at."""
+  blockNumber: Int!
+  """The contract creation transaction hash from the live network."""
+  createTransactionHash: String!
+  """The contract address of the token."""
+  contractAddress: String!
+}
+```
+
+---
+
+## SimulateDeployInput
+
+Input type of `simulateTokenContract`.
+
+<ResponseField name="networkId" type="Int!" required>
+  The network ID the token is deployed on. Currently only supports 1 (mainnet).
+</ResponseField>
+
+<ResponseField name="blockNumber" type="Int!" required>
+  The block number to simulate the contract at.
+</ResponseField>
+
+<ResponseField name="contractAddress" type="String!" required>
+  The contract address of the token.
+</ResponseField>
+
+<ResponseField name="contractInput" type="String!" required>
+  The contract creation transaction input to simulate.
+</ResponseField>
+
+```graphql 
+"""Input type of `simulateTokenContract`."""
+input SimulateDeployInput {
+  """The network ID the token is deployed on. Currently only supports 1 (mainnet)."""
+  networkId: Int!
+  """The block number to simulate the contract at."""
+  blockNumber: Int!
+  """The contract address of the token."""
+  contractAddress: String!
+  """The contract creation transaction input to simulate."""
+  contractInput: String!
+}
+```
+
+---
+
+## SimulateLiveContractInput
+
+Input type of `simulateTokenContract`.
+
+<ResponseField name="networkId" type="Int!" required>
+  The network ID the token is deployed on. Currently only supports 1 (mainnet).
+</ResponseField>
+
+<ResponseField name="blockNumber" type="Int">
+  The block number to simulate the contract at.
+</ResponseField>
+
+<ResponseField name="contractAddress" type="String!" required>
+  The contract address of the token.
+</ResponseField>
+
+```graphql 
+"""Input type of `simulateTokenContract`."""
+input SimulateLiveContractInput {
+  """The network ID the token is deployed on. Currently only supports 1 (mainnet)."""
+  networkId: Int!
+  """The block number to simulate the contract at."""
+  blockNumber: Int
+  """The contract address of the token."""
+  contractAddress: String!
+}
+```
+
+---
+
+## SimulateTokenContractInput
+
+Input type of `simulateTokenContract`.
+
+<ResponseField name="simulateDeployInput" type="SimulateDeployInput">
+  Input for a token contract deploy simulation.
+</ResponseField>
+
+<ResponseField name="simulateCreateTransactionInput" type="SimulateCreateTransactionInput">
+  Input for a token contract create transaction simulation.
+</ResponseField>
+
+<ResponseField name="simulateLiveContractInput" type="SimulateLiveContractInput">
+  Input for a live token contract simulation.
+</ResponseField>
+
+```graphql 
+"""Input type of `simulateTokenContract`."""
+input SimulateTokenContractInput {
+  """Input for a token contract deploy simulation."""
+  simulateDeployInput: SimulateDeployInput
+  """Input for a token contract create transaction simulation."""
+  simulateCreateTransactionInput: SimulateCreateTransactionInput
+  """Input for a live token contract simulation."""
+  simulateLiveContractInput: SimulateLiveContractInput
+}
+```
+
+---
+
+## statsCurrency
+
+Currency stats.
+
+<ResponseField name="volume" type="StatsFilter">
+  The volume over the time frame.
+</ResponseField>
+
+<ResponseField name="volumeByFillsource" type="[FillsourceStatsFilter]">
+  The volume by fillsource over the time frame.
+</ResponseField>
+
+<ResponseField name="volumePercentByFillsource" type="[FillsourceStatsFilter]">
+  The volume percentage by fillsource over the time frame.
+</ResponseField>
+
+<ResponseField name="average" type="StatsFilter">
+  The average sale price in the time frame.
+</ResponseField>
+
+<ResponseField name="open" type="StatsFilter">
+  The opening price for the time frame.
+</ResponseField>
+
+<ResponseField name="close" type="StatsFilter">
+  The closing price for the time frame.
+</ResponseField>
+
+<ResponseField name="lowestSale" type="StatsFilter">
+  The lowest sale price in the time frame.
+</ResponseField>
+
+<ResponseField name="highestSale" type="StatsFilter">
+  The highest sale price in the time frame.
+</ResponseField>
+
+```graphql 
+"""Currency stats."""
+input statsCurrency {
+  """The volume over the time frame."""
+  volume: StatsFilter
+  """The volume by fillsource over the time frame."""
+  volumeByFillsource: [FillsourceStatsFilter]
+  """The volume percentage by fillsource over the time frame."""
+  volumePercentByFillsource: [FillsourceStatsFilter]
+  """The average sale price in the time frame."""
+  average: StatsFilter
+  """The opening price for the time frame."""
+  open: StatsFilter
+  """The closing price for the time frame."""
+  close: StatsFilter
+  """The lowest sale price in the time frame."""
+  lowestSale: StatsFilter
+  """The highest sale price in the time frame."""
+  highestSale: StatsFilter
+}
+```
+
+---
+
+## StatsFilter
+
+Filter for NFT stats.
+
+<ResponseField name="current" type="NumberFilter">
+  The total value for the current window.
+</ResponseField>
+
+<ResponseField name="previous" type="NumberFilter">
+  The total value for the previous window.
+</ResponseField>
+
+<ResponseField name="change" type="NumberFilter">
+  The percent change between the `current` and `previous`.
+</ResponseField>
+
+```graphql 
+"""Filter for NFT stats."""
+input StatsFilter {
+  """The total value for the current window."""
+  current: NumberFilter
+  """The total value for the previous window."""
+  previous: NumberFilter
+  """The percent change between the `current` and `previous`."""
+  change: NumberFilter
+}
+```
+
+---
+
+## statsNonCurrency
+
+Numerical stats for an NFT collection over a time frame.
+
+<ResponseField name="mints" type="StatsFilter">
+  The number of mints over the time frame.
+</ResponseField>
+
+<ResponseField name="sales" type="StatsFilter">
+  The number of sales over the time frame.
+</ResponseField>
+
+<ResponseField name="tokensSold" type="StatsFilter">
+  The number of tokens sold over the time frame.
+</ResponseField>
+
+<ResponseField name="transfers" type="StatsFilter">
+  The number of transfers over the time frame.
+</ResponseField>
+
+<ResponseField name="uniqueBuyers" type="StatsFilter">
+  The number of unique buyers over the time frame.
+</ResponseField>
+
+<ResponseField name="uniqueSellers" type="StatsFilter">
+  The number of unique sellers over the time frame.
+</ResponseField>
+
+<ResponseField name="uniqueSalesWallets" type="StatsFilter">
+  The number of unique wallets (buyers or sellers) over the time frame.
+</ResponseField>
+
+<ResponseField name="uniqueMinters" type="StatsFilter">
+  The number of unique minters over the time frame.
+</ResponseField>
+
+```graphql 
+"""Numerical stats for an NFT collection over a time frame."""
+input statsNonCurrency {
+  """The number of mints over the time frame."""
+  mints: StatsFilter
+  """The number of sales over the time frame."""
+  sales: StatsFilter
+  """The number of tokens sold over the time frame."""
+  tokensSold: StatsFilter
+  """The number of transfers over the time frame."""
+  transfers: StatsFilter
+  """The number of unique buyers over the time frame."""
+  uniqueBuyers: StatsFilter
+  """The number of unique sellers over the time frame."""
+  uniqueSellers: StatsFilter
+  """The number of unique wallets (buyers or sellers) over the time frame."""
+  uniqueSalesWallets: StatsFilter
+  """The number of unique minters over the time frame."""
+  uniqueMinters: StatsFilter
+}
+```
+
+---
+
+## StringContainsConditionInput
+
+Input for string contains condition.
+
+<ResponseField name="contains" type="[String!]">
+  A list of substrings to be included within the string.
+</ResponseField>
+
+<ResponseField name="notContains" type="[String!]">
+  A list of substrings not to be included within the string.
+</ResponseField>
+
+```graphql 
+"""Input for string contains condition."""
+input StringContainsConditionInput {
+  """A list of substrings to be included within the string."""
+  contains: [String!]
+  """A list of substrings not to be included within the string."""
+  notContains: [String!]
+}
+```
+
+---
+
+## StringEqualsConditionInput
+
+Input for string equals condition.
+
+<ResponseField name="eq" type="String!" required>
+  The string to equal.
+</ResponseField>
+
+```graphql 
+"""Input for string equals condition."""
+input StringEqualsConditionInput {
+  """The string to equal."""
+  eq: String!
+}
+```
+
+---
+
+## StringFilter
+
+Input type of `StringFilter`.
+
+<ResponseField name="gte" type="String">
+  Greater than or equal to.
+</ResponseField>
+
+<ResponseField name="gt" type="String">
+  Greater than.
+</ResponseField>
+
+<ResponseField name="lte" type="String">
+  Less than or equal to.
+</ResponseField>
+
+<ResponseField name="lt" type="String">
+  Less than.
+</ResponseField>
+
+```graphql 
+"""Input type of `StringFilter`."""
+input StringFilter {
+  """Greater than or equal to."""
+  gte: String
+  """Greater than."""
+  gt: String
+  """Less than or equal to."""
+  lte: String
+  """Less than."""
+  lt: String
+}
+```
+
+---
+
+## TokenFilters
+
+Input type of `TokenFilters`.
+
+<ResponseField name="createdAt" type="NumberFilter">
+  The unix timestamp for the creation of the token's first pair.
+</ResponseField>
+
+<ResponseField name="lastTransaction" type="NumberFilter">
+  The unix timestamp for the token's last transaction.
+</ResponseField>
+
+<ResponseField name="age" type="NumberFilter">
+  No description provided
+  
+  <Warning>
+    This field is deprecated. Age isn't supported - use createdAt instead
+  </Warning>
+</ResponseField>
+
+<ResponseField name="buyCount5m" type="NumberFilter">
+  The number of buys in the past 5 minutes.
+</ResponseField>
+
+<ResponseField name="buyCount1" type="NumberFilter">
+  The number of buys in the past hour.
+</ResponseField>
+
+<ResponseField name="buyCount12" type="NumberFilter">
+  The number of buys in the past 12 hours.
+</ResponseField>
+
+<ResponseField name="buyCount24" type="NumberFilter">
+  The number of buys in the past 24 hours.
+</ResponseField>
+
+<ResponseField name="buyCount4" type="NumberFilter">
+  The number of buys in the past 4 hours.
+</ResponseField>
+
+<ResponseField name="change5m" type="NumberFilter">
+  The percent price change in the past 5 minutes. Decimal format.
+</ResponseField>
+
+<ResponseField name="change1" type="NumberFilter">
+  The percent price change in the past hour. Decimal format.
+</ResponseField>
+
+<ResponseField name="change12" type="NumberFilter">
+  The percent price change in the past 12 hours. Decimal format.
+</ResponseField>
+
+<ResponseField name="change24" type="NumberFilter">
+  The percent price change in the past 24 hours. Decimal format.
+</ResponseField>
+
+<ResponseField name="change4" type="NumberFilter">
+  The percent price change in the past 4 hours. Decimal format.
+</ResponseField>
+
+<ResponseField name="volumeChange5m" type="NumberFilter">
+  The percent volume change in the past 5 minutes. Decimal format.
+</ResponseField>
+
+<ResponseField name="volumeChange1" type="NumberFilter">
+  The percent volume change in the past hour. Decimal format.
+</ResponseField>
+
+<ResponseField name="volumeChange4" type="NumberFilter">
+  The percent volume change in the past 4 hours. Decimal format.
+</ResponseField>
+
+<ResponseField name="volumeChange12" type="NumberFilter">
+  The percent volume change in the past 12 hours. Decimal format.
+</ResponseField>
+
+<ResponseField name="volumeChange24" type="NumberFilter">
+  The percent volume change in the past 24 hours. Decimal format.
+</ResponseField>
+
+<ResponseField name="exchangeId" type="[String]">
+  The list of exchange contract IDs to filter by. Applied in conjunction with `network` filter using an OR condition. When used together, the query returns results that match either the specified exchanges or the specified network.
+</ResponseField>
+
+<ResponseField name="exchangeAddress" type="[String]">
+  The list of exchange contract addresses to filter by.
+</ResponseField>
+
+<ResponseField name="fdv" type="NumberFilter">
+  No description provided
+  
+  <Warning>
+    This field is deprecated. FDV isn't supported - use marketCap instead
+  </Warning>
+</ResponseField>
+
+<ResponseField name="high5m" type="NumberFilter">
+  The highest price in USD in the past 5 minutes.
+</ResponseField>
+
+<ResponseField name="high1" type="NumberFilter">
+  The highest price in USD in the past hour.
+</ResponseField>
+
+<ResponseField name="high12" type="NumberFilter">
+  The highest price in USD in the past 12 hours.
+</ResponseField>
+
+<ResponseField name="high24" type="NumberFilter">
+  The highest price in USD in the past 24 hours.
+</ResponseField>
+
+<ResponseField name="high4" type="NumberFilter">
+  The highest price in USD in the past 4 hours.
+</ResponseField>
+
+<ResponseField name="liquidity" type="NumberFilter">
+  The amount of liquidity in the token's top pair.
+</ResponseField>
+
+<ResponseField name="low1" type="NumberFilter">
+  The lowest price in USD in the past hour.
+</ResponseField>
+
+<ResponseField name="low5m" type="NumberFilter">
+  The lowest price in USD in the past 5 minutes.
+</ResponseField>
+
+<ResponseField name="low12" type="NumberFilter">
+  The lowest price in USD in the past 12 hours.
+</ResponseField>
+
+<ResponseField name="low24" type="NumberFilter">
+  The lowest price in USD in the past 24 hours.
+</ResponseField>
+
+<ResponseField name="low4" type="NumberFilter">
+  The lowest price in USD in the past 4 hours.
+</ResponseField>
+
+<ResponseField name="marketCap" type="NumberFilter">
+  The market cap of circulating supply.
+</ResponseField>
+
+<ResponseField name="circulatingMarketCap" type="NumberFilter">
+  The circulating market cap.
+</ResponseField>
+
+<ResponseField name="network" type="[Int]">
+  The list of network IDs to filter by. Applied in conjunction with `exchangeId` filter using an OR condition. When used together, the query returns results that match either the specified exchanges or the specified network.
+</ResponseField>
+
+<ResponseField name="holders" type="NumberFilter">
+  The number of different wallets holding the token.
+</ResponseField>
+
+<ResponseField name="priceUSD" type="NumberFilter">
+  The token price in USD.
+</ResponseField>
+
+<ResponseField name="sellCount1" type="NumberFilter">
+  The number of sells in the past hour.
+</ResponseField>
+
+<ResponseField name="sellCount5m" type="NumberFilter">
+  The number of sells in the past 5 minutes.
+</ResponseField>
+
+<ResponseField name="sellCount12" type="NumberFilter">
+  The number of sells in the past 12 hours.
+</ResponseField>
+
+<ResponseField name="sellCount24" type="NumberFilter">
+  The number of sells in the past 24 hours.
+</ResponseField>
+
+<ResponseField name="sellCount4" type="NumberFilter">
+  The number of sells in the past 4 hours.
+</ResponseField>
+
+<ResponseField name="txnCount5m" type="NumberFilter">
+  The number of transactions in the past 5 minutes.
+</ResponseField>
+
+<ResponseField name="txnCount1" type="NumberFilter">
+  The number of transactions in the past hour.
+</ResponseField>
+
+<ResponseField name="txnCount12" type="NumberFilter">
+  The number of transactions in the past 12 hours.
+</ResponseField>
+
+<ResponseField name="txnCount24" type="NumberFilter">
+  The number of transactions in the past 24 hours.
+</ResponseField>
+
+<ResponseField name="txnCount4" type="NumberFilter">
+  The number of transactions in the past 4 hours.
+</ResponseField>
+
+<ResponseField name="uniqueBuys1" type="NumberFilter">
+  The unique number of buys in the past hour.
+</ResponseField>
+
+<ResponseField name="uniqueBuys5m" type="NumberFilter">
+  The unique number of buys in the past 5 minutes.
+</ResponseField>
+
+<ResponseField name="uniqueBuys12" type="NumberFilter">
+  The unique number of buys in the past 12 hours.
+</ResponseField>
+
+<ResponseField name="uniqueBuys24" type="NumberFilter">
+  The unique number of buys in the past 24 hours.
+</ResponseField>
+
+<ResponseField name="uniqueBuys4" type="NumberFilter">
+  The unique number of buys in the past 4 hours.
+</ResponseField>
+
+<ResponseField name="uniqueSells5m" type="NumberFilter">
+  The unique number of sells in the past 5 minutes.
+</ResponseField>
+
+<ResponseField name="uniqueSells1" type="NumberFilter">
+  The unique number of sells in the past hour.
+</ResponseField>
+
+<ResponseField name="uniqueSells12" type="NumberFilter">
+  The unique number of sells in the past 12 hours.
+</ResponseField>
+
+<ResponseField name="uniqueSells24" type="NumberFilter">
+  The unique number of sells in the past 24 hours.
+</ResponseField>
+
+<ResponseField name="uniqueSells4" type="NumberFilter">
+  The unique number of sells in the past 4 hours.
+</ResponseField>
+
+<ResponseField name="uniqueTransactions1" type="NumberFilter">
+  The unique number of transactions in the past hour.
+</ResponseField>
+
+<ResponseField name="uniqueTransactions5m" type="NumberFilter">
+  The unique number of transactions in the past 5 minutes.
+</ResponseField>
+
+<ResponseField name="uniqueTransactions12" type="NumberFilter">
+  The unique number of transactions in the past 12 hours.
+</ResponseField>
+
+<ResponseField name="uniqueTransactions24" type="NumberFilter">
+  The unique number of transactions in the past 24 hours.
+</ResponseField>
+
+<ResponseField name="uniqueTransactions4" type="NumberFilter">
+  The unique number of transactions in the past 4 hours.
+</ResponseField>
+
+<ResponseField name="volume1" type="NumberFilter">
+  The trade volume in USD in the past hour.
+</ResponseField>
+
+<ResponseField name="volume12" type="NumberFilter">
+  The trade volume in USD in the past 12 hours.
+</ResponseField>
+
+<ResponseField name="volume24" type="NumberFilter">
+  The trade volume in USD in the past 24 hours.
+</ResponseField>
+
+<ResponseField name="volume4" type="NumberFilter">
+  The trade volume in USD in the past 4 hours.
+</ResponseField>
+
+<ResponseField name="volume5m" type="NumberFilter">
+  The trade volume in USD in the past 5 minutes.
+</ResponseField>
+
+<ResponseField name="buyVolume1" type="NumberFilter">
+  The buy volume in USD in the past hour.
+</ResponseField>
+
+<ResponseField name="buyVolume12" type="NumberFilter">
+  The buy volume in USD in the past 12 hours.
+</ResponseField>
+
+<ResponseField name="buyVolume24" type="NumberFilter">
+  The buy volume in USD in the past 24 hours.
+</ResponseField>
+
+<ResponseField name="buyVolume4" type="NumberFilter">
+  The buy volume in USD in the past 4 hours.
+</ResponseField>
+
+<ResponseField name="buyVolume5m" type="NumberFilter">
+  The buy volume in USD in the past 5 minutes.
+</ResponseField>
+
+<ResponseField name="sellVolume1" type="NumberFilter">
+  The sell volume in USD in the past hour.
+</ResponseField>
+
+<ResponseField name="sellVolume12" type="NumberFilter">
+  The sell volume in USD in the past 12 hours.
+</ResponseField>
+
+<ResponseField name="sellVolume24" type="NumberFilter">
+  The sell volume in USD in the past 24 hours.
+</ResponseField>
+
+<ResponseField name="sellVolume4" type="NumberFilter">
+  The sell volume in USD in the past 4 hours.
+</ResponseField>
+
+<ResponseField name="sellVolume5m" type="NumberFilter">
+  The sell volume in USD in the past 5 minutes.
+</ResponseField>
+
+<ResponseField name="includeScams" type="Boolean">
+  Whether to include tokens that have been flagged as scams. Default: false
+</ResponseField>
+
+<ResponseField name="isTestnet" type="Boolean">
+  Whether to filter for tokens on testnet networks. Use `true` for testnet tokens only, `false` for mainnet tokens only and `undefined` (default) for both.
+</ResponseField>
+
+<ResponseField name="isVerified" type="Boolean">
+  Only include verified tokens
+</ResponseField>
+
+<ResponseField name="potentialScam" type="Boolean">
+  Filter potential Scams
+</ResponseField>
+
+<ResponseField name="trendingIgnored" type="Boolean">
+  Whether to ignore pairs/tokens not relevant to trending
+</ResponseField>
+
+<ResponseField name="creatorAddress" type="String">
+  The address of the creator of the token
+</ResponseField>
+
+<ResponseField name="launchpadProtocol" type="String">
+  The launchpad protocol
+</ResponseField>
+
+<ResponseField name="launchpadName" type="String">
+  The name of the launchpad
+</ResponseField>
+
+<ResponseField name="launchpadCompleted" type="Boolean">
+  Indicates if the launchpad is completed
+</ResponseField>
+
+<ResponseField name="launchpadMigrated" type="Boolean">
+  Indicates if the launchpad has migrated
+</ResponseField>
+
+<ResponseField name="launchpadGraduationPercent" type="NumberFilter">
+  The graduation percentage
+</ResponseField>
+
+<ResponseField name="launchpadCompletedAt" type="NumberFilter">
+  The timestamp when the launchpad was completed
+</ResponseField>
+
+<ResponseField name="launchpadMigratedAt" type="NumberFilter">
+  The timestamp when the launchpad was migrated
+</ResponseField>
+
+<ResponseField name="freezable" type="Boolean">
+  The token in freezable
+</ResponseField>
+
+<ResponseField name="mintable" type="Boolean">
+  The token in mintable
+</ResponseField>
+
+<ResponseField name="walletAgeAvg" type="NumberFilter">
+  The average age of the wallets that traded in the last 24h
+</ResponseField>
+
+<ResponseField name="walletAgeStd" type="NumberFilter">
+  The standard deviation of age of the wallets that traded in the last 24h
+</ResponseField>
+
+<ResponseField name="swapPct1dOldWallet" type="NumberFilter">
+  The percentage of wallets that are less than 1d old that have traded in the last 24h
+</ResponseField>
+
+<ResponseField name="swapPct7dOldWallet" type="NumberFilter">
+  The percentage of wallets that are less than 7d old that have traded in the last 24h
+</ResponseField>
+
+```graphql 
+"""Input type of `TokenFilters`."""
+input TokenFilters {
+  """The unix timestamp for the creation of the token's first pair."""
+  createdAt: NumberFilter
+  """The unix timestamp for the token's last transaction."""
+  lastTransaction: NumberFilter
+  age: NumberFilter @deprecated(reason: "Age isn't supported - use createdAt instead")
+  """The number of buys in the past 5 minutes."""
+  buyCount5m: NumberFilter
+  """The number of buys in the past hour."""
+  buyCount1: NumberFilter
+  """The number of buys in the past 12 hours."""
+  buyCount12: NumberFilter
+  """The number of buys in the past 24 hours."""
+  buyCount24: NumberFilter
+  """The number of buys in the past 4 hours."""
+  buyCount4: NumberFilter
+  """The percent price change in the past 5 minutes. Decimal format."""
+  change5m: NumberFilter
+  """The percent price change in the past hour. Decimal format."""
+  change1: NumberFilter
+  """The percent price change in the past 12 hours. Decimal format."""
+  change12: NumberFilter
+  """The percent price change in the past 24 hours. Decimal format."""
+  change24: NumberFilter
+  """The percent price change in the past 4 hours. Decimal format."""
+  change4: NumberFilter
+  """The percent volume change in the past 5 minutes. Decimal format."""
+  volumeChange5m: NumberFilter
+  """The percent volume change in the past hour. Decimal format."""
+  volumeChange1: NumberFilter
+  """The percent volume change in the past 4 hours. Decimal format."""
+  volumeChange4: NumberFilter
+  """The percent volume change in the past 12 hours. Decimal format."""
+  volumeChange12: NumberFilter
+  """The percent volume change in the past 24 hours. Decimal format."""
+  volumeChange24: NumberFilter
+  """The list of exchange contract IDs to filter by. Applied in conjunction with `network` filter using an OR condition. When used together, the query returns results that match either the specified exchanges or the specified network."""
+  exchangeId: [String]
+  """The list of exchange contract addresses to filter by."""
+  exchangeAddress: [String]
+  fdv: NumberFilter @deprecated(reason: "FDV isn't supported - use marketCap instead")
+  """The highest price in USD in the past 5 minutes."""
+  high5m: NumberFilter
+  """The highest price in USD in the past hour."""
+  high1: NumberFilter
+  """The highest price in USD in the past 12 hours."""
+  high12: NumberFilter
+  """The highest price in USD in the past 24 hours."""
+  high24: NumberFilter
+  """The highest price in USD in the past 4 hours."""
+  high4: NumberFilter
+  """The amount of liquidity in the token's top pair."""
+  liquidity: NumberFilter
+  """The lowest price in USD in the past hour."""
+  low1: NumberFilter
+  """The lowest price in USD in the past 5 minutes."""
+  low5m: NumberFilter
+  """The lowest price in USD in the past 12 hours."""
+  low12: NumberFilter
+  """The lowest price in USD in the past 24 hours."""
+  low24: NumberFilter
+  """The lowest price in USD in the past 4 hours."""
+  low4: NumberFilter
+  """The market cap of circulating supply."""
+  marketCap: NumberFilter
+  """The circulating market cap."""
+  circulatingMarketCap: NumberFilter
+  """The list of network IDs to filter by. Applied in conjunction with `exchangeId` filter using an OR condition. When used together, the query returns results that match either the specified exchanges or the specified network."""
+  network: [Int]
+  """The number of different wallets holding the token."""
+  holders: NumberFilter
+  """The token price in USD."""
+  priceUSD: NumberFilter
+  """The number of sells in the past hour."""
+  sellCount1: NumberFilter
+  """The number of sells in the past 5 minutes."""
+  sellCount5m: NumberFilter
+  """The number of sells in the past 12 hours."""
+  sellCount12: NumberFilter
+  """The number of sells in the past 24 hours."""
+  sellCount24: NumberFilter
+  """The number of sells in the past 4 hours."""
+  sellCount4: NumberFilter
+  """The number of transactions in the past 5 minutes."""
+  txnCount5m: NumberFilter
+  """The number of transactions in the past hour."""
+  txnCount1: NumberFilter
+  """The number of transactions in the past 12 hours."""
+  txnCount12: NumberFilter
+  """The number of transactions in the past 24 hours."""
+  txnCount24: NumberFilter
+  """The number of transactions in the past 4 hours."""
+  txnCount4: NumberFilter
+  """The unique number of buys in the past hour."""
+  uniqueBuys1: NumberFilter
+  """The unique number of buys in the past 5 minutes."""
+  uniqueBuys5m: NumberFilter
+  """The unique number of buys in the past 12 hours."""
+  uniqueBuys12: NumberFilter
+  """The unique number of buys in the past 24 hours."""
+  uniqueBuys24: NumberFilter
+  """The unique number of buys in the past 4 hours."""
+  uniqueBuys4: NumberFilter
+  """The unique number of sells in the past 5 minutes."""
+  uniqueSells5m: NumberFilter
+  """The unique number of sells in the past hour."""
+  uniqueSells1: NumberFilter
+  """The unique number of sells in the past 12 hours."""
+  uniqueSells12: NumberFilter
+  """The unique number of sells in the past 24 hours."""
+  uniqueSells24: NumberFilter
+  """The unique number of sells in the past 4 hours."""
+  uniqueSells4: NumberFilter
+  """The unique number of transactions in the past hour."""
+  uniqueTransactions1: NumberFilter
+  """The unique number of transactions in the past 5 minutes."""
+  uniqueTransactions5m: NumberFilter
+  """The unique number of transactions in the past 12 hours."""
+  uniqueTransactions12: NumberFilter
+  """The unique number of transactions in the past 24 hours."""
+  uniqueTransactions24: NumberFilter
+  """The unique number of transactions in the past 4 hours."""
+  uniqueTransactions4: NumberFilter
+  """The trade volume in USD in the past hour."""
+  volume1: NumberFilter
+  """The trade volume in USD in the past 12 hours."""
+  volume12: NumberFilter
+  """The trade volume in USD in the past 24 hours."""
+  volume24: NumberFilter
+  """The trade volume in USD in the past 4 hours."""
+  volume4: NumberFilter
+  """The trade volume in USD in the past 5 minutes."""
+  volume5m: NumberFilter
+  """The buy volume in USD in the past hour."""
+  buyVolume1: NumberFilter
+  """The buy volume in USD in the past 12 hours."""
+  buyVolume12: NumberFilter
+  """The buy volume in USD in the past 24 hours."""
+  buyVolume24: NumberFilter
+  """The buy volume in USD in the past 4 hours."""
+  buyVolume4: NumberFilter
+  """The buy volume in USD in the past 5 minutes."""
+  buyVolume5m: NumberFilter
+  """The sell volume in USD in the past hour."""
+  sellVolume1: NumberFilter
+  """The sell volume in USD in the past 12 hours."""
+  sellVolume12: NumberFilter
+  """The sell volume in USD in the past 24 hours."""
+  sellVolume24: NumberFilter
+  """The sell volume in USD in the past 4 hours."""
+  sellVolume4: NumberFilter
+  """The sell volume in USD in the past 5 minutes."""
+  sellVolume5m: NumberFilter
+  """Whether to include tokens that have been flagged as scams. Default: false"""
+  includeScams: Boolean
+  """Whether to filter for tokens on testnet networks. Use `true` for testnet tokens only, `false` for mainnet tokens only and `undefined` (default) for both."""
+  isTestnet: Boolean
+  """Only include verified tokens"""
+  isVerified: Boolean
+  """Filter potential Scams"""
+  potentialScam: Boolean
+  """Whether to ignore pairs/tokens not relevant to trending"""
+  trendingIgnored: Boolean
+  """The address of the creator of the token"""
+  creatorAddress: String
+  """The launchpad protocol"""
+  launchpadProtocol: String
+  """The name of the launchpad"""
+  launchpadName: String
+  """Indicates if the launchpad is completed"""
+  launchpadCompleted: Boolean
+  """Indicates if the launchpad has migrated"""
+  launchpadMigrated: Boolean
+  """The graduation percentage"""
+  launchpadGraduationPercent: NumberFilter
+  """The timestamp when the launchpad was completed"""
+  launchpadCompletedAt: NumberFilter
+  """The timestamp when the launchpad was migrated"""
+  launchpadMigratedAt: NumberFilter
+  """The token in freezable"""
+  freezable: Boolean
+  """The token in mintable"""
+  mintable: Boolean
+  """The average age of the wallets that traded in the last 24h"""
+  walletAgeAvg: NumberFilter
+  """The standard deviation of age of the wallets that traded in the last 24h"""
+  walletAgeStd: NumberFilter
+  """The percentage of wallets that are less than 1d old that have traded in the last 24h"""
+  swapPct1dOldWallet: NumberFilter
+  """The percentage of wallets that are less than 7d old that have traded in the last 24h"""
+  swapPct7dOldWallet: NumberFilter
+}
+```
+
+---
+
+## TokenInput
+
+Input type of `token` and `tokens`.
+
+<ResponseField name="address" type="String!" required>
+  The contract address of the token.
+</ResponseField>
+
+<ResponseField name="networkId" type="Int!" required>
+  The network ID the token is deployed on.
+</ResponseField>
+
+```graphql 
+"""Input type of `token` and `tokens`."""
+input TokenInput {
+  """The contract address of the token."""
+  address: String!
+  """The network ID the token is deployed on."""
+  networkId: Int!
+}
+```
+
+---
+
+## TokenLifecycleEventsQueryInput
+
+Input type of `tokenLifecycleEvents` query.
+
+<ResponseField name="address" type="String!" required>
+  The token contract address to filter by.
+</ResponseField>
+
+<ResponseField name="networkId" type="Int!" required>
+  The networkId to filter by.
+</ResponseField>
+
+```graphql 
+"""Input type of `tokenLifecycleEvents` query."""
+input TokenLifecycleEventsQueryInput {
+  """The token contract address to filter by."""
+  address: String!
+  """The networkId to filter by."""
+  networkId: Int!
+}
+```
+
+---
+
+## TokenPairEventTypeConditionInput
+
+Input for token pair event type condition.
+
+<ResponseField name="oneOf" type="[TokenPairEventType!]!" required>
+  The list of token event types to equal.
+</ResponseField>
+
+```graphql 
+"""Input for token pair event type condition."""
+input TokenPairEventTypeConditionInput {
+  """The list of token event types to equal."""
+  oneOf: [TokenPairEventType!]!
+}
+```
+
+---
+
+## TokenPairEventWebhookConditionInput
+
+Input conditions for a token pair event webhook.
+
+<ResponseField name="networkId" type="OneOfNumberConditionInput">
+  A list of network IDs to listen on.
+</ResponseField>
+
+<ResponseField name="maker" type="StringEqualsConditionInput">
+  The maker wallet address to listen for.
+</ResponseField>
+
+<ResponseField name="pairAddress" type="StringEqualsConditionInput">
+  The pair contract address to listen for.
+</ResponseField>
+
+<ResponseField name="exchangeAddress" type="StringEqualsConditionInput">
+  The exchange contract address to listen for.
+</ResponseField>
+
+<ResponseField name="tokenAddress" type="StringEqualsConditionInput">
+  The token contract address to listen for.
+</ResponseField>
+
+<ResponseField name="swapValue" type="ComparisonOperatorInput">
+  The swap values to listen for.
+</ResponseField>
+
+<ResponseField name="eventType" type="TokenPairEventTypeConditionInput">
+  The token event type to listen for.
+</ResponseField>
+
+```graphql 
+"""Input conditions for a token pair event webhook."""
+input TokenPairEventWebhookConditionInput {
+  """A list of network IDs to listen on."""
+  networkId: OneOfNumberConditionInput
+  """The maker wallet address to listen for."""
+  maker: StringEqualsConditionInput
+  """The pair contract address to listen for."""
+  pairAddress: StringEqualsConditionInput
+  """The exchange contract address to listen for."""
+  exchangeAddress: StringEqualsConditionInput
+  """The token contract address to listen for."""
+  tokenAddress: StringEqualsConditionInput
+  """The swap values to listen for."""
+  swapValue: ComparisonOperatorInput
+  """The token event type to listen for."""
+  eventType: TokenPairEventTypeConditionInput
+}
+```
+
+---
+
+## TokenRanking
+
+Input type of `TokenRanking`.
+
+<ResponseField name="attribute" type="TokenRankingAttribute">
+  The attribute to rank tokens by.
+</ResponseField>
+
+<ResponseField name="direction" type="RankingDirection">
+  The direction to apply to the ranking attribute.
+</ResponseField>
+
+```graphql 
+"""Input type of `TokenRanking`."""
+input TokenRanking {
+  """The attribute to rank tokens by."""
+  attribute: TokenRankingAttribute
+  """The direction to apply to the ranking attribute."""
+  direction: RankingDirection
+}
+```
+
+---
+
+## TokenSparklineInput
+
+Input type of `tokenSparkline`.
+
+<ResponseField name="ids" type="[String!]!" required>
+  The contract address & networkId of the token, joined by a colon. ex: 0xbe042e9d09cb588331ff911c2b46fd833a3e5bd6:1
+</ResponseField>
+
+```graphql 
+"""Input type of `tokenSparkline`."""
+input TokenSparklineInput {
+  """The contract address & networkId of the token, joined by a colon. ex: 0xbe042e9d09cb588331ff911c2b46fd833a3e5bd6:1"""
+  ids: [String!]!
+}
+```
+
+---
+
+## TokenTopTradersInput
+
+Input arguments for the `tokenTopTraders` query.
+
+<ResponseField name="tokenAddress" type="String!" required>
+  The token address
+</ResponseField>
+
+<ResponseField name="networkId" type="Int!" required>
+  The network ID
+</ResponseField>
+
+<ResponseField name="tradingPeriod" type="TradingPeriod!" required>
+  The trading period
+</ResponseField>
+
+<ResponseField name="limit" type="Int">
+  The number of traders to return
+</ResponseField>
+
+<ResponseField name="offset" type="Int">
+  Where in the list the server started when returning items
+</ResponseField>
+
+```graphql 
+"""Input arguments for the `tokenTopTraders` query."""
+input TokenTopTradersInput {
+  """The token address"""
+  tokenAddress: String!
+  """The network ID"""
+  networkId: Int!
+  """The trading period"""
+  tradingPeriod: TradingPeriod!
+  """The number of traders to return"""
+  limit: Int
+  """Where in the list the server started when returning items"""
+  offset: Int
+}
+```
+
+---
+
+## WalletChartInput
+
+The input for a chart of a wallet's activity.
+
+<ResponseField name="walletAddress" type="String!" required>
+  The wallet address
+</ResponseField>
+
+<ResponseField name="networkId" type="Int">
+  The network ID
+</ResponseField>
+
+<ResponseField name="range" type="RangeInput!" required>
+  The range of time for the chart
+</ResponseField>
+
+<ResponseField name="resolution" type="String!" required>
+  The resolution of the chart
+</ResponseField>
+
+```graphql 
+"""The input for a chart of a wallet's activity."""
+input WalletChartInput {
+  """The wallet address"""
+  walletAddress: String!
+  """The network ID"""
+  networkId: Int
+  """The range of time for the chart"""
+  range: RangeInput!
+  """The resolution of the chart"""
+  resolution: String!
+}
+```
+
+---
+
+## WalletFilters
+
+Filters for a wallet.
+
+<ResponseField name="lastTransactionAt" type="NumberFilter">
+  The unix timestamp for the last transaction from this wallet.
+</ResponseField>
+
+<ResponseField name="firstTransactionAt" type="NumberFilter">
+  The unix timestamp for the first transaction from this wallet.
+</ResponseField>
+
+<ResponseField name="volumeUsd1d" type="NumberFilter">
+  Volume in USD in the past day
+</ResponseField>
+
+<ResponseField name="volumeUsdAll1d" type="NumberFilter">
+  Total volume in USD in the past day including all tokens
+</ResponseField>
+
+<ResponseField name="realizedProfitUsd1d" type="NumberFilter">
+  Realized profit in USD in the past day
+</ResponseField>
+
+<ResponseField name="averageProfitUsdPerTrade1d" type="NumberFilter">
+  Average profit in USD per trade in the past day
+</ResponseField>
+
+<ResponseField name="averageSwapAmountUsd1d" type="NumberFilter">
+  Average swap amount in USD in the past day
+</ResponseField>
+
+<ResponseField name="realizedProfitPercentage1d" type="NumberFilter">
+  Realized profit percentage in the past day
+</ResponseField>
+
+<ResponseField name="swaps1d" type="NumberFilter">
+  Number of swaps in the past day
+</ResponseField>
+
+<ResponseField name="swapsAll1d" type="NumberFilter">
+  Total number of swaps in the past day including all tokens
+</ResponseField>
+
+<ResponseField name="uniqueTokens1d" type="NumberFilter">
+  Number of unique tokens traded in the past day
+</ResponseField>
+
+<ResponseField name="winRate1d" type="NumberFilter">
+  Win rate in the past day
+</ResponseField>
+
+<ResponseField name="volumeUsd1w" type="NumberFilter">
+  Volume in USD in the past week
+</ResponseField>
+
+<ResponseField name="volumeUsdAll1w" type="NumberFilter">
+  Total volume in USD in the past week including all tokens
+</ResponseField>
+
+<ResponseField name="realizedProfitUsd1w" type="NumberFilter">
+  Realized profit in USD in the past week
+</ResponseField>
+
+<ResponseField name="averageProfitUsdPerTrade1w" type="NumberFilter">
+  Average profit in USD per trade in the past week
+</ResponseField>
+
+<ResponseField name="averageSwapAmountUsd1w" type="NumberFilter">
+  Average swap amount in USD in the past week
+</ResponseField>
+
+<ResponseField name="realizedProfitPercentage1w" type="NumberFilter">
+  Realized profit percentage in the past week
+</ResponseField>
+
+<ResponseField name="swaps1w" type="NumberFilter">
+  Number of swaps in the past week
+</ResponseField>
+
+<ResponseField name="swapsAll1w" type="NumberFilter">
+  Total number of swaps in the past week including all tokens
+</ResponseField>
+
+<ResponseField name="uniqueTokens1w" type="NumberFilter">
+  Number of unique tokens traded in the past week
+</ResponseField>
+
+<ResponseField name="winRate1w" type="NumberFilter">
+  Win rate in the past week
+</ResponseField>
+
+<ResponseField name="volumeUsd30d" type="NumberFilter">
+  Volume in USD in the past 30 days
+</ResponseField>
+
+<ResponseField name="volumeUsdAll30d" type="NumberFilter">
+  Total volume in USD in the past 30 days including all tokens
+</ResponseField>
+
+<ResponseField name="realizedProfitUsd30d" type="NumberFilter">
+  Realized profit in USD in the past 30 days
+</ResponseField>
+
+<ResponseField name="averageProfitUsdPerTrade30d" type="NumberFilter">
+  Average profit in USD per trade in the past 30 days
+</ResponseField>
+
+<ResponseField name="averageSwapAmountUsd30d" type="NumberFilter">
+  Average swap amount in USD in the past 30 days
+</ResponseField>
+
+<ResponseField name="realizedProfitPercentage30d" type="NumberFilter">
+  Realized profit percentage in the past 30 days
+</ResponseField>
+
+<ResponseField name="swaps30d" type="NumberFilter">
+  Number of swaps in the past 30 days
+</ResponseField>
+
+<ResponseField name="swapsAll30d" type="NumberFilter">
+  Total number of swaps in the past 30 days including all tokens
+</ResponseField>
+
+<ResponseField name="uniqueTokens30d" type="NumberFilter">
+  Number of unique tokens traded in the past 30 days
+</ResponseField>
+
+<ResponseField name="winRate30d" type="NumberFilter">
+  Win rate in the past 30 days
+</ResponseField>
+
+<ResponseField name="volumeUsd1y" type="NumberFilter">
+  Volume in USD in the past year
+</ResponseField>
+
+<ResponseField name="volumeUsdAll1y" type="NumberFilter">
+  Total volume in USD in the past year including all tokens
+</ResponseField>
+
+<ResponseField name="realizedProfitUsd1y" type="NumberFilter">
+  Realized profit in USD in the past year
+</ResponseField>
+
+<ResponseField name="averageProfitUsdPerTrade1y" type="NumberFilter">
+  Average profit in USD per trade in the past year
+</ResponseField>
+
+<ResponseField name="averageSwapAmountUsd1y" type="NumberFilter">
+  Average swap amount in USD in the past year
+</ResponseField>
+
+<ResponseField name="realizedProfitPercentage1y" type="NumberFilter">
+  Realized profit percentage in the past year
+</ResponseField>
+
+<ResponseField name="swaps1y" type="NumberFilter">
+  Number of swaps in the past year
+</ResponseField>
+
+<ResponseField name="swapsAll1y" type="NumberFilter">
+  Total number of swaps in the past year including all tokens
+</ResponseField>
+
+<ResponseField name="uniqueTokens1y" type="NumberFilter">
+  Number of unique tokens traded in the past year
+</ResponseField>
+
+<ResponseField name="winRate1y" type="NumberFilter">
+  Win rate in the past year
+</ResponseField>
+
+<ResponseField name="scammerScore" type="NumberFilter">
+  The scammer score for the wallet.
+</ResponseField>
+
+<ResponseField name="botScore" type="NumberFilter">
+  The bot score for the wallet.
+</ResponseField>
+
+<ResponseField name="networkId" type="Int">
+  The network ID to filter by.
+</ResponseField>
+
+<ResponseField name="nativeTokenBalance" type="NumberFilter">
+  The native token balance of the wallet. Can only be used in conjunction with `networkId` filter.
+</ResponseField>
+
+```graphql 
+"""Filters for a wallet."""
+input WalletFilters {
+  """The unix timestamp for the last transaction from this wallet."""
+  lastTransactionAt: NumberFilter
+  """The unix timestamp for the first transaction from this wallet."""
+  firstTransactionAt: NumberFilter
+  """Volume in USD in the past day"""
+  volumeUsd1d: NumberFilter
+  """Total volume in USD in the past day including all tokens"""
+  volumeUsdAll1d: NumberFilter
+  """Realized profit in USD in the past day"""
+  realizedProfitUsd1d: NumberFilter
+  """Average profit in USD per trade in the past day"""
+  averageProfitUsdPerTrade1d: NumberFilter
+  """Average swap amount in USD in the past day"""
+  averageSwapAmountUsd1d: NumberFilter
+  """Realized profit percentage in the past day"""
+  realizedProfitPercentage1d: NumberFilter
+  """Number of swaps in the past day"""
+  swaps1d: NumberFilter
+  """Total number of swaps in the past day including all tokens"""
+  swapsAll1d: NumberFilter
+  """Number of unique tokens traded in the past day"""
+  uniqueTokens1d: NumberFilter
+  """Win rate in the past day"""
+  winRate1d: NumberFilter
+  """Volume in USD in the past week"""
+  volumeUsd1w: NumberFilter
+  """Total volume in USD in the past week including all tokens"""
+  volumeUsdAll1w: NumberFilter
+  """Realized profit in USD in the past week"""
+  realizedProfitUsd1w: NumberFilter
+  """Average profit in USD per trade in the past week"""
+  averageProfitUsdPerTrade1w: NumberFilter
+  """Average swap amount in USD in the past week"""
+  averageSwapAmountUsd1w: NumberFilter
+  """Realized profit percentage in the past week"""
+  realizedProfitPercentage1w: NumberFilter
+  """Number of swaps in the past week"""
+  swaps1w: NumberFilter
+  """Total number of swaps in the past week including all tokens"""
+  swapsAll1w: NumberFilter
+  """Number of unique tokens traded in the past week"""
+  uniqueTokens1w: NumberFilter
+  """Win rate in the past week"""
+  winRate1w: NumberFilter
+  """Volume in USD in the past 30 days"""
+  volumeUsd30d: NumberFilter
+  """Total volume in USD in the past 30 days including all tokens"""
+  volumeUsdAll30d: NumberFilter
+  """Realized profit in USD in the past 30 days"""
+  realizedProfitUsd30d: NumberFilter
+  """Average profit in USD per trade in the past 30 days"""
+  averageProfitUsdPerTrade30d: NumberFilter
+  """Average swap amount in USD in the past 30 days"""
+  averageSwapAmountUsd30d: NumberFilter
+  """Realized profit percentage in the past 30 days"""
+  realizedProfitPercentage30d: NumberFilter
+  """Number of swaps in the past 30 days"""
+  swaps30d: NumberFilter
+  """Total number of swaps in the past 30 days including all tokens"""
+  swapsAll30d: NumberFilter
+  """Number of unique tokens traded in the past 30 days"""
+  uniqueTokens30d: NumberFilter
+  """Win rate in the past 30 days"""
+  winRate30d: NumberFilter
+  """Volume in USD in the past year"""
+  volumeUsd1y: NumberFilter
+  """Total volume in USD in the past year including all tokens"""
+  volumeUsdAll1y: NumberFilter
+  """Realized profit in USD in the past year"""
+  realizedProfitUsd1y: NumberFilter
+  """Average profit in USD per trade in the past year"""
+  averageProfitUsdPerTrade1y: NumberFilter
+  """Average swap amount in USD in the past year"""
+  averageSwapAmountUsd1y: NumberFilter
+  """Realized profit percentage in the past year"""
+  realizedProfitPercentage1y: NumberFilter
+  """Number of swaps in the past year"""
+  swaps1y: NumberFilter
+  """Total number of swaps in the past year including all tokens"""
+  swapsAll1y: NumberFilter
+  """Number of unique tokens traded in the past year"""
+  uniqueTokens1y: NumberFilter
+  """Win rate in the past year"""
+  winRate1y: NumberFilter
+  """The scammer score for the wallet."""
+  scammerScore: NumberFilter
+  """The bot score for the wallet."""
+  botScore: NumberFilter
+  """The network ID to filter by."""
+  networkId: Int
+  """The native token balance of the wallet. Can only be used in conjunction with `networkId` filter."""
+  nativeTokenBalance: NumberFilter
+}
+```
+
+---
+
+## WalletNetworkFilters
+
+Filters for a wallet on a specific network.
+
+<ResponseField name="lastTransactionAt" type="NumberFilter">
+  The unix timestamp for the last transaction from this wallet.
+</ResponseField>
+
+<ResponseField name="firstTransactionAt" type="NumberFilter">
+  The unix timestamp for the first transaction from this wallet.
+</ResponseField>
+
+<ResponseField name="volumeUsd1d" type="NumberFilter">
+  Volume in USD in the past day
+</ResponseField>
+
+<ResponseField name="volumeUsdAll1d" type="NumberFilter">
+  Total volume in USD in the past day including all tokens
+</ResponseField>
+
+<ResponseField name="realizedProfitUsd1d" type="NumberFilter">
+  Realized profit in USD in the past day
+</ResponseField>
+
+<ResponseField name="averageProfitUsdPerTrade1d" type="NumberFilter">
+  Average profit in USD per trade in the past day
+</ResponseField>
+
+<ResponseField name="averageSwapAmountUsd1d" type="NumberFilter">
+  Average swap amount in USD in the past day
+</ResponseField>
+
+<ResponseField name="realizedProfitPercentage1d" type="NumberFilter">
+  Realized profit percentage in the past day
+</ResponseField>
+
+<ResponseField name="swaps1d" type="NumberFilter">
+  Number of swaps in the past day
+</ResponseField>
+
+<ResponseField name="swapsAll1d" type="NumberFilter">
+  Total number of swaps in the past day including all tokens
+</ResponseField>
+
+<ResponseField name="uniqueTokens1d" type="NumberFilter">
+  Number of unique tokens traded in the past day
+</ResponseField>
+
+<ResponseField name="winRate1d" type="NumberFilter">
+  Win rate in the past day
+</ResponseField>
+
+<ResponseField name="volumeUsd1w" type="NumberFilter">
+  Volume in USD in the past week
+</ResponseField>
+
+<ResponseField name="volumeUsdAll1w" type="NumberFilter">
+  Total volume in USD in the past week including all tokens
+</ResponseField>
+
+<ResponseField name="realizedProfitUsd1w" type="NumberFilter">
+  Realized profit in USD in the past week
+</ResponseField>
+
+<ResponseField name="averageProfitUsdPerTrade1w" type="NumberFilter">
+  Average profit in USD per trade in the past week
+</ResponseField>
+
+<ResponseField name="averageSwapAmountUsd1w" type="NumberFilter">
+  Average swap amount in USD in the past week
+</ResponseField>
+
+<ResponseField name="realizedProfitPercentage1w" type="NumberFilter">
+  Realized profit percentage in the past week
+</ResponseField>
+
+<ResponseField name="swaps1w" type="NumberFilter">
+  Number of swaps in the past week
+</ResponseField>
+
+<ResponseField name="swapsAll1w" type="NumberFilter">
+  Total number of swaps in the past week including all tokens
+</ResponseField>
+
+<ResponseField name="uniqueTokens1w" type="NumberFilter">
+  Number of unique tokens traded in the past week
+</ResponseField>
+
+<ResponseField name="winRate1w" type="NumberFilter">
+  Win rate in the past week
+</ResponseField>
+
+<ResponseField name="volumeUsd30d" type="NumberFilter">
+  Volume in USD in the past 30 days
+</ResponseField>
+
+<ResponseField name="volumeUsdAll30d" type="NumberFilter">
+  Total volume in USD in the past 30 days including all tokens
+</ResponseField>
+
+<ResponseField name="realizedProfitUsd30d" type="NumberFilter">
+  Realized profit in USD in the past 30 days
+</ResponseField>
+
+<ResponseField name="averageProfitUsdPerTrade30d" type="NumberFilter">
+  Average profit in USD per trade in the past 30 days
+</ResponseField>
+
+<ResponseField name="averageSwapAmountUsd30d" type="NumberFilter">
+  Average swap amount in USD in the past 30 days
+</ResponseField>
+
+<ResponseField name="realizedProfitPercentage30d" type="NumberFilter">
+  Realized profit percentage in the past 30 days
+</ResponseField>
+
+<ResponseField name="swaps30d" type="NumberFilter">
+  Number of swaps in the past 30 days
+</ResponseField>
+
+<ResponseField name="swapsAll30d" type="NumberFilter">
+  Total number of swaps in the past 30 days including all tokens
+</ResponseField>
+
+<ResponseField name="uniqueTokens30d" type="NumberFilter">
+  Number of unique tokens traded in the past 30 days
+</ResponseField>
+
+<ResponseField name="winRate30d" type="NumberFilter">
+  Win rate in the past 30 days
+</ResponseField>
+
+<ResponseField name="volumeUsd1y" type="NumberFilter">
+  Volume in USD in the past year
+</ResponseField>
+
+<ResponseField name="volumeUsdAll1y" type="NumberFilter">
+  Total volume in USD in the past year including all tokens
+</ResponseField>
+
+<ResponseField name="realizedProfitUsd1y" type="NumberFilter">
+  Realized profit in USD in the past year
+</ResponseField>
+
+<ResponseField name="averageProfitUsdPerTrade1y" type="NumberFilter">
+  Average profit in USD per trade in the past year
+</ResponseField>
+
+<ResponseField name="averageSwapAmountUsd1y" type="NumberFilter">
+  Average swap amount in USD in the past year
+</ResponseField>
+
+<ResponseField name="realizedProfitPercentage1y" type="NumberFilter">
+  Realized profit percentage in the past year
+</ResponseField>
+
+<ResponseField name="swaps1y" type="NumberFilter">
+  Number of swaps in the past year
+</ResponseField>
+
+<ResponseField name="swapsAll1y" type="NumberFilter">
+  Total number of swaps in the past year including all tokens
+</ResponseField>
+
+<ResponseField name="uniqueTokens1y" type="NumberFilter">
+  Number of unique tokens traded in the past year
+</ResponseField>
+
+<ResponseField name="winRate1y" type="NumberFilter">
+  Win rate in the past year
+</ResponseField>
+
+<ResponseField name="nativeTokenBalance" type="NumberFilter">
+  The native token balance of the wallet.
+</ResponseField>
+
+<ResponseField name="scammerScore" type="NumberFilter">
+  The scammer score for the wallet. Indicates the likelihood of the wallet being a scammer. Zero being not a scammer and 100 being a definite scammer.
+</ResponseField>
+
+<ResponseField name="botScore" type="NumberFilter">
+  The bot score for the wallet. Indicates the likelihood of the wallet being a bot. Zero being not a bot and 100 being a definite bot.
+</ResponseField>
+
+```graphql 
+"""Filters for a wallet on a specific network."""
+input WalletNetworkFilters {
+  """The unix timestamp for the last transaction from this wallet."""
+  lastTransactionAt: NumberFilter
+  """The unix timestamp for the first transaction from this wallet."""
+  firstTransactionAt: NumberFilter
+  """Volume in USD in the past day"""
+  volumeUsd1d: NumberFilter
+  """Total volume in USD in the past day including all tokens"""
+  volumeUsdAll1d: NumberFilter
+  """Realized profit in USD in the past day"""
+  realizedProfitUsd1d: NumberFilter
+  """Average profit in USD per trade in the past day"""
+  averageProfitUsdPerTrade1d: NumberFilter
+  """Average swap amount in USD in the past day"""
+  averageSwapAmountUsd1d: NumberFilter
+  """Realized profit percentage in the past day"""
+  realizedProfitPercentage1d: NumberFilter
+  """Number of swaps in the past day"""
+  swaps1d: NumberFilter
+  """Total number of swaps in the past day including all tokens"""
+  swapsAll1d: NumberFilter
+  """Number of unique tokens traded in the past day"""
+  uniqueTokens1d: NumberFilter
+  """Win rate in the past day"""
+  winRate1d: NumberFilter
+  """Volume in USD in the past week"""
+  volumeUsd1w: NumberFilter
+  """Total volume in USD in the past week including all tokens"""
+  volumeUsdAll1w: NumberFilter
+  """Realized profit in USD in the past week"""
+  realizedProfitUsd1w: NumberFilter
+  """Average profit in USD per trade in the past week"""
+  averageProfitUsdPerTrade1w: NumberFilter
+  """Average swap amount in USD in the past week"""
+  averageSwapAmountUsd1w: NumberFilter
+  """Realized profit percentage in the past week"""
+  realizedProfitPercentage1w: NumberFilter
+  """Number of swaps in the past week"""
+  swaps1w: NumberFilter
+  """Total number of swaps in the past week including all tokens"""
+  swapsAll1w: NumberFilter
+  """Number of unique tokens traded in the past week"""
+  uniqueTokens1w: NumberFilter
+  """Win rate in the past week"""
+  winRate1w: NumberFilter
+  """Volume in USD in the past 30 days"""
+  volumeUsd30d: NumberFilter
+  """Total volume in USD in the past 30 days including all tokens"""
+  volumeUsdAll30d: NumberFilter
+  """Realized profit in USD in the past 30 days"""
+  realizedProfitUsd30d: NumberFilter
+  """Average profit in USD per trade in the past 30 days"""
+  averageProfitUsdPerTrade30d: NumberFilter
+  """Average swap amount in USD in the past 30 days"""
+  averageSwapAmountUsd30d: NumberFilter
+  """Realized profit percentage in the past 30 days"""
+  realizedProfitPercentage30d: NumberFilter
+  """Number of swaps in the past 30 days"""
+  swaps30d: NumberFilter
+  """Total number of swaps in the past 30 days including all tokens"""
+  swapsAll30d: NumberFilter
+  """Number of unique tokens traded in the past 30 days"""
+  uniqueTokens30d: NumberFilter
+  """Win rate in the past 30 days"""
+  winRate30d: NumberFilter
+  """Volume in USD in the past year"""
+  volumeUsd1y: NumberFilter
+  """Total volume in USD in the past year including all tokens"""
+  volumeUsdAll1y: NumberFilter
+  """Realized profit in USD in the past year"""
+  realizedProfitUsd1y: NumberFilter
+  """Average profit in USD per trade in the past year"""
+  averageProfitUsdPerTrade1y: NumberFilter
+  """Average swap amount in USD in the past year"""
+  averageSwapAmountUsd1y: NumberFilter
+  """Realized profit percentage in the past year"""
+  realizedProfitPercentage1y: NumberFilter
+  """Number of swaps in the past year"""
+  swaps1y: NumberFilter
+  """Total number of swaps in the past year including all tokens"""
+  swapsAll1y: NumberFilter
+  """Number of unique tokens traded in the past year"""
+  uniqueTokens1y: NumberFilter
+  """Win rate in the past year"""
+  winRate1y: NumberFilter
+  """The native token balance of the wallet."""
+  nativeTokenBalance: NumberFilter
+  """The scammer score for the wallet. Indicates the likelihood of the wallet being a scammer. Zero being not a scammer and 100 being a definite scammer."""
+  scammerScore: NumberFilter
+  """The bot score for the wallet. Indicates the likelihood of the wallet being a bot. Zero being not a bot and 100 being a definite bot."""
+  botScore: NumberFilter
+}
+```
+
+---
+
+## WalletNetworkRanking
+
+A wallet ranking on a specific network.
+
+<ResponseField name="attribute" type="WalletNetworkRankingAttribute">
+  The attribute to rank wallets by.
+</ResponseField>
+
+<ResponseField name="direction" type="RankingDirection">
+  The direction to apply to the ranking attribute.
+</ResponseField>
+
+```graphql 
+"""A wallet ranking on a specific network."""
+input WalletNetworkRanking {
+  """The attribute to rank wallets by."""
+  attribute: WalletNetworkRankingAttribute
+  """The direction to apply to the ranking attribute."""
+  direction: RankingDirection
+}
+```
+
+---
+
+## WalletNftCollectionAssetsInput
+
+<ResponseField name="walletAddress" type="String!" required>
+  The address of the wallet.
+</ResponseField>
+
+<ResponseField name="collectionId" type="String!" required>
+  The collection ID (`collectionAddress:networkId`).
+</ResponseField>
+
+<ResponseField name="cursor" type="String">
+  A cursor for use in pagination.
+</ResponseField>
+
+```graphql 
+input WalletNftCollectionAssetsInput {
+  """The address of the wallet."""
+  walletAddress: String!
+  """The collection ID (`collectionAddress:networkId`)."""
+  collectionId: String!
+  """A cursor for use in pagination."""
+  cursor: String
+}
+```
+
+---
+
+## WalletNftCollectionsInput
+
+<ResponseField name="walletAddress" type="String!" required>
+  The address of the wallet.
+</ResponseField>
+
+<ResponseField name="cursor" type="String">
+  A cursor for use in pagination.
+</ResponseField>
+
+```graphql 
+input WalletNftCollectionsInput {
+  """The address of the wallet."""
+  walletAddress: String!
+  """A cursor for use in pagination."""
+  cursor: String
+}
+```
+
+---
+
+## WalletRanking
+
+A wallet ranking.
+
+<ResponseField name="attribute" type="WalletRankingAttribute">
+  The attribute to rank wallets by.
+</ResponseField>
+
+<ResponseField name="direction" type="RankingDirection">
+  The direction to apply to the ranking attribute.
+</ResponseField>
+
+```graphql 
+"""A wallet ranking."""
+input WalletRanking {
+  """The attribute to rank wallets by."""
+  attribute: WalletRankingAttribute
+  """The direction to apply to the ranking attribute."""
+  direction: RankingDirection
+}
+```
+
+---
+
+## WalletTokenFilterRange
+
+A range for a wallet token filter.
+
+<ResponseField name="min" type="String">
+  The minimum value (inclusive)
+</ResponseField>
+
+<ResponseField name="max" type="String">
+  The maximum value (inclusive)
+</ResponseField>
+
+```graphql 
+"""A range for a wallet token filter."""
+input WalletTokenFilterRange {
+  """The minimum value (inclusive)"""
+  min: String
+  """The maximum value (inclusive)"""
+  max: String
+}
+```
+
+---
+
+## WalletTokenFilters
+
+Filters for a wallet on a specific token.
+
+<ResponseField name="lastTransactionAt" type="WalletTokenFilterRange">
+  Filter by last transaction timestamp
+</ResponseField>
+
+<ResponseField name="firstTransactionAt" type="WalletTokenFilterRange">
+  Filter by first transaction timestamp
+</ResponseField>
+
+<ResponseField name="tokenAmountBought1d" type="WalletTokenFilterRange">
+  Filter by token amount bought in the past day
+</ResponseField>
+
+<ResponseField name="tokenAmountSold1d" type="WalletTokenFilterRange">
+  Filter by token amount sold in the past day
+</ResponseField>
+
+<ResponseField name="amountBoughtUsd1d" type="WalletTokenFilterRange">
+  Filter by amount bought in USD in the past day
+</ResponseField>
+
+<ResponseField name="amountSoldUsd1d" type="WalletTokenFilterRange">
+  Filter by amount sold in USD in the past day
+</ResponseField>
+
+<ResponseField name="realizedProfitUsd1d" type="WalletTokenFilterRange">
+  Filter by realized profit in USD in the past day
+</ResponseField>
+
+<ResponseField name="realizedProfitPercentage1d" type="WalletTokenFilterRange">
+  Filter by realized profit percentage in the past day
+</ResponseField>
+
+<ResponseField name="buys1d" type="WalletTokenFilterRange">
+  Filter by number of buys in the past day
+</ResponseField>
+
+<ResponseField name="sells1d" type="WalletTokenFilterRange">
+  Filter by number of sells in the past day
+</ResponseField>
+
+<ResponseField name="tokenAmountBought1w" type="WalletTokenFilterRange">
+  Filter by token amount bought in the past week
+</ResponseField>
+
+<ResponseField name="tokenAmountSold1w" type="WalletTokenFilterRange">
+  Filter by token amount sold in the past week
+</ResponseField>
+
+<ResponseField name="amountBoughtUsd1w" type="WalletTokenFilterRange">
+  Filter by amount bought in USD in the past week
+</ResponseField>
+
+<ResponseField name="amountSoldUsd1w" type="WalletTokenFilterRange">
+  Filter by amount sold in USD in the past week
+</ResponseField>
+
+<ResponseField name="realizedProfitUsd1w" type="WalletTokenFilterRange">
+  Filter by realized profit in USD in the past week
+</ResponseField>
+
+<ResponseField name="realizedProfitPercentage1w" type="WalletTokenFilterRange">
+  Filter by realized profit percentage in the past week
+</ResponseField>
+
+<ResponseField name="buys1w" type="WalletTokenFilterRange">
+  Filter by number of buys in the past week
+</ResponseField>
+
+<ResponseField name="sells1w" type="WalletTokenFilterRange">
+  Filter by number of sells in the past week
+</ResponseField>
+
+<ResponseField name="tokenAmountBought30d" type="WalletTokenFilterRange">
+  Filter by token amount bought in the past 30 days
+</ResponseField>
+
+<ResponseField name="tokenAmountSold30d" type="WalletTokenFilterRange">
+  Filter by token amount sold in the past 30 days
+</ResponseField>
+
+<ResponseField name="amountBoughtUsd30d" type="WalletTokenFilterRange">
+  Filter by amount bought in USD in the past 30 days
+</ResponseField>
+
+<ResponseField name="amountSoldUsd30d" type="WalletTokenFilterRange">
+  Filter by amount sold in USD in the past 30 days
+</ResponseField>
+
+<ResponseField name="realizedProfitUsd30d" type="WalletTokenFilterRange">
+  Filter by realized profit in USD in the past 30 days
+</ResponseField>
+
+<ResponseField name="realizedProfitPercentage30d" type="WalletTokenFilterRange">
+  Filter by realized profit percentage in the past 30 days
+</ResponseField>
+
+<ResponseField name="buys30d" type="WalletTokenFilterRange">
+  Filter by number of buys in the past 30 days
+</ResponseField>
+
+<ResponseField name="sells30d" type="WalletTokenFilterRange">
+  Filter by number of sells in the past 30 days
+</ResponseField>
+
+<ResponseField name="tokenAmountBought1y" type="WalletTokenFilterRange">
+  Filter by token amount bought in the past year
+</ResponseField>
+
+<ResponseField name="tokenAmountSold1y" type="WalletTokenFilterRange">
+  Filter by token amount sold in the past year
+</ResponseField>
+
+<ResponseField name="amountBoughtUsd1y" type="WalletTokenFilterRange">
+  Filter by amount bought in USD in the past year
+</ResponseField>
+
+<ResponseField name="amountSoldUsd1y" type="WalletTokenFilterRange">
+  Filter by amount sold in USD in the past year
+</ResponseField>
+
+<ResponseField name="realizedProfitUsd1y" type="WalletTokenFilterRange">
+  Filter by realized profit in USD in the past year
+</ResponseField>
+
+<ResponseField name="realizedProfitPercentage1y" type="WalletTokenFilterRange">
+  Filter by realized profit percentage in the past year
+</ResponseField>
+
+<ResponseField name="buys1y" type="WalletTokenFilterRange">
+  Filter by number of buys in the past year
+</ResponseField>
+
+<ResponseField name="sells1y" type="WalletTokenFilterRange">
+  Filter by number of sells in the past year
+</ResponseField>
+
+<ResponseField name="tokenBalance" type="WalletTokenFilterRange">
+  Filter by token balance
+</ResponseField>
+
+<ResponseField name="purchasedTokenBalance" type="WalletTokenFilterRange">
+  Filter by purchased token balance
+</ResponseField>
+
+<ResponseField name="tokenAcquisitionCostUsd" type="WalletTokenFilterRange">
+  Filter by token acquisition cost in USD
+</ResponseField>
+
+<ResponseField name="scammerScore" type="WalletTokenFilterRange">
+  Filter by scammer score
+</ResponseField>
+
+<ResponseField name="botScore" type="WalletTokenFilterRange">
+  Filter by bot score
+</ResponseField>
+
+```graphql 
+"""Filters for a wallet on a specific token."""
+input WalletTokenFilters {
+  """Filter by last transaction timestamp"""
+  lastTransactionAt: WalletTokenFilterRange
+  """Filter by first transaction timestamp"""
+  firstTransactionAt: WalletTokenFilterRange
+  """Filter by token amount bought in the past day"""
+  tokenAmountBought1d: WalletTokenFilterRange
+  """Filter by token amount sold in the past day"""
+  tokenAmountSold1d: WalletTokenFilterRange
+  """Filter by amount bought in USD in the past day"""
+  amountBoughtUsd1d: WalletTokenFilterRange
+  """Filter by amount sold in USD in the past day"""
+  amountSoldUsd1d: WalletTokenFilterRange
+  """Filter by realized profit in USD in the past day"""
+  realizedProfitUsd1d: WalletTokenFilterRange
+  """Filter by realized profit percentage in the past day"""
+  realizedProfitPercentage1d: WalletTokenFilterRange
+  """Filter by number of buys in the past day"""
+  buys1d: WalletTokenFilterRange
+  """Filter by number of sells in the past day"""
+  sells1d: WalletTokenFilterRange
+  """Filter by token amount bought in the past week"""
+  tokenAmountBought1w: WalletTokenFilterRange
+  """Filter by token amount sold in the past week"""
+  tokenAmountSold1w: WalletTokenFilterRange
+  """Filter by amount bought in USD in the past week"""
+  amountBoughtUsd1w: WalletTokenFilterRange
+  """Filter by amount sold in USD in the past week"""
+  amountSoldUsd1w: WalletTokenFilterRange
+  """Filter by realized profit in USD in the past week"""
+  realizedProfitUsd1w: WalletTokenFilterRange
+  """Filter by realized profit percentage in the past week"""
+  realizedProfitPercentage1w: WalletTokenFilterRange
+  """Filter by number of buys in the past week"""
+  buys1w: WalletTokenFilterRange
+  """Filter by number of sells in the past week"""
+  sells1w: WalletTokenFilterRange
+  """Filter by token amount bought in the past 30 days"""
+  tokenAmountBought30d: WalletTokenFilterRange
+  """Filter by token amount sold in the past 30 days"""
+  tokenAmountSold30d: WalletTokenFilterRange
+  """Filter by amount bought in USD in the past 30 days"""
+  amountBoughtUsd30d: WalletTokenFilterRange
+  """Filter by amount sold in USD in the past 30 days"""
+  amountSoldUsd30d: WalletTokenFilterRange
+  """Filter by realized profit in USD in the past 30 days"""
+  realizedProfitUsd30d: WalletTokenFilterRange
+  """Filter by realized profit percentage in the past 30 days"""
+  realizedProfitPercentage30d: WalletTokenFilterRange
+  """Filter by number of buys in the past 30 days"""
+  buys30d: WalletTokenFilterRange
+  """Filter by number of sells in the past 30 days"""
+  sells30d: WalletTokenFilterRange
+  """Filter by token amount bought in the past year"""
+  tokenAmountBought1y: WalletTokenFilterRange
+  """Filter by token amount sold in the past year"""
+  tokenAmountSold1y: WalletTokenFilterRange
+  """Filter by amount bought in USD in the past year"""
+  amountBoughtUsd1y: WalletTokenFilterRange
+  """Filter by amount sold in USD in the past year"""
+  amountSoldUsd1y: WalletTokenFilterRange
+  """Filter by realized profit in USD in the past year"""
+  realizedProfitUsd1y: WalletTokenFilterRange
+  """Filter by realized profit percentage in the past year"""
+  realizedProfitPercentage1y: WalletTokenFilterRange
+  """Filter by number of buys in the past year"""
+  buys1y: WalletTokenFilterRange
+  """Filter by number of sells in the past year"""
+  sells1y: WalletTokenFilterRange
+  """Filter by token balance"""
+  tokenBalance: WalletTokenFilterRange
+  """Filter by purchased token balance"""
+  purchasedTokenBalance: WalletTokenFilterRange
+  """Filter by token acquisition cost in USD"""
+  tokenAcquisitionCostUsd: WalletTokenFilterRange
+  """Filter by scammer score"""
+  scammerScore: WalletTokenFilterRange
+  """Filter by bot score"""
+  botScore: WalletTokenFilterRange
+}
+```
+
+---
+
+## WalletTokenFiltersV2
+
+Filters for a wallet on a specific token.
+
+<ResponseField name="lastTransactionAt" type="NumberFilter">
+  Filter by last transaction timestamp
+</ResponseField>
+
+<ResponseField name="firstTransactionAt" type="NumberFilter">
+  Filter by first transaction timestamp
+</ResponseField>
+
+<ResponseField name="tokenAmountBought1d" type="NumberFilter">
+  Filter by token amount bought in the past day
+</ResponseField>
+
+<ResponseField name="tokenAmountSold1d" type="NumberFilter">
+  Filter by token amount sold in the past day
+</ResponseField>
+
+<ResponseField name="amountBoughtUsd1d" type="NumberFilter">
+  Filter by amount bought in USD in the past day
+</ResponseField>
+
+<ResponseField name="amountSoldUsd1d" type="NumberFilter">
+  Filter by amount sold in USD in the past day
+</ResponseField>
+
+<ResponseField name="realizedProfitUsd1d" type="NumberFilter">
+  Filter by realized profit in USD in the past day
+</ResponseField>
+
+<ResponseField name="realizedProfitPercentage1d" type="NumberFilter">
+  Filter by realized profit percentage in the past day
+</ResponseField>
+
+<ResponseField name="buys1d" type="NumberFilter">
+  Filter by number of buys in the past day
+</ResponseField>
+
+<ResponseField name="sells1d" type="NumberFilter">
+  Filter by number of sells in the past day
+</ResponseField>
+
+<ResponseField name="tokenAmountBought1w" type="NumberFilter">
+  Filter by token amount bought in the past week
+</ResponseField>
+
+<ResponseField name="tokenAmountSold1w" type="NumberFilter">
+  Filter by token amount sold in the past week
+</ResponseField>
+
+<ResponseField name="amountBoughtUsd1w" type="NumberFilter">
+  Filter by amount bought in USD in the past week
+</ResponseField>
+
+<ResponseField name="amountSoldUsd1w" type="NumberFilter">
+  Filter by amount sold in USD in the past week
+</ResponseField>
+
+<ResponseField name="realizedProfitUsd1w" type="NumberFilter">
+  Filter by realized profit in USD in the past week
+</ResponseField>
+
+<ResponseField name="realizedProfitPercentage1w" type="NumberFilter">
+  Filter by realized profit percentage in the past week
+</ResponseField>
+
+<ResponseField name="buys1w" type="NumberFilter">
+  Filter by number of buys in the past week
+</ResponseField>
+
+<ResponseField name="sells1w" type="NumberFilter">
+  Filter by number of sells in the past week
+</ResponseField>
+
+<ResponseField name="tokenAmountBought30d" type="NumberFilter">
+  Filter by token amount bought in the past 30 days
+</ResponseField>
+
+<ResponseField name="tokenAmountSold30d" type="NumberFilter">
+  Filter by token amount sold in the past 30 days
+</ResponseField>
+
+<ResponseField name="amountBoughtUsd30d" type="NumberFilter">
+  Filter by amount bought in USD in the past 30 days
+</ResponseField>
+
+<ResponseField name="amountSoldUsd30d" type="NumberFilter">
+  Filter by amount sold in USD in the past 30 days
+</ResponseField>
+
+<ResponseField name="realizedProfitUsd30d" type="NumberFilter">
+  Filter by realized profit in USD in the past 30 days
+</ResponseField>
+
+<ResponseField name="realizedProfitPercentage30d" type="NumberFilter">
+  Filter by realized profit percentage in the past 30 days
+</ResponseField>
+
+<ResponseField name="buys30d" type="NumberFilter">
+  Filter by number of buys in the past 30 days
+</ResponseField>
+
+<ResponseField name="sells30d" type="NumberFilter">
+  Filter by number of sells in the past 30 days
+</ResponseField>
+
+<ResponseField name="tokenAmountBought1y" type="NumberFilter">
+  Filter by token amount bought in the past year
+</ResponseField>
+
+<ResponseField name="tokenAmountSold1y" type="NumberFilter">
+  Filter by token amount sold in the past year
+</ResponseField>
+
+<ResponseField name="amountBoughtUsd1y" type="NumberFilter">
+  Filter by amount bought in USD in the past year
+</ResponseField>
+
+<ResponseField name="amountSoldUsd1y" type="NumberFilter">
+  Filter by amount sold in USD in the past year
+</ResponseField>
+
+<ResponseField name="realizedProfitUsd1y" type="NumberFilter">
+  Filter by realized profit in USD in the past year
+</ResponseField>
+
+<ResponseField name="realizedProfitPercentage1y" type="NumberFilter">
+  Filter by realized profit percentage in the past year
+</ResponseField>
+
+<ResponseField name="buys1y" type="NumberFilter">
+  Filter by number of buys in the past year
+</ResponseField>
+
+<ResponseField name="sells1y" type="NumberFilter">
+  Filter by number of sells in the past year
+</ResponseField>
+
+<ResponseField name="tokenBalance" type="NumberFilter">
+  Filter by token balance
+</ResponseField>
+
+<ResponseField name="purchasedTokenBalance" type="NumberFilter">
+  Filter by purchased token balance
+</ResponseField>
+
+<ResponseField name="tokenAcquisitionCostUsd" type="NumberFilter">
+  Filter by token acquisition cost in USD
+</ResponseField>
+
+<ResponseField name="scammerScore" type="NumberFilter">
+  Filter by scammer score
+</ResponseField>
+
+<ResponseField name="botScore" type="NumberFilter">
+  Filter by bot score
+</ResponseField>
+
+```graphql 
+"""Filters for a wallet on a specific token."""
+input WalletTokenFiltersV2 {
+  """Filter by last transaction timestamp"""
+  lastTransactionAt: NumberFilter
+  """Filter by first transaction timestamp"""
+  firstTransactionAt: NumberFilter
+  """Filter by token amount bought in the past day"""
+  tokenAmountBought1d: NumberFilter
+  """Filter by token amount sold in the past day"""
+  tokenAmountSold1d: NumberFilter
+  """Filter by amount bought in USD in the past day"""
+  amountBoughtUsd1d: NumberFilter
+  """Filter by amount sold in USD in the past day"""
+  amountSoldUsd1d: NumberFilter
+  """Filter by realized profit in USD in the past day"""
+  realizedProfitUsd1d: NumberFilter
+  """Filter by realized profit percentage in the past day"""
+  realizedProfitPercentage1d: NumberFilter
+  """Filter by number of buys in the past day"""
+  buys1d: NumberFilter
+  """Filter by number of sells in the past day"""
+  sells1d: NumberFilter
+  """Filter by token amount bought in the past week"""
+  tokenAmountBought1w: NumberFilter
+  """Filter by token amount sold in the past week"""
+  tokenAmountSold1w: NumberFilter
+  """Filter by amount bought in USD in the past week"""
+  amountBoughtUsd1w: NumberFilter
+  """Filter by amount sold in USD in the past week"""
+  amountSoldUsd1w: NumberFilter
+  """Filter by realized profit in USD in the past week"""
+  realizedProfitUsd1w: NumberFilter
+  """Filter by realized profit percentage in the past week"""
+  realizedProfitPercentage1w: NumberFilter
+  """Filter by number of buys in the past week"""
+  buys1w: NumberFilter
+  """Filter by number of sells in the past week"""
+  sells1w: NumberFilter
+  """Filter by token amount bought in the past 30 days"""
+  tokenAmountBought30d: NumberFilter
+  """Filter by token amount sold in the past 30 days"""
+  tokenAmountSold30d: NumberFilter
+  """Filter by amount bought in USD in the past 30 days"""
+  amountBoughtUsd30d: NumberFilter
+  """Filter by amount sold in USD in the past 30 days"""
+  amountSoldUsd30d: NumberFilter
+  """Filter by realized profit in USD in the past 30 days"""
+  realizedProfitUsd30d: NumberFilter
+  """Filter by realized profit percentage in the past 30 days"""
+  realizedProfitPercentage30d: NumberFilter
+  """Filter by number of buys in the past 30 days"""
+  buys30d: NumberFilter
+  """Filter by number of sells in the past 30 days"""
+  sells30d: NumberFilter
+  """Filter by token amount bought in the past year"""
+  tokenAmountBought1y: NumberFilter
+  """Filter by token amount sold in the past year"""
+  tokenAmountSold1y: NumberFilter
+  """Filter by amount bought in USD in the past year"""
+  amountBoughtUsd1y: NumberFilter
+  """Filter by amount sold in USD in the past year"""
+  amountSoldUsd1y: NumberFilter
+  """Filter by realized profit in USD in the past year"""
+  realizedProfitUsd1y: NumberFilter
+  """Filter by realized profit percentage in the past year"""
+  realizedProfitPercentage1y: NumberFilter
+  """Filter by number of buys in the past year"""
+  buys1y: NumberFilter
+  """Filter by number of sells in the past year"""
+  sells1y: NumberFilter
+  """Filter by token balance"""
+  tokenBalance: NumberFilter
+  """Filter by purchased token balance"""
+  purchasedTokenBalance: NumberFilter
+  """Filter by token acquisition cost in USD"""
+  tokenAcquisitionCostUsd: NumberFilter
+  """Filter by scammer score"""
+  scammerScore: NumberFilter
+  """Filter by bot score"""
+  botScore: NumberFilter
+}
+```
+
+---
+
+## WalletTokenRanking
+
+A wallet ranking on a specific token.
+
+<ResponseField name="attribute" type="WalletTokenRankingAttribute!" required>
+  The attribute to rank wallets by
+</ResponseField>
+
+<ResponseField name="direction" type="RankingDirection!" required>
+  The direction to apply to the ranking attribute
+</ResponseField>
+
+```graphql 
+"""A wallet ranking on a specific token."""
+input WalletTokenRanking {
+  """The attribute to rank wallets by"""
+  attribute: WalletTokenRankingAttribute!
+  """The direction to apply to the ranking attribute"""
+  direction: RankingDirection!
+}
+```
+
+---
+

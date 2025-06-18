@@ -1,9 +1,8 @@
 ---
 title: "walletChart"
 description: "Returns a chart of a wallet's activity."
+keywords: ['walletChart']
 ---
-
-**Type:** Query
 
 **Returns:** [WalletChartResponse](/api-reference/types/walletchartresponse)
 
@@ -15,3 +14,10 @@ description: "Returns a chart of a wallet's activity."
   </ResponseField>
 </a>
 
+### Schema
+
+
+```graphql 
+"""Returns a chart of a wallet's activity."""
+walletChart(input: WalletChartInput!): WalletChartResponse
+```

@@ -1,9 +1,8 @@
 ---
 title: "getSimulateTokenContractResults"
 description: "Returns a list of token contract buy/sell results."
+keywords: ['getSimulateTokenContractResults']
 ---
-
-**Type:** Query
 
 **Returns:** [GetSimulateTokenContractResultsConnection!](/api-reference/types/getsimulatetokencontractresultsconnection)
 
@@ -29,3 +28,10 @@ description: "Returns a list of token contract buy/sell results."
   No description provided
 </ResponseField>
 
+### Schema
+
+
+```graphql 
+"""Returns a list of token contract buy/sell results."""
+getSimulateTokenContractResults(contractAddress: String!, networkId: Int!, simulationId: String, cursor: String, limit: Int): GetSimulateTokenContractResultsConnection!
+```

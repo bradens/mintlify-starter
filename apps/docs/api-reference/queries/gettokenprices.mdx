@@ -1,9 +1,8 @@
 ---
 title: "getTokenPrices"
 description: "Returns real-time or historical prices for a list of tokens, fetched in batches."
+keywords: ['getTokenPrices']
 ---
-
-**Type:** Query
 
 **Returns:** [[Price]](/api-reference/types/price)
 
@@ -15,3 +14,10 @@ description: "Returns real-time or historical prices for a list of tokens, fetch
   </ResponseField>
 </a>
 
+### Schema
+
+
+```graphql 
+"""Returns real-time or historical prices for a list of tokens, fetched in batches."""
+getTokenPrices(inputs: [GetPriceInput]): [Price]
+```

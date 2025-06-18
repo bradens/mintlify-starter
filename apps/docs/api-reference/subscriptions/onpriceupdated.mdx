@@ -1,9 +1,8 @@
 ---
 title: "onPriceUpdated"
 description: "Live-streamed price updates for a token."
+keywords: ['onPriceUpdated']
 ---
-
-**Type:** Subscription
 
 **Returns:** [Price](/api-reference/types/price)
 
@@ -21,3 +20,10 @@ description: "Live-streamed price updates for a token."
   The pair contract address from which to get pricing
 </ResponseField>
 
+### Schema
+
+
+```graphql 
+"""Live-streamed price updates for a token."""
+onPriceUpdated(address: String, networkId: Int, sourcePairAddress: String): Price
+```

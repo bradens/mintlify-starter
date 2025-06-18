@@ -1,9 +1,8 @@
 ---
 title: "getSymbol"
 description: "Returns charting metadata for a given pair. Used for implementing a Trading View datafeed."
+keywords: ['getSymbol']
 ---
-
-**Type:** Query
 
 **Returns:** [SymbolResponse](/api-reference/types/symbolresponse)
 
@@ -17,3 +16,10 @@ description: "Returns charting metadata for a given pair. Used for implementing 
   The currency to use for the response. Can be `USD` (default) or `TOKEN`.
 </ResponseField>
 
+### Schema
+
+
+```graphql 
+"""Returns charting metadata for a given pair. Used for implementing a Trading View datafeed."""
+getSymbol(symbol: String!, currencyCode: String): SymbolResponse
+```

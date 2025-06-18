@@ -1,9 +1,8 @@
 ---
 title: "getPrimePoolEvents"
 description: "Returns a list of Prime pool events."
+keywords: ['getPrimePoolEvents']
 ---
-
-**Type:** Query
 
 **Returns:** [PrimePoolEventConnection](/api-reference/types/primepooleventconnection)
 
@@ -39,3 +38,10 @@ description: "Returns a list of Prime pool events."
   The cursor to use for pagination.
 </ResponseField>
 
+### Schema
+
+
+```graphql 
+"""Returns a list of Prime pool events."""
+getPrimePoolEvents(networkId: Int!, poolContractAddress: String, poolId: String, walletAddress: String, eventTypes: [PrimePoolEventType], limit: Int, cursor: String): PrimePoolEventConnection
+```

@@ -1,6 +1,7 @@
 ---
 title: "EventData"
 description: "Event-specific data for a token transaction."
+keywords: ['EventData']
 ---
 
 ### Union Types
@@ -12,8 +13,10 @@ This union can be one of the following types:
 - [SwapEventData](/api-reference/types/swapeventdata)
 - [PoolBalanceChangedEventData](/api-reference/types/poolbalancechangedeventdata)
 
+### Schema
 
-```graphql EventData
+
+```graphql 
 """Event-specific data for a token transaction."""
 union EventData = BurnEventData | MintEventData | SwapEventData | PoolBalanceChangedEventData
 ```

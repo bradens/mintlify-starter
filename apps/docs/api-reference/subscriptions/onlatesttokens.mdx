@@ -1,9 +1,8 @@
 ---
 title: "onLatestTokens"
 description: "Subscription operation"
+keywords: ['onLatestTokens']
 ---
-
-**Type:** Subscription
 
 **Returns:** [LatestToken](/api-reference/types/latesttoken)
 
@@ -21,3 +20,9 @@ description: "Subscription operation"
   The address of the token contract.
 </ResponseField>
 
+### Schema
+
+
+```graphql 
+onLatestTokens(id: String, networkId: Int, tokenAddress: String): LatestToken
+```

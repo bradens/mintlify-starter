@@ -1,9 +1,8 @@
 ---
 title: "onEventLabelCreated"
 description: "Live-streamed event labels for a token."
+keywords: ['onEventLabelCreated']
 ---
-
-**Type:** Subscription
 
 **Returns:** [EventLabel](/api-reference/types/eventlabel)
 
@@ -13,3 +12,10 @@ description: "Live-streamed event labels for a token."
   The ID of the pair (`address`:`networkId`).
 </ResponseField>
 
+### Schema
+
+
+```graphql 
+"""Live-streamed event labels for a token."""
+onEventLabelCreated(id: String): EventLabel
+```

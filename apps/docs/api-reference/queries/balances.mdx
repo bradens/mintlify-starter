@@ -1,9 +1,8 @@
 ---
 title: "balances"
 description: "Returns list of token balances that a wallet has."
+keywords: ['balances']
 ---
-
-**Type:** Query
 
 **Returns:** [BalancesResponse!](/api-reference/types/balancesresponse)
 
@@ -15,3 +14,10 @@ description: "Returns list of token balances that a wallet has."
   </ResponseField>
 </a>
 
+### Schema
+
+
+```graphql 
+"""Returns list of token balances that a wallet has."""
+balances(input: BalancesInput!): BalancesResponse!
+```

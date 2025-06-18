@@ -1,9 +1,8 @@
 ---
 title: "getPrimePoolAssets"
 description: "Returns a list of Prime pool cached assets."
+keywords: ['getPrimePoolAssets']
 ---
-
-**Type:** Query
 
 **Returns:** [PrimePoolAssetConnection](/api-reference/types/primepoolassetconnection)
 
@@ -33,3 +32,10 @@ description: "Returns a list of Prime pool cached assets."
   The cursor to use for pagination.
 </ResponseField>
 
+### Schema
+
+
+```graphql 
+"""Returns a list of Prime pool cached assets."""
+getPrimePoolAssets(networkId: Int!, poolContractAddress: String, poolId: String, walletAddress: String, limit: Int, cursor: String): PrimePoolAssetConnection
+```

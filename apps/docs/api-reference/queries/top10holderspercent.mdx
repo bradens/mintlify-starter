@@ -1,9 +1,8 @@
 ---
 title: "top10HoldersPercent"
 description: "Returns the percentage of a token's total supply held collectively by its top 10 holders."
+keywords: ['top10HoldersPercent']
 ---
-
-**Type:** Query
 
 **Returns:** Float
 
@@ -13,3 +12,10 @@ description: "Returns the percentage of a token's total supply held collectively
   No description provided
 </ResponseField>
 
+### Schema
+
+
+```graphql 
+"""Returns the percentage of a token's total supply held collectively by its top 10 holders."""
+top10HoldersPercent(tokenId: String!): Float
+```

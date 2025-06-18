@@ -1,9 +1,8 @@
 ---
 title: "deleteApiToken"
 description: "Delete a single short-lived api access token by id"
+keywords: ['deleteApiToken']
 ---
-
-**Type:** Mutation
 
 **Returns:** [String!](/api-reference/types/string)
 
@@ -13,3 +12,10 @@ description: "Delete a single short-lived api access token by id"
   No description provided
 </ResponseField>
 
+### Schema
+
+
+```graphql 
+"""Delete a single short-lived api access token by id"""
+deleteApiToken(id: String!): String!
+```

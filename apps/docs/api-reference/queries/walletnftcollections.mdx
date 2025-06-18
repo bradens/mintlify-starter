@@ -1,9 +1,8 @@
 ---
 title: "walletNftCollections"
 description: "Returns list of collections and quantity of NFTs held by a given wallet."
+keywords: ['walletNftCollections']
 ---
-
-**Type:** Query
 
 **Returns:** [WalletNftCollectionsResponse!](/api-reference/types/walletnftcollectionsresponse)
 
@@ -15,3 +14,10 @@ description: "Returns list of collections and quantity of NFTs held by a given w
   </ResponseField>
 </a>
 
+### Schema
+
+
+```graphql 
+"""Returns list of collections and quantity of NFTs held by a given wallet."""
+walletNftCollections(input: WalletNftCollectionsInput!): WalletNftCollectionsResponse!
+```

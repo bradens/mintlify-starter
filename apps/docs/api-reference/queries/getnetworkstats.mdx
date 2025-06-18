@@ -1,9 +1,8 @@
 ---
 title: "getNetworkStats"
 description: "Returns metadata for a given network supported on Codex."
+keywords: ['getNetworkStats']
 ---
-
-**Type:** Query
 
 **Returns:** [GetNetworkStatsResponse](/api-reference/types/getnetworkstatsresponse)
 
@@ -17,3 +16,10 @@ description: "Returns metadata for a given network supported on Codex."
   The exchange address to filter by (optional).
 </ResponseField>
 
+### Schema
+
+
+```graphql 
+"""Returns metadata for a given network supported on Codex."""
+getNetworkStats(networkId: Int!, exchangeAddress: String): GetNetworkStatsResponse
+```

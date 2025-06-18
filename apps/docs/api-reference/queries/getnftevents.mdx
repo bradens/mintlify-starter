@@ -1,9 +1,8 @@
 ---
 title: "getNftEvents"
 description: "Returns transactions for an NFT collection across any marketplace(s)."
+keywords: ['getNftEvents']
 ---
-
-**Type:** Query
 
 **Returns:** [NftEventsConnection](/api-reference/types/nfteventsconnection)
 
@@ -47,3 +46,10 @@ description: "Returns transactions for an NFT collection across any marketplace(
   No description provided
 </ResponseField>
 
+### Schema
+
+
+```graphql 
+"""Returns transactions for an NFT collection across any marketplace(s)."""
+getNftEvents(address: String, exchangeAddress: String, poolAddress: String, networkId: Int!, tokenId: String, cursor: String, timestamp: EventQueryTimestampInput, limit: Int, includeTransfers: Boolean): NftEventsConnection
+```

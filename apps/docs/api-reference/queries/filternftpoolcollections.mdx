@@ -1,9 +1,8 @@
 ---
 title: "filterNftPoolCollections"
 description: "Returns a list of NFT collections based on a variety of filters."
+keywords: ['filterNftPoolCollections']
 ---
-
-**Type:** Query
 
 **Returns:** [NftPoolCollectionFilterConnection](/api-reference/types/nftpoolcollectionfilterconnection)
 
@@ -33,3 +32,10 @@ description: "Returns a list of NFT collections based on a variety of filters."
   Where in the list the server should start when returning items. Use `count`+`page` from the previous query to request the next page of results.
 </ResponseField>
 
+### Schema
+
+
+```graphql 
+"""Returns a list of NFT collections based on a variety of filters."""
+filterNftPoolCollections(filters: NftPoolCollectionFilters, phrase: String, rankings: [NftPoolCollectionRanking], limit: Int, offset: Int): NftPoolCollectionFilterConnection
+```

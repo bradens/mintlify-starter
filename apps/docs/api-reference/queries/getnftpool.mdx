@@ -1,9 +1,8 @@
 ---
 title: "getNftPool"
 description: "Returns an NFT pool."
+keywords: ['getNftPool']
 ---
-
-**Type:** Query
 
 **Returns:** [NftPoolResponse](/api-reference/types/nftpoolresponse)
 
@@ -17,3 +16,10 @@ description: "Returns an NFT pool."
   The network ID the NFT collection is deployed on.
 </ResponseField>
 
+### Schema
+
+
+```graphql 
+"""Returns an NFT pool."""
+getNftPool(address: String!, networkId: Int!): NftPoolResponse
+```

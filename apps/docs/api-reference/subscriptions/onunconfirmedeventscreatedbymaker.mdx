@@ -1,9 +1,8 @@
 ---
 title: "onUnconfirmedEventsCreatedByMaker"
 description: "Live-streamed unconfirmed transactions for a maker. (Solana only)"
+keywords: ['onUnconfirmedEventsCreatedByMaker']
 ---
-
-**Type:** Subscription
 
 **Returns:** [AddUnconfirmedEventsByMakerOutput](/api-reference/types/addunconfirmedeventsbymakeroutput)
 
@@ -15,3 +14,10 @@ description: "Live-streamed unconfirmed transactions for a maker. (Solana only)"
   </ResponseField>
 </a>
 
+### Schema
+
+
+```graphql 
+"""Live-streamed unconfirmed transactions for a maker. (Solana only)"""
+onUnconfirmedEventsCreatedByMaker(input: OnUnconfirmedEventsCreatedByMakerInput!): AddUnconfirmedEventsByMakerOutput
+```

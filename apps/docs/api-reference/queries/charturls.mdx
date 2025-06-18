@@ -1,9 +1,8 @@
 ---
 title: "chartUrls"
 description: "Returns a URL for a pair chart."
+keywords: ['chartUrls']
 ---
-
-**Type:** Query
 
 **Returns:** [ChartUrlsResponse](/api-reference/types/charturlsresponse)
 
@@ -15,3 +14,10 @@ description: "Returns a URL for a pair chart."
   </ResponseField>
 </a>
 
+### Schema
+
+
+```graphql 
+"""Returns a URL for a pair chart."""
+chartUrls(input: ChartInput!): ChartUrlsResponse
+```

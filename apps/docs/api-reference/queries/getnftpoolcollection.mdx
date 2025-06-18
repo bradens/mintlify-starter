@@ -1,9 +1,8 @@
 ---
 title: "getNftPoolCollection"
 description: "Returns an NFT pool collection with pool stats for a given AMM NFT marketplace."
+keywords: ['getNftPoolCollection']
 ---
-
-**Type:** Query
 
 **Returns:** [NftPoolCollectionResponse](/api-reference/types/nftpoolcollectionresponse)
 
@@ -21,3 +20,10 @@ description: "Returns an NFT pool collection with pool stats for a given AMM NFT
   The network ID the NFT collection is deployed on.
 </ResponseField>
 
+### Schema
+
+
+```graphql 
+"""Returns an NFT pool collection with pool stats for a given AMM NFT marketplace."""
+getNftPoolCollection(collectionAddress: String!, exchangeAddress: String!, networkId: Int!): NftPoolCollectionResponse
+```

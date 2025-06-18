@@ -1,6 +1,7 @@
 ---
 title: "NftEventTokenTradeItem"
 description: "Details for a token(s) offered or received as part of an nft trade."
+keywords: ['NftEventTokenTradeItem']
 ---
 
 ### Fields
@@ -55,8 +56,10 @@ description: "Details for a token(s) offered or received as part of an nft trade
   The reason for the price error, if applicable. Can be `NO_TOKEN_DATA`, `NO_TOKEN_PRICE`, or `LOW_LIQUIDITY_PAIR`.
 </ResponseField>
 
+### Schema
 
-```graphql NftEventTokenTradeItem
+
+```graphql 
 """Details for a token(s) offered or received as part of an nft trade."""
 type NftEventTokenTradeItem {
   """The contract address for the token."""

@@ -1,9 +1,8 @@
 ---
 title: "onTokenLifecycleEventsCreated"
 description: "Live-streamed token lifecycle events (mints and burns)."
+keywords: ['onTokenLifecycleEventsCreated']
 ---
-
-**Type:** Subscription
 
 **Returns:** [AddTokenLifecycleEventsOutput!](/api-reference/types/addtokenlifecycleeventsoutput)
 
@@ -17,3 +16,10 @@ description: "Live-streamed token lifecycle events (mints and burns)."
   The network ID the token is deployed on.
 </ResponseField>
 
+### Schema
+
+
+```graphql 
+"""Live-streamed token lifecycle events (mints and burns)."""
+onTokenLifecycleEventsCreated(address: String, networkId: Int): AddTokenLifecycleEventsOutput!
+```

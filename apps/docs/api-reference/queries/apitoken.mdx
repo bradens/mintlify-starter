@@ -1,9 +1,8 @@
 ---
 title: "apiToken"
 description: "Get the active short-lived api token for this api key by the short-lived token"
+keywords: ['apiToken']
 ---
-
-**Type:** Query
 
 **Returns:** [ApiToken!](/api-reference/types/apitoken)
 
@@ -13,3 +12,10 @@ description: "Get the active short-lived api token for this api key by the short
   No description provided
 </ResponseField>
 
+### Schema
+
+
+```graphql 
+"""Get the active short-lived api token for this api key by the short-lived token"""
+apiToken(token: String!): ApiToken!
+```

@@ -1,9 +1,8 @@
 ---
 title: "getNftPoolStats"
 description: "Returns aggregated NFT pool/collection stats for a given time frame."
+keywords: ['getNftPoolStats']
 ---
-
-**Type:** Query
 
 **Returns:** [NftPoolStatsResponse](/api-reference/types/nftpoolstatsresponse)
 
@@ -33,3 +32,10 @@ description: "Returns aggregated NFT pool/collection stats for a given time fram
   The NFT pool address to filter by.
 </ResponseField>
 
+### Schema
+
+
+```graphql 
+"""Returns aggregated NFT pool/collection stats for a given time frame."""
+getNftPoolStats(collectionAddress: String!, exchangeAddress: String!, networkId: Int!, startTime: Int!, endTime: Int!, poolAddress: String): NftPoolStatsResponse
+```

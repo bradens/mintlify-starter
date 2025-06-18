@@ -1,9 +1,8 @@
 ---
 title: "getTokenEventsForMaker"
 description: "Returns a list of token events for a given maker."
+keywords: ['getTokenEventsForMaker']
 ---
-
-**Type:** Query
 
 **Returns:** [MakerEventConnection](/api-reference/types/makereventconnection)
 
@@ -29,3 +28,10 @@ description: "Returns a list of token events for a given maker."
   </ResponseField>
 </a>
 
+### Schema
+
+
+```graphql 
+"""Returns a list of token events for a given maker."""
+getTokenEventsForMaker(limit: Int, query: MakerEventsQueryInput!, cursor: String, direction: RankingDirection): MakerEventConnection
+```

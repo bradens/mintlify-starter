@@ -38,6 +38,8 @@ function cleanDescription(description) {
     .replace(/@hide/g, '') // Remove @hide directive
     .replace(/@category:?\s*[^\s@\n\r]+/gi, '') // Remove @category metadata
     .replace(/@tag:?\s*[^\s@\n\r]+/gi, '') // Remove @tag metadata
+    .replace(/</g, '&lt;') // Escape opening angle brackets for MDX
+    .replace(/>/g, '&gt;') // Escape closing angle brackets for MDX
     .replace(/\s+/g, ' ') // Normalize multiple spaces to single space
     .trim();
 }
@@ -111,6 +113,32 @@ function isDeprecated(item) {
 // Helper function to get deprecation reason
 function getDeprecationReason(item) {
   return item.deprecationReason || 'This field is deprecated.';
+}
+
+// Helper function to generate GraphQL schema definition for an operation
+function generateOperationSchema(operation, operationType) {
+  let schemaOutput = '';
+
+  const cleanedDescription = cleanDescription(operation.description);
+  const description = cleanedDescription ? `"""${cleanedDescription}"""\n` : '';
+  const deprecation = isDeprecated(operation) ? ` @deprecated(reason: "${getDeprecationReason(operation)}")` : '';
+
+  // Handle operation arguments if any
+  let argsString = '';
+  if (operation.args && operation.args.length > 0) {
+    const visibleArgs = operation.args.filter(arg => !shouldHideField(arg));
+    if (visibleArgs.length > 0) {
+      const argStrings = visibleArgs.map(arg => {
+        const defaultValue = arg.defaultValue !== undefined ? ` = ${JSON.stringify(arg.defaultValue)}` : '';
+        return `${arg.name}: ${formatType(arg.type)}${defaultValue}`;
+      });
+      argsString = `(${argStrings.join(', ')})`;
+    }
+  }
+
+  schemaOutput += `${description}${operation.name}${argsString}: ${formatType(operation.type)}${deprecation}`;
+
+  return schemaOutput;
 }
 
 // Helper function to generate GraphQL schema definition for a type
@@ -270,6 +298,13 @@ keywords: ['${operation.name}']`;
     }
   }
 
+  // Add GraphQL schema definition at the end
+  const schemaDefinition = generateOperationSchema(operation, operationType);
+  if (schemaDefinition) {
+    content += `### Schema\n\n`;
+    content += `\n\`\`\`graphql \n${schemaDefinition}\n\`\`\`\n`;
+  }
+
   return { content, metadata };
 }
 
@@ -380,7 +415,8 @@ keywords: ['${type.name}']`;
   // Add GraphQL schema definition at the end
   const schemaDefinition = generateGraphQLSchema(type);
   if (schemaDefinition) {
-    content += `\n\`\`\`graphql ${type.name}\n${schemaDefinition}\n\`\`\`\n`;
+    content += `### Schema\n\n`;
+    content += `\n\`\`\`graphql \n${schemaDefinition}\n\`\`\`\n`;
   }
 
   return { content, metadata };
@@ -1072,7 +1108,12 @@ function generateGraphQLDocs() {
 
       const type = typeMap[typeName];
       // Skip root operation types as they're handled separately
-      return type !== queryType && type !== mutationType && type !== subscriptionType;
+      if (type === queryType || type === mutationType || type === subscriptionType) return false;
+
+      // Skip types that should be hidden
+      if (shouldHideField(type)) return false;
+
+      return true;
     })
     .map(typeName => typeMap[typeName]);
 

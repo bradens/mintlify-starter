@@ -1,13 +1,12 @@
 ---
 title: "getDetailedStats"
 description: "Returns bucketed stats for a given token within a pair."
+keywords: ['getDetailedStats']
 ---
 
 <Warning>
   This query is deprecated. Use `getDetailedPairStats` instead, it has more resolutions and better support
 </Warning>
-
-**Type:** Query
 
 **Returns:** [DetailedStats](/api-reference/types/detailedstats)
 
@@ -43,3 +42,10 @@ description: "Returns bucketed stats for a given token within a pair."
   </ResponseField>
 </a>
 
+### Schema
+
+
+```graphql 
+"""Returns bucketed stats for a given token within a pair."""
+getDetailedStats(pairId: String!, tokenOfInterest: TokenOfInterest, timestamp: Int, windowSizes: [DetailedStatsWindowSize], bucketCount: Int, statsType: TokenPairStatisticsType): DetailedStats @deprecated(reason: "Use `getDetailedPairStats` instead, it has more resolutions and better support")
+```

@@ -1,6 +1,7 @@
 ---
 title: "LaunchpadData"
 description: "Object type"
+keywords: ['LaunchpadData']
 ---
 
 ### Fields
@@ -57,8 +58,10 @@ description: "Object type"
   The launchpad protocol
 </ResponseField>
 
+### Schema
 
-```graphql LaunchpadData
+
+```graphql 
 type LaunchpadData {
   """The name of the launchpad."""
   name: String @deprecated(reason: "Use launchpadName instead")

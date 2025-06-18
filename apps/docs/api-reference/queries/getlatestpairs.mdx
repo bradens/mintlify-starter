@@ -1,13 +1,12 @@
 ---
 title: "getLatestPairs"
 description: "Returns new tokens listed over the last three days."
+keywords: ['getLatestPairs']
 ---
 
 <Warning>
   This query is deprecated. This query is longer supported. Instead use filterPairs with sort order on createdAt DESC
 </Warning>
-
-**Type:** Query
 
 **Returns:** [LatestPairConnection](/api-reference/types/latestpairconnection)
 
@@ -33,3 +32,10 @@ description: "Returns new tokens listed over the last three days."
   The cursor to use for pagination.
 </ResponseField>
 
+### Schema
+
+
+```graphql 
+"""Returns new tokens listed over the last three days."""
+getLatestPairs(limit: Int, networkFilter: [Int!], exchangeFilter: [String!], minLiquidityFilter: Int, cursor: String): LatestPairConnection @deprecated(reason: "This query is longer supported. Instead use filterPairs with sort order on createdAt DESC")
+```

@@ -1,9 +1,8 @@
 ---
 title: "onPricesUpdated"
 description: "Live-streamed price updates for multiple tokens."
+keywords: ['onPricesUpdated']
 ---
-
-**Type:** Subscription
 
 **Returns:** [Price!](/api-reference/types/price)
 
@@ -15,3 +14,10 @@ description: "Live-streamed price updates for multiple tokens."
   </ResponseField>
 </a>
 
+### Schema
+
+
+```graphql 
+"""Live-streamed price updates for multiple tokens."""
+onPricesUpdated(input: [OnPricesUpdatedInput!]!): Price!
+```

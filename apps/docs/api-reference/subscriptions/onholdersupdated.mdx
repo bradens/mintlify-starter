@@ -1,9 +1,8 @@
 ---
 title: "onHoldersUpdated"
 description: "Live-streamed list of wallets that hold a given token. Also has the unique count of holders for that token."
+keywords: ['onHoldersUpdated']
 ---
-
-**Type:** Subscription
 
 **Returns:** [HoldersUpdate](/api-reference/types/holdersupdate)
 
@@ -13,3 +12,10 @@ description: "Live-streamed list of wallets that hold a given token. Also has th
   No description provided
 </ResponseField>
 
+### Schema
+
+
+```graphql 
+"""Live-streamed list of wallets that hold a given token. Also has the unique count of holders for that token."""
+onHoldersUpdated(tokenId: String!): HoldersUpdate
+```

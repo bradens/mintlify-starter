@@ -1,9 +1,8 @@
 ---
 title: "onNftEventsCreated"
 description: "Live-streamed transactions for an NFT collection."
+keywords: ['onNftEventsCreated']
 ---
-
-**Type:** Subscription
 
 **Returns:** [AddNftEventsOutput](/api-reference/types/addnfteventsoutput)
 
@@ -17,3 +16,10 @@ description: "Live-streamed transactions for an NFT collection."
   The network ID the NFT collection is deployed on.
 </ResponseField>
 
+### Schema
+
+
+```graphql 
+"""Live-streamed transactions for an NFT collection."""
+onNftEventsCreated(address: String, networkId: Int): AddNftEventsOutput
+```

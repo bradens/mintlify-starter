@@ -1,9 +1,8 @@
 ---
 title: "searchNfts"
 description: "Returns a list of NFT collections matching a given query string."
+keywords: ['searchNfts']
 ---
-
-**Type:** Query
 
 **Returns:** [NftSearchResponse](/api-reference/types/nftsearchresponse)
 
@@ -35,3 +34,10 @@ description: "Returns a list of NFT collections matching a given query string."
   Whether to filter collections that could be linked to wash trading
 </ResponseField>
 
+### Schema
+
+
+```graphql 
+"""Returns a list of NFT collections matching a given query string."""
+searchNfts(limit: Int, networkFilter: [Int!], window: String, search: String, include: [NftSearchable!], filterWashTrading: Boolean): NftSearchResponse
+```

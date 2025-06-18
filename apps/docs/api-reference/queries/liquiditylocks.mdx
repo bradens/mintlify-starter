@@ -1,9 +1,8 @@
 ---
 title: "liquidityLocks"
 description: "Returns liquidity locks for a given pair."
+keywords: ['liquidityLocks']
 ---
-
-**Type:** Query
 
 **Returns:** [LiquidityLockConnection](/api-reference/types/liquiditylockconnection)
 
@@ -25,3 +24,10 @@ description: "Returns liquidity locks for a given pair."
   A cursor for use in pagination.
 </ResponseField>
 
+### Schema
+
+
+```graphql 
+"""Returns liquidity locks for a given pair."""
+liquidityLocks(pairAddress: String, tokenAddress: String, networkId: Int!, cursor: String): LiquidityLockConnection
+```

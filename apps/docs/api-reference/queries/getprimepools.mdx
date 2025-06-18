@@ -1,9 +1,8 @@
 ---
 title: "getPrimePools"
 description: "Returns a list of Prime pools."
+keywords: ['getPrimePools']
 ---
-
-**Type:** Query
 
 **Returns:** [PrimePoolConnection](/api-reference/types/primepoolconnection)
 
@@ -29,3 +28,10 @@ description: "Returns a list of Prime pools."
   The cursor to use for pagination.
 </ResponseField>
 
+### Schema
+
+
+```graphql 
+"""Returns a list of Prime pools."""
+getPrimePools(address: String!, networkId: Int!, poolIds: [String], limit: Int, cursor: String): PrimePoolConnection
+```

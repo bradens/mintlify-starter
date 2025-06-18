@@ -1,9 +1,8 @@
 ---
 title: "tokenTopTraders"
 description: "Returns a list of top traders for a given token."
+keywords: ['tokenTopTraders']
 ---
-
-**Type:** Query
 
 **Returns:** [TokenTopTradersConnection!](/api-reference/types/tokentoptradersconnection)
 
@@ -15,3 +14,10 @@ description: "Returns a list of top traders for a given token."
   </ResponseField>
 </a>
 
+### Schema
+
+
+```graphql 
+"""Returns a list of top traders for a given token."""
+tokenTopTraders(input: TokenTopTradersInput!): TokenTopTradersConnection!
+```

@@ -1,9 +1,8 @@
 ---
 title: "onDetailedStatsUpdated"
 description: "Live-streamed bucketed stats for a given token within a pair."
+keywords: ['onDetailedStatsUpdated']
 ---
-
-**Type:** Subscription
 
 **Returns:** [DetailedStats](/api-reference/types/detailedstats)
 
@@ -19,3 +18,10 @@ description: "Live-streamed bucketed stats for a given token within a pair."
   </ResponseField>
 </a>
 
+### Schema
+
+
+```graphql 
+"""Live-streamed bucketed stats for a given token within a pair."""
+onDetailedStatsUpdated(pairId: String, tokenOfInterest: TokenOfInterest): DetailedStats
+```

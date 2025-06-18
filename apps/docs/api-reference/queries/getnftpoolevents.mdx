@@ -1,9 +1,8 @@
 ---
 title: "getNftPoolEvents"
 description: "Returns transactions for an NFT collection across all NFT pools or within a given pool."
+keywords: ['getNftPoolEvents']
 ---
-
-**Type:** Query
 
 **Returns:** [NftPoolEventsResponse](/api-reference/types/nftpooleventsresponse)
 
@@ -45,3 +44,10 @@ description: "Returns transactions for an NFT collection across all NFT pools or
   The maximum number of NFT pool events to return.
 </ResponseField>
 
+### Schema
+
+
+```graphql 
+"""Returns transactions for an NFT collection across all NFT pools or within a given pool."""
+getNftPoolEvents(networkId: Int!, collectionAddress: String, poolAddress: String, exchangeAddress: String, eventTypes: [NftPoolEventType!], timestamp: EventQueryTimestampInput, cursor: String, limit: Int): NftPoolEventsResponse
+```

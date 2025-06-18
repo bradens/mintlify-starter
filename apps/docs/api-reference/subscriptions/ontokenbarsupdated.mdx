@@ -1,9 +1,8 @@
 ---
 title: "onTokenBarsUpdated"
 description: "Live-streamed bar chart data to track price changes over time for a token."
+keywords: ['onTokenBarsUpdated']
 ---
-
-**Type:** Subscription
 
 **Returns:** [OnTokenBarsUpdatedResponse](/api-reference/types/ontokenbarsupdatedresponse)
 
@@ -17,3 +16,10 @@ description: "Live-streamed bar chart data to track price changes over time for 
   The networkId to use when getting all bars per network
 </ResponseField>
 
+### Schema
+
+
+```graphql 
+"""Live-streamed bar chart data to track price changes over time for a token."""
+onTokenBarsUpdated(tokenId: String, networkId: Int): OnTokenBarsUpdatedResponse
+```

@@ -1,9 +1,8 @@
 ---
 title: "getNftAssets"
 description: "Returns a list of NFT assets in a given collection."
+keywords: ['getNftAssets']
 ---
-
-**Type:** Query
 
 **Returns:** [NftAssetsConnection](/api-reference/types/nftassetsconnection)
 
@@ -33,3 +32,10 @@ description: "Returns a list of NFT assets in a given collection."
   The maximum number of NFT assets to return.
 </ResponseField>
 
+### Schema
+
+
+```graphql 
+"""Returns a list of NFT assets in a given collection."""
+getNftAssets(address: String!, networkId: Int!, tokenIds: [String], fetchMissingAssets: Boolean, cursor: String, limit: Int): NftAssetsConnection
+```

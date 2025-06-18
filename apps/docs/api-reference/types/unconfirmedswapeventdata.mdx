@@ -1,6 +1,7 @@
 ---
 title: "UnconfirmedSwapEventData"
 description: "Event data for a token swap event."
+keywords: ['UnconfirmedSwapEventData']
 ---
 
 ### Fields
@@ -35,8 +36,10 @@ description: "Event data for a token swap event."
   The amount of `baseToken` involved in the swap
 </ResponseField>
 
+### Schema
 
-```graphql UnconfirmedSwapEventData
+
+```graphql 
 """Event data for a token swap event."""
 type UnconfirmedSwapEventData {
   """The amount of `quoteToken` involved in the swap. For example, if `quoteToken` is USDC for a USDC/WETH pair, `amountNonLiquidityToken` would be the amount of USDC involved in the swap."""

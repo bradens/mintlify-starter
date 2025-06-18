@@ -1,6 +1,7 @@
 ---
 title: "RetrySettings"
 description: "Config for retrying failed webhook messages."
+keywords: ['RetrySettings']
 ---
 
 ### Fields
@@ -21,8 +22,10 @@ description: "Config for retrying failed webhook messages."
   The maximum number of times the webhook will retry sending a message
 </ResponseField>
 
+### Schema
 
-```graphql RetrySettings
+
+```graphql 
 """Config for retrying failed webhook messages."""
 type RetrySettings {
   """The maximum time in seconds that the webhook will retry sending a message"""

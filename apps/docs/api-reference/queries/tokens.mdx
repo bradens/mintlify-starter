@@ -1,9 +1,8 @@
 ---
 title: "tokens"
 description: "Returns a list of tokens by their addresses & network id, with pagination."
+keywords: ['tokens']
 ---
-
-**Type:** Query
 
 **Returns:** [[EnhancedToken]!](/api-reference/types/enhancedtoken)
 
@@ -15,3 +14,10 @@ description: "Returns a list of tokens by their addresses & network id, with pag
   </ResponseField>
 </a>
 
+### Schema
+
+
+```graphql 
+"""Returns a list of tokens by their addresses & network id, with pagination."""
+tokens(ids: [TokenInput!]): [EnhancedToken]!
+```

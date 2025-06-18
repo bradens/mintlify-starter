@@ -1,9 +1,8 @@
 ---
 title: "createWebhooks"
 description: "Create price, raw transaction, token/pair event, and NFT event webhooks."
+keywords: ['createWebhooks']
 ---
-
-**Type:** Mutation
 
 **Returns:** [CreateWebhooksOutput!](/api-reference/types/createwebhooksoutput)
 
@@ -15,3 +14,10 @@ description: "Create price, raw transaction, token/pair event, and NFT event web
   </ResponseField>
 </a>
 
+### Schema
+
+
+```graphql 
+"""Create price, raw transaction, token/pair event, and NFT event webhooks."""
+createWebhooks(input: CreateWebhooksInput!): CreateWebhooksOutput!
+```

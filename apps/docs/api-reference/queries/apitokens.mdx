@@ -1,9 +1,15 @@
 ---
 title: "apiTokens"
 description: "Get all active short-lived api tokens for this api key"
+keywords: ['apiTokens']
 ---
-
-**Type:** Query
 
 **Returns:** [[ApiToken!]!](/api-reference/types/apitoken)
 
+### Schema
+
+
+```graphql 
+"""Get all active short-lived api tokens for this api key"""
+apiTokens: [ApiToken!]!
+```

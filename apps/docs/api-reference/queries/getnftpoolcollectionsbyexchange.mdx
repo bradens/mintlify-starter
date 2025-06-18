@@ -1,9 +1,8 @@
 ---
 title: "getNftPoolCollectionsByExchange"
 description: "Returns an NFT collection with pool stats for a given AMM NFT marketplace."
+keywords: ['getNftPoolCollectionsByExchange']
 ---
-
-**Type:** Query
 
 **Returns:** [GetNftPoolCollectionsResponse](/api-reference/types/getnftpoolcollectionsresponse)
 
@@ -25,3 +24,10 @@ description: "Returns an NFT collection with pool stats for a given AMM NFT mark
   The maximum number of NFT collections to return.
 </ResponseField>
 
+### Schema
+
+
+```graphql 
+"""Returns an NFT collection with pool stats for a given AMM NFT marketplace."""
+getNftPoolCollectionsByExchange(exchangeAddress: String!, networkId: Int!, cursor: String, limit: Int): GetNftPoolCollectionsResponse
+```

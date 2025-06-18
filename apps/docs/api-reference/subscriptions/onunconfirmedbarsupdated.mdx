@@ -1,9 +1,8 @@
 ---
 title: "onUnconfirmedBarsUpdated"
 description: "Unconfirmed live-streamed bar chart data to track price changes over time. (Solana only)"
+keywords: ['onUnconfirmedBarsUpdated']
 ---
-
-**Type:** Subscription
 
 **Returns:** [OnUnconfirmedBarsUpdated](/api-reference/types/onunconfirmedbarsupdated)
 
@@ -19,3 +18,10 @@ description: "Unconfirmed live-streamed bar chart data to track price changes ov
   </ResponseField>
 </a>
 
+### Schema
+
+
+```graphql 
+"""Unconfirmed live-streamed bar chart data to track price changes over time. (Solana only)"""
+onUnconfirmedBarsUpdated(pairId: String, quoteToken: QuoteToken): OnUnconfirmedBarsUpdated
+```

@@ -1,9 +1,8 @@
 ---
 title: "getNetworkStatus"
 description: "Returns the status of a list of networks supported on Codex."
+keywords: ['getNetworkStatus']
 ---
-
-**Type:** Query
 
 **Returns:** [[MetadataResponse!]](/api-reference/types/metadataresponse)
 
@@ -13,3 +12,10 @@ description: "Returns the status of a list of networks supported on Codex."
   The list of network IDs.
 </ResponseField>
 
+### Schema
+
+
+```graphql 
+"""Returns the status of a list of networks supported on Codex."""
+getNetworkStatus(networkIds: [Int!]!): [MetadataResponse!]
+```

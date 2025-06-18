@@ -1,13 +1,12 @@
 ---
 title: "listTopTokens"
 description: "Returns a list of trending tokens across any given network(s)."
+keywords: ['listTopTokens']
 ---
 
 <Warning>
   This query is deprecated. This query is no longer supported and will not return up to date data. Use `filterTokens` instead.
 </Warning>
-
-**Type:** Query
 
 **Returns:** [[TokenWithMetadata!]](/api-reference/types/tokenwithmetadata)
 
@@ -25,3 +24,10 @@ description: "Returns a list of trending tokens across any given network(s)."
   The time frame for trending results. Can be `1`, `5`, `15`, `30`, `60`, `240`, `720`, or `1D`.
 </ResponseField>
 
+### Schema
+
+
+```graphql 
+"""Returns a list of trending tokens across any given network(s)."""
+listTopTokens(limit: Int, networkFilter: [Int!], resolution: String): [TokenWithMetadata!] @deprecated(reason: "This query is no longer supported and will not return up to date data. Use `filterTokens` instead.")
+```

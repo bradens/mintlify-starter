@@ -1,9 +1,8 @@
 ---
 title: "onPairMetadataUpdated"
 description: "Live-streamed stat updates for a given token within a pair."
+keywords: ['onPairMetadataUpdated']
 ---
-
-**Type:** Subscription
 
 **Returns:** [PairMetadata](/api-reference/types/pairmetadata)
 
@@ -19,3 +18,10 @@ description: "Live-streamed stat updates for a given token within a pair."
   </ResponseField>
 </a>
 
+### Schema
+
+
+```graphql 
+"""Live-streamed stat updates for a given token within a pair."""
+onPairMetadataUpdated(id: String, quoteToken: QuoteToken): PairMetadata
+```

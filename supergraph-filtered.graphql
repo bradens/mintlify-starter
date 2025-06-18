@@ -338,7 +338,7 @@ input BalancesInput {
   networks: [Int!]
   """The token IDs (`address:networkId`) or addresses to request the balance for. Requires a list of `networks` if only passing addresses. Include native network balances using `native` as the token address. Only applied when using `walletAddress` (not `walletId`). Max 200 tokens."""
   tokens: [String!]
-  """Whether to include native network balances in the response (ID will be native:<networkId>). Requires a list of `networks`. Does not apply when using `tokens`."""
+  """Whether to include native network balances in the response (ID will be native:&lt;networkId&gt;). Requires a list of `networks`. Does not apply when using `tokens`."""
   includeNative: Boolean
   """The maximum number of holdings to return. Does not apply when using `tokens`."""
   limit: Int

@@ -1,9 +1,8 @@
 ---
 title: "onNftAssetsCreated"
 description: "Live-streamed transactions for an NFT asset."
+keywords: ['onNftAssetsCreated']
 ---
-
-**Type:** Subscription
 
 **Returns:** [NftAsset](/api-reference/types/nftasset)
 
@@ -21,3 +20,10 @@ description: "Live-streamed transactions for an NFT asset."
   The token ID of the NFT asset.
 </ResponseField>
 
+### Schema
+
+
+```graphql 
+"""Live-streamed transactions for an NFT asset."""
+onNftAssetsCreated(address: String, networkId: Int, tokenId: String): NftAsset
+```

@@ -1,9 +1,8 @@
 ---
 title: "holders"
 description: "Returns list of wallets that hold a given token, ordered by holdings descending. Also has the unique count of holders for that token."
+keywords: ['holders']
 ---
-
-**Type:** Query
 
 **Returns:** [HoldersResponse!](/api-reference/types/holdersresponse)
 
@@ -15,3 +14,10 @@ description: "Returns list of wallets that hold a given token, ordered by holdin
   </ResponseField>
 </a>
 
+### Schema
+
+
+```graphql 
+"""Returns list of wallets that hold a given token, ordered by holdings descending. Also has the unique count of holders for that token."""
+holders(input: HoldersInput!): HoldersResponse!
+```

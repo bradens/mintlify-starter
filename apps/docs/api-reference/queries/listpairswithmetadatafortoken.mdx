@@ -1,9 +1,8 @@
 ---
 title: "listPairsWithMetadataForToken"
 description: "Returns a list of pair metadata for a token."
+keywords: ['listPairsWithMetadataForToken']
 ---
-
-**Type:** Query
 
 **Returns:** [ListPairsForTokenResponse!](/api-reference/types/listpairsfortokenresponse)
 
@@ -21,3 +20,10 @@ description: "Returns a list of pair metadata for a token."
   The contract address of the token.
 </ResponseField>
 
+### Schema
+
+
+```graphql 
+"""Returns a list of pair metadata for a token."""
+listPairsWithMetadataForToken(limit: Int, networkId: Int!, tokenAddress: String!): ListPairsForTokenResponse!
+```

@@ -1,9 +1,8 @@
 ---
 title: "tokenSparklines"
 description: "Returns a list of token simple chart data (sparklines) for the given tokens."
+keywords: ['tokenSparklines']
 ---
-
-**Type:** Query
 
 **Returns:** [[TokenSparkline!]!](/api-reference/types/tokensparkline)
 
@@ -15,3 +14,10 @@ description: "Returns a list of token simple chart data (sparklines) for the giv
   </ResponseField>
 </a>
 
+### Schema
+
+
+```graphql 
+"""Returns a list of token simple chart data (sparklines) for the given tokens."""
+tokenSparklines(input: TokenSparklineInput!): [TokenSparkline!]!
+```

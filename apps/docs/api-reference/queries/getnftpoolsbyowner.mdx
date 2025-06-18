@@ -1,9 +1,8 @@
 ---
 title: "getNftPoolsByOwner"
 description: "Returns a list of NFT pools for a given owner."
+keywords: ['getNftPoolsByOwner']
 ---
-
-**Type:** Query
 
 **Returns:** [GetNftPoolsResponse](/api-reference/types/getnftpoolsresponse)
 
@@ -29,3 +28,10 @@ description: "Returns a list of NFT pools for a given owner."
   The maximum number of NFT pools to return.
 </ResponseField>
 
+### Schema
+
+
+```graphql 
+"""Returns a list of NFT pools for a given owner."""
+getNftPoolsByOwner(ownerAddress: String!, networkId: Int!, exchangeAddress: String, cursor: String, limit: Int): GetNftPoolsResponse
+```

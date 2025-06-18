@@ -1,9 +1,8 @@
 ---
 title: "filterTokens"
 description: "Returns a list of tokens based on a variety of filters."
+keywords: ['filterTokens']
 ---
-
-**Type:** Query
 
 **Returns:** [TokenFilterConnection](/api-reference/types/tokenfilterconnection)
 
@@ -47,3 +46,10 @@ description: "Returns a list of tokens based on a variety of filters."
   Where in the list the server should start when returning items. Use `count`+`page` from the previous query to request the next page of results.
 </ResponseField>
 
+### Schema
+
+
+```graphql 
+"""Returns a list of tokens based on a variety of filters."""
+filterTokens(filters: TokenFilters, statsType: TokenPairStatisticsType, phrase: String, tokens: [String], excludeTokens: [String], rankings: [TokenRanking], limit: Int, offset: Int): TokenFilterConnection
+```

@@ -1,9 +1,8 @@
 ---
 title: "getParallelCardChanges"
 description: "Returns changes made to Parallel card metadata over time."
+keywords: ['getParallelCardChanges']
 ---
-
-**Type:** Query
 
 **Returns:** [ParallelCardChangesConnection](/api-reference/types/parallelcardchangesconnection)
 
@@ -27,3 +26,10 @@ description: "Returns changes made to Parallel card metadata over time."
   The maximum number of Parallel card changes to return.
 </ResponseField>
 
+### Schema
+
+
+```graphql 
+"""Returns changes made to Parallel card metadata over time."""
+getParallelCardChanges(tokenId: String, timestamp: ParallelCardChangeQueryTimestampInput, cursor: String, limit: Int): ParallelCardChangesConnection
+```

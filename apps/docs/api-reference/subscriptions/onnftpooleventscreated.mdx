@@ -1,9 +1,8 @@
 ---
 title: "onNftPoolEventsCreated"
 description: "Live streamed NFT pool events for a given pool address or collection address."
+keywords: ['onNftPoolEventsCreated']
 ---
-
-**Type:** Subscription
 
 **Returns:** [AddNftPoolEventsOutput](/api-reference/types/addnftpooleventsoutput)
 
@@ -25,3 +24,10 @@ description: "Live streamed NFT pool events for a given pool address or collecti
   The contract address of the NFT AMM marketplace to filter by.
 </ResponseField>
 
+### Schema
+
+
+```graphql 
+"""Live streamed NFT pool events for a given pool address or collection address."""
+onNftPoolEventsCreated(poolAddress: String, networkId: Int, collectionAddress: String, exchangeAddress: String): AddNftPoolEventsOutput
+```

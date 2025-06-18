@@ -1,13 +1,12 @@
 ---
 title: "getLatestTokens"
 description: "Returns a list of latest tokens."
+keywords: ['getLatestTokens']
 ---
 
 <Warning>
   This query is deprecated. This query is no longer supported. Use `filterTokens` with a createdAt: DESC filter instead.
 </Warning>
-
-**Type:** Query
 
 **Returns:** [LatestTokenConnection](/api-reference/types/latesttokenconnection)
 
@@ -25,3 +24,10 @@ description: "Returns a list of latest tokens."
   The offset to use for pagination.
 </ResponseField>
 
+### Schema
+
+
+```graphql 
+"""Returns a list of latest tokens."""
+getLatestTokens(limit: Int, networkFilter: [Int!], offset: Int): LatestTokenConnection @deprecated(reason: "This query is no longer supported. Use `filterTokens` with a createdAt: DESC filter instead.")
+```

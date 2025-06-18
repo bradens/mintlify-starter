@@ -1,9 +1,8 @@
 ---
 title: "getWebhooks"
 description: "Returns a user's list of webhooks."
+keywords: ['getWebhooks']
 ---
-
-**Type:** Query
 
 **Returns:** [GetWebhooksResponse](/api-reference/types/getwebhooksresponse)
 
@@ -29,3 +28,10 @@ description: "Returns a user's list of webhooks."
   limit: The maximum number of webhooks to return.
 </ResponseField>
 
+### Schema
+
+
+```graphql 
+"""Returns a user's list of webhooks."""
+getWebhooks(cursor: String, webhookId: String, bucketId: String, bucketSortkey: String, limit: Int): GetWebhooksResponse
+```

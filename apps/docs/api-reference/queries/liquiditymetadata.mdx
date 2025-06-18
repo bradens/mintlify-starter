@@ -1,9 +1,8 @@
 ---
 title: "liquidityMetadata"
 description: "Returns liquidity metadata for a given pair. Includes liquidity lock data."
+keywords: ['liquidityMetadata']
 ---
-
-**Type:** Query
 
 **Returns:** [LiquidityMetadata](/api-reference/types/liquiditymetadata)
 
@@ -17,3 +16,10 @@ description: "Returns liquidity metadata for a given pair. Includes liquidity lo
   The network id of the pair.
 </ResponseField>
 
+### Schema
+
+
+```graphql 
+"""Returns liquidity metadata for a given pair. Includes liquidity lock data."""
+liquidityMetadata(pairAddress: String!, networkId: Int!): LiquidityMetadata
+```

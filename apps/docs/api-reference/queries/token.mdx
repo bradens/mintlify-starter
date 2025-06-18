@@ -1,9 +1,8 @@
 ---
 title: "token"
 description: "Returns a single token by its address & network id."
+keywords: ['token']
 ---
-
-**Type:** Query
 
 **Returns:** [EnhancedToken!](/api-reference/types/enhancedtoken)
 
@@ -15,3 +14,10 @@ description: "Returns a single token by its address & network id."
   </ResponseField>
 </a>
 
+### Schema
+
+
+```graphql 
+"""Returns a single token by its address & network id."""
+token(input: TokenInput!): EnhancedToken!
+```

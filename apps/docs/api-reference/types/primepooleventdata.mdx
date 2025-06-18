@@ -1,6 +1,7 @@
 ---
 title: "PrimePoolEventData"
 description: "Event-specific data for a Prime pool transaction."
+keywords: ['PrimePoolEventData']
 ---
 
 ### Union Types
@@ -25,8 +26,10 @@ This union can be one of the following types:
 - [PrimePoolTimeCachePeriodUpdateData](/api-reference/types/primepooltimecacheperiodupdatedata)
 - [PrimePoolWithdrawData](/api-reference/types/primepoolwithdrawdata)
 
+### Schema
 
-```graphql PrimePoolEventData
+
+```graphql 
 """Event-specific data for a Prime pool transaction."""
 union PrimePoolEventData = PrimePoolCacheData | PrimePoolCachingPausedData | PrimePoolClaimEthData | PrimePoolClaimPrimeData | PrimePoolEmergencyWithdrawData | PrimePoolEndTimestampUpdatedEthData | PrimePoolEndTimestampUpdatedPrimeData | PrimePoolEthRewardsAddedData | PrimePoolEthRewardsSetData | PrimePoolLogPoolAdditionData | PrimePoolLogPoolSetAllocPointData | PrimePoolLogSetPerSecondData | PrimePoolLogUpdatePoolData | PrimePoolRewardDecreaseData | PrimePoolRewardIncreaseData | PrimePoolTimeCachePeriodUpdateData | PrimePoolWithdrawData
 ```

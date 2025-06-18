@@ -1,9 +1,8 @@
 ---
 title: "filterTokenWallets"
 description: "Returns a list of wallets with stats narrowed down to a specific token."
+keywords: ['filterTokenWallets']
 ---
-
-**Type:** Query
 
 **Returns:** [TokenWalletFilterConnection!](/api-reference/types/tokenwalletfilterconnection)
 
@@ -15,3 +14,10 @@ description: "Returns a list of wallets with stats narrowed down to a specific t
   </ResponseField>
 </a>
 
+### Schema
+
+
+```graphql 
+"""Returns a list of wallets with stats narrowed down to a specific token."""
+filterTokenWallets(input: FilterTokenWalletsInput!): TokenWalletFilterConnection!
+```

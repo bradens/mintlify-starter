@@ -1,9 +1,8 @@
 ---
 title: "getNftContracts"
 description: "Returns a list of NFT collection metadata."
+keywords: ['getNftContracts']
 ---
-
-**Type:** Query
 
 **Returns:** [[EnhancedNftContract]](/api-reference/types/enhancednftcontract)
 
@@ -15,3 +14,10 @@ description: "Returns a list of NFT collection metadata."
   </ResponseField>
 </a>
 
+### Schema
+
+
+```graphql 
+"""Returns a list of NFT collection metadata."""
+getNftContracts(contracts: [NftContractInput]): [EnhancedNftContract]
+```

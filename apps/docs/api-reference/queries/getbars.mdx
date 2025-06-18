@@ -1,9 +1,8 @@
 ---
 title: "getBars"
 description: "Returns bar chart data to track price changes over time."
+keywords: ['getBars']
 ---
-
-**Type:** Query
 
 **Returns:** [BarsResponse](/api-reference/types/barsresponse)
 
@@ -59,3 +58,10 @@ description: "Returns bar chart data to track price changes over time."
   </ResponseField>
 </a>
 
+### Schema
+
+
+```graphql 
+"""Returns bar chart data to track price changes over time."""
+getBars(symbol: String!, from: Int!, to: Int!, resolution: String!, currencyCode: String, removeLeadingNullValues: Boolean, removeEmptyBars: Boolean, quoteToken: QuoteToken, statsType: TokenPairStatisticsType, countback: Int, symbolType: SymbolType): BarsResponse
+```

@@ -1,9 +1,8 @@
 ---
 title: "deleteWebhooks"
 description: "Delete multiple webhooks."
+keywords: ['deleteWebhooks']
 ---
-
-**Type:** Mutation
 
 **Returns:** [DeleteWebhooksOutput](/api-reference/types/deletewebhooksoutput)
 
@@ -15,3 +14,10 @@ description: "Delete multiple webhooks."
   </ResponseField>
 </a>
 
+### Schema
+
+
+```graphql 
+"""Delete multiple webhooks."""
+deleteWebhooks(input: DeleteWebhooksInput!): DeleteWebhooksOutput
+```

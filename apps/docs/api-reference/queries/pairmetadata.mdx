@@ -1,9 +1,8 @@
 ---
 title: "pairMetadata"
 description: "Returns metadata for a pair of tokens."
+keywords: ['pairMetadata']
 ---
-
-**Type:** Query
 
 **Returns:** [PairMetadata!](/api-reference/types/pairmetadata)
 
@@ -25,3 +24,10 @@ description: "Returns metadata for a pair of tokens."
   </ResponseField>
 </a>
 
+### Schema
+
+
+```graphql 
+"""Returns metadata for a pair of tokens."""
+pairMetadata(pairId: String!, quoteToken: QuoteToken, statsType: TokenPairStatisticsType): PairMetadata!
+```

@@ -1,9 +1,8 @@
 ---
 title: "getDetailedPairsStats"
 description: "Returns bucketed stats for a given token within a list of pairs."
+keywords: ['getDetailedPairsStats']
 ---
-
-**Type:** Query
 
 **Returns:** [[DetailedPairStats]](/api-reference/types/detailedpairstats)
 
@@ -15,3 +14,10 @@ description: "Returns bucketed stats for a given token within a list of pairs."
   </ResponseField>
 </a>
 
+### Schema
+
+
+```graphql 
+"""Returns bucketed stats for a given token within a list of pairs."""
+getDetailedPairsStats(input: [GetDetailedPairsStatsInput!]!): [DetailedPairStats]
+```

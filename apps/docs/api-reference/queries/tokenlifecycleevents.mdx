@@ -1,9 +1,8 @@
 ---
 title: "tokenLifecycleEvents"
 description: "Returns a list of token lifecycle events."
+keywords: ['tokenLifecycleEvents']
 ---
-
-**Type:** Query
 
 **Returns:** [TokenLifecycleEventConnection](/api-reference/types/tokenlifecycleeventconnection)
 
@@ -23,3 +22,10 @@ description: "Returns a list of token lifecycle events."
   The cursor to use for pagination.
 </ResponseField>
 
+### Schema
+
+
+```graphql 
+"""Returns a list of token lifecycle events."""
+tokenLifecycleEvents(limit: Int, query: TokenLifecycleEventsQueryInput!, cursor: String): TokenLifecycleEventConnection
+```

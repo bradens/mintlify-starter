@@ -1,9 +1,8 @@
 ---
 title: "getEventLabels"
 description: "Returns a list of event labels for a pair."
+keywords: ['getEventLabels']
 ---
-
-**Type:** Query
 
 **Returns:** [EventLabelConnection](/api-reference/types/eventlabelconnection)
 
@@ -27,3 +26,10 @@ description: "Returns a list of event labels for a pair."
   </ResponseField>
 </a>
 
+### Schema
+
+
+```graphql 
+"""Returns a list of event labels for a pair."""
+getEventLabels(id: String!, limit: Int, cursor: String, direction: RankingDirection): EventLabelConnection
+```

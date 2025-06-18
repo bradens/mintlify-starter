@@ -1,13 +1,12 @@
 ---
 title: "searchTokens"
 description: "Returns a list of tokens matching a given query string."
+keywords: ['searchTokens']
 ---
 
 <Warning>
   This query is deprecated. This query is no longer supported and will not return up to date data. Use `filterTokens` instead.
 </Warning>
-
-**Type:** Query
 
 **Returns:** [TokenSearchResponse](/api-reference/types/tokensearchresponse)
 
@@ -33,3 +32,10 @@ description: "Returns a list of tokens matching a given query string."
   The query string to search for. Can match a token or pair contract address or partially match a token's name or symbol. Automatically filters out tokens marked as scams.
 </ResponseField>
 
+### Schema
+
+
+```graphql 
+"""Returns a list of tokens matching a given query string."""
+searchTokens(limit: Int, lowVolumeFilter: Boolean, networkFilter: [Int!], resolution: String, search: String!): TokenSearchResponse @deprecated(reason: "This query is no longer supported and will not return up to date data. Use `filterTokens` instead.")
+```

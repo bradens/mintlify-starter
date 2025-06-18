@@ -1,9 +1,8 @@
 ---
 title: "getExchanges"
 description: "Returns a list of decentralized exchange metadata."
+keywords: ['getExchanges']
 ---
-
-**Type:** Query
 
 **Returns:** [[Exchange!]!](/api-reference/types/exchange)
 
@@ -13,3 +12,10 @@ description: "Returns a list of decentralized exchange metadata."
   Get exchanges with missing fields. Default is `false`.
 </ResponseField>
 
+### Schema
+
+
+```graphql 
+"""Returns a list of decentralized exchange metadata."""
+getExchanges(showNameless: Boolean): [Exchange!]!
+```

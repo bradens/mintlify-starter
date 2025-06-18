@@ -1,9 +1,8 @@
 ---
 title: "createApiTokens"
 description: "Create a new set of short-lived api access tokens"
+keywords: ['createApiTokens']
 ---
-
-**Type:** Mutation
 
 **Returns:** [[ApiToken!]!](/api-reference/types/apitoken)
 
@@ -15,3 +14,10 @@ description: "Create a new set of short-lived api access tokens"
   </ResponseField>
 </a>
 
+### Schema
+
+
+```graphql 
+"""Create a new set of short-lived api access tokens"""
+createApiTokens(input: CreateApiTokensInput!): [ApiToken!]!
+```

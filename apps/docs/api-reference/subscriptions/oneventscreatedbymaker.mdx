@@ -1,9 +1,8 @@
 ---
 title: "onEventsCreatedByMaker"
 description: "Live-streamed transactions for a maker."
+keywords: ['onEventsCreatedByMaker']
 ---
-
-**Type:** Subscription
 
 **Returns:** [AddEventsByMakerOutput](/api-reference/types/addeventsbymakeroutput)
 
@@ -15,3 +14,10 @@ description: "Live-streamed transactions for a maker."
   </ResponseField>
 </a>
 
+### Schema
+
+
+```graphql 
+"""Live-streamed transactions for a maker."""
+onEventsCreatedByMaker(input: OnEventsCreatedByMakerInput!): AddEventsByMakerOutput
+```

@@ -1,9 +1,8 @@
 ---
 title: "getDetailedNftStats"
 description: "Returns bucketed stats for a given NFT collection."
+keywords: ['getDetailedNftStats']
 ---
-
-**Type:** Query
 
 **Returns:** [DetailedNftStats](/api-reference/types/detailednftstats)
 
@@ -35,3 +34,10 @@ description: "Returns bucketed stats for a given NFT collection."
   The number of aggregated values to receive. Note: Each duration has predetermined bucket sizes. The first n-1 buckets are historical. The last bucket is a snapshot of current data. duration `day1`: 6 buckets (4 hours each) plus 1 partial bucket duration `hour12`: 12 buckets (1 hour each) plus 1 partial bucket duration `hour4`: 8 buckets (30 min each) plus 1 partial bucket duration `hour1`: 12 buckets (5 min each) plus 1 partial bucket duration `min5`: 5 buckets (1 min each) plus 1 partial bucket For example, requesting 11 buckets for a `min5` duration will return the last 10 minutes worth of data plus a snapshot for the current minute.
 </ResponseField>
 
+### Schema
+
+
+```graphql 
+"""Returns bucketed stats for a given NFT collection."""
+getDetailedNftStats(collectionAddress: String!, networkId: Int!, grouping: String, timestamp: Int, durations: [DetailedNftStatsDuration], bucketCount: Int): DetailedNftStats
+```

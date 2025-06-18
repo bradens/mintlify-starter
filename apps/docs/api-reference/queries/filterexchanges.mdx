@@ -1,9 +1,8 @@
 ---
 title: "filterExchanges"
 description: "Returns a list of exchanges based on a variety of filters."
+keywords: ['filterExchanges']
 ---
-
-**Type:** Query
 
 **Returns:** [ExchangeFilterConnection](/api-reference/types/exchangefilterconnection)
 
@@ -33,3 +32,10 @@ description: "Returns a list of exchanges based on a variety of filters."
   Where in the list the server should start when returning items. Use `count`+`offset` from the previous query to request the next page of results.
 </ResponseField>
 
+### Schema
+
+
+```graphql 
+"""Returns a list of exchanges based on a variety of filters."""
+filterExchanges(filters: ExchangeFilters, phrase: String, rankings: [ExchangeRanking], limit: Int, offset: Int): ExchangeFilterConnection
+```

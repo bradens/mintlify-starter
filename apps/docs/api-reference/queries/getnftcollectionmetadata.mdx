@@ -1,9 +1,8 @@
 ---
 title: "getNftCollectionMetadata"
 description: "Returns stats for an NFT collection across different time frames."
+keywords: ['getNftCollectionMetadata']
 ---
-
-**Type:** Query
 
 **Returns:** [NftCollectionMetadataResponse](/api-reference/types/nftcollectionmetadataresponse)
 
@@ -25,3 +24,10 @@ description: "Returns stats for an NFT collection across different time frames."
   The network ID the NFT collection is deployed on.
 </ResponseField>
 
+### Schema
+
+
+```graphql 
+"""Returns stats for an NFT collection across different time frames."""
+getNftCollectionMetadata(collectionId: String, address: String, networkId: Int): NftCollectionMetadataResponse
+```

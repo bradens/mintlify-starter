@@ -1,9 +1,8 @@
 ---
 title: "onUnconfirmedEventsCreated"
 description: "Live-streamed unconfirmed transactions for a token. (Solana only)"
+keywords: ['onUnconfirmedEventsCreated']
 ---
-
-**Type:** Subscription
 
 **Returns:** [AddUnconfirmedEventsOutput](/api-reference/types/addunconfirmedeventsoutput)
 
@@ -23,3 +22,10 @@ description: "Live-streamed unconfirmed transactions for a token. (Solana only)"
   </ResponseField>
 </a>
 
+### Schema
+
+
+```graphql 
+"""Live-streamed unconfirmed transactions for a token. (Solana only)"""
+onUnconfirmedEventsCreated(address: String, id: String, quoteToken: QuoteToken): AddUnconfirmedEventsOutput
+```

@@ -1,9 +1,8 @@
 ---
 title: "getTokenEvents"
 description: "Returns transactions for a pair."
+keywords: ['getTokenEvents']
 ---
-
-**Type:** Query
 
 **Returns:** [EventConnection](/api-reference/types/eventconnection)
 
@@ -29,3 +28,10 @@ description: "Returns transactions for a pair."
   </ResponseField>
 </a>
 
+### Schema
+
+
+```graphql 
+"""Returns transactions for a pair."""
+getTokenEvents(limit: Int, query: EventsQueryInput!, cursor: String, direction: RankingDirection): EventConnection
+```

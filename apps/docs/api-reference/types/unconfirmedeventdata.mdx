@@ -1,6 +1,7 @@
 ---
 title: "UnconfirmedEventData"
 description: "Union type"
+keywords: ['UnconfirmedEventData']
 ---
 
 ### Union Types
@@ -10,7 +11,9 @@ This union can be one of the following types:
 - [UnconfirmedSwapEventData](/api-reference/types/unconfirmedswapeventdata)
 - [UnconfirmedLiquidityChangeEventData](/api-reference/types/unconfirmedliquiditychangeeventdata)
 
+### Schema
 
-```graphql UnconfirmedEventData
+
+```graphql 
 union UnconfirmedEventData = UnconfirmedSwapEventData | UnconfirmedLiquidityChangeEventData
 ```

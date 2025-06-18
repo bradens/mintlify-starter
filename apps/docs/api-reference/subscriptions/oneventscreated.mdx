@@ -1,9 +1,8 @@
 ---
 title: "onEventsCreated"
 description: "Live-streamed transactions for a token."
+keywords: ['onEventsCreated']
 ---
-
-**Type:** Subscription
 
 **Returns:** [AddEventsOutput](/api-reference/types/addeventsoutput)
 
@@ -27,3 +26,10 @@ description: "Live-streamed transactions for a token."
   The networkId to use when getting all events per network
 </ResponseField>
 
+### Schema
+
+
+```graphql 
+"""Live-streamed transactions for a token."""
+onEventsCreated(address: String, id: String, quoteToken: QuoteToken, networkId: Int): AddEventsOutput
+```

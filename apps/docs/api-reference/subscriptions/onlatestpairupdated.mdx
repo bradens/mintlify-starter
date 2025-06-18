@@ -1,9 +1,8 @@
 ---
 title: "onLatestPairUpdated"
 description: "Live-streamed updates for newly listed pairs."
+keywords: ['onLatestPairUpdated']
 ---
-
-**Type:** Subscription
 
 **Returns:** [LatestPair](/api-reference/types/latestpair)
 
@@ -17,3 +16,10 @@ description: "Live-streamed updates for newly listed pairs."
   The network ID the pair is deployed on.
 </ResponseField>
 
+### Schema
+
+
+```graphql 
+"""Live-streamed updates for newly listed pairs."""
+onLatestPairUpdated(id: String, networkId: Int): LatestPair
+```

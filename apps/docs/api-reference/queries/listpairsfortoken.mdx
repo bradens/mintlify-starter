@@ -1,9 +1,8 @@
 ---
 title: "listPairsForToken"
 description: "Returns a list of pairs containing a given token."
+keywords: ['listPairsForToken']
 ---
-
-**Type:** Query
 
 **Returns:** [[Pair]!](/api-reference/types/pair)
 
@@ -21,3 +20,10 @@ description: "Returns a list of pairs containing a given token."
   The contract address of the token.
 </ResponseField>
 
+### Schema
+
+
+```graphql 
+"""Returns a list of pairs containing a given token."""
+listPairsForToken(limit: Int, networkId: Int!, tokenAddress: String!): [Pair]!
+```

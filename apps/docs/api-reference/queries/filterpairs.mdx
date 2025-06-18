@@ -1,9 +1,8 @@
 ---
 title: "filterPairs"
 description: "Returns a list of pairs based on a variety of filters."
+keywords: ['filterPairs']
 ---
-
-**Type:** Query
 
 **Returns:** [PairFilterConnection](/api-reference/types/pairfilterconnection)
 
@@ -49,3 +48,10 @@ description: "Returns a list of pairs based on a variety of filters."
   Where in the list the server should start when returning items. Use `count`+`offset` from the previous query to request the next page of results.
 </ResponseField>
 
+### Schema
+
+
+```graphql 
+"""Returns a list of pairs based on a variety of filters."""
+filterPairs(filters: PairFilters, statsType: TokenPairStatisticsType, phrase: String, pairs: [String], matchTokens: PairFilterMatchTokens, rankings: [PairRanking], limit: Int, offset: Int): PairFilterConnection
+```

@@ -1,9 +1,8 @@
 ---
 title: "getNftPoolsByCollectionAndExchange"
 description: "Returns NFT pools for a given collection and AMM NFT marketplace."
+keywords: ['getNftPoolsByCollectionAndExchange']
 ---
-
-**Type:** Query
 
 **Returns:** [GetNftPoolsResponse](/api-reference/types/getnftpoolsresponse)
 
@@ -29,3 +28,10 @@ description: "Returns NFT pools for a given collection and AMM NFT marketplace."
   The maximum number of NFT pools to return.
 </ResponseField>
 
+### Schema
+
+
+```graphql 
+"""Returns NFT pools for a given collection and AMM NFT marketplace."""
+getNftPoolsByCollectionAndExchange(collectionAddress: String!, exchangeAddress: String!, networkId: Int!, cursor: String, limit: Int): GetNftPoolsResponse
+```

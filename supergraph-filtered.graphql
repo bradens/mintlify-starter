@@ -51,7 +51,7 @@ type Query {
   getPrimePoolEvents(networkId: Int!, poolContractAddress: String, poolId: String, walletAddress: String, eventTypes: [PrimePoolEventType], limit: Int, cursor: String): PrimePoolEventConnection
   """Returns a list of Prime pools."""
   getPrimePools(address: String!, networkId: Int!, poolIds: [String], limit: Int, cursor: String): PrimePoolConnection
-  """Returns list of wallets that hold a given collection, ordered by holdings descending. Also has the unique count of holders for that collection"""
+  """Returns list of wallets that hold a given collection, ordered by holdings descending. Also has the unique count of holders for that collection."""
   nftHolders(input: NftHoldersInput!): NftHoldersResponse!
   """Returns list of collections and quantity of NFTs held by a given wallet."""
   walletNftCollections(input: WalletNftCollectionsInput!): WalletNftCollectionsResponse!
@@ -6697,7 +6697,7 @@ type SimulateTransferType {
   userApprovalSuccess: Boolean
 }
 
-"""Community gathered social links of tokens/NFTs."""
+"""Social links for a token."""
 type SocialLinks {
   bitcointalk: String
   blog: String

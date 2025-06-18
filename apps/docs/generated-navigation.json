@@ -39,168 +39,168 @@
       "name": "getNftPool",
       "slug": "getnftpool",
       "type": "Query",
-      "category": "uncategorized",
+      "category": "nfts",
       "path": "api-reference/queries/getnftpool"
     },
     {
       "name": "getNftPoolEvents",
       "slug": "getnftpoolevents",
       "type": "Query",
-      "category": "uncategorized",
+      "category": "nfts",
       "path": "api-reference/queries/getnftpoolevents"
     },
     {
       "name": "getNftPoolCollection",
       "slug": "getnftpoolcollection",
       "type": "Query",
-      "category": "uncategorized",
+      "category": "nfts",
       "path": "api-reference/queries/getnftpoolcollection"
     },
     {
       "name": "getNftPoolCollectionsByExchange",
       "slug": "getnftpoolcollectionsbyexchange",
       "type": "Query",
-      "category": "uncategorized",
+      "category": "nfts",
       "path": "api-reference/queries/getnftpoolcollectionsbyexchange"
     },
     {
       "name": "getNftPoolsByCollectionAndExchange",
       "slug": "getnftpoolsbycollectionandexchange",
       "type": "Query",
-      "category": "uncategorized",
+      "category": "nfts",
       "path": "api-reference/queries/getnftpoolsbycollectionandexchange"
     },
     {
       "name": "getNftPoolsByOwner",
       "slug": "getnftpoolsbyowner",
       "type": "Query",
-      "category": "uncategorized",
+      "category": "nfts",
       "path": "api-reference/queries/getnftpoolsbyowner"
     },
     {
       "name": "getNftPoolStats",
       "slug": "getnftpoolstats",
       "type": "Query",
-      "category": "uncategorized",
+      "category": "nfts",
       "path": "api-reference/queries/getnftpoolstats"
     },
     {
       "name": "filterNftCollections",
       "slug": "filternftcollections",
       "type": "Query",
-      "category": "uncategorized",
+      "category": "nfts",
       "path": "api-reference/queries/filternftcollections"
     },
     {
       "name": "filterNftPoolCollections",
       "slug": "filternftpoolcollections",
       "type": "Query",
-      "category": "uncategorized",
+      "category": "nfts",
       "path": "api-reference/queries/filternftpoolcollections"
     },
     {
       "name": "searchNfts",
       "slug": "searchnfts",
       "type": "Query",
-      "category": "uncategorized",
+      "category": "nfts",
       "path": "api-reference/queries/searchnfts"
     },
     {
       "name": "filterNftPools",
       "slug": "filternftpools",
       "type": "Query",
-      "category": "uncategorized",
+      "category": "nfts",
       "path": "api-reference/queries/filternftpools"
     },
     {
       "name": "getNftCollectionMetadata",
       "slug": "getnftcollectionmetadata",
       "type": "Query",
-      "category": "uncategorized",
+      "category": "nfts",
       "path": "api-reference/queries/getnftcollectionmetadata"
     },
     {
       "name": "getNftAssets",
       "slug": "getnftassets",
       "type": "Query",
-      "category": "uncategorized",
+      "category": "nfts",
       "path": "api-reference/queries/getnftassets"
     },
     {
       "name": "getDetailedNftStats",
       "slug": "getdetailednftstats",
       "type": "Query",
-      "category": "uncategorized",
+      "category": "nfts",
       "path": "api-reference/queries/getdetailednftstats"
     },
     {
       "name": "getNftEvents",
       "slug": "getnftevents",
       "type": "Query",
-      "category": "uncategorized",
+      "category": "nfts",
       "path": "api-reference/queries/getnftevents"
     },
     {
       "name": "getNftContracts",
       "slug": "getnftcontracts",
       "type": "Query",
-      "category": "uncategorized",
+      "category": "nfts",
       "path": "api-reference/queries/getnftcontracts"
     },
     {
       "name": "filterNftParallelAssets",
       "slug": "filternftparallelassets",
       "type": "Query",
-      "category": "uncategorized",
+      "category": "nfts",
       "path": "api-reference/queries/filternftparallelassets"
     },
     {
       "name": "getParallelCardChanges",
       "slug": "getparallelcardchanges",
       "type": "Query",
-      "category": "uncategorized",
+      "category": "nfts",
       "path": "api-reference/queries/getparallelcardchanges"
     },
     {
       "name": "getPrimePoolAssets",
       "slug": "getprimepoolassets",
       "type": "Query",
-      "category": "uncategorized",
+      "category": "nfts",
       "path": "api-reference/queries/getprimepoolassets"
     },
     {
       "name": "getPrimePoolEvents",
       "slug": "getprimepoolevents",
       "type": "Query",
-      "category": "uncategorized",
+      "category": "nfts",
       "path": "api-reference/queries/getprimepoolevents"
     },
     {
       "name": "getPrimePools",
       "slug": "getprimepools",
       "type": "Query",
-      "category": "uncategorized",
+      "category": "nfts",
       "path": "api-reference/queries/getprimepools"
     },
     {
       "name": "nftHolders",
       "slug": "nftholders",
       "type": "Query",
-      "category": "uncategorized",
+      "category": "nfts",
       "path": "api-reference/queries/nftholders"
     },
     {
       "name": "walletNftCollections",
       "slug": "walletnftcollections",
       "type": "Query",
-      "category": "uncategorized",
+      "category": "nfts",
       "path": "api-reference/queries/walletnftcollections"
     },
     {
       "name": "walletNftCollectionAssets",
       "slug": "walletnftcollectionassets",
       "type": "Query",
-      "category": "uncategorized",
+      "category": "nfts",
       "path": "api-reference/queries/walletnftcollectionassets"
     },
     {
@@ -487,7 +487,7 @@
       "name": "getCommunityNotes",
       "slug": "getcommunitynotes",
       "type": "Query",
-      "category": "proposal",
+      "category": "community",
       "path": "api-reference/queries/getcommunitynotes"
     },
     {
@@ -718,153 +718,6 @@
         "path": "api-reference/mutations/deleteapitoken"
       },
       {
-        "name": "filterNftCollections",
-        "slug": "filternftcollections",
-        "type": "Query",
-        "category": "uncategorized",
-        "path": "api-reference/queries/filternftcollections"
-      },
-      {
-        "name": "filterNftParallelAssets",
-        "slug": "filternftparallelassets",
-        "type": "Query",
-        "category": "uncategorized",
-        "path": "api-reference/queries/filternftparallelassets"
-      },
-      {
-        "name": "filterNftPoolCollections",
-        "slug": "filternftpoolcollections",
-        "type": "Query",
-        "category": "uncategorized",
-        "path": "api-reference/queries/filternftpoolcollections"
-      },
-      {
-        "name": "filterNftPools",
-        "slug": "filternftpools",
-        "type": "Query",
-        "category": "uncategorized",
-        "path": "api-reference/queries/filternftpools"
-      },
-      {
-        "name": "getDetailedNftStats",
-        "slug": "getdetailednftstats",
-        "type": "Query",
-        "category": "uncategorized",
-        "path": "api-reference/queries/getdetailednftstats"
-      },
-      {
-        "name": "getNftAssets",
-        "slug": "getnftassets",
-        "type": "Query",
-        "category": "uncategorized",
-        "path": "api-reference/queries/getnftassets"
-      },
-      {
-        "name": "getNftCollectionMetadata",
-        "slug": "getnftcollectionmetadata",
-        "type": "Query",
-        "category": "uncategorized",
-        "path": "api-reference/queries/getnftcollectionmetadata"
-      },
-      {
-        "name": "getNftContracts",
-        "slug": "getnftcontracts",
-        "type": "Query",
-        "category": "uncategorized",
-        "path": "api-reference/queries/getnftcontracts"
-      },
-      {
-        "name": "getNftEvents",
-        "slug": "getnftevents",
-        "type": "Query",
-        "category": "uncategorized",
-        "path": "api-reference/queries/getnftevents"
-      },
-      {
-        "name": "getNftPool",
-        "slug": "getnftpool",
-        "type": "Query",
-        "category": "uncategorized",
-        "path": "api-reference/queries/getnftpool"
-      },
-      {
-        "name": "getNftPoolCollection",
-        "slug": "getnftpoolcollection",
-        "type": "Query",
-        "category": "uncategorized",
-        "path": "api-reference/queries/getnftpoolcollection"
-      },
-      {
-        "name": "getNftPoolCollectionsByExchange",
-        "slug": "getnftpoolcollectionsbyexchange",
-        "type": "Query",
-        "category": "uncategorized",
-        "path": "api-reference/queries/getnftpoolcollectionsbyexchange"
-      },
-      {
-        "name": "getNftPoolEvents",
-        "slug": "getnftpoolevents",
-        "type": "Query",
-        "category": "uncategorized",
-        "path": "api-reference/queries/getnftpoolevents"
-      },
-      {
-        "name": "getNftPoolsByCollectionAndExchange",
-        "slug": "getnftpoolsbycollectionandexchange",
-        "type": "Query",
-        "category": "uncategorized",
-        "path": "api-reference/queries/getnftpoolsbycollectionandexchange"
-      },
-      {
-        "name": "getNftPoolsByOwner",
-        "slug": "getnftpoolsbyowner",
-        "type": "Query",
-        "category": "uncategorized",
-        "path": "api-reference/queries/getnftpoolsbyowner"
-      },
-      {
-        "name": "getNftPoolStats",
-        "slug": "getnftpoolstats",
-        "type": "Query",
-        "category": "uncategorized",
-        "path": "api-reference/queries/getnftpoolstats"
-      },
-      {
-        "name": "getParallelCardChanges",
-        "slug": "getparallelcardchanges",
-        "type": "Query",
-        "category": "uncategorized",
-        "path": "api-reference/queries/getparallelcardchanges"
-      },
-      {
-        "name": "getPrimePoolAssets",
-        "slug": "getprimepoolassets",
-        "type": "Query",
-        "category": "uncategorized",
-        "path": "api-reference/queries/getprimepoolassets"
-      },
-      {
-        "name": "getPrimePoolEvents",
-        "slug": "getprimepoolevents",
-        "type": "Query",
-        "category": "uncategorized",
-        "path": "api-reference/queries/getprimepoolevents"
-      },
-      {
-        "name": "getPrimePools",
-        "slug": "getprimepools",
-        "type": "Query",
-        "category": "uncategorized",
-        "path": "api-reference/queries/getprimepools"
-      },
-      {
-        "name": "nftHolders",
-        "slug": "nftholders",
-        "type": "Query",
-        "category": "uncategorized",
-        "path": "api-reference/queries/nftholders"
-      },
-      {
         "name": "onLatestTokens",
         "slug": "onlatesttokens",
         "type": "Subscription",
@@ -898,27 +751,6 @@
         "type": "Subscription",
         "category": "uncategorized",
         "path": "api-reference/subscriptions/onsimulatetokencontract"
-      },
-      {
-        "name": "searchNfts",
-        "slug": "searchnfts",
-        "type": "Query",
-        "category": "uncategorized",
-        "path": "api-reference/queries/searchnfts"
-      },
-      {
-        "name": "walletNftCollectionAssets",
-        "slug": "walletnftcollectionassets",
-        "type": "Query",
-        "category": "uncategorized",
-        "path": "api-reference/queries/walletnftcollectionassets"
-      },
-      {
-        "name": "walletNftCollections",
-        "slug": "walletnftcollections",
-        "type": "Query",
-        "category": "uncategorized",
-        "path": "api-reference/queries/walletnftcollections"
       }
     ],
     "networks": [
@@ -965,6 +797,176 @@
         "type": "Query",
         "category": "webhooks",
         "path": "api-reference/queries/getwebhooks"
+      }
+    ],
+    "nfts": [
+      {
+        "name": "filterNftCollections",
+        "slug": "filternftcollections",
+        "type": "Query",
+        "category": "nfts",
+        "path": "api-reference/queries/filternftcollections"
+      },
+      {
+        "name": "filterNftParallelAssets",
+        "slug": "filternftparallelassets",
+        "type": "Query",
+        "category": "nfts",
+        "path": "api-reference/queries/filternftparallelassets"
+      },
+      {
+        "name": "filterNftPoolCollections",
+        "slug": "filternftpoolcollections",
+        "type": "Query",
+        "category": "nfts",
+        "path": "api-reference/queries/filternftpoolcollections"
+      },
+      {
+        "name": "filterNftPools",
+        "slug": "filternftpools",
+        "type": "Query",
+        "category": "nfts",
+        "path": "api-reference/queries/filternftpools"
+      },
+      {
+        "name": "getDetailedNftStats",
+        "slug": "getdetailednftstats",
+        "type": "Query",
+        "category": "nfts",
+        "path": "api-reference/queries/getdetailednftstats"
+      },
+      {
+        "name": "getNftAssets",
+        "slug": "getnftassets",
+        "type": "Query",
+        "category": "nfts",
+        "path": "api-reference/queries/getnftassets"
+      },
+      {
+        "name": "getNftCollectionMetadata",
+        "slug": "getnftcollectionmetadata",
+        "type": "Query",
+        "category": "nfts",
+        "path": "api-reference/queries/getnftcollectionmetadata"
+      },
+      {
+        "name": "getNftContracts",
+        "slug": "getnftcontracts",
+        "type": "Query",
+        "category": "nfts",
+        "path": "api-reference/queries/getnftcontracts"
+      },
+      {
+        "name": "getNftEvents",
+        "slug": "getnftevents",
+        "type": "Query",
+        "category": "nfts",
+        "path": "api-reference/queries/getnftevents"
+      },
+      {
+        "name": "getNftPool",
+        "slug": "getnftpool",
+        "type": "Query",
+        "category": "nfts",
+        "path": "api-reference/queries/getnftpool"
+      },
+      {
+        "name": "getNftPoolCollection",
+        "slug": "getnftpoolcollection",
+        "type": "Query",
+        "category": "nfts",
+        "path": "api-reference/queries/getnftpoolcollection"
+      },
+      {
+        "name": "getNftPoolCollectionsByExchange",
+        "slug": "getnftpoolcollectionsbyexchange",
+        "type": "Query",
+        "category": "nfts",
+        "path": "api-reference/queries/getnftpoolcollectionsbyexchange"
+      },
+      {
+        "name": "getNftPoolEvents",
+        "slug": "getnftpoolevents",
+        "type": "Query",
+        "category": "nfts",
+        "path": "api-reference/queries/getnftpoolevents"
+      },
+      {
+        "name": "getNftPoolsByCollectionAndExchange",
+        "slug": "getnftpoolsbycollectionandexchange",
+        "type": "Query",
+        "category": "nfts",
+        "path": "api-reference/queries/getnftpoolsbycollectionandexchange"
+      },
+      {
+        "name": "getNftPoolsByOwner",
+        "slug": "getnftpoolsbyowner",
+        "type": "Query",
+        "category": "nfts",
+        "path": "api-reference/queries/getnftpoolsbyowner"
+      },
+      {
+        "name": "getNftPoolStats",
+        "slug": "getnftpoolstats",
+        "type": "Query",
+        "category": "nfts",
+        "path": "api-reference/queries/getnftpoolstats"
+      },
+      {
+        "name": "getParallelCardChanges",
+        "slug": "getparallelcardchanges",
+        "type": "Query",
+        "category": "nfts",
+        "path": "api-reference/queries/getparallelcardchanges"
+      },
+      {
+        "name": "getPrimePoolAssets",
+        "slug": "getprimepoolassets",
+        "type": "Query",
+        "category": "nfts",
+        "path": "api-reference/queries/getprimepoolassets"
+      },
+      {
+        "name": "getPrimePoolEvents",
+        "slug": "getprimepoolevents",
+        "type": "Query",
+        "category": "nfts",
+        "path": "api-reference/queries/getprimepoolevents"
+      },
+      {
+        "name": "getPrimePools",
+        "slug": "getprimepools",
+        "type": "Query",
+        "category": "nfts",
+        "path": "api-reference/queries/getprimepools"
+      },
+      {
+        "name": "nftHolders",
+        "slug": "nftholders",
+        "type": "Query",
+        "category": "nfts",
+        "path": "api-reference/queries/nftholders"
+      },
+      {
+        "name": "searchNfts",
+        "slug": "searchnfts",
+        "type": "Query",
+        "category": "nfts",
+        "path": "api-reference/queries/searchnfts"
+      },
+      {
+        "name": "walletNftCollectionAssets",
+        "slug": "walletnftcollectionassets",
+        "type": "Query",
+        "category": "nfts",
+        "path": "api-reference/queries/walletnftcollectionassets"
+      },
+      {
+        "name": "walletNftCollections",
+        "slug": "walletnftcollections",
+        "type": "Query",
+        "category": "nfts",
+        "path": "api-reference/queries/walletnftcollections"
       }
     ],
     "tokens": [
@@ -1373,12 +1375,12 @@
         "path": "api-reference/queries/walletchart"
       }
     ],
-    "proposal": [
+    "community": [
       {
         "name": "getCommunityNotes",
         "slug": "getcommunitynotes",
         "type": "Query",
-        "category": "proposal",
+        "category": "community",
         "path": "api-reference/queries/getcommunitynotes"
       }
     ],
@@ -1516,14 +1518,14 @@
       "name": "CommunityNote",
       "slug": "communitynote",
       "typeCategory": "types",
-      "category": "proposal",
+      "category": "community",
       "path": "api-reference/types/communitynote"
     },
     {
       "name": "CommunityNotesResponse",
       "slug": "communitynotesresponse",
       "typeCategory": "types",
-      "category": "proposal",
+      "category": "community",
       "path": "api-reference/types/communitynotesresponse"
     },
     {
@@ -1656,7 +1658,7 @@
       "name": "EnhancedNftContract",
       "slug": "enhancednftcontract",
       "typeCategory": "types",
-      "category": "uncategorized",
+      "category": "nfts",
       "path": "api-reference/types/enhancednftcontract"
     },
     {
@@ -2055,7 +2057,7 @@
       "name": "NftBalance",
       "slug": "nftbalance",
       "typeCategory": "types",
-      "category": "uncategorized",
+      "category": "nfts",
       "path": "api-reference/types/nftbalance"
     },
     {
@@ -2195,7 +2197,7 @@
       "name": "NftHoldersResponse",
       "slug": "nftholdersresponse",
       "typeCategory": "types",
-      "category": "uncategorized",
+      "category": "nfts",
       "path": "api-reference/types/nftholdersresponse"
     },
     {
@@ -2923,7 +2925,7 @@
       "name": "SocialLinks",
       "slug": "sociallinks",
       "typeCategory": "types",
-      "category": "uncategorized",
+      "category": "tokens",
       "path": "api-reference/types/sociallinks"
     },
     {
@@ -3182,21 +3184,21 @@
       "name": "WalletNftCollection",
       "slug": "walletnftcollection",
       "typeCategory": "types",
-      "category": "uncategorized",
+      "category": "nfts",
       "path": "api-reference/types/walletnftcollection"
     },
     {
       "name": "WalletNftCollectionAsset",
       "slug": "walletnftcollectionasset",
       "typeCategory": "types",
-      "category": "uncategorized",
+      "category": "nfts",
       "path": "api-reference/types/walletnftcollectionasset"
     },
     {
       "name": "WalletNftCollectionAssetsResponse",
       "slug": "walletnftcollectionassetsresponse",
       "typeCategory": "types",
-      "category": "uncategorized",
+      "category": "nfts",
       "path": "api-reference/types/walletnftcollectionassetsresponse"
     },
     {
@@ -3315,7 +3317,7 @@
       "name": "CommunityNoteType",
       "slug": "communitynotetype",
       "typeCategory": "enums",
-      "category": "proposal",
+      "category": "community",
       "path": "api-reference/types/communitynotetype"
     },
     {
@@ -3336,7 +3338,7 @@
       "name": "ContractType",
       "slug": "contracttype",
       "typeCategory": "enums",
-      "category": "proposal",
+      "category": "community",
       "path": "api-reference/types/contracttype"
     },
     {
@@ -3868,14 +3870,14 @@
       "name": "CommunityNotesFilter",
       "slug": "communitynotesfilter",
       "typeCategory": "inputs",
-      "category": "proposal",
+      "category": "community",
       "path": "api-reference/types/communitynotesfilter"
     },
     {
       "name": "CommunityNotesInput",
       "slug": "communitynotesinput",
       "typeCategory": "inputs",
-      "category": "proposal",
+      "category": "community",
       "path": "api-reference/types/communitynotesinput"
     },
     {
@@ -3987,7 +3989,7 @@
       "name": "EventQueryTimestampInput",
       "slug": "eventquerytimestampinput",
       "typeCategory": "inputs",
-      "category": "uncategorized",
+      "category": "nfts",
       "path": "api-reference/types/eventquerytimestampinput"
     },
     {
@@ -4113,7 +4115,7 @@
       "name": "NftContractInput",
       "slug": "nftcontractinput",
       "typeCategory": "inputs",
-      "category": "uncategorized",
+      "category": "nfts",
       "path": "api-reference/types/nftcontractinput"
     },
     {
@@ -4141,7 +4143,7 @@
       "name": "NftHoldersInput",
       "slug": "nftholdersinput",
       "typeCategory": "inputs",
-      "category": "uncategorized",
+      "category": "nfts",
       "path": "api-reference/types/nftholdersinput"
     },
     {
@@ -4491,7 +4493,7 @@
       "name": "WalletNftCollectionAssetsInput",
       "slug": "walletnftcollectionassetsinput",
       "typeCategory": "inputs",
-      "category": "uncategorized",
+      "category": "nfts",
       "path": "api-reference/types/walletnftcollectionassetsinput"
     },
     {
@@ -4816,13 +4818,6 @@
           "path": "api-reference/types/detailednftstatsstringmetrics"
         },
         {
-          "name": "EnhancedNftContract",
-          "slug": "enhancednftcontract",
-          "typeCategory": "types",
-          "category": "uncategorized",
-          "path": "api-reference/types/enhancednftcontract"
-        },
-        {
           "name": "IntEqualsCondition",
           "slug": "intequalscondition",
           "typeCategory": "types",
@@ -4835,13 +4830,6 @@
           "typeCategory": "types",
           "category": "uncategorized",
           "path": "api-reference/types/nftassetsconnection"
-        },
-        {
-          "name": "NftBalance",
-          "slug": "nftbalance",
-          "typeCategory": "types",
-          "category": "uncategorized",
-          "path": "api-reference/types/nftbalance"
         },
         {
           "name": "NftCollectionCurrencyStats",
@@ -4954,13 +4942,6 @@
           "typeCategory": "types",
           "category": "uncategorized",
           "path": "api-reference/types/nftfillsourcestatsstringmetrics"
-        },
-        {
-          "name": "NftHoldersResponse",
-          "slug": "nftholdersresponse",
-          "typeCategory": "types",
-          "category": "uncategorized",
-          "path": "api-reference/types/nftholdersresponse"
         },
         {
           "name": "NftPoolCollectionFilterConnection",
@@ -5292,13 +5273,6 @@
           "path": "api-reference/types/primepoolwithdrawdata"
         },
         {
-          "name": "SocialLinks",
-          "slug": "sociallinks",
-          "typeCategory": "types",
-          "category": "uncategorized",
-          "path": "api-reference/types/sociallinks"
-        },
-        {
           "name": "StarknetNetworkConfig",
           "slug": "starknetnetworkconfig",
           "typeCategory": "types",
@@ -5318,27 +5292,6 @@
           "typeCategory": "types",
           "category": "uncategorized",
           "path": "api-reference/types/stringequalscondition"
-        },
-        {
-          "name": "WalletNftCollection",
-          "slug": "walletnftcollection",
-          "typeCategory": "types",
-          "category": "uncategorized",
-          "path": "api-reference/types/walletnftcollection"
-        },
-        {
-          "name": "WalletNftCollectionAsset",
-          "slug": "walletnftcollectionasset",
-          "typeCategory": "types",
-          "category": "uncategorized",
-          "path": "api-reference/types/walletnftcollectionasset"
-        },
-        {
-          "name": "WalletNftCollectionAssetsResponse",
-          "slug": "walletnftcollectionassetsresponse",
-          "typeCategory": "types",
-          "category": "uncategorized",
-          "path": "api-reference/types/walletnftcollectionassetsresponse"
         },
         {
           "name": "WalletNftCollectionsResponse",
@@ -5702,19 +5655,19 @@
           "path": "api-reference/types/windoweddetailedstats"
         }
       ],
-      "proposal": [
+      "community": [
         {
           "name": "CommunityNote",
           "slug": "communitynote",
           "typeCategory": "types",
-          "category": "proposal",
+          "category": "community",
           "path": "api-reference/types/communitynote"
         },
         {
           "name": "CommunityNotesResponse",
           "slug": "communitynotesresponse",
           "typeCategory": "types",
-          "category": "proposal",
+          "category": "community",
           "path": "api-reference/types/communitynotesresponse"
         }
       ],
@@ -5911,158 +5864,14 @@
           "path": "api-reference/types/windowedwalletstats"
         }
       ],
-      "tokens": [
-        {
-          "name": "EnhancedToken",
-          "slug": "enhancedtoken",
-          "typeCategory": "types",
-          "category": "tokens",
-          "path": "api-reference/types/enhancedtoken"
-        },
-        {
-          "name": "Exchange",
-          "slug": "exchange",
-          "typeCategory": "types",
-          "category": "tokens",
-          "path": "api-reference/types/exchange"
-        },
-        {
-          "name": "ExchangeFilterConnection",
-          "slug": "exchangefilterconnection",
-          "typeCategory": "types",
-          "category": "tokens",
-          "path": "api-reference/types/exchangefilterconnection"
-        },
-        {
-          "name": "ExchangeFilterResult",
-          "slug": "exchangefilterresult",
-          "typeCategory": "types",
-          "category": "tokens",
-          "path": "api-reference/types/exchangefilterresult"
-        },
-        {
-          "name": "ExplorerTokenData",
-          "slug": "explorertokendata",
-          "typeCategory": "types",
-          "category": "tokens",
-          "path": "api-reference/types/explorertokendata"
-        },
-        {
-          "name": "FilterExchange",
-          "slug": "filterexchange",
-          "typeCategory": "types",
-          "category": "tokens",
-          "path": "api-reference/types/filterexchange"
-        },
-        {
-          "name": "LatestToken",
-          "slug": "latesttoken",
-          "typeCategory": "types",
-          "category": "tokens",
-          "path": "api-reference/types/latesttoken"
-        },
-        {
-          "name": "LatestTokenConnection",
-          "slug": "latesttokenconnection",
-          "typeCategory": "types",
-          "category": "tokens",
-          "path": "api-reference/types/latesttokenconnection"
-        },
-        {
-          "name": "LatestTokenSimResults",
-          "slug": "latesttokensimresults",
-          "typeCategory": "types",
-          "category": "tokens",
-          "path": "api-reference/types/latesttokensimresults"
-        },
-        {
-          "name": "OnTokenBarsUpdatedResponse",
-          "slug": "ontokenbarsupdatedresponse",
-          "typeCategory": "types",
-          "category": "tokens",
-          "path": "api-reference/types/ontokenbarsupdatedresponse"
-        },
-        {
-          "name": "Price",
-          "slug": "price",
-          "typeCategory": "types",
-          "category": "tokens",
-          "path": "api-reference/types/price"
-        },
-        {
-          "name": "TokenFilterConnection",
-          "slug": "tokenfilterconnection",
-          "typeCategory": "types",
-          "category": "tokens",
-          "path": "api-reference/types/tokenfilterconnection"
-        },
-        {
-          "name": "TokenFilterResult",
-          "slug": "tokenfilterresult",
-          "typeCategory": "types",
-          "category": "tokens",
-          "path": "api-reference/types/tokenfilterresult"
-        },
-        {
-          "name": "TokenInfo",
-          "slug": "tokeninfo",
-          "typeCategory": "types",
-          "category": "tokens",
-          "path": "api-reference/types/tokeninfo"
-        },
-        {
-          "name": "TokenSearchResponse",
-          "slug": "tokensearchresponse",
-          "typeCategory": "types",
-          "category": "tokens",
-          "path": "api-reference/types/tokensearchresponse"
-        },
-        {
-          "name": "TokenTopTrader",
-          "slug": "tokentoptrader",
-          "typeCategory": "types",
-          "category": "tokens",
-          "path": "api-reference/types/tokentoptrader"
-        },
-        {
-          "name": "TokenTopTradersConnection",
-          "slug": "tokentoptradersconnection",
-          "typeCategory": "types",
-          "category": "tokens",
-          "path": "api-reference/types/tokentoptradersconnection"
-        },
-        {
-          "name": "TokenWithMetadata",
-          "slug": "tokenwithmetadata",
-          "typeCategory": "types",
-          "category": "tokens",
-          "path": "api-reference/types/tokenwithmetadata"
-        }
-      ],
-      "networks": [
-        {
-          "name": "GetNetworkStatsResponse",
-          "slug": "getnetworkstatsresponse",
-          "typeCategory": "types",
-          "category": "networks",
-          "path": "api-reference/types/getnetworkstatsresponse"
-        },
-        {
-          "name": "MetadataResponse",
-          "slug": "metadataresponse",
-          "typeCategory": "types",
-          "category": "networks",
-          "path": "api-reference/types/metadataresponse"
-        },
-        {
-          "name": "Network",
-          "slug": "network",
-          "typeCategory": "types",
-          "category": "networks",
-          "path": "api-reference/types/network"
-        }
-      ],
       "nfts": [
+        {
+          "name": "EnhancedNftContract",
+          "slug": "enhancednftcontract",
+          "typeCategory": "types",
+          "category": "nfts",
+          "path": "api-reference/types/enhancednftcontract"
+        },
         {
           "name": "GetNftPoolCollectionsResponse",
           "slug": "getnftpoolcollectionsresponse",
@@ -6118,6 +5927,20 @@
           "typeCategory": "types",
           "category": "nfts",
           "path": "api-reference/types/nftassetmedia"
+        },
+        {
+          "name": "NftBalance",
+          "slug": "nftbalance",
+          "typeCategory": "types",
+          "category": "nfts",
+          "path": "api-reference/types/nftbalance"
+        },
+        {
+          "name": "NftHoldersResponse",
+          "slug": "nftholdersresponse",
+          "typeCategory": "types",
+          "category": "nfts",
+          "path": "api-reference/types/nftholdersresponse"
         },
         {
           "name": "NftPoolAssetRecipientUpdateEventData",
@@ -6286,6 +6109,185 @@
           "typeCategory": "types",
           "category": "nfts",
           "path": "api-reference/types/swapnftoutpooleventdatav2"
+        },
+        {
+          "name": "WalletNftCollection",
+          "slug": "walletnftcollection",
+          "typeCategory": "types",
+          "category": "nfts",
+          "path": "api-reference/types/walletnftcollection"
+        },
+        {
+          "name": "WalletNftCollectionAsset",
+          "slug": "walletnftcollectionasset",
+          "typeCategory": "types",
+          "category": "nfts",
+          "path": "api-reference/types/walletnftcollectionasset"
+        },
+        {
+          "name": "WalletNftCollectionAssetsResponse",
+          "slug": "walletnftcollectionassetsresponse",
+          "typeCategory": "types",
+          "category": "nfts",
+          "path": "api-reference/types/walletnftcollectionassetsresponse"
+        }
+      ],
+      "tokens": [
+        {
+          "name": "EnhancedToken",
+          "slug": "enhancedtoken",
+          "typeCategory": "types",
+          "category": "tokens",
+          "path": "api-reference/types/enhancedtoken"
+        },
+        {
+          "name": "Exchange",
+          "slug": "exchange",
+          "typeCategory": "types",
+          "category": "tokens",
+          "path": "api-reference/types/exchange"
+        },
+        {
+          "name": "ExchangeFilterConnection",
+          "slug": "exchangefilterconnection",
+          "typeCategory": "types",
+          "category": "tokens",
+          "path": "api-reference/types/exchangefilterconnection"
+        },
+        {
+          "name": "ExchangeFilterResult",
+          "slug": "exchangefilterresult",
+          "typeCategory": "types",
+          "category": "tokens",
+          "path": "api-reference/types/exchangefilterresult"
+        },
+        {
+          "name": "ExplorerTokenData",
+          "slug": "explorertokendata",
+          "typeCategory": "types",
+          "category": "tokens",
+          "path": "api-reference/types/explorertokendata"
+        },
+        {
+          "name": "FilterExchange",
+          "slug": "filterexchange",
+          "typeCategory": "types",
+          "category": "tokens",
+          "path": "api-reference/types/filterexchange"
+        },
+        {
+          "name": "LatestToken",
+          "slug": "latesttoken",
+          "typeCategory": "types",
+          "category": "tokens",
+          "path": "api-reference/types/latesttoken"
+        },
+        {
+          "name": "LatestTokenConnection",
+          "slug": "latesttokenconnection",
+          "typeCategory": "types",
+          "category": "tokens",
+          "path": "api-reference/types/latesttokenconnection"
+        },
+        {
+          "name": "LatestTokenSimResults",
+          "slug": "latesttokensimresults",
+          "typeCategory": "types",
+          "category": "tokens",
+          "path": "api-reference/types/latesttokensimresults"
+        },
+        {
+          "name": "OnTokenBarsUpdatedResponse",
+          "slug": "ontokenbarsupdatedresponse",
+          "typeCategory": "types",
+          "category": "tokens",
+          "path": "api-reference/types/ontokenbarsupdatedresponse"
+        },
+        {
+          "name": "Price",
+          "slug": "price",
+          "typeCategory": "types",
+          "category": "tokens",
+          "path": "api-reference/types/price"
+        },
+        {
+          "name": "SocialLinks",
+          "slug": "sociallinks",
+          "typeCategory": "types",
+          "category": "tokens",
+          "path": "api-reference/types/sociallinks"
+        },
+        {
+          "name": "TokenFilterConnection",
+          "slug": "tokenfilterconnection",
+          "typeCategory": "types",
+          "category": "tokens",
+          "path": "api-reference/types/tokenfilterconnection"
+        },
+        {
+          "name": "TokenFilterResult",
+          "slug": "tokenfilterresult",
+          "typeCategory": "types",
+          "category": "tokens",
+          "path": "api-reference/types/tokenfilterresult"
+        },
+        {
+          "name": "TokenInfo",
+          "slug": "tokeninfo",
+          "typeCategory": "types",
+          "category": "tokens",
+          "path": "api-reference/types/tokeninfo"
+        },
+        {
+          "name": "TokenSearchResponse",
+          "slug": "tokensearchresponse",
+          "typeCategory": "types",
+          "category": "tokens",
+          "path": "api-reference/types/tokensearchresponse"
+        },
+        {
+          "name": "TokenTopTrader",
+          "slug": "tokentoptrader",
+          "typeCategory": "types",
+          "category": "tokens",
+          "path": "api-reference/types/tokentoptrader"
+        },
+        {
+          "name": "TokenTopTradersConnection",
+          "slug": "tokentoptradersconnection",
+          "typeCategory": "types",
+          "category": "tokens",
+          "path": "api-reference/types/tokentoptradersconnection"
+        },
+        {
+          "name": "TokenWithMetadata",
+          "slug": "tokenwithmetadata",
+          "typeCategory": "types",
+          "category": "tokens",
+          "path": "api-reference/types/tokenwithmetadata"
+        }
+      ],
+      "networks": [
+        {
+          "name": "GetNetworkStatsResponse",
+          "slug": "getnetworkstatsresponse",
+          "typeCategory": "types",
+          "category": "networks",
+          "path": "api-reference/types/getnetworkstatsresponse"
+        },
+        {
+          "name": "MetadataResponse",
+          "slug": "metadataresponse",
+          "typeCategory": "types",
+          "category": "networks",
+          "path": "api-reference/types/metadataresponse"
+        },
+        {
+          "name": "Network",
+          "slug": "network",
+          "typeCategory": "types",
+          "category": "networks",
+          "path": "api-reference/types/network"
         }
       ],
       "simulations": [
@@ -6689,19 +6691,19 @@
           "path": "api-reference/types/tokenpairstatisticstype"
         }
       ],
-      "proposal": [
+      "community": [
         {
           "name": "CommunityNoteType",
           "slug": "communitynotetype",
           "typeCategory": "enums",
-          "category": "proposal",
+          "category": "community",
           "path": "api-reference/types/communitynotetype"
         },
         {
           "name": "ContractType",
           "slug": "contracttype",
           "typeCategory": "enums",
-          "category": "proposal",
+          "category": "community",
           "path": "api-reference/types/contracttype"
         }
       ],
@@ -7068,19 +7070,19 @@
           "path": "api-reference/types/tokensparklineinput"
         }
       ],
-      "proposal": [
+      "community": [
         {
           "name": "CommunityNotesFilter",
           "slug": "communitynotesfilter",
           "typeCategory": "inputs",
-          "category": "proposal",
+          "category": "community",
           "path": "api-reference/types/communitynotesfilter"
         },
         {
           "name": "CommunityNotesInput",
           "slug": "communitynotesinput",
           "typeCategory": "inputs",
-          "category": "proposal",
+          "category": "community",
           "path": "api-reference/types/communitynotesinput"
         }
       ],
@@ -7098,13 +7100,6 @@
           "typeCategory": "inputs",
           "category": "uncategorized",
           "path": "api-reference/types/createapitokensinput"
-        },
-        {
-          "name": "EventQueryTimestampInput",
-          "slug": "eventquerytimestampinput",
-          "typeCategory": "inputs",
-          "category": "uncategorized",
-          "path": "api-reference/types/eventquerytimestampinput"
         },
         {
           "name": "FillsourceStatsFilter",
@@ -7133,20 +7128,6 @@
           "typeCategory": "inputs",
           "category": "uncategorized",
           "path": "api-reference/types/nftcollectionranking"
-        },
-        {
-          "name": "NftContractInput",
-          "slug": "nftcontractinput",
-          "typeCategory": "inputs",
-          "category": "uncategorized",
-          "path": "api-reference/types/nftcontractinput"
-        },
-        {
-          "name": "NftHoldersInput",
-          "slug": "nftholdersinput",
-          "typeCategory": "inputs",
-          "category": "uncategorized",
-          "path": "api-reference/types/nftholdersinput"
         },
         {
           "name": "NftPoolCollectionFilters",
@@ -7266,13 +7247,6 @@
           "typeCategory": "inputs",
           "category": "uncategorized",
           "path": "api-reference/types/tokenpaireventtypeconditioninput"
-        },
-        {
-          "name": "WalletNftCollectionAssetsInput",
-          "slug": "walletnftcollectionassetsinput",
-          "typeCategory": "inputs",
-          "category": "uncategorized",
-          "path": "api-reference/types/walletnftcollectionassetsinput"
         },
         {
           "name": "WalletNftCollectionsInput",
@@ -7517,6 +7491,50 @@
           "path": "api-reference/types/wallettokenranking"
         }
       ],
+      "nfts": [
+        {
+          "name": "EventQueryTimestampInput",
+          "slug": "eventquerytimestampinput",
+          "typeCategory": "inputs",
+          "category": "nfts",
+          "path": "api-reference/types/eventquerytimestampinput"
+        },
+        {
+          "name": "NftContractInput",
+          "slug": "nftcontractinput",
+          "typeCategory": "inputs",
+          "category": "nfts",
+          "path": "api-reference/types/nftcontractinput"
+        },
+        {
+          "name": "NftHoldersInput",
+          "slug": "nftholdersinput",
+          "typeCategory": "inputs",
+          "category": "nfts",
+          "path": "api-reference/types/nftholdersinput"
+        },
+        {
+          "name": "NftPoolNumberFilter",
+          "slug": "nftpoolnumberfilter",
+          "typeCategory": "inputs",
+          "category": "nfts",
+          "path": "api-reference/types/nftpoolnumberfilter"
+        },
+        {
+          "name": "NftPoolRanking",
+          "slug": "nftpoolranking",
+          "typeCategory": "inputs",
+          "category": "nfts",
+          "path": "api-reference/types/nftpoolranking"
+        },
+        {
+          "name": "WalletNftCollectionAssetsInput",
+          "slug": "walletnftcollectionassetsinput",
+          "typeCategory": "inputs",
+          "category": "nfts",
+          "path": "api-reference/types/walletnftcollectionassetsinput"
+        }
+      ],
       "events": [
         {
           "name": "EventsQueryInput",
@@ -7624,22 +7642,6 @@
           "typeCategory": "inputs",
           "category": "tokens",
           "path": "api-reference/types/tokentoptradersinput"
-        }
-      ],
-      "nfts": [
-        {
-          "name": "NftPoolNumberFilter",
-          "slug": "nftpoolnumberfilter",
-          "typeCategory": "inputs",
-          "category": "nfts",
-          "path": "api-reference/types/nftpoolnumberfilter"
-        },
-        {
-          "name": "NftPoolRanking",
-          "slug": "nftpoolranking",
-          "typeCategory": "inputs",
-          "category": "nfts",
-          "path": "api-reference/types/nftpoolranking"
         }
       ],
       "launchpads": [

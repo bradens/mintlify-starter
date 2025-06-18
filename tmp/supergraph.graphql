@@ -711,7 +711,7 @@ type CheckTradeableResponse
   reason: String
 }
 
-"""Community gathered proposals for an asset. @category: proposal"""
+"""Community gathered proposals for an asset. @category: community"""
 type CommunityNote
   @join__type(graph: USERS)
 {
@@ -752,7 +752,7 @@ type CommunityNote
   sortKey: String!
 }
 
-"""Filters for community notes. @category: proposal"""
+"""Filters for community notes. @category: community"""
 input CommunityNotesFilter
   @join__type(graph: USERS)
 {
@@ -767,7 +767,7 @@ input CommunityNotesFilter
   proposalType: CommunityNoteType
 }
 
-"""Input type of `getCommunityNotes`. @category: proposal"""
+"""Input type of `getCommunityNotes`. @category: community"""
 input CommunityNotesInput
   @join__type(graph: USERS)
 {
@@ -781,7 +781,7 @@ input CommunityNotesInput
   cursor: String
 }
 
-"""Community notes data. @category: proposal"""
+"""Community notes data. @category: community"""
 type CommunityNotesResponse
   @join__type(graph: USERS)
 {
@@ -795,7 +795,7 @@ type CommunityNotesResponse
   cursor: String
 }
 
-"""Type of the community gathered note. @category: proposal"""
+"""Type of the community gathered note. @category: community"""
 enum CommunityNoteType
   @join__type(graph: USERS)
 {
@@ -937,7 +937,7 @@ enum ContractProposalType
   LOGO @join__enumValue(graph: USERS)
 }
 
-"""Type of the contract. @category: proposal"""
+"""Type of the contract. @category: community"""
 enum ContractType
   @join__type(graph: USERS)
 {
@@ -2114,7 +2114,7 @@ union EnhancedContract
   @join__unionMember(graph: USERS, member: "EnhancedNftContract")
  = EnhancedToken | EnhancedNftContract
 
-"""Metadata for an NFT collection."""
+"""Metadata for an NFT collection. @category: nfts"""
 type EnhancedNftContract
   @join__type(graph: NFTS, key: "id")
   @join__type(graph: USERS, key: "id")
@@ -2474,7 +2474,7 @@ enum EventLabelType
   Sandwiched @join__enumValue(graph: TOKENS)
 }
 
-"""Input type of `EventQueryTimestamp`."""
+"""Input type of `EventQueryTimestamp`. @category: nfts"""
 input EventQueryTimestampInput
   @join__type(graph: NFTS)
   @join__type(graph: TOKENS)
@@ -5397,7 +5397,7 @@ type NftAssetsConnection
   cursor: String
 }
 
-"""Wallet balance of an Nft Collection."""
+"""Wallet balance of an Nft Collection. @category: nfts"""
 type NftBalance
   @join__type(graph: NFTS)
 {
@@ -6385,7 +6385,7 @@ enum NftContractErcType
   Unsupported @join__enumValue(graph: NFTS)
 }
 
-"""Input type of `getNftContracts`."""
+"""Input type of `getNftContracts`. @category: nfts"""
 input NftContractInput
   @join__type(graph: NFTS)
 {
@@ -6817,6 +6817,7 @@ type NftFillsourceStatsStringMetrics
   change: Float
 }
 
+"""@category: nfts"""
 input NftHoldersInput
   @join__type(graph: NFTS)
 {
@@ -6830,6 +6831,7 @@ input NftHoldersInput
   cursor: String
 }
 
+"""@category: nfts"""
 type NftHoldersResponse
   @join__type(graph: NFTS)
 {
@@ -11770,7 +11772,7 @@ type Query
   """@hide"""
   userTrackedWalletSettings(userId: String!): UserTrackedWalletSettings! @join__field(graph: META)
 
-  """Returns an NFT pool."""
+  """Returns an NFT pool. @category: nfts"""
   getNftPool(
     """The contract address of the NFT pool."""
     address: String!
@@ -11780,7 +11782,7 @@ type Query
   ): NftPoolResponse @join__field(graph: NFTS)
 
   """
-  Returns transactions for an NFT collection across all NFT pools or within a given pool.
+  Returns transactions for an NFT collection across all NFT pools or within a given pool. @category: nfts
   """
   getNftPoolEvents(
     """The network ID the NFT collection is deployed on."""
@@ -11809,7 +11811,7 @@ type Query
   ): NftPoolEventsResponse @join__field(graph: NFTS)
 
   """
-  Returns an NFT pool collection with pool stats for a given AMM NFT marketplace.
+  Returns an NFT pool collection with pool stats for a given AMM NFT marketplace. @category: nfts
   """
   getNftPoolCollection(
     """The contract address of the NFT collection."""
@@ -11823,7 +11825,7 @@ type Query
   ): NftPoolCollectionResponse @join__field(graph: NFTS)
 
   """
-  Returns an NFT collection with pool stats for a given AMM NFT marketplace.
+  Returns an NFT collection with pool stats for a given AMM NFT marketplace. @category: nfts
   """
   getNftPoolCollectionsByExchange(
     """The NFT AMM marketplace address to filter by."""
@@ -11839,7 +11841,9 @@ type Query
     limit: Int
   ): GetNftPoolCollectionsResponse @join__field(graph: NFTS)
 
-  """Returns NFT pools for a given collection and AMM NFT marketplace."""
+  """
+  Returns NFT pools for a given collection and AMM NFT marketplace. @category: nfts
+  """
   getNftPoolsByCollectionAndExchange(
     """The contract address of the NFT collection."""
     collectionAddress: String!
@@ -11857,7 +11861,7 @@ type Query
     limit: Int
   ): GetNftPoolsResponse @join__field(graph: NFTS)
 
-  """Returns a list of NFT pools for a given owner."""
+  """Returns a list of NFT pools for a given owner. @category: nfts"""
   getNftPoolsByOwner(
     """The contract address of the pool owner."""
     ownerAddress: String!
@@ -11875,7 +11879,9 @@ type Query
     limit: Int
   ): GetNftPoolsResponse @join__field(graph: NFTS)
 
-  """Returns aggregated NFT pool/collection stats for a given time frame."""
+  """
+  Returns aggregated NFT pool/collection stats for a given time frame. @category: nfts
+  """
   getNftPoolStats(
     """The contract address of the NFT collection."""
     collectionAddress: String!
@@ -11896,7 +11902,9 @@ type Query
     poolAddress: String
   ): NftPoolStatsResponse @join__field(graph: NFTS)
 
-  """Returns a list of NFT collection based on a variety of filters."""
+  """
+  Returns a list of NFT collection based on a variety of filters. @category: nfts
+  """
   filterNftCollections(
     """A set of filters to apply."""
     filters: NftCollectionFilters
@@ -11923,7 +11931,9 @@ type Query
     offset: Int
   ): NftCollectionFilterConnection @join__field(graph: NFTS)
 
-  """Returns a list of NFT collections based on a variety of filters."""
+  """
+  Returns a list of NFT collections based on a variety of filters. @category: nfts
+  """
   filterNftPoolCollections(
     """A set of filters to apply."""
     filters: NftPoolCollectionFilters
@@ -11943,7 +11953,9 @@ type Query
     offset: Int
   ): NftPoolCollectionFilterConnection @join__field(graph: NFTS)
 
-  """Returns a list of NFT collections matching a given query string."""
+  """
+  Returns a list of NFT collections matching a given query string. @category: nfts
+  """
   searchNfts(
     """The maximum number of NFTs to return."""
     limit: Int
@@ -11970,7 +11982,9 @@ type Query
     filterWashTrading: Boolean
   ): NftSearchResponse @join__field(graph: NFTS)
 
-  """Returns a list of NFT pools based on a variety of filters."""
+  """
+  Returns a list of NFT pools based on a variety of filters. @category: nfts
+  """
   filterNftPools(
     """A set of filters to apply."""
     filters: NftPoolFilters
@@ -11990,7 +12004,9 @@ type Query
     offset: Int
   ): NftPoolFilterConnection @join__field(graph: NFTS)
 
-  """Returns stats for an NFT collection across different time frames."""
+  """
+  Returns stats for an NFT collection across different time frames. @category: nfts
+  """
   getNftCollectionMetadata(
     """
     The ID of the NFT collection (`address`:`networkId`). For example, `0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d:1`.
@@ -12004,7 +12020,7 @@ type Query
     networkId: Int
   ): NftCollectionMetadataResponse @join__field(graph: NFTS)
 
-  """Returns a list of NFT assets in a given collection."""
+  """Returns a list of NFT assets in a given collection. @category: nfts"""
   getNftAssets(
     """The contract address of the NFT collection."""
     address: String!
@@ -12027,7 +12043,7 @@ type Query
     limit: Int
   ): NftAssetsConnection @join__field(graph: NFTS)
 
-  """Returns bucketed stats for a given NFT collection."""
+  """Returns bucketed stats for a given NFT collection. @category: nfts"""
   getDetailedNftStats(
     """The contract address of the NFT collection."""
     collectionAddress: String!
@@ -12052,7 +12068,9 @@ type Query
     bucketCount: Int
   ): DetailedNftStats @join__field(graph: NFTS)
 
-  """Returns transactions for an NFT collection across any marketplace(s)."""
+  """
+  Returns transactions for an NFT collection across any marketplace(s). @category: nfts
+  """
   getNftEvents(
     """The contract address of the NFT collection."""
     address: String
@@ -12113,7 +12131,7 @@ type Query
     limit: Int
   ): GetNftRankingsOutput @join__field(graph: NFTS)
 
-  """Returns a list of NFT collection metadata."""
+  """Returns a list of NFT collection metadata. @category: nfts"""
   getNftContracts(
     """A list of NFT contract address and network IDs."""
     contracts: [NftContractInput]
@@ -12131,7 +12149,9 @@ type Query
     limit: Int
   ): ParallelAssetsConnection @join__field(graph: NFTS)
 
-  """Returns a list of Parallel assets based on a variety of filters."""
+  """
+  Returns a list of Parallel assets based on a variety of filters. @category: nfts
+  """
   filterNftParallelAssets(
     """A set of filters to apply."""
     filters: ParallelAssetFilters
@@ -12156,7 +12176,9 @@ type Query
     offset: Int
   ): ParallelAssetFilterConnection @join__field(graph: NFTS)
 
-  """Returns changes made to Parallel card metadata over time."""
+  """
+  Returns changes made to Parallel card metadata over time. @category: nfts
+  """
   getParallelCardChanges(
     """The token ID for a Parallel asset."""
     tokenId: String
@@ -12171,7 +12193,7 @@ type Query
     limit: Int
   ): ParallelCardChangesConnection @join__field(graph: NFTS)
 
-  """Returns a list of Prime pool cached assets."""
+  """Returns a list of Prime pool cached assets. @category: nfts"""
   getPrimePoolAssets(
     """The network ID the Prime pool is deployed on."""
     networkId: Int!
@@ -12192,7 +12214,7 @@ type Query
     cursor: String
   ): PrimePoolAssetConnection @join__field(graph: NFTS)
 
-  """Returns a list of Prime pool events."""
+  """Returns a list of Prime pool events. @category: nfts"""
   getPrimePoolEvents(
     """The network ID the Prime pool is deployed on."""
     networkId: Int!
@@ -12216,7 +12238,7 @@ type Query
     cursor: String
   ): PrimePoolEventConnection @join__field(graph: NFTS)
 
-  """Returns a list of Prime pools."""
+  """Returns a list of Prime pools. @category: nfts"""
   getPrimePools(
     """The contract address for the prime pool."""
     address: String!
@@ -12235,17 +12257,17 @@ type Query
   ): PrimePoolConnection @join__field(graph: NFTS)
 
   """
-  Returns list of wallets that hold a given collection, ordered by holdings descending. Also has the unique count of holders for that collection
+  Returns list of wallets that hold a given collection, ordered by holdings descending. Also has the unique count of holders for that collection. @category: nfts
   """
   nftHolders(input: NftHoldersInput!): NftHoldersResponse! @join__field(graph: NFTS)
 
   """
-  Returns list of collections and quantity of NFTs held by a given wallet.
+  Returns list of collections and quantity of NFTs held by a given wallet. @category: nfts
   """
   walletNftCollections(input: WalletNftCollectionsInput!): WalletNftCollectionsResponse! @join__field(graph: NFTS)
 
   """
-  Returns list of NFT assets held by a given wallet for a single collection.
+  Returns list of NFT assets held by a given wallet for a single collection. @category: nfts
   """
   walletNftCollectionAssets(input: WalletNftCollectionAssetsInput!): WalletNftCollectionAssetsResponse! @join__field(graph: NFTS)
 
@@ -12931,7 +12953,7 @@ type Query
   """@hide"""
   listTopProposalStats(input: ListTopProposalStatsInput): [ContractProposalStats!] @join__field(graph: USERS)
 
-  """Returns community gathered notes. @category: proposal"""
+  """Returns community gathered notes. @category: community"""
   getCommunityNotes(input: CommunityNotesInput): CommunityNotesResponse! @join__field(graph: USERS)
 
   """@hide"""
@@ -14067,7 +14089,7 @@ type SimulateTransferType
   userApprovalSuccess: Boolean
 }
 
-"""Community gathered social links of tokens/NFTs."""
+"""Social links for a token. @category: tokens"""
 type SocialLinks
   @join__type(graph: NFTS)
   @join__type(graph: TOKENS)
@@ -17898,6 +17920,7 @@ enum WalletNetworkRankingAttribute
   botScore @join__enumValue(graph: TOKENS)
 }
 
+"""@category: nfts"""
 type WalletNftCollection
   @join__type(graph: NFTS)
 {
@@ -17911,6 +17934,7 @@ type WalletNftCollection
   quantity: String!
 }
 
+"""@category: nfts"""
 type WalletNftCollectionAsset
   @join__type(graph: NFTS)
 {
@@ -17923,6 +17947,7 @@ type WalletNftCollectionAsset
   quantity: String!
 }
 
+"""@category: nfts"""
 input WalletNftCollectionAssetsInput
   @join__type(graph: NFTS)
 {
@@ -17936,6 +17961,7 @@ input WalletNftCollectionAssetsInput
   cursor: String
 }
 
+"""@category: nfts"""
 type WalletNftCollectionAssetsResponse
   @join__type(graph: NFTS)
 {

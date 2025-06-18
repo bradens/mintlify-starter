@@ -69,6 +69,12 @@
                 ]
               },
               {
+                "group": "Community",
+                "pages": [
+                  "api-reference/queries/getcommunitynotes"
+                ]
+              },
+              {
                 "group": "Events",
                 "pages": [
                   "api-reference/queries/gettokenevents",
@@ -82,6 +88,35 @@
                   "api-reference/queries/getnetworks",
                   "api-reference/queries/getnetworkstatus",
                   "api-reference/queries/getnetworkstats"
+                ]
+              },
+              {
+                "group": "Nfts",
+                "pages": [
+                  "api-reference/queries/getnftpool",
+                  "api-reference/queries/getnftpoolevents",
+                  "api-reference/queries/getnftpoolcollection",
+                  "api-reference/queries/getnftpoolcollectionsbyexchange",
+                  "api-reference/queries/getnftpoolsbycollectionandexchange",
+                  "api-reference/queries/getnftpoolsbyowner",
+                  "api-reference/queries/getnftpoolstats",
+                  "api-reference/queries/filternftcollections",
+                  "api-reference/queries/filternftpoolcollections",
+                  "api-reference/queries/searchnfts",
+                  "api-reference/queries/filternftpools",
+                  "api-reference/queries/getnftcollectionmetadata",
+                  "api-reference/queries/getnftassets",
+                  "api-reference/queries/getdetailednftstats",
+                  "api-reference/queries/getnftevents",
+                  "api-reference/queries/getnftcontracts",
+                  "api-reference/queries/filternftparallelassets",
+                  "api-reference/queries/getparallelcardchanges",
+                  "api-reference/queries/getprimepoolassets",
+                  "api-reference/queries/getprimepoolevents",
+                  "api-reference/queries/getprimepools",
+                  "api-reference/queries/nftholders",
+                  "api-reference/queries/walletnftcollections",
+                  "api-reference/queries/walletnftcollectionassets"
                 ]
               },
               {
@@ -112,12 +147,6 @@
                 ]
               },
               {
-                "group": "Proposal",
-                "pages": [
-                  "api-reference/queries/getcommunitynotes"
-                ]
-              },
-              {
                 "group": "Simulations",
                 "pages": [
                   "api-reference/queries/getsimulatetokencontractresults"
@@ -143,31 +172,7 @@
                 "group": "Uncategorized",
                 "pages": [
                   "api-reference/queries/apitokens",
-                  "api-reference/queries/apitoken",
-                  "api-reference/queries/getnftpool",
-                  "api-reference/queries/getnftpoolevents",
-                  "api-reference/queries/getnftpoolcollection",
-                  "api-reference/queries/getnftpoolcollectionsbyexchange",
-                  "api-reference/queries/getnftpoolsbycollectionandexchange",
-                  "api-reference/queries/getnftpoolsbyowner",
-                  "api-reference/queries/getnftpoolstats",
-                  "api-reference/queries/filternftcollections",
-                  "api-reference/queries/filternftpoolcollections",
-                  "api-reference/queries/searchnfts",
-                  "api-reference/queries/filternftpools",
-                  "api-reference/queries/getnftcollectionmetadata",
-                  "api-reference/queries/getnftassets",
-                  "api-reference/queries/getdetailednftstats",
-                  "api-reference/queries/getnftevents",
-                  "api-reference/queries/getnftcontracts",
-                  "api-reference/queries/filternftparallelassets",
-                  "api-reference/queries/getparallelcardchanges",
-                  "api-reference/queries/getprimepoolassets",
-                  "api-reference/queries/getprimepoolevents",
-                  "api-reference/queries/getprimepools",
-                  "api-reference/queries/nftholders",
-                  "api-reference/queries/walletnftcollections",
-                  "api-reference/queries/walletnftcollectionassets"
+                  "api-reference/queries/apitoken"
                 ]
               },
               {
@@ -279,6 +284,13 @@
                 ]
               },
               {
+                "group": "Community",
+                "pages": [
+                  "api-reference/types/communitynote",
+                  "api-reference/types/communitynotesresponse"
+                ]
+              },
+              {
                 "group": "Events",
                 "pages": [
                   "api-reference/types/addeventsbymakeroutput",
@@ -334,6 +346,7 @@
               {
                 "group": "Nfts",
                 "pages": [
+                  "api-reference/types/enhancednftcontract",
                   "api-reference/types/getnftpoolcollectionsresponse",
                   "api-reference/types/getnftpoolsresponse",
                   "api-reference/types/newpooleventdata",
@@ -342,6 +355,8 @@
                   "api-reference/types/nftassetattribute",
                   "api-reference/types/nftasseterror",
                   "api-reference/types/nftassetmedia",
+                  "api-reference/types/nftbalance",
+                  "api-reference/types/nftholdersresponse",
                   "api-reference/types/nftpoolassetrecipientupdateeventdata",
                   "api-reference/types/nftpooldeltaupdateeventdata",
                   "api-reference/types/nftpooleventnfttransfer",
@@ -365,7 +380,10 @@
                   "api-reference/types/swapnftinpooleventdata",
                   "api-reference/types/swapnftinpooleventdatav2",
                   "api-reference/types/swapnftoutpooleventdata",
-                  "api-reference/types/swapnftoutpooleventdatav2"
+                  "api-reference/types/swapnftoutpooleventdatav2",
+                  "api-reference/types/walletnftcollection",
+                  "api-reference/types/walletnftcollectionasset",
+                  "api-reference/types/walletnftcollectionassetsresponse"
                 ]
               },
               {
@@ -423,13 +441,6 @@
                 ]
               },
               {
-                "group": "Proposal",
-                "pages": [
-                  "api-reference/types/communitynote",
-                  "api-reference/types/communitynotesresponse"
-                ]
-              },
-              {
                 "group": "Simulations",
                 "pages": [
                   "api-reference/types/getsimulatetokencontractresultsconnection",
@@ -468,6 +479,7 @@
                   "api-reference/types/latesttokensimresults",
                   "api-reference/types/ontokenbarsupdatedresponse",
                   "api-reference/types/price",
+                  "api-reference/types/sociallinks",
                   "api-reference/types/tokenfilterconnection",
                   "api-reference/types/tokenfilterresult",
                   "api-reference/types/tokeninfo",
@@ -491,10 +503,8 @@
                   "api-reference/types/detailednftstatsbuckettimestamp",
                   "api-reference/types/detailednftstatsnumbermetrics",
                   "api-reference/types/detailednftstatsstringmetrics",
-                  "api-reference/types/enhancednftcontract",
                   "api-reference/types/intequalscondition",
                   "api-reference/types/nftassetsconnection",
-                  "api-reference/types/nftbalance",
                   "api-reference/types/nftcollectioncurrencystats",
                   "api-reference/types/nftcollectionfillsourcenumberstat",
                   "api-reference/types/nftcollectionfillsourcestringstat",
@@ -511,7 +521,6 @@
                   "api-reference/types/nfteventtokentradeitem",
                   "api-reference/types/nftfillsourcestatsnumbermetrics",
                   "api-reference/types/nftfillsourcestatsstringmetrics",
-                  "api-reference/types/nftholdersresponse",
                   "api-reference/types/nftpoolcollectionfilterconnection",
                   "api-reference/types/nftpoolcollectionfilterresult",
                   "api-reference/types/nftpoolcollectionresponse",
@@ -559,13 +568,9 @@
                   "api-reference/types/primepoolrewardincreasedata",
                   "api-reference/types/primepooltimecacheperiodupdatedata",
                   "api-reference/types/primepoolwithdrawdata",
-                  "api-reference/types/sociallinks",
                   "api-reference/types/starknetnetworkconfig",
                   "api-reference/types/stringcontainscondition",
                   "api-reference/types/stringequalscondition",
-                  "api-reference/types/walletnftcollection",
-                  "api-reference/types/walletnftcollectionasset",
-                  "api-reference/types/walletnftcollectionassetsresponse",
                   "api-reference/types/walletnftcollectionsresponse",
                   "api-reference/types/windoweddetailednftcurrencystats",
                   "api-reference/types/windoweddetailednftnoncurrencystats",
@@ -621,6 +626,13 @@
                 ]
               },
               {
+                "group": "Community",
+                "pages": [
+                  "api-reference/types/communitynotetype",
+                  "api-reference/types/contracttype"
+                ]
+              },
+              {
                 "group": "Events",
                 "pages": [
                   "api-reference/types/eventdisplaytype",
@@ -671,13 +683,6 @@
                   "api-reference/types/quotetoken",
                   "api-reference/types/tokenofinterest",
                   "api-reference/types/tokenpairstatisticstype"
-                ]
-              },
-              {
-                "group": "Proposal",
-                "pages": [
-                  "api-reference/types/communitynotetype",
-                  "api-reference/types/contracttype"
                 ]
               },
               {
@@ -753,6 +758,13 @@
                 ]
               },
               {
+                "group": "Community",
+                "pages": [
+                  "api-reference/types/communitynotesfilter",
+                  "api-reference/types/communitynotesinput"
+                ]
+              },
+              {
                 "group": "Events",
                 "pages": [
                   "api-reference/types/eventsqueryinput",
@@ -779,8 +791,12 @@
               {
                 "group": "Nfts",
                 "pages": [
+                  "api-reference/types/eventquerytimestampinput",
+                  "api-reference/types/nftcontractinput",
+                  "api-reference/types/nftholdersinput",
                   "api-reference/types/nftpoolnumberfilter",
-                  "api-reference/types/nftpoolranking"
+                  "api-reference/types/nftpoolranking",
+                  "api-reference/types/walletnftcollectionassetsinput"
                 ]
               },
               {
@@ -795,13 +811,6 @@
                   "api-reference/types/pairfilters",
                   "api-reference/types/pairranking",
                   "api-reference/types/tokensparklineinput"
-                ]
-              },
-              {
-                "group": "Proposal",
-                "pages": [
-                  "api-reference/types/communitynotesfilter",
-                  "api-reference/types/communitynotesinput"
                 ]
               },
               {
@@ -832,13 +841,10 @@
                 "pages": [
                   "api-reference/types/comparisonoperatorinput",
                   "api-reference/types/createapitokensinput",
-                  "api-reference/types/eventquerytimestampinput",
                   "api-reference/types/fillsourcestatsfilter",
                   "api-reference/types/intequalsconditioninput",
                   "api-reference/types/nftcollectionfilters",
                   "api-reference/types/nftcollectionranking",
-                  "api-reference/types/nftcontractinput",
-                  "api-reference/types/nftholdersinput",
                   "api-reference/types/nftpoolcollectionfilters",
                   "api-reference/types/nftpoolcollectionranking",
                   "api-reference/types/nftpoolfilters",
@@ -856,7 +862,6 @@
                   "api-reference/types/stringcontainsconditioninput",
                   "api-reference/types/stringequalsconditioninput",
                   "api-reference/types/tokenpaireventtypeconditioninput",
-                  "api-reference/types/walletnftcollectionassetsinput",
                   "api-reference/types/walletnftcollectionsinput"
                 ]
               },
